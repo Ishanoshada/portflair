@@ -8,8 +8,11 @@
 [![Portfolio](https://img.shields.io/badge/Portfolio-Discover%20my%20work-blue)](https://your-portfolio-link.com)
 </h1>
 
-
-#  Expanded Links
+![main](https://raw.githubusercontent.com/Ishanoshada/Ishanoshada/refs/heads/main/ss2/main6.png)
+<br>
+![ggg](https://github.com/Ishanoshada/Ishanoshada/blob/main/ss2/Recording%202024-10-09%20231040.gif?raw=true)
+<br>
+#  Expanded more Links
 
 <details>
     <summary>Click to expand all links (templates) </summary>

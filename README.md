@@ -41,6 +41,7 @@ Give us a ⭐️ if you find this project helpful!
   - templates2/
     - ....... (180+ templates)
   - README.md
+  - README2.md
    
 ```
 
