@@ -1,0 +1,446 @@
+<!-- Portfolio created by Ishan -->
+<!-- Check out my work at: https://github.com/Ishanoshada/portflair -->
+<!-- 2024/10/9 -->
+<!-- Portfolio created by Ishan -->
+'<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Black Hole Portfolio</title>
+  <style>
+    /* Reset some default styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    /* Body styles */
+    body {
+      font-family: 'Audiowide', cursive;
+      background-color: #1c1c1c;
+      color: #fff;
+      overflow-x: hidden;
+    }
+
+    /* Navigation styles */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 40px;
+      background-color: rgba(28, 28, 28, 0.8);
+      backdrop-filter: blur(10px);
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+    }
+
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      font-size: 18px;
+      padding: 10px 20px;
+      border-radius: 20px;
+      transition: background-color 0.3s ease;
+    }
+
+    nav a:hover {
+      background-color: rgba(255, 255, 255, 0.1);
+    }
+
+    /* Project Galaxies section */
+    #project-galaxies {
+      padding: 100px 40px;
+      background-color: #1c1c1c;
+      background-image: linear-gradient(to bottom, #1c1c1c, #2c2c2c);
+      position: relative;
+      overflow: hidden;
+    }
+
+    #project-galaxies::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: radial-gradient(ellipse at center, rgba(44, 44, 44, 0.8) 0%, rgba(28, 28, 28, 0.8) 100%);
+      z-index: 1;
+    }
+
+    #project-galaxies .section-title {
+      font-size: 48px;
+      margin-bottom: 40px;
+      text-align: center;
+      text-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+      z-index: 2;
+      position: relative;
+    }
+
+    #project-galaxies .project-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      grid-gap: 40px;
+      z-index: 2;
+      position: relative;
+    }
+
+    .project-thumbnail {
+      position: relative;
+      overflow: hidden;
+      border-radius: 10px;
+      box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+      transition: transform 0.3s ease;
+    }
+
+    .project-thumbnail:hover {
+      transform: scale(1.05);
+    }
+
+    .project-thumbnail img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      filter: brightness(0.8) contrast(1.2) saturate(1.2);
+    }
+
+    .project-thumbnail .overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.6);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .project-thumbnail:hover .overlay {
+      opacity: 1;
+    }
+
+    .project-thumbnail .overlay h3 {
+      font-size: 24px;
+      margin-bottom: 10px;
+      text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+    }
+
+    .project-thumbnail .overlay p {
+      font-size: 16px;
+      text-align: center;
+      max-width: 80%;
+      text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+    }
+
+    .project-thumbnail .overlay a {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 10px 20px;
+      background-color: #9b59b6;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 20px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+      transition: background-color 0.3s ease;
+    }
+
+    .project-thumbnail .overlay a:hover {
+      background-color: #8e44ad;
+    }
+
+    /* Cosmic Visuals section */
+    #cosmic-visuals {
+      padding: 100px 40px;
+      background-color: #1c1c1c;
+      background-image: radial-gradient(ellipse at center, #2c2c2c 0%, #1c1c1c 100%);
+      position: relative;
+      overflow: hidden;
+    }
+
+    #cosmic-visuals::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: url("https://dummyimage.com/1200x500/000/fff&text=Cosmic+Visuals");
+      background-size: cover;
+      background-position: center;
+      opacity: 0.1;
+      z-index: 1;
+    }
+
+    #cosmic-visuals .section-title {
+      font-size: 48px;
+      margin-bottom: 40px;
+      text-align: center;
+      text-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+      z-index: 2;
+      position: relative;
+    }
+
+    #cosmic-visuals .vortex {
+      position: relative;
+      width: 400px;
+      height: 400px;
+      margin: 0 auto;
+      z-index: 2;
+    }
+
+    .vortex-ring {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      border: 2px solid rgba(255, 255, 255, 0.2);
+      animation: vortex-rotate 20s linear infinite;
+    }
+
+    .vortex-ring span {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 18px;
+      color: #fff;
+      text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+    }
+
+    @keyframes vortex-rotate {
+      0% {
+        transform: rotate(0deg);
+      }
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+
+    /* Neon Contact Form section */
+    #neon-contact {
+      padding: 100px 40px;
+      background-color: #1c1c1c;
+      background-image: linear-gradient(to bottom, #1c1c1c, #2c2c2c);
+      position: relative;
+      overflow: hidden;
+    }
+
+    #neon-contact::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: url("https://dummyimage.com/1200x500/000/fff&text=Neon+Contact+Form");
+      background-size: cover;
+      background-position: center;
+      opacity: 0.1;
+      z-index: 1;
+    }
+
+    #neon-contact .section-title {
+      font-size: 48px;
+      margin-bottom: 40px;
+      text-align: center;
+      text-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+      z-index: 2;
+      position: relative;
+    }
+
+    #neon-contact form {
+      max-width: 500px;
+      margin: 0 auto;
+      background-color: rgba(28, 28, 28, 0.8);
+      padding: 40px;
+      border-radius: 10px;
+      box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+      z-index: 2;
+      position: relative;
+    }
+
+    #neon-contact form input,
+    #neon-contact form textarea {
+      display: block;
+      width: 100%;
+      padding: 10px 20px;
+      margin-bottom: 20px;
+      font-size: 16px;
+      font-family: 'Audiowide', cursive;
+      background-color: transparent;
+      border: 2px solid #9b59b6;
+      border-radius: 20px;
+      color: #fff;
+      transition: border-color 0.3s ease;
+    }
+
+    #neon-contact form input:focus,
+    #neon-contact form textarea:focus {
+      outline: none;
+      border-color: #8e44ad;
+    }
+
+    #neon-contact form button {
+      display: block;
+      width: 100%;
+      padding: 10px 20px;
+      font-size: 18px;
+      font-family: 'Audiowide', cursive;
+      background-color: #9b59b6;
+      color: #fff;
+      border: none;
+      border-radius: 20px;
+      cursor: pointer;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+      transition: background-color 0.3s ease;
+    }
+
+    #neon-contact form button:hover {
+      background-color: #8e44ad;
+    }
+
+    /* Responsive styles */
+    @media (max-width: 768px) {
+      nav {
+        padding: 10px 20px;
+      }
+
+      nav a {
+        font-size: 16px;
+        padding: 8px 16px;
+      }
+
+      #project-galaxies,
+      #cosmic-visuals,
+      #neon-contact {
+        padding: 80px 20px;
+      }
+
+      #project-galaxies .section-title,
+      #cosmic-visuals .section-title,
+      #neon-contact .section-title {
+        font-size: 36px;
+        margin-bottom: 30px;
+      }
+
+      .project-thumbnail img {
+        height: 150px;
+      }
+
+      .vortex {
+        width: 300px;
+        height: 300px;
+      }
+
+      #neon-contact form {
+        padding: 30px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="#">Home</a>
+    <a href="#">Projects</a>
+    <a href="#">About</a>
+    <a href="#">Contact</a>
+  </nav>
+
+  <section id="project-galaxies">
+    <h2 class="section-title">Project Galaxies</h2>
+    <div class="project-grid">
+      <div class="project-thumbnail">
+        <img src="https://dummyimage.com/300x200/000/fff&text=Project+1" alt="Project 1">
+        <div class="overlay">
+          <h3>Project 1</h3>
+          <p>A brief description of the first project.</p>
+          <a href="#">View Project</a>
+        </div>
+      </div>
+      <div class="project-thumbnail">
+        <img src="https://dummyimage.com/300x200/000/fff&text=Project+2" alt="Project 2">
+        <div class="overlay">
+          <h3>Project 2</h3>
+          <p>A brief description of the second project.</p>
+          <a href="#">View Project</a>
+        </div>
+      </div>
+      <div class="project-thumbnail">
+        <img src="https://dummyimage.com/300x200/000/fff&text=Project+3" alt="Project 3">
+        <div class="overlay">
+          <h3>Project 3</h3>
+          <p>A brief description of the third project.</p>
+          <a href="#">View Project</a>
+        </div>
+      </div>
+      <div class="project-thumbnail">
+        <img src="https://dummyimage.com/300x200/000/fff&text=Project+4" alt="Project 4">
+        <div class="overlay">
+          <h3>Project 4</h3>
+          <p>A brief description of the fourth project.</p>
+          <a href="#">View Project</a>
+        </div>
+      </div>
+      <div class="project-thumbnail">
+        <img src="https://dummyimage.com/300x200/000/fff&text=Project+5" alt="Project 5">
+        <div class="overlay">
+          <h3>Project 5</h3>
+          <p>A brief description of the fifth project.</p>
+          <a href="#">View Project</a>
+        </div>
+      </div>
+      <div class="project-thumbnail">
+        <img src="https://dummyimage.com/300x200/000/fff&text=Project+6" alt="Project 6">
+        <div class="overlay">
+          <h3>Project 6</h3>
+          <p>A brief description of the sixth project.</p>
+          <a href="#">View Project</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="cosmic-visuals">
+    <h2 class="section-title">Cosmic Visuals</h2>
+    <div class="vortex">
+      <div class="vortex-ring" style="--i:1; --c:#9b59b6;">
+        <span>Python</span>
+      </div>
+      <div class="vortex-ring" style="--i:2; --c:#e67e22;">
+        <span>JavaScript</span>
+      </div>
+      <div class="vortex-ring" style="--i:3; --c:#2980b9;">
+        <span>Django</span>
+      </div>
+      <div class="vortex-ring" style="--i:4; --c:#27ae60;">
+        <span>Flask</span>
+      </div>
+      <div class="vortex-ring" style="--i:5; --c:#8e44ad;">
+        <span>FastAPI</span>
+      </div>
+      <div class="vortex-ring" style="--i:6; --c:#f1c40f;">
+        <span>PostgreSQL</span>
+      </div>
+    </div>
+  </section>
+
+  <section id="neon-contact">
+    <h2 class="section-title">Neon Contact Form</h2>
+    <form>
+      <input type="text" placeholder="Name" required>
+      <input type="email" placeholder="Email" required>
+      <textarea placeholder="Message" required></textarea>
+      <button type="submit">Send Message</button>
+    </form>
+  </section>
+</body>
+</html>'<!-- Visit: https://github.com/Ishanoshada/portflair -->
+<!-- Visit: https://github.com/Ishanoshada/portflair -->

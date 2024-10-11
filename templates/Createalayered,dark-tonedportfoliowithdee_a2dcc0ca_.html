@@ -1,0 +1,381 @@
+<!-- Portfolio created by Ishan -->
+<!-- Check out my work at: https://github.com/Ishanoshada/portflair -->
+<!-- 2024/10/9 -->
+<!-- Portfolio created by Ishan -->
+'<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Layered Dark Portfolio</title>
+  <style>
+    /* Global Styles */
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Montserrat', sans-serif;
+      background: linear-gradient(to bottom, #000000, #222222);
+      color: #f2f2f2;
+    }
+
+    /* Navigation */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 40px;
+      background-color: rgba(0, 0, 0, 0.6);
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    nav a {
+      color: #f2f2f2;
+      text-decoration: none;
+      font-size: 16px;
+      font-weight: 500;
+      margin: 0 15px;
+      transition: color 0.3s ease;
+    }
+
+    nav a:hover {
+      color: #9b9b9b;
+    }
+
+    /* Hero Section */
+    .hero {
+      position: relative;
+      height: 80vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(to bottom, #000000, #222222);
+      opacity: 0.8;
+      z-index: -1;
+    }
+
+    .hero-content {
+      max-width: 800px;
+      padding: 40px;
+      background-color: rgba(0, 0, 0, 0.6);
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    .hero h1 {
+      font-size: 48px;
+      font-weight: 700;
+      margin-bottom: 20px;
+      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    }
+
+    .hero p {
+      font-size: 20px;
+      margin-bottom: 30px;
+      text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+    }
+
+    .hero-btn {
+      display: inline-block;
+      background-color: #9b59b6;
+      color: #f2f2f2;
+      font-size: 16px;
+      font-weight: 500;
+      padding: 12px 24px;
+      border-radius: 4px;
+      text-decoration: none;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+      transition: background-color 0.3s ease;
+    }
+
+    .hero-btn:hover {
+      background-color: #8e44ad;
+    }
+
+    /* Portfolio Showcase */
+    .portfolio {
+      padding: 80px 40px;
+    }
+
+    .portfolio h2 {
+      font-size: 36px;
+      font-weight: 700;
+      margin-bottom: 40px;
+      text-align: center;
+      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    }
+
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-gap: 40px;
+    }
+
+    .project-thumbnail {
+      position: relative;
+      overflow: hidden;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      cursor: pointer;
+    }
+
+    .project-thumbnail img {
+      width: 100%;
+      height: 300px;
+      object-fit: cover;
+      transition: transform 0.3s ease;
+    }
+
+    .project-thumbnail:hover img {
+      transform: scale(1.1);
+    }
+
+    .project-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.6);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .project-thumbnail:hover .project-overlay {
+      opacity: 1;
+    }
+
+    .project-overlay h3 {
+      font-size: 24px;
+      font-weight: 600;
+      margin-bottom: 10px;
+      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    }
+
+    .project-overlay p {
+      font-size: 16px;
+      margin-bottom: 20px;
+      text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+    }
+
+    .project-overlay a {
+      display: inline-block;
+      background-color: #9b59b6;
+      color: #f2f2f2;
+      font-size: 14px;
+      font-weight: 500;
+      padding: 8px 16px;
+      border-radius: 4px;
+      text-decoration: none;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+      transition: background-color 0.3s ease;
+    }
+
+    .project-overlay a:hover {
+      background-color: #8e44ad;
+    }
+
+    /* About Section */
+    .about {
+      position: relative;
+      padding: 80px 40px;
+      background-image: url('https://dummyimage.com/1600x900/333333/ffffff&text=Layered+Dark+Portfolio');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+    }
+
+    .about::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.6);
+    }
+
+    .about-content {
+      position: relative;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 40px;
+      background-color: rgba(0, 0, 0, 0.8);
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      text-align: center;
+    }
+
+    .about h2 {
+      font-size: 36px;
+      font-weight: 700;
+      margin-bottom: 20px;
+      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    }
+
+    .about img {
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      margin-bottom: 20px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    .about p {
+      font-size: 18px;
+      margin-bottom: 30px;
+      text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+    }
+
+    .about-btn {
+      display: inline-block;
+      background-color: #9b59b6;
+      color: #f2f2f2;
+      font-size: 16px;
+      font-weight: 500;
+      padding: 12px 24px;
+      border-radius: 4px;
+      text-decoration: none;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+      transition: background-color 0.3s ease;
+    }
+
+    .about-btn:hover {
+      background-color: #8e44ad;
+    }
+
+    /* Responsive Styles */
+    @media (max-width: 1024px) {
+      .project-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 768px) {
+      .hero h1 {
+        font-size: 36px;
+      }
+
+      .hero p {
+        font-size: 18px;
+      }
+
+      .portfolio h2 {
+        font-size: 30px;
+      }
+
+      .project-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .about h2 {
+        font-size: 30px;
+      }
+
+      .about img {
+        width: 150px;
+        height: 150px;
+      }
+
+      .about p {
+        font-size: 16px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="#">Home</a>
+    <a href="#">Portfolio</a>
+    <a href="#">About</a>
+    <a href="#">Contact</a>
+  </nav>
+
+  <div class="hero">
+    <div class="hero-content">
+      <h1>Discover the Depth of My Portfolio</h1>
+      <p>Explore a collection of captivating, dark-toned projects that showcase my expertise and attention to detail.</p>
+      <a href="#" class="hero-btn">View Portfolio</a>
+    </div>
+  </div>
+
+  <div class="portfolio">
+    <h2>Portfolio Showcase</h2>
+    <div class="project-grid">
+      <div class="project-thumbnail">
+        <img src="https://dummyimage.com/600x400/333333/ffffff&text=Project+1" alt="Project 1">
+        <div class="project-overlay">
+          <h3>Project 1</h3>
+          <p>A captivating dark-toned design with subtle shadow effects.</p>
+          <a href="#">Learn More</a>
+        </div>
+      </div>
+      <div class="project-thumbnail">
+        <img src="https://dummyimage.com/600x400/333333/ffffff&text=Project+2" alt="Project 2">
+        <div class="project-overlay">
+          <h3>Project 2</h3>
+          <p>Layered depth and sophistication in this stunning portfolio piece.</p>
+          <a href="#">Learn More</a>
+        </div>
+      </div>
+      <div class="project-thumbnail">
+        <img src="https://dummyimage.com/600x400/333333/ffffff&text=Project+3" alt="Project 3">
+        <div class="project-overlay">
+          <h3>Project 3</h3>
+          <p>Immerse yourself in the dark and captivating design experience.</p>
+          <a href="#">Learn More</a>
+        </div>
+      </div>
+      <div class="project-thumbnail">
+        <img src="https://dummyimage.com/600x400/333333/ffffff&text=Project+4" alt="Project 4">
+        <div class="project-overlay">
+          <h3>Project 4</h3>
+          <p>Explore the depth and sophistication of this portfolio piece.</p>
+          <a href="#">Learn More</a>
+        </div>
+      </div>
+      <div class="project-thumbnail">
+        <img src="https://dummyimage.com/600x400/333333/ffffff&text=Project+5" alt="Project 5">
+        <div class="project-overlay">
+          <h3>Project 5</h3>
+          <p>Dive into the captivating world of this dark-toned design.</p>
+          <a href="#">Learn More</a>
+        </div>
+      </div>
+      <div class="project-thumbnail">
+        <img src="https://dummyimage.com/600x400/333333/ffffff&text=Project+6" alt="Project 6">
+        <div class="project-overlay">
+          <h3>Project 6</h3>
+          <p>Discover the depth and attention to detail in this portfolio piece.</p>
+          <a href="#">Learn More</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="about">
+    <div class="about-content">
+      <h2>About the Designer</h2>
+      <img src="https://dummyimage.com/200x200/333333/ffffff&text=Designer+Profile" alt="Designer Profile">
+      <p>Hi, I'm a passionate designer with a keen eye for detail and a love for creating captivating, layered designs. My portfolio showcases my expertise in crafting dark-toned, sophisticated projects that blend depth, subtle shadow effects, and alluring color gradients. I'm dedicated to pushing the boundaries of design and delivering exceptional experiences.</p>
+      <a href="#" class="about-btn">Learn More</a>
+    </div>
+  </div>
+</body>
+</html>'<!-- Visit: https://github.com/Ishanoshada/portflair -->
+<!-- Visit: https://github.com/Ishanoshada/portflair -->

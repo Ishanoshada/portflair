@@ -1,0 +1,617 @@
+<!-- Portfolio created by Ishan -->
+<!-- Check out my work at: https://github.com/Ishanoshada/portflair -->
+<!-- 2024/10/9 -->
+<!-- Portfolio created by Ishan -->
+'<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Black Hole Portfolio</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
+
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Orbitron', sans-serif;
+      background: radial-gradient(ellipse at center, #000000 0%, #0c0032 100%);
+      color: #ffffff;
+      overflow-x: hidden;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 40px;
+      background: linear-gradient(to right, #1e1e1e, #0c0032);
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    }
+
+    .logo {
+      font-size: 24px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: #9b59b6;
+      text-shadow: 0 0 10px rgba(155, 89, 182, 0.5);
+      animation: glow 2s ease-in-out infinite;
+    }
+
+    @keyframes glow {
+      0% {
+        text-shadow: 0 0 10px rgba(155, 89, 182, 0.5);
+      }
+      50% {
+        text-shadow: 0 0 20px rgba(155, 89, 182, 0.8);
+      }
+      100% {
+        text-shadow: 0 0 10px rgba(155, 89, 182, 0.5);
+      }
+    }
+
+    nav ul {
+      display: flex;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    nav li {
+      margin-left: 20px;
+    }
+
+    nav a {
+      color: #ffffff;
+      text-decoration: none;
+      font-size: 16px;
+      font-weight: 400;
+      transition: color 0.3s ease-in-out;
+    }
+
+    nav a:hover {
+      color: #9b59b6;
+      text-shadow: 0 0 10px rgba(155, 89, 182, 0.5);
+    }
+
+    .hero {
+      position: relative;
+      height: 600px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      overflow: hidden;
+    }
+
+    .hero:before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url(https://dummyimage.com/1200x500/0c0032/ffffff&text=Cosmic+Visuals) no-repeat center center;
+      background-size: cover;
+      filter: blur(5px);
+      z-index: -1;
+    }
+
+    .hero h1 {
+      font-size: 48px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 4px;
+      text-shadow: 0 0 20px rgba(155, 89, 182, 0.8);
+      animation: glitch 1s infinite;
+    }
+
+    @keyframes glitch {
+      0% {
+        transform: translateX(0);
+      }
+      10% {
+        transform: translateX(-2px);
+      }
+      20% {
+        transform: translateX(2px);
+      }
+      30% {
+        transform: translateX(-2px);
+      }
+      40% {
+        transform: translateX(2px);
+      }
+      50% {
+        transform: translateX(-2px);
+      }
+      60% {
+        transform: translateX(2px);
+      }
+      70% {
+        transform: translateX(-2px);
+      }
+      80% {
+        transform: translateX(2px);
+      }
+      90% {
+        transform: translateX(-2px);
+      }
+      100% {
+        transform: translateX(0);
+      }
+    }
+
+    .hero p {
+      font-size: 24px;
+      font-weight: 400;
+      margin-top: 20px;
+      text-shadow: 0 0 10px rgba(155, 89, 182, 0.5);
+    }
+
+    .project-showcase {
+      padding: 80px 40px;
+      background: linear-gradient(to bottom, #0c0032, #000000);
+    }
+
+    .section-title {
+      font-size: 36px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 4px;
+      text-align: center;
+      margin-bottom: 40px;
+      text-shadow: 0 0 20px rgba(155, 89, 182, 0.8);
+    }
+
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-gap: 40px;
+    }
+
+    .project-item {
+      position: relative;
+      overflow: hidden;
+      border-radius: 10px;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+      cursor: pointer;
+    }
+
+    .project-item:before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url(https://dummyimage.com/400x300/9b59b6/ffffff&text=Project+Thumbnail) no-repeat center center;
+      background-size: cover;
+      filter: blur(5px);
+      transition: filter 0.3s ease-in-out;
+    }
+
+    .project-item:hover:before {
+      filter: blur(0);
+    }
+
+    .project-details {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+      opacity: 0;
+      transition: opacity 0.3s ease-in-out;
+    }
+
+    .project-item:hover .project-details {
+      opacity: 1;
+    }
+
+    .project-title {
+      font-size: 24px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      text-shadow: 0 0 10px rgba(155, 89, 182, 0.8);
+    }
+
+    .project-description {
+      font-size: 16px;
+      margin-top: 10px;
+      text-shadow: 0 0 5px rgba(155, 89, 182, 0.5);
+    }
+
+    .project-link {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 10px 20px;
+      background-color: #9b59b6;
+      color: #ffffff;
+      text-decoration: none;
+      border-radius: 5px;
+      font-size: 14px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      box-shadow: 0 0 10px rgba(155, 89, 182, 0.5);
+      transition: transform 0.3s ease-in-out;
+    }
+
+    .project-link:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 5px 10px rgba(155, 89, 182, 0.5);
+    }
+
+    .skills-section {
+      padding: 80px 40px;
+      background: radial-gradient(ellipse at center, #0c0032 0%, #000000 100%);
+    }
+
+    .skill-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      grid-gap: 40px;
+    }
+
+    .skill-item {
+      position: relative;
+      overflow: hidden;
+      border-radius: 10px;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+      cursor: pointer;
+    }
+
+    .skill-item:before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url(https://dummyimage.com/200x200/9b59b6/ffffff&text=Skill+Thumbnail) no-repeat center center;
+      background-size: cover;
+      filter: blur(5px);
+      transition: filter 0.3s ease-in-out;
+    }
+
+    .skill-item:hover:before {
+      filter: blur(0);
+    }
+
+    .skill-details {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+      opacity: 0;
+      transition: opacity 0.3s ease-in-out;
+    }
+
+    .skill-item:hover .skill-details {
+      opacity: 1;
+    }
+
+    .skill-title {
+      font-size: 20px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      text-shadow: 0 0 10px rgba(155, 89, 182, 0.8);
+    }
+
+    .skill-description {
+      font-size: 14px;
+      margin-top: 10px;
+      text-shadow: 0 0 5px rgba(155, 89, 182, 0.5);
+    }
+
+    .contact-section {
+      padding: 80px 40px;
+      background: radial-gradient(ellipse at center, #0c0032 0%, #000000 100%);
+    }
+
+    .contact-form {
+      max-width: 600px;
+      margin: 0 auto;
+      background-color: rgba(155, 89, 182, 0.1);
+      border-radius: 10px;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+      padding: 40px;
+    }
+
+    .form-title {
+      font-size: 36px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 4px;
+      text-align: center;
+      margin-bottom: 40px;
+      text-shadow: 0 0 20px rgba(155, 89, 182, 0.8);
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    .form-group label {
+      display: block;
+      font-size: 16px;
+      font-weight: 400;
+      margin-bottom: 5px;
+      text-shadow: 0 0 5px rgba(155, 89, 182, 0.5);
+    }
+
+    .form-group input,
+    .form-group textarea {
+      width: 100%;
+      padding: 10px;
+      font-size: 16px;
+      font-family: 'Orbitron', sans-serif;
+      background-color: rgba(155, 89, 182, 0.2);
+      border: none;
+      border-radius: 5px;
+      color: #ffffff;
+      box-shadow: 0 0 10px rgba(155, 89, 182, 0.3);
+      transition: box-shadow 0.3s ease-in-out;
+    }
+
+    .form-group input:focus,
+    .form-group textarea:focus {
+      outline: none;
+      box-shadow: 0 0 20px rgba(155, 89, 182, 0.5);
+    }
+
+    .form-group textarea {
+      resize: vertical;
+      min-height: 120px;
+    }
+
+    .submit-button {
+      display: block;
+      margin: 0 auto;
+      padding: 10px 20px;
+      background-color: #9b59b6;
+      color: #ffffff;
+      font-size: 16px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      border: none;
+      border-radius: 5px;
+      box-shadow: 0 0 10px rgba(155, 89, 182, 0.5);
+      cursor: pointer;
+      transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    }
+
+    .submit-button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 5px 10px rgba(155, 89, 182, 0.5);
+    }
+
+    .footer {
+      padding: 20px 40px;
+      background: linear-gradient(to right, #1e1e1e, #0c0032);
+      text-align: center;
+      font-size: 14px;
+      color: #999999;
+    }
+
+    .footer a {
+      color: #9b59b6;
+      text-decoration: none;
+      transition: color 0.3s ease-in-out;
+    }
+
+    .footer a:hover {
+      color: #ffffff;
+    }
+
+    @media (max-width: 768px) {
+      header {
+        padding: 10px 20px;
+      }
+
+      .logo {
+        font-size: 18px;
+      }
+
+      nav a {
+        font-size: 14px;
+      }
+
+      .hero {
+        height: 400px;
+      }
+
+      .hero h1 {
+        font-size: 36px;
+      }
+
+      .hero p {
+        font-size: 18px;
+      }
+
+      .project-showcase,
+      .skills-section,
+      .contact-section {
+        padding: 40px 20px;
+      }
+
+      .section-title {
+        font-size: 28px;
+        margin-bottom: 20px;
+      }
+
+      .project-grid {
+        grid-template-columns: repeat(2, 1fr);
+        grid-gap: 20px;
+      }
+
+      .skill-grid {
+        grid-template-columns: repeat(2, 1fr);
+        grid-gap: 20px;
+      }
+
+      .contact-form {
+        padding: 20px;
+      }
+
+      .form-title {
+        font-size: 28px;
+        margin-bottom: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">Black Hole Portfolio</div>
+    <nav>
+      <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Projects</a></li>
+        <li><a href="#">Skills</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <div class="hero">
+    <h1>Explore the Cosmic Realms</h1>
+    <p>Discover the backend developer's cosmic-inspired portfolio</p>
+  </div>
+
+  <section class="project-showcase">
+    <h2 class="section-title">Project Showcase</h2>
+    <div class="project-grid">
+      <div class="project-item">
+        <div class="project-details">
+          <h3 class="project-title">Project 1</h3>
+          <p class="project-description">Explore the depths of a black hole-themed project</p>
+          <a href="#" class="project-link">View Project</a>
+        </div>
+      </div>
+      <div class<div class="project-item">
+        <div class="project-details">
+          <h3 class="project-title">Project 2</h3>
+          <p class="project-description">Dive into the vaporwave glitches of a cosmic project</p>
+          <a href="#" class="project-link">View Project</a>
+        </div>
+      </div>
+      <div class="project-item">
+        <div class="project-details">
+          <h3 class="project-title">Project 3</h3>
+          <p class="project-description">Unravel the steampunk gears of a galactic masterpiece</p>
+          <a href="#" class="project-link">View Project</a>
+        </div>
+      </div>
+      <div class="project-item">
+        <div class="project-details">
+          <h3 class="project-title">Project 4</h3>
+          <p class="project-description">Explore the depths of a cosmic-inspired portfolio</p>
+          <a href="#" class="project-link">View Project</a>
+        </div>
+      </div>
+      <div class="project-item">
+        <div class="project-details">
+          <h3 class="project-title">Project 5</h3>
+          <p class="project-description">Dive into the galaxies of a backend developer's skills</p>
+          <a href="#" class="project-link">View Project</a>
+        </div>
+      </div>
+      <div class="project-item">
+        <div class="project-details">
+          <h3 class="project-title">Project 6</h3>
+          <p class="project-description">Unravel the mysteries of a neon-infused contact form</p>
+          <a href="#" class="project-link">View Project</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="skills-section">
+    <h2 class="section-title">Skills and Expertise</h2>
+    <div class="skill-grid">
+      <div class="skill-item">
+        <div class="skill-details">
+          <h3 class="skill-title">Backend Development</h3>
+          <p class="skill-description">Proficient in creating robust and scalable backend systems</p>
+        </div>
+      </div>
+      <div class="skill-item">
+        <div class="skill-details">
+          <h3 class="skill-title">Database Management</h3>
+          <p class="skill-description">Experienced in designing and optimizing database architectures</p>
+        </div>
+      </div>
+      <div class="skill-item">
+        <div class="skill-details">
+          <h3 class="skill-title">Cloud Computing</h3>
+          <p class="skill-description">Adept at leveraging cloud-based technologies and platforms</p>
+        </div>
+      </div>
+      <div class="skill-item">
+        <div class="skill-details">
+          <h3 class="skill-title">DevOps Automation</h3>
+          <p class="skill-description">Proficient in implementing CI/CD pipelines and automating workflows</p>
+        </div>
+      </div>
+      <div class="skill-item">
+        <div class="skill-details">
+          <h3 class="skill-title">Cybersecurity</h3>
+          <p class="skill-description">Knowledgeable in securing systems and protecting against threats</p>
+        </div>
+      </div>
+      <div class="skill-item">
+        <div class="skill-details">
+          <h3 class="skill-title">API Design</h3>
+          <p class="skill-description">Experienced in designing and documenting RESTful APIs</p>
+        </div>
+      </div>
+      <div class="skill-item">
+        <div class="skill-details">
+          <h3 class="skill-title">Microservices</h3>
+          <p class="skill-description">Skilled in building and integrating modular, scalable services</p>
+        </div>
+      </div>
+      <div class="skill-item">
+        <div class="skill-details">
+          <h3 class="skill-title">Performance Optimization</h3>
+          <p class="skill-description">Adept at identifying and resolving performance bottlenecks</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact-section">
+    <div class="contact-form">
+      <h2 class="form-title">Get in Touch</h2>
+      <form>
+        <div class="form-group">
+          <label for="name">Name</label>
+          <input type="text" id="name" name="name" placeholder="Enter your name" required>
+        </div>
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" placeholder="Enter your email" required>
+        </div>
+        <div class="form-group">
+          <label for="message">Message</label>
+          <textarea id="message" name="message" placeholder="Enter your message" required></textarea>
+        </div>
+        <button type="submit" class="submit-button">Send Message</button>
+      </form>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <p>&copy; 2024 Black Hole Portfolio. All rights reserved. | Designed by <a href="#">Your Name</a></p>
+  </footer>
+</body>
+</html>'<!-- Visit: https://github.com/Ishanoshada/portflair -->
+<!-- Visit: https://github.com/Ishanoshada/portflair -->

@@ -1,0 +1,358 @@
+<!-- Portfolio created by Ishan -->
+<!-- Check out my work at: https://github.com/Ishanoshada/portflair -->
+<!-- 2024/10/9 -->
+<!-- Portfolio created by Ishan -->
+'<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Editor's Dynamic Portfolio</title>
+  <style>
+    /* Global Styles */
+    body {
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f5f5f5;
+    }
+
+    /* Navigation Bar */
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: #2d3436;
+      padding: 1rem 2rem;
+      position: sticky;
+      top: 0;
+      z-index: 999;
+    }
+
+    .navbar-brand {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: #fff;
+      text-decoration: none;
+    }
+
+    .navbar-nav {
+      display: flex;
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .navbar-nav li {
+      margin-left: 1.5rem;
+    }
+
+    .navbar-nav li a {
+      color: #fff;
+      text-decoration: none;
+      font-size: 1rem;
+      transition: color 0.3s ease;
+    }
+
+    .navbar-nav li a:hover {
+      color: #e74c3c;
+    }
+
+    /* Hero Section */
+    .hero {
+      background-image: linear-gradient(to right, #4b6cb7, #182848);
+      height: 80vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      color: #fff;
+      text-align: center;
+      overflow: hidden;
+    }
+
+    .hero-title {
+      font-size: 4rem;
+      font-weight: bold;
+      margin-bottom: 1rem;
+      animation: fadeInDown 1s ease;
+    }
+
+    .hero-description {
+      font-size: 1.5rem;
+      margin-bottom: 2rem;
+      animation: fadeInUp 1s ease;
+    }
+
+    .hero-button {
+      background-color: #e74c3c;
+      color: #fff;
+      padding: 1rem 2rem;
+      border-radius: 0.5rem;
+      font-size: 1.2rem;
+      text-decoration: none;
+      transition: background-color 0.3s ease;
+      animation: fadeInUp 1s ease;
+    }
+
+    .hero-button:hover {
+      background-color: #c0392b;
+    }
+
+    /* Portfolio Section */
+    .portfolio {
+      padding: 4rem 2rem;
+    }
+
+    .portfolio-title {
+      font-size: 2.5rem;
+      font-weight: bold;
+      text-align: center;
+      margin-bottom: 3rem;
+      animation: fadeInDown 1s ease;
+    }
+
+    .portfolio-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-gap: 2rem;
+      animation: fadeInUp 1s ease;
+    }
+
+    .portfolio-item {
+      background-color: #fff;
+      border-radius: 0.5rem;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+      transition: transform 0.3s ease;
+    }
+
+    .portfolio-item:hover {
+      transform: translateY(-10px);
+    }
+
+    .portfolio-item img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+
+    .portfolio-item-content {
+      padding: 1.5rem;
+    }
+
+    .portfolio-item-title {
+      font-size: 1.5rem;
+      font-weight: bold;
+      margin-bottom: 0.5rem;
+    }
+
+    .portfolio-item-description {
+      font-size: 1rem;
+      color: #7f8c8d;
+      margin-bottom: 1rem;
+    }
+
+    .portfolio-item-tags {
+      display: flex;
+      flex-wrap: wrap;
+      font-size: 0.8rem;
+      color: #2980b9;
+    }
+
+    .portfolio-item-tags span {
+      background-color: #e8f1f5;
+      padding: 0.3rem 0.8rem;
+      border-radius: 0.3rem;
+      margin-right: 0.5rem;
+      margin-bottom: 0.5rem;
+    }
+
+    /* About Section */
+    .about {
+      background-color: #2d3436;
+      color: #fff;
+      padding: 4rem 2rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+
+    .about-title {
+      font-size: 2.5rem;
+      font-weight: bold;
+      margin-bottom: 2rem;
+      animation: fadeInDown 1s ease;
+    }
+
+    .about-content {
+      max-width: 800px;
+      animation: fadeInUp 1s ease;
+    }
+
+    .about-image {
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-bottom: 2rem;
+      animation: zoomIn 1s ease;
+    }
+
+    .about-text {
+      font-size: 1.2rem;
+      line-height: 1.6;
+      margin-bottom: 2rem;
+    }
+
+    .about-timeline {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-top: 2rem;
+    }
+
+    .about-timeline-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin: 0 2rem;
+      animation: fadeInUp 1s ease;
+    }
+
+    .about-timeline-item h4 {
+      font-size: 1.2rem;
+      font-weight: bold;
+      margin-bottom: 0.5rem;
+    }
+
+    .about-timeline-item p {
+      font-size: 1rem;
+      color: #bdc3c7;
+    }
+
+    /* Animations */
+    @keyframes fadeInDown {
+      0% {
+        opacity: 0;
+        transform: translateY(-20px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes fadeInUp {
+      0% {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes zoomIn {
+      0% {
+        opacity: 0;
+        transform: scale(0.5);
+      }
+      100% {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation Bar -->
+  <div class="navbar">
+    <a href="#" class="navbar-brand">Editor's Portfolio</a>
+    <ul class="navbar-nav">
+      <li><a href="#">Home</a></li>
+      <li><a href="#">Portfolio</a></li>
+      <li><a href="#">About</a></li>
+      <li><a href="#">Contact</a></li>
+    </ul>
+  </div>
+
+  <!-- Hero Section -->
+  <div class="hero">
+    <h1 class="hero-title">Welcome to the Dynamic Portfolio of a Visionary Editor</h1>
+    <p class="hero-description">Explore the captivating work of an editor who breathes life into every project.</p>
+    <a href="#" class="hero-button">View Portfolio</a>
+  </div>
+
+  <!-- Portfolio Section -->
+  <div class="portfolio">
+    <h2 class="portfolio-title">Featured Projects</h2>
+    <div class="portfolio-grid">
+      <div class="portfolio-item">
+        <img src="https://dummyimage.com/600x400/ccc/000&text=Project+1" alt="Project 1">
+        <div class="portfolio-item-content">
+          <h3 class="portfolio-item-title">Project 1</h3>
+          <p class="portfolio-item-description">A captivating editorial project that showcases the editor's attention to detail and storytelling skills.</p>
+          <div class="portfolio-item-tags">
+            <span>Editorial</span>
+            <span>Branding</span>
+            <span>Visuals</span>
+          </div>
+        </div>
+      </div>
+      <div class="portfolio-item">
+        <img src="https://dummyimage.com/600x400/ccc/000&text=Project+2" alt="Project 2">
+        <div class="portfolio-item-content">
+          <h3 class="portfolio-item-title">Project 2</h3>
+          <p class="portfolio-item-description">A dynamic and visually compelling project that showcases the editor's ability to bring ideas to life.</p>
+          <div class="portfolio-item-tags">
+            <span>Multimedia</span>
+            <span>Storytelling</span>
+            <span>Design</span>
+          </div>
+        </div>
+      </div>
+      <div class="portfolio-item">
+        <img src="https://dummyimage.com/600x400/ccc/000&text=Project+3" alt="Project 3">
+        <div class="portfolio-item-content">
+          <h3 class="portfolio-item-title">Project 3</h3>
+          <p class="portfolio-item-description">A cutting-edge project that demonstrates the editor's mastery of innovative and experimental techniques.</p>
+          <div class="portfolio-item-tags">
+            <span>Digital</span>
+            <span>Innovation</span>
+            <span>Experimentation</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- About Section -->
+  <div class="about">
+    <h2 class="about-title">About the Editor</h2>
+    <div class="about-content">
+      <img src="https://dummyimage.com/200x200/ccc/000&text=Editor" alt="Editor" class="about-image">
+      <p class="about-text">
+        Meet the visionary editor who breathes life into every project. With a keen eye for detail and a deep understanding of storytelling, they effortlessly transform ideas into captivating visual experiences. Whether it's a complex editorial piece or a groundbreaking multimedia project, their passion and expertise shine through in every aspect of their work.
+      </p>
+      <div class="about-timeline">
+        <div class="about-timeline-item">
+          <h4>10+</h4>
+          <p>Years of Experience</p>
+        </div>
+        <div class="about-timeline-item">
+          <h4>50+</h4>
+          <p>Successful Projects</p>
+        </div>
+        <div class="about-timeline-item">
+          <h4>Multiple</h4>
+          <p>Industry Awards</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>'<!-- Visit: https://github.com/Ishanoshada/portflair -->
+<!-- Visit: https://github.com/Ishanoshada/portflair -->

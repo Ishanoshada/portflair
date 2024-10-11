@@ -1,0 +1,478 @@
+<!-- Portfolio created by Ishan -->
+<!-- Check out my work at: https://github.com/Ishanoshada/portflair -->
+<!-- 2024/10/9 -->
+<!-- Portfolio created by Ishan -->
+'<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Design a full-page animated portfolio</title>
+  <style>
+    /* Global Styles */
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap');
+
+    :root {
+      --primary-color: #5B4BFF;
+      --secondary-color: #18191F;
+      --accent-color: #FFB200;
+      --text-color: #FFFFFF;
+      --background-color: #0F0F13;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: var(--background-color);
+      color: var(--text-color);
+    }
+
+    /* Navigation */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 40px;
+      background-color: var(--secondary-color);
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    nav .logo {
+      font-size: 24px;
+      font-weight: 800;
+      color: var(--primary-color);
+    }
+
+    nav ul {
+      display: flex;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    nav ul li {
+      margin-left: 30px;
+    }
+
+    nav ul li a {
+      color: var(--text-color);
+      text-decoration: none;
+      font-weight: 600;
+      transition: color 0.3s ease;
+    }
+
+    nav ul li a:hover {
+      color: var(--primary-color);
+    }
+
+    /* Hero Section */
+    .hero {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 80vh;
+      background-image: url('https://dummyimage.com/1920x1080/0F0F13/FFFFFF&text=Animated+Portfolio');
+      background-size: cover;
+      background-position: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(15, 15, 19, 0.8);
+      z-index: 1;
+    }
+
+    .hero-content {
+      text-align: center;
+      position: relative;
+      z-index: 2;
+    }
+
+    .hero-content h1 {
+      font-size: 72px;
+      font-weight: 800;
+      margin-bottom: 20px;
+      animation: fadeInUp 1s ease;
+    }
+
+    .hero-content p {
+      font-size: 24px;
+      margin-bottom: 40px;
+      animation: fadeInUp 1s ease 0.5s;
+    }
+
+    .hero-content .cta {
+      display: inline-block;
+      background-color: var(--primary-color);
+      color: var(--text-color);
+      font-size: 18px;
+      font-weight: 600;
+      padding: 16px 32px;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: background-color 0.3s ease;
+      animation: fadeInUp 1s ease 1s;
+    }
+
+    .hero-content .cta:hover {
+      background-color: #4640E6;
+    }
+
+    @keyframes fadeInUp {
+      0% {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Skills and Expertise Section */
+    .skills {
+      padding: 80px 40px;
+      background-color: var(--secondary-color);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .skills::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: url('https://dummyimage.com/1920x1080/5B4BFF/FFFFFF&text=Skill+Highlights');
+      background-size: cover;
+      background-position: center;
+      opacity: 0.1;
+      z-index: 1;
+    }
+
+    .skills-content {
+      position: relative;
+      z-index: 2;
+    }
+
+    .skills-content h2 {
+      font-size: 48px;
+      font-weight: 800;
+      margin-bottom: 40px;
+      text-align: center;
+      animation: fadeInUp 1s ease;
+    }
+
+    .skill-item {
+      display: flex;
+      align-items: center;
+      margin-bottom: 40px;
+      animation: fadeInUp 1s ease 0.5s;
+    }
+
+    .skill-item .icon {
+      width: 80px;
+      height: 80px;
+      background-color: var(--accent-color);
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 32px;
+      color: var(--secondary-color);
+      margin-right: 20px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .skill-item .icon::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: var(--primary-color);
+      transform: translateX(-100%);
+      transition: transform 0.5s ease;
+    }
+
+    .skill-item:hover .icon::before {
+      transform: translateX(0);
+    }
+
+    .skill-item .content h3 {
+      font-size: 24px;
+      font-weight: 600;
+      margin-bottom: 10px;
+    }
+
+    .skill-item .content p {
+      font-size: 16px;
+      line-height: 1.6;
+    }
+
+    /* Contact Form Section */
+    .contact {
+      padding: 80px 40px;
+      background-color: var(--background-color);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .contact::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: url('https://dummyimage.com/1920x1080/18191F/FFFFFF&text=Contact+Form');
+      background-size: cover;
+      background-position: center;
+      opacity: 0.1;
+      z-index: 1;
+    }
+
+    .contact-content {
+      position: relative;
+      z-index: 2;
+      max-width: 600px;
+      margin: 0 auto;
+      animation: fadeInUp 1s ease;
+    }
+
+    .contact-content h2 {
+      font-size: 48px;
+      font-weight: 800;
+      margin-bottom: 40px;
+      text-align: center;
+    }
+
+    .contact-form {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-gap: 20px;
+    }
+
+    .contact-form .form-group {
+      position: relative;
+    }
+
+    .contact-form label {
+      position: absolute;
+      top: 50%;
+      left: 16px;
+      transform: translateY(-50%);
+      font-size: 16px;
+      color: var(--text-color);
+      transition: all 0.3s ease;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+      width: 100%;
+      padding: 16px;
+      font-size: 16px;
+      background-color: var(--secondary-color);
+      border: none;
+      border-radius: 8px;
+      color: var(--text-color);
+      transition: all 0.3s ease;
+    }
+
+    .contact-form input:focus + label,
+    .contact-form input:not(:placeholder-shown) + label,
+    .contact-form textarea:focus + label,
+    .contact-form textarea:not(:placeholder-shown) + label {
+      top: 0;
+      font-size: 12px;
+      color: var(--primary-color);
+    }
+
+    .contact-form textarea {
+      grid-column: 1 / -1;
+      resize: none;
+    }
+
+    .contact-form button {
+      grid-column: 1 / -1;
+      background-color: var(--primary-color);
+      color: var(--text-color);
+      font-size: 18px;
+      font-weight: 600;
+      padding: 16px 32px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .contact-form button:hover {
+      background-color: #4640E6;
+    }
+
+    /* Responsive Styles */
+    @media (max-width: 768px) {
+      nav {
+        padding: 16px 20px;
+      }
+
+      nav .logo {
+        font-size: 20px;
+      }
+
+      nav ul li {
+        margin-left: 20px;
+      }
+
+      .hero {
+        height: 60vh;
+      }
+
+      .hero-content h1 {
+        font-size: 48px;
+      }
+
+      .hero-content p {
+        font-size: 18px;
+      }
+
+      .skills {
+        padding: 60px 20px;
+      }
+
+      .skills-content h2 {
+        font-size: 36px;
+        margin-bottom: 30px;
+      }
+
+      .skill-item {
+        margin-bottom: 30px;
+      }
+
+      .skill-item .icon {
+        width: 60px;
+        height: 60px;
+        font-size: 24px;
+        margin-right: 16px;
+      }
+
+      .skill-item .content h3 {
+        font-size: 20px;
+      }
+
+      .skill-item .content p {
+        font-size: 14px;
+      }
+
+      .contact {
+        padding: 60px 20px;
+      }
+
+      .contact-content h2 {
+        font-size: 36px;
+        margin-bottom: 30px;
+      }
+
+      .contact-form {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="logo">Design Portfolio</div>
+    <ul>
+      <li><a href="#">Home</a></li>
+      <li><a href="#">Portfolio</a></li>
+      <li><a href="#">Skills</a></li>
+      <li><a href="#">Contact</a></li>
+    </ul>
+  </nav>
+
+  <section class="hero">
+    <div class="hero-content">
+      <h1>Unleash Your Creative Vision</h1>
+      <p>Discover the power of a full-page animated portfolio with 3D visuals, floating shapes, and rotating project cubes.</p>
+      <a href="#" class="cta">Explore My Work</a>
+    </div>
+  </section>
+
+  <section class="skills">
+    <div class="skills-content">
+      <h2>Expertise Highlights</h2>
+      <div class="skill-item">
+        <div class="icon">
+          <i class="fas fa-code"></i>
+        </div>
+        <div class="content">
+          <h3>Web Development</h3>
+          <p>Crafting responsive and visually stunning websites with cutting-edge technologies.</p>
+        </div>
+      </div>
+      <div class="skill-item">
+        <div class="icon">
+          <i class="fas fa-paint-brush"></i>
+        </div>
+        <div class="content">
+          <h3>UI/UX Design</h3>
+          <p>Designing intuitive and visually captivating user experiences that engage and delight.</p>
+        </div>
+      </div>
+      <div class="skill-item">
+        <div class="icon">
+          <i class="fas fa-cube"></i>
+        </div>
+        <div class="content">
+          <h3>3D Visualization</h3>
+          <p>Bringing ideas to life with immersive 3D visuals and dynamic product showcases.</p>
+        </div>
+      </div>
+      <div class="skill-item">
+        <div class="icon">
+          <i class="fas fa-magic"></i>
+        </div>
+        <div class="content">
+          <h3>Motion Graphics</h3>
+          <p>Crafting captivating animations and dynamic visual effects to elevate your brand.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact">
+    <div class="contact-content">
+      <h2>Get in Touch</h2>
+      <form class="contact-form">
+        <div class="form-group">
+          <input type="text" id="name" placeholder=" ">
+          <label for="name">Name</label>
+        </div>
+        <div class="form-group">
+          <input type="email" id="email" placeholder=" ">
+          <label for="email">Email</label>
+        </div>
+        <div class="form-group">
+          <textarea id="message" placeholder=" "></textarea>
+          <label for="message">Message</label>
+        </div>
+        <button type="submit">Send Message</button>
+      </form>
+    </div>
+  </section>
+
+  <script src="https://kit.fontawesome.com/your-font-awesome-kit.js" crossorigin="anonymous"></script>
+</body>
+</html>'<!-- Visit: https://github.com/Ishanoshada/portflair -->
+<!-- Visit: https://github.com/Ishanoshada/portflair -->

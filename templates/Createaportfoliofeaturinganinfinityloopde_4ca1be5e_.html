@@ -1,0 +1,392 @@
+<!-- Portfolio created by Ishan -->
+<!-- Check out my work at: https://github.com/Ishanoshada/portflair -->
+<!-- 2024/10/9 -->
+<!-- Portfolio created by Ishan -->
+'<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Create a Portfolio</title>
+  <style>
+    /* Global Styles */
+    body {
+      font-family: 'Montserrat', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #000;
+      color: #fff;
+    }
+
+    /* Navigation */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.5rem 2rem;
+      background: linear-gradient(to right, #00b3b3, #9932cc);
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      font-size: 1.1rem;
+      font-weight: 500;
+      margin: 0 1rem;
+      transition: color 0.3s ease;
+    }
+
+    nav a:hover {
+      color: #d0d0d0;
+    }
+
+    /* Hero Section */
+    .hero {
+      height: 90vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(to right, #00b3b3, #9932cc);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-bg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: #000;
+      opacity: 0.8;
+      z-index: 1;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+    }
+
+    .hero-title {
+      font-size: 4rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      text-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    }
+
+    .hero-subtitle {
+      font-size: 1.8rem;
+      font-weight: 400;
+      margin-bottom: 2rem;
+      text-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+    }
+
+    .hero-loop {
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      overflow: hidden;
+      z-index: 0;
+    }
+
+    .hero-loop:before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(to right, #00b3b3, #9932cc);
+      animation: loop 30s linear infinite;
+    }
+
+    @keyframes loop {
+      0% {
+        transform: translateX(0);
+      }
+      100% {
+        transform: translateX(-100%);
+      }
+    }
+
+    /* About Section */
+    .about {
+      padding: 5rem 2rem;
+      background-color: #111;
+      display: flex;
+      align-items: center;
+    }
+
+    .about-image {
+      flex: 0 0 30%;
+      margin-right: 3rem;
+    }
+
+    .about-image img {
+      width: 100%;
+      height: auto;
+      border-radius: 50%;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    }
+
+    .about-content {
+      flex: 1;
+    }
+
+    .about-title {
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 1.5rem;
+    }
+
+    .about-description {
+      font-size: 1.2rem;
+      line-height: 1.6;
+      margin-bottom: 2rem;
+    }
+
+    .about-skills {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .skill-item {
+      background: linear-gradient(to right, #00b3b3, #9932cc);
+      color: #fff;
+      padding: 0.8rem 1.5rem;
+      border-radius: 20px;
+      font-size: 1rem;
+      font-weight: 500;
+      margin: 0.5rem;
+      transition: transform 0.3s ease;
+    }
+
+    .skill-item:hover {
+      transform: scale(1.1);
+    }
+
+    /* Project Showcase */
+    .projects {
+      padding: 5rem 2rem;
+      background-color: #111;
+    }
+
+    .projects-title {
+      font-size: 2.5rem;
+      font-weight: 700;
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-gap: 2rem;
+    }
+
+    .project-item {
+      background-color: #222;
+      border-radius: 10px;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+      overflow: hidden;
+      position: relative;
+      transition: transform 0.3s ease;
+    }
+
+    .project-item:hover {
+      transform: scale(1.05);
+    }
+
+    .project-thumbnail {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      transition: filter 0.3s ease;
+    }
+
+    .project-item:hover .project-thumbnail {
+      filter: brightness(0.7);
+    }
+
+    .project-details {
+      padding: 1.5rem;
+      text-align: center;
+    }
+
+    .project-title {
+      font-size: 1.5rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+    }
+
+    .project-description {
+      font-size: 1rem;
+      color: #ccc;
+      margin-bottom: 1rem;
+    }
+
+    .project-link {
+      display: inline-block;
+      background: linear-gradient(to right, #00b3b3, #9932cc);
+      color: #fff;
+      text-decoration: none;
+      padding: 0.8rem 1.5rem;
+      border-radius: 20px;
+      font-size: 1rem;
+      font-weight: 500;
+      transition: background 0.3s ease;
+    }
+
+    .project-link:hover {
+      background: linear-gradient(to right, #009999, #7a2499);
+    }
+
+    /* Footer */
+    footer {
+      background: linear-gradient(to right, #00b3b3, #9932cc);
+      padding: 2rem;
+      text-align: center;
+      font-size: 1rem;
+      color: #fff;
+    }
+
+    footer a {
+      color: #fff;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    footer a:hover {
+      color: #d0d0d0;
+    }
+
+    /* Media Queries */
+    @media (max-width: 768px) {
+      .hero-title {
+        font-size: 3rem;
+      }
+
+      .hero-subtitle {
+        font-size: 1.5rem;
+      }
+
+      .about {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .about-image {
+        flex: 0 0 auto;
+        margin-right: 0;
+        margin-bottom: 2rem;
+      }
+
+      .project-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="#">Home</a>
+    <a href="#">About</a>
+    <a href="#">Projects</a>
+    <a href="#">Contact</a>
+  </nav>
+
+  <div class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-content">
+      <h1 class="hero-title">Create a Portfolio</h1>
+      <p class="hero-subtitle">Discover the Infinite Possibilities</p>
+    </div>
+    <div class="hero-loop"></div>
+  </div>
+
+  <div class="about">
+    <div class="about-image">
+      <img src="https://dummyimage.com/400x400/ccc/000&text=Profile+Image" alt="Profile Image">
+    </div>
+    <div class="about-content">
+      <h2 class="about-title">About Me</h2>
+      <p class="about-description">
+        Hello, I'm a passionate designer and developer with a keen eye for detail and a love for creating visually stunning and interactive experiences. My portfolio showcases a wide range of skills, from UI/UX design to full-stack web development. I'm constantly exploring new technologies and techniques to push the boundaries of what's possible.
+      </p>
+      <div class="about-skills">
+        <div class="skill-item">HTML5</div>
+        <div class="skill-item">CSS3</div>
+        <div class="skill-item">JavaScript</div>
+        <div class="skill-item">React</div>
+        <div class="skill-item">Node.js</div>
+        <div class="skill-item">UI/UX Design</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="projects">
+    <h2 class="projects-title">My Projects</h2>
+    <div class="project-grid">
+      <div class="project-item">
+        <img class="project-thumbnail" src="https://dummyimage.com/600x400/ccc/000&text=Project+1" alt="Project 1">
+        <div class="project-details">
+          <h3 class="project-title">Project 1</h3>
+          <p class="project-description">A stunning UI design for a corporate website.</p>
+          <a href="#" class="project-link">View Project</a>
+        </div>
+      </div>
+      <div class="project-item">
+        <img class="project-thumbnail" src="https://dummyimage.com/600x400/ccc/000&text=Project+2" alt="Project 2">
+        <div class="project-details">
+          <h3 class="project-title">Project 2</h3>
+          <p class="project-description">A responsive e-commerce website with a modern look and feel.</p>
+          <a href="#" class="project-link">View Project</a>
+        </div>
+      </div>
+      <div class="project-item">
+        <img class="project-thumbnail" src="https://dummyimage.com/600x400/ccc/000&text=Project+3" alt="Project 3">
+        <div class="project-details">
+          <h3 class="project-title">Project 3</h3>
+          <p class="project-description">A sleek and intuitive mobile app design for a fitness tracking app.</p>
+          <a href="#" class="project-link">View Project</a>
+        </div>
+      </div>
+      <div class="project-item">
+        <img class="project-thumbnail" src="https://dummyimage.com/600x400/ccc/000&text=Project+4" alt="Project 4">
+        <div class="project-details">
+          <h3 class="project-title">Project 4</h3>
+          <p class="project-description">A custom-built website for a sustainable clothing brand.</p>
+          <a href="#" class="project-link">View Project</a>
+        </div>
+      </div>
+      <div class="project-item">
+        <img class="project-thumbnail" src="https://dummyimage.com/600x400/ccc/000&text=Project+5" alt="Project 5">
+        <div class="project-details">
+          <h3 class="project-title">Project 5</h3>
+          <p class="project-description">A visually striking landing page for a creative agency.</p>
+          <a href="#" class="project-link">View Project</a>
+        </div>
+      </div>
+      <div class="project-item">
+        <img class="project-thumbnail" src="https://dummyimage.com/600x400/ccc/000&text=Project+6" alt="Project 6">
+        <div class="project-details">
+          <h3 class="project-title">Project 6</h3>
+          <p class="project-description">A modern and intuitive dashboard design for a SaaS platform.</p>
+          <a href="#" class="project-link">View Project</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <p>&copy; 2024 Create a Portfolio. All rights reserved. Designed by <a href="#">Your Name</a>.</p>
+  </footer>
+</body>
+</html>'<!-- Visit: https://github.com/Ishanoshada/portflair -->
+<!-- Visit: https://github.com/Ishanoshada/portflair -->

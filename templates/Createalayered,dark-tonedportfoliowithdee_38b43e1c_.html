@@ -1,0 +1,354 @@
+<!-- Portfolio created by Ishan -->
+<!-- Check out my work at: https://github.com/Ishanoshada/portflair -->
+<!-- 2024/10/9 -->
+<!-- Portfolio created by Ishan -->
+'<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Layered Dark Portfolio</title>
+  <style>
+    /* Global Styles */
+    body {
+      font-family: 'Montserrat', sans-serif;
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(to bottom, #0d0d0d, #1a1a1a);
+      color: #f2f2f2;
+    }
+
+    /* Navigation */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 40px;
+      background-color: #0d0d0d;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    nav a {
+      color: #f2f2f2;
+      text-decoration: none;
+      font-size: 18px;
+      font-weight: 500;
+      margin-right: 30px;
+      transition: color 0.3s ease;
+    }
+
+    nav a:hover {
+      color: #8c8c8c;
+    }
+
+    /* Portfolio Showcase */
+    .portfolio-showcase {
+      padding: 80px 40px;
+    }
+
+    .portfolio-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-gap: 40px;
+    }
+
+    .portfolio-item {
+      position: relative;
+      overflow: hidden;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      transition: transform 0.3s ease;
+    }
+
+    .portfolio-item:hover {
+      transform: scale(1.05);
+    }
+
+    .portfolio-item img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .portfolio-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(to bottom, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.8));
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 20px;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .portfolio-item:hover .portfolio-overlay {
+      opacity: 1;
+    }
+
+    .portfolio-overlay h3 {
+      font-size: 24px;
+      margin-bottom: 10px;
+    }
+
+    .portfolio-overlay p {
+      font-size: 16px;
+      margin-bottom: 0;
+    }
+
+    /* About Me Section */
+    .about-me {
+      display: flex;
+      align-items: center;
+      padding: 80px 40px;
+      background-color: #1a1a1a;
+    }
+
+    .about-me-image {
+      flex: 0 0 40%;
+      margin-right: 40px;
+    }
+
+    .about-me-image img {
+      width: 100%;
+      height: auto;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    .about-me-content {
+      flex: 1;
+    }
+
+    .about-me-content h2 {
+      font-size: 36px;
+      margin-bottom: 20px;
+    }
+
+    .about-me-content p {
+      font-size: 18px;
+      line-height: 1.6;
+      margin-bottom: 30px;
+    }
+
+    .social-links a {
+      color: #f2f2f2;
+      font-size: 24px;
+      margin-right: 20px;
+      transition: color 0.3s ease;
+    }
+
+    .social-links a:hover {
+      color: #8c8c8c;
+    }
+
+    /* Contact Form */
+    .contact-form {
+      padding: 80px 40px;
+      background: linear-gradient(to bottom, #1a1a1a, #0d0d0d);
+    }
+
+    .contact-form h2 {
+      font-size: 36px;
+      margin-bottom: 40px;
+      text-align: center;
+    }
+
+    .contact-form form {
+      max-width: 500px;
+      margin: 0 auto;
+    }
+
+    .form-group {
+      margin-bottom: 30px;
+    }
+
+    .form-group label {
+      display: block;
+      font-size: 18px;
+      margin-bottom: 10px;
+    }
+
+    .form-group input,
+    .form-group textarea {
+      width: 100%;
+      padding: 12px 16px;
+      font-size: 16px;
+      border: none;
+      border-radius: 4px;
+      background-color: #2d2d2d;
+      color: #f2f2f2;
+      transition: background-color 0.3s ease;
+    }
+
+    .form-group input:focus,
+    .form-group textarea:focus {
+      background-color: #3d3d3d;
+    }
+
+    .form-group textarea {
+      resize: vertical;
+      min-height: 120px;
+    }
+
+    .contact-form button {
+      display: block;
+      width: 100%;
+      padding: 12px 24px;
+      font-size: 18px;
+      font-weight: 500;
+      background-color: #4d4d4d;
+      color: #f2f2f2;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .contact-form button:hover {
+      background-color: #5d5d5d;
+    }
+
+    /* Responsive Styles */
+    @media (max-width: 991px) {
+      .portfolio-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .about-me {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .about-me-image {
+        flex: 0 0 auto;
+        margin-right: 0;
+        margin-bottom: 40px;
+      }
+    }
+
+    @media (max-width: 767px) {
+      .portfolio-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .about-me-content h2 {
+        font-size: 30px;
+      }
+
+      .about-me-content p {
+        font-size: 16px;
+      }
+
+      .contact-form h2 {
+        font-size: 30px;
+      }
+
+      .form-group input,
+      .form-group textarea {
+        font-size: 14px;
+      }
+
+      .contact-form button {
+        font-size: 16px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="#">Home</a>
+    <a href="#">Portfolio</a>
+    <a href="#">About</a>
+    <a href="#">Contact</a>
+  </nav>
+
+  <section class="portfolio-showcase">
+    <h2 style="font-size: 36px; margin-bottom: 40px;">Portfolio Showcase</h2>
+    <div class="portfolio-grid">
+      <div class="portfolio-item">
+        <img src="https://dummyimage.com/600x400/ccc/000&text=Portfolio+Item+1" alt="Portfolio Item 1">
+        <div class="portfolio-overlay">
+          <h3>Project Title 1</h3>
+          <p>Client Name, Project Description</p>
+        </div>
+      </div>
+      <div class="portfolio-item">
+        <img src="https://dummyimage.com/600x400/ccc/000&text=Portfolio+Item+2" alt="Portfolio Item 2">
+        <div class="portfolio-overlay">
+          <h3>Project Title 2</h3>
+          <p>Client Name, Project Description</p>
+        </div>
+      </div>
+      <div class="portfolio-item">
+        <img src="https://dummyimage.com/600x400/ccc/000&text=Portfolio+Item+3" alt="Portfolio Item 3">
+        <div class="portfolio-overlay">
+          <h3>Project Title 3</h3>
+          <p>Client Name, Project Description</p>
+        </div>
+      </div>
+      <div class="portfolio-item">
+        <img src="https://dummyimage.com/600x400/ccc/000&text=Portfolio+Item+4" alt="Portfolio Item 4">
+        <div class="portfolio-overlay">
+          <h3>Project Title 4</h3>
+          <p>Client Name, Project Description</p>
+        </div>
+      </div>
+      <div class="portfolio-item">
+        <img src="https://dummyimage.com/600x400/ccc/000&text=Portfolio+Item+5" alt="Portfolio Item 5">
+        <div class="portfolio-overlay">
+          <h3>Project Title 5</h3>
+          <p>Client Name, Project Description</p>
+        </div>
+      </div>
+      <div class="portfolio-item">
+        <img src="https://dummyimage.com/600x400/ccc/000&text=Portfolio+Item+6" alt="Portfolio Item 6">
+        <div class="portfolio-overlay">
+          <h3>Project Title 6</h3>
+          <p>Client Name, Project Description</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="about-me">
+    <div class="about-me-image">
+      <img src="https://dummyimage.com/400x500/ccc/000&text=About+Me" alt="About Me">
+    </div>
+    <div class="about-me-content">
+      <h2>About Me</h2>
+      <p>Hi, I'm a passionate designer with a deep love for creating visually stunning and interactive portfolios. I believe in crafting experiences that captivate and inspire. With years of experience and a keen eye for detail, I strive to bring your projects to life in the most sophisticated and captivating way.</p>
+      <div class="social-links">
+        <a href="#" target="_blank"><i class="fab fa-linkedin"></i></a>
+        <a href="#" target="_blank"><i class="fab fa-twitter"></i></a>
+        <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact-form">
+    <h2>Get in Touch</h2>
+    <form>
+      <div class="form-group">
+        <label for="name">Name</label>
+        <input type="text" id="name" name="name" placeholder="Enter your name" required>
+      </div>
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" placeholder="Enter your email" required>
+      </div>
+      <div class="form-group">
+        <label for="message">Message</label>
+        <textarea id="message" name="message" placeholder="Write your message" required></textarea>
+      </div>
+      <button type="submit">Send Message</button>
+    </form>
+  </section>
+
+  <script src="https://kit.fontawesome.com/your-font-awesome-kit.js" crossorigin="anonymous"></script>
+</body>
+</html>'<!-- Visit: https://github.com/Ishanoshada/portflair -->
+<!-- Visit: https://github.com/Ishanoshada/portflair -->

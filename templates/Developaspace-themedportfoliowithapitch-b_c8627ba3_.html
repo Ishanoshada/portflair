@@ -1,0 +1,411 @@
+<!-- Portfolio created by Ishan -->
+<!-- Check out my work at: https://github.com/Ishanoshada/portflair -->
+<!-- 2024/10/9 -->
+<!-- Portfolio created by Ishan -->
+'<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Develop a Space-Themed Portfolio</title>
+  <style>
+    /* Global Styles */
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Poppins', sans-serif;
+      background-color: #000000;
+      color: #ffffff;
+      overflow-x: hidden;
+    }
+
+    /* Navigation */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 40px;
+      background-color: rgba(0, 0, 0, 0.5);
+      backdrop-filter: blur(10px);
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+    }
+
+    nav a {
+      color: #ffffff;
+      text-decoration: none;
+      font-size: 18px;
+      margin: 0 20px;
+      transition: color 0.3s ease;
+    }
+
+    nav a:hover {
+      color: #c0c0c0;
+    }
+
+    /* Hero/Intro Section */
+    #hero {
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    #hero::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(to bottom, #0c1a31, #05091b);
+      opacity: 0.8;
+      z-index: -1;
+    }
+
+    #hero::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: url("https://dummyimage.com/1920x1080/000/fff&text=Space+Background");
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+      filter: blur(5px);
+      z-index: -2;
+    }
+
+    #hero h1 {
+      font-size: 64px;
+      font-weight: 700;
+      text-align: center;
+      margin-bottom: 20px;
+      background: linear-gradient(to right, #8c54ff, #00aaff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    #hero p {
+      font-size: 24px;
+      text-align: center;
+      margin-bottom: 40px;
+      color: #c0c0c0;
+    }
+
+    #hero .cta {
+      display: inline-block;
+      background: linear-gradient(to right, #8c54ff, #00aaff);
+      color: #ffffff;
+      padding: 16px 32px;
+      border-radius: 30px;
+      font-size: 18px;
+      text-decoration: none;
+      transition: transform 0.3s ease;
+    }
+
+    #hero .cta:hover {
+      transform: scale(1.1);
+    }
+
+    /* Skills and Expertise Section */
+    #skills {
+      padding: 80px 40px;
+      background-color: #0c1a31;
+      position: relative;
+    }
+
+    #skills::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: url("https://dummyimage.com/1920x1080/000/fff&text=Starry+Background");
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+      filter: blur(10px);
+      opacity: 0.2;
+      z-index: -1;
+    }
+
+    #skills h2 {
+      font-size: 48px;
+      font-weight: 700;
+      text-align: center;
+      margin-bottom: 40px;
+      background: linear-gradient(to right, #8c54ff, #00aaff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .skill-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      grid-gap: 40px;
+    }
+
+    .skill-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+
+    .skill-item .icon {
+      width: 80px;
+      height: 80px;
+      background: linear-gradient(to right, #8c54ff, #00aaff);
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-bottom: 20px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .skill-item .icon::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(to right, #8c54ff, #00aaff);
+      opacity: 0.3;
+      filter: blur(20px);
+      animation: pulsate 2s ease-in-out infinite;
+    }
+
+    .skill-item .icon i {
+      font-size: 32px;
+      color: #ffffff;
+    }
+
+    .skill-item h3 {
+      font-size: 24px;
+      font-weight: 600;
+      margin-bottom: 10px;
+      background: linear-gradient(to right, #8c54ff, #00aaff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .skill-item p {
+      font-size: 16px;
+      color: #c0c0c0;
+    }
+
+    @keyframes pulsate {
+      0% {
+        transform: scale(1);
+        opacity: 0.3;
+      }
+      50% {
+        transform: scale(1.2);
+        opacity: 0.6;
+      }
+      100% {
+        transform: scale(1);
+        opacity: 0.3;
+      }
+    }
+
+    /* Featured Projects Section */
+    #projects {
+      padding: 80px 40px;
+      background-color: #05091b;
+      position: relative;
+    }
+
+    #projects::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: url("https://dummyimage.com/1920x1080/000/fff&text=Starry+Background");
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+      filter: blur(10px);
+      opacity: 0.2;
+      z-index: -1;
+    }
+
+    #projects h2 {
+      font-size: 48px;
+      font-weight: 700;
+      text-align: center;
+      margin-bottom: 40px;
+      background: linear-gradient(to right, #8c54ff, #00aaff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .project-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      grid-gap: 40px;
+    }
+
+    .project-item {
+      position: relative;
+      overflow: hidden;
+      border-radius: 10px;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+      transition: transform 0.3s ease;
+    }
+
+    .project-item:hover {
+      transform: scale(1.05);
+    }
+
+    .project-item img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+
+    .project-item .overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(to right, #8c54ff, #00aaff);
+      opacity: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      transition: opacity 0.3s ease;
+    }
+
+    .project-item:hover .overlay {
+      opacity: 0.8;
+    }
+
+    .project-item .overlay h3 {
+      font-size: 24px;
+      font-weight: 600;
+      color: #ffffff;
+      margin-bottom: 10px;
+    }
+
+    .project-item .overlay p {
+      font-size: 16px;
+      color: #ffffff;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .project-item .overlay a {
+      display: inline-block;
+      background: #ffffff;
+      color: #05091b;
+      padding: 10px 20px;
+      border-radius: 20px;
+      font-size: 16px;
+      text-decoration: none;
+      transition: transform 0.3s ease;
+    }
+
+    .project-item .overlay a:hover {
+      transform: scale(1.1);
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="#">Home</a>
+    <a href="#">Skills</a>
+    <a href="#">Projects</a>
+    <a href="#">About</a>
+    <a href="#">Contact</a>
+  </nav>
+
+  <section id="hero">
+    <h1>Develop a Space-Themed Portfolio</h1>
+    <p>Showcase your talents with a captivating, cosmic design.</p>
+    <a href="#" class="cta">Get Started</a>
+  </section>
+
+  <section id="skills">
+    <h2>My Skills and Expertise</h2>
+    <div class="skill-list">
+      <div class="skill-item">
+        <div class="icon">
+          <i class="fas fa-code"></i>
+        </div>
+        <h3>Web Development</h3>
+        <p>Crafting responsive, high-performance websites.</p>
+      </div>
+      <div class="skill-item">
+        <div class="icon">
+          <i class="fas fa-paint-brush"></i>
+        </div>
+        <h3>UI/UX Design</h3>
+        <p>Designing intuitive and visually stunning interfaces.</p>
+      </div>
+      <div class="skill-item">
+        <div class="icon">
+          <i class="fas fa-rocket"></i>
+        </div>
+        <h3>Motion Graphics</h3>
+        <p>Bringing static designs to life with captivating animations.</p>
+      </div>
+      <div class="skill-item">
+        <div class="icon">
+          <i class="fas fa-database"></i>
+        </div>
+        <h3>Database Management</h3>
+        <p>Efficient data storage and retrieval solutions.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="projects">
+    <h2>Featured Projects</h2>
+    <div class="project-list">
+      <div class="project-item">
+        <img src="https://dummyimage.com/600x400/000/fff&text=Project+1" alt="Project 1">
+        <div class="overlay">
+          <h3>Project 1</h3>
+          <p>A captivating space-themed website design.</p>
+          <a href="#">Learn More</a>
+        </div>
+      </div>
+      <div class="project-item">
+        <img src="https://dummyimage.com/600x400/000/fff&text=Project+2" alt="Project 2">
+        <div class="overlay">
+          <h3>Project 2</h3>
+          <p>An interactive data visualization platform.</p>
+          <a href="#">Learn More</a>
+        </div>
+      </div>
+      <div class="project-item">
+        <img src="https://dummyimage.com/600x400/000/fff&text=Project+3" alt="Project 3">
+        <div class="overlay">
+          <h3>Project 3</h3>
+          <p>A responsive mobile app for stargazing enthusiasts.</p>
+          <a href="#">Learn More</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</body>
+</html>'<!-- Visit: https://github.com/Ishanoshada/portflair -->
+<!-- Visit: https://github.com/Ishanoshada/portflair -->

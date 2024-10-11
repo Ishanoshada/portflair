@@ -1,0 +1,370 @@
+<!-- Portfolio created by Ishan -->
+<!-- Check out my work at: https://github.com/Ishanoshada/portflair -->
+<!-- 2024/10/9 -->
+<!-- Portfolio created by Ishan -->
+'<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hacking-Themed Portfolio</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;700&display=swap');
+
+    body {
+      font-family: 'Inconsolata', monospace;
+      margin: 0;
+      padding: 0;
+      background-color: #0f0f0f;
+      color: #fff;
+    }
+
+    /* Navigation */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 40px;
+      background-color: #0f0f0f;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      position: relative;
+      z-index: 100;
+    }
+
+    nav a {
+      color: #00ff00;
+      text-decoration: none;
+      font-size: 18px;
+      font-weight: bold;
+      transition: color 0.3s ease;
+    }
+
+    nav a:hover {
+      color: #00c853;
+    }
+
+    /* Hero Section */
+    .hero {
+      position: relative;
+      height: 80vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      overflow: hidden;
+    }
+
+    .hero-bg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(to right, #0f0f0f, #111111, #0f0f0f);
+      background-size: 300% 300%;
+      animation: glitch-bg 10s ease infinite;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero h1 {
+      font-size: 5rem;
+      font-weight: bold;
+      text-shadow: 0 0 20px #00ff00, 0 0 40px #00ff00, 0 0 80px #00ff00;
+      animation: glitch 1s infinite;
+    }
+
+    .hero p {
+      font-size: 2rem;
+      margin-top: 20px;
+      text-shadow: 0 0 10px #00ff00, 0 0 20px #00ff00;
+    }
+
+    /* Project Showcase */
+    .project-showcase {
+      padding: 80px 40px;
+      background-color: #111111;
+    }
+
+    .project-showcase h2 {
+      font-size: 3rem;
+      text-align: center;
+      margin-bottom: 40px;
+      text-shadow: 0 0 20px #00ff00, 0 0 40px #00ff00;
+    }
+
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      grid-gap: 40px;
+    }
+
+    .project-item {
+      position: relative;
+      overflow: hidden;
+      border-radius: 5px;
+      box-shadow: 0 0 20px rgba(0, 255, 0, 0.3);
+      cursor: pointer;
+    }
+
+    .project-item img {
+      width: 100%;
+      height: 300px;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+
+    .project-item:hover img {
+      transform: scale(1.1);
+    }
+
+    .project-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.7);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      opacity: 0;
+      transition: opacity 0.5s ease;
+    }
+
+    .project-item:hover .project-overlay {
+      opacity: 1;
+    }
+
+    .project-overlay h3 {
+      font-size: 2rem;
+      margin-bottom: 10px;
+      text-shadow: 0 0 10px #00ff00, 0 0 20px #00ff00;
+    }
+
+    .project-overlay p {
+      font-size: 1.2rem;
+      text-shadow: 0 0 5px #00ff00, 0 0 10px #00ff00;
+    }
+
+    /* Terminal-style Contact Section */
+    .contact {
+      padding: 80px 40px;
+      background-color: #0f0f0f;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .contact h2 {
+      font-size: 3rem;
+      margin-bottom: 40px;
+      text-shadow: 0 0 20px #00ff00, 0 0 40px #00ff00;
+    }
+
+    .terminal {
+      background-color: #111111;
+      border-radius: 5px;
+      box-shadow: 0 0 20px rgba(0, 255, 0, 0.3);
+      padding: 40px;
+      width: 80%;
+      max-width: 600px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .terminal::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(to right, #00ff00, #00c853, #00ff00);
+      background-size: 200% 200%;
+      animation: terminal-glow 5s ease infinite;
+      opacity: 0.3;
+      z-index: -1;
+    }
+
+    .terminal-text {
+      font-size: 1.2rem;
+      line-height: 1.5;
+      color: #00ff00;
+      white-space: pre-wrap;
+      animation: terminal-type 3s steps(20) infinite;
+    }
+
+    .terminal-input {
+      margin-top: 20px;
+      display: flex;
+    }
+
+    .terminal-input input {
+      flex-grow: 1;
+      background-color: transparent;
+      border: none;
+      border-bottom: 2px solid #00ff00;
+      color: #00ff00;
+      font-size: 1.2rem;
+      font-family: 'Inconsolata', monospace;
+      padding: 5px;
+      outline: none;
+    }
+
+    .terminal-input button {
+      background-color: #00ff00;
+      color: #0f0f0f;
+      border: none;
+      border-radius: 3px;
+      font-size: 1.2rem;
+      font-family: 'Inconsolata', monospace;
+      padding: 5px 20px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .terminal-input button:hover {
+      background-color: #00c853;
+    }
+
+    /* Animations */
+    @keyframes glitch {
+      0% {
+        text-shadow: 0 0 20px #00ff00, 0 0 40px #00ff00, 0 0 80px #00ff00;
+      }
+      20% {
+        text-shadow: 0 0 10px #00ff00, 0 0 20px #00ff00, 0 0 40px #00ff00;
+      }
+      40% {
+        text-shadow: 0 0 20px #00ff00, 0 0 40px #00ff00, 0 0 80px #00ff00;
+      }
+      60% {
+        text-shadow: 0 0 10px #00ff00, 0 0 20px #00ff00, 0 0 40px #00ff00;
+      }
+      80% {
+        text-shadow: 0 0 20px #00ff00, 0 0 40px #00ff00, 0 0 80px #00ff00;
+      }
+      100% {
+        text-shadow: 0 0 20px #00ff00, 0 0 40px #00ff00, 0 0 80px #00ff00;
+      }
+    }
+
+    @keyframes glitch-bg {
+      0% {
+        background-position: 0% 50%;
+      }
+      50% {
+        background-position: 100% 50%;
+      }
+      100% {
+        background-position: 0% 50%;
+      }
+    }
+
+    @keyframes terminal-glow {
+      0% {
+        background-position: 0% 50%;
+      }
+      50% {
+        background-position: 100% 50%;
+      }
+      100% {
+        background-position: 0% 50%;
+      }
+    }
+
+    @keyframes terminal-type {
+      from {
+        width: 0;
+      }
+      to {
+        width: 100%;
+      }
+    }
+
+    /* Responsive Styles */
+    @media (max-width: 768px) {
+      .hero h1 {
+        font-size: 3rem;
+      }
+
+      .hero p {
+        font-size: 1.5rem;
+      }
+
+      .project-showcase h2,
+      .contact h2 {
+        font-size: 2.5rem;
+      }
+
+      .terminal {
+        width: 90%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="#">Home</a>
+    <a href="#">Portfolio</a>
+    <a href="#">Contact</a>
+  </nav>
+
+  <div class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-content">
+      <h1>Hacking-Inspired Design</h1>
+      <p>Unleash the power of glitch and neon in your digital realm.</p>
+    </div>
+  </div>
+
+  <div class="project-showcase">
+    <h2>Project Showcase</h2>
+    <div class="project-grid">
+      <div class="project-item">
+        <img src="https://dummyimage.com/600x400/00ff00/000000.jpg&text=Project+1" alt="Project 1">
+        <div class="project-overlay">
+          <h3>Project 1</h3>
+          <p>Explore the chaos of hacking-inspired design.</p>
+        </div>
+      </div>
+      <div class="project-item">
+        <img src="https://dummyimage.com/600x400/00ff00/000000.jpg&text=Project+2" alt="Project 2">
+        <div class="project-overlay">
+          <h3>Project 2</h3>
+          <p>Witness the fusion of technology and art.</p>
+        </div>
+      </div>
+      <div class="project-item">
+        <img src="https://dummyimage.com/600x400/00ff00/000000.jpg&text=Project+3" alt="Project 3">
+        <div class="project-overlay">
+          <h3>Project 3</h3>
+          <p>Delve into the realm of digital disruption.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="contact">
+    <h2>Get in Touch</h2>
+    <div class="terminal">
+      <div class="terminal-text">
+        Welcome to the hacking-themed portfolio contact terminal.
+        Please enter your information below to connect with the designer.
+      </div>
+      <div class="terminal-input">
+        <input type="text" placeholder="Name" />
+        <input type="email" placeholder="Email" />
+        <button>Submit</button>
+      </div>
+    </div>
+  </div>
+</body>
+</html>'<!-- Visit: https://github.com/Ishanoshada/portflair -->
+<!-- Visit: https://github.com/Ishanoshada/portflair -->

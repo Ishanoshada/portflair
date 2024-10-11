@@ -1,0 +1,475 @@
+<!-- Portfolio created by Ishan -->
+<!-- Check out my work at: https://github.com/Ishanoshada/portflair -->
+<!-- 2024/10/9 -->
+<!-- Portfolio created by Ishan -->
+'<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sleek Portfolio</title>
+  <style>
+    /* Reset some default styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background-color: #111111;
+      color: #f1f1f1;
+    }
+
+    /* Navigation */
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.5rem 3rem;
+      background-color: #1a1a1a;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    .navbar-brand {
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: #f1f1f1;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    .navbar-brand:hover {
+      color: #bdbdbd;
+    }
+
+    .navbar-nav {
+      display: flex;
+      list-style-type: none;
+    }
+
+    .nav-item {
+      margin-left: 2rem;
+    }
+
+    .nav-link {
+      font-size: 1.1rem;
+      font-weight: 500;
+      color: #bdbdbd;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    .nav-link:hover {
+      color: #f1f1f1;
+    }
+
+    /* Portfolio Showcase */
+    .portfolio-showcase {
+      padding: 5rem 3rem;
+    }
+
+    .portfolio-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      grid-gap: 3rem;
+    }
+
+    .portfolio-item {
+      position: relative;
+      overflow: hidden;
+      border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+      transition: transform 0.3s ease;
+    }
+
+    .portfolio-item:hover {
+      transform: translateY(-10px);
+    }
+
+    .portfolio-item img {
+      width: 100%;
+      height: 300px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .portfolio-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.6);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .portfolio-item:hover .portfolio-overlay {
+      opacity: 1;
+    }
+
+    .portfolio-title {
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: #f1f1f1;
+      margin-bottom: 0.5rem;
+    }
+
+    .portfolio-description {
+      font-size: 1rem;
+      color: #bdbdbd;
+      margin-bottom: 1.5rem;
+    }
+
+    .portfolio-links {
+      display: flex;
+      gap: 1rem;
+    }
+
+    .portfolio-link {
+      font-size: 1rem;
+      font-weight: 500;
+      color: #f1f1f1;
+      text-decoration: none;
+      padding: 0.8rem 1.5rem;
+      border-radius: 4px;
+      background-color: #2b2b2b;
+      transition: background-color 0.3s ease;
+    }
+
+    .portfolio-link:hover {
+      background-color: #3b3b3b;
+    }
+
+    /* About Section */
+    .about-section {
+      display: flex;
+      align-items: center;
+      padding: 5rem 3rem;
+      background-color: #1a1a1a;
+    }
+
+    .about-image {
+      flex-basis: 40%;
+      margin-right: 3rem;
+    }
+
+    .about-image img {
+      width: 100%;
+      height: auto;
+      border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    .about-content {
+      flex-basis: 60%;
+    }
+
+    .about-title {
+      font-size: 2.2rem;
+      font-weight: 700;
+      color: #f1f1f1;
+      margin-bottom: 1.5rem;
+    }
+
+    .about-description {
+      font-size: 1.1rem;
+      color: #bdbdbd;
+      line-height: 1.6;
+      margin-bottom: 2rem;
+    }
+
+    .about-projects {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+    }
+
+    .project-item {
+      display: flex;
+      align-items: center;
+      background-color: #2b2b2b;
+      padding: 1rem 1.5rem;
+      border-radius: 4px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      transition: background-color 0.3s ease;
+    }
+
+    .project-item:hover {
+      background-color: #3b3b3b;
+    }
+
+    .project-icon {
+      font-size: 1.8rem;
+      color: #f1f1f1;
+      margin-right: 1rem;
+    }
+
+    .project-info {
+      flex-grow: 1;
+    }
+
+    .project-title {
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: #f1f1f1;
+      margin-bottom: 0.3rem;
+    }
+
+    .project-description {
+      font-size: 0.9rem;
+      color: #bdbdbd;
+    }
+
+    /* Contact Form */
+    .contact-section {
+      padding: 5rem 3rem;
+    }
+
+    .contact-form {
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .contact-form h2 {
+      font-size: 2.2rem;
+      font-weight: 700;
+      color: #f1f1f1;
+      margin-bottom: 2rem;
+    }
+
+    .form-group {
+      margin-bottom: 2rem;
+    }
+
+    .form-group label {
+      font-size: 1.1rem;
+      font-weight: 500;
+      color: #bdbdbd;
+      display: block;
+      margin-bottom: 0.5rem;
+    }
+
+    .form-group input,
+    .form-group textarea {
+      width: 100%;
+      padding: 1rem;
+      font-size: 1rem;
+      color: #f1f1f1;
+      background-color: #2b2b2b;
+      border: none;
+      border-radius: 4px;
+      transition: background-color 0.3s ease;
+    }
+
+    .form-group input:focus,
+    .form-group textarea:focus {
+      background-color: #3b3b3b;
+      outline: none;
+    }
+
+    .form-group textarea {
+      resize: vertical;
+      min-height: 150px;
+    }
+
+    .form-group button {
+      display: block;
+      width: 100%;
+      padding: 1rem;
+      font-size: 1.1rem;
+      font-weight: 500;
+      color: #f1f1f1;
+      background-color: #2b2b2b;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .form-group button:hover {
+      background-color: #3b3b3b;
+    }
+
+    /* Footer */
+    .footer {
+      background-color: #1a1a1a;
+      padding: 2rem 3rem;
+      text-align: center;
+      color: #bdbdbd;
+      font-size: 0.9rem;
+    }
+
+    .footer a {
+      color: #bdbdbd;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    .footer a:hover {
+      color: #f1f1f1;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav class="navbar">
+      <a href="#" class="navbar-brand">Sleek Portfolio</a>
+      <ul class="navbar-nav">
+        <li class="nav-item"><a href="#" class="nav-link">Home</a></li>
+        <li class="nav-item"><a href="#" class="nav-link">Portfolio</a></li>
+        <li class="nav-item"><a href="#" class="nav-link">About</a></li>
+        <li class="nav-item"><a href="#" class="nav-link">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <!-- Portfolio Showcase -->
+    <section class="portfolio-showcase">
+      <div class="portfolio-grid">
+        <div class="portfolio-item">
+          <img src="https://dummyimage.com/600x400/111/f1f1f1&text=Project+1" alt="Project 1">
+          <div class="portfolio-overlay">
+            <h3 class="portfolio-title">Project 1</h3>
+            <p class="portfolio-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            <div class="portfolio-links">
+              <a href="#" class="portfolio-link">View Case Study</a>
+              <a href="#" class="portfolio-link">Visit Live Site</a>
+            </div>
+          </div>
+        </div>
+        <div class="portfolio-item">
+          <img src="https://dummyimage.com/600x400/111/f1f1f1&text=Project+2" alt="Project 2">
+          <div class="portfolio-overlay">
+            <h3 class="portfolio-title">Project 2</h3>
+            <p class="portfolio-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            <div class="portfolio-links">
+              <a href="#" class="portfolio-link">View Case Study</a>
+              <a href="#" class="portfolio-link">Visit Live Site</a>
+            </div>
+          </div>
+        </div>
+        <div class="portfolio-item">
+          <img src="https://dummyimage.com/600x400/111/f1f1f1&text=Project+3" alt="Project 3">
+          <div class="portfolio-overlay">
+            <h3 class="portfolio-title">Project 3</h3>
+            <p class="portfolio-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            <div class="portfolio-links">
+              <a href="#" class="portfolio-link">View Case Study</a>
+              <a href="#" class="portfolio-link">Visit Live Site</a>
+            </div>
+          </div>
+        </div>
+        <div class="portfolio-item">
+          <img src="https://dummyimage.com/600x400/111/f1f1f1&text=Project+4" alt="Project 4">
+          <div class="portfolio-overlay">
+            <h3 class="portfolio-title">Project 4</h3>
+            <p class="portfolio-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            <div class="portfolio-links">
+              <a href="#" class="portfolio-link">View Case Study</a>
+              <a href="#" class="portfolio-link">Visit Live Site</a>
+            </div>
+          </div>
+        </div>
+        <div class="portfolio-item">
+          <img src="https://dummyimage.com/600x400/111/f1f1f1&text=Project+5" alt="Project 5">
+          <div class="portfolio-overlay">
+            <h3 class="portfolio-title">Project 5</h3>
+            <p class="portfolio-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            <div class="portfolio-links">
+              <a href="#" class="portfolio-link">View Case Study</a>
+              <a href="#" class="portfolio-link">Visit Live Site</a>
+            </div>
+          </div>
+        </div>
+        <div class="portfolio-item">
+          <img src="https://dummyimage.com/600x400/111/f1f1f1&text=Project+6" alt="Project 6">
+          <div class="portfolio-overlay">
+            <h3 class="portfolio-title">Project 6</h3>
+            <p class="portfolio-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            <div class="portfolio-links">
+              <a href="#" class="portfolio-link">View Case Study</a>
+              <a href="#" class="portfolio-link">Visit Live Site</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about-section">
+      <div class="about-image">
+        <img src="https://dummyimage.com/600x600/111/f1f1f1&text=Designer+Portrait" alt="Designer Portrait">
+      </div>
+      <div class="about-content">
+        <h2 class="about-title">About the Designer</h2>
+        <p class="about-description">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ut risus in augue luctus venenatis. Sed tincidunt, risus in finibus rutrum, leool lectus mauris ul trices mi, a hendrerit mi elit sit amet mi.
+        </p>
+        <div class="about-projects">
+          <div class="project-item">
+            <i class="project-icon fas fa-palette"></i>
+            <div class="project-info">
+              <h3 class="project-title">Branding</h3>
+              <p class="project-description">Creating distinctive brand identities</p>
+            </div>
+          </div>
+          <div class="project-item">
+            <i class="project-icon fas fa-mobile-alt"></i>
+            <div class="project-info">
+              <h3 class="project-title">UI/UX Design</h3>
+              <p class="project-description">Crafting intuitive and visually appealing user experiences</p>
+            </div>
+          </div>
+          <div class="project-item">
+            <i class="project-icon fas fa-code"></i>
+            <div class="project-info">
+              <h3 class="project-title">Web Development</h3>
+              <p class="project-description">Developing modern, responsive websites</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Form -->
+    <section class="contact-section">
+      <div class="contact-form">
+        <h2>Get in Touch</h2>
+        <form>
+          <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" placeholder="Enter your name" required>
+          </div>
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" placeholder="Enter your email" required>
+          </div>
+          <div class="form-group">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" placeholder="Enter your message" required></textarea>
+          </div>
+          <div class="form-group">
+            <button type="submit">Send Message</button>
+          </div>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>&copy; 2024 Sleek Portfolio. All rights reserved. Designed by <a href="#">Your Name</a>.</p>
+  </footer>
+
+  <!-- Add Font Awesome icons -->
+  <script src="https://kit.fontawesome.com/your-font-awesome-kit.js" crossorigin="anonymous"></script>
+</body>
+</html>'<!-- Visit: https://github.com/Ishanoshada/portflair -->
+<!-- Visit: https://github.com/Ishanoshada/portflair -->

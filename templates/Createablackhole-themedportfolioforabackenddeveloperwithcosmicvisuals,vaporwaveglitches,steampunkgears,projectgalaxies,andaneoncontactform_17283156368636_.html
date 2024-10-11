@@ -1,0 +1,458 @@
+<!-- Portfolio created by Ishan -->
+<!-- Check out my work at: https://github.com/Ishanoshada/portflair -->
+<!-- 2024/10/9 -->
+<!-- Portfolio created by Ishan -->
+'<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Black Hole Portfolio</title>
+    <style>
+        /* Global Styles */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Orbitron', sans-serif;
+            background-color: #000;
+            color: #fff;
+            overflow-x: hidden;
+        }
+
+        /* Navigation Bar */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 40px;
+            background-color: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(10px);
+            z-index: 100;
+            position: relative;
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 18px;
+            font-weight: bold;
+            padding: 10px 20px;
+            border-radius: 20px;
+            transition: background-color 0.3s ease;
+        }
+
+        nav a:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        /* Project Galaxies Section */
+        #project-galaxies {
+            padding: 100px 40px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        #project-galaxies::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('https://dummyimage.com/1200x500/181818/ffffff.png&text=Galaxy+Background');
+            background-size: cover;
+            background-position: center;
+            z-index: -1;
+            animation: galaxyBg 60s linear infinite;
+        }
+
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-gap: 40px;
+            width: 100%;
+            max-width: 1200px;
+        }
+
+        .project-galaxy {
+            position: relative;
+            overflow: hidden;
+            border-radius: 20px;
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .project-galaxy:hover {
+            transform: scale(1.05);
+        }
+
+        .project-galaxy img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            filter: blur(2px) brightness(0.8);
+            transition: filter 0.3s ease;
+        }
+
+        .project-galaxy:hover img {
+            filter: blur(0) brightness(1);
+        }
+
+        .project-details {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .project-galaxy:hover .project-details {
+            opacity: 1;
+        }
+
+        .project-details h3 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+        }
+
+        .project-details p {
+            font-size: 16px;
+            margin-bottom: 20px;
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+        }
+
+        .project-details a {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #8b00ff;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 20px;
+            box-shadow: 0 0 20px rgba(139, 0, 255, 0.5);
+            transition: background-color 0.3s ease;
+        }
+
+        .project-details a:hover {
+            background-color: #a64dff;
+        }
+
+        /* Cosmic Visuals Section */
+        #cosmic-visuals {
+            padding: 100px 40px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        #cosmic-visuals::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('https://dummyimage.com/1200x500/000/fff.png&text=Black+Hole+Background');
+            background-size: cover;
+            background-position: center;
+            z-index: -1;
+            animation: blackHoleBg 60s linear infinite;
+        }
+
+        .skill-hologram {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            grid-gap: 40px;
+            width: 100%;
+            max-width: 1200px;
+        }
+
+        .hologram {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 40px;
+            border-radius: 20px;
+            background-color: rgba(255, 255, 255, 0.1);
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            animation: hologramFloat 5s ease-in-out infinite;
+        }
+
+        .hologram h3 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+        }
+
+        .hologram p {
+            font-size: 16px;
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+        }
+
+        .hologram::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('https://dummyimage.com/150x150/8b00ff/ffffff.png&text=Skill+Icon');
+            background-size: 50%;
+            background-repeat: no-repeat;
+            background-position: center;
+            opacity: 0.3;
+            filter: blur(5px);
+            animation: hologramGlow 2s ease-in-out infinite;
+        }
+
+        /* Neon Contact Form Section */
+        #neon-contact {
+            padding: 100px 40px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        #neon-contact::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('https://dummyimage.com/1200x500/000/8b00ff.png&text=Neon+Grid+Background');
+            background-size: cover;
+            background-position: center;
+            z-index: -1;
+            animation: neonGridBg 60s linear infinite;
+        }
+
+        .neon-form {
+            width: 100%;
+            max-width: 600px;
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 0 20px rgba(139, 0, 255, 0.5);
+            backdrop-filter: blur(10px);
+        }
+
+        .neon-form h2 {
+            font-size: 32px;
+            margin-bottom: 40px;
+            text-align: center;
+            text-shadow: 0 0 10px rgba(139, 0, 255, 0.5);
+        }
+
+        .neon-form .input-group {
+            margin-bottom: 20px;
+        }
+
+        .neon-form label {
+            display: block;
+            font-size: 16px;
+            margin-bottom: 5px;
+            text-shadow: 0 0 10px rgba(139, 0, 255, 0.5);
+        }
+
+        .neon-form input,
+        .neon-form textarea {
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            border: none;
+            border-radius: 20px;
+            background-color: rgba(139, 0, 255, 0.2);
+            color: #fff;
+            box-shadow: 0 0 10px rgba(139, 0, 255, 0.5);
+            transition: box-shadow 0.3s ease;
+        }
+
+        .neon-form input:focus,
+        .neon-form textarea:focus {
+            box-shadow: 0 0 20px rgba(139, 0, 255, 0.8);
+            outline: none;
+        }
+
+        .neon-form button {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            font-size: 18px;
+            font-weight: bold;
+            border: none;
+            border-radius: 20px;
+            background-color: #8b00ff;
+            color: #fff;
+            box-shadow: 0 0 20px rgba(139, 0, 255, 0.5);
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .neon-form button:hover {
+            background-color: #a64dff;
+        }
+
+        /* Animations */
+        @keyframes galaxyBg {
+            0% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.1);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        @keyframes blackHoleBg {
+            0% {
+                transform: scale(1) rotate(0deg);
+            }
+            50% {
+                transform: scale(1.1) rotate(180deg);
+            }
+            100% {
+                transform: scale(1) rotate(360deg);
+            }
+        }
+
+        @keyframes hologramFloat {
+            0% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-20px);
+            }
+            100% {
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes hologramGlow {
+            0% {
+                opacity: 0.3;
+            }
+            50% {
+                opacity: 0.6;
+            }
+            100% {
+                opacity: 0.3;
+            }
+        }
+
+        @keyframes neonGridBg {
+            0% {
+                background-position: 0% 0%;
+            }
+            50% {
+                background-position: 100% 100%;
+            }
+            100% {
+                background-position: 0% 0%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="#">Home</a>
+        <a href="#">Projects</a>
+        <a href="#">Skills</a>
+        <a href="#">Contact</a>
+    </nav>
+
+    <section id="project-galaxies">
+        <div class="project-grid">
+            <div class="project-galaxy">
+                <img src="https://dummyimage.com/400x300/181818/ffffff.png&text=Project+1" alt="Project 1">
+                <div class="project-details">
+                    <h3>Project 1</h3>
+                    <p>Description of Project 1</p>
+                    <a href="#">View Project</a>
+                </div>
+            </div>
+            <div class="project-galaxy">
+                <img src="https://dummyimage.com/400x300/181818/ffffff.png&text=Project+2" alt="Project 2">
+                <div class="project-details">
+                    <h3>Project 2</h3>
+                    <p>Description of Project 2</p>
+                    <a href="#">View Project</a>
+                </div>
+            </div>
+            <div class="project-galaxy">
+                <img src="https://dummyimage.com/400x300/181818/ffffff.png&text=Project+3" alt="Project 3">
+                <div class="project-details">
+                    <h3>Project 3</h3>
+                    <p>Description of Project 3</p>
+                    <a href="#">View Project</a>
+                </div>
+            </div>
+            <div class="project-galaxy">
+                <img src="https://dummyimage.com/400x300/181818/ffffff.png&text=Project+4" alt="Project 4">
+                <div class="project-details">
+                    <h3>Project 4</h3>
+                    <p>Description of Project 4</p>
+                    <a href="#">View Project</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="cosmic-visuals">
+        <div class="skill-hologram">
+            <div class="hologram">
+                <h3>JavaScript</h3>
+                <p>Proficient in JavaScript</p>
+            </div>
+            <div class="hologram">
+                <h3>Node.js</h3>
+                <p>Experienced with Node.js</p>
+            </div>
+            <div class="hologram">
+                <h3>MongoDB</h3>
+                <p>Skilled in MongoDB</p>
+            </div>
+            <div class="hologram">
+                <h3>Express.js</h3>
+                <p>Knowledgeable in Express.js</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="neon-contact">
+        <div class="neon-form">
+            <h2>Get in Touch</h2>
+            <form>
+                <div class="input-group">
+                    <label for="name">Name</label>
+                    <input type="text" id="name" name="name" placeholder="Enter your name" required>
+                </div>
+                <div class="input-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" placeholder="Enter your email" required>
+                </div>
+                <div class="input-group">
+                    <label for="message">Message</label>
+                    <textarea id="message" name="message" placeholder="Enter your message" rows="5" required></textarea>
+                </div>
+                <button type="submit">Send Message</button>
+            </form>
+        </div>
+    </section>
+</body>
+</html>'<!-- Visit: https://github.com/Ishanoshada/portflair -->
+<!-- Visit: https://github.com/Ishanoshada/portflair -->

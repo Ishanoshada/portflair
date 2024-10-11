@@ -1,0 +1,439 @@
+<!-- Portfolio created by Ishan -->
+<!-- Check out my work at: https://github.com/Ishanoshada/portflair -->
+<!-- 2024/10/9 -->
+<!-- Portfolio created by Ishan -->
+'<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Black Hole Portfolio</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&display=swap');
+
+    body {
+      margin: 0;
+      font-family: 'Orbitron', sans-serif;
+      background-color: #000;
+      color: #fff;
+      overflow-x: hidden;
+    }
+
+    /* Navigation */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+      background-color: rgba(0, 0, 0, 0.6);
+      backdrop-filter: blur(10px);
+      position: relative;
+      z-index: 1;
+    }
+
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      font-size: 1.1rem;
+      font-weight: 500;
+      padding: 0.5rem 1rem;
+      transition: color 0.3s ease;
+    }
+
+    nav a:hover {
+      color: #9b59b6;
+    }
+
+    /* Project Gallery */
+    .project-gallery {
+      position: relative;
+      height: 80vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+    }
+
+    .project-gallery::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(ellipse at center, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 1) 100%);
+      z-index: 0;
+    }
+
+    .project-gallery .project-cube {
+      position: relative;
+      width: 200px;
+      height: 200px;
+      margin: 1rem;
+      transform-style: preserve-3d;
+      transition: transform 0.5s ease;
+      cursor: pointer;
+    }
+
+    .project-gallery .project-cube::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(45deg, #9b59b6, #8e44ad);
+      transform: translateZ(-20px);
+      filter: blur(20px);
+      opacity: 0.6;
+    }
+
+    .project-gallery .project-cube .face {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      opacity: 0.8;
+      transition: opacity 0.3s ease;
+    }
+
+    .project-gallery .project-cube .front {
+      background-image: url('https://dummyimage.com/400x400/ccc/000&text=Project+1');
+      transform: translateZ(100px);
+    }
+
+    .project-gallery .project-cube .back {
+      background-image: url('https://dummyimage.com/400x400/ccc/000&text=Project+2');
+      transform: rotateY(180deg) translateZ(100px);
+    }
+
+    .project-gallery .project-cube .right {
+      background-image: url('https://dummyimage.com/400x400/ccc/000&text=Project+3');
+      transform: rotateY(90deg) translateZ(100px);
+    }
+
+    .project-gallery .project-cube .left {
+      background-image: url('https://dummyimage.com/400x400/ccc/000&text=Project+4');
+      transform: rotateY(-90deg) translateZ(100px);
+    }
+
+    .project-gallery .project-cube .top {
+      background-image: url('https://dummyimage.com/400x400/ccc/000&text=Project+5');
+      transform: rotateX(90deg) translateZ(100px);
+    }
+
+    .project-gallery .project-cube .bottom {
+      background-image: url('https://dummyimage.com/400x400/ccc/000&text=Project+6');
+      transform: rotateX(-90deg) translateZ(100px);
+    }
+
+    .project-gallery .project-cube:hover {
+      transform: rotateX(30deg) rotateY(45deg);
+    }
+
+    .project-gallery .project-cube:hover .face {
+      opacity: 1;
+    }
+
+    /* Skills and Expertise */
+    .skills-expertise {
+      position: relative;
+      padding: 4rem 2rem;
+      background-image: radial-gradient(circle at center, #1e1e1e, #000);
+      overflow: hidden;
+    }
+
+    .skills-expertise::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: url('https://dummyimage.com/1200x800/ccc/000&text=Skill+Galaxy');
+      background-size: cover;
+      background-position: center;
+      filter: blur(50px);
+      opacity: 0.6;
+      z-index: 0;
+    }
+
+    .skills-expertise .skill-item {
+      position: relative;
+      display: flex;
+      align-items: center;
+      margin: 2rem 0;
+      padding: 1rem 2rem;
+      background-color: rgba(255, 255, 255, 0.1);
+      border-radius: 1rem;
+      transition: transform 0.3s ease, background-color 0.3s ease;
+      cursor: pointer;
+      z-index: 1;
+    }
+
+    .skills-expertise .skill-item:hover {
+      transform: scale(1.05);
+      background-color: rgba(255, 255, 255, 0.2);
+    }
+
+    .skills-expertise .skill-item .skill-icon {
+      font-size: 2rem;
+      margin-right: 1rem;
+      color: #9b59b6;
+    }
+
+    .skills-expertise .skill-item .skill-details {
+      flex-grow: 1;
+    }
+
+    .skills-expertise .skill-item .skill-details h3 {
+      margin: 0 0 0.5rem 0;
+      font-size: 1.2rem;
+      font-weight: 500;
+    }
+
+    .skills-expertise .skill-item .skill-details p {
+      margin: 0;
+      font-size: 0.9rem;
+      color: #ccc;
+    }
+
+    /* Contact Form */
+    .contact-form {
+      position: relative;
+      padding: 4rem 2rem;
+      background-color: #1e1e1e;
+      overflow: hidden;
+    }
+
+    .contact-form::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: url('https://dummyimage.com/1200x800/ccc/000&text=Steampunk+Gears');
+      background-size: cover;
+      background-position: center;
+      filter: blur(30px);
+      opacity: 0.4;
+      z-index: 0;
+    }
+
+    .contact-form .form-container {
+      position: relative;
+      max-width: 600px;
+      margin: 0 auto;
+      z-index: 1;
+    }
+
+    .contact-form .form-container h2 {
+      text-align: center;
+      font-size: 2rem;
+      margin-bottom: 2rem;
+      color: #9b59b6;
+    }
+
+    .contact-form .form-container .form-group {
+      margin-bottom: 1.5rem;
+    }
+
+    .contact-form .form-container label {
+      display: block;
+      font-size: 0.9rem;
+      font-weight: 500;
+      margin-bottom: 0.5rem;
+      color: #ccc;
+    }
+
+    .contact-form .form-container input,
+    .contact-form .form-container textarea {
+      width: 100%;
+      padding: 0.8rem 1rem;
+      font-size: 1rem;
+      font-family: 'Orbitron', sans-serif;
+      background-color: rgba(255, 255, 255, 0.1);
+      border: 1px solid #9b59b6;
+      border-radius: 0.5rem;
+      color: #fff;
+      transition: border-color 0.3s ease;
+    }
+
+    .contact-form .form-container input:focus,
+    .contact-form .form-container textarea:focus {
+      outline: none;
+      border-color: #8e44ad;
+    }
+
+    .contact-form .form-container button {
+      display: block;
+      width: 100%;
+      padding: 0.8rem 1rem;
+      font-size: 1.1rem;
+      font-family: 'Orbitron', sans-serif;
+      background-color: #9b59b6;
+      border: none;
+      border-radius: 0.5rem;
+      color: #fff;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .contact-form .form-container button:hover {
+      background-color: #8e44ad;
+    }
+
+    .contact-form .social-links {
+      display: flex;
+      justify-content: center;
+      margin-top: 2rem;
+    }
+
+    .contact-form .social-links a {
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      width: 40px;
+      height: 40px;
+      margin: 0 0.5rem;
+      font-size: 1.2rem;
+      color: #fff;
+      background-color: rgba(255, 255, 255, 0.1);
+      border-radius: 50%;
+      transition: background-color 0.3s ease;
+    }
+
+    .contact-form .social-links a:hover {
+      background-color: rgba(255, 255, 255, 0.2);
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="#">Home</a>
+    <a href="#">Projects</a>
+    <a href="#">Skills</a>
+    <a href="#">Contact</a>
+  </nav>
+
+  <div class="project-gallery">
+    <div class="project-cube">
+      <div class="face front"></div>
+      <div class="face back"></div>
+      <div class="face right"></div>
+      <div class="face left"></div>
+      <div class="face top"></div>
+      <div class="face bottom"></div>
+    </div>
+    <div class="project-cube">
+      <div class="face front"></div>
+      <div class="face back"></div>
+      <div class="face right"></div>
+      <div class="face left"></div>
+      <div class="face top"></div>
+      <div class="face bottom"></div>
+    </div>
+    <div class="project-cube">
+      <div class="face front"></div>
+      <div class="face back"></div>
+      <div class="face right"></div>
+      <div class="face left"></div>
+      <div class="face top"></div>
+      <div class="face bottom"></div>
+    </div>
+    <div class="project-cube">
+      <div class="face front"></div>
+      <div class="face back"></div>
+      <div class="face right"></div>
+      <div class="face left"></div>
+      <div class="face top"></div>
+      <div class="face bottom"></div>
+    </div>
+    <div class="project-cube">
+      <div class="face front"></div>
+      <div class="face back"></div>
+      <div class="face right"></div>
+      <div class="face left"></div>
+      <div class="face top"></div>
+      <div class="face bottom"></div>
+    </div>
+    <div class="project-cube">
+      <div class="face front"></div>
+      <div class="face back"></div>
+      <div class="face right"></div>
+      <div class="face left"></div>
+      <div class="face top"></div>
+      <div class="face bottom"></div>
+    </div>
+  </div>
+
+  <div class="skills-expertise">
+    <div class="skill-item">
+      <div class="skill-icon">
+        <i class="fas fa-code"></i>
+      </div>
+      <div class="skill-details">
+        <h3>Backend Development</h3>
+        <p>Proficient in languages like Python, Node.js, and Java. Experienced in building scalable and efficient backend systems.</p>
+      </div>
+    </div>
+    <div class="skill-item">
+      <div class="skill-icon">
+        <i class="fas fa-database"></i>
+      </div>
+      <div class="skill-details">
+        <h3>Database Management</h3>
+        <p>Skilled in working with relational databases like MySQL, PostgreSQL, and NoSQL databases like MongoDB.</p>
+      </div>
+    </div>
+    <div class="skill-item">
+      <div class="skill-icon">
+        <i class="fas fa-cloud"></i>
+      </div>
+      <div class="skill-details">
+        <h3>Cloud Technologies</h3>
+        <p>Experienced in deploying and managing applications on cloud platforms like AWS, Google Cloud, and Microsoft Azure.</p>
+      </div>
+    </div>
+    <div class="skill-item">
+      <div class="skill-icon">
+        <i class="fas fa-network-wired"></i>
+      </div>
+      <div class="skill-details">
+        <h3>Network and Security</h3>
+        <p>Knowledgeable in network architecture, protocols, and security best practices to ensure the reliability and safety of systems.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="contact-form">
+    <div class="form-container">
+      <h2>Get in Touch</h2>
+      <form>
+        <div class="form-group">
+          <label for="name">Name</label>
+          <input type="text" id="name" name="name" placeholder="Enter your name" required>
+        </div>
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" placeholder="Enter your email" required>
+        </div>
+        <div class="form-group">
+          <label for="message">Message</label>
+          <textarea id="message" name="message" placeholder="Enter your message" rows="5" required></textarea>
+        </div>
+        <button type="submit">Send Message</button>
+      </form>
+    </div>
+    <div class="social-links">
+      <a href="#" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+      <a href="#" target="_blank"><i class="fab fa-github"></i></a>
+      <a href="#" target="_blank"><i class="fab fa-twitter"></i></a>
+      <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
+    </div>
+  </div>
+
+  <script src="https://kit.fontawesome.com/your-font-awesome-kit.js" crossorigin="anonymous"></script>
+</body>
+</html>'<!-- Visit: https://github.com/Ishanoshada/portflair -->
+<!-- Visit: https://github.com/Ishanoshada/portflair -->

@@ -1,0 +1,551 @@
+<!-- Portfolio created by Ishan -->
+<!-- Check out my work at: https://github.com/Ishanoshada/portflair -->
+<!-- 2024/10/9 -->
+<!-- Portfolio created by Ishan -->
+'<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create a Black Hole-Themed Portfolio</title>
+    <style>
+        /* Global Styles */
+        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
+
+        body {
+            font-family: 'Orbitron', sans-serif;
+            background-color: #0f0f0f;
+            color: #fff;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+        }
+
+        /* Navigation Bar */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: rgba(15, 15, 15, 0.8);
+            padding: 1.5rem 2rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(10px);
+        }
+
+        .navbar-brand {
+            font-size: 2rem;
+            font-weight: bold;
+            text-decoration: none;
+            color: #fff;
+            text-shadow: 0 0 20px #00ffff, 0 0 40px #00ffff, 0 0 60px #00ffff, 0 0 80px #00ffff;
+            animation: neon-glow 2s ease-in-out infinite;
+        }
+
+        .navbar-nav {
+            display: flex;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .navbar-nav li {
+            margin-left: 2rem;
+        }
+
+        .navbar-nav li a {
+            text-decoration: none;
+            color: #fff;
+            font-size: 1.2rem;
+            transition: color 0.3s ease;
+        }
+
+        .navbar-nav li a:hover {
+            color: #00ffff;
+            text-shadow: 0 0 10px #00ffff, 0 0 20px #00ffff, 0 0 30px #00ffff;
+        }
+
+        /* Project Galaxies Section */
+        .project-galaxies {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background: radial-gradient(ellipse at center, #0f0f0f 0%, #000000 100%);
+            overflow: hidden;
+            position: relative;
+        }
+
+        .project-galaxy {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            width: 100%;
+            max-width: 1200px;
+            animation: galaxy-rotate 60s linear infinite;
+        }
+
+        .project-planet {
+            position: relative;
+            width: 150px;
+            height: 150px;
+            margin: 2rem;
+            background-color: #1d1d1d;
+            border-radius: 50%;
+            box-shadow: 0 0 20px rgba(0, 255, 255, 0.5), 0 0 40px rgba(0, 255, 255, 0.5), 0 0 60px rgba(0, 255, 255, 0.5);
+            transition: all 0.3s ease;
+            overflow: hidden;
+            cursor: pointer;
+        }
+
+        .project-planet:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 40px rgba(0, 255, 255, 0.7), 0 0 80px rgba(0, 255, 255, 0.7), 0 0 120px rgba(0, 255, 255, 0.7);
+        }
+
+        .project-planet::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.1) 0%, rgba(0, 255, 255, 0.3) 100%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .project-planet:hover::before {
+            opacity: 1;
+        }
+
+        .project-planet-content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            color: #fff;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .project-planet:hover .project-planet-content {
+            opacity: 1;
+        }
+
+        .project-planet-content h3 {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+            text-shadow: 0 0 10px #00ffff, 0 0 20px #00ffff, 0 0 30px #00ffff;
+        }
+
+        .project-planet-content p {
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+            text-shadow: 0 0 5px #00ffff, 0 0 10px #00ffff, 0 0 15px #00ffff;
+        }
+
+        .project-planet-content a {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            background-color: #00ffff;
+            color: #0f0f0f;
+            text-decoration: none;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            transition: background-color 0.3s ease;
+        }
+
+        .project-planet-content a:hover {
+            background-color: #00cccc;
+        }
+
+        /* Steampunk Gears Section */
+        .steampunk-gears {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background-color: #333;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .steampunk-gears-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('https://dummyimage.com/1920x1080/8b4513/ffffff.jpg&text=Steampunk+Gears');
+            background-size: cover;
+            background-position: center;
+            opacity: 0.2;
+            z-index: -1;
+        }
+
+        .steampunk-gears-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            max-width: 1200px;
+            animation: gears-rotate 30s linear infinite;
+        }
+
+        .steampunk-gear {
+            position: relative;
+            width: 100px;
+            height: 100px;
+            margin: 2rem;
+            background-color: #8b4513;
+            border-radius: 50%;
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.5), 0 0 40px rgba(255, 255, 255, 0.5), 0 0 60px rgba(255, 255, 255, 0.5);
+            transition: all 0.3s ease;
+            overflow: hidden;
+            cursor: pointer;
+        }
+
+        .steampunk-gear:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 40px rgba(255, 255, 255, 0.7), 0 0 80px rgba(255, 255, 255, 0.7), 0 0 120px rgba(255, 255, 255, 0.7);
+        }
+
+        .steampunk-gear::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.3) 100%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .steampunk-gear:hover::before {
+            opacity: 1;
+        }
+
+        .steampunk-gear-content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            color: #fff;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .steampunk-gear:hover .steampunk-gear-content {
+            opacity: 1;
+        }
+
+        .steampunk-gear-content h3 {
+            font-size: 1rem;
+            margin-bottom: 0.5rem;
+            text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff;
+        }
+
+        .steampunk-gear-content p {
+            font-size: 0.8rem;
+            margin-bottom: 1rem;
+            text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff;
+        }
+
+        /* Neon Contact Form */
+        .neon-contact-form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background: radial-gradient(ellipse at center, #0f0f0f 0%, #000000 100%);
+            overflow: hidden;
+            position: relative;
+        }
+
+        .neon-contact-form-container {
+            max-width: 600px;
+            width: 100%;
+            padding: 3rem;
+            background-color: rgba(15, 15, 15, 0.8);
+            border-radius: 10px;
+            box-shadow: 0 0 40px rgba(0, 255, 255, 0.5), 0 0 80px rgba(0, 255, 255, 0.5), 0 0 120px rgba(0, 255, 255, 0.5);
+            backdrop-filter: blur(10px);
+        }
+
+        .neon-contact-form h2 {
+            font-size: 2rem;
+            margin-bottom: 2rem;
+            text-align: center;
+            text-shadow: 0 0 20px #00ffff, 0 0 40px #00ffff, 0 0 60px #00ffff;
+        }
+
+        .neon-contact-form-field {
+            margin-bottom: 1.5rem;
+            position: relative;
+        }
+
+        .neon-contact-form-field input,
+        .neon-contact-form-field textarea {
+            width: 100%;
+            padding: 1rem;
+            font-size: 1rem;
+            font-family: 'Orbitron', sans-serif;
+            background-color: rgba(255, 255, 255, 0.1);
+            border: none;
+            border-radius: 5px;
+            color: #fff;
+            box-shadow: 0 0 10px rgba(0, 255, 255, 0.3);
+            transition: box-shadow 0.3s ease;
+        }
+
+        .neon-contact-form-field input:focus,
+        .neon-contact-form-field textarea:focus {
+            outline: none;
+            box-shadow: 0 0 20px rgba(0, 255, 255, 0.5), 0 0 40px rgba(0, 255, 255, 0.5), 0 0 60px rgba(0, 255, 255, 0.5);
+        }
+
+        .neon-contact-form-field label {
+            position: absolute;
+            top: 50%;
+            left: 1rem;
+            transform: translateY(-50%);
+            font-size: 1rem;
+            color: rgba(255, 255, 255, 0.6);
+            pointer-events: none;
+            transition: all 0.3s ease;
+        }
+
+        .neon-contact-form-field input:focus + label,
+        .neon-contact-form-field textarea:focus + label,
+        .neon-contact-form-field input:not(:placeholder-shown) + label,
+        .neon-contact-form-field textarea:not(:placeholder-shown) + label {
+            top: 0;
+            font-size: 0.8rem;
+            color: #00ffff;
+            text-shadow: 0 0 10px #00ffff, 0 0 20px #00ffff, 0 0 30px #00ffff;
+        }
+
+        .neon-contact-form-submit {
+            display: block;
+            width: 100%;
+            padding: 1rem;
+            font-size: 1.2rem;
+            font-family: 'Orbitron', sans-serif;
+            background-color: #00ffff;
+            color: #0f0f0f;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .neon-contact-form-submit:hover {
+            background-color: #00cccc;
+        }
+
+        /* Animations */
+        @keyframes galaxy-rotate {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        @keyframes gears-rotate {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        @keyframes neon-glow {
+            0% {
+                text-shadow: 0 0 10px #00ffff, 0 0 20px #00ffff, 0 0 30px #00ffff, 0 0 40px #00ffff;
+            }
+            50% {
+                text-shadow: 0 0 20px #00ffff, 0 0 40px #00ffff, 0 0 60px #00ffff, 0 0 80px #00ffff;
+            }
+            100% {
+                text-shadow: 0 0 10px #00ffff, 0 0 20px #00ffff, 0 0 30px #00ffff, 0 0 40px #00ffff;
+            }
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .navbar {
+                padding: 1rem;
+            }
+
+            .navbar-brand {
+                font-size: 1.5rem;
+            }
+
+            .navbar-nav li {
+                margin-left: 1rem;
+            }
+
+            .navbar-nav li a {
+                font-size: 1rem;
+            }
+
+            .project-planet,
+            .steampunk-gear {
+                width: 120px;
+                height: 120px;
+                margin: 1.5rem;
+            }
+
+            .neon-contact-form-container {
+                padding: 2rem;
+            }
+
+            .neon-contact-form h2 {
+                font-size: 1.5rem;
+            }
+
+            .neon-contact-form-field input,
+            .neon-contact-form-field textarea,
+            .neon-contact-form-field label {
+                font-size: 0.9rem;
+            }
+
+            .neon-contact-form-submit {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body><nav class="navbar">
+    <a href="#" class="navbar-brand">Black Hole Portfolio</a>
+    <ul class="navbar-nav">
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Projects</a></li>
+        <li><a href="#">Skills</a></li>
+        <li><a href="#">Contact</a></li>
+    </ul>
+</nav>
+
+<section class="project-galaxies">
+    <div class="project-galaxy">
+        <div class="project-planet">
+            <div class="project-planet-content">
+                <h3>Project 1</h3>
+                <p>Backend web application</p>
+                <a href="#">View Project</a>
+            </div>
+        </div>
+        <div class="project-planet">
+            <div class="project-planet-content">
+                <h3>Project 2</h3>
+                <p>Real-time data processing</p>
+                <a href="#">View Project</a>
+            </div>
+        </div>
+        <div class="project-planet">
+            <div class="project-planet-content">
+                <h3>Project 3</h3>
+                <p>Scalable API development</p>
+                <a href="#">View Project</a>
+            </div>
+        </div>
+        <div class="project-planet">
+            <div class="project-planet-content">
+                <h3>Project 4</h3>
+                <p>Distributed system architecture</p>
+                <a href="#">View Project</a>
+            </div>
+        </div>
+        <div class="project-planet">
+            <div class="project-planet-content">
+                <h3>Project 5</h3>
+                <p>Microservices implementation</p>
+                <a href="#">View Project</a>
+            </div>
+        </div>
+        <div class="project-planet">
+            <div class="project-planet-content">
+                <h3>Project 6</h3>
+                <p>Serverless computing solutions</p>
+                <a href="#">View Project</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="steampunk-gears">
+    <div class="steampunk-gears-background"></div>
+    <div class="steampunk-gears-container">
+        <div class="steampunk-gear">
+            <div class="steampunk-gear-content">
+                <h3>Python</h3>
+                <p>Backend development</p>
+            </div>
+        </div>
+        <div class="steampunk-gear">
+            <div class="steampunk-gear-content">
+                <h3>Node.js</h3>
+                <p>Asynchronous programming</p>
+            </div>
+        </div>
+        <div class="steampunk-gear">
+            <div class="steampunk-gear-content">
+                <h3>Ruby on Rails</h3>
+                <p>Rapid web application development</p>
+            </div>
+        </div>
+        <div class="steampunk-gear">
+            <div class="steampunk-gear-content">
+                <h3>Django</h3>
+                <p>High-performance web framework</p>
+            </div>
+        </div>
+        <div class="steampunk-gear">
+            <div class="steampunk-gear-content">
+                <h3>SQL</h3>
+                <p>Relational database management</p>
+            </div>
+        </div>
+        <div class="steampunk-gear">
+            <div class="steampunk-gear-content">
+                <h3>NoSQL</h3>
+                <p>Flexible data storage solutions</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="neon-contact-form">
+    <div class="neon-contact-form-container">
+        <h2>Get in Touch</h2>
+        <form action="#" method="post">
+            <div class="neon-contact-form-field">
+                <input type="text" id="name" placeholder=" " required>
+                <label for="name">Name</label>
+            </div>
+            <div class="neon-contact-form-field">
+                <input type="email" id="email" placeholder=" " required>
+                <label for="email">Email</label>
+            </div>
+            <div class="neon-contact-form-field">
+                <textarea id="message" placeholder=" " required></textarea>
+                <label for="message">Message</label>
+            </div>
+            <button type="submit" class="neon-contact-form-submit">Send</button>
+        </form>
+    </div>
+</section>
+
+</body>
+</html>'<!-- Visit: https://github.com/Ishanoshada/portflair -->
+<!-- Visit: https://github.com/Ishanoshada/portflair -->

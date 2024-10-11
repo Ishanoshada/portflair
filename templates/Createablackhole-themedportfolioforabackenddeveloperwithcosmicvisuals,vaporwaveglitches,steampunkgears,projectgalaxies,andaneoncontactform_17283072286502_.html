@@ -1,0 +1,388 @@
+<!-- Portfolio created by Ishan -->
+<!-- Check out my work at: https://github.com/Ishanoshada/portflair -->
+<!-- 2024/10/9 -->
+<!-- Portfolio created by Ishan -->
+'<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Black Hole Portfolio</title>
+  <style>
+    /* Global Styles */
+    body {
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #0D0D0D;
+      color: #fff;
+      overflow-x: hidden;
+    }
+
+    /* Navigation Bar */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 40px;
+      background-color: rgba(13, 13, 13, 0.8);
+      backdrop-filter: blur(10px);
+      position: relative;
+      z-index: 999;
+    }
+
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      font-size: 18px;
+      font-weight: 500;
+      padding: 10px 20px;
+      border-radius: 30px;
+      transition: background-color 0.3s ease;
+    }
+
+    nav a:hover {
+      background-color: rgba(255, 255, 255, 0.1);
+    }
+
+    /* About Section */
+    #about {
+      position: relative;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 0 40px;
+    }
+
+    #about::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: radial-gradient(circle, #0D0D0D, #0A0A0A, #080808);
+      z-index: -1;
+    }
+
+    #about::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: url('https://dummyimage.com/1200x500/ccc/000&text=Cosmic+Background');
+      background-size: cover;
+      background-position: center;
+      filter: blur(20px);
+      z-index: -2;
+    }
+
+    .about-content {
+      text-align: center;
+      max-width: 800px;
+      position: relative;
+    }
+
+    .about-content h1 {
+      font-size: 48px;
+      font-weight: 700;
+      margin-bottom: 20px;
+      text-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+    }
+
+    .about-content p {
+      font-size: 20px;
+      line-height: 1.6;
+      margin-bottom: 30px;
+      text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+    }
+
+    .developer-portrait {
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      background-image: url('https://dummyimage.com/400x400/ccc/000&text=Developer+Portrait');
+      background-size: cover;
+      background-position: center;
+      box-shadow: 0 0 50px 10px rgba(255, 255, 255, 0.5);
+      position: relative;
+      animation: pulse 3s infinite ease-in-out;
+    }
+
+    @keyframes pulse {
+      0% {
+        transform: scale(1);
+      }
+      50% {
+        transform: scale(1.1);
+      }
+      100% {
+        transform: scale(1);
+      }
+    }
+
+    /* Project Gallery */
+    #projects {
+      padding: 80px 40px;
+      background-color: #121212;
+    }
+
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      grid-gap: 40px;
+    }
+
+    .project-item {
+      position: relative;
+      overflow: hidden;
+      border-radius: 10px;
+      box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+      transition: transform 0.3s ease;
+    }
+
+    .project-item:hover {
+      transform: scale(1.05);
+    }
+
+    .project-item::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: linear-gradient(to bottom, rgba(13, 13, 13, 0.2), rgba(13, 13, 13, 0.8));
+      z-index: 1;
+    }
+
+    .project-item img {
+      width: 100%;
+      height: 250px;
+      object-fit: cover;
+      filter: brightness(0.8) contrast(1.2) saturate(1.2);
+      transition: filter 0.3s ease;
+    }
+
+    .project-item:hover img {
+      filter: brightness(1) contrast(1) saturate(1);
+    }
+
+    .project-details {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      padding: 20px;
+      z-index: 2;
+    }
+
+    .project-details h3 {
+      font-size: 24px;
+      font-weight: 600;
+      margin-bottom: 10px;
+      text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    }
+
+    .project-details p {
+      font-size: 16px;
+      line-height: 1.4;
+      margin-bottom: 0;
+      text-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+    }
+
+    /* Contact Form */
+    #contact {
+      padding: 80px 40px;
+      background-image: radial-gradient(circle, #0D0D0D, #0A0A0A, #080808);
+    }
+
+    .contact-form {
+      max-width: 600px;
+      margin: 0 auto;
+      text-align: center;
+      position: relative;
+    }
+
+    .contact-form::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: url('https://dummyimage.com/1200x500/ccc/000&text=Neon+Glitch+Background');
+      background-size: cover;
+      background-position: center;
+      filter: blur(20px);
+      z-index: -1;
+    }
+
+    .contact-form h2 {
+      font-size: 36px;
+      font-weight: 700;
+      margin-bottom: 30px;
+      text-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+    }
+
+    .contact-form form {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-gap: 20px;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+      background-color: rgba(255, 255, 255, 0.1);
+      border: none;
+      border-radius: 30px;
+      padding: 15px 20px;
+      font-size: 16px;
+      color: #fff;
+      transition: background-color 0.3s ease;
+    }
+
+    .contact-form input:focus,
+    .contact-form textarea:focus {
+      background-color: rgba(255, 255, 255, 0.2);
+      outline: none;
+    }
+
+    .contact-form textarea {
+      grid-column: 1 / -1;
+      resize: vertical;
+    }
+
+    .contact-form button {
+      grid-column: 1 / -1;
+      background-color: #7D5FFF;
+      color: #fff;
+      border: none;
+      border-radius: 30px;
+      padding: 15px 30px;
+      font-size: 18px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .contact-form button:hover {
+      background-color: #6C47FF;
+    }
+
+    /* Responsive Styles */
+    @media (max-width: 768px) {
+      nav {
+        padding: 15px 20px;
+      }
+
+      nav a {
+        font-size: 16px;
+        padding: 8px 16px;
+      }
+
+      #about {
+        height: auto;
+        padding: 80px 20px;
+      }
+
+      .about-content h1 {
+        font-size: 36px;
+      }
+
+      .about-content p {
+        font-size: 18px;
+      }
+
+      .developer-portrait {
+        width: 150px;
+        height: 150px;
+      }
+
+      #projects {
+        padding: 60px 20px;
+      }
+
+      .project-grid {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        grid-gap: 30px;
+      }
+
+      #contact {
+        padding: 60px 20px;
+      }
+
+      .contact-form h2 {
+        font-size: 30px;
+      }
+
+      .contact-form input,
+      .contact-form textarea {
+        font-size: 14px;
+      }
+
+      .contact-form button {
+        font-size: 16px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="#">Home</a>
+    <a href="#">About</a>
+    <a href="#">Projects</a>
+    <a href="#">Contact</a>
+  </nav>
+
+  <section id="about">
+    <div class="about-content">
+      <h1>Welcome to my Black Hole-Themed Portfolio</h1>
+      <p>Explore the cosmic depths of my backend development expertise, where vaporwave glitches and steampunk gears collide to create a truly unique and captivating experience.</p>
+      <div class="developer-portrait"></div>
+    </div>
+  </section>
+
+  <section id="projects">
+    <div class="project-grid">
+      <div class="project-item">
+        <img src="https://dummyimage.com/600x400/ccc/000&text=Project+1" alt="Project 1">
+        <div class="project-details">
+          <h3>Project 1</h3>
+          <p>Delve into the depths of a cosmic data management system, where black holes and galaxy clusters converge to create a seamless backend experience.</p>
+        </div>
+      </div>
+      <div class="project-item">
+        <img src="https://dummyimage.com/600x400/ccc/000&text=Project+2" alt="Project 2">
+        <div class="project-details">
+          <h3>Project 2</h3>
+          <p>Witness the birth of a new serverless architecture, where vaporwave-inspired glitches and steampunk-infused functions collide to form a truly innovative solution.</p>
+        </div>
+      </div>
+      <div class="project-item">
+        <img src="https://dummyimage.com/600x400/ccc/000&text=Project+3" alt="Project 3">
+        <div class="project-details">
+          <h3>Project 3</h3>
+          <p>Explore the mysteries of a data-driven universe, where project galaxies and cosmic algorithms converge to create a seamless and efficient backend experience.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="contact-form">
+      <h2>Get in Touch</h2>
+      <form>
+        <input type="text" placeholder="Name" required>
+        <input type="email" placeholder="Email" required>
+        <textarea placeholder="Message" required></textarea>
+        <button type="submit">Send</button>
+      </form>
+    </div>
+  </section>
+</body>
+</html>'<!-- Visit: https://github.com/Ishanoshada/portflair -->
+<!-- Visit: https://github.com/Ishanoshada/portflair -->

@@ -1,0 +1,480 @@
+<!-- Portfolio created by Ishan -->
+<!-- Check out my work at: https://github.com/Ishanoshada/portflair -->
+<!-- 2024/10/9 -->
+<!-- Portfolio created by Ishan -->
+<!-- Portfolio created by Ishan -->
+'<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Futuristic Dark Portfolio</title>
+  <style>
+    /* General Styles */
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Orbitron', sans-serif;
+      background-color: #000;
+      color: #fff;
+      overflow-x: hidden;
+    }
+
+    /* Navigation */
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 40px;
+      background-color: rgba(0, 0, 0, 0.6);
+      backdrop-filter: blur(10px);
+      position: relative;
+      z-index: 1;
+    }
+
+    .navbar a {
+      color: #fff;
+      text-decoration: none;
+      font-size: 18px;
+      margin: 0 20px;
+      transition: color 0.3s ease;
+    }
+
+    .navbar a:hover {
+      color: #8b00ff;
+    }
+
+    /* Hero Section */
+    .hero {
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(to bottom, #000, #1c1c1c);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-content {
+      text-align: center;
+      z-index: 1;
+    }
+
+    .hero-content h1 {
+      font-size: 5rem;
+      font-weight: bold;
+      text-shadow: 0 0 20px #8b00ff, 0 0 40px #8b00ff, 0 0 80px #8b00ff;
+      animation: glow 2s ease-in-out infinite;
+    }
+
+    .hero-content p {
+      font-size: 2rem;
+      margin-top: 20px;
+      text-shadow: 0 0 10px #8b00ff;
+    }
+
+    .hero-cta {
+      margin-top: 40px;
+    }
+
+    .hero-cta button {
+      background-color: #8b00ff;
+      color: #fff;
+      border: none;
+      padding: 15px 30px;
+      font-size: 1.2rem;
+      border-radius: 30px;
+      box-shadow: 0 0 20px #8b00ff;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+
+    .hero-cta button:hover {
+      transform: scale(1.1);
+    }
+
+    .particle-effect {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      z-index: 0;
+    }
+
+    /* Portfolio Section */
+    .portfolio {
+      padding: 80px 40px;
+      background-color: #1c1c1c;
+    }
+
+    .portfolio-title {
+      text-align: center;
+      font-size: 3rem;
+      font-weight: bold;
+      margin-bottom: 40px;
+      text-shadow: 0 0 20px #8b00ff;
+    }
+
+    .portfolio-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      grid-gap: 40px;
+    }
+
+    .portfolio-item {
+      background-color: #000;
+      border-radius: 10px;
+      overflow: hidden;
+      position: relative;
+      cursor: pointer;
+      box-shadow: 0 0 20px rgba(139, 0, 255, 0.5);
+    }
+
+    .portfolio-item img {
+      width: 100%;
+      height: 300px;
+      object-fit: cover;
+      transition: transform 0.3s ease;
+    }
+
+    .portfolio-item:hover img {
+      transform: scale(1.1);
+    }
+
+    .portfolio-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(139, 0, 255, 0.7);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .portfolio-item:hover .portfolio-overlay {
+      opacity: 1;
+    }
+
+    .portfolio-overlay h3 {
+      font-size: 2rem;
+      margin-bottom: 10px;
+      text-shadow: 0 0 10px #000;
+    }
+
+    .portfolio-overlay p {
+      font-size: 1.2rem;
+      margin-bottom: 20px;
+      text-shadow: 0 0 10px #000;
+    }
+
+    .portfolio-overlay a {
+      background-color: #8b00ff;
+      color: #fff;
+      padding: 10px 20px;
+      border-radius: 20px;
+      text-decoration: none;
+      font-size: 1.2rem;
+      transition: transform 0.3s ease;
+    }
+
+    .portfolio-overlay a:hover {
+      transform: scale(1.1);
+    }
+
+    /* About Section */
+    .about {
+      padding: 80px 40px;
+      background-color: #000;
+    }
+
+    .about-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .about-image {
+      flex: 0 0 40%;
+      position: relative;
+    }
+
+    .about-image img {
+      width: 100%;
+      height: auto;
+      border-radius: 50%;
+      box-shadow: 0 0 20px #8b00ff;
+      animation: glow 2s ease-in-out infinite;
+    }
+
+    .about-content {
+      flex: 0 0 55%;
+    }
+
+    .about-title {
+      font-size: 3rem;
+      font-weight: bold;
+      margin-bottom: 20px;
+      text-shadow: 0 0 20px #8b00ff;
+    }
+
+    .about-description {
+      font-size: 1.2rem;
+      line-height: 1.6;
+      margin-bottom: 40px;
+    }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+      grid-gap: 20px;
+    }
+
+    .skill-item {
+      background-color: #1c1c1c;
+      padding: 20px;
+      border-radius: 10px;
+      text-align: center;
+      box-shadow: 0 0 20px rgba(139, 0, 255, 0.5);
+      transition: transform 0.3s ease;
+    }
+
+    .skill-item:hover {
+      transform: scale(1.1);
+    }
+
+    .skill-item i {
+      font-size: 2rem;
+      color: #8b00ff;
+      margin-bottom: 10px;
+    }
+
+    .skill-item h4 {
+      font-size: 1.2rem;
+      margin-bottom: 5px;
+    }
+
+    .skill-item p {
+      font-size: 1rem;
+      color: #ccc;
+    }
+
+    /* Animations */
+    @keyframes glow {
+      0% {
+        text-shadow: 0 0 20px #8b00ff, 0 0 40px #8b00ff, 0 0 80px #8b00ff;
+      }
+      50% {
+        text-shadow: 0 0 30px #8b00ff, 0 0 50px #8b00ff, 0 0 100px #8b00ff;
+      }
+      100% {
+        text-shadow: 0 0 20px #8b00ff, 0 0 40px #8b00ff, 0 0 80px #8b00ff;
+      }
+    }
+
+    /* Responsive Styles */
+    @media (max-width: 768px) {
+      .navbar {
+        padding: 15px 20px;
+      }
+
+      .navbar a {
+        font-size: 16px;
+        margin: 0 10px;
+      }
+
+      .hero-content h1 {
+        font-size: 3rem;
+      }
+
+      .hero-content p {
+        font-size: 1.5rem;
+      }
+
+      .portfolio {
+        padding: 60px 20px;
+      }
+
+      .portfolio-title {
+        font-size: 2.5rem;
+      }
+
+      .about {
+        padding: 60px 20px;
+      }
+
+      .about-container {
+        flex-direction: column;
+      }
+
+      .about-image {
+        flex: 0 0 auto;
+        margin-bottom: 40px;
+      }
+
+      .about-content {
+        flex: 0 0 auto;
+      }
+
+      .about-title {
+        font-size: 2.5rem;
+      }
+
+      .about-description {
+        font-size: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav class="navbar">
+    <a href="#">Home</a>
+    <a href="#">Portfolio</a>
+    <a href="#">About</a>
+    <a href="#">Contact</a>
+  </nav>
+
+  <section class="hero">
+    <div class="hero-content">
+      <h1>John Doe</h1>
+      <p>Futuristic Web Designer</p>
+      <div class="hero-cta">
+        <button>Explore Portfolio</button>
+      </div>
+    </div>
+    <div class="particle-effect">
+      <canvas id="particle-canvas"></canvas>
+    </div>
+  </section>
+
+  <section class="portfolio">
+    <h2 class="portfolio-title">My Portfolio</h2>
+    <div class="portfolio-grid">
+      <div class="portfolio-item">
+        <img src="https://dummyimage.com/600x400/ccc/000&text=Project+1" alt="Project 1">
+        <div class="portfolio-overlay">
+          <h3>Project 1</h3>
+          <p>Description of Project 1</p>
+          <a href="#">View Case Study</a>
+        </div>
+      </div>
+      <div class="portfolio-item">
+        <img src="https://dummyimage.com/600x400/ccc/000&text=Project+2" alt="Project 2">
+        <div class="portfolio-overlay">
+          <h3>Project 2</h3>
+          <p>Description of Project 2</p>
+          <a href="#">View Case Study</a>
+        </div>
+      </div>
+      <div class="portfolio-item">
+        <img src="https://dummyimage.com/600x400/ccc/000&text=Project+3" alt="Project 3">
+        <div class="portfolio-overlay">
+          <h3>Project 3</h3>
+          <p>Description of Project 3</p>
+          <a href="#">View Case Study</a>
+        </div>
+      </div>
+      <div class="portfolio-item">
+        <img src="https://dummyimage.com/600x400/ccc/000&text=Project+4" alt="Project 4">
+        <div class="portfolio-overlay">
+          <h3>Project 4</h3>
+          <p>Description of Project 4</p>
+          <a href="#">View Case Study</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="about">
+    <div class="about-container">
+      <div class="about-image">
+        <img src="https://dummyimage.com/400x400/ccc/000&text=John+Doe" alt="John Doe">
+      </div>
+      <div class="about-content">
+        <h2 class="about-title">About Me</h2>
+        <p class="about-description">
+          Hi, I'm John Doe, a futuristic web designer with a passion for creating visually stunning and highly interactive websites. I specialize in crafting cutting-edge designs that blend seamlessly with the latest technologies, delivering a truly immersive user experience.
+        </p>
+        <div class="skills-grid">
+          <div class="skill-item">
+            <i class="fas fa-code"></i>
+            <h4>HTML/CSS</h4>
+            <p>Proficient in modern web technologies</p>
+          </div>
+          <div class="skill-item">
+            <i class="fas fa-paint-brush"></i>
+            <h4>UI/UX Design</h4>
+            <p>Crafting visually stunning interfaces</p>
+          </div>
+          <div class="skill-item">
+            <i class="fas fa-lightning-bolt"></i>
+            <h4>Interactivity</h4>
+            <p>Bringing websites to life with animations</p>
+          </div>
+          <div class="skill-item">
+            <i class="fas fa-rocket"></i>
+            <h4>Future Tech</h4>
+            <p>Staying ahead of the curve in web design</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    // Particle Effect
+    const canvas = document.getElementById('particle-canvas');
+    const ctx = canvas.getContext('2d');
+
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+
+    const particles = [];
+    const particleCount = 300;
+
+    for (let i = 0; i < particleCount; i++) {
+      particles.push({
+        x: Math.random() * canvas.width,
+        y: Math.random() * canvas.height,
+        size: Math.random() * 3 + 1,
+        speed: Math.random() * 2 + 1,
+        color: '#8b00ff'
+      });
+    }
+
+    function animate() {
+      requestAnimationFrame(animate);
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+      for (let i = 0; i < particles.length; i++) {
+        const particle = particles[i];
+        particle.x += particle.speed;
+        particle.y += particle.speed;
+
+        if (particle.x > canvas.width) {
+          particle.x = 0;
+        }
+
+        if (particle.y > canvas.height) {
+          particle.y = 0;
+        }
+
+        ctx.beginPath();
+        ctx.arc(particle.x, particle.y, particle.size, 0, Math.PI * 2);
+        ctx.fillStyle = particle.color;
+        ctx.fill();
+      }
+    }
+
+    animate();
+  </script>
+</body>
+</html>'<!-- Visit: https://github.com/Ishanoshada/portflair -->
+<!-- Visit: https://github.com/Ishanoshada/portflair -->
+<!-- Visit: https://github.com/Ishanoshada/portflair -->

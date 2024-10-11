@@ -1,0 +1,373 @@
+<!-- Portfolio created by Ishan -->
+<!-- Check out my work at: https://github.com/Ishanoshada/portflair -->
+<!-- 2024/10/9 -->
+<!-- Portfolio created by Ishan -->
+'<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Design a sleek, all-black portfolio</title>
+  <style>
+    /* Global Styles */
+    body {
+      font-family: 'Montserrat', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #1c1c1c;
+      color: #f0f0f0;
+    }
+
+    a {
+      color: #ccc;
+      text-decoration: none;
+    }
+
+    a:hover {
+      color: #fff;
+    }
+
+    /* Navigation */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 40px;
+      background-color: #141414;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    nav a {
+      font-size: 18px;
+      font-weight: 500;
+      margin: 0 20px;
+      transition: color 0.3s ease;
+    }
+
+    nav a:hover {
+      color: #fff;
+    }
+
+    /* Portfolio Showcase */
+    .portfolio-showcase {
+      padding: 80px 40px;
+    }
+
+    .portfolio-showcase h2 {
+      font-size: 36px;
+      font-weight: 700;
+      margin-bottom: 40px;
+      text-align: center;
+    }
+
+    .portfolio-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      grid-gap: 40px;
+    }
+
+    .portfolio-item {
+      background-color: #222;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+      transition: transform 0.3s ease;
+    }
+
+    .portfolio-item:hover {
+      transform: translateY(-5px);
+    }
+
+    .portfolio-item img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+
+    .portfolio-item .overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.6);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .portfolio-item:hover .overlay {
+      opacity: 1;
+    }
+
+    .portfolio-item .overlay h3 {
+      font-size: 24px;
+      font-weight: 600;
+      margin-bottom: 10px;
+    }
+
+    .portfolio-item .overlay p {
+      font-size: 16px;
+      margin-bottom: 0;
+    }
+
+    /* About Me */
+    .about-me {
+      background-color: #1a1a1a;
+      padding: 80px 40px;
+      display: flex;
+      align-items: center;
+    }
+
+    .about-me-content {
+      flex: 1;
+      margin-right: 60px;
+    }
+
+    .about-me-content h2 {
+      font-size: 36px;
+      font-weight: 700;
+      margin-bottom: 20px;
+    }
+
+    .about-me-content p {
+      font-size: 18px;
+      line-height: 1.6;
+      margin-bottom: 20px;
+    }
+
+    .about-me-content ul {
+      list-style-type: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .about-me-content ul li {
+      font-size: 16px;
+      margin-bottom: 10px;
+    }
+
+    .about-me-image {
+      flex: 1;
+    }
+
+    .about-me-image img {
+      width: 100%;
+      height: auto;
+      border-radius: 50%;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    }
+
+    /* Contact Form */
+    .contact-form {
+      background-color: #141414;
+      padding: 80px 40px;
+      text-align: center;
+    }
+
+    .contact-form h2 {
+      font-size: 36px;
+      font-weight: 700;
+      margin-bottom: 40px;
+    }
+
+    .contact-form form {
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .contact-form .form-group {
+      margin-bottom: 20px;
+      text-align: left;
+    }
+
+    .contact-form label {
+      display: block;
+      font-size: 16px;
+      font-weight: 500;
+      margin-bottom: 5px;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+      width: 100%;
+      padding: 12px 16px;
+      font-size: 16px;
+      border: none;
+      border-radius: 4px;
+      background-color: #1c1c1c;
+      color: #f0f0f0;
+      transition: background-color 0.3s ease;
+    }
+
+    .contact-form input:focus,
+    .contact-form textarea:focus {
+      background-color: #222;
+    }
+
+    .contact-form button {
+      background-color: #007bff;
+      color: #fff;
+      font-size: 18px;
+      font-weight: 500;
+      padding: 12px 24px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .contact-form button:hover {
+      background-color: #0056b3;
+    }
+
+    /* Responsive Styles */
+    @media (max-width: 767px) {
+      nav {
+        padding: 16px 20px;
+      }
+
+      nav a {
+        font-size: 16px;
+        margin: 0 12px;
+      }
+
+      .portfolio-showcase {
+        padding: 60px 20px;
+      }
+
+      .portfolio-showcase h2 {
+        font-size: 28px;
+        margin-bottom: 30px;
+      }
+
+      .portfolio-grid {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        grid-gap: 30px;
+      }
+
+      .about-me {
+        padding: 60px 20px;
+        flex-direction: column;
+      }
+
+      .about-me-content {
+        margin-right: 0;
+        margin-bottom: 40px;
+      }
+
+      .about-me-content h2 {
+        font-size: 28px;
+      }
+
+      .about-me-content p {
+        font-size: 16px;
+      }
+
+      .contact-form {
+        padding: 60px 20px;
+      }
+
+      .contact-form h2 {
+        font-size: 28px;
+        margin-bottom: 30px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="#">Home</a>
+    <a href="#">Portfolio</a>
+    <a href="#">About</a>
+    <a href="#">Contact</a>
+  </nav>
+
+  <section class="portfolio-showcase">
+    <h2>My Portfolio</h2>
+    <div class="portfolio-grid">
+      <div class="portfolio-item">
+        <img src="https://dummyimage.com/600x400/ccc/000&text=Project+1" alt="Project 1">
+        <div class="overlay">
+          <h3>Project 1</h3>
+          <p>Description of Project 1</p>
+        </div>
+      </div>
+      <div class="portfolio-item">
+        <img src="https://dummyimage.com/600x400/ccc/000&text=Project+2" alt="Project 2">
+        <div class="overlay">
+          <h3>Project 2</h3>
+          <p>Description of Project 2</p>
+        </div>
+      </div>
+      <div class="portfolio-item">
+        <img src="https://dummyimage.com/600x400/ccc/000&text=Project+3" alt="Project 3">
+        <div class="overlay">
+          <h3>Project 3</h3>
+          <p>Description of Project 3</p>
+        </div>
+      </div>
+      <div class="portfolio-item">
+        <img src="https://dummyimage.com/600x400/ccc/000&text=Project+4" alt="Project 4">
+        <div class="overlay">
+          <h3>Project 4</h3>
+          <p>Description of Project 4</p>
+        </div>
+      </div>
+      <div class="portfolio-item">
+        <img src="https://dummyimage.com/600x400/ccc/000&text=Project+5" alt="Project 5">
+        <div class="overlay">
+          <h3>Project 5</h3>
+          <p>Description of Project 5</p>
+        </div>
+      </div>
+      <div class="portfolio-item">
+        <img src="https://dummyimage.com/600x400/ccc/000&text=Project+6" alt="Project 6">
+        <div class="overlay">
+          <h3>Project 6</h3>
+          <p>Description of Project 6</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="about-me">
+    <div class="about-me-content">
+      <h2>About Me</h2>
+      <p>Hi, I'm a passionate designer with a strong focus on creating sleek, minimalist, and visually striking portfolios. My design philosophy revolves around using shades of dark grays and blacks, combined with crisp white or light gray text, to achieve a clean, elegant, and contrast-rich aesthetic.</p>
+      <ul>
+        <li>â¨ 5+ years of experience in web design</li>
+        <li>ð¨ Expertise in typography, color theory, and layout design</li>
+        <li>ð Skilled in Adobe Creative Cloud and modern web technologies</li>
+        <li>ð Award-winning designer with multiple industry accolades</li>
+      </ul>
+    </div>
+    <div class="about-me-image">
+      <img src="https://dummyimage.com/300x300/ccc/000&text=Designer+Photo" alt="Designer Photo">
+    </div>
+  </section>
+
+  <section class="contact-form">
+    <h2>Get in Touch</h2>
+    <form>
+      <div class="form-group">
+        <label for="name">Name</label>
+        <input type="text" id="name" placeholder="Enter your name" required>
+      </div>
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" id="email" placeholder="Enter your email" required>
+      </div>
+      <div class="form-group">
+        <label for="message">Message</label>
+        <textarea id="message" rows="5" placeholder="Enter your message" required></textarea>
+      </div>
+      <button type="submit">Send Message</button>
+    </form>
+  </section>
+</body>
+</html>'<!-- Visit: https://github.com/Ishanoshada/portflair -->
+<!-- Visit: https://github.com/Ishanoshada/portflair -->

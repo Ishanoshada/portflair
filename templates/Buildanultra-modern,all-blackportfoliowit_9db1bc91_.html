@@ -1,0 +1,424 @@
+<!-- Portfolio created by Ishan -->
+<!-- Check out my work at: https://github.com/Ishanoshada/portflair -->
+<!-- 2024/10/9 -->
+<!-- Portfolio created by Ishan -->
+'<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ultra-Modern Portfolio</title>
+  <style>
+    /* Global Styles */
+    body {
+      font-family: 'Montserrat', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #000;
+      color: #fff;
+    }
+
+    /* Navigation */
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 40px;
+      background-color: rgba(0, 0, 0, 0.7);
+      position: relative;
+      z-index: 2;
+    }
+
+    .navbar-brand {
+      font-size: 24px;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+    }
+
+    .navbar-nav {
+      display: flex;
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .navbar-nav li {
+      margin-left: 30px;
+    }
+
+    .navbar-nav li a {
+      color: #fff;
+      text-decoration: none;
+      font-size: 16px;
+      font-weight: 500;
+      transition: color 0.3s ease;
+    }
+
+    .navbar-nav li a:hover {
+      color: #aaa;
+    }
+
+    /* Hero Section */
+    .hero-section {
+      position: relative;
+      height: 80vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+    }
+
+    .hero-background {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: #000;
+      background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.9)), url("https://dummyimage.com/1200x500/ccc/000&text=Ultra+Modern+Portfolio");
+      background-size: cover;
+      background-position: center;
+      z-index: 1;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+    }
+
+    .hero-content h1 {
+      font-size: 48px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 4px;
+      margin-bottom: 10px;
+    }
+
+    .hero-content p {
+      font-size: 24px;
+      font-weight: 400;
+      margin-bottom: 30px;
+    }
+
+    .hero-content .cta-button {
+      display: inline-block;
+      background-color: #fff;
+      color: #000;
+      text-decoration: none;
+      font-size: 16px;
+      font-weight: 500;
+      padding: 12px 30px;
+      border-radius: 30px;
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+    .hero-content .cta-button:hover {
+      background-color: #aaa;
+      color: #000;
+    }
+
+    /* Project Showcase */
+    .project-showcase {
+      padding: 80px 40px;
+      background-color: #1a1a1a;
+    }
+
+    .project-showcase h2 {
+      font-size: 36px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 4px;
+      margin-bottom: 40px;
+      text-align: center;
+    }
+
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      grid-gap: 40px;
+    }
+
+    .project-item {
+      position: relative;
+      overflow: hidden;
+      border-radius: 8px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease;
+    }
+
+    .project-item:hover {
+      transform: scale(1.05);
+    }
+
+    .project-item img {
+      width: 100%;
+      height: 300px;
+      object-fit: cover;
+      filter: grayscale(100%);
+      transition: filter 0.3s ease;
+    }
+
+    .project-item:hover img {
+      filter: grayscale(0%);
+    }
+
+    .project-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.7);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .project-item:hover .project-overlay {
+      opacity: 1;
+    }
+
+    .project-overlay h3 {
+      font-size: 24px;
+      font-weight: 600;
+      margin-bottom: 10px;
+    }
+
+    .project-overlay p {
+      font-size: 16px;
+      font-weight: 400;
+      text-align: center;
+    }
+
+    /* About Section */
+    .about-section {
+      padding: 80px 40px;
+      background-color: #000;
+      display: flex;
+      align-items: center;
+    }
+
+    .about-image {
+      flex: 0 0 50%;
+      padding-right: 40px;
+    }
+
+    .about-image img {
+      width: 100%;
+      height: auto;
+      border-radius: 8px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .about-content {
+      flex: 0 0 50%;
+      padding-left: 40px;
+    }
+
+    .about-content h2 {
+      font-size: 36px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 4px;
+      margin-bottom: 20px;
+    }
+
+    .about-content p {
+      font-family: 'Merriweather', serif;
+      font-size: 18px;
+      line-height: 1.6;
+      margin-bottom: 30px;
+    }
+
+    .about-content .cta-button {
+      display: inline-block;
+      background-color: #fff;
+      color: #000;
+      text-decoration: none;
+      font-size: 16px;
+      font-weight: 500;
+      padding: 12px 30px;
+      border-radius: 30px;
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+    .about-content .cta-button:hover {
+      background-color: #aaa;
+      color: #000;
+    }
+
+    /* Responsive Styles */
+    @media (max-width: 991px) {
+      .navbar {
+        padding: 15px 30px;
+      }
+
+      .hero-section {
+        height: 60vh;
+      }
+
+      .hero-content h1 {
+        font-size: 36px;
+      }
+
+      .hero-content p {
+        font-size: 18px;
+      }
+
+      .project-showcase {
+        padding: 60px 30px;
+      }
+
+      .project-grid {
+        grid-gap: 30px;
+      }
+
+      .about-section {
+        padding: 60px 30px;
+      }
+
+      .about-image {
+        padding-right: 30px;
+      }
+
+      .about-content {
+        padding-left: 30px;
+      }
+
+      .about-content h2 {
+        font-size: 30px;
+      }
+
+      .about-content p {
+        font-size: 16px;
+      }
+    }
+
+    @media (max-width: 767px) {
+      .navbar-brand {
+        font-size: 20px;
+      }
+
+      .navbar-nav li {
+        margin-left: 20px;
+      }
+
+      .navbar-nav li a {
+        font-size: 14px;
+      }
+
+      .hero-section {
+        height: 50vh;
+      }
+
+      .hero-content h1 {
+        font-size: 30px;
+      }
+
+      .hero-content p {
+        font-size: 16px;
+      }
+
+      .project-showcase h2 {
+        font-size: 30px;
+      }
+
+      .project-grid {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      }
+
+      .about-section {
+        flex-direction: column;
+      }
+
+      .about-image {
+        flex: 0 0 auto;
+        padding-right: 0;
+        margin-bottom: 30px;
+      }
+
+      .about-content {
+        flex: 0 0 auto;
+        padding-left: 0;
+      }
+
+      .about-content h2 {
+        font-size: 24px;
+      }
+
+      .about-content p {
+        font-size: 14px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation -->
+  <nav class="navbar">
+    <div class="navbar-brand">Ultra-Modern Portfolio</div>
+    <ul class="navbar-nav">
+      <li><a href="#">Home</a></li>
+      <li><a href="#">Projects</a></li>
+      <li><a href="#">About</a></li>
+      <li><a href="#">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero-section">
+    <div class="hero-background"></div>
+    <div class="hero-content">
+      <h1>Build an Ultra-Modern Portfolio</h1>
+      <p>Showcase your work with sharp lines and muted tones.</p>
+      <a href="#" class="cta-button">Explore Projects</a>
+    </div>
+  </section>
+
+  <!-- Project Showcase -->
+  <section class="project-showcase">
+    <h2>Featured Projects</h2>
+    <div class="project-grid">
+      <div class="project-item">
+        <img src="https://dummyimage.com/400x300/ccc/000&text=Project+1" alt="Project 1">
+        <div class="project-overlay">
+          <h3>Project 1</h3>
+          <p>A sleek and modern design with sharp lines.</p>
+        </div>
+      </div>
+      <div class="project-item">
+        <img src="https://dummyimage.com/400x300/ccc/000&text=Project+2" alt="Project 2">
+        <div class="project-overlay">
+          <h3>Project 2</h3>
+          <p>Minimalist approach with muted tones.</p>
+        </div>
+      </div>
+      <div class="project-item">
+        <img src="https://dummyimage.com/400x300/ccc/000&text=Project+3" alt="Project 3">
+        <div class="project-overlay">
+          <h3>Project 3</h3>
+          <p>Seamless integration of form and function.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section class="about-section">
+    <div class="about-image">
+      <img src="https://dummyimage.com/400x400/ccc/000&text=Portfolio+Owner" alt="Portfolio Owner">
+    </div>
+    <div class="about-content">
+      <h2>About the Portfolio Owner</h2>
+      <p>As a passionate designer with a keen eye for detail, I strive to create visually stunning portfolios that showcase my work in the most impactful way. With a focus on ultra-modern aesthetics, sharp lines, and muted tones, I aim to deliver a cohesive and captivating experience for my clients and prospective collaborators.</p>
+      <a href="#" class="cta-button">Download CV</a>
+    </div>
+  </section>
+</body>
+</html>'<!-- Visit: https://github.com/Ishanoshada/portflair -->
+<!-- Visit: https://github.com/Ishanoshada/portflair -->

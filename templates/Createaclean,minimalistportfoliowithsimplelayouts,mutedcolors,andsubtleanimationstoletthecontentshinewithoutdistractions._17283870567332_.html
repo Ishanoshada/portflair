@@ -1,0 +1,372 @@
+<!-- Portfolio created by Ishan -->
+<!-- Check out my work at: https://github.com/Ishanoshada/portflair -->
+<!-- 2024/10/9 -->
+<!-- Portfolio created by Ishan -->
+'<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minimalist Portfolio</title>
+    <style>
+        /* Global Styles */
+        body {
+            font-family: 'Montserrat', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+
+        /* Navigation */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #fff;
+            padding: 1rem 2rem;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .navbar-brand {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #333;
+            text-decoration: none;
+        }
+
+        .navbar-nav {
+            display: flex;
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .nav-item {
+            margin-left: 1.5rem;
+        }
+
+        .nav-link {
+            color: #333;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-link:hover {
+            color: #7e57c2;
+        }
+
+        /* Portfolio Showcase */
+        .portfolio-showcase {
+            padding: 4rem 2rem;
+        }
+
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-gap: 2rem;
+        }
+
+        .portfolio-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .portfolio-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .portfolio-item img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+        }
+
+        .portfolio-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(126, 87, 194, 0.8);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .portfolio-item:hover .portfolio-overlay {
+            opacity: 1;
+        }
+
+        .portfolio-overlay h3 {
+            color: #fff;
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .portfolio-overlay p {
+            color: #fff;
+            font-size: 1rem;
+            text-align: center;
+        }
+
+        /* About Me */
+        .about-me {
+            display: flex;
+            align-items: center;
+            background-color: #fff;
+            padding: 4rem 2rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .about-me-image {
+            flex: 0 0 300px;
+            margin-right: 2rem;
+        }
+
+        .about-me-image img {
+            width: 100%;
+            height: auto;
+            border-radius: 50%;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            animation: fadeIn 0.5s ease;
+        }
+
+        .about-me-content {
+            flex: 1;
+        }
+
+        .about-me-content h2 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            animation: slideIn 0.5s ease;
+        }
+
+        .about-me-content p {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+            animation: fadeIn 0.5s ease 0.2s forwards;
+            opacity: 0;
+        }
+
+        /* Contact Section */
+        .contact-section {
+            background-color: #7e57c2;
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+
+        .contact-section h2 {
+            color: #fff;
+            font-size: 2rem;
+            margin-bottom: 2rem;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .contact-form {
+            max-width: 500px;
+            margin: 0 auto;
+            text-align: left;
+        }
+
+        .contact-form .form-group {
+            margin-bottom: 1.5rem;
+            animation: slideIn 0.5s ease forwards;
+            opacity: 0;
+        }
+
+        .contact-form label {
+            display: block;
+            color: #fff;
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 0.8rem 1rem;
+            font-size: 1rem;
+            border: none;
+            border-radius: 4px;
+            background-color: #9575cd;
+            color: #fff;
+            transition: background-color 0.3s ease;
+        }
+
+        .contact-form input:focus,
+        .contact-form textarea:focus {
+            background-color: #8e24aa;
+            outline: none;
+        }
+
+        .contact-form button {
+            display: block;
+            width: 100%;
+            padding: 0.8rem 1.5rem;
+            font-size: 1.1rem;
+            font-weight: bold;
+            color: #7e57c2;
+            background-color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, color 0.3s ease;
+            animation: fadeIn 0.5s ease 0.4s forwards;
+            opacity: 0;
+        }
+
+        .contact-form button:hover {
+            background-color: #f4f4f4;
+            color: #9575cd;
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideIn {
+            0% {
+                transform: translateY(20px);
+                opacity: 0;
+            }
+            100% {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .portfolio-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .about-me {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .about-me-image {
+                margin-right: 0;
+                margin-bottom: 2rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .portfolio-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <a href="#" class="navbar-brand">Minimalist Portfolio</a>
+        <ul class="navbar-nav">
+            <li class="nav-item"><a href="#" class="nav-link">Home</a></li>
+            <li class="nav-item"><a href="#" class="nav-link">Portfolio</a></li>
+            <li class="nav-item"><a href="#" class="nav-link">About</a></li>
+            <li class="nav-item"><a href="#" class="nav-link">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- Portfolio Showcase -->
+    <section class="portfolio-showcase">
+        <div class="portfolio-grid">
+            <div class="portfolio-item">
+                <img src="https://dummyimage.com/600x400/ccc/000&text=Portfolio+Item+1" alt="Portfolio Item 1">
+                <div class="portfolio-overlay">
+                    <h3>Project Title</h3>
+                    <p>Project Description</p>
+                </div>
+            </div>
+            <div class="portfolio-item">
+                <img src="https://dummyimage.com/600x400/ccc/000&text=Portfolio+Item+2" alt="Portfolio Item 2">
+                <div class="portfolio-overlay">
+                    <h3>Project Title</h3>
+                    <p>Project Description</p>
+                </div>
+            </div>
+            <div class="portfolio-item">
+                <img src="https://dummyimage.com/600x400/ccc/000&text=Portfolio+Item+3" alt="Portfolio Item 3">
+                <div class="portfolio-overlay">
+                    <h3>Project Title</h3>
+                    <p>Project Description</p>
+                </div>
+            </div>
+            <div class="portfolio-item">
+                <img src="https://dummyimage.com/600x400/ccc/000&text=Portfolio+Item+4" alt="Portfolio Item 4">
+                <div class="portfolio-overlay">
+                    <h3>Project Title</h3>
+                    <p>Project Description</p>
+                </div>
+            </div>
+            <div class="portfolio-item">
+                <img src="https://dummyimage.com/600x400/ccc/000&text=Portfolio+Item+5" alt="Portfolio Item 5">
+                <div class="portfolio-overlay">
+                    <h3>Project Title</h3>
+                    <p>Project Description</p>
+                </div>
+            </div>
+            <div class="portfolio-item">
+                <img src="https://dummyimage.com/600x400/ccc/000&text=Portfolio+Item+6" alt="Portfolio Item 6">
+                <div class="portfolio-overlay">
+                    <h3>Project Title</h3>
+                    <p>Project Description</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Me -->
+    <section class="about-me">
+        <div class="about-me-image">
+            <img src="https://dummyimage.com/300x300/ccc/000&text=Profile+Photo" alt="Profile Photo">
+        </div>
+        <div class="about-me-content">
+            <h2>About Me</h2>
+            <p>Hi, I'm a designer with a passion for creating clean, minimalist designs that let the content shine. I believe in using muted colors, subtle animations, and simple layouts to create an engaging and distraction-free user experience. My goal is to help clients showcase their work in the best possible way.</p>
+            <p>With years of experience in web design, branding, and visual communication, I've honed my skills to deliver high-quality, user-focused solutions. I'm always excited to collaborate with clients and bring their ideas to life.</p>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact-section">
+        <h2>Get in Touch</h2>
+        <div class="contact-form">
+            <form>
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" id="name" name="name" placeholder="Enter your name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" placeholder="Enter your email" required>
+                </div>
+                <div class="form-group">
+                    <label for="message">Message</label>
+                    <textarea id="message" name="message" placeholder="Write your message" required></textarea>
+                </div>
+                <button type="submit">Send Message</button>
+            </form>
+        </div>
+    </section>
+</body>
+</html>'<!-- Visit: https://github.com/Ishanoshada/portflair -->
+<!-- Visit: https://github.com/Ishanoshada/portflair -->

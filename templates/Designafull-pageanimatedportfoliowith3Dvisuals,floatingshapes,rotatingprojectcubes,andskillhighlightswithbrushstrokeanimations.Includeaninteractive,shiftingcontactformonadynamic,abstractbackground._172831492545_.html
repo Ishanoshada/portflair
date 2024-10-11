@@ -1,0 +1,391 @@
+<!-- Portfolio created by Ishan -->
+<!-- Check out my work at: https://github.com/Ishanoshada/portflair -->
+<!-- 2024/10/9 -->
+<!-- Portfolio created by Ishan -->
+'<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animated Portfolio Website</title>
+    <style>
+        /* Global Styles */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Montserrat', sans-serif;
+            background-color: #0e0e0e;
+            color: #f2f2f2;
+            overflow-x: hidden;
+        }
+
+        /* Navigation Bar */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 2rem;
+            background-color: rgba(14, 14, 14, 0.8);
+            backdrop-filter: blur(10px);
+            position: relative;
+            z-index: 100;
+        }
+
+        .navbar-brand {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #f2f2f2;
+            text-decoration: none;
+        }
+
+        .navbar-nav {
+            display: flex;
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .nav-item {
+            margin-left: 1.5rem;
+        }
+
+        .nav-link {
+            font-size: 1.1rem;
+            font-weight: 500;
+            color: #f2f2f2;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .nav-link:hover {
+            color: #9b59b6;
+        }
+
+        /* Portfolio Section */
+        .portfolio-section {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            padding: 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .portfolio-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, #9b59b6, #8e44ad, #2980b9, #e74c3c);
+            background-size: 400% 400%;
+            animation: backgroundAnimation 20s ease infinite;
+            z-index: -1;
+        }
+
+        @keyframes backgroundAnimation {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        .portfolio-cubes {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-gap: 2rem;
+            transform-style: preserve-3d;
+            perspective: 1000px;
+        }
+
+        .portfolio-cube {
+            width: 250px;
+            height: 250px;
+            position: relative;
+            transform-style: preserve-3d;
+            transition: transform 0.5s;
+        }
+
+        .portfolio-cube:hover {
+            transform: rotateY(180deg);
+        }
+
+        .portfolio-cube-front,
+        .portfolio-cube-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+        }
+
+        .portfolio-cube-front {
+            background: url('https://dummyimage.com/250x250/ccc/000&text=Project+1') no-repeat center;
+            background-size: cover;
+        }
+
+        .portfolio-cube-back {
+            background: url('https://dummyimage.com/250x250/ccc/000&text=Project+2') no-repeat center;
+            background-size: cover;
+            transform: rotateY(180deg);
+        }
+
+        .portfolio-cube-description {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: rgba(14, 14, 14, 0.8);
+            padding: 1rem;
+            border-radius: 10px;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .portfolio-cube:hover .portfolio-cube-description {
+            opacity: 1;
+        }
+
+        /* About Section */
+        .about-section {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            padding: 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .about-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(ellipse at center, #9b59b6, #8e44ad);
+            animation: backgroundAnimation 20s ease infinite;
+            z-index: -1;
+        }
+
+        .about-content {
+            display: flex;
+            align-items: center;
+            max-width: 1200px;
+            width: 100%;
+        }
+
+        .about-portrait {
+            width: 400px;
+            height: 400px;
+            background: url('https://dummyimage.com/400x400/ccc/000&text=Designer+Portrait') no-repeat center;
+            background-size: cover;
+            border-radius: 50%;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+            position: relative;
+            animation: portraitAnimation 10s ease infinite;
+        }
+
+        @keyframes portraitAnimation {
+            0% {
+                transform: translateX(-20px) translateY(10px) rotate(-5deg);
+            }
+            50% {
+                transform: translateX(20px) translateY(-10px) rotate(5deg);
+            }
+            100% {
+                transform: translateX(-20px) translateY(10px) rotate(-5deg);
+            }
+        }
+
+        .about-text {
+            flex-grow: 1;
+            margin-left: 4rem;
+        }
+
+        .about-text h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+        }
+
+        .about-text p {
+            font-size: 1.2rem;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+
+        /* Contact Section */
+        .contact-section {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            padding: 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .contact-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(ellipse at center, #e74c3c, #c0392b);
+            animation: backgroundAnimation 20s ease infinite;
+            z-index: -1;
+        }
+
+        .contact-form {
+            background-color: rgba(14, 14, 14, 0.8);
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+            max-width: 500px;
+            width: 100%;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .contact-form-input,
+        .contact-form-textarea {
+            display: block;
+            width: 100%;
+            padding: 0.8rem 1.2rem;
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+            border: none;
+            border-radius: 5px;
+            background-color: #f2f2f2;
+            color: #0e0e0e;
+            transition: transform 0.3s ease;
+        }
+
+        .contact-form-input:focus,
+        .contact-form-textarea:focus {
+            transform: translateY(-5px);
+        }
+
+        .contact-form-textarea {
+            height: 150px;
+            resize: none;
+        }
+
+        .contact-form-submit {
+            display: block;
+            width: 100%;
+            padding: 0.8rem 1.2rem;
+            font-size: 1.1rem;
+            font-weight: 600;
+            border: none;
+            border-radius: 5px;
+            background-color: #9b59b6;
+            color: #f2f2f2;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .contact-form-submit:hover {
+            background-color: #8e44ad;
+        }
+
+        .contact-form-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, #e74c3c, #c0392b, #2980b9, #8e44ad);
+            background-size: 400% 400%;
+            animation: backgroundAnimation 20s ease infinite;
+            z-index: -1;
+            opacity: 0.5;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <a href="#" class="navbar-brand">Animated Portfolio</a>
+        <ul class="navbar-nav">
+            <li class="nav-item"><a href="#" class="nav-link">Home</a></li>
+            <li class="nav-item"><a href="#" class="nav-link">Portfolio</a></li>
+            <li class="nav-item"><a href="#" class="nav-link">About</a></li>
+            <li class="nav-item"><a href="#" class="nav-link">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- Portfolio Section -->
+    <section class="portfolio-section">
+        <div class="portfolio-background"></div>
+        <div class="portfolio-cubes">
+            <div class="portfolio-cube">
+                <div class="portfolio-cube-front"></div>
+                <div class="portfolio-cube-back"></div>
+                <div class="portfolio-cube-description">
+                    <h3>Project 1</h3>
+                    <p>A brief description of the first project.</p>
+                </div>
+            </div>
+            <div class="portfolio-cube">
+                <div class="portfolio-cube-front"></div>
+                <div class="portfolio-cube-back"></div>
+                <div class="portfolio-cube-description">
+                    <h3>Project 2</h3>
+                    <p>A brief description of the second project.</p>
+                </div>
+            </div>
+            <div class="portfolio-cube">
+                <div class="portfolio-cube-front"></div>
+                <div class="portfolio-cube-back"></div>
+                <div class="portfolio-cube-description">
+                    <h3>Project 3</h3>
+                    <p>A brief description of the third project.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about-section">
+        <div class="about-background"></div>
+        <div class="about-content">
+            <div class="about-portrait"></div>
+            <div class="about-text">
+                <h2>About the Designer</h2>
+                <p>
+                    I am a passionate designer with a strong background in creating visually stunning and interactive portfolios. My work is characterized by a unique blend of 3D visuals, floating shapes, rotating project cubes, and skill highlights with brushstroke animations. I am dedicated to crafting engaging experiences that captivate and inspire my clients.
+                </p>
+                <p>
+                    With years of experience in the industry, I have honed my skills in various design disciplines, including UI/UX, motion graphics, and branding. I take pride in my ability to translate complex ideas into seamless, user-friendly interfaces that leave a lasting impression.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact-section">
+        <div class="contact-background"></div>
+        <div class="contact-form">
+            <div class="contact-form-background"></div>
+            <input type="text" placeholder="Name" class="contact-form-input">
+            <input type="email" placeholder="Email" class="contact-form-input">
+            <textarea placeholder="Message" class="contact-form-textarea"></textarea>
+            <button type="submit" class="contact-form-submit">Send Message</button>
+        </div>
+    </section>
+</body>
+</html>'<!-- Visit: https://github.com/Ishanoshada/portflair -->
+<!-- Visit: https://github.com/Ishanoshada/portflair -->

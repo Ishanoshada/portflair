@@ -1,0 +1,385 @@
+<!-- Portfolio created by Ishan -->
+<!-- Check out my work at: https://github.com/Ishanoshada/portflair -->
+<!-- 2024/10/9 -->
+<!-- Portfolio created by Ishan -->
+'<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Create a Mind-Bending Abstract Portfolio</title>
+  <style>
+    /* Global Styles */
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Poppins', sans-serif;
+      background-color: #0f0f0f;
+      color: #ffffff;
+      overflow-x: hidden;
+    }
+
+    /* Navigation Bar */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 40px;
+      background-color: rgba(15, 15, 15, 0.8);
+      backdrop-filter: blur(10px);
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 999;
+    }
+
+    nav a {
+      color: #ffffff;
+      text-decoration: none;
+      font-size: 18px;
+      font-weight: 500;
+      margin: 0 20px;
+      transition: color 0.3s ease-in-out;
+    }
+
+    nav a:hover {
+      color: #8c8c8c;
+    }
+
+    /* Interactive 3D Showcase */
+    .interactive-3d-showcase {
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .showcase-background {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(to bottom right, #1e1e1e, #0f0f0f);
+      z-index: -1;
+    }
+
+    .showcase-background::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0) 70%);
+      z-index: 1;
+    }
+
+    .showcase-background::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(to right, #ff00ff, #00ffff);
+      opacity: 0.1;
+      z-index: 2;
+    }
+
+    .showcase-3d-models {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      height: 100%;
+      perspective: 1000px;
+    }
+
+    .showcase-3d-models .model {
+      position: absolute;
+      width: 300px;
+      height: 300px;
+      background-image: url('https://dummyimage.com/300x300/ccc/000&text=Project+1');
+      background-size: cover;
+      background-position: center;
+      border-radius: 10px;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+      transform-style: preserve-3d;
+      transition: transform 0.5s ease-in-out;
+    }
+
+    .showcase-3d-models .model:nth-child(1) {
+      transform: translate(-200px, -100px) rotateY(30deg) rotateX(20deg);
+    }
+
+    .showcase-3d-models .model:nth-child(2) {
+      transform: translate(200px, 100px) rotateY(-30deg) rotateX(-20deg);
+    }
+
+    .showcase-3d-models .model:nth-child(3) {
+      transform: translate(0, 0) rotateY(0) rotateX(0);
+    }
+
+    .showcase-3d-models .model:hover {
+      transform: scale(1.1);
+    }
+
+    /* Interactive Grid Exploration */
+    .interactive-grid-exploration {
+      padding: 100px 40px;
+      background-color: #0f0f0f;
+    }
+
+    .grid-container {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-gap: 40px;
+    }
+
+    .grid-item {
+      position: relative;
+      overflow: hidden;
+      border-radius: 10px;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+      transition: transform 0.5s ease-in-out;
+    }
+
+    .grid-item::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(to bottom, rgba(255, 255, 255, 0.1), rgba(0, 0, 0, 0.8));
+      z-index: 1;
+      opacity: 0;
+      transition: opacity 0.5s ease-in-out;
+    }
+
+    .grid-item:hover::before {
+      opacity: 1;
+    }
+
+    .grid-item:hover {
+      transform: scale(1.1);
+    }
+
+    .grid-item-content {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+      z-index: 2;
+      opacity: 0;
+      transition: opacity 0.5s ease-in-out;
+    }
+
+    .grid-item:hover .grid-item-content {
+      opacity: 1;
+    }
+
+    .grid-item-content h3 {
+      font-size: 24px;
+      margin-bottom: 10px;
+    }
+
+    .grid-item-content p {
+      font-size: 16px;
+      color: #8c8c8c;
+    }
+
+    .grid-item:nth-child(1) {
+      background-image: url('https://dummyimage.com/400x400/ccc/000&text=Project+1');
+    }
+
+    .grid-item:nth-child(2) {
+      background-image: url('https://dummyimage.com/400x400/ccc/000&text=Project+2');
+    }
+
+    .grid-item:nth-child(3) {
+      background-image: url('https://dummyimage.com/400x400/ccc/000&text=Project+3');
+    }
+
+    .grid-item:nth-child(4) {
+      background-image: url('https://dummyimage.com/400x400/ccc/000&text=Project+4');
+    }
+
+    .grid-item:nth-child(5) {
+      background-image: url('https://dummyimage.com/400x400/ccc/000&text=Project+5');
+    }
+
+    .grid-item:nth-child(6) {
+      background-image: url('https://dummyimage.com/400x400/ccc/000&text=Project+6');
+    }
+
+    /* Kaleidoscopic Project Reveal */
+    .kaleidoscopic-project-reveal {
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .kaleidoscopic-background {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(to bottom right, #1e1e1e, #0f0f0f);
+      z-index: -1;
+      animation: kaleidoscope 20s ease-in-out infinite;
+    }
+
+    @keyframes kaleidoscope {
+      0% {
+        background: linear-gradient(to bottom right, #1e1e1e, #0f0f0f);
+      }
+      25% {
+        background: linear-gradient(to bottom left, #1e1e1e, #0f0f0f);
+      }
+      50% {
+        background: linear-gradient(to top left, #1e1e1e, #0f0f0f);
+      }
+      75% {
+        background: linear-gradient(to top right, #1e1e1e, #0f0f0f);
+      }
+      100% {
+        background: linear-gradient(to bottom right, #1e1e1e, #0f0f0f);
+      }
+    }
+
+    .project-showcase {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      height: 100%;
+      opacity: 0;
+      transition: opacity 0.5s ease-in-out;
+    }
+
+    .project-showcase.active {
+      opacity: 1;
+    }
+
+    .project-showcase img {
+      max-width: 80%;
+      max-height: 80%;
+      border-radius: 10px;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    }
+
+    .project-details {
+      margin-left: 40px;
+      max-width: 400px;
+    }
+
+    .project-details h2 {
+      font-size: 32px;
+      margin-bottom: 20px;
+    }
+
+    .project-details p {
+      font-size: 18px;
+      color: #8c8c8c;
+      line-height: 1.5;
+    }
+
+    .project-details a {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 10px 20px;
+      background-color: #ff00ff;
+      color: #ffffff;
+      text-decoration: none;
+      border-radius: 5px;
+      font-size: 16px;
+      transition: background-color 0.3s ease-in-out;
+    }
+
+    .project-details a:hover {
+      background-color: #00ffff;
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="#">Home</a>
+    <a href="#">Portfolio</a>
+    <a href="#">About</a>
+    <a href="#">Contact</a>
+  </nav>
+
+  <div class="interactive-3d-showcase">
+    <div class="showcase-background"></div>
+    <div class="showcase-3d-models">
+      <div class="model"></div>
+      <div class="model"></div>
+      <div class="model"></div>
+    </div>
+  </div>
+
+  <div class="interactive-grid-exploration">
+    <div class="grid-container">
+      <div class="grid-item">
+        <div class="grid-item-content">
+          <h3>Project 1</h3>
+          <p>Abstract design</p>
+        </div>
+      </div>
+      <div class="grid-item">
+        <div class="grid-item-content">
+          <h3>Project 2</h3>
+          <p>Neon grid</p>
+        </div>
+      </div>
+      <div class="grid-item">
+        <div class="grid-item-content">
+          <h3>Project 3</h3>
+          <p>Kaleidoscopic visuals</p>
+        </div>
+      </div>
+      <div class="grid-item">
+        <div class="grid-item-content">
+          <h3>Project 4</h3>
+          <p>Warping shapes</p>
+        </div>
+      </div>
+      <div class="grid-item">
+        <div class="grid-item-content">
+          <h3>Project 5</h3>
+          <p>Shifting 3D</p>
+        </div>
+      </div>
+      <div class="grid-item">
+        <div class="grid-item-content">
+          <h3>Project 6</h3>
+          <p>Abstract portfolio</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="kaleidoscopic-project-reveal">
+    <div class="kaleidoscopic-background"></div>
+    <div class="project-showcase active">
+      <img src="https://dummyimage.com/800x600/ccc/000&text=Project+1" alt="Project 1">
+      <div class="project-details">
+        <h2>Project 1</h2>
+        <p>Immerse yourself in the captivating 3D shapes and neon grids that make up this mind-bending abstract portfolio. Each project warps and twists into view, creating a mesmerizing and interactive experience for the user.</p>
+        <a href="#">View Case Study</a>
+      </div>
+    </div>
+  </div>
+</body>
+</html>'<!-- Visit: https://github.com/Ishanoshada/portflair -->
+<!-- Visit: https://github.com/Ishanoshada/portflair -->

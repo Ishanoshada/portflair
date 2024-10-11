@@ -1,0 +1,418 @@
+<!-- Portfolio created by Ishan -->
+<!-- Check out my work at: https://github.com/Ishanoshada/portflair -->
+<!-- 2024/10/9 -->
+<!-- Portfolio created by Ishan -->
+'<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Black Hole Portfolio</title>
+  <style>
+    /* General Styles */
+    body {
+      margin: 0;
+      font-family: 'Roboto', sans-serif;
+      background-color: #030303;
+      color: #fff;
+      overflow-x: hidden;
+    }
+
+    /* Navigation Bar */
+    .navbar {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: rgba(0, 0, 0, 0.5);
+      padding: 20px 0;
+      position: relative;
+      z-index: 1;
+    }
+
+    .navbar a {
+      color: #fff;
+      text-decoration: none;
+      margin: 0 20px;
+      font-size: 18px;
+      position: relative;
+      transition: color 0.3s ease;
+    }
+
+    .navbar a:after {
+      content: "";
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background-color: #8b00ff;
+      transition: width 0.3s ease;
+    }
+
+    .navbar a:hover {
+      color: #8b00ff;
+    }
+
+    .navbar a:hover:after {
+      width: 100%;
+    }
+
+    /* Project Galaxies Section */
+    .project-galaxies {
+      padding: 80px 0;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .project-galaxies:before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(ellipse at center, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0.2) 70%, rgba(0, 0, 0, 0) 100%);
+      z-index: 0;
+    }
+
+    .project-galaxies .galaxy {
+      position: relative;
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      background-color: #8b00ff;
+      margin: 40px;
+      display: inline-block;
+      overflow: hidden;
+      cursor: pointer;
+      transition: transform 0.5s ease, box-shadow 0.5s ease;
+    }
+
+    .project-galaxies .galaxy:before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(ellipse at center, rgba(139, 0, 255, 0.8) 0%, rgba(139, 0, 255, 0.2) 70%, rgba(139, 0, 255, 0) 100%);
+      z-index: 1;
+      opacity: 0;
+      transition: opacity 0.5s ease;
+    }
+
+    .project-galaxies .galaxy:hover {
+      transform: scale(1.1);
+      box-shadow: 0 0 30px rgba(139, 0, 255, 0.8);
+    }
+
+    .project-galaxies .galaxy:hover:before {
+      opacity: 1;
+    }
+
+    .project-galaxies .galaxy .project-info {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+      z-index: 2;
+      opacity: 0;
+      transition: opacity 0.5s ease;
+    }
+
+    .project-galaxies .galaxy:hover .project-info {
+      opacity: 1;
+    }
+
+    .project-galaxies .galaxy .project-info h3 {
+      font-size: 24px;
+      margin-bottom: 10px;
+    }
+
+    .project-galaxies .galaxy .project-info p {
+      font-size: 16px;
+      margin-bottom: 0;
+    }
+
+    /* Vaporwave Glitch Portfolio Section */
+    .vaporwave-glitch {
+      padding: 80px 0;
+      background-image: url("https://dummyimage.com/1200x500/9370db/000&text=Vaporwave+Glitch+Portfolio");
+      background-size: cover;
+      background-position: center;
+      position: relative;
+    }
+
+    .vaporwave-glitch:before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(to bottom, rgba(147, 112, 219, 0.8), rgba(147, 112, 219, 0.2));
+      z-index: 0;
+    }
+
+    .vaporwave-glitch .portfolio-items {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-gap: 40px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .vaporwave-glitch .portfolio-item {
+      background-color: rgba(147, 112, 219, 0.5);
+      border-radius: 10px;
+      padding: 30px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      cursor: pointer;
+    }
+
+    .vaporwave-glitch .portfolio-item:before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(45deg, #ff00ff, #00ffff);
+      opacity: 0;
+      transition: opacity 0.5s ease;
+    }
+
+    .vaporwave-glitch .portfolio-item:hover:before {
+      opacity: 0.5;
+    }
+
+    .vaporwave-glitch .portfolio-item h3 {
+      font-size: 22px;
+      margin-bottom: 10px;
+    }
+
+    .vaporwave-glitch .portfolio-item p {
+      font-size: 16px;
+      margin-bottom: 0;
+    }
+
+    /* Cosmic Contact Form Section */
+    .cosmic-contact {
+      padding: 80px 0;
+      background-image: url("https://dummyimage.com/1200x500/000/00ffff&text=Cosmic+Contact");
+      background-size: cover;
+      background-position: center;
+      position: relative;
+    }
+
+    .cosmic-contact:before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(ellipse at center, rgba(0, 255, 255, 0.8) 0%, rgba(0, 255, 255, 0.2) 70%, rgba(0, 255, 255, 0) 100%);
+      z-index: 0;
+    }
+
+    .cosmic-contact .contact-form {
+      max-width: 600px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
+    }
+
+    .cosmic-contact .contact-form h2 {
+      text-align: center;
+      font-size: 32px;
+      margin-bottom: 40px;
+    }
+
+    .cosmic-contact .contact-form .form-group {
+      margin-bottom: 20px;
+    }
+
+    .cosmic-contact .contact-form label {
+      display: block;
+      font-size: 18px;
+      margin-bottom: 5px;
+    }
+
+    .cosmic-contact .contact-form input,
+    .cosmic-contact .contact-form textarea {
+      width: 100%;
+      padding: 10px 15px;
+      font-size: 16px;
+      border: none;
+      border-radius: 5px;
+      background-color: rgba(0, 255, 255, 0.2);
+      color: #fff;
+      transition: background-color 0.3s ease;
+    }
+
+    .cosmic-contact .contact-form input:focus,
+    .cosmic-contact .contact-form textarea:focus {
+      background-color: rgba(0, 255, 255, 0.4);
+    }
+
+    .cosmic-contact .contact-form button {
+      display: block;
+      margin: 0 auto;
+      padding: 10px 30px;
+      font-size: 18px;
+      background-color: #00ffff;
+      color: #030303;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .cosmic-contact .contact-form button:hover {
+      background-color: #00cccc;
+    }
+
+    /* Responsive Styles */
+    @media (max-width: 768px) {
+      .navbar a {
+        font-size: 16px;
+      }
+
+      .project-galaxies .galaxy {
+        width: 150px;
+        height: 150px;
+        margin: 20px;
+      }
+
+      .project-galaxies .galaxy .project-info h3 {
+        font-size: 20px;
+      }
+
+      .project-galaxies .galaxy .project-info p {
+        font-size: 14px;
+      }
+
+      .vaporwave-glitch .portfolio-items {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .cosmic-contact .contact-form h2 {
+        font-size: 28px;
+      }
+
+      .cosmic-contact .contact-form label,
+      .cosmic-contact .contact-form input,
+      .cosmic-contact .contact-form textarea,
+      .cosmic-contact .contact-form button {
+        font-size: 16px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation Bar -->
+  <nav class="navbar">
+    <a href="#">Home</a>
+    <a href="#">About</a>
+    <a href="#">Projects</a>
+    <a href="#">Contact</a>
+  </nav>
+
+  <!-- Project Galaxies Section -->
+  <section class="project-galaxies">
+    <div class="galaxy">
+      <div class="project-info">
+        <h3>Project 1</h3>
+        <p>Backend Development</p>
+      </div>
+    </div>
+    <div class="galaxy">
+      <div class="project-info">
+        <h3>Project 2</h3>
+        <p>Cosmic Visuals</p>
+      </div>
+    </div>
+    <div class="galaxy">
+      <div class="project-info">
+        <h3>Project 3</h3>
+        <p>Steampunk Gears</p>
+      </div>
+    </div>
+    <div class="galaxy">
+      <div class="project-info">
+        <h3>Project 4</h3>
+        <p>Vaporwave Glitches</p>
+      </div>
+    </div>
+    <div class="galaxy">
+      <div class="project-info">
+        <h3>Project 5</h3>
+        <p>Neon Contact Form</p>
+      </div>
+    </div>
+    <div class="galaxy">
+      <div class="project-info">
+        <h3>Project 6</h3>
+        <p>Cosmic Portfolio</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Vaporwave Glitch Portfolio Section -->
+  <section class="vaporwave-glitch">
+    <div class="portfolio-items">
+      <div class="portfolio-item">
+        <h3>Project 1</h3>
+        <p>Backend Development</p>
+      </div>
+      <div class="portfolio-item">
+        <h3>Project 2</h3>
+        <p>Cosmic Visuals</p>
+      </div>
+      <div class="portfolio-item">
+        <h3>Project 3</h3>
+        <p>Steampunk Gears</p>
+      </div>
+      <div class="portfolio-item">
+        <h3>Project 4</h3>
+        <p>Vaporwave Glitches</p>
+      </div>
+      <div class="portfolio-item">
+        <h3>Project 5</h3>
+        <p>Neon Contact Form</p>
+      </div>
+      <div class="portfolio-item">
+        <h3>Project 6</h3>
+        <p>Cosmic Portfolio</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Cosmic Contact Form Section -->
+  <section class="cosmic-contact">
+    <div class="contact-form">
+      <h2>Get in Touch</h2>
+      <form>
+        <div class="form-group">
+          <label for="name">Name</label>
+          <input type="text" id="name" placeholder="Enter your name" required>
+        </div>
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" id="email" placeholder="Enter your email" required>
+        </div>
+        <div class="form-group">
+          <label for="message">Message</label>
+          <textarea id="message" rows="5" placeholder="Enter your message" required></textarea>
+        </div>
+        <button type="submit">Send Message</button>
+      </form>
+    </div>
+  </section>
+</body>
+</html>'<!-- Visit: https://github.com/Ishanoshada/portflair -->
+<!-- Visit: https://github.com/Ishanoshada/portflair -->

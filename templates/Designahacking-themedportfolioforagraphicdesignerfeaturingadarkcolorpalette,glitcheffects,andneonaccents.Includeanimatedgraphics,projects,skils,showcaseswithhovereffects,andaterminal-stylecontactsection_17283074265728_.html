@@ -1,0 +1,387 @@
+<!-- Portfolio created by Ishan -->
+<!-- Check out my work at: https://github.com/Ishanoshada/portflair -->
+<!-- 2024/10/9 -->
+<!-- Portfolio created by Ishan -->
+'<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hacking-Themed Portfolio</title>
+  <style>
+    /* Global Styles */
+    body {
+      font-family: 'Courier New', monospace;
+      background-color: #0f0f0f;
+      color: #00ff00;
+      margin: 0;
+      padding: 0;
+      overflow-x: hidden;
+    }
+
+    /* Navigation Bar */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 40px;
+      background-color: #0f0f0f;
+      border-bottom: 2px solid #00ff00;
+    }
+
+    nav a {
+      color: #00ff00;
+      text-decoration: none;
+      font-size: 18px;
+      padding: 10px 20px;
+      border-radius: 5px;
+      transition: background-color 0.3s ease;
+    }
+
+    nav a:hover {
+      background-color: rgba(0, 255, 0, 0.1);
+    }
+
+    /* Projects Showcase */
+    #projects {
+      padding: 80px 40px;
+    }
+
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      grid-gap: 40px;
+    }
+
+    .project-tile {
+      position: relative;
+      overflow: hidden;
+      border-radius: 10px;
+      box-shadow: 0 0 20px rgba(0, 255, 0, 0.3);
+      transition: transform 0.3s ease;
+    }
+
+    .project-tile:hover {
+      transform: scale(1.05);
+    }
+
+    .project-tile img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      filter: grayscale(100%);
+      transition: filter 0.3s ease;
+    }
+
+    .project-tile:hover img {
+      filter: grayscale(0%);
+    }
+
+    .project-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 255, 0, 0.1);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .project-tile:hover .project-overlay {
+      opacity: 1;
+    }
+
+    .project-overlay h3 {
+      font-size: 24px;
+      margin-bottom: 10px;
+      text-shadow: 0 0 10px #00ff00;
+    }
+
+    .project-overlay p {
+      font-size: 16px;
+      margin-bottom: 20px;
+      text-shadow: 0 0 10px #00ff00;
+    }
+
+    .project-overlay a {
+      color: #00ff00;
+      text-decoration: none;
+      padding: 10px 20px;
+      border: 2px solid #00ff00;
+      border-radius: 5px;
+      transition: background-color 0.3s ease;
+    }
+
+    .project-overlay a:hover {
+      background-color: rgba(0, 255, 0, 0.1);
+    }
+
+    /* Skills and Expertise */
+    #skills {
+      padding: 80px 40px;
+      background-color: #0f0f0f;
+      border-top: 2px solid #00ff00;
+      border-bottom: 2px solid #00ff00;
+    }
+
+    .skills-container {
+      max-width: 800px;
+      margin: 0 auto;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .skills-text {
+      font-size: 18px;
+      line-height: 1.5;
+      animation: glitch 3s infinite linear;
+    }
+
+    @keyframes glitch {
+      0% {
+        transform: translateX(0);
+      }
+      20% {
+        transform: translateX(-2px);
+      }
+      40% {
+        transform: translateX(2px);
+      }
+      60% {
+        transform: translateX(-2px);
+      }
+      80% {
+        transform: translateX(2px);
+      }
+      100% {
+        transform: translateX(0);
+      }
+    }
+
+    .skills-text:before,
+    .skills-text:after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: #0f0f0f;
+      animation: glitch-bg 3s infinite linear;
+    }
+
+    @keyframes glitch-bg {
+      0% {
+        transform: translateX(0);
+      }
+      20% {
+        transform: translateX(-4px);
+      }
+      40% {
+        transform: translateX(4px);
+      }
+      60% {
+        transform: translateX(-4px);
+      }
+      80% {
+        transform: translateX(4px);
+      }
+      100% {
+        transform: translateX(0);
+      }
+    }
+
+    .skills-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 255, 0, 0.1);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .skills-container:hover .skills-overlay {
+      opacity: 1;
+    }
+
+    .skills-overlay h3 {
+      font-size: 24px;
+      margin-bottom: 20px;
+      text-shadow: 0 0 10px #00ff00;
+    }
+
+    .skills-overlay p {
+      font-size: 16px;
+      margin-bottom: 20px;
+      text-shadow: 0 0 10px #00ff00;
+    }
+
+    /* Contact Section */
+    #contact {
+      padding: 80px 40px;
+    }
+
+    .contact-form {
+      max-width: 600px;
+      margin: 0 auto;
+      background-color: #0f0f0f;
+      padding: 40px;
+      border-radius: 10px;
+      box-shadow: 0 0 20px rgba(0, 255, 0, 0.3);
+    }
+
+    .contact-form h2 {
+      font-size: 24px;
+      margin-bottom: 20px;
+      text-align: center;
+      text-shadow: 0 0 10px #00ff00;
+    }
+
+    .contact-form .form-group {
+      margin-bottom: 20px;
+    }
+
+    .contact-form label {
+      display: block;
+      font-size: 16px;
+      margin-bottom: 5px;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+      width: 100%;
+      padding: 10px;
+      font-family: 'Courier New', monospace;
+      font-size: 16px;
+      background-color: #0f0f0f;
+      color: #00ff00;
+      border: 2px solid #00ff00;
+      border-radius: 5px;
+      transition: border-color 0.3s ease;
+    }
+
+    .contact-form input:focus,
+    .contact-form textarea:focus {
+      outline: none;
+      border-color: #00ff00;
+    }
+
+    .contact-form button {
+      display: block;
+      width: 100%;
+      padding: 10px;
+      font-family: 'Courier New', monospace;
+      font-size: 16px;
+      background-color: #0f0f0f;
+      color: #00ff00;
+      border: 2px solid #00ff00;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .contact-form button:hover {
+      background-color: rgba(0, 255, 0, 0.1);
+    }
+
+    .contact-form button:focus {
+      outline: none;
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="#">Home</a>
+    <a href="#projects">Projects</a>
+    <a href="#skills">Skills</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
+  <section id="projects">
+    <h2>Projects</h2>
+    <div class="project-grid">
+      <div class="project-tile">
+        <img src="https://dummyimage.com/600x400/ccc/000&text=Project+1" alt="Project 1">
+        <div class="project-overlay">
+          <h3>Project 1</h3>
+          <p>A brief description of the project.</p>
+          <a href="#">View Project</a>
+        </div>
+      </div>
+      <div class="project-tile">
+        <img src="https://dummyimage.com/600x400/ccc/000&text=Project+2" alt="Project 2">
+        <div class="project-overlay">
+          <h3>Project 2</h3>
+          <p>A brief description of the project.</p>
+          <a href="#">View Project</a>
+        </div>
+      </div>
+      <div class="project-tile">
+        <img src="https://dummyimage.com/600x400/ccc/000&text=Project+3" alt="Project 3">
+        <div class="project-overlay">
+          <h3>Project 3</h3>
+          <p>A brief description of the project.</p>
+          <a href="#">View Project</a>
+        </div>
+      </div>
+      <div class="project-tile">
+        <img src="https://dummyimage.com/600x400/ccc/000&text=Project+4" alt="Project 4">
+        <div class="project-overlay">
+          <h3>Project 4</h3>
+          <p>A brief description of the project.</p>
+          <a href="#">View Project</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="skills">
+    <h2>Skills and Expertise</h2>
+    <div class="skills-container">
+      <div class="skills-text">
+        Proficient in: HTML, CSS, JavaScript, React, Vue.js, Node.js, Photoshop, Illustrator, InDesign, Figma, Sketch.
+        Experienced in: UI/UX design, Branding, Motion Graphics, 3D Modeling, AR/VR Development.
+        Familiar with: Python, Django, Ruby on Rails, AWS, Docker, Kubernetes.
+      </div>
+      <div class="skills-overlay">
+        <h3>Skills and Expertise</h3>
+        <p>Explore the designer's capabilities in various areas of design and development.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <h2>Contact</h2>
+    <div class="contact-form">
+      <h2>Get in Touch</h2>
+      <form>
+        <div class="form-group">
+          <label for="name">Name:</label>
+          <input type="text" id="name" name="name" required>
+        </div>
+        <div class="form-group">
+          <label for="email">Email:</label>
+          <input type="email" id="email" name="email" required>
+        </div>
+        <div class="form-group">
+          <label for="message">Message:</label>
+          <textarea id="message" name="message" rows="5" required></textarea>
+        </div>
+        <button type="submit">Send Message</button>
+      </form>
+    </div>
+  </section>
+</body>
+</html>'<!-- Visit: https://github.com/Ishanoshada/portflair -->
+<!-- Visit: https://github.com/Ishanoshada/portflair -->

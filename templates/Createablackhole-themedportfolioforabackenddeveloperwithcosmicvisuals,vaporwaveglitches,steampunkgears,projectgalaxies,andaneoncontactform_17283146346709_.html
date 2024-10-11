@@ -1,0 +1,470 @@
+<!-- Portfolio created by Ishan -->
+<!-- Check out my work at: https://github.com/Ishanoshada/portflair -->
+<!-- 2024/10/9 -->
+<!-- Portfolio created by Ishan -->
+'<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Black Hole Portfolio</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&display=swap');
+
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Orbitron', sans-serif;
+      background-color: #000;
+      color: #fff;
+      overflow-x: hidden;
+    }
+
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 40px;
+      background-color: rgba(0, 0, 0, 0.7);
+      backdrop-filter: blur(10px);
+      position: relative;
+      z-index: 100;
+    }
+
+    .navbar-brand {
+      font-size: 24px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: #00e6f6;
+      text-shadow: 0 0 20px #00e6f6, 0 0 40px #00e6f6, 0 0 80px #00e6f6;
+      animation: neon-pulse 2s infinite;
+    }
+
+    .navbar-nav {
+      display: flex;
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .navbar-nav li {
+      margin-left: 30px;
+    }
+
+    .navbar-nav li a {
+      color: #fff;
+      text-decoration: none;
+      font-size: 16px;
+      font-weight: 400;
+      letter-spacing: 1px;
+      position: relative;
+      padding-bottom: 5px;
+    }
+
+    .navbar-nav li a::after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 2px;
+      background-color: #00e6f6;
+      bottom: 0;
+      left: 0;
+      transition: width 0.3s ease-in-out;
+    }
+
+    .navbar-nav li a:hover::after {
+      width: 100%;
+    }
+
+    .hero {
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(circle, rgba(0, 230, 246, 0.1) 0%, rgba(0, 0, 0, 1) 100%);
+      z-index: -1;
+    }
+
+    .hero-title {
+      font-size: 64px;
+      font-weight: 700;
+      text-align: center;
+      text-shadow: 0 0 20px #00e6f6, 0 0 40px #00e6f6, 0 0 80px #00e6f6;
+      animation: neon-pulse 2s infinite;
+    }
+
+    .hero-subtitle {
+      font-size: 24px;
+      font-weight: 400;
+      text-align: center;
+      margin-top: 20px;
+      color: #ccc;
+    }
+
+    .project-galaxies {
+      padding: 80px 40px;
+      background-color: #000;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .project-galaxies::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(circle, rgba(0, 230, 246, 0.1) 0%, rgba(0, 0, 0, 1) 100%);
+      z-index: -1;
+    }
+
+    .project-galaxies-title {
+      font-size: 36px;
+      font-weight: 700;
+      text-align: center;
+      margin-bottom: 40px;
+      text-shadow: 0 0 20px #00e6f6, 0 0 40px #00e6f6, 0 0 80px #00e6f6;
+      animation: neon-pulse 2s infinite;
+    }
+
+    .project-galaxy-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      grid-gap: 40px;
+    }
+
+    .project-galaxy {
+      position: relative;
+      overflow: hidden;
+      border-radius: 20px;
+      box-shadow: 0 0 20px rgba(0, 230, 246, 0.5);
+      transition: transform 0.3s ease-in-out;
+    }
+
+    .project-galaxy:hover {
+      transform: scale(1.05);
+    }
+
+    .project-galaxy img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      filter: saturate(150%) hue-rotate(45deg);
+    }
+
+    .project-galaxy-info {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.7);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      opacity: 0;
+      transition: opacity 0.3s ease-in-out;
+    }
+
+    .project-galaxy:hover .project-galaxy-info {
+      opacity: 1;
+    }
+
+    .project-galaxy-title {
+      font-size: 18px;
+      font-weight: 700;
+      margin-bottom: 10px;
+      text-shadow: 0 0 10px #00e6f6, 0 0 20px #00e6f6, 0 0 40px #00e6f6;
+    }
+
+    .project-galaxy-description {
+      font-size: 14px;
+      font-weight: 400;
+      text-align: center;
+      color: #ccc;
+    }
+
+    .steampunk-gears {
+      padding: 80px 40px;
+      background-color: #333;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .steampunk-gears::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(circle, rgba(102, 51, 0, 0.1) 0%, rgba(51, 51, 51, 1) 100%);
+      z-index: -1;
+    }
+
+    .steampunk-gears-title {
+      font-size: 36px;
+      font-weight: 700;
+      text-align: center;
+      margin-bottom: 40px;
+      text-shadow: 0 0 20px #663300, 0 0 40px #663300, 0 0 80px #663300;
+      animation: neon-pulse 2s infinite;
+    }
+
+    .gear-system {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+    }
+
+    .gear {
+      width: 100px;
+      height: 100px;
+      background-image: url('https://dummyimage.com/100x100/663300/fff&text=Gear');
+      background-size: contain;
+      background-repeat: no-repeat;
+      position: relative;
+      margin: 20px;
+      cursor: pointer;
+      transition: transform 0.3s ease-in-out;
+    }
+
+    .gear:hover {
+      transform: rotate(45deg);
+    }
+
+    .gear-info {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: rgba(51, 51, 51, 0.8);
+      padding: 10px 20px;
+      border-radius: 5px;
+      font-size: 14px;
+      font-weight: 400;
+      color: #ccc;
+      opacity: 0;
+      transition: opacity 0.3s ease-in-out;
+    }
+
+    .gear:hover .gear-info {
+      opacity: 1;
+    }
+
+    .neon-contact {
+      padding: 80px 40px;
+      background: linear-gradient(135deg, #00e6f6, #660066);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .neon-contact::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(circle, rgba(102, 0, 102, 0.1) 0%, rgba(0, 230, 246, 1) 100%);
+      z-index: -1;
+    }
+
+    .neon-contact-title {
+      font-size: 36px;
+      font-weight: 700;
+      text-align: center;
+      margin-bottom: 40px;
+      text-shadow: 0 0 20px #660066, 0 0 40px #660066, 0 0 80px #660066;
+      animation: neon-pulse 2s infinite;
+    }
+
+    .neon-contact-form {
+      max-width: 500px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .neon-contact-form input,
+    .neon-contact-form textarea {
+      width: 100%;
+      padding: 10px 20px;
+      margin-bottom: 20px;
+      font-size: 16px;
+      font-family: 'Roboto Mono', monospace;
+      background-color: transparent;
+      border: 2px solid #660066;
+      border-radius: 5px;
+      color: #fff;
+      outline: none;
+      transition: border-color 0.3s ease-in-out;
+    }
+
+    .neon-contact-form input:focus,
+    .neon-contact-form textarea:focus {
+      border-color: #00e6f6;
+    }
+
+    .neon-contact-form textarea {
+      resize: vertical;
+      min-height: 100px;
+    }
+
+    .neon-contact-form button {
+      padding: 10px 30px;
+      font-size: 16px;
+      font-family: 'Roboto Mono', monospace;
+      background-color: #660066;
+      border: none;
+      border-radius: 5px;
+      color: #fff;
+      cursor: pointer;
+      transition: background-color 0.3s ease-in-out;
+    }
+
+    .neon-contact-form button:hover {
+      background-color: #00e6f6;
+    }
+
+    @keyframes neon-pulse {
+      0% {
+        text-shadow: 0 0 10px #00e6f6, 0 0 20px #00e6f6, 0 0 40px #00e6f6;
+      }
+      50% {
+        text-shadow: 0 0 20px #00e6f6, 0 0 40px #00e6f6, 0 0 80px #00e6f6;
+      }
+      100% {
+        text-shadow: 0 0 10px #00e6f6, 0 0 20px #00e6f6, 0 0 40px #00e6f6;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .navbar-nav li {
+        margin-left: 20px;
+      }
+
+      .hero-title {
+        font-size: 48px;
+      }
+
+      .hero-subtitle {
+        font-size: 18px;
+      }
+
+      .project-galaxies-title,
+      .steampunk-gears-title,
+      .neon-contact-title {
+        font-size: 28px;
+      }
+
+      .gear {
+        width: 80px;
+        height: 80px;
+        margin: 10px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav class="navbar">
+    <div class="navbar-brand">Black Hole Portfolio</div>
+    <ul class="navbar-nav">
+      <li><a href="#">Home</a></li>
+      <li><a href="#">Projects</a></li>
+      <li><a href="#">Skills</a></li>
+      <li><a href="#">Contact</a></li>
+    </ul>
+  </nav>
+
+  <div class="hero">
+    <h1 class="hero-title">Dive into the Cosmic</h1>
+    <h2 class="hero-subtitle">Discover the Backend Developer's Black Hole Portfolio</h2>
+  </div>
+
+  <section class="project-galaxies">
+    <h2 class="project-galaxies-title">Project Galaxies</h2>
+    <div class="project-galaxy-grid">
+      <div class="project-galaxy">
+        <img src="https://dummyimage.com/400x200/00e6f6/fff&text=Project+1" alt="Project 1">
+        <div class="project-galaxy-info">
+          <h3 class="project-galaxy-title">Project 1</h3>
+          <p class="project-galaxy-description">Explore the intricacies of this cosmic project.</p>
+        </div>
+      </div>
+      <div class="project-galaxy">
+        <img src="https://dummyimage.com/400x200/00e6f6/fff&text=Project+2" alt="Project 2">
+        <div class="project-galaxy-info">
+          <h3 class="project-galaxy-title">Project 2</h3>
+          <p class="project-galaxy-description">Unveil the mysteries of this galactic endeavor.</p>
+        </div>
+      </div>
+      <div class="project-galaxy">
+        <img src="https://dummyimage.com/400x200/00e6f6/fff&text=Project+3" alt="Project 3">
+        <div class="project-galaxy-info">
+          <h3 class="project-galaxy-title">Project 3</h3>
+          <p class="project-galaxy-description">Delve into the black hole of this captivating project.</p>
+        </div>
+      </div>
+      <div class="project-galaxy">
+        <img src="https://dummyimage.com/400x200/00e6f6/fff&text=Project+4" alt="Project 4">
+        <div class="project-galaxy-info">
+          <h3 class="project-galaxy-title">Project 4</h3>
+          <p class="project-galaxy-description">Unravel the cosmic mysteries of this remarkable work.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="steampunk-gears">
+    <h2 class="steampunk-gears-title">Steampunk Gears</h2>
+    <div class="gear-system">
+      <div class="gear">
+        <div class="gear-info">Skill: JavaScript<br>Experience: 5 years</div>
+      </div>
+      <div class="gear">
+        <div class="gear">
+        <div class="gear-info">Skill: Node.js<br>Experience: 4 years</div>
+      </div>
+      <div class="gear">
+        <div class="gear-info">Skill: MongoDB<br>Experience: 3 years</div>
+      </div>
+      <div class="gear">
+        <div class="gear-info">Skill: Express.js<br>Experience: 4 years</div>
+      </div>
+      <div class="gear">
+        <div class="gear-info">Skill: Git<br>Experience: 6 years</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="neon-contact">
+    <h2 class="neon-contact-title">Get in Touch</h2>
+    <form class="neon-contact-form">
+      <input type="text" placeholder="Name" required>
+      <input type="email" placeholder="Email" required>
+      <textarea placeholder="Message" required></textarea>
+      <button type="submit">Send</button>
+    </form>
+  </section>
+</body>
+</html>'<!-- Visit: https://github.com/Ishanoshada/portflair -->
+<!-- Visit: https://github.com/Ishanoshada/portflair -->

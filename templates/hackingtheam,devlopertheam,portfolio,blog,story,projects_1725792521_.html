@@ -1,0 +1,603 @@
+<!-- Portfolio created by Ishan -->
+<!-- Check out my work at: https://github.com/Ishanoshada/portflair -->
+<!-- 2024/10/9 -->
+<!-- Portfolio created by Ishan -->
+'<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CyberNexus | Developer Portfolio</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Roboto+Mono:wght@300;400;700&family=Roboto:wght@300;400;700&display=swap');
+
+        :root {
+            --neon-green: #00ff00;
+            --neon-blue: #00ffff;
+            --dark-bg: #0a0a0a;
+            --darker-bg: #050505;
+            --light-text: #e0e0e0;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: var(--dark-bg);
+            color: var(--light-text);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Navbar Styles */
+        .navbar {
+            background-color: rgba(10, 10, 10, 0.8);
+            backdrop-filter: blur(10px);
+            padding: 20px 0;
+            position: relative;
+            z-index: 1000;
+        }
+
+        .navbar-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 24px;
+            color: var(--neon-green);
+            text-decoration: none;
+            letter-spacing: 2px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 20px;
+        }
+
+        .nav-links a {
+            color: var(--light-text);
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: 700;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--neon-green);
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-content {
+            text-align: center;
+            z-index: 2;
+        }
+
+        .hero h1 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 4rem;
+            margin-bottom: 20px;
+            color: var(--neon-green);
+            text-shadow: 0 0 10px rgba(0, 255, 0, 0.7);
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 12px 30px;
+            background-color: var(--neon-green);
+            color: var(--darker-bg);
+            text-decoration: none;
+            font-weight: 700;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+
+        .cta-button:hover {
+            background-color: var(--darker-bg);
+            color: var(--neon-green);
+            box-shadow: 0 0 20px var(--neon-green);
+        }
+
+        .hero-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, #000000, #1a1a1a);
+            z-index: 1;
+        }
+
+        .hero-particles {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+        }
+
+        /* Project Showcase */
+        .projects {
+            padding: 100px 0;
+            background-color: var(--darker-bg);
+        }
+
+        .section-title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 50px;
+            color: var(--neon-blue);
+        }
+
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .project-card {
+            background-color: #1a1a1a;
+            border-radius: 10px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 0 30px rgba(0, 255, 255, 0.3);
+        }
+
+        .project-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .project-content {
+            padding: 20px;
+        }
+
+        .project-title {
+            font-family: 'Roboto Mono', monospace;
+            font-size: 1.2rem;
+            color: #ffffff;
+            margin-bottom: 10px;
+        }
+
+        .project-description {
+            font-size: 0.9rem;
+            color: #c0c0c0;
+            margin-bottom: 15px;
+        }
+
+        .project-tech {
+            display: flex;
+            gap: 10px;
+        }
+
+        .tech-icon {
+            width: 25px;
+            height: 25px;
+        }
+
+        /* Skills Timeline */
+        .skills {
+            padding: 100px 0;
+            position: relative;
+        }
+
+        .timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 4px;
+            background-color: var(--neon-blue);
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -2px;
+            box-shadow: 0 0 10px var(--neon-blue);
+        }
+
+        .timeline-item {
+            padding: 10px 40px;
+            position: relative;
+            width: 50%;
+            opacity: 0;
+            transform: translateX(-100px);
+            transition: all 0.5s ease;
+        }
+
+        .timeline-item.right {
+            left: 50%;
+            transform: translateX(100px);
+        }
+
+        .timeline-item.show {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .timeline-content {
+            padding: 20px;
+            background-color: #1a1a1a;
+            border-radius: 10px;
+            position: relative;
+        }
+
+        .timeline-content::after {
+            content: '';
+            position: absolute;
+            width: 25px;
+            height: 25px;
+            background-color: var(--neon-blue);
+            top: 20px;
+            border-radius: 50%;
+            z-index: 1;
+            box-shadow: 0 0 10px var(--neon-blue);
+        }
+
+        .left .timeline-content::after {
+            right: -13px;
+        }
+
+        .right .timeline-content::after {
+            left: -13px;
+        }
+
+        .skill-name {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.2rem;
+            color: var(--neon-blue);
+            margin-bottom: 10px;
+        }
+
+        .skill-description {
+            font-size: 0.9rem;
+            color: #add8e6;
+            margin-bottom: 15px;
+        }
+
+        .skill-progress {
+            height: 5px;
+            background-color: #2a2a2a;
+            border-radius: 5px;
+            overflow: hidden;
+        }
+
+        .progress-bar {
+            height: 100%;
+            background-color: var(--neon-blue);
+            width: 0;
+            transition: width 1s ease;
+        }
+
+        /* Blog Section */
+        .blog {
+            padding: 100px 0;
+            background-color: var(--darker-bg);
+        }
+
+        .terminal {
+            background-color: #000000;
+            border-radius: 10px;
+            padding: 20px;
+            font-family: 'Roboto Mono', monospace;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .terminal::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: repeating-linear-gradient(
+                0deg,
+                rgba(0, 255, 0, 0.15),
+                rgba(0, 255, 0, 0.15) 1px,
+                transparent 1px,
+                transparent 2px
+            );
+            pointer-events: none;
+        }
+
+        .terminal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .terminal-title {
+            color: var(--neon-green);
+            font-size: 1.2rem;
+        }
+
+        .terminal-buttons {
+            display: flex;
+            gap: 10px;
+        }
+
+        .terminal-button {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+        }
+
+        .terminal-button.red { background-color: #ff5f56; }
+        .terminal-button.yellow { background-color: #ffbd2e; }
+        .terminal-button.green { background-color: #27c93f; }
+
+        .terminal-content {
+            color: var(--neon-green);
+            line-height: 1.6;
+        }
+
+        .cursor {
+            display: inline-block;
+            width: 10px;
+            height: 20px;
+            background-color: var(--neon-green);
+            animation: blink 0.7s infinite;
+        }
+
+        @keyframes blink {
+            0% { opacity: 0; }
+            50% { opacity: 1; }
+            100% { opacity: 0; }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .project-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .timeline::after {
+                left: 31px;
+            }
+
+            .timeline-item {
+                width: 100%;
+                padding-left: 70px;
+                padding-right: 25px;
+            }
+
+            .timeline-item.right {
+                left: 0;
+            }
+
+            .timeline-content::after {
+                left: -13px !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container navbar-container">
+            <a href="#" class="logo">CyberNexus</a>
+            <div class="nav-links">
+                <a href="#projects">Projects</a>
+                <a href="#skills">Skills</a>
+                <a href="#blog">Blog</a>
+                <a href="#contact">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div class="hero-bg"></div>
+        <div id="particles-js" class="hero-particles"></div>
+        <div class="hero-content">
+            <h1>Welcome to CyberNexus</h1>
+            <p>Exploring the intersection of code, security, and innovation</p>
+            <a href="#projects" class="cta-button">Explore Projects</a>
+        </div>
+    </section>
+
+    <section id="projects" class="projects">
+        <div class="container">
+            <h2 class="section-title">Project Showcase</h2>
+            <div class="project-grid">
+                <div class="project-card">
+                    <img src="https://dummyimage.com/400x200/1a1a1a/00ff00&text=Quantum+Cryptography" alt="Quantum Cryptography" class="project-image">
+                    <div class="project-content">
+                        <h3 class="project-title">Quantum Cryptography System</h3>
+                        <p class="project-description">A cutting-edge encryption system utilizing quantum mechanics principles for unbreakable security.</p>
+                        <div class="project-tech">
+                            <img src="https://dummyimage.com/25x25/00ff00/000000&text=Q" alt="Quantum" class="tech-icon">
+                            <img src="https://dummyimage.com/25x25/00ff00/000000&text=Py" alt="Python" class="tech-icon">
+                            <img src="https://dummyimage.com/25x25/00ff00/000000&text=C++" alt="C++" class="tech-icon">
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <img src="https://dummyimage.com/400x200/1a1a1a/00ff00&text=AI+Firewall" alt="AI Firewall" class="project-image">
+                    <div class="project-content">
+                        <h3 class="project-title">AI-Powered Adaptive Firewall</h3>
+                        <p class="project-description">An intelligent firewall system that learns and adapts to new threats in real-time.</p>
+                        <div class="project-tech">
+                            <img src="https://dummyimage.com/25x25/00ff00/000000&text=AI" alt="AI" class="tech-icon">
+                            <img src="https://dummyimage.com/25x25/00ff00/000000&text=ML" alt="Machine Learning" class="tech-icon">
+                            <img src="https://dummyimage.com/25x25/00ff00/000000&text=Go" alt="Go" class="tech-icon">
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <img src="https://dummyimage.com/400x200/1a1a1a/00ff00&text=Blockchain+Auth" alt="Blockchain Auth" class="project-image">
+                    <div class="project-content">
+                        <h3 class="project-title">Blockchain Authentication Protocol</h3>
+                        <p class="project-description">A decentralized authentication system leveraging blockchain technology for enhanced security.</p>
+                        <div class="project-tech">
+                            <img src="https://dummyimage.com/25x25/00ff00/000000&text=BC" alt="Blockchain" class="tech-icon">
+                            <img src="https://dummyimage.com/25x25/00ff00/000000&text=JS" alt="JavaScript" class="tech-icon">
+                            <img src="https://dummyimage.com/25x25/00ff00/000000&text=Sol" alt="Solidity" class="tech-icon">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="skills" class="skills">
+        <div class="container">
+            <h2 class="section-title">Skills Timeline</h2>
+            <div class="timeline">
+                <div class="timeline-item left">
+                    <div class="timeline-content">
+                        <h3 class="skill-name">Ethical Hacking</h3>
+                        <p class="skill-description">Mastering the art of identifying and exploiting vulnerabilities to enhance system security.</p>
+                        <div class="skill-progress">
+                            <div class="progress-bar" style="width: 95%;"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="timeline-item right">
+                    <div class="timeline-content">
+                        <h3 class="skill-name">Machine Learning</h3>
+                        <p class="skill-description">Developing intelligent systems that learn and adapt from data patterns.</p>
+                        <div class="skill-progress">
+                            <div class="progress-bar" style="width: 88%;"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="timeline-item left">
+                    <div class="timeline-content">
+                        <h3 class="skill-name">Blockchain Development</h3>
+                        <p class="skill-description">Creating decentralized applications and smart contracts on various blockchain platforms.</p>
+                        <div class="skill-progress">
+                            <div class="progress-bar" style="width: 82%;"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="timeline-item right">
+                    <div class="timeline-content">
+                        <h3 class="skill-name">Quantum Computing</h3>
+                        <p class="skill-description">Exploring the cutting-edge field of quantum algorithms and cryptography.</p>
+                        <div class="skill-progress">
+                            <div class="progress-bar" style="width: 75%;"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="blog" class="blog">
+        <div class="container">
+            <h2 class="section-title">Latest Insights</h2>
+            <div class="terminal">
+                <div class="terminal-header">
+                    <span class="terminal-title">CyberNexus Terminal</span>
+                    <div class="terminal-buttons">
+                        <span class="terminal-button red"></span>
+                        <span class="terminal-button yellow"></span>
+                        <span class="terminal-button green"></span>
+                    </div>
+                </div>
+                <div class="terminal-content">
+                    <p>> Accessing latest blog entries...</p>
+                    <p>> Entry found: "The Future of Quantum-Resistant Cryptography"</p>
+                    <p>> In this post, we explore the impending challenges posed by quantum computing to current cryptographic systems and delve into promising quantum-resistant algorithms.</p>
+                    <p>> Read more? [Y/N]<span class="cursor"></span></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 CyberNexus. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/particles.js/2.0.0/particles.min.js"></script>
+    <script>
+        particlesJS("particles-js", {
+            particles: {
+                number: { value: 80, density: { enable: true, value_area: 800 } },
+                color: { value: "#00ff00" },
+                shape: { type: "circle" },
+                opacity: { value: 0.5, random: false },
+                size: { value: 3, random: true },
+                line_linked: { enable: true, distance: 150, color: "#00ff00", opacity: 0.4, width: 1 },
+                move: { enable: true, speed: 6, direction: "none", random: false, straight: false, out_mode: "out", bounce: false }
+            },
+            interactivity: {
+                detect_on: "canvas",
+                events: { onhover: { enable: true, mode: "repulse" }, onclick: { enable: true, mode: "push" } },
+                modes: { repulse: { distance: 100, duration: 0.4 }, push: { particles_nb: 4 } }
+            },
+            retina_detect: true
+        });
+
+        // Intersection Observer for timeline items
+        const observerOptions = {
+            root: null,
+            threshold: 0.5,
+            rootMargin: "0px"
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('show');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.timeline-item').forEach(item => {
+            observer.observe(item);
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>'<!-- Visit: https://github.com/Ishanoshada/portflair -->
+<!-- Visit: https://github.com/Ishanoshada/portflair -->

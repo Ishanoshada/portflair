@@ -1,0 +1,354 @@
+<!-- Portfolio created by Ishan -->
+<!-- Check out my work at: https://github.com/Ishanoshada/portflair -->
+<!-- 2024/10/9 -->
+<!-- Portfolio created by Ishan -->
+'<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Design a Portfolio - Space Station Control Console</title>
+    <style>
+        /* Global Styles */
+        body {
+            font-family: 'Orbitron', sans-serif;
+            background-color: #000;
+            color: #fff;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+        }
+
+        /* Navigation */
+        nav {
+            display: flex;
+            justify-content: center;
+            background-color: rgba(0, 0, 0, 0.8);
+            padding: 1rem 0;
+        }
+
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+
+        nav ul li {
+            margin: 0 1.5rem;
+        }
+
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 1.1rem;
+            transition: color 0.3s ease-in-out;
+        }
+
+        nav ul li a:hover {
+            color: #00c6ff;
+        }
+
+        /* Mission Control Center */
+        #mission-control {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 4rem 2rem;
+            background: linear-gradient(to bottom, #000, #0c0c0c);
+        }
+
+        #mission-control h2 {
+            font-size: 3rem;
+            margin-bottom: 2rem;
+            text-align: center;
+            text-shadow: 0 0 20px #00c6ff;
+        }
+
+        #project-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            width: 100%;
+            max-width: 1200px;
+        }
+
+        .project-card {
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            cursor: pointer;
+            transition: transform 0.3s ease-in-out, background-color 0.3s ease-in-out;
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .project-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 5px;
+            margin-bottom: 1rem;
+        }
+
+        .project-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .project-card p {
+            font-size: 1rem;
+            color: #ccc;
+        }
+
+        /* Astral Observatory */
+        #astral-observatory {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 4rem 2rem;
+            background: radial-gradient(ellipse at center, #000, #0c0c0c);
+        }
+
+        #astral-observatory h2 {
+            font-size: 3rem;
+            margin-bottom: 2rem;
+            text-align: center;
+            text-shadow: 0 0 20px #00c6ff;
+        }
+
+        #code-visualization {
+            width: 100%;
+            max-width: 1200px;
+            height: 500px;
+            background-image: url("https://dummyimage.com/1200x500/ccc/000&text=Code+Visualization");
+            background-size: cover;
+            background-position: center;
+            border-radius: 10px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        #code-visualization:before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.4));
+            z-index: 1;
+        }
+
+        #code-visualization h3 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            text-align: center;
+            text-shadow: 0 0 20px #00c6ff;
+            z-index: 2;
+        }
+
+        #code-visualization p {
+            font-size: 1.2rem;
+            text-align: center;
+            color: #ccc;
+            z-index: 2;
+        }
+
+        /* Crew Quarters */
+        #crew-quarters {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 4rem 2rem;
+            background: linear-gradient(to bottom, #0c0c0c, #000);
+        }
+
+        #crew-quarters h2 {
+            font-size: 3rem;
+            margin-bottom: 2rem;
+            text-align: center;
+            text-shadow: 0 0 20px #00c6ff;
+        }
+
+        #personal-timeline {
+            width: 100%;
+            max-width: 1200px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .timeline-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 3rem;
+        }
+
+        .timeline-item:nth-child(even) {
+            flex-direction: row-reverse;
+        }
+
+        .timeline-item-content {
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            padding: 2rem;
+            width: 60%;
+            text-align: left;
+            box-shadow: 0 0 20px rgba(0, 198, 255, 0.3);
+        }
+
+        .timeline-item-content h3 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .timeline-item-content p {
+            font-size: 1.2rem;
+            color: #ccc;
+        }
+
+        .timeline-item-image {
+            width: 300px;
+            height: 300px;
+            background-image: url("https://dummyimage.com/300x300/ccc/000&text=Timeline+Image");
+            background-size: cover;
+            background-position: center;
+            border-radius: 50%;
+            margin: 0 2rem;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 1024px) {
+            #project-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .timeline-item-content {
+                width: 70%;
+            }
+
+            .timeline-item-image {
+                width: 200px;
+                height: 200px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            #project-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .timeline-item {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .timeline-item:nth-child(even) {
+                flex-direction: column;
+            }
+
+            .timeline-item-content {
+                width: 100%;
+            }
+
+            .timeline-item-image {
+                margin: 2rem 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Mission Control</a></li>
+            <li><a href="#">Astral Observatory</a></li>
+            <li><a href="#">Crew Quarters</a></li>
+        </ul>
+    </nav>
+
+    <section id="mission-control">
+        <h2>Mission Control Center</h2>
+        <div id="project-grid">
+            <div class="project-card">
+                <img src="https://dummyimage.com/300x200/ccc/000&text=Project+1" alt="Project 1">
+                <h3>Project 1</h3>
+                <p>Coding skills: HTML, CSS, JavaScript</p>
+            </div>
+            <div class="project-card">
+                <img src="https://dummyimage.com/300x200/ccc/000&text=Project+2" alt="Project 2">
+                <h3>Project 2</h3>
+                <p>Coding skills: React, Node.js, MongoDB</p>
+            </div>
+            <div class="project-card">
+                <img src="https://dummyimage.com/300x200/ccc/000&text=Project+3" alt="Project 3">
+                <h3>Project 3</h3>
+                <p>Coding skills: Python, Django, AWS</p>
+            </div>
+            <div class="project-card">
+                <img src="https://dummyimage.com/300x200/ccc/000&text=Project+4" alt="Project 4">
+                <h3>Project 4</h3>
+                <p>Coding skills: Unity, C#, Game Development</p>
+            </div>
+            <div class="project-card">
+                <img src="https://dummyimage.com/300x200/ccc/000&text=Project+5" alt="Project 5">
+                <h3>Project 5</h3>
+                <p>Coding skills: Figma, UI/UX Design</p>
+            </div>
+            <div class="project-card">
+                <img src="https://dummyimage.com/300x200/ccc/000&text=Project+6" alt="Project 6">
+                <h3>Project 6</h3>
+                <p>Coding skills: Kubernetes, Docker, DevOps</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="astral-observatory">
+        <h2>Astral Observatory</h2>
+        <div id="code-visualization">
+            <h3>Coding Expertise</h3>
+            <p>Explore dynamic visualizations of my coding skills and projects.</p>
+        </div>
+    </section>
+
+    <section id="crew-quarters">
+        <h2>Crew Quarters</h2>
+        <div id="personal-timeline">
+            <div class="timeline-item">
+                <div class="timeline-item-content">
+                    <h3>Early Exploration</h3>
+                    <p>I embarked on my journey in the world of coding, driven by a deep fascination with technology and a desire to create something extraordinary.</p>
+                </div>
+                <div class="timeline-item-image"></div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-item-image"></div>
+                <div class="timeline-item-content">
+                    <h3>Mastering the Interstellar</h3>
+                    <p>Through countless hours of learning, experimentation, and problem-solving, I honed my skills in various programming languages and technologies, becoming adept at navigating the vast and ever-evolving landscape of the digital universe.</p>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-item-content">
+                    <h3>Charting New Frontiers</h3>
+                    <p>As I continued to push the boundaries of my abilities, I embarked on ambitious projects that allowed me to showcase my expertise, from building cutting-edge web applications to designing immersive user experiences that captivate and inspire.</p>
+                </div>
+                <div class="timeline-item-image"></div>
+            </div>
+        </div>
+    </section>
+</body>
+</html>'<!-- Visit: https://github.com/Ishanoshada/portflair -->
+<!-- Visit: https://github.com/Ishanoshada/portflair -->

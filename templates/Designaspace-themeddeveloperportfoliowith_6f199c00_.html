@@ -1,0 +1,468 @@
+<!-- Portfolio created by Ishan -->
+<!-- Check out my work at: https://github.com/Ishanoshada/portflair -->
+<!-- 2024/10/9 -->
+<!-- Portfolio created by Ishan -->
+'<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Design a Space-Themed Developer Portfolio</title>
+  <style>
+    /* Reset some default styles */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    /* Global styles */
+    body {
+      font-family: 'Roboto', sans-serif;
+      background-color: #000;
+      color: #fff;
+      overflow-x: hidden;
+    }
+
+    /* Navigation */
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.5rem 2rem;
+      background-color: rgba(0, 0, 0, 0.6);
+      backdrop-filter: blur(10px);
+      position: relative;
+      z-index: 100;
+    }
+
+    .navbar-brand {
+      font-size: 1.5rem;
+      font-weight: 700;
+      letter-spacing: 0.1rem;
+      text-transform: uppercase;
+      color: #b388ff;
+      transition: color 0.3s ease;
+    }
+
+    .navbar-brand:hover {
+      color: #e0b0ff;
+    }
+
+    .navbar-nav {
+      display: flex;
+      list-style-type: none;
+    }
+
+    .nav-item {
+      margin-left: 2rem;
+    }
+
+    .nav-link {
+      font-size: 1.1rem;
+      font-weight: 500;
+      color: #fff;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    .nav-link:hover {
+      color: #b388ff;
+    }
+
+    /* Hero Section */
+    .hero {
+      position: relative;
+      height: 90vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      background-image: url('https://dummyimage.com/1920x1080/000/fff&text=Galaxy+Background');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.6);
+      z-index: 1;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+    }
+
+    .hero-title {
+      font-size: 4rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      color: #b388ff;
+      text-shadow: 0 0 20px rgba(179, 136, 255, 0.8);
+      animation: glow 2s ease-in-out infinite;
+    }
+
+    @keyframes glow {
+      0%, 100% {
+        text-shadow: 0 0 20px rgba(179, 136, 255, 0.8);
+      }
+      50% {
+        text-shadow: 0 0 40px rgba(179, 136, 255, 1);
+      }
+    }
+
+    .hero-subtitle {
+      font-size: 2rem;
+      font-weight: 500;
+      margin-bottom: 2rem;
+      color: #fff;
+      text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+    }
+
+    .hero-cta {
+      font-size: 1.2rem;
+      font-weight: 500;
+      padding: 1rem 2rem;
+      background-color: #b388ff;
+      color: #fff;
+      border: none;
+      border-radius: 0.5rem;
+      text-decoration: none;
+      transition: background-color 0.3s ease;
+    }
+
+    .hero-cta:hover {
+      background-color: #e0b0ff;
+    }
+
+    /* Featured Projects Section */
+    .featured-projects {
+      padding: 4rem 2rem;
+      background-color: #111;
+    }
+
+    .section-title {
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 2rem;
+      color: #b388ff;
+      text-align: center;
+      text-shadow: 0 0 10px rgba(179, 136, 255, 0.5);
+    }
+
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-gap: 2rem;
+    }
+
+    .project-item {
+      position: relative;
+      overflow: hidden;
+      border-radius: 0.5rem;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+      transition: transform 0.3s ease;
+    }
+
+    .project-item:hover {
+      transform: scale(1.05);
+    }
+
+    .project-thumbnail {
+      width: 100%;
+      height: 200px;
+      background-image: url('https://dummyimage.com/600x400/6a5acd/fff&text=Project+Thumbnail');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      transition: opacity 0.3s ease;
+    }
+
+    .project-item:hover .project-thumbnail {
+      opacity: 0.8;
+    }
+
+    .project-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(179, 136, 255, 0.7);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .project-item:hover .project-overlay {
+      opacity: 1;
+    }
+
+    .project-title {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 0.5rem;
+    }
+
+    .project-description {
+      font-size: 1.1rem;
+      color: #fff;
+      text-align: center;
+      max-width: 80%;
+    }
+
+    /* About Me Section */
+    .about-me {
+      padding: 4rem 2rem;
+      background-color: #000;
+      background-image: url('https://dummyimage.com/1920x1080/1e1e1e/fff&text=Nebula+Background');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      position: relative;
+    }
+
+    .about-me::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.6);
+      z-index: 1;
+    }
+
+    .about-content {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      align-items: center;
+    }
+
+    .profile-picture {
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      background-image: url('https://dummyimage.com/400x400/b388ff/fff&text=Profile+Picture');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      box-shadow: 0 0 20px rgba(179, 136, 255, 0.5);
+      margin-right: 2rem;
+    }
+
+    .about-text {
+      flex: 1;
+    }
+
+    .about-title {
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      color: #b388ff;
+      text-shadow: 0 0 10px rgba(179, 136, 255, 0.5);
+    }
+
+    .about-description {
+      font-size: 1.2rem;
+      line-height: 1.6;
+      color: #fff;
+      margin-bottom: 2rem;
+    }
+
+    .skill-list {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      grid-gap: 1rem;
+    }
+
+    .skill-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      background-color: rgba(179, 136, 255, 0.1);
+      padding: 1rem;
+      border-radius: 0.5rem;
+      transition: transform 0.3s ease;
+    }
+
+    .skill-item:hover {
+      transform: scale(1.1);
+    }
+
+    .skill-icon {
+      font-size: 2rem;
+      margin-bottom: 0.5rem;
+      color: #b388ff;
+    }
+
+    .skill-name {
+      font-size: 1.1rem;
+      font-weight: 500;
+      color: #fff;
+    }
+
+    /* Responsive Styles */
+    @media (max-width: 991px) {
+      .navbar {
+        padding: 1rem;
+      }
+
+      .hero-title {
+        font-size: 3rem;
+      }
+
+      .hero-subtitle {
+        font-size: 1.5rem;
+      }
+
+      .project-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .about-content {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .profile-picture {
+        margin-right: 0;
+        margin-bottom: 2rem;
+      }
+
+      .skill-list {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    @media (max-width: 767px) {
+      .hero-title {
+        font-size: 2.5rem;
+      }
+
+      .hero-subtitle {
+        font-size: 1.2rem;
+      }
+
+      .project-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .skill-list {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation -->
+  <nav class="navbar">
+    <a href="#" class="navbar-brand">Developer Portfolio</a>
+    <ul class="navbar-nav">
+      <li class="nav-item"><a href="#" class="nav-link">Home</a></li>
+      <li class="nav-item"><a href="#" class="nav-link">Projects</a></li>
+      <li class="nav-item"><a href="#" class="nav-link">About</a></li>
+      <li class="nav-item"><a href="#" class="nav-link">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-content">
+      <h1 class="hero-title">Welcome to my Space-Themed Portfolio</h1>
+      <h2 class="hero-subtitle">Explore a galaxy of interactive code snippets</h2>
+      <a href="#" class="hero-cta">View My Work</a>
+    </div>
+  </section>
+
+  <!-- Featured Projects Section -->
+  <section class="featured-projects">
+    <h2 class="section-title">Featured Projects</h2>
+    <div class="project-grid">
+      <div class="project-item">
+        <div class="project-thumbnail"></div>
+        <div class="project-overlay">
+          <h3 class="project-title">Project 1</h3>
+          <p class="project-description">This is a description of the first featured project. It showcases my expertise in various programming languages and technologies.</p>
+        </div>
+      </div>
+      <div class="project-item">
+        <div class="project-thumbnail"></div>
+        <div class="project-overlay">
+          <h3 class="project-title">Project 2</h3>
+          <p class="project-description">This is a description of the second featured project. It demonstrates my problem-solving skills and creativity in web development.</p>
+        </div>
+      </div>
+      <div class="project-item">
+        <div class="project-thumbnail"></div>
+        <div class="project-overlay">
+          <h3 class="project-title">Project 3</h3>
+          <p class="project-description">This is a description of the third featured project. It showcases my ability to build complex, responsive, and visually stunning applications.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Me Section -->
+  <section class="about-me">
+    <div class="about-content">
+      <div class="profile-picture"></div>
+      <div class="about-text">
+        <h2 class="about-title">About Me</h2>
+        <p class="about-description">
+          Hi, I'm a passionate space-themed developer with a deep fascination for the cosmos. I strive to create visually stunning and interactive web experiences that push the boundaries of what's possible. My portfolio showcases a galaxy of code snippets, each one a testament to my expertise in a wide range of programming languages and technologies.
+        </p>
+        <div class="skill-list">
+          <div class="skill-item">
+            <i class="skill-icon">&#x2B50;</i>
+            <span class="skill-name">JavaScript</span>
+          </div>
+          <div class="skill-item">
+            <i class="skill-icon">&#x2B50;</i>
+            <span class="skill-name">React</span>
+          </div>
+          <div class="skill-item">
+            <i class="skill-icon">&#x2B50;</i>
+            <span class="skill-name">Node.js</span>
+          </div>
+          <div class="skill-item">
+            <i class="skill-icon">&#x2B50;</i>
+            <span class="skill-name">CSS</span>
+          </div>
+          <div class="skill-item">
+            <i class="skill-icon">&#x2B50;</i>
+            <span class="skill-name">HTML</span>
+          </div>
+          <div class="skill-item">
+            <i class="skill-icon">&#x2B50;</i>
+            <span class="skill-name">Python</span>
+          </div>
+          <div class="skill-item">
+            <i class="skill-icon">&#x2B50;</i>
+            <span class="skill-name">MongoDB</span>
+          </div>
+          <div class="skill-item">
+            <i class="skill-icon">&#x2B50;</i>
+            <span class="skill-name">SQL</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</body>
+</html>'<!-- Visit: https://github.com/Ishanoshada/portflair -->
+<!-- Visit: https://github.com/Ishanoshada/portflair -->

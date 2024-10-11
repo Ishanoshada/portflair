@@ -1,0 +1,450 @@
+<!-- Portfolio created by Ishan -->
+<!-- Check out my work at: https://github.com/Ishanoshada/portflair -->
+<!-- 2024/10/9 -->
+<!-- Portfolio created by Ishan -->
+'<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hacking | Developer | Portfolio | Blog | Story | Projects</title>
+  <style>
+    /* Global Styles */
+    body {
+      font-family: 'Montserrat', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #0f0f0f;
+      color: #f0f0f0;
+    }
+
+    /* Navigation */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.5rem 3rem;
+      background-color: #1a1a1a;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    .logo {
+      font-size: 2rem;
+      font-weight: bold;
+      color: #00d8ff;
+      text-decoration: none;
+    }
+
+    nav ul {
+      display: flex;
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    nav ul li {
+      margin-left: 2rem;
+    }
+
+    nav ul li a {
+      color: #f0f0f0;
+      text-decoration: none;
+      font-size: 1.1rem;
+      transition: color 0.3s ease;
+    }
+
+    nav ul li a:hover {
+      color: #00d8ff;
+    }
+
+    /* Portfolio Section */
+    .portfolio-section {
+      padding: 4rem 3rem;
+    }
+
+    .portfolio-section h2 {
+      font-size: 2.5rem;
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+
+    .portfolio-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      grid-gap: 2.5rem;
+    }
+
+    .portfolio-item {
+      position: relative;
+      overflow: hidden;
+      border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+      cursor: pointer;
+    }
+
+    .portfolio-item img {
+      width: 100%;
+      height: 250px;
+      object-fit: cover;
+      transition: transform 0.3s ease;
+    }
+
+    .portfolio-item:hover img {
+      transform: scale(1.1);
+    }
+
+    .portfolio-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 216, 255, 0.8);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .portfolio-item:hover .portfolio-overlay {
+      opacity: 1;
+    }
+
+    .portfolio-overlay h3 {
+      font-size: 1.8rem;
+      margin-bottom: 0.5rem;
+      color: #0f0f0f;
+    }
+
+    .portfolio-overlay p {
+      font-size: 1.2rem;
+      color: #0f0f0f;
+    }
+
+    /* Blog Section */
+    .blog-section {
+      padding: 4rem 3rem;
+    }
+
+    .blog-section h2 {
+      font-size: 2.5rem;
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+
+    .blog-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      grid-gap: 2.5rem;
+    }
+
+    .blog-post {
+      background-color: #1a1a1a;
+      border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+      overflow: hidden;
+      transition: transform 0.3s ease;
+    }
+
+    .blog-post:hover {
+      transform: translateY(-10px);
+    }
+
+    .blog-post img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+
+    .blog-content {
+      padding: 1.5rem;
+    }
+
+    .blog-content h3 {
+      font-size: 1.6rem;
+      margin-bottom: 1rem;
+    }
+
+    .blog-content p {
+      font-size: 1.1rem;
+      line-height: 1.6;
+      margin-bottom: 1.5rem;
+    }
+
+    .read-more {
+      display: inline-block;
+      background-color: #00d8ff;
+      color: #0f0f0f;
+      text-decoration: none;
+      padding: 0.8rem 1.5rem;
+      border-radius: 4px;
+      font-size: 1.1rem;
+      transition: background-color 0.3s ease;
+    }
+
+    .read-more:hover {
+      background-color: #00b3d8;
+    }
+
+    /* Projects Section */
+    .projects-section {
+      padding: 4rem 3rem;
+    }
+
+    .projects-section h2 {
+      font-size: 2.5rem;
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      grid-gap: 2.5rem;
+    }
+
+    .project-card {
+      background-color: #1a1a1a;
+      border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+      overflow: hidden;
+      transition: transform 0.3s ease;
+    }
+
+    .project-card:hover {
+      transform: translateY(-10px);
+    }
+
+    .project-card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+
+    .project-content {
+      padding: 1.5rem;
+    }
+
+    .project-content h3 {
+      font-size: 1.6rem;
+      margin-bottom: 1rem;
+    }
+
+    .project-content p {
+      font-size: 1.1rem;
+      line-height: 1.6;
+      margin-bottom: 1.5rem;
+    }
+
+    .project-link {
+      display: inline-block;
+      background-color: #00d8ff;
+      color: #0f0f0f;
+      text-decoration: none;
+      padding: 0.8rem 1.5rem;
+      border-radius: 4px;
+      font-size: 1.1rem;
+      transition: background-color 0.3s ease;
+    }
+
+    .project-link:hover {
+      background-color: #00b3d8;
+    }
+
+    /* Footer */
+    footer {
+      background-color: #1a1a1a;
+      padding: 2rem 3rem;
+      text-align: center;
+      font-size: 1.1rem;
+      color: #b0b0b0;
+    }
+
+    footer p {
+      margin: 0;
+    }
+
+    /* Responsive Styles */
+    @media (max-width: 768px) {
+      nav {
+        padding: 1rem 2rem;
+      }
+
+      .logo {
+        font-size: 1.8rem;
+      }
+
+      nav ul li {
+        margin-left: 1.5rem;
+      }
+
+      nav ul li a {
+        font-size: 1rem;
+      }
+
+      .portfolio-section,
+      .blog-section,
+      .projects-section {
+        padding: 3rem 2rem;
+      }
+
+      .portfolio-section h2,
+      .blog-section h2,
+      .projects-section h2 {
+        font-size: 2.2rem;
+        margin-bottom: 2.5rem;
+      }
+
+      .portfolio-item img,
+      .blog-post img,
+      .project-card img {
+        height: 180px;
+      }
+
+      .portfolio-overlay h3,
+      .blog-content h3,
+      .project-content h3 {
+        font-size: 1.5rem;
+      }
+
+      .portfolio-overlay p,
+      .blog-content p,
+      .project-content p {
+        font-size: 1rem;
+      }
+
+      .read-more,
+      .project-link {
+        font-size: 1rem;
+        padding: 0.6rem 1.2rem;
+      }
+
+      footer {
+        padding: 1.5rem 2rem;
+        font-size: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav>
+      <a href="#" class="logo">Hacking &amp; Developer</a>
+      <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Portfolio</a></li>
+        <li><a href="#">Blog</a></li>
+        <li><a href="#">Projects</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <!-- Portfolio Section -->
+    <section class="portfolio-section">
+      <h2>Portfolio</h2>
+      <div class="portfolio-grid">
+        <div class="portfolio-item">
+          <img src="https://dummyimage.com/600x400/ccc/000&text=Portfolio+Item+1" alt="Portfolio Item 1">
+          <div class="portfolio-overlay">
+            <h3>Project 1</h3>
+            <p>Hacking, Web Development</p>
+          </div>
+        </div>
+        <div class="portfolio-item">
+          <img src="https://dummyimage.com/600x400/ccc/000&text=Portfolio+Item+2" alt="Portfolio Item 2">
+          <div class="portfolio-overlay">
+            <h3>Project 2</h3>
+            <p>Cybersecurity, UI Design</p>
+          </div>
+        </div>
+        <div class="portfolio-item">
+          <img src="https://dummyimage.com/600x400/ccc/000&text=Portfolio+Item+3" alt="Portfolio Item 3">
+          <div class="portfolio-overlay">
+            <h3>Project 3</h3>
+            <p>Penetration Testing, Backend Development</p>
+          </div>
+        </div>
+        <div class="portfolio-item">
+          <img src="https://dummyimage.com/600x400/ccc/000&text=Portfolio+Item+4" alt="Portfolio Item 4">
+          <div class="portfolio-overlay">
+            <h3>Project 4</h3>
+            <p>Ethical Hacking, DevOps</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Blog Section -->
+    <section class="blog-section">
+      <h2>Blog</h2>
+      <div class="blog-grid">
+        <div class="blog-post">
+          <img src="https://dummyimage.com/600x400/ccc/000&text=Blog+Post+1" alt="Blog Post 1">
+          <div class="blog-content">
+            <h3>Mastering Ethical Hacking Techniques</h3>
+            <p>Explore the world of ethical hacking and learn how to become a skilled cybersecurity professional.</p>
+            <a href="#" class="read-more">Read More</a>
+          </div>
+        </div>
+        <div class="blog-post">
+          <img src="https://dummyimage.com/600x400/ccc/000&text=Blog+Post+2" alt="Blog Post 2">
+          <div class="blog-content">
+            <h3>Dive into the World of Blockchain Development</h3>
+            <p>Discover the power of blockchain technology and how to build decentralized applications.</p>
+            <a href="#" class="read-more">Read More</a>
+          </div>
+        </div>
+        <div class="blog-post">
+          <img src="https://dummyimage.com/600x400/ccc/000&text=Blog+Post+3" alt="Blog Post 3">
+          <div class="blog-content">
+            <h3>Unleashing the Potential of Machine Learning</h3>
+            <p>Learn how to harness the power of machine learning to solve complex problems and drive innovation.</p>
+            <a href="#" class="read-more">Read More</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section class="projects-section">
+      <h2>Projects</h2>
+      <div class="projects-grid">
+        <div class="project-card">
+          <img src="https://dummyimage.com/600x400/ccc/000&text=Project+1" alt="Project 1">
+          <div class="project-content">
+            <h3>Cybersecurity Dashboard</h3>
+            <p>A comprehensive dashboard for monitoring and analyzing cyber threats in real-time.</p>
+            <a href="#" class="project-link">View Project</a>
+          </div>
+        </div>
+        <div class="project-card">
+          <img src="https://dummyimage.com/600x400/ccc/000&text=Project+2" alt="Project 2">
+          <div class="project-content">
+            <h3>Blockchain-based Supply Chain</h3>
+            <p>A decentralized platform for streamlining supply chain operations and ensuring transparency.</p>
+            <a href="#" class="project-link">View Project</a>
+          </div>
+        </div>
+        <div class="project-card">
+          <img src="https://dummyimage.com/600x400/ccc/000&text=Project+3" alt="Project 3">
+          <div class="project-content">
+            <h3>AI-powered Predictive Maintenance</h3>
+            <p>A machine learning-driven system for predicting equipment failures and optimizing maintenance schedules.</p>
+            <a href="#" class="project-link">View Project</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2024 Hacking &amp; Developer. All rights reserved.</p>
+  </footer>
+</body>
+</html>'<!-- Visit: https://github.com/Ishanoshada/portflair -->
+<!-- Visit: https://github.com/Ishanoshada/portflair -->

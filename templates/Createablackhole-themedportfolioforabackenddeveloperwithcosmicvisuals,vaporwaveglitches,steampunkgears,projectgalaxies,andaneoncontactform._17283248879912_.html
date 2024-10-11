@@ -1,0 +1,530 @@
+<!-- Portfolio created by Ishan -->
+<!-- Check out my work at: https://github.com/Ishanoshada/portflair -->
+<!-- 2024/10/9 -->
+<!-- Portfolio created by Ishan -->
+'<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Black Hole Portfolio</title>
+  <style>
+    /* Global Styles */
+    body {
+      font-family: 'Orbitron', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #0d0d0d;
+      color: #fff;
+      overflow-x: hidden;
+    }
+
+    /* Navbar Styles */
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: rgba(13, 13, 13, 0.8);
+      padding: 1rem 2rem;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 100;
+      transition: background-color 0.3s ease;
+    }
+
+    .navbar-brand {
+      font-size: 1.8rem;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 0.2rem;
+      color: #9b59b6;
+      text-shadow: 0 0 20px #9b59b6, 0 0 30px #9b59b6, 0 0 40px #9b59b6;
+      animation: neon-glow 2s ease-in-out infinite;
+    }
+
+    .navbar-nav {
+      display: flex;
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .navbar-nav li {
+      margin-left: 2rem;
+    }
+
+    .navbar-nav li a {
+      color: #fff;
+      text-decoration: none;
+      font-size: 1.2rem;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 0.1rem;
+      position: relative;
+    }
+
+    .navbar-nav li a::after {
+      content: "";
+      position: absolute;
+      width: 100%;
+      height: 2px;
+      bottom: -5px;
+      left: 0;
+      background-color: #9b59b6;
+      visibility: hidden;
+      transform: scaleX(0);
+      transition: all 0.3s ease-in-out;
+    }
+
+    .navbar-nav li a:hover::after {
+      visibility: visible;
+      transform: scaleX(1);
+    }
+
+    /* Hero Section Styles */
+    .hero-section {
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      background: url(https://dummyimage.com/1920x1080/0d0d0d/9b59b6.jpg) no-repeat center/cover;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-section::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(ellipse at center, rgba(155, 89, 182, 0.8) 0%, rgba(13, 13, 13, 0.8) 100%);
+      z-index: 1;
+    }
+
+    .hero-content {
+      z-index: 2;
+      text-align: center;
+      animation: fade-in 1s ease-in-out;
+    }
+
+    .hero-name {
+      font-size: 4rem;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 0.3rem;
+      color: #fff;
+      text-shadow: 0 0 20px #9b59b6, 0 0 30px #9b59b6, 0 0 40px #9b59b6;
+      animation: neon-glow 2s ease-in-out infinite;
+    }
+
+    .hero-title {
+      font-size: 2rem;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 0.2rem;
+      color: #fff;
+      text-shadow: 0 0 20px #9b59b6, 0 0 30px #9b59b6, 0 0 40px #9b59b6;
+      animation: glitch 0.5s infinite;
+    }
+
+    .hero-tagline {
+      font-size: 1.5rem;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 0.1rem;
+      color: #fff;
+      text-shadow: 0 0 20px #9b59b6, 0 0 30px #9b59b6, 0 0 40px #9b59b6;
+      animation: neon-glow 2s ease-in-out infinite;
+    }
+
+    /* Project Showcase Styles */
+    .project-showcase {
+      padding: 4rem;
+      background-color: #0d0d0d;
+    }
+
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      grid-gap: 2rem;
+    }
+
+    .project-item {
+      position: relative;
+      overflow: hidden;
+      border-radius: 8px;
+      box-shadow: 0 0 20px rgba(155, 89, 182, 0.5);
+      transition: transform 0.3s ease;
+    }
+
+    .project-item:hover {
+      transform: scale(1.05);
+    }
+
+    .project-item img {
+      width: 100%;
+      height: 300px;
+      object-fit: cover;
+      filter: grayscale(100%) contrast(120%) brightness(80%);
+      transition: filter 0.3s ease;
+    }
+
+    .project-item:hover img {
+      filter: grayscale(0%) contrast(100%) brightness(100%);
+    }
+
+    .project-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(155, 89, 182, 0.8);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .project-item:hover .project-overlay {
+      opacity: 1;
+    }
+
+    .project-title {
+      font-size: 1.8rem;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 0.2rem;
+      color: #fff;
+      text-shadow: 0 0 20px #9b59b6, 0 0 30px #9b59b6, 0 0 40px #9b59b6;
+      margin-bottom: 1rem;
+      animation: neon-glow 2s ease-in-out infinite;
+    }
+
+    .project-description {
+      font-size: 1.2rem;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 0.1rem;
+      color: #fff;
+      text-shadow: 0 0 20px #9b59b6, 0 0 30px #9b59b6, 0 0 40px #9b59b6;
+      animation: glitch 0.5s infinite;
+    }
+
+    /* Contact Form Styles */
+    .contact-section {
+      padding: 4rem;
+      background: radial-gradient(ellipse at center, rgba(155, 89, 182, 0.8) 0%, rgba(13, 13, 13, 0.8) 100%), url(https://dummyimage.com/1920x1080/0d0d0d/9b59b6.jpg) no-repeat center/cover;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .contact-section::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(ellipse at center, rgba(155, 89, 182, 0.8) 0%, rgba(13, 13, 13, 0.8) 100%);
+      z-index: 1;
+    }
+
+    .contact-form {
+      max-width: 600px;
+      margin: 0 auto;
+      padding: 2rem;
+      background-color: rgba(13, 13, 13, 0.8);
+      border-radius: 8px;
+      box-shadow: 0 0 20px rgba(155, 89, 182, 0.5);
+      position: relative;
+      z-index: 2;
+      animation: fade-in 1s ease-in-out;
+    }
+
+    .contact-form h2 {
+      font-size: 2.5rem;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 0.2rem;
+      color: #fff;
+      text-shadow: 0 0 20px #9b59b6, 0 0 30px #9b59b6, 0 0 40px #9b59b6;
+      margin-bottom: 2rem;
+      animation: neon-glow 2s ease-in-out infinite;
+    }
+
+    .contact-form .form-group {
+      margin-bottom: 1.5rem;
+    }
+
+    .contact-form label {
+      display: block;
+      font-size: 1.2rem;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 0.1rem;
+      color: #fff;
+      text-shadow: 0 0 20px #9b59b6, 0 0 30px #9b59b6, 0 0 40px #9b59b6;
+      margin-bottom: 0.5rem;
+      animation: neon-glow 2s ease-in-out infinite;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+      display: block;
+      width: 100%;
+      padding: 1rem;
+      font-size: 1.2rem;
+      font-weight: bold;
+      border: none;
+      border-radius: 4px;
+      background-color: rgba(155, 89, 182, 0.2);
+      color: #fff;
+      text-shadow: 0 0 20px #9b59b6, 0 0 30px #9b59b6, 0 0 40px #9b59b6;
+      box-shadow: 0 0 20px rgba(155, 89, 182, 0.5);
+      transition: box-shadow 0.3s ease;
+    }
+
+    .contact-form input:focus,
+    .contact-form textarea:focus {
+      box-shadow: 0 0 30px rgba(155, 89, 182, 0.8);
+      outline: none;
+    }
+
+    .contact-form button {
+      display: block;
+      width: 100%;
+      padding: 1rem;
+      font-size: 1.2rem;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 0.1rem;
+      color: #fff;
+      background-color: #9b59b6;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      box-shadow: 0 0 20px rgba(155, 89, 182, 0.5);
+      transition: box-shadow 0.3s ease, transform 0.3s ease;
+      animation: neon-glow 2s ease-in-out infinite;
+    }
+
+    .contact-form button:hover {
+      box-shadow: 0 0 30px rgba(155, 89, 182, 0.8);
+      transform: translateY(-2px);
+    }
+
+    /* Animations */
+    @keyframes fade-in {
+      0% {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes neon-glow {
+      0%, 100% {
+        text-shadow: 0 0 20px #9b59b6, 0 0 30px #9b59b6, 0 0 40px #9b59b6;
+      }
+      50% {
+        text-shadow: 0 0 10px #9b59b6, 0 0 15px #9b59b6, 0 0 20px #9b59b6;
+      }
+    }
+
+    @keyframes glitch {
+      0% {
+        text-shadow: 2px 0 0 #9b59b6, -2px 0 0 #9b59b6, 0 2px 0 #9b59b6, 0 -2px 0 #9b59b6, 1px 1px #9b59b6, -1px -1px #9b59b6, 1px -1px #9b59b6, -1px 1px #9b59b6;
+      }
+      25% {
+        text-shadow: -2px 0 0 #9b59b6, 2px 0 0 #9b59b6, 0 -2px 0 #9b59b6, 0 2px 0 #9b59b6, -1px -1px #9b59b6, 1px 1px #9b59b6, -1px 1px #9b59b6, 1px -1px #9b59b6;
+      }
+      50% {
+        text-shadow: 1px 0 0 #9b59b6, -1px 0 0 #9b59b6, 0 1px 0 #9b59b6, 0 -1px 0 #9b59b6, 2px 2px #9b59b6, -2px -2px #9b59b6, 2px -2px #9b59b6, -2px 2px #9b59b6;
+      }
+      75% {
+        text-shadow: -2px 0 0 #9b59b6, 2px 0 0 #9b59b6, 0 2px 0 #9b59b6, 0 -2px 0 #9b59b6, 1px 1px #9b59b6, -1px -1px #9b59b6, 1px -1px #9b59b6, -1px 1px #9b59b6;
+      }
+      100% {
+        text-shadow: 2px 0 0 #9b59b6, -2px 0 0 #9b59b6, 0 2px 0 #9b59b6, 0 -2px 0 #9b59b6, 1px 1px #9b59b6, -1px -1px #9b59b6, 1px -1px #9b59b6, -1px 1px #9b59b6;
+      }
+    }
+
+    /* Media Queries */
+    @media (max-width: 768px) {
+      .navbar {
+        padding: 1rem;
+      }
+
+      .navbar-brand {
+        font-size: 1.5rem;
+      }
+
+      .navbar-nav li {
+        margin-left: 1.5rem;
+      }
+
+      .navbar-nav li a {
+        font-size: 1rem;
+      }
+
+      .hero-name {
+        font-size: 3rem;
+      }
+
+      .hero-title {
+        font-size: 1.8rem;.hero-tagline {
+        font-size: 1.2rem;
+      }
+
+      .project-title {
+        font-size: 1.5rem;
+      }
+
+      .project-description {
+        font-size: 1rem;
+      }
+
+      .contact-form h2 {
+        font-size: 2rem;
+      }
+
+      .contact-form label,
+      .contact-form input,
+      .contact-form textarea,
+      .contact-form button {
+        font-size: 1rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .navbar-brand {
+        font-size: 1.2rem;
+      }
+
+      .navbar-nav li {
+        margin-left: 1rem;
+      }
+
+      .navbar-nav li a {
+        font-size: 0.8rem;
+      }
+
+      .hero-name {
+        font-size: 2.5rem;
+      }
+
+      .hero-title {
+        font-size: 1.5rem;
+      }
+
+      .hero-tagline {
+        font-size: 1rem;
+      }
+
+      .project-grid {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      }
+
+      .project-title {
+        font-size: 1.2rem;
+      }
+
+      .project-description {
+        font-size: 0.8rem;
+      }
+
+      .contact-form h2 {
+        font-size: 1.8rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav class="navbar">
+      <a href="#" class="navbar-brand">Black Hole Portfolio</a>
+      <ul class="navbar-nav">
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Projects</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero-section">
+      <div class="hero-content">
+        <h1 class="hero-name">John Doe</h1>
+        <h2 class="hero-title">Backend Developer</h2>
+        <p class="hero-tagline">Exploring the Depths of the Digital Universe</p>
+      </div>
+    </section>
+
+    <section class="project-showcase">
+      <div class="project-grid">
+        <div class="project-item">
+          <img src="https://dummyimage.com/600x400/0d0d0d/9b59b6.jpg" alt="Project 1">
+          <div class="project-overlay">
+            <h3 class="project-title">Project 1</h3>
+            <p class="project-description">Cosmic Backend Exploration</p>
+          </div>
+        </div>
+        <div class="project-item">
+          <img src="https://dummyimage.com/600x400/0d0d0d/9b59b6.jpg" alt="Project 2">
+          <div class="project-overlay">
+            <h3 class="project-title">Project 2</h3>
+            <p class="project-description">Vaporwave Glitch Extravaganza</p>
+          </div>
+        </div>
+        <div class="project-item">
+          <img src="https://dummyimage.com/600x400/0d0d0d/9b59b6.jpg" alt="Project 3">
+          <div class="project-overlay">
+            <h3 class="project-title">Project 3</h3>
+            <p class="project-description">Steampunk Gear Mechanisms</p>
+          </div>
+        </div>
+        <div class="project-item">
+          <img src="https://dummyimage.com/600x400/0d0d0d/9b59b6.jpg" alt="Project 4">
+          <div class="project-overlay">
+            <h3 class="project-title">Project 4</h3>
+            <p class="project-description">Galactic Backend Solutions</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact-section">
+      <div class="contact-form">
+        <h2>Get in Touch</h2>
+        <form>
+          <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" placeholder="Enter your name" required>
+          </div>
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" placeholder="Enter your email" required>
+          </div>
+          <div class="form-group">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" placeholder="Enter your message" required></textarea>
+          </div>
+          <button type="submit">Send Message</button>
+        </form>
+      </div>
+    </section>
+  </main>
+</body>
+</html>'<!-- Visit: https://github.com/Ishanoshada/portflair -->
+<!-- Visit: https://github.com/Ishanoshada/portflair -->

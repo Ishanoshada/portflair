@@ -1,0 +1,345 @@
+<!-- Portfolio created by Ishan -->
+<!-- Check out my work at: https://github.com/Ishanoshada/portflair -->
+<!-- 2024/10/9 -->
+<!-- Portfolio created by Ishan -->
+'<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dark Portfolio</title>
+  <style>
+    /* Reset default styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    /* Body styles */
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background-color: #121212;
+      color: #fff;
+      line-height: 1.6;
+    }
+
+    /* Navigation styles */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 40px;
+      background-color: rgba(18, 18, 18, 0.8);
+      backdrop-filter: blur(10px);
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 100;
+    }
+
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      font-size: 16px;
+      font-weight: 500;
+      padding: 10px 20px;
+      transition: color 0.3s ease;
+    }
+
+    nav a:hover {
+      color: #9b59b6;
+    }
+
+    /* Featured Projects section */
+    .featured-projects {
+      padding: 100px 40px;
+    }
+
+    .featured-projects h2 {
+      font-size: 36px;
+      font-weight: 700;
+      margin-bottom: 40px;
+      text-align: center;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: #9b59b6;
+      text-shadow: 0 0 20px rgba(155, 89, 182, 0.5);
+    }
+
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-gap: 40px;
+    }
+
+    .project-card {
+      background-color: #1c1c1c;
+      border-radius: 10px;
+      box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+      overflow: hidden;
+      position: relative;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+
+    .project-card:hover {
+      transform: scale(1.05);
+    }
+
+    .project-card::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(to bottom, rgba(155, 89, 182, 0.3), rgba(0, 0, 0, 0.8));
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .project-card:hover::before {
+      opacity: 1;
+    }
+
+    .project-card img {
+      width: 100%;
+      height: 300px;
+      object-fit: cover;
+      filter: blur(2px);
+      transition: filter 0.3s ease;
+    }
+
+    .project-card:hover img {
+      filter: blur(0);
+    }
+
+    .project-info {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      padding: 20px;
+      color: #fff;
+      text-align: center;
+      transform: translateY(100%);
+      transition: transform 0.3s ease;
+    }
+
+    .project-card:hover .project-info {
+      transform: translateY(0);
+    }
+
+    .project-info h3 {
+      font-size: 24px;
+      font-weight: 600;
+      margin-bottom: 10px;
+    }
+
+    .project-info p {
+      font-size: 16px;
+      opacity: 0.8;
+    }
+
+    /* About Me section */
+    .about-me {
+      padding: 100px 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #1c1c1c;
+      box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+    }
+
+    .about-me-content {
+      max-width: 800px;
+      text-align: center;
+    }
+
+    .about-me-content h2 {
+      font-size: 36px;
+      font-weight: 700;
+      margin-bottom: 20px;
+      color: #9b59b6;
+      text-shadow: 0 0 20px rgba(155, 89, 182, 0.5);
+    }
+
+    .about-me-content p {
+      font-size: 18px;
+      margin-bottom: 40px;
+    }
+
+    .about-me-content img {
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      object-fit: cover;
+      box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+      margin-bottom: 40px;
+    }
+
+    /* Contact section */
+    .contact {
+      padding: 100px 40px;
+      background-color: #121212;
+      box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+    }
+
+    .contact h2 {
+      font-size: 36px;
+      font-weight: 700;
+      margin-bottom: 40px;
+      text-align: center;
+      color: #9b59b6;
+      text-shadow: 0 0 20px rgba(155, 89, 182, 0.5);
+    }
+
+    .contact-form {
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+      display: block;
+      width: 100%;
+      padding: 15px;
+      margin-bottom: 20px;
+      background-color: #1c1c1c;
+      border: none;
+      border-radius: 5px;
+      color: #fff;
+      font-size: 16px;
+      transition: box-shadow 0.3s ease;
+    }
+
+    .contact-form input:focus,
+    .contact-form textarea:focus {
+      outline: none;
+      box-shadow: 0 0 20px rgba(155, 89, 182, 0.5);
+    }
+
+    .contact-form textarea {
+      resize: vertical;
+      min-height: 150px;
+    }
+
+    .contact-form button {
+      display: block;
+      width: 100%;
+      padding: 15px;
+      background-color: #9b59b6;
+      border: none;
+      border-radius: 5px;
+      color: #fff;
+      font-size: 18px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .contact-form button:hover {
+      background-color: #8e44ad;
+    }
+
+    .social-links {
+      display: flex;
+      justify-content: center;
+      margin-top: 40px;
+    }
+
+    .social-links a {
+      color: #fff;
+      font-size: 24px;
+      margin: 0 10px;
+      transition: color 0.3s ease;
+    }
+
+    .social-links a:hover {
+      color: #9b59b6;
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="#">Home</a>
+    <a href="#">About</a>
+    <a href="#">Portfolio</a>
+    <a href="#">Contact</a>
+  </nav>
+
+  <section class="featured-projects">
+    <h2>Featured Projects</h2>
+    <div class="project-grid">
+      <div class="project-card">
+        <img src="https://dummyimage.com/600x400/ccc/000&text=Project+1" alt="Project 1">
+        <div class="project-info">
+          <h3>Project 1</h3>
+          <p>Description of Project 1</p>
+        </div>
+      </div>
+      <div class="project-card">
+        <img src="https://dummyimage.com/600x400/ccc/000&text=Project+2" alt="Project 2">
+        <div class="project-info">
+          <h3>Project 2</h3>
+          <p>Description of Project 2</p>
+        </div>
+      </div>
+      <div class="project-card">
+        <img src="https://dummyimage.com/600x400/ccc/000&text=Project+3" alt="Project 3">
+        <div class="project-info">
+          <h3>Project 3</h3>
+          <p>Description of Project 3</p>
+        </div>
+      </div>
+      <div class="project-card">
+        <img src="https://dummyimage.com/600x400/ccc/000&text=Project+4" alt="Project 4">
+        <div class="project-info">
+          <h3>Project 4</h3>
+          <p>Description of Project 4</p>
+        </div>
+      </div>
+      <div class="project-card">
+        <img src="https://dummyimage.com/600x400/ccc/000&text=Project+5" alt="Project 5">
+        <div class="project-info">
+          <h3>Project 5</h3>
+          <p>Description of Project 5</p>
+        </div>
+      </div>
+      <div class="project-card">
+        <img src="https://dummyimage.com/600x400/ccc/000&text=Project+6" alt="Project 6">
+        <div class="project-info">
+          <h3>Project 6</h3>
+          <p>Description of Project 6</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="about-me">
+    <div class="about-me-content">
+      <img src="https://dummyimage.com/200x200/ccc/000&text=My+Photo" alt="My Photo">
+      <h2>About Me</h2>
+      <p>Hi, I'm a passionate designer with a deep fascination for creating layered, sophisticated designs that evoke a sense of depth and profundity. My portfolio showcases my expertise in crafting visually striking experiences that seamlessly blend deep blacks, subtle shadow effects, and captivating color gradients. I believe in the power of design to not only captivate the senses but also to convey a deeper narrative, and I am dedicated to honing my craft to push the boundaries of what is possible in the digital landscape.</p>
+    </div>
+  </section>
+
+  <section class="contact">
+    <h2>Get in Touch</h2>
+    <div class="contact-form">
+      <input type="text" placeholder="Name" required>
+      <input type="email" placeholder="Email" required>
+      <textarea placeholder="Message" required></textarea>
+      <button type="submit">Send Message</button>
+    </div>
+    <div class="social-links">
+      <a href="#" target="_blank"><i class="fab fa-linkedin"></i></a>
+      <a href="#" target="_blank"><i class="fab fa-behance"></i></a>
+      <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
+    </div>
+  </section>
+</body>
+</html>'<!-- Visit: https://github.com/Ishanoshada/portflair -->
+<!-- Visit: https://github.com/Ishanoshada/portflair -->

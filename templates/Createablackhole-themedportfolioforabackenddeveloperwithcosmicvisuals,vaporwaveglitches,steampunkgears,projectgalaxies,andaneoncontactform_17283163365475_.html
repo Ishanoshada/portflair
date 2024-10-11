@@ -1,0 +1,417 @@
+<!-- Portfolio created by Ishan -->
+<!-- Check out my work at: https://github.com/Ishanoshada/portflair -->
+<!-- 2024/10/9 -->
+<!-- Portfolio created by Ishan -->
+'<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Black Hole Portfolio</title>
+  <style>
+    /* Global Styles */
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Orbitron', sans-serif;
+      background-color: #0d0d0d;
+      color: #fff;
+      overflow-x: hidden;
+    }
+
+    /* Navbar Styles */
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.5rem 2rem;
+      background-color: rgba(13, 13, 13, 0.8);
+      backdrop-filter: blur(10px);
+      position: relative;
+      z-index: 100;
+    }
+
+    .navbar-brand {
+      font-size: 1.8rem;
+      font-weight: bold;
+      color: #9b59b6;
+      text-shadow: 0 0 15px #9b59b6, 0 0 30px #9b59b6, 0 0 45px #9b59b6;
+      animation: pulsate 2s ease-in-out infinite;
+    }
+
+    .navbar-nav {
+      display: flex;
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .nav-item {
+      margin-left: 2rem;
+    }
+
+    .nav-link {
+      color: #fff;
+      text-decoration: none;
+      font-size: 1.2rem;
+      font-weight: bold;
+      text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff;
+      transition: color 0.3s ease-in-out;
+    }
+
+    .nav-link:hover {
+      color: #9b59b6;
+    }
+
+    /* Hero Section Styles */
+    .hero {
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-bg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url(https://dummyimage.com/1920x1080/181818/ffffff.jpg&text=Black+Hole) no-repeat center center/cover;
+      filter: blur(2px);
+      z-index: -1;
+    }
+
+    .hero-content {
+      text-align: center;
+      z-index: 1;
+      text-shadow: 0 0 20px #9b59b6, 0 0 40px #9b59b6, 0 0 60px #9b59b6;
+      animation: pulsate 3s ease-in-out infinite;
+    }
+
+    .hero-title {
+      font-size: 4rem;
+      margin-bottom: 1rem;
+      color: #9b59b6;
+    }
+
+    .hero-subtitle {
+      font-size: 2rem;
+      margin-bottom: 2rem;
+      color: #fff;
+    }
+
+    .hero-cta {
+      display: inline-block;
+      padding: 1rem 2rem;
+      font-size: 1.2rem;
+      font-weight: bold;
+      text-decoration: none;
+      color: #0d0d0d;
+      background-color: #9b59b6;
+      border-radius: 5px;
+      box-shadow: 0 0 20px #9b59b6;
+      transition: transform 0.3s ease-in-out;
+    }
+
+    .hero-cta:hover {
+      transform: translateY(-5px);
+    }
+
+    /* Project Showcase Styles */
+    .project-showcase {
+      padding: 4rem 2rem;
+      background-color: #0d0d0d;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .project-showcase::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url(https://dummyimage.com/1920x1080/333333/ffffff.jpg&text=Cosmic+Visuals) no-repeat center center/cover;
+      filter: blur(10px);
+      z-index: -1;
+    }
+
+    .project-title {
+      font-size: 2.5rem;
+      text-align: center;
+      margin-bottom: 3rem;
+      color: #9b59b6;
+      text-shadow: 0 0 15px #9b59b6, 0 0 30px #9b59b6, 0 0 45px #9b59b6;
+    }
+
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      grid-gap: 3rem;
+    }
+
+    .project-item {
+      background-color: rgba(13, 13, 13, 0.7);
+      border-radius: 10px;
+      box-shadow: 0 0 30px rgba(155, 89, 182, 0.5);
+      overflow: hidden;
+      position: relative;
+      cursor: pointer;
+      transition: transform 0.3s ease-in-out;
+    }
+
+    .project-item:hover {
+      transform: translateY(-10px);
+    }
+
+    .project-item::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url(https://dummyimage.com/600x400/9b59b6/ffffff.jpg&text=Project+Galaxy) no-repeat center center/cover;
+      filter: blur(10px);
+      z-index: -1;
+    }
+
+    .project-info {
+      padding: 2rem;
+      text-align: center;
+    }
+
+    .project-name {
+      font-size: 1.8rem;
+      margin-bottom: 1rem;
+      color: #9b59b6;
+      text-shadow: 0 0 10px #9b59b6, 0 0 20px #9b59b6, 0 0 30px #9b59b6;
+    }
+
+    .project-description {
+      font-size: 1.2rem;
+      color: #fff;
+    }
+
+    /* Contact Form Styles */
+    .contact-form {
+      padding: 4rem 2rem;
+      background-color: #0d0d0d;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .contact-form::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url(https://dummyimage.com/1920x1080/9b59b6/ffffff.jpg&text=Neon+Visuals) no-repeat center center/cover;
+      filter: blur(10px);
+      z-index: -1;
+    }
+
+    .form-title {
+      font-size: 2.5rem;
+      text-align: center;
+      margin-bottom: 3rem;
+      color: #9b59b6;
+      text-shadow: 0 0 15px #9b59b6, 0 0 30px #9b59b6, 0 0 45px #9b59b6;
+    }
+
+    .form-container {
+      max-width: 600px;
+      margin: 0 auto;
+      background-color: rgba(13, 13, 13, 0.8);
+      padding: 3rem;
+      border-radius: 10px;
+      box-shadow: 0 0 30px rgba(155, 89, 182, 0.5);
+    }
+
+    .form-group {
+      margin-bottom: 2rem;
+    }
+
+    .form-label {
+      display: block;
+      font-size: 1.2rem;
+      font-weight: bold;
+      margin-bottom: 0.5rem;
+      color: #9b59b6;
+      text-shadow: 0 0 10px #9b59b6, 0 0 20px #9b59b6, 0 0 30px #9b59b6;
+    }
+
+    .form-input {
+      width: 100%;
+      padding: 1rem;
+      font-size: 1.2rem;
+      border: 2px solid #9b59b6;
+      border-radius: 5px;
+      background-color: transparent;
+      color: #fff;
+      outline: none;
+      transition: border-color 0.3s ease-in-out;
+    }
+
+    .form-input:focus {
+      border-color: #fff;
+    }
+
+    .form-textarea {
+      height: 150px;
+      resize: none;
+    }
+
+    .form-submit {
+      display: block;
+      width: 100%;
+      padding: 1rem 2rem;
+      font-size: 1.2rem;
+      font-weight: bold;
+      text-decoration: none;
+      color: #0d0d0d;
+      background-color: #9b59b6;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      box-shadow: 0 0 20px #9b59b6;
+      transition: transform 0.3s ease-in-out;
+    }
+
+    .form-submit:hover {
+      transform: translateY(-5px);
+    }
+
+    /* Animation Keyframes */
+    @keyframes pulsate {
+      0% {
+        text-shadow: 0 0 20px #9b59b6, 0 0 40px #9b59b6, 0 0 60px #9b59b6;
+      }
+      50% {
+        text-shadow: 0 0 10px #9b59b6, 0 0 20px #9b59b6, 0 0 30px #9b59b6;
+      }
+      100% {
+        text-shadow: 0 0 20px #9b59b6, 0 0 40px #9b59b6, 0 0 60px #9b59b6;
+      }
+    }
+
+    /* Responsive Styles */
+    @media (max-width: 768px) {
+      .navbar {
+        padding: 1rem;
+      }
+
+      .navbar-brand {
+        font-size: 1.5rem;
+      }
+
+      .nav-link {
+        font-size: 1rem;
+      }
+
+      .hero-title {
+        font-size: 3rem;
+      }
+
+      .hero-subtitle {
+        font-size: 1.5rem;
+      }
+
+      .project-title,
+      .form-title {
+        font-size: 2rem;
+      }
+
+      .project-name {
+        font-size: 1.5rem;
+      }
+
+      .project-description {
+        font-size: 1rem;
+      }
+
+      .form-label,
+      .form-input,
+      .form-submit {
+        font-size: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="navbar">
+    <div class="navbar-brand">Black Hole Portfolio</div>
+    <nav>
+      <ul class="navbar-nav">
+        <li class="nav-item"><a href="#" class="nav-link">Home</a></li>
+        <li class="nav-item"><a href="#" class="nav-link">Projects</a></li>
+        <li class="nav-item"><a href="#" class="nav-link">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-bg"></div>
+      <div class="hero-content">
+        <h1 class="hero-title">Welcome to the Black Hole</h1>
+        <p class="hero-subtitle">Explore the cosmic and steampunk-inspired portfolio of a backend developer</p>
+        <a href="#" class="hero-cta">Dive In</a>
+      </div>
+    </section>
+
+    <section class="project-showcase">
+      <h2 class="project-title">Project Galaxies</h2>
+      <div class="project-grid">
+        <div class="project-item">
+          <div class="project-info">
+            <h3 class="project-name">Project 1</h3>
+            <p class="project-description">Explore the intricate workings of this cosmic project.</p>
+          </div>
+        </div>
+        <div class="project-item">
+          <div class="project-info">
+            <h3 class="project-name">Project 2</h3>
+            <p class="project-description">Dive into the steampunk-inspired gears of this project.</p>
+          </div>
+        </div>
+        <div class="project-item">
+          <div class="project-info">
+            <h3 class="project-name">Project 3</h3>
+            <p class="project-description">Unravel the vaporwave-infused mysteries of this project.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact-form">
+      <h2 class="form-title">Neon Contact</h2>
+      <div class="form-container">
+        <form>
+          <div class="form-group">
+            <label for="name" class="form-label">Name</label>
+            <input type="text" id="name" class="form-input" placeholder="Enter your name" required>
+          </div>
+          <div class="form-group">
+            <label for="email" class="form-label">Email</label>
+            <input type="email" id="email" class="form-input" placeholder="Enter your email" required>
+          </div>
+          <div class="form-group">
+            <label for="message" class="form-label">Message</label>
+            <textarea id="message" class="form-input form-textarea" placeholder="Enter your message" required></textarea>
+          </div>
+          <button type="submit" class="form-submit">Send Message</button>
+        </form>
+      </div>
+    </section>
+  </main>
+</body>
+</html>'<!-- Visit: https://github.com/Ishanoshada/portflair -->
+<!-- Visit: https://github.com/Ishanoshada/portflair -->

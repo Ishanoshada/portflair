@@ -1,0 +1,446 @@
+<!-- Portfolio created by Ishan -->
+<!-- Check out my work at: https://github.com/Ishanoshada/portflair -->
+<!-- 2024/10/9 -->
+<!-- Portfolio created by Ishan -->
+'<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dark Mode Portfolio</title>
+    <style>
+        /* Global Styles */
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #1a1a1a;
+            color: #f1f1f1;
+        }
+
+        /* Navigation Bar */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 40px;
+            backdrop-filter: blur(10px);
+            background-color: rgba(26, 26, 26, 0.8);
+        }
+
+        nav a {
+            color: #f1f1f1;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 18px;
+            margin-right: 30px;
+            transition: color 0.3s ease-in-out;
+        }
+
+        nav a:hover {
+            color: #9e9e9e;
+        }
+
+        /* Hero Section */
+        .hero {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 80vh;
+            background-image: linear-gradient(to bottom, rgba(26, 26, 26, 0.8), rgba(26, 26, 26, 0.9)), url('https://dummyimage.com/1920x1080/ccc/000&text=Hero+Image');
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+
+        .hero-content {
+            text-align: center;
+            z-index: 1;
+        }
+
+        .hero-content h1 {
+            font-size: 48px;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        .hero-content p {
+            font-size: 24px;
+            font-weight: 400;
+            margin-bottom: 40px;
+        }
+
+        .hero-content button {
+            background-color: #6c63ff;
+            color: #f1f1f1;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 30px;
+            font-size: 18px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.3s ease-in-out;
+        }
+
+        .hero-content button:hover {
+            background-color: #7c73ff;
+        }
+
+        /* Portfolio Showcase */
+        .portfolio {
+            padding: 80px 40px;
+            background-color: #1a1a1a;
+            position: relative;
+        }
+
+        .portfolio h2 {
+            font-size: 36px;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .portfolio-items {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-gap: 40px;
+        }
+
+        .portfolio-item {
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            overflow: hidden;
+            cursor: pointer;
+            position: relative;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .portfolio-item:hover {
+            transform: translateY(-10px);
+        }
+
+        .portfolio-item img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            filter: blur(5px);
+            transition: filter 0.3s ease-in-out;
+        }
+
+        .portfolio-item:hover img {
+            filter: blur(0);
+        }
+
+        .portfolio-item-content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            color: #f1f1f1;
+            opacity: 0;
+            transition: opacity 0.3s ease-in-out;
+        }
+
+        .portfolio-item:hover .portfolio-item-content {
+            opacity: 1;
+        }
+
+        .portfolio-item-content h3 {
+            font-size: 24px;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .portfolio-item-content p {
+            font-size: 16px;
+            font-weight: 400;
+        }
+
+        /* About Section */
+        .about {
+            display: flex;
+            align-items: center;
+            padding: 80px 40px;
+            background-color: #1a1a1a;
+            position: relative;
+        }
+
+        .about-image {
+            flex: 1;
+            text-align: center;
+        }
+
+        .about-image img {
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            object-fit: cover;
+            filter: blur(5px);
+            transition: filter 0.3s ease-in-out;
+        }
+
+        .about-image:hover img {
+            filter: blur(0);
+        }
+
+        .about-content {
+            flex: 2;
+            margin-left: 60px;
+        }
+
+        .about-content h2 {
+            font-size: 36px;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        .about-content p {
+            font-size: 18px;
+            font-weight: 400;
+            line-height: 1.6;
+            margin-bottom: 30px;
+        }
+
+        .about-content ul {
+            list-style-type: none;
+            padding: 0;
+            font-size: 18px;
+            font-weight: 400;
+        }
+
+        .about-content ul li {
+            margin-bottom: 10px;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 991px) {
+            nav {
+                padding: 15px 30px;
+            }
+
+            nav a {
+                font-size: 16px;
+                margin-right: 20px;
+            }
+
+            .hero {
+                height: 60vh;
+            }
+
+            .hero-content h1 {
+                font-size: 36px;
+            }
+
+            .hero-content p {
+                font-size: 20px;
+            }
+
+            .portfolio {
+                padding: 60px 30px;
+            }
+
+            .portfolio h2 {
+                font-size: 30px;
+                margin-bottom: 40px;
+            }
+
+            .portfolio-items {
+                grid-template-columns: repeat(2, 1fr);
+                grid-gap: 30px;
+            }
+
+            .portfolio-item img {
+                height: 250px;
+            }
+
+            .about {
+                padding: 60px 30px;
+            }
+
+            .about-image img {
+                width: 250px;
+                height: 250px;
+            }
+
+            .about-content {
+                margin-left: 40px;
+            }
+
+            .about-content h2 {
+                font-size: 30px;
+            }
+
+            .about-content p {
+                font-size: 16px;
+            }
+
+            .about-content ul {
+                font-size: 16px;
+            }
+        }
+
+        @media (max-width: 767px) {
+            nav {
+                padding: 10px 20px;
+            }
+
+            nav a {
+                font-size: 14px;
+                margin-right: 15px;
+            }
+
+            .hero {
+                height: 50vh;
+            }
+
+            .hero-content h1 {
+                font-size: 28px;
+            }
+
+            .hero-content p {
+                font-size: 16px;
+            }
+
+            .hero-content button {
+                font-size: 16px;
+                padding: 12px 24px;
+            }
+
+            .portfolio {
+                padding: 40px 20px;
+            }
+
+            .portfolio h2 {
+                font-size: 24px;
+                margin-bottom: 30px;
+            }
+
+            .portfolio-items {
+                grid-template-columns: 1fr;
+                grid-gap: 20px;
+            }
+
+            .portfolio-item img {
+                height: 200px;
+            }
+
+            .about {
+                flex-direction: column;
+                padding: 40px 20px;
+            }
+
+            .about-image {
+                margin-bottom: 30px;
+            }
+
+            .about-image img {
+                width: 200px;
+                height: 200px;
+            }
+
+            .about-content {
+                margin-left: 0;
+                text-align: center;
+            }
+
+            .about-content h2 {
+                font-size: 24px;
+            }
+
+            .about-content p {
+                font-size: 14px;
+            }
+
+            .about-content ul {
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="#">Home</a>
+        <a href="#">Portfolio</a>
+        <a href="#">About</a>
+        <a href="#">Contact</a>
+    </nav>
+
+    <div class="hero">
+        <div class="hero-content">
+            <h1>Welcome to My Dark Mode Portfolio</h1>
+            <p>Explore my latest design work with a unique, glass-like aesthetic.</p>
+            <button>View Portfolio</button>
+        </div>
+    </div>
+
+    <div class="portfolio">
+        <h2>Portfolio Showcase</h2>
+        <div class="portfolio-items">
+            <div class="portfolio-item">
+                <img src="https://dummyimage.com/800x600/ccc/000&text=Portfolio+Item+1" alt="Portfolio Item 1">
+                <div class="portfolio-item-content">
+                    <h3>Project Title 1</h3>
+                    <p>Branding and UI Design</p>
+                </div>
+            </div>
+            <div class="portfolio-item">
+                <img src="https://dummyimage.com/800x600/ccc/000&text=Portfolio+Item+2" alt="Portfolio Item 2">
+                <div class="portfolio-item-content">
+                    <h3>Project Title 2</h3>
+                    <p>Web Design and Development</p>
+                </div>
+            </div>
+            <div class="portfolio-item">
+                <img src="https://dummyimage.com/800x600/ccc/000&text=Portfolio+Item+3" alt="Portfolio Item 3">
+                <div class="portfolio-item-content">
+                    <h3>Project Title 3</h3>
+                    <p>Mobile App Design</p>
+                </div>
+            </div>
+            <div class="portfolio-item">
+                <img src="https://dummyimage.com/800x600/ccc/000&text=Portfolio+Item+4" alt="Portfolio Item 4">
+                <div class="portfolio-item-content">
+                    <h3>Project Title 4</h3>
+                    <p>Packaging Design</p>
+                </div>
+            </div>
+            <div class="portfolio-item">
+                <img src="https://dummyimage.com/800x600/ccc/000&text=Portfolio+Item+5" alt="Portfolio Item 5">
+                <div class="portfolio-item-content">
+                    <h3>Project Title 5</h3>
+                    <p>Product Design</p>
+                </div>
+            </div>
+            <div class="portfolio-item">
+                <img src="https://dummyimage.com/800x600/ccc/000&text=Portfolio+Item+6" alt="Portfolio Item 6">
+                <div class="portfolio-item-content">
+                    <h3>Project Title 6</h3>
+                    <p>Illustration and Graphics</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="about">
+        <div class="about-image">
+            <img src="https://dummyimage.com/400x400/ccc/000&text=Designer+Profile" alt="Designer Profile">
+        </div>
+        <div class="about-content">
+            <h2>About the Designer</h2>
+            <p>Hi, I'm John Doe, a passionate designer with a keen eye for detail and a love for creating visually stunning experiences. I specialize in branding, UI/UX design, and cross-platform development, always striving to push the boundaries of what's possible.</p>
+            <ul>
+                <li>10+ Years of Design Experience</li>
+                <li>Expertise in Branding and Identity Design</li>
+                <li>Proficient in UI/UX Design and Prototyping</li>
+                <li>Skilled in Front-End Web Development</li>
+                <li>Experienced in Mobile App Design</li>
+                <li>Strong Collaboration and Communication Skills</li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>'<!-- Visit: https://github.com/Ishanoshada/portflair -->
+<!-- Visit: https://github.com/Ishanoshada/portflair -->

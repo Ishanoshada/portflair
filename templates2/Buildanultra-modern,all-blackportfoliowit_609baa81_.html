@@ -1,0 +1,351 @@
+<!-- Portfolio created by Ishan -->
+<!-- Check out my work at: https://github.com/Ishanoshada/portflair -->
+<!-- 2024/10/9 -->
+<!-- Portfolio created by Ishan -->
+'<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ultra-Modern Portfolio</title>
+  <style>
+    /* Global Styles */
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Montserrat', sans-serif;
+      background-color: #000;
+      color: #fff;
+    }
+
+    /* Navigation */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 40px;
+      background-color: rgba(0, 0, 0, 0.7);
+      backdrop-filter: blur(10px);
+      position: relative;
+      z-index: 1;
+    }
+
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      font-size: 16px;
+      font-weight: 500;
+      margin-right: 30px;
+      transition: color 0.3s ease;
+    }
+
+    nav a:hover {
+      color: #ff6b6b;
+    }
+
+    /* Hero Section */
+    .hero {
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      background-image: url('https://dummyimage.com/1920x1080/000/fff.jpg&text=Ultra-Modern+Portfolio');
+      background-size: cover;
+      background-position: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.6);
+      z-index: 0;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      text-align: center;
+      max-width: 800px;
+      padding: 0 20px;
+    }
+
+    .hero-content h1 {
+      font-size: 48px;
+      font-weight: 700;
+      margin-bottom: 20px;
+      text-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    }
+
+    .hero-content p {
+      font-size: 20px;
+      font-weight: 400;
+      margin-bottom: 40px;
+      text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    }
+
+    .hero-cta {
+      display: inline-block;
+      background-color: #ff6b6b;
+      color: #000;
+      font-size: 18px;
+      font-weight: 600;
+      padding: 16px 32px;
+      border-radius: 30px;
+      text-decoration: none;
+      box-shadow: 0 10px 20px rgba(255, 107, 107, 0.3);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .hero-cta:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 30px rgba(255, 107, 107, 0.5);
+    }
+
+    /* Portfolio Showcase */
+    .portfolio {
+      padding: 80px 40px;
+      background-color: #111;
+    }
+
+    .portfolio-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      grid-gap: 40px;
+    }
+
+    .portfolio-item {
+      position: relative;
+      overflow: hidden;
+      border-radius: 8px;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+      cursor: pointer;
+    }
+
+    .portfolio-item img {
+      width: 100%;
+      height: 300px;
+      object-fit: cover;
+      transition: transform 0.3s ease;
+    }
+
+    .portfolio-item:hover img {
+      transform: scale(1.1);
+    }
+
+    .portfolio-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.7);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .portfolio-item:hover .portfolio-overlay {
+      opacity: 1;
+    }
+
+    .portfolio-overlay h3 {
+      font-size: 24px;
+      font-weight: 600;
+      margin-bottom: 10px;
+      text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    }
+
+    .portfolio-overlay p {
+      font-size: 16px;
+      font-weight: 400;
+      text-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+    }
+
+    /* About/Contact Section */
+    .about-contact {
+      padding: 80px 40px;
+      background-color: #000;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .about-content {
+      flex-basis: 60%;
+      padding-right: 40px;
+    }
+
+    .about-content h2 {
+      font-size: 36px;
+      font-weight: 700;
+      margin-bottom: 20px;
+    }
+
+    .about-content p {
+      font-size: 18px;
+      font-weight: 400;
+      line-height: 1.6;
+      margin-bottom: 30px;
+    }
+
+    .contact-form {
+      flex-basis: 40%;
+      background-color: #111;
+      padding: 40px;
+      border-radius: 8px;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    .contact-form h3 {
+      font-size: 24px;
+      font-weight: 600;
+      margin-bottom: 20px;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+      width: 100%;
+      padding: 12px 16px;
+      font-size: 16px;
+      font-weight: 400;
+      background-color: #222;
+      border: none;
+      border-radius: 4px;
+      color: #fff;
+      margin-bottom: 20px;
+      transition: background-color 0.3s ease;
+    }
+
+    .contact-form input:focus,
+    .contact-form textarea:focus {
+      background-color: #333;
+    }
+
+    .contact-form button {
+      display: block;
+      width: 100%;
+      background-color: #ff6b6b;
+      color: #000;
+      font-size: 18px;
+      font-weight: 600;
+      padding: 12px 24px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .contact-form button:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(255, 107, 107, 0.5);
+    }
+
+    /* Responsive Styles */
+    @media (max-width: 768px) {
+      .hero-content h1 {
+        font-size: 36px;
+      }
+
+      .hero-content p {
+        font-size: 18px;
+      }
+
+      .portfolio-grid {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      }
+
+      .about-contact {
+        padding: 60px 20px;
+      }
+
+      .about-content {
+        flex-basis: 100%;
+        padding-right: 0;
+        margin-bottom: 40px;
+      }
+
+      .contact-form {
+        flex-basis: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="#">Home</a>
+    <a href="#">Portfolio</a>
+    <a href="#">About</a>
+    <a href="#">Contact</a>
+  </nav>
+
+  <section class="hero">
+    <div class="hero-content">
+      <h1>Build an Ultra-Modern Portfolio</h1>
+      <p>Discover the power of sharp lines and muted tones in an exceptional digital showcase.</p>
+      <a href="#" class="hero-cta">View Portfolio</a>
+    </div>
+  </section>
+
+  <section class="portfolio">
+    <div class="portfolio-grid">
+      <div class="portfolio-item">
+        <img src="https://dummyimage.com/600x400/000/fff.jpg&text=Project+1" alt="Project 1">
+        <div class="portfolio-overlay">
+          <h3>Project 1</h3>
+          <p>Showcasing the power of minimalism</p>
+        </div>
+      </div>
+      <div class="portfolio-item">
+        <img src="https://dummyimage.com/600x400/000/fff.jpg&text=Project+2" alt="Project 2">
+        <div class="portfolio-overlay">
+          <h3>Project 2</h3>
+          <p>Capturing the essence of modern design</p>
+        </div>
+      </div>
+      <div class="portfolio-item">
+        <img src="https://dummyimage.com/600x400/000/fff.jpg&text=Project+3" alt="Project 3">
+        <div class="portfolio-overlay">
+          <h3>Project 3</h3>
+          <p>Blending elegance and functionality</p>
+        </div>
+      </div>
+      <div class="portfolio-item">
+        <img src="https://dummyimage.com/600x400/000/fff.jpg&text=Project+4" alt="Project 4">
+        <div class="portfolio-overlay">
+          <h3>Project 4</h3>
+          <p>Redefining the boundaries of creativity</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="about-contact">
+    <div class="about-content">
+      <h2>About the Designer</h2>
+      <p>With a keen eye for detail and a passion for innovative design, I create portfolios that captivate and inspire. Blending minimalism and modern aesthetics, I craft digital experiences that showcase your unique talent and elevate your brand.</p>
+      <p>Explore my portfolio and let's collaborate to bring your vision to life.</p>
+    </div>
+    <div class="contact-form">
+      <h3>Get in Touch</h3>
+      <form>
+        <input type="text" placeholder="Name" required>
+        <input type="email" placeholder="Email" required>
+        <textarea placeholder="Message" required></textarea>
+        <button type="submit">Send Message</button>
+      </form>
+    </div>
+  </section>
+</body>
+</html>'<!-- Visit: https://github.com/Ishanoshada/portflair -->
+<!-- Visit: https://github.com/Ishanoshada/portflair -->

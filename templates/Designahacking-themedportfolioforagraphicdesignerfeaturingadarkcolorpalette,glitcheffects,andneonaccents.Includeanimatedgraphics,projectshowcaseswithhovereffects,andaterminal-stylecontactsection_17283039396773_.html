@@ -1,0 +1,356 @@
+<!-- Portfolio created by Ishan -->
+<!-- Check out my work at: https://github.com/Ishanoshada/portflair -->
+<!-- 2024/10/9 -->
+<!-- Portfolio created by Ishan -->
+'<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hacking-Themed Portfolio</title>
+    <style>
+        /* Global Styles */
+        body {
+            font-family: "Courier New", monospace;
+            background-color: #0f0f0f;
+            color: #fff;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+        }
+
+        /* Navbar Styles */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 40px;
+            background-color: #1a1a1a;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        nav a {
+            color: #00ffff;
+            text-decoration: none;
+            font-size: 18px;
+            margin: 0 10px;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: #ff00ff;
+        }
+
+        /* Project Showcase Styles */
+        .project-showcase {
+            padding: 80px 40px;
+        }
+
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+        }
+
+        .project-card {
+            position: relative;
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .project-card:hover {
+            transform: scale(1.05);
+        }
+
+        .project-card::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, #00ffff, #ff00ff);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .project-card:hover::before {
+            opacity: 0.5;
+        }
+
+        .project-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            filter: grayscale(100%);
+            transition: filter 0.3s ease;
+        }
+
+        .project-card:hover img {
+            filter: grayscale(0%);
+        }
+
+        .project-details {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .project-card:hover .project-details {
+            opacity: 1;
+        }
+
+        .project-details h3 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            text-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+        }
+
+        .project-details p {
+            font-size: 16px;
+            margin-bottom: 10px;
+            text-shadow: 0 0 10px rgba(255, 0, 255, 0.5);
+        }
+
+        .project-details .tags {
+            font-size: 14px;
+            color: #ccc;
+        }
+
+        /* About Me Styles */
+        .about-me {
+            padding: 80px 40px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        .about-me h2 {
+            font-size: 36px;
+            margin-bottom: 20px;
+            text-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+        }
+
+        .about-me p {
+            font-size: 18px;
+            line-height: 1.6;
+            margin-bottom: 40px;
+            text-shadow: 0 0 10px rgba(255, 0, 255, 0.5);
+        }
+
+        .about-me .skills {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-bottom: 40px;
+        }
+
+        .about-me .skills span {
+            background-color: #1a1a1a;
+            color: #00ffff;
+            padding: 8px 16px;
+            border-radius: 20px;
+            margin: 5px;
+            font-size: 14px;
+            text-shadow: 0 0 10px rgba(255, 0, 255, 0.5);
+        }
+
+        /* Contact Form Styles */
+        .contact-form {
+            padding: 80px 40px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        .contact-form h2 {
+            font-size: 36px;
+            margin-bottom: 20px;
+            text-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+        }
+
+        .contact-form form {
+            background-color: #1a1a1a;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            width: 100%;
+            max-width: 500px;
+        }
+
+        .contact-form .form-group {
+            margin-bottom: 20px;
+            position: relative;
+        }
+
+        .contact-form label {
+            display: block;
+            font-size: 16px;
+            margin-bottom: 5px;
+            text-align: left;
+            color: #00ffff;
+            text-shadow: 0 0 10px rgba(255, 0, 255, 0.5);
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            background-color: #0f0f0f;
+            border: none;
+            border-radius: 5px;
+            color: #fff;
+            font-family: "Courier New", monospace;
+            caret-color: #00ffff;
+            box-shadow: 0 0 10px rgba(0, 255, 255, 0.2);
+        }
+
+        .contact-form textarea {
+            height: 150px;
+        }
+
+        .contact-form button {
+            background-color: #00ffff;
+            color: #0f0f0f;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            font-size: 16px;
+            font-family: "Courier New", monospace;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .contact-form button:hover {
+            background-color: #ff00ff;
+        }
+
+        .contact-form .form-group::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background-color: #00ffff;
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+
+        .contact-form .form-group:focus-within::after {
+            transform: scaleX(1);
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .project-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .project-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .about-me,
+            .contact-form {
+                padding: 40px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="#">Home</a>
+        <a href="#">Projects</a>
+        <a href="#">About</a>
+        <a href="#">Contact</a>
+    </nav>
+
+    <section class="project-showcase">
+        <h2 style="font-size: 36px; margin-bottom: 40px; text-shadow: 0 0 10px rgba(0, 255, 255, 0.5);">My Latest Projects</h2>
+        <div class="project-grid">
+            <div class="project-card">
+                <img src="https://dummyimage.com/600x400/1a1a1a/00ffff&text=Project+1" alt="Project 1">
+                <div class="project-details">
+                    <h3>Project 1</h3>
+                    <p>A hacking-themed design with glitch effects and neon accents.</p>
+                    <div class="tags">
+                        <span>Cyberpunk</span>
+                        <span>Hacking</span>
+                        <span>Neon</span>
+                    </div>
+                </div>
+            </div>
+            <div class="project-card">
+                <img src="https://dummyimage.com/600x400/1a1a1a/ff00ff&text=Project+2" alt="Project 2">
+                <div class="project-details">
+                    <h3>Project 2</h3>
+                    <p>An interactive portfolio showcasing the designer's skills.</p>
+                    <div class="tags">
+                        <span>Interactive</span>
+                        <span>UI/UX</span>
+                        <span>Multimedia</span>
+                    </div>
+                </div>
+            </div>
+            <div class="project-card">
+                <img src="https://dummyimage.com/600x400/1a1a1a/00ffff&text=Project+3" alt="Project 3">
+                <div class="project-details">
+                    <h3>Project 3</h3>
+                    <p>A futuristic design with a focus on data visualization.</p>
+                    <div class="tags">
+                        <span>Data Visualization</span>
+                        <span>Technology</span>
+                        <span>Futuristic</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="about-me">
+        <h2>About Me</h2>
+        <p>I'm a graphic designer with a passion for creating hacking-themed designs. My work features a dark color palette, glitch effects, and neon accents to deliver a visually striking and immersive experience.</p>
+        <div class="skills">
+            <span>Graphic Design</span>
+            <span>UI/UX</span>
+            <span>Illustration</span>
+            <span>Motion Graphics</span>
+            <span>Cyberpunk</span>
+            <span>Hacking</span>
+        </div>
+    </section>
+
+    <section class="contact-form">
+        <h2>Get in Touch</h2>
+        <form>
+            <div class="form-group">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+                <label for="message">Message:</label>
+                <textarea id="message" name="message" required></textarea>
+            </div>
+            <button type="submit">Send</button>
+        </form>
+    </section>
+</body>
+</html>'<!-- Visit: https://github.com/Ishanoshada/portflair -->
+<!-- Visit: https://github.com/Ishanoshada/portflair -->

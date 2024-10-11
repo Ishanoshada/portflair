@@ -1,0 +1,524 @@
+<!-- Portfolio created by Ishan -->
+<!-- Check out my work at: https://github.com/Ishanoshada/portflair -->
+<!-- 2024/10/9 -->
+<!-- Portfolio created by Ishan -->
+'<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Build an Ultra-Modern Portfolio</title>
+  <style>
+    /* Global Styles */
+    @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+
+    body {
+      font-family: 'Montserrat', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #000;
+      color: #f2f2f2;
+    }
+
+    a {
+      text-decoration: none;
+      color: #f2f2f2;
+    }
+
+    /* Navigation Bar */
+    .nav-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 40px;
+      background-color: rgba(0, 0, 0, 0.7);
+      backdrop-filter: blur(10px);
+      position: relative;
+      z-index: 1;
+    }
+
+    .nav-bar .logo {
+      font-size: 24px;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      transition: color 0.3s ease;
+    }
+
+    .nav-bar .logo:hover {
+      color: #7c7c7c;
+    }
+
+    .nav-bar .nav-links {
+      display: flex;
+      gap: 30px;
+    }
+
+    .nav-bar .nav-links a {
+      font-size: 16px;
+      font-weight: 400;
+      transition: color 0.3s ease;
+    }
+
+    .nav-bar .nav-links a:hover {
+      color: #7c7c7c;
+    }
+
+    /* Hero Section */
+    .hero-section {
+      height: 80vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-section::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: #000;
+      opacity: 0.7;
+      z-index: 0;
+    }
+
+    .hero-section .hero-content {
+      text-align: center;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-section .hero-content h1 {
+      font-size: 64px;
+      font-weight: 700;
+      margin-bottom: 10px;
+      text-transform: uppercase;
+      letter-spacing: 4px;
+      text-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+    }
+
+    .hero-section .hero-content p {
+      font-size: 24px;
+      margin-bottom: 30px;
+      color: #b3b3b3;
+      text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+    }
+
+    .hero-section .hero-content .cta-button {
+      display: inline-block;
+      background-color: #7c7c7c;
+      color: #000;
+      font-size: 18px;
+      font-weight: 700;
+      padding: 12px 30px;
+      border-radius: 30px;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      transition: background-color 0.3s ease;
+    }
+
+    .hero-section .hero-content .cta-button:hover {
+      background-color: #a0a0a0;
+    }
+
+    .hero-section .background-image {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: url('https://dummyimage.com/1920x1080/000/fff&text=Ultra+Modern+Portfolio');
+      background-size: cover;
+      background-position: center;
+      z-index: -1;
+      animation: backgroundZoom 30s ease infinite;
+    }
+
+    @keyframes backgroundZoom {
+      0% {
+        transform: scale(1);
+      }
+      50% {
+        transform: scale(1.1);
+      }
+      100% {
+        transform: scale(1);
+      }
+    }
+
+    /* Project Showcase */
+    .project-showcase {
+      padding: 80px 40px;
+      background-color: #111;
+    }
+
+    .project-showcase h2 {
+      font-size: 36px;
+      font-weight: 700;
+      text-align: center;
+      margin-bottom: 50px;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      text-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+    }
+
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 40px;
+    }
+
+    .project-item {
+      position: relative;
+      overflow: hidden;
+      border-radius: 10px;
+      box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+      transition: transform 0.3s ease;
+    }
+
+    .project-item:hover {
+      transform: scale(1.05);
+    }
+
+    .project-item .project-image {
+      width: 100%;
+      height: 300px;
+      object-fit: cover;
+    }
+
+    .project-item .project-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.7);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .project-item:hover .project-overlay {
+      opacity: 1;
+    }
+
+    .project-item .project-overlay h3 {
+      font-size: 24px;
+      font-weight: 700;
+      margin-bottom: 10px;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+    }
+
+    .project-item .project-overlay p {
+      font-size: 16px;
+      color: #b3b3b3;
+      text-align: center;
+      max-width: 80%;
+      text-shadow: 0 0 5px rgba(255, 255, 255, 0.3);
+    }
+
+    /* About Section */
+    .about-section {
+      display: flex;
+      align-items: center;
+      padding: 80px 40px;
+      background-color: #222;
+    }
+
+    .about-image {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .about-image img {
+      width: 300px;
+      height: 300px;
+      object-fit: cover;
+      border-radius: 50%;
+      box-shadow: 0 0 30px rgba(255, 255, 255, 0.3);
+      transform: translateX(-50px);
+      opacity: 0;
+      animation: fadeInLeft 0.8s ease-in-out forwards;
+    }
+
+    @keyframes fadeInLeft {
+      0% {
+        transform: translateX(-50px);
+        opacity: 0;
+      }
+      100% {
+        transform: translateX(0);
+        opacity: 1;
+      }
+    }
+
+    .about-content {
+      flex: 1;
+      padding-left: 60px;
+      transform: translateX(50px);
+      opacity: 0;
+      animation: fadeInRight 0.8s ease-in-out forwards;
+    }
+
+    @keyframes fadeInRight {
+      0% {
+        transform: translateX(50px);
+        opacity: 0;
+      }
+      100% {
+        transform: translateX(0);
+        opacity: 1;
+      }
+    }
+
+    .about-content h2 {
+      font-size: 36px;
+      font-weight: 700;
+      margin-bottom: 20px;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      text-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+    }
+
+    .about-content p {
+      font-size: 18px;
+      line-height: 1.6;
+      margin-bottom: 20px;
+      color: #b3b3b3;
+      text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+    }
+
+    .about-content .skills-list {
+      list-style-type: none;
+      padding: 0;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 10px;
+    }
+
+    .about-content .skills-list li {
+      background-color: #333;
+      padding: 10px;
+      border-radius: 5px;
+      text-align: center;
+      font-size: 14px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+      transition: transform 0.3s ease;
+    }
+
+    .about-content .skills-list li:hover {
+      transform: scale(1.1);
+    }
+
+    /* Footer */
+    .footer {
+      background-color: #111;
+      padding: 20px 0;
+      text-align: center;
+      color: #7c7c7c;
+      font-size: 14px;
+    }
+
+    .footer p {
+      margin: 0;
+    }
+
+    .footer a {
+      color: #7c7c7c;
+      transition: color 0.3s ease;
+    }
+
+    .footer a:hover {
+      color: #b3b3b3;
+    }
+
+    /* Responsive Styles */
+    @media (max-width: 768px) {
+      .nav-bar {
+        padding: 15px 20px;
+      }
+
+      .nav-bar .logo {
+        font-size: 20px;
+      }
+
+      .nav-bar .nav-links {
+        gap: 20px;
+      }
+
+      .nav-bar .nav-links a {
+        font-size: 14px;
+      }
+
+      .hero-section .hero-content h1 {
+        font-size: 48px;
+      }
+
+      .hero-section .hero-content p {
+        font-size: 18px;
+      }
+
+      .hero-section .hero-content .cta-button {
+        font-size: 16px;
+        padding: 10px 25px;
+      }
+
+      .project-showcase {
+        padding: 60px 20px;
+      }
+
+      .project-showcase h2 {
+        font-size: 30px;
+        margin-bottom: 40px;
+      }
+
+      .project-grid {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 30px;
+      }
+
+      .project-item .project-image {
+        height: 250px;
+      }
+
+      .about-section {
+        padding: 60px 20px;
+        flex-direction: column;
+      }
+
+      .about-image {
+        margin-bottom: 40px;
+      }
+
+      .about-image img {
+        width: 250px;
+        height: 250px;
+      }
+
+      .about-content {
+        padding-left: 0;
+        text-align: center;
+      }
+
+      .about-content h2 {
+        font-size: 30px;
+        margin-bottom: 15px;
+      }
+
+      .about-content p {
+        font-size: 16px;
+      }
+
+      .about-content .skills-list {
+        grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+      }
+
+      .about-content .skills-list li {
+        font-size: 12px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav class="nav-bar">
+      <a href="#" class="logo">Portfolio</a>
+      <div class="nav-links">
+        <a href="#">Home</a>
+        <a href="#">Projects</a>
+        <a href="#">About</a>
+        <a href="#">Contact</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <!-- Hero Section -->
+    <section class="hero-section">
+      <div class="background-image"></div>
+      <div class="hero-content">
+        <h1>Build an Ultra-Modern Portfolio</h1>
+        <p>Showcase your work with a striking, all-black design</p>
+        <a href="#" class="cta-button">View Portfolio</a>
+      </div>
+    </section>
+
+    <!-- Project Showcase -->
+    <section class="project-showcase">
+      <h2>Featured Projects</h2>
+      <div class="project-grid">
+        <div class="project-item">
+          <img src="https://dummyimage.com/600x400/000/fff&text=Project+1" alt="Project 1" class="project-image">
+          <div class="project-overlay">
+            <h3>Project 1</h3>
+            <p>A brief description of the project.</p>
+          </div>
+        </div>
+        <div class="project-item">
+          <img src="https://dummyimage.com/600x400/000/fff&text=Project+2" alt="Project 2" class="project-image">
+          <div class="project-overlay">
+            <h3>Project 2</h3>
+            <p>A brief description of the project.</p>
+          </div>
+        </div>
+        <div class="project-item">
+          <img src="https://dummyimage.com/600x400/000/fff&text=Project+3" alt="Project 3" class="project-image">
+          <div class="project-overlay">
+            <h3>Project 3</h3>
+            <p>A brief description of the project.</p>
+          </div>
+        </div>
+        <div class="project-item">
+          <img src="https://dummyimage.com/600x400/000/fff&text=Project+4" alt="Project 4" class="project-image">
+          <div class="project-overlay">
+            <h3>Project 4</h3>
+            <p>A brief description of the project.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about-section">
+      <div class="about-image">
+        <img src="https://dummyimage.com/300x300/000/fff&text=Portfolio+Owner" alt="Portfolio Owner">
+      </div>
+      <div class="about-content">
+        <h2>About Me</h2>
+        <p>Hi, I'm the portfolio owner, a skilled designer and developer with a passion for creating visually stunning and user-friendly websites. I specialize in crafting modern, minimalist designs that captivate and inspire.</p>
+        <ul class="skills-list">
+          <li>UI Design</li>
+          <li>UX Design</li>
+          <li>Front-End Development</li>
+          <li>BrI Design</li>
+          <li>UX Design</li>
+          <li>Front-End Development</li>
+          <li>Branding</li>
+          <li>Illustration</li>
+          <li>Photography</li>
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>&copy; 2024 Ultra-Modern Portfolio. All rights reserved. Designed by <a href="#">Your Name</a>.</p>
+  </footer>
+</body>
+</html>'<!-- Visit: https://github.com/Ishanoshada/portflair -->
+<!-- Visit: https://github.com/Ishanoshada/portflair -->

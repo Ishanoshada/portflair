@@ -1,0 +1,415 @@
+<!-- Portfolio created by Ishan -->
+<!-- Check out my work at: https://github.com/Ishanoshada/portflair -->
+<!-- 2024/10/9 -->
+<!-- Portfolio created by Ishan -->
+'<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Create a Portfolio</title>
+  <style>
+    /* Global Styles */
+    body {
+      margin: 0;
+      font-family: 'Montserrat', sans-serif;
+      background-color: #000;
+      color: #fff;
+      overflow-x: hidden;
+    }
+
+    /* Navbar Styles */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 40px;
+      background-color: rgba(0, 0, 0, 0.5);
+      backdrop-filter: blur(10px);
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+    }
+
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      font-size: 16px;
+      font-weight: 500;
+      margin-right: 30px;
+      transition: color 0.3s ease;
+    }
+
+    nav a:hover {
+      color: #00ffff;
+    }
+
+    /* Portfolio Carousel Styles */
+    #portfolio-carousel {
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .carousel-item {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      opacity: 0;
+      transition: opacity 0.5s ease;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-image: linear-gradient(to right, #00ffff, #9b59b6);
+      background-size: 200% 200%;
+      animation: gradientAnimation 10s ease infinite;
+    }
+
+    .carousel-item.active {
+      opacity: 1;
+    }
+
+    .carousel-item img,
+    .carousel-item video {
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: contain;
+    }
+
+    .carousel-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .carousel-item:hover .carousel-overlay {
+      opacity: 1;
+    }
+
+    .carousel-overlay h2 {
+      font-size: 36px;
+      margin-bottom: 10px;
+    }
+
+    .carousel-overlay p {
+      font-size: 18px;
+      margin-bottom: 20px;
+    }
+
+    .carousel-controls {
+      position: absolute;
+      bottom: 20px;
+      display: flex;
+      justify-content: center;
+      width: 100%;
+    }
+
+    .carousel-controls button {
+      background-color: rgba(255, 255, 255, 0.3);
+      border: none;
+      color: #fff;
+      padding: 10px 20px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 16px;
+      margin: 0 10px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .carousel-controls button:hover {
+      background-color: rgba(255, 255, 255, 0.5);
+    }
+
+    /* Skills Section Styles */
+    #skills-section {
+      padding: 100px 40px;
+      text-align: center;
+      background-image: linear-gradient(to right, #00ffff, #9b59b6);
+      background-size: 200% 200%;
+      animation: gradientAnimation 10s ease infinite;
+    }
+
+    .skill-chart {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-top: 50px;
+    }
+
+    .skill-chart-item {
+      position: relative;
+      width: 200px;
+      height: 200px;
+      margin: 0 30px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+    }
+
+    .skill-chart-item svg {
+      width: 100%;
+      height: 100%;
+      transform: rotate(-90deg);
+    }
+
+    .skill-chart-item circle {
+      fill: transparent;
+      stroke-width: 10px;
+      stroke: rgba(255, 255, 255, 0.3);
+      transition: stroke 0.3s ease;
+    }
+
+    .skill-chart-item circle.progress {
+      stroke: #fff;
+      stroke-dasharray: 628.32; /* 2 * pi * r */
+      stroke-dashoffset: 628.32;
+      transition: stroke-dashoffset 0.5s ease;
+    }
+
+    .skill-chart-item:hover circle.progress {
+      stroke-dashoffset: 0;
+    }
+
+    .skill-chart-item h3 {
+      font-size: 20px;
+      margin-top: 20px;
+    }
+
+    .skill-chart-item p {
+      font-size: 16px;
+      margin-top: 10px;
+    }
+
+    /* Contact Section Styles */
+    #contact-section {
+      padding: 100px 40px;
+      text-align: center;
+      background-image: linear-gradient(to right, #00ffff, #9b59b6);
+      background-size: 200% 200%;
+      animation: gradientAnimation 10s ease infinite;
+    }
+
+    .contact-form {
+      max-width: 600px;
+      margin: 0 auto;
+      text-align: left;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+      width: 100%;
+      padding: 15px;
+      margin-bottom: 20px;
+      border: none;
+      border-radius: 5px;
+      background-color: rgba(255, 255, 255, 0.2);
+      color: #fff;
+      font-size: 16px;
+      font-family: 'Montserrat', sans-serif;
+      transition: background-color 0.3s ease;
+    }
+
+    .contact-form input:focus,
+    .contact-form textarea:focus {
+      background-color: rgba(255, 255, 255, 0.3);
+      outline: none;
+    }
+
+    .contact-form button {
+      background-color: #00ffff;
+      color: #000;
+      border: none;
+      border-radius: 5px;
+      padding: 15px 30px;
+      font-size: 16px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .contact-form button:hover {
+      background-color: #9b59b6;
+    }
+
+    .social-links {
+      margin-top: 40px;
+    }
+
+    .social-links a {
+      color: #fff;
+      font-size: 24px;
+      margin: 0 10px;
+      transition: color 0.3s ease;
+    }
+
+    .social-links a:hover {
+      color: #00ffff;
+    }
+
+    /* Animations */
+    @keyframes gradientAnimation {
+      0% {
+        background-position: 0% 50%;
+      }
+      50% {
+        background-position: 100% 50%;
+      }
+      100% {
+        background-position: 0% 50%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="#">Home</a>
+    <a href="#skills-section">Skills</a>
+    <a href="#contact-section">Contact</a>
+  </nav>
+
+  <section id="portfolio-carousel">
+    <div class="carousel-item active">
+      <img src="https://dummyimage.com/1200x500/ccc/000&text=Project+1" alt="Project 1">
+      <div class="carousel-overlay">
+        <h2>Project 1</h2>
+        <p>This is a description of Project 1.</p>
+      </div>
+    </div>
+    <div class="carousel-item">
+      <video autoplay loop muted>
+        <source src="https://dummyimage.com/1200x500/ccc/000&text=Project+2" type="video/mp4">
+      </video>
+      <div class="carousel-overlay">
+        <h2>Project 2</h2>
+        <p>This is a description of Project 2.</p>
+      </div>
+    </div>
+    <div class="carousel-item">
+      <img src="https://dummyimage.com/1200x500/ccc/000&text=Project+3" alt="Project 3">
+      <div class="carousel-overlay">
+        <h2>Project 3</h2>
+        <p>This is a description of Project 3.</p>
+      </div>
+    </div>
+    <div class="carousel-controls">
+      <button id="prev-btn">Previous</button>
+      <button id="next-btn">Next</button>
+    </div>
+  </section>
+
+  <section id="skills-section">
+    <h2>My Skills</h2>
+    <div class="skill-chart">
+      <div class="skill-chart-item">
+        <svg>
+          <circle cx="100" cy="100" r="80"></circle>
+          <circle class="progress" cx="100" cy="100" r="80" stroke-dashoffset="502.65"></circle>
+        </svg>
+        <h3>HTML/CSS</h3>
+        <p>Expertise: 90%</p>
+      </div>
+      <div class="skill-chart-item">
+        <svg>
+          <circle cx="100" cy="100" r="80"></circle>
+          <circle class="progress" cx="100" cy="100" r="80" stroke-dashoffset="502.65"></circle>
+        </svg>
+        <h3>JavaScript</h3>
+        <p>Expertise: 85%</p>
+      </div>
+      <div class="skill-chart-item">
+        <svg>
+          <circle cx="100" cy="100" r="80"></circle>
+          <circle class="progress" cx="100" cy="100" r="80" stroke-dashoffset="502.65"></circle>
+        </svg>
+        <h3>React</h3>
+        <p>Expertise: 80%</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact-section">
+    <h2>Get in Touch</h2>
+    <div class="contact-form">
+      <form>
+        <input type="text" placeholder="Name" required>
+        <input type="email" placeholder="Email" required>
+        <textarea placeholder="Message" rows="5" required></textarea>
+        <button type="submit">Submit</button>
+      </form>
+    </div>
+    <div class="social-links">
+      <a href="#"><i class="fab fa-linkedin"></i></a>
+      <a href="#"><i class="fab fa-twitter"></i></a>
+      <a href="#"><i class="fab fa-github"></i></a>
+    </div>
+  </section>
+
+  <script src="https://kit.fontawesome.com/your-font-awesome-kit.js" crossorigin="anonymous"></script>
+  <script>
+    const carouselItems = document.querySelectorAll('.carousel-item');
+    const prevBtn = document.getElementById('prev-btn');
+    const nextBtn = document.getElementById('next-btn');
+    let currentIndex = 0;
+
+    function showCarouselItem(index) {
+      carouselItems.forEach((item, i) => {
+        item.classList.toggle('active', i === index);
+      });
+    }
+
+    prevBtn.addEventListener('click', () => {
+      currentIndex = (currentIndex - 1 + carouselItems.length) % carouselItems.length;
+      showCarouselItem(currentIndex);
+    });
+
+    nextBtn.addEventListener('click', () => {
+      currentIndex = (currentIndex + 1) % carouselItems.length;
+      showCarouselItem(currentIndex);
+    });
+
+    setInterval(() => {
+      currentIndex = (currentIndex + 1) % carouselItems.length;
+      showCarouselItem(currentIndex);
+    }, 5000);
+
+    const skillChartItems = document.querySelectorAll('.skill-chart-item');
+
+    skillChartItems.forEach((item) => {
+      const progressCircle = item.querySelector('circle.progress');
+      let progressOffset = 502.65;
+
+      item.addEventListener('mouseenter', () => {
+        progressOffset = 0;
+        progressCircle.style.strokeDashoffset = progressOffset;
+      });
+
+      item.addEventListener('mouseleave', () => {
+        progressOffset = 502.65;
+        progressCircle.style.strokeDashoffset = progressOffset;
+      });
+    });
+  </script>
+</body>
+</html>'<!-- Visit: https://github.com/Ishanoshada/portflair -->
+<!-- Visit: https://github.com/Ishanoshada/portflair -->

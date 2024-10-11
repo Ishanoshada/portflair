@@ -1,0 +1,353 @@
+<!-- Portfolio created by Ishan -->
+<!-- Check out my work at: https://github.com/Ishanoshada/portflair -->
+<!-- 2024/10/9 -->
+<!-- Portfolio created by Ishan -->
+'<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create a Portfolio</title>
+    <style>
+        /* Global Styles */
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #0c0c0c;
+            color: #fff;
+        }
+
+        /* Navigation */
+        nav {
+            background-color: #1f1f1f;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        nav a {
+            color: #5bc0de;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.2rem;
+            margin-right: 2rem;
+            transition: color 0.3s ease-in-out;
+        }
+
+        nav a:hover {
+            color: #fff;
+        }
+
+        /* Skills/Expertise Section */
+        .skills-section {
+            padding: 4rem 2rem;
+            background-image: linear-gradient(to right, #1f1f1f, #2b2b2b);
+            background-size: 200% 200%;
+            animation: gradientAnimation 10s ease infinite;
+        }
+
+        .skills-section h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            grid-gap: 2rem;
+        }
+
+        .skill-item {
+            background-color: #1f1f1f;
+            border-radius: 10px;
+            padding: 2rem;
+            text-align: center;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .skill-item:before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #5bc0de;
+            opacity: 0;
+            transition: opacity 0.3s ease-in-out;
+        }
+
+        .skill-item:hover:before {
+            opacity: 0.2;
+        }
+
+        .skill-item h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .skill-item p {
+            font-size: 1rem;
+            color: #999;
+        }
+
+        /* Project Showcase Section */
+        .project-section {
+            padding: 4rem 2rem;
+            background-image: linear-gradient(to right, #2b2b2b, #1f1f1f);
+            background-size: 200% 200%;
+            animation: gradientAnimation 10s ease infinite;
+        }
+
+        .project-section h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-gap: 2rem;
+        }
+
+        .project-item {
+            background-color: #1f1f1f;
+            border-radius: 10px;
+            padding: 2rem;
+            text-align: center;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .project-item:before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #5bc0de;
+            opacity: 0;
+            transition: opacity 0.3s ease-in-out;
+        }
+
+        .project-item:hover:before {
+            opacity: 0.2;
+        }
+
+        .project-item img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 5px;
+            margin-bottom: 1rem;
+        }
+
+        .project-item h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .project-item p {
+            font-size: 1rem;
+            color: #999;
+        }
+
+        /* Contact Section */
+        .contact-section {
+            padding: 4rem 2rem;
+            background-image: linear-gradient(to right, #1f1f1f, #2b2b2b);
+            background-size: 200% 200%;
+            animation: gradientAnimation 10s ease infinite;
+        }
+
+        .contact-section h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .contact-form {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: #1f1f1f;
+            border-radius: 10px;
+            padding: 2rem;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 1rem;
+            margin-bottom: 1rem;
+            border: none;
+            border-radius: 5px;
+            background-color: #2b2b2b;
+            color: #fff;
+            font-size: 1rem;
+        }
+
+        .contact-form button {
+            background-color: #5bc0de;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            padding: 1rem 2rem;
+            font-size: 1.2rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s ease-in-out;
+        }
+
+        .contact-form button:hover {
+            background-color: #3399b3;
+        }
+
+        /* Animations */
+        @keyframes gradientAnimation {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            nav {
+                padding: 1rem;
+            }
+
+            nav a {
+                font-size: 1rem;
+                margin-right: 1rem;
+            }
+
+            .skills-section,
+            .project-section,
+            .contact-section {
+                padding: 3rem 1rem;
+            }
+
+            .skills-section h2,
+            .project-section h2,
+            .contact-section h2 {
+                font-size: 2rem;
+                margin-bottom: 2rem;
+            }
+
+            .skill-item,
+            .project-item {
+                padding: 1.5rem;
+            }
+
+            .skill-item h3,
+            .project-item h3 {
+                font-size: 1.2rem;
+            }
+
+            .skill-item p,
+            .project-item p {
+                font-size: 0.9rem;
+            }
+
+            .contact-form {
+                padding: 1.5rem;
+            }
+
+            .contact-form input,
+            .contact-form textarea {
+                padding: 0.8rem;
+                font-size: 0.9rem;
+            }
+
+            .contact-form button {
+                padding: 0.8rem 1.5rem;
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="#">Home</a>
+        <a href="#">Skills</a>
+        <a href="#">Projects</a>
+        <a href="#">Contact</a>
+    </nav>
+
+    <section class="skills-section">
+        <h2>My Skills</h2>
+        <div class="skills-grid">
+            <div class="skill-item">
+                <h3>HTML</h3>
+                <p>Proficient in creating semantic and accessible markup.</p>
+            </div>
+            <div class="skill-item">
+                <h3>CSS</h3>
+                <p>Experienced in crafting visually stunning and responsive designs.</p>
+            </div>
+            <div class="skill-item">
+                <h3>JavaScript</h3>
+                <p>Adept at building interactive and dynamic web applications.</p>
+            </div>
+            <div class="skill-item">
+                <h3>React</h3>
+                <p>Proficient in building scalable and efficient web applications using React.</p>
+            </div>
+            <div class="skill-item">
+                <h3>Node.js</h3>
+                <p>Experienced in developing server-side applications with Node.js.</p>
+            </div>
+            <div class="skill-item">
+                <h3>SQL</h3>
+                <p>Skilled in designing and optimizing database-driven applications.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="project-section">
+        <h2>My Projects</h2>
+        <div class="project-grid">
+            <div class="project-item">
+                <img src="https://dummyimage.com/600x400/ccc/000&text=Project+1" alt="Project 1">
+                <h3>Project 1</h3>
+                <p>A responsive and interactive web application built with React and Node.js.</p>
+            </div>
+            <div class="project-item">
+                <img src="https://dummyimage.com/600x400/ccc/000&text=Project+2" alt="Project 2">
+                <h3>Project 2</h3>
+                <p>A data-driven web application with a sleek and modern design.</p>
+            </div>
+            <div class="project-item">
+                <img src="https://dummyimage.com/600x400/ccc/000&text=Project+3" alt="Project 3">
+                <h3>Project 3</h3>
+                <p>A mobile-first web application with a focus on performance and user experience.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="contact-section">
+        <h2>Get in Touch</h2>
+        <div class="contact-form">
+            <input type="text" placeholder="Name" />
+            <input type="email" placeholder="Email" />
+            <textarea placeholder="Message"></textarea>
+            <button type="submit">Send</button>
+        </div>
+    </section>
+</body>
+</html>'<!-- Visit: https://github.com/Ishanoshada/portflair -->
+<!-- Visit: https://github.com/Ishanoshada/portflair -->

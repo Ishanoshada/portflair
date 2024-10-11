@@ -1,0 +1,437 @@
+<!-- Portfolio created by Ishan -->
+<!-- Check out my work at: https://github.com/Ishanoshada/portflair -->
+<!-- 2024/10/9 -->
+<!-- Portfolio created by Ishan -->
+'<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Develop a space-themed portfolio</title>
+    <style>
+        /* Global Styles */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Montserrat', sans-serif;
+            background-color: #000;
+            color: #fff;
+            overflow-x: hidden;
+        }
+
+        /* Navigation Bar */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 50px;
+            background-color: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(10px);
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 999;
+        }
+
+        .navbar-brand {
+            font-size: 24px;
+            font-weight: bold;
+            background: linear-gradient(to right, #9b59b6, #8e44ad);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 0 10px rgba(155, 89, 182, 0.5);
+            transition: all 0.3s ease;
+        }
+
+        .navbar-brand:hover {
+            transform: scale(1.05);
+            text-shadow: 0 0 20px rgba(155, 89, 182, 0.8);
+        }
+
+        .navbar-nav {
+            display: flex;
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .navbar-nav li {
+            margin-left: 30px;
+        }
+
+        .navbar-nav li a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: 500;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .navbar-nav li a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(to right, #9b59b6, #8e44ad);
+            bottom: -5px;
+            left: 0;
+            transition: all 0.3s ease;
+        }
+
+        .navbar-nav li a:hover {
+            color: #9b59b6;
+        }
+
+        .navbar-nav li a:hover::after {
+            width: 100%;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(to bottom, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.5)), url(https://dummyimage.com/1920x1080/000/fff&text=Space+Background);
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-title {
+            font-size: 72px;
+            font-weight: bold;
+            text-align: center;
+            background: linear-gradient(to right, #9b59b6, #8e44ad);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 0 20px rgba(155, 89, 182, 0.8);
+            animation: glowText 3s ease-in-out infinite;
+        }
+
+        @keyframes glowText {
+            0% {
+                text-shadow: 0 0 10px rgba(155, 89, 182, 0.5);
+            }
+            50% {
+                text-shadow: 0 0 20px rgba(155, 89, 182, 0.8);
+            }
+            100% {
+                text-shadow: 0 0 10px rgba(155, 89, 182, 0.5);
+            }
+        }
+
+        .hero-description {
+            font-size: 24px;
+            text-align: center;
+            margin-top: 20px;
+            background: linear-gradient(to right, #ecf0f1, #bdc3c7);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 0 10px rgba(236, 240, 241, 0.5);
+        }
+
+        .hero-cta {
+            margin-top: 40px;
+        }
+
+        .hero-cta a {
+            display: inline-block;
+            padding: 15px 30px;
+            font-size: 18px;
+            font-weight: bold;
+            text-decoration: none;
+            border-radius: 30px;
+            background: linear-gradient(to right, #9b59b6, #8e44ad);
+            color: #fff;
+            box-shadow: 0 0 20px rgba(155, 89, 182, 0.5);
+            transition: all 0.3s ease;
+        }
+
+        .hero-cta a:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 30px rgba(155, 89, 182, 0.8);
+        }
+
+        /* Skills Section */
+        .skills {
+            padding: 100px 50px;
+            background: linear-gradient(to bottom, #000, #1c1c1c);
+        }
+
+        .skills-title {
+            font-size: 48px;
+            font-weight: bold;
+            text-align: center;
+            background: linear-gradient(to right, #9b59b6, #8e44ad);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 0 20px rgba(155, 89, 182, 0.8);
+            margin-bottom: 50px;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-gap: 50px;
+        }
+
+        .skill-card {
+            background-color: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(10px);
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 0 20px rgba(155, 89, 182, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .skill-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 0 30px rgba(155, 89, 182, 0.5);
+        }
+
+        .skill-title {
+            font-size: 24px;
+            font-weight: bold;
+            background: linear-gradient(to right, #9b59b6, #8e44ad);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 0 10px rgba(155, 89, 182, 0.5);
+        }
+
+        .skill-description {
+            font-size: 16px;
+            color: #bdc3c7;
+            margin-top: 10px;
+        }
+
+        /* Projects Section */
+        .projects {
+            padding: 100px 50px;
+            background: linear-gradient(to bottom, #1c1c1c, #000);
+        }
+
+        .projects-title {
+            font-size: 48px;
+            font-weight: bold;
+            text-align: center;
+            background: linear-gradient(to right, #9b59b6, #8e44ad);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 0 20px rgba(155, 89, 182, 0.8);
+            margin-bottom: 50px;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-gap: 50px;
+        }
+
+        .project-card {
+            position: relative;
+            overflow: hidden;
+            border-radius: 20px;
+            box-shadow: 0 0 20px rgba(155, 89, 182, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 0 30px rgba(155, 89, 182, 0.5);
+        }
+
+        .project-card img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            transition: all 0.3s ease;
+        }
+
+        .project-card:hover img {
+            transform: scale(1.1);
+        }
+
+        .project-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, rgba(155, 89, 182, 0.5), rgba(142, 68, 173, 0.5));
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transition: all 0.3s ease;
+        }
+
+        .project-card:hover .project-overlay {
+            opacity: 1;
+        }
+
+        .project-title {
+            font-size: 24px;
+            font-weight: bold;
+            color: #fff;
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+            margin-bottom: 10px;
+        }
+
+        .project-description {
+            font-size: 16px;
+            color: #fff;
+            text-align: center;
+            padding: 0 20px;
+        }
+
+        /* Footer */
+        .footer {
+            background-color: #000;
+            padding: 30px 0;
+            text-align: center;
+        }
+
+        .footer-text {
+            font-size: 14px;
+            color: #bdc3c7;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .navbar {
+                padding: 15px 30px;
+            }
+
+            .navbar-brand {
+                font-size: 20px;
+            }
+
+            .navbar-nav li {
+                margin-left: 20px;
+            }
+
+            .navbar-nav li a {
+                font-size: 14px;
+            }
+
+            .hero-title {
+                font-size: 48px;
+            }
+
+            .hero-description {
+                font-size: 18px;
+            }
+
+            .hero-cta a {
+                font-size: 16px;
+                padding: 12px 24px;
+            }
+
+            .skills-title,
+            .projects-title {
+                font-size: 36px;
+            }
+
+            .skill-title {
+                font-size: 20px;
+            }
+
+            .skill-description {
+                font-size: 14px;
+            }
+
+            .project-title {
+                font-size: 20px;
+            }
+
+            .project-description {
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <a href="#" class="navbar-brand">Develop</a>
+            <ul class="navbar-nav">
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Skills</a></li>
+                <li><a href="#">Projects</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero">
+            <h1 class="hero-title">Explore the Cosmos<br>with My Portfolio</h1>
+            <p class="hero-description">Discover a world of creativity and innovation in my space-themed portfolio.</p>
+            <div class="hero-cta">
+                <a href="#">View Projects</a>
+            </div>
+        </section>
+
+        <section class="skills">
+            <h2 class="skills-title">My Expertise</h2>
+            <div class="skills-grid">
+                <div class="skill-card">
+                    <h3 class="skill-title">Web Development</h3>
+                    <p class="skill-description">Crafting visually stunning and responsive websites that are out of this world.</p>
+                </div>
+                <div class="skill-card">
+                    <h3 class="skill-title">Graphic Design</h3>
+                    <p class="skill-description">Creating captivating and cosmic-inspired designs that captivate the senses.</p>
+                </div>
+                <div class="skill-card">
+                    <h3 class="skill-title">UI/UX Design</h3>
+                    <p class="skill-description">Designing user interfaces that are both intuitive and otherworldly.</p>
+                </div>
+                <div class="skill-card">
+                    <h3 class="skill-title">Motion Graphics</h3>
+                    <p class="skill-description">Bringing digital experiences to life with mesmerizing animations and special effects.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="projects">
+            <h2 class="projects-title">My Stellar Projects</h2>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <img src="https://dummyimage.com/600x400/000/fff&text=Project+1" alt="Project 1">
+                    <div class="project-overlay">
+                        <h3 class="project-title">Project 1</h3>
+                        <p class="project-description">A captivating space-themed website design that takes users on a cosmic journey.</p>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <img src="https://dummyimage.com/600x400/000/fff&text=Project+2" alt="Project 2">
+                    <div class="project-overlay">
+                        <h3 class="project-title">Project 2</h3>
+                        <p class="project-description">An interactive and visually stunning mobile app that explores the wonders of the universe.</p>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <img src="https://dummyimage.com/600x400/000/fff&text=Project+3" alt="Project 3">
+                    <div class="project-overlay">
+                        <h3 class="project-title">Project 3</h3>
+                        <p class="project-description">A dynamic and immersive data visualization tool that showcases the latest astronomical discoveries.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <p class="footer-text">&copy; 2024 Develop. All rights reserved.</p>
+    </footer>
+</body>
+</html>'<!-- Visit: https://github.com/Ishanoshada/portflair -->
+<!-- Visit: https://github.com/Ishanoshada/portflair -->

@@ -1,0 +1,529 @@
+<!-- Portfolio created by Ishan -->
+<!-- Check out my work at: https://github.com/Ishanoshada/portflair -->
+<!-- 2024/10/9 -->
+<!-- Portfolio created by Ishan -->
+'<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Black Hole Portfolio</title>
+  <style>
+    /* Global Styles */
+    body {
+      font-family: 'Orbitron', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #0f0f0f;
+      color: #fff;
+      overflow-x: hidden;
+    }
+
+    /* Navigation */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.5rem 2rem;
+      background-color: rgba(15, 15, 15, 0.8);
+      backdrop-filter: blur(10px);
+      position: relative;
+      z-index: 100;
+    }
+
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      font-size: 1.1rem;
+      padding: 0.5rem 1rem;
+      border-radius: 0.5rem;
+      transition: background-color 0.3s ease;
+    }
+
+    nav a:hover {
+      background-color: rgba(255, 255, 255, 0.1);
+    }
+
+    /* Hero Section */
+    .hero {
+      height: 80vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      background-image: url('https://dummyimage.com/1920x1080/0f0f0f/ffffff.jpg&text=Black+Hole');
+      background-size: cover;
+      background-position: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(ellipse at center, rgba(15, 15, 15, 0.8) 0%, rgba(15, 15, 15, 0.4) 70%, rgba(15, 15, 15, 0.1) 100%);
+      z-index: 1;
+    }
+
+    .hero-content {
+      text-align: center;
+      position: relative;
+      z-index: 2;
+    }
+
+    .hero h1 {
+      font-size: 4rem;
+      margin-bottom: 1rem;
+      text-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+      animation: glitch 2s infinite;
+    }
+
+    .hero p {
+      font-size: 1.8rem;
+      margin-bottom: 2rem;
+      text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    }
+
+    .hero-particles {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 1;
+    }
+
+    /* Project Showcase */
+    .project-showcase {
+      padding: 4rem 2rem;
+      background-color: #171717;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .project-showcase h2 {
+      font-size: 2.5rem;
+      text-align: center;
+      margin-bottom: 3rem;
+      text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+    }
+
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      grid-gap: 2rem;
+    }
+
+    .project-item {
+      background-color: #0f0f0f;
+      border-radius: 1rem;
+      overflow: hidden;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+      position: relative;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+
+    .project-item:hover {
+      transform: scale(1.05);
+    }
+
+    .project-item::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: url('https://dummyimage.com/600x400/171717/ffffff.jpg&text=Project+Preview');
+      background-size: cover;
+      background-position: center;
+      filter: blur(5px);
+      z-index: 1;
+    }
+
+    .project-item::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(15, 15, 15, 0.7);
+      z-index: 2;
+    }
+
+    .project-item:hover::after {
+      background-color: rgba(15, 15, 15, 0.5);
+    }
+
+    .project-details {
+      position: relative;
+      z-index: 3;
+      padding: 2rem;
+      text-align: center;
+    }
+
+    .project-details h3 {
+      font-size: 1.8rem;
+      margin-bottom: 1rem;
+      text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+    }
+
+    .project-details p {
+      font-size: 1.2rem;
+      margin-bottom: 1.5rem;
+      text-shadow: 0 0 5px rgba(255, 255, 255, 0.2);
+    }
+
+    .project-details a {
+      display: inline-block;
+      padding: 0.75rem 1.5rem;
+      background-color: #2a2a2a;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 0.5rem;
+      transition: background-color 0.3s ease;
+    }
+
+    .project-details a:hover {
+      background-color: #3a3a3a;
+    }
+
+    /* Skills and Technologies */
+    .skills-section {
+      padding: 4rem 2rem;
+      background-color: #0f0f0f;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .skills-section h2 {
+      font-size: 2.5rem;
+      text-align: center;
+      margin-bottom: 3rem;
+      text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+    }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+      grid-gap: 2rem;
+      justify-items: center;
+    }
+
+    .skill-item {
+      background-color: #171717;
+      border-radius: 1rem;
+      padding: 2rem;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+      text-align: center;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+
+    .skill-item:hover {
+      transform: scale(1.1);
+    }
+
+    .skill-item img {
+      width: 50px;
+      height: 50px;
+      margin-bottom: 1rem;
+      filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.3));
+    }
+
+    .skill-item h3 {
+      font-size: 1.4rem;
+      margin-bottom: 0.5rem;
+      text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+    }
+
+    .skill-item p {
+      font-size: 1.1rem;
+      text-shadow: 0 0 5px rgba(255, 255, 255, 0.2);
+    }
+
+    /* Contact Form */
+    .contact-section {
+      padding: 4rem 2rem;
+      background-color: #171717;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .contact-section h2 {
+      font-size: 2.5rem;
+      text-align: center;
+      margin-bottom: 3rem;
+      text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+    }
+
+    .contact-form {
+      max-width: 600px;
+      margin: 0 auto;
+      background-color: #0f0f0f;
+      border-radius: 1rem;
+      padding: 2rem;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    }
+
+    .contact-form .form-group {
+      margin-bottom: 1.5rem;
+    }
+
+    .contact-form label {
+      display: block;
+      font-size: 1.2rem;
+      margin-bottom: 0.5rem;
+      text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+      display: block;
+      width: 100%;
+      padding: 0.75rem 1rem;
+      font-size: 1.1rem;
+      background-color: #2a2a2a;
+      border: none;
+      border-radius: 0.5rem;
+      color: #fff;
+      transition: background-color 0.3s ease;
+    }
+
+    .contact-form input:focus,
+    .contact-form textarea:focus {
+      background-color: #3a3a3a;
+    }
+
+    .contact-form button {
+      display: block;
+      width: 100%;
+      padding: 0.75rem 1.5rem;
+      font-size: 1.2rem;
+      background-color: #2a2a2a;
+      color: #fff;
+      border: none;
+      border-radius: 0.5rem;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .contact-form button:hover {
+      background-color: #3a3a3a;
+    }
+
+    /* Animations */
+    @keyframes glitch {
+      0% {
+        text-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+      }
+      50% {
+        text-shadow: 0 0 10px rgba(255, 255, 255, 0.5), 0 0 20px rgba(255, 255, 255, 0.5), 0 0 40px rgba(255, 255, 255, 0.5);
+      }
+      100% {
+        text-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+      }
+    }
+
+    /* Responsive Styles */
+    @media (max-width: 768px) {
+      .hero h1 {
+        font-size: 3rem;
+      }
+
+      .hero p {
+        font-size: 1.5rem;
+      }
+
+      .project-details h3 {
+        font-size: 1.5rem;
+      }
+
+      .project-details p {
+        font-size: 1rem;
+      }
+
+      .skill-item h3 {
+        font-size: 1.2rem;
+      }
+
+      .skill-item p {
+        font-size: 1rem;
+      }
+
+      .contact-form {
+        padding: 1.5rem;
+      }
+
+      .contact-form label,
+      .contact-form input,
+      .contact-form textarea,
+      .contact-form button {
+        font-size: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="#">Home</a>
+    <a href="#">Projects</a>
+    <a href="#">Skills</a>
+    <a href="#">Contact</a>
+  </nav>
+
+  <div class="hero">
+    <div class="hero-content">
+      <h1>Welcome to the Black Hole</h1>
+      <p>Explore the cosmic portfolio of a backend developer</p>
+    </div>
+    <div class="hero-particles">
+      <canvas id="heroParticles"></canvas>
+    </div>
+  </div>
+
+  <div class="project-showcase">
+    <h2>Project Galaxy</h2>
+    <div class="project-grid">
+      <div class="project-item">
+        <div class="project-details">
+          <h3>Project 1</h3>
+          <p>Explore the technical details of this cosmic project.</p>
+          <a href="#">Learn More</a>
+        </div>
+      </div>
+      <div class="project-item">
+        <div class="project-details">
+          <h3>Project 2</h3>
+          <p>Discover the intricate gears of this steampunk-inspired project.</p>
+          <a href="#">Learn More</a>
+        </div>
+      </div>
+      <div class="project-item">
+        <div class="project-details">
+          <h3>Project 3</h3>
+          <p>Dive into the vaporwave-infused world of this cosmic project.</p>
+          <a href="#">Learn More</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="skills-section">
+    <h2>Skill Galaxy</h2>
+    <div class="skills-grid">
+      <div class="skill-item">
+        <img src="https://dummyimage.com/100x100/ffffff/0f0f0f.jpg&text=JavaScript" alt="JavaScript">
+        <h3>JavaScript</h3>
+        <p>Expertise in modern JavaScript development</p>
+      </div>
+      <div class="skill-item">
+        <img src="https://dummyimage.com/100x100/ffffff/0f0f0f.jpg&text=Python" alt="Python">
+        <h3>Python</h3>
+        <p>Proficient in the versatile Python language</p>
+      </div>
+      <div class="skill-item">
+        <img src="https://dummyimage.com/100x100/ffffff/0f0f0f.jpg&text=Node.js" alt="Node.js">
+        <h3>Node.js</h3>
+        <p>Experienced in server-side JavaScript development</p>
+      </div>
+      <div class="skill-item">
+        <img src="https://dummyimage.com/100x100/ffffff/0f0f0f.jpg&text=MongoDB" alt="MongoDB">
+        <h3>MongoDB</h3>
+        <p>Knowledgeable in NoSQL database management</p>
+      </div>
+      <div class="skill-item">
+        <img src="https://dummyimage.com/100x100/ffffff/0f0f0f.jpg&text=Docker" alt="Docker">
+        <h3>Docker</h3>
+        <p>Proficient in containerization and deployment</p>
+      </div>
+      <div class="skill-item">
+        <img src="https://dummyimage.com/100x100/ffffff/0f0f0f.jpg&text=AWS" alt="AWS">
+        <h3>AWS</h3>
+        <p>Experienced in cloud infrastructure and services</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="contact-section">
+    <h2>Get in Touch</h2>
+    <div class="contact-form">
+      <form>
+        <div class="form-group">
+          <label for="name">Name</label>
+          <input type="text" id="name" name="name" placeholder="Enter your name" required>
+        </div>
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" placeholder="Enter your email" required>
+        </div>
+        <div class="form-group">
+          <label for="message">Message</label>
+          <textarea id="message" name="message" placeholder="Enter your message" required></textarea>
+        </div>
+        <button type="submit">Send Message</button>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    // Particle effects for the hero section
+    const canvas = document.getElementById('heroParticles');
+    const ctx = canvas.getContext('2d');
+
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight * 0.8;
+
+    const particles = [];
+
+    function createParticles() {
+      for (let i = 0; i < 100; i++) {
+        particles.push({
+          x: Math.random() * canvas.width,
+          y: Math.random() * canvas.height,
+          radius: Math.random() * 2 + 1,
+          speedX: Math.random() * 2 - 1,
+          speedY: Math.random() * 2 - 1,
+          color: `hsl(${Math.random() * 360}, 100%, 80%)`
+        });
+      }
+    }
+
+    function animateParticles() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+      for (let i = 0; i < particles.length; i++) {
+        const particle = particles[i];
+
+        particle.x += particle.speedX;
+        particle.y += particle.speedY;
+
+        if (particle.x < 0 || particle.x > canvas.width) {
+          particle.speedX *= -1;
+        }
+
+        if (particle.y < 0 || particle.y > canvas.height) {
+          particle.speedY *= -1;
+        }
+
+        ctx.beginPath();
+        ctx.arc(particle.x, particle.y, particle.radius, 0, Math.PI * 2);
+        ctx.fillStyle = particle.color;
+        ctx.fill();
+      }
+
+      requestAnimationFrame(animateParticles);
+    }
+
+    createParticles();
+    animateParticles();
+  </script>
+</body>
+</html>'<!-- Visit: https://github.com/Ishanoshada/portflair -->
+<!-- Visit: https://github.com/Ishanoshada/portflair -->

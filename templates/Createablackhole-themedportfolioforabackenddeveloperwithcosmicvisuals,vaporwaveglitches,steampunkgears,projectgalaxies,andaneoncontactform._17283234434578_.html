@@ -1,0 +1,499 @@
+<!-- Portfolio created by Ishan -->
+<!-- Check out my work at: https://github.com/Ishanoshada/portflair -->
+<!-- 2024/10/9 -->
+<!-- Portfolio created by Ishan -->
+'<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Black Hole Portfolio</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
+
+        body {
+            font-family: 'Orbitron', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #121212;
+            color: #fff;
+            overflow-x: hidden;
+        }
+
+        /* Navigation */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 40px;
+            background-color: rgba(18, 18, 18, 0.8);
+            backdrop-filter: blur(10px);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 18px;
+            font-weight: 700;
+            padding: 10px 20px;
+            border-radius: 20px;
+            transition: background-color 0.3s ease;
+        }
+
+        nav a:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        /* Project Galaxies Section */
+        #project-galaxies {
+            padding: 80px 40px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .project-galaxy-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(ellipse at center, #1e1e1e 0%, #121212 100%);
+            z-index: -1;
+            animation: galaxyBgAnimation 60s linear infinite;
+        }
+
+        .project-galaxy-bg::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://dummyimage.com/1200x500/ccc/000&text=Galaxy') no-repeat center center;
+            background-size: cover;
+            opacity: 0.2;
+            animation: galaxyBgGlitch 5s ease-in-out infinite;
+        }
+
+        .project-galaxy-bg::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://dummyimage.com/1200x500/ccc/000&text=Steampunk+Gears') no-repeat center center;
+            background-size: 30%;
+            opacity: 0.1;
+            animation: galaxyBgGlitch 10s ease-in-out infinite;
+        }
+
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            grid-gap: 40px;
+            justify-items: center;
+        }
+
+        .project-item {
+            position: relative;
+            width: 100%;
+            height: 200px;
+            border-radius: 20px;
+            overflow: hidden;
+            cursor: pointer;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+            transition: transform 0.3s ease;
+        }
+
+        .project-item:hover {
+            transform: scale(1.05);
+        }
+
+        .project-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: blur(5px) brightness(0.5);
+            transition: filter 0.3s ease;
+        }
+
+        .project-item:hover img {
+            filter: blur(2px) brightness(0.8);
+        }
+
+        .project-item .project-info {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            color: #fff;
+            text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        }
+
+        .project-item .project-info h3 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            text-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+        }
+
+        .project-item .project-info p {
+            font-size: 16px;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.3s ease, transform 0.3s ease;
+        }
+
+        .project-item:hover .project-info p {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Cosmic Skills Section */
+        #cosmic-skills {
+            padding: 80px 40px;
+            background: radial-gradient(ellipse at center, #1e1e1e 0%, #121212 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cosmic-skills-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://dummyimage.com/1200x500/ccc/000&text=Cosmic+Nebula') no-repeat center center;
+            background-size: cover;
+            opacity: 0.1;
+            animation: cosmicBgGlitch 10s ease-in-out infinite;
+        }
+
+        .cosmic-skills-bg::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://dummyimage.com/1200x500/ccc/000&text=Steampunk+Gears') no-repeat center center;
+            background-size: 20%;
+            opacity: 0.1;
+            animation: cosmicBgGlitch 15s ease-in-out infinite;
+        }
+
+        .skill-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            grid-gap: 40px;
+            justify-items: center;
+        }
+
+        .skill-item {
+            position: relative;
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.1);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+            transition: transform 0.3s ease;
+        }
+
+        .skill-item:hover {
+            transform: scale(1.1);
+        }
+
+        .skill-item img {
+            width: 80px;
+            height: 80px;
+            filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.5));
+            animation: skillIconPulse 2s ease-in-out infinite;
+        }
+
+        .skill-item h3 {
+            font-size: 18px;
+            margin-top: 20px;
+            text-align: center;
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+        }
+
+        /* Neon Contact Form Section */
+        #neon-contact {
+            padding: 80px 40px;
+            background: linear-gradient(45deg, #ff00ff, #00ffff);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .neon-contact-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://dummyimage.com/1200x500/ccc/000&text=Neon+Grid') no-repeat center center;
+            background-size: cover;
+            opacity: 0.1;
+            animation: neonBgGlitch 5s ease-in-out infinite;
+        }
+
+        .neon-contact-form {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: rgba(18, 18, 18, 0.8);
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+        }
+
+        .neon-contact-form h2 {
+            font-size: 32px;
+            margin-bottom: 20px;
+            text-align: center;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            text-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+        }
+
+        .neon-contact-form .form-group {
+            margin-bottom: 20px;
+        }
+
+        .neon-contact-form label {
+            display: block;
+            font-size: 16px;
+            margin-bottom: 5px;
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+        }
+
+        .neon-contact-form input,
+        .neon-contact-form textarea {
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            border: none;
+            border-radius: 10px;
+            background-color: rgba(255, 255, 255, 0.1);
+            color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            transition: box-shadow 0.3s ease;
+        }
+
+        .neon-contact-form input:focus,
+        .neon-contact-form textarea:focus {
+            outline: none;
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+        }
+
+        .neon-contact-form button {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            font-size: 18px;
+            font-weight: 700;
+            border: none;
+            border-radius: 10px;
+            background: linear-gradient(45deg, #ff00ff, #00ffff);
+            color: #fff;
+            cursor: pointer;
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+            transition: box-shadow 0.3s ease;
+        }
+
+        .neon-contact-form button:hover {
+            box-shadow: 0 0 40px rgba(255, 255, 255, 0.5);
+        }
+
+        /* Animations */
+        @keyframes galaxyBgAnimation {
+            0% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.1);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        @keyframes galaxyBgGlitch {
+            0% {
+                transform: translate(0, 0);
+            }
+            20% {
+                transform: translate(10px, 10px);
+            }
+            40% {
+                transform: translate(-10px, -10px);
+            }
+            60% {
+                transform: translate(5px, 5px);
+            }
+            80% {
+                transform: translate(-5px, -5px);
+            }
+            100% {
+                transform: translate(0, 0);
+            }
+        }
+
+        @keyframes cosmicBgGlitch {
+            0% {
+                transform: translate(0, 0);
+            }
+            20% {
+                transform: translate(5px, 5px);
+            }
+            40% {
+                transform: translate(-5px, -5px);
+            }
+            60% {
+                transform: translate(3px, 3px);
+            }
+            80% {
+                transform: translate(-3px, -3px);
+            }
+            100% {
+                transform: translate(0, 0);
+            }
+        }
+
+        @keyframes skillIconPulse {
+            0% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.1);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        @keyframes neonBgGlitch {
+            0% {
+                transform: translate(0, 0);
+            }
+            20% {
+                transform: translate(2px, 2px);
+            }
+            40% {
+                transform: translate(-2px, -2px);
+            }
+            60% {
+                transform: translate(1px, 1px);
+            }
+            80% {
+                transform: translate(-1px, -1px);
+            }
+            100% {
+                transform: translate(0, 0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="#">Home</a>
+        <a href="#">Projects</a>
+        <a href="#">Skills</a>
+        <a href="#">Contact</a>
+    </nav>
+
+    <section id="project-galaxies">
+        <div class="project-galaxy-bg"></div>
+        <h2>Project Galaxies</h2>
+        <div class="project-grid">
+            <div class="project-item">
+                <img src="https://dummyimage.com/400x300/ccc/000&text=Project+1" alt="Project 1">
+                <div class="project-info">
+                    <h3>Project 1</h3>
+                    <p>Explore the depths of this cosmic project.</p>
+                </div>
+            </div>
+            <div class="project-item">
+                <img src="https://dummyimage.com/400x300/ccc/000&text=Project+2" alt="Project 2">
+                <div class="project-info">
+                    <h3>Project 2</h3>
+                    <p>Dive into the black hole of this backend masterpiece.</p>
+                </div>
+            </div>
+            <div class="project-item">
+                <img src="https://dummyimage.com/400x300/ccc/000&text=Project+3" alt="Project 3">
+                <div class="project-info">
+                    <h3>Project 3</h3>
+                    <p>Witness the gravitational pull of this cosmic creation.</p>
+                </div>
+            </div>
+            <div class="project-item">
+                <img src="https://dummyimage.com/400x300/ccc/000&text=Project+4" alt="Project 4">
+                <div class="project-info">
+                    <h3>Project 4</h3>
+                    <p>Explore the event horizon of this backend powerhouse.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="cosmic-skills">
+        <div class="cosmic-skills-bg"></div>
+        <h2>Cosmic Skills</h2>
+        <div class="skill-grid">
+            <div class="skill-item">
+                <img src="https://dummyimage.com/80x80/ccc/000&text=Node.js" alt="Node.js">
+                <h3>Node.js</h3>
+            </div>
+            <div class="skill-item">
+                <img src="https://dummyimage.com/80x80/ccc/000&text=Python" alt="Python">
+                <h3>Python</h3>
+            </div>
+            <div class="skill-item"><div class="skill-item">
+                <img src="https://dummyimage.com/80x80/ccc/000&text=SQL" alt="SQL">
+                <h3>SQL</h3>
+            </div>
+            <div class="skill-item">
+                <img src="https://dummyimage.com/80x80/ccc/000&text=MongoDB" alt="MongoDB">
+                <h3>MongoDB</h3>
+            </div>
+            <div class="skill-item">
+                <img src="https://dummyimage.com/80x80/ccc/000&text=AWS" alt="AWS">
+                <h3>AWS</h3>
+            </div>
+        </div>
+    </section>
+
+    <section id="neon-contact">
+        <div class="neon-contact-bg"></div>
+        <div class="neon-contact-form">
+            <h2>Get in Touch</h2>
+            <form>
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" id="name" name="name" placeholder="Enter your name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" placeholder="Enter your email" required>
+                </div>
+                <div class="form-group">
+                    <label for="message">Message</label>
+                    <textarea id="message" name="message" rows="5" placeholder="Enter your message" required></textarea>
+                </div>
+                <button type="submit">Send Message</button>
+            </form>
+        </div>
+    </section>
+</body>
+</html>'<!-- Visit: https://github.com/Ishanoshada/portflair -->
+<!-- Visit: https://github.com/Ishanoshada/portflair -->

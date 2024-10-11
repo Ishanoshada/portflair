@@ -1,0 +1,355 @@
+<!-- Portfolio created by Ishan -->
+<!-- Check out my work at: https://github.com/Ishanoshada/portflair -->
+<!-- 2024/10/9 -->
+<!-- Portfolio created by Ishan -->
+'<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Layered Dark Portfolio</title>
+    <style>
+        /* Global Styles */
+        body {
+            margin: 0;
+            font-family: 'Montserrat', sans-serif;
+            background-color: #0d0d0d;
+            color: #f1f1f1;
+        }
+
+        /* Navigation Bar */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 40px;
+            background-color: #1a1a1a;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        nav a {
+            color: #f1f1f1;
+            text-decoration: none;
+            font-size: 18px;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: #9b59b6;
+        }
+
+        /* Featured Projects Section */
+        .featured-projects {
+            padding: 80px 40px;
+        }
+
+        .featured-projects h2 {
+            font-size: 32px;
+            font-weight: 600;
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-gap: 40px;
+        }
+
+        .project-card {
+            position: relative;
+            overflow: hidden;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease;
+        }
+
+        .project-card:hover {
+            transform: scale(1.05);
+        }
+
+        .project-card img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            filter: brightness(0.8);
+            transition: filter 0.3s ease;
+        }
+
+        .project-card:hover img {
+            filter: brightness(1);
+        }
+
+        .project-info {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            padding: 20px;
+            background-color: rgba(26, 26, 26, 0.8);
+            backdrop-filter: blur(5px);
+            box-sizing: border-box;
+        }
+
+        .project-info h3 {
+            font-size: 20px;
+            font-weight: 500;
+            margin-bottom: 5px;
+        }
+
+        .project-info p {
+            font-size: 14px;
+            margin-bottom: 0;
+        }
+
+        /* About Me Section */
+        .about-me {
+            display: flex;
+            align-items: center;
+            padding: 80px 40px;
+            background-image: linear-gradient(to right, #0d0d0d, #1a1a1a);
+        }
+
+        .about-me-image {
+            flex: 1;
+            text-align: right;
+            margin-right: 40px;
+        }
+
+        .about-me-image img {
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            object-fit: cover;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .about-me-content {
+            flex: 2;
+        }
+
+        .about-me-content h2 {
+            font-size: 32px;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+
+        .about-me-content p {
+            font-size: 18px;
+            line-height: 1.6;
+            margin-bottom: 30px;
+        }
+
+        .about-me-content a.resume-btn {
+            display: inline-block;
+            background-color: #9b59b6;
+            color: #f1f1f1;
+            text-decoration: none;
+            padding: 12px 24px;
+            border-radius: 4px;
+            font-size: 16px;
+            font-weight: 500;
+            transition: background-color 0.3s ease;
+        }
+
+        .about-me-content a.resume-btn:hover {
+            background-color: #8e44ad;
+        }
+
+        /* Contact Form Section */
+        .contact-form {
+            padding: 80px 40px;
+            background-image: linear-gradient(to right, #1a1a1a, #0d0d0d);
+        }
+
+        .contact-form h2 {
+            font-size: 32px;
+            font-weight: 600;
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .contact-form form {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .contact-form .form-group {
+            margin-bottom: 20px;
+        }
+
+        .contact-form label {
+            display: block;
+            font-size: 16px;
+            font-weight: 500;
+            margin-bottom: 5px;
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 12px 16px;
+            font-size: 16px;
+            font-family: 'Montserrat', sans-serif;
+            border: none;
+            border-radius: 4px;
+            background-color: #2b2b2b;
+            color: #f1f1f1;
+            transition: box-shadow 0.3s ease;
+        }
+
+        .contact-form input:focus,
+        .contact-form textarea:focus {
+            outline: none;
+            box-shadow: 0 0 5px rgba(155, 89, 182, 0.5);
+        }
+
+        .contact-form button {
+            display: block;
+            width: 100%;
+            padding: 12px 24px;
+            font-size: 16px;
+            font-weight: 500;
+            font-family: 'Montserrat', sans-serif;
+            background-image: linear-gradient(to right, #9b59b6, #8e44ad);
+            color: #f1f1f1;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-image 0.3s ease;
+        }
+
+        .contact-form button:hover {
+            background-image: linear-gradient(to right, #8e44ad, #9b59b6);
+        }
+
+        .contact-info {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 16px;
+        }
+
+        .contact-info a {
+            color: #9b59b6;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .contact-info a:hover {
+            color: #8e44ad;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            nav {
+                padding: 15px 20px;
+            }
+
+            .featured-projects,
+            .about-me,
+            .contact-form {
+                padding: 60px 20px;
+            }
+
+            .project-grid {
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            }
+
+            .about-me {
+                flex-direction: column;
+            }
+
+            .about-me-image {
+                margin-right: 0;
+                margin-bottom: 30px;
+            }
+
+            .about-me-image img {
+                width: 200px;
+                height: 200px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav>
+        <a href="#">Home</a>
+        <a href="#">About</a>
+        <a href="#">Projects</a>
+        <a href="#">Contact</a>
+    </nav>
+
+    <!-- Featured Projects Section -->
+    <section class="featured-projects">
+        <h2>Featured Projects</h2>
+        <div class="project-grid">
+            <div class="project-card">
+                <img src="https://dummyimage.com/600x400/000/fff&text=Project+1" alt="Project 1">
+                <div class="project-info">
+                    <h3>Project 1</h3>
+                    <p>A detailed description of the first featured project.</p>
+                </div>
+            </div>
+            <div class="project-card">
+                <img src="https://dummyimage.com/600x400/000/fff&text=Project+2" alt="Project 2">
+                <div class="project-info">
+                    <h3>Project 2</h3>
+                    <p>A detailed description of the second featured project.</p>
+                </div>
+            </div>
+            <div class="project-card">
+                <img src="https://dummyimage.com/600x400/000/fff&text=Project+3" alt="Project 3">
+                <div class="project-info">
+                    <h3>Project 3</h3>
+                    <p>A detailed description of the third featured project.</p>
+                </div>
+            </div>
+            <div class="project-card">
+                <img src="https://dummyimage.com/600x400/000/fff&text=Project+4" alt="Project 4">
+                <div class="project-info">
+                    <h3>Project 4</h3>
+                    <p>A detailed description of the fourth featured project.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Me Section -->
+    <section class="about-me">
+        <div class="about-me-image">
+            <img src="https://dummyimage.com/300x300/000/fff&text=About+Me" alt="About Me">
+        </div>
+        <div class="about-me-content">
+            <h2>About Me</h2>
+            <p>Hi there! I'm a passionate designer and creative professional with years of experience in crafting visually stunning and user-friendly digital experiences. My approach to design is rooted in a deep understanding of user needs, coupled with a keen eye for detail and a constant pursuit of innovation.</p>
+            <a href="#" class="resume-btn">Download My Resume</a>
+        </div>
+    </section>
+
+    <!-- Contact Form Section -->
+    <section class="contact-form">
+        <h2>Get in Touch</h2>
+        <form>
+            <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+                <label for="message">Message</label>
+                <textarea id="message" name="message" rows="5" required></textarea>
+            </div>
+            <button type="submit">Submit</button>
+        </form>
+        <div class="contact-info">
+            <p>You can also reach me at <a href="mailto:info@example.com">info@example.com</a></p>
+        </div>
+    </section>
+</body>
+</html>'<!-- Visit: https://github.com/Ishanoshada/portflair -->
+<!-- Visit: https://github.com/Ishanoshada/portflair -->

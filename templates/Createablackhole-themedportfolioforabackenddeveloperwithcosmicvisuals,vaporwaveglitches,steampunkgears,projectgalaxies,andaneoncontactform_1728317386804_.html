@@ -1,0 +1,529 @@
+<!-- Portfolio created by Ishan -->
+<!-- Check out my work at: https://github.com/Ishanoshada/portflair -->
+<!-- 2024/10/9 -->
+<!-- Portfolio created by Ishan -->
+'<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Black Hole Portfolio</title>
+  <style>
+    /* Global Styles */
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Orbitron', sans-serif;
+      background-color: #0B0C10;
+      color: #C5C6C7;
+      overflow-x: hidden;
+    }
+
+    /* Navigation */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 40px;
+      background-color: rgba(11, 12, 16, 0.8);
+      backdrop-filter: blur(10px);
+      z-index: 1000;
+      position: relative;
+    }
+
+    nav a {
+      color: #C5C6C7;
+      text-decoration: none;
+      font-size: 18px;
+      transition: color 0.3s ease;
+    }
+
+    nav a:hover {
+      color: #66FCF1;
+    }
+
+    /* Hero Section */
+    .hero {
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-bg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      background: radial-gradient(ellipse at center, #0B0C10 0%, #1F2833 100%);
+      animation: blackHoleExpand 10s ease-in-out infinite;
+    }
+
+    .hero-content {
+      text-align: center;
+      z-index: 1;
+    }
+
+    .hero-content h1 {
+      font-size: 4rem;
+      margin-bottom: 20px;
+      color: #66FCF1;
+      text-shadow: 0 0 20px rgba(102, 252, 241, 0.5);
+      animation: neonGlow 2s ease-in-out infinite;
+    }
+
+    .hero-content p {
+      font-size: 1.8rem;
+      margin-bottom: 40px;
+      color: #C5C6C7;
+      text-shadow: 0 0 10px rgba(197, 198, 199, 0.5);
+    }
+
+    .project-showcase {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 40px;
+    }
+
+    .project-tile {
+      width: 300px;
+      height: 200px;
+      background-color: rgba(31, 40, 51, 0.8);
+      border-radius: 10px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+
+    .project-tile:hover {
+      transform: scale(1.05);
+    }
+
+    .project-tile::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(45deg, #66FCF1, #45A29E, #1F2833);
+      opacity: 0.3;
+      filter: blur(50px);
+      z-index: -1;
+      animation: vaporwaveGlitch 5s ease-in-out infinite;
+    }
+
+    .project-tile h3 {
+      font-size: 1.5rem;
+      margin-bottom: 10px;
+      color: #66FCF1;
+      text-shadow: 0 0 10px rgba(102, 252, 241, 0.5);
+    }
+
+    .project-tile p {
+      font-size: 1rem;
+      color: #C5C6C7;
+      text-shadow: 0 0 5px rgba(197, 198, 199, 0.5);
+    }
+
+    /* Skills and Technologies Section */
+    .skills-section {
+      padding: 80px 0;
+      background-color: #1F2833;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .skills-section::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: url("https://dummyimage.com/1200x500/ccc/000&text=Steampunk+Gears");
+      background-size: cover;
+      background-position: center;
+      opacity: 0.1;
+      z-index: -1;
+    }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 40px;
+      justify-items: center;
+      align-items: center;
+    }
+
+    .gear-container {
+      width: 150px;
+      height: 150px;
+      position: relative;
+      animation: gearRotation 10s linear infinite;
+    }
+
+    .gear {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background-image: url("https://dummyimage.com/150x150/ccc/000&text=Gear");
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center;
+    }
+
+    .gear-1 {
+      animation: gearRotation 10s linear infinite;
+    }
+
+    .gear-2 {
+      animation: gearRotation -10s linear infinite;
+    }
+
+    .skill-icon {
+      position: absolute;
+      width: 50px;
+      height: 50px;
+      background-image: url("https://dummyimage.com/50x50/ccc/000&text=Icon");
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center;
+      animation: neonGlow 2s ease-in-out infinite;
+    }
+
+    .skill-icon-1 {
+      top: 25px;
+      left: 25px;
+    }
+
+    .skill-icon-2 {
+      bottom: 25px;
+      right: 25px;
+    }
+
+    /* Contact Section */
+    .contact-section {
+      padding: 80px 0;
+      background: radial-gradient(ellipse at center, #1F2833 0%, #0B0C10 100%);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .contact-section::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: url("https://dummyimage.com/1200x500/ccc/000&text=Neon+Vortex");
+      background-size: cover;
+      background-position: center;
+      opacity: 0.3;
+      z-index: -1;
+      animation: neonVortex 10s ease-in-out infinite;
+    }
+
+    .contact-form {
+      max-width: 600px;
+      margin: 0 auto;
+      background-color: rgba(31, 40, 51, 0.8);
+      padding: 40px;
+      border-radius: 10px;
+      box-shadow: 0 0 20px rgba(102, 252, 241, 0.5);
+    }
+
+    .contact-form h2 {
+      font-size: 2rem;
+      margin-bottom: 20px;
+      color: #66FCF1;
+      text-shadow: 0 0 10px rgba(102, 252, 241, 0.5);
+    }
+
+    .contact-form .form-group {
+      margin-bottom: 20px;
+      position: relative;
+    }
+
+    .contact-form label {
+      font-size: 1.2rem;
+      margin-bottom: 5px;
+      color: #C5C6C7;
+      text-shadow: 0 0 5px rgba(197, 198, 199, 0.5);
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+      width: 100%;
+      padding: 10px;
+      font-size: 1rem;
+      border: none;
+      border-radius: 5px;
+      background-color: #0B0C10;
+      color: #C5C6C7;
+      box-shadow: 0 0 10px rgba(102, 252, 241, 0.3);
+      transition: box-shadow 0.3s ease;
+    }
+
+    .contact-form input:focus,
+    .contact-form textarea:focus {
+      outline: none;
+      box-shadow: 0 0 20px rgba(102, 252, 241, 0.5);
+    }
+
+    .contact-form .form-icon {
+      position: absolute;
+      top: 50%;
+      right: 10px;
+      transform: translateY(-50%);
+      width: 20px;
+      height: 20px;
+      background-image: url("https://dummyimage.com/20x20/ccc/000&text=@");
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center;
+      animation: neonGlow 2s ease-in-out infinite;
+    }
+
+    .contact-form textarea {
+      resize: vertical;
+    }
+
+    .contact-form button {
+      display: block;
+      width: 100%;
+      padding: 10px;
+      font-size: 1.2rem;
+      font-family: 'Orbitron', sans-serif;
+      background-color: #66FCF1;
+      color: #0B0C10;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .contact-form button:hover {
+      background-color: #45A29E;
+    }
+
+    /* Animations */
+    @keyframes blackHoleExpand {
+      0% {
+        transform: scale(1);
+      }
+      50% {
+        transform: scale(1.1);
+      }
+      100% {
+        transform: scale(1);
+      }
+    }
+
+    @keyframes vaporwaveGlitch {
+      0% {
+        background-position: 0% 0%;
+      }
+      50% {
+        background-position: 100% 100%;
+      }
+      100% {
+        background-position: 0% 0%;
+      }
+    }
+
+    @keyframes gearRotation {
+      0% {
+        transform: rotate(0deg);
+      }
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+
+    @keyframes neonGlow {
+      0% {
+        text-shadow: 0 0 10px rgba(102, 252, 241, 0.5);
+        box-shadow: 0 0 10px rgba(102, 252, 241, 0.5);
+      }
+      50% {
+        text-shadow: 0 0 20px rgba(102, 252, 241, 0.5);
+        box-shadow: 0 0 20px rgba(102, 252, 241, 0.5);
+      }
+      100% {
+        text-shadow: 0 0 10px rgba(102, 252, 241, 0.5);
+        box-shadow: 0 0 10px rgba(102, 252, 241, 0.5);
+      }
+    }
+
+    @keyframes neonVortex {
+      0% {
+        background-position: 0% 0%;
+      }
+      50% {
+        background-position: 100% 100%;
+      }
+      100% {
+        background-position: 0% 0%;
+      }
+    }
+
+    /* Responsive Styles */
+    @media (max-width: 767px) {
+      .hero-content h1 {
+        font-size: 3rem;
+      }
+
+      .hero-content p {
+        font-size: 1.5rem;
+      }
+
+      .project-tile {
+        width: 250px;
+        height: 180px;
+      }
+
+      .project-tile h3 {
+        font-size: 1.2rem;
+      }
+
+      .project-tile p {
+        font-size: 0.9rem;
+      }
+
+      .skills-grid {
+        grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+        gap: 30px;
+      }
+
+      .gear-container {
+        width: 120px;
+        height: 120px;
+      }
+
+      .skill-icon {
+        width: 40px;
+        height: 40px;
+      }
+
+      .contact-form {
+        padding: 30px;
+      }
+
+      .contact-form h2 {
+        font-size: 1.8rem;
+      }
+
+      .contact-form label {
+        font-size: 1rem;
+      }
+
+      .contact-form input,
+      .contact-form textarea {
+        font-size: 0.9rem;
+      }
+
+      .contact-form button {
+        font-size: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="#">Home</a>
+    <a href="#">About</a>
+    <a href="#">Skills</a>
+    <a href="#">Projects</a>
+    <a href="#">Contact</a>
+  </nav>
+
+  <div class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-content">
+      <h1>Welcome to my Black Hole Portfolio</h1>
+      <p>Dive into the cosmic world of a backend developer</p>
+      <div class="project-showcase">
+        <div class="project-tile">
+          <h3>Project 1</h3>
+          <p>Explore the depths of my cosmic creations</p>
+        </div>
+        <div class="project-tile">
+          <h3>Project 2</h3>
+          <p>Bask in the glow of my vaporwave glitches</p>
+        </div>
+        <div class="project-tile">
+          <h3>Project 3</h3>
+          <p>Unravel the steampunk gears of my expertise</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="skills-section">
+    <div class="skills-grid">
+      <div class="gear-container">
+        <div class="gear gear-1"></div>
+        <div class="gear gear-2"></div>
+        <div class="skill-icon skill-icon-1"></div>
+        <div class="skill-icon skill-icon-2"></div>
+      </div>
+      <div class="gear-container">
+        <div class="gear gear-1"></div>
+        <div class="gear gear-2"></div>
+        <div class="skill-icon skill-icon-1"></div>
+        <div class="skill-icon skill-icon-2"></div>
+      </div>
+      <div class="gear-container">
+        <div class="gear gear-1"></div>
+        <div class="gear gear-2"></div>
+        <div class="skill-icon skill-icon-1"></div>
+        <div class="skill-icon skill-icon-2"></div>
+      </div>
+      <div class="gear-container">
+        <div class="gear gear-1"></div>
+        <div class="gear gear-2"></div>
+        <div class="skill-icon skill-icon-1"></div>
+        <div class="skill-icon<div class="skill-icon skill-icon-2"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="contact-section">
+    <div class="contact-form">
+      <h2>Get in Touch</h2>
+      <form>
+        <div class="form-group">
+          <label for="name">Name</label>
+          <input type="text" id="name" placeholder="Enter your name" required>
+          <div class="form-icon"></div>
+        </div>
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" id="email" placeholder="Enter your email" required>
+          <div class="form-icon"></div>
+        </div>
+        <div class="form-group">
+          <label for="message">Message</label>
+          <textarea id="message" rows="5" placeholder="Enter your message" required></textarea>
+          <div class="form-icon"></div>
+        </div>
+        <button type="submit">Send Message</button>
+      </form>
+    </div>
+  </div>
+</body>
+</html>'<!-- Visit: https://github.com/Ishanoshada/portflair -->
+<!-- Visit: https://github.com/Ishanoshada/portflair -->

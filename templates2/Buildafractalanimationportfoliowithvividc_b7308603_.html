@@ -1,0 +1,301 @@
+<!-- Portfolio created by Ishan -->
+<!-- Check out my work at: https://github.com/Ishanoshada/portflair -->
+<!-- 2024/10/9 -->
+<!-- Portfolio created by Ishan -->
+'<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Build a Fractal Animation Portfolio</title>
+  <style>
+    /* Global Styles */
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background-color: #0c0c0c;
+      color: #ffffff;
+    }
+
+    /* Navigation */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+      background-color: rgba(12, 12, 12, 0.8);
+      backdrop-filter: blur(10px);
+    }
+
+    nav a {
+      color: #ffffff;
+      text-decoration: none;
+      font-size: 1.1rem;
+      font-weight: 500;
+      transition: color 0.3s ease;
+    }
+
+    nav a:hover {
+      color: #ff69b4;
+    }
+
+    /* Hero Section */
+    .hero {
+      position: relative;
+      height: 80vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      overflow: hidden;
+    }
+
+    .hero-bg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(to right, #00ff00, #00b2ff, #ff69b4);
+      background-size: 200% 200%;
+      animation: heroAnimation 10s ease infinite;
+    }
+
+    .hero h1 {
+      font-size: 4rem;
+      margin-bottom: 1rem;
+      text-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+    }
+
+    .hero p {
+      font-size: 1.5rem;
+      margin-bottom: 2rem;
+      text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+    }
+
+    .hero-cta {
+      display: inline-block;
+      background-color: #ff69b4;
+      color: #ffffff;
+      text-decoration: none;
+      padding: 1rem 2rem;
+      border-radius: 30px;
+      font-size: 1.2rem;
+      font-weight: 500;
+      box-shadow: 0 0 20px rgba(255, 105, 180, 0.5);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .hero-cta:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 0 30px rgba(255, 105, 180, 0.7);
+    }
+
+    /* Featured Projects Section */
+    .featured-projects {
+      padding: 4rem 2rem;
+    }
+
+    .featured-projects h2 {
+      text-align: center;
+      font-size: 3rem;
+      margin-bottom: 3rem;
+      text-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
+    }
+
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+    }
+
+    .project-card {
+      background-color: #1a1a1a;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .project-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+    }
+
+    .project-card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      transition: transform 0.3s ease;
+    }
+
+    .project-card:hover img {
+      transform: scale(1.1);
+    }
+
+    .project-content {
+      padding: 1.5rem;
+    }
+
+    .project-content h3 {
+      font-size: 1.8rem;
+      margin-bottom: 1rem;
+      text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+    }
+
+    .project-content p {
+      font-size: 1.1rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .project-link {
+      display: inline-block;
+      background-color: #ff69b4;
+      color: #ffffff;
+      text-decoration: none;
+      padding: 0.8rem 1.5rem;
+      border-radius: 20px;
+      font-size: 1.1rem;
+      font-weight: 500;
+      box-shadow: 0 0 15px rgba(255, 105, 180, 0.5);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .project-link:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 0 20px rgba(255, 105, 180, 0.7);
+    }
+
+    /* About Section */
+    .about {
+      position: relative;
+      padding: 4rem 2rem;
+      background-color: #141414;
+      overflow: hidden;
+    }
+
+    .about-bg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: url('https://dummyimage.com/1920x1080/333/fff&text=Fractal+Background');
+      background-size: cover;
+      background-position: center;
+      opacity: 0.1;
+      z-index: -1;
+    }
+
+    .about-content {
+      max-width: 800px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .about h2 {
+      font-size: 3rem;
+      margin-bottom: 2rem;
+      text-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
+    }
+
+    .about p {
+      font-size: 1.2rem;
+      line-height: 1.6;
+      margin-bottom: 2rem;
+    }
+
+    .about-link {
+      display: inline-block;
+      background-color: #ff69b4;
+      color: #ffffff;
+      text-decoration: none;
+      padding: 1rem 2rem;
+      border-radius: 30px;
+      font-size: 1.2rem;
+      font-weight: 500;
+      box-shadow: 0 0 20px rgba(255, 105, 180, 0.5);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .about-link:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 0 30px rgba(255, 105, 180, 0.7);
+    }
+
+    /* Animation */
+    @keyframes heroAnimation {
+      0% {
+        background-position: 0% 50%;
+      }
+      50% {
+        background-position: 100% 50%;
+      }
+      100% {
+        background-position: 0% 50%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation -->
+  <nav>
+    <a href="#">Home</a>
+    <a href="#">Featured Projects</a>
+    <a href="#">About</a>
+    <a href="#">Contact</a>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-bg"></div>
+    <h1>Explore the Fractalized Universe</h1>
+    <p>Dynamic, interactive fractal animations that showcase my skills and coding projects.</p>
+    <a href="#" class="hero-cta">View Portfolio</a>
+  </section>
+
+  <!-- Featured Projects Section -->
+  <section class="featured-projects">
+    <h2>Featured Projects</h2>
+    <div class="project-grid">
+      <div class="project-card">
+        <img src="https://dummyimage.com/600x400/333/fff&text=Fractal+Project+1" alt="Fractal Project 1">
+        <div class="project-content">
+          <h3>Fractal Project 1</h3>
+          <p>Explore the mesmerizing patterns of this dynamic fractal animation.</p>
+          <a href="#" class="project-link">View Project</a>
+        </div>
+      </div>
+      <div class="project-card">
+        <img src="https://dummyimage.com/600x400/333/fff&text=Fractal+Project+2" alt="Fractal Project 2">
+        <div class="project-content">
+          <h3>Fractal Project 2</h3>
+          <p>Witness the evolution of intricate fractal designs in this captivating animation.</p>
+          <a href="#" class="project-link">View Project</a>
+        </div>
+      </div>
+      <div class="project-card">
+        <img src="https://dummyimage.com/600x400/333/fff&text=Fractal+Project+3" alt="Fractal Project 3">
+        <div class="project-content">
+          <h3>Fractal Project 3</h3>
+          <p>Dive into the vibrant and ever-changing world of fractal art.</p>
+          <a href="#" class="project-link">View Project</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section class="about">
+    <div class="about-bg"></div>
+    <div class="about-content">
+      <h2>About Me</h2>
+      <p>As a passionate website designer and fractal artist, I have dedicated my career to crafting dynamic, interactive fractal animations that captivate and inspire. With a deep understanding of coding principles and a keen eye for visual aesthetics, I strive to push the boundaries of what's possible in the realm of digital art.</p>
+      <p>My portfolio showcases a diverse collection of fractal projects, each one a testament to my technical skills and creativity. From intricate geometric patterns to mesmerizing color palettes, I invite you to explore the fractalized universe and experience the power of this mesmerizing art form.</p>
+      <a href="#" class="about-link">Learn More</a>
+    </div>
+  </section>
+</body>
+</html>'<!-- Visit: https://github.com/Ishanoshada/portflair -->
+<!-- Visit: https://github.com/Ishanoshada/portflair -->

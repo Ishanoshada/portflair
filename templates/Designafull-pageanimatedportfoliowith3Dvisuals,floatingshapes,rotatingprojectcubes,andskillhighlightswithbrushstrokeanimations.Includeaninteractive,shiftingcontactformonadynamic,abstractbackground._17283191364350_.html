@@ -1,0 +1,388 @@
+<!-- Portfolio created by Ishan -->
+<!-- Check out my work at: https://github.com/Ishanoshada/portflair -->
+<!-- 2024/10/9 -->
+<!-- Portfolio created by Ishan -->
+'<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Animated Portfolio</title>
+  <style>
+    /* General Styles */
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background-color: #1c1c1c;
+      color: #fff;
+      overflow-x: hidden;
+    }
+
+    /* Navigation Bar */
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 40px;
+      background-color: rgba(28, 28, 28, 0.8);
+      backdrop-filter: blur(10px);
+      position: relative;
+      z-index: 100;
+    }
+
+    .navbar a {
+      color: #fff;
+      text-decoration: none;
+      margin-right: 30px;
+      font-size: 18px;
+      font-weight: 500;
+      transition: color 0.3s ease;
+    }
+
+    .navbar a:hover {
+      color: #e6e6e6;
+    }
+
+    /* Animated Portfolio Section */
+    .animated-portfolio {
+      position: relative;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+    }
+
+    .portfolio-background {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(45deg, #6a4ae5, #ff6b6b, #ffd166);
+      background-size: 200% 200%;
+      animation: backgroundGradient 10s ease infinite;
+      z-index: -1;
+    }
+
+    .portfolio-3d-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      perspective: 1000px;
+    }
+
+    .portfolio-cube {
+      width: 300px;
+      height: 300px;
+      position: relative;
+      transform-style: preserve-3d;
+      transform-origin: center center;
+      margin: 40px;
+      transition: transform 0.5s ease;
+    }
+
+    .portfolio-cube:hover {
+      transform: rotateY(180deg);
+    }
+
+    .portfolio-cube-face {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      opacity: 0.9;
+      background-size: cover;
+      background-position: center;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      backface-visibility: hidden;
+    }
+
+    .portfolio-cube-face h3 {
+      font-size: 24px;
+      margin-bottom: 10px;
+      text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    }
+
+    .portfolio-cube-face p {
+      font-size: 16px;
+      text-align: center;
+      text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    }
+
+    .portfolio-cube-face.front {
+      background-image: url('https://dummyimage.com/600x400/000/fff&text=Project+1');
+    }
+
+    .portfolio-cube-face.back {
+      background-image: url('https://dummyimage.com/600x400/000/fff&text=Project+1+Details');
+      transform: rotateY(180deg);
+    }
+
+    /* Skills Showcase Section */
+    .skills-showcase {
+      padding: 80px 40px;
+      background-color: #232323;
+      text-align: center;
+    }
+
+    .skills-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      grid-gap: 40px;
+      margin-top: 40px;
+    }
+
+    .skill-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      background-color: #1c1c1c;
+      border-radius: 10px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .skill-item:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 8px 12px rgba(0, 0, 0, 0.15);
+    }
+
+    .skill-item i {
+      font-size: 40px;
+      margin-bottom: 10px;
+      color: #ffd166;
+      animation: brushstroke 2s ease infinite;
+    }
+
+    .skill-item h4 {
+      font-size: 18px;
+      font-weight: 500;
+      margin-bottom: 5px;
+    }
+
+    .skill-item p {
+      font-size: 14px;
+      color: #aaa;
+    }
+
+    /* Contact Form Section */
+    .contact-form {
+      padding: 80px 40px;
+      background: linear-gradient(45deg, #6a4ae5, #ff6b6b);
+      background-size: 200% 200%;
+      animation: backgroundGradient 10s ease infinite;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .contact-form-container {
+      background-color: #1c1c1c;
+      padding: 40px;
+      border-radius: 10px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      width: 100%;
+      max-width: 600px;
+    }
+
+    .contact-form-container h2 {
+      font-size: 24px;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    .contact-form-container form {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-gap: 20px;
+    }
+
+    .contact-form-container input,
+    .contact-form-container textarea {
+      width: 100%;
+      padding: 12px 16px;
+      font-size: 16px;
+      border: none;
+      border-radius: 5px;
+      background-color: #232323;
+      color: #fff;
+      transition: background-color 0.3s ease;
+    }
+
+    .contact-form-container input:focus,
+    .contact-form-container textarea:focus {
+      background-color: #2b2b2b;
+      outline: none;
+    }
+
+    .contact-form-container button {
+      grid-column: 1 / -1;
+      background-color: #ffd166;
+      color: #1c1c1c;
+      padding: 12px 24px;
+      font-size: 16px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .contact-form-container button:hover {
+      background-color: #ffca2c;
+    }
+
+    /* Animations */
+    @keyframes backgroundGradient {
+      0% {
+        background-position: 0% 50%;
+      }
+      50% {
+        background-position: 100% 50%;
+      }
+      100% {
+        background-position: 0% 50%;
+      }
+    }
+
+    @keyframes brushstroke {
+      0% {
+        transform: translateX(-10px) rotate(-10deg);
+      }
+      50% {
+        transform: translateX(10px) rotate(10deg);
+      }
+      100% {
+        transform: translateX(-10px) rotate(-10deg);
+      }
+    }
+
+    /* Responsive Styles */
+    @media (max-width: 768px) {
+      .navbar {
+        padding: 15px 20px;
+      }
+
+      .navbar a {
+        font-size: 16px;
+        margin-right: 20px;
+      }
+
+      .portfolio-cube {
+        width: 200px;
+        height: 200px;
+        margin: 20px;
+      }
+
+      .skills-showcase {
+        padding: 60px 20px;
+      }
+
+      .contact-form {
+        padding: 60px 20px;
+      }
+
+      .contact-form-container {
+        padding: 30px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation Bar -->
+  <div class="navbar">
+    <a href="#">Home</a>
+    <a href="#">Portfolio</a>
+    <a href="#">Skills</a>
+    <a href="#">Contact</a>
+  </div>
+
+  <!-- Animated Portfolio Section -->
+  <div class="animated-portfolio">
+    <div class="portfolio-background"></div>
+    <div class="portfolio-3d-container">
+      <div class="portfolio-cube">
+        <div class="portfolio-cube-face front"></div>
+        <div class="portfolio-cube-face back">
+          <h3>Project 1</h3>
+          <p>Detailed information about the project, including the skills and tools used.</p>
+        </div>
+      </div>
+      <div class="portfolio-cube">
+        <div class="portfolio-cube-face front"></div>
+        <div class="portfolio-cube-face back">
+          <h3>Project 2</h3>
+          <p>Detailed information about the project, including the skills and tools used.</p>
+        </div>
+      </div>
+      <div class="portfolio-cube">
+        <div class="portfolio-cube-face front"></div>
+        <div class="portfolio-cube-face back">
+          <h3>Project 3</h3>
+          <p>Detailed information about the project, including the skills and tools used.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Skills Showcase Section -->
+  <div class="skills-showcase">
+    <h2>My Skills</h2>
+    <div class="skills-container">
+      <div class="skill-item">
+        <i class="fas fa-palette"></i>
+        <h4>Graphic Design</h4>
+        <p>Proficient in Adobe Creative Suite</p>
+      </div>
+      <div class="skill-item">
+        <i class="fas fa-code"></i>
+        <h4>Web Development</h4>
+        <p>Expertise in HTML, CSS, and JavaScript</p>
+      </div>
+      <div class="skill-item">
+        <i class="fas fa-mobile-alt"></i>
+        <h4>Responsive Design</h4>
+        <p>Creating mobile-friendly and adaptive layouts</p>
+      </div>
+      <div class="skill-item">
+        <i class="fas fa-paint-brush"></i>
+        <h4>UI/UX Design</h4>
+        <p>Designing intuitive and visually appealing user interfaces</p>
+      </div>
+      <div class="skill-item">
+        <i class="fas fa-magic"></i>
+        <h4>Motion Graphics</h4>
+        <p>Expertise in creating dynamic and engaging animations</p>
+      </div>
+      <div class="skill-item">
+        <i class="fas fa-camera"></i>
+        <h4>Photography</h4>
+        <p>Capturing stunning and visually compelling images</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Contact Form Section -->
+  <div class="contact-form">
+    <div class="contact-form-container">
+      <h2>Get in Touch</h2>
+      <form>
+        <input type="text" placeholder="Name" required>
+        <input type="email" placeholder="Email" required>
+        <input type="text" placeholder="Subject" required>
+        <textarea placeholder="Message" required></textarea>
+        <button type="submit">Send Message</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Font Awesome Icons -->
+  <script src="https://kit.fontawesome.com/your-font-awesome-kit.js" crossorigin="anonymous"></script>
+</body>
+</html>'<!-- Visit: https://github.com/Ishanoshada/portflair -->
+<!-- Visit: https://github.com/Ishanoshada/portflair -->

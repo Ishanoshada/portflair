@@ -1,0 +1,609 @@
+<!-- Portfolio created by Ishan -->
+<!-- Check out my work at: https://github.com/Ishanoshada/portflair -->
+<!-- 2024/10/9 -->
+<!-- Portfolio created by Ishan -->
+'<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Black Hole Portfolio</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Audiowide&display=swap');
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Orbitron', sans-serif;
+            background-color: #0c0c0c;
+            color: #fff;
+            overflow-x: hidden;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 40px;
+            background-color: rgba(12, 12, 12, 0.8);
+            backdrop-filter: blur(10px);
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+        }
+
+        .navbar-brand {
+            font-size: 24px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: #7fff00;
+            text-shadow: 0 0 20px #7fff00, 0 0 40px #7fff00, 0 0 80px #7fff00;
+            animation: neon 2s infinite alternate;
+        }
+
+        .navbar-nav {
+            display: flex;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .navbar-nav li {
+            margin-left: 20px;
+        }
+
+        .navbar-nav li a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: 400;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            transition: color 0.3s ease;
+        }
+
+        .navbar-nav li a:hover {
+            color: #7fff00;
+            text-shadow: 0 0 10px #7fff00, 0 0 20px #7fff00, 0 0 30px #7fff00;
+        }
+
+        .hero {
+            height: 100vh;
+            background-image: url('https://dummyimage.com/1920x1080/000/7fff00.jpg&text=Cosmic+Background');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-content {
+            z-index: 1;
+        }
+
+        .hero-title {
+            font-size: 64px;
+            font-weight: 700;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            color: #fff;
+            text-shadow: 0 0 20px #7fff00, 0 0 40px #7fff00, 0 0 80px #7fff00;
+            animation: neon 2s infinite alternate;
+        }
+
+        .hero-subtitle {
+            font-size: 24px;
+            font-weight: 400;
+            letter-spacing: 2px;
+            color: #fff;
+            margin-top: 20px;
+        }
+
+        .hero-cta {
+            margin-top: 40px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            font-size: 16px;
+            font-weight: 400;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            border-radius: 30px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary {
+            background-color: #7fff00;
+            color: #0c0c0c;
+            box-shadow: 0 0 20px #7fff00, 0 0 40px #7fff00, 0 0 80px #7fff00;
+            animation: neon 2s infinite alternate;
+        }
+
+        .btn-primary:hover {
+            background-color: #0c0c0c;
+            color: #7fff00;
+            box-shadow: 0 0 20px #7fff00, 0 0 40px #7fff00, 0 0 80px #7fff00;
+        }
+
+        .project-showcase {
+            padding: 80px 40px;
+            background-color: #0c0c0c;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .project-showcase::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('https://dummyimage.com/1920x1080/0c0c0c/7fff00.jpg&text=Cosmic+Background');
+            background-size: cover;
+            background-position: center;
+            filter: blur(20px);
+            z-index: -1;
+        }
+
+        .project-showcase-title {
+            font-size: 36px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: #7fff00;
+            text-shadow: 0 0 20px #7fff00, 0 0 40px #7fff00, 0 0 80px #7fff00;
+            animation: neon 2s infinite alternate;
+            margin-bottom: 40px;
+        }
+
+        .project-tiles {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-gap: 40px;
+        }
+
+        .project-tile {
+            background-color: rgba(12, 12, 12, 0.8);
+            backdrop-filter: blur(10px);
+            border-radius: 10px;
+            overflow: hidden;
+            position: relative;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .project-tile:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 20px #7fff00, 0 0 40px #7fff00, 0 0 80px #7fff00;
+        }
+
+        .project-tile::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('https://dummyimage.com/600x400/0c0c0c/7fff00.jpg&text=Project+Thumbnail');
+            background-size: cover;
+            background-position: center;
+            filter: blur(10px);
+            z-index: -1;
+            animation: vaporwave-glitch 5s infinite;
+        }
+
+        .project-tile-content {
+            padding: 20px;
+            text-align: center;
+        }
+
+        .project-title {
+            font-size: 24px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            color: #7fff00;
+            text-shadow: 0 0 10px #7fff00, 0 0 20px #7fff00, 0 0 30px #7fff00;
+            margin-bottom: 10px;
+        }
+
+        .project-description {
+            font-size: 16px;
+            font-weight: 400;
+            color: #fff;
+            margin-bottom: 20px;
+        }
+
+        .project-link {
+            display: inline-block;
+            padding: 8px 20px;
+            font-size: 14px;
+            font-weight: 400;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            border-radius: 20px;
+            text-decoration: none;
+            background-color: #7fff00;
+            color: #0c0c0c;
+            box-shadow: 0 0 10px #7fff00, 0 0 20px #7fff00, 0 0 30px #7fff00;
+            transition: all 0.3s ease;
+        }
+
+        .project-link:hover {
+            background-color: #0c0c0c;
+            color: #7fff00;
+            box-shadow: 0 0 10px #7fff00, 0 0 20px #7fff00, 0 0 30px #7fff00;
+        }
+
+        .skill-galaxies {
+            padding: 80px 40px;
+            background-color: #0c0c0c;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .skill-galaxies::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('https://dummyimage.com/1920x1080/0c0c0c/7fff00.jpg&text=Cosmic+Background');
+            background-size: cover;
+            background-position: center;
+            filter: blur(20px);
+            z-index: -1;
+        }
+
+        .skill-galaxies-title {
+            font-size: 36px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: #7fff00;
+            text-shadow: 0 0 20px #7fff00, 0 0 40px #7fff00, 0 0 80px #7fff00;
+            animation: neon 2s infinite alternate;
+            margin-bottom: 40px;
+        }
+
+        .skill-galaxy {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            width: 100%;
+            height: 500px;
+            overflow: hidden;
+        }
+
+        .skill-planet {
+            position: absolute;
+            width: 80px;
+            height: 80px;
+            background-color: rgba(127, 255, 0, 0.2);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 16px;
+            font-weight: 700;
+            color: #fff;
+            text-shadow: 0 0 10px #7fff00, 0 0 20px #7fff00, 0 0 30px #7fff00;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .skill-planet:hover {
+            transform: scale(1.2);
+            background-color: rgba(127, 255, 0, 0.4);
+            box-shadow: 0 0 10px #7fff00, 0 0 20px #7fff00, 0 0 30px #7fff00;
+        }
+
+        .skill-planet-info {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: rgba(12, 12, 12, 0.8);
+            backdrop-filter: blur(10px);
+            border-radius: 10px;
+            padding: 20px;
+            text-align: center;
+            width: 300px;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .skill-planet:hover .skill-planet-info {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .skill-name {
+            font-size: 24px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            color: #7fff00;
+            text-shadow: 0 0 10px #7fff00, 0 0 20px #7fff00, 0 0 30px #7fff00;
+            margin-bottom: 10px;
+        }
+
+        .skill-description {
+            font-size: 16px;
+            font-weight: 400;
+            color: #fff;
+            margin-bottom: 20px;
+        }
+
+        .skill-tools {
+            font-size: 14px;
+            font-weight: 400;
+            color: #7fff00;
+            text-shadow: 0 0 5px #7fff00, 0 0 10px #7fff00, 0 0 15px #7fff00;
+        }
+
+        .contact-form {
+            padding: 80px 40px;
+            background-color: #0c0c0c;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .contact-form::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('https://dummyimage.com/1920x1080/0c0c0c/7fff00.jpg&text=Cosmic+Background');
+            background-size: cover;
+            background-position: center;
+            filter: blur(20px);
+            z-index: -1;
+        }
+
+        .contact-form-title {
+            font-size: 36px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: #7fff00;
+            text-shadow: 0 0 20px #7fff00, 0 0 40px #7fff00, 0 0 80px #7fff00;
+            animation: neon 2s infinite alternate;
+            margin-bottom: 40px;
+        }
+
+        .contact-form-container {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: rgba(12, 12, 12, 0.8);
+            backdrop-filter: blur(10px);
+            border-radius: 10px;
+            padding: 40px;
+            box-shadow: 0 0 20px #7fff00, 0 0 40px #7fff00, 0 0 80px #7fff00;
+            animation: vaporwave-glitch 5s infinite;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-label {
+            font-size: 16px;
+            font-weight: 400;
+            color: #7fff00;
+            text-shadow: 0 0 10px #7fff00, 0 0 20px #7fff00, 0 0 30px #7fff00;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 12px 20px;
+            font-size: 16px;
+            font-weight: 400;
+            color: #fff;
+            background-color: rgba(127, 255, 0, 0.1);
+            border: none;
+            border-radius: 30px;
+            box-shadow: 0 0 10px #7fff00, 0 0 20px #7fff00, 0 0 30px #7fff00;
+            transition: all 0.3s ease;
+        }
+
+        .form-input:focus {
+            outline: none;
+            background-color: rgba(127, 255, 0, 0.2);
+            box-shadow: 0 0 20px #7fff00, 0 0 40px #7fff00, 0 0 80px #7fff00;
+        }
+
+        .form-textarea {
+            height: 150px;
+            resize: none;
+        }
+
+        .form-submit {
+            display: block;
+            width: 100%;
+            padding: 12px 20.form-submit {
+            display: block;
+            width: 100%;
+            padding: 12px 20px;
+            font-size: 16px;
+            font-weight: 400;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            border: none;
+            border-radius: 30px;
+            background-color: #7fff00;
+            color: #0c0c0c;
+            cursor: pointer;
+            box-shadow: 0 0 10px #7fff00, 0 0 20px #7fff00, 0 0 30px #7fff00;
+            transition: all 0.3s ease;
+        }
+
+        .form-submit:hover {
+            background-color: #0c0c0c;
+            color: #7fff00;
+            box-shadow: 0 0 20px #7fff00, 0 0 40px #7fff00, 0 0 80px #7fff00;
+        }
+
+        .form-submit:focus {
+            outline: none;
+        }
+
+        @keyframes neon {
+            from {
+                text-shadow: 0 0 10px #7fff00, 0 0 20px #7fff00, 0 0 30px #7fff00;
+            }
+            to {
+                text-shadow: 0 0 20px #7fff00, 0 0 40px #7fff00, 0 0 80px #7fff00;
+            }
+        }
+
+        @keyframes vaporwave-glitch {
+            0% {
+                filter: blur(10px) hue-rotate(0deg);
+            }
+            50% {
+                filter: blur(5px) hue-rotate(180deg);
+            }
+            100% {
+                filter: blur(10px) hue-rotate(360deg);
+            }
+        }
+
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <a href="#" class="navbar-brand">Black Hole Portfolio</a>
+        <ul class="navbar-nav">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Projects</a></li>
+            <li><a href="#">Skills</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+    </nav>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1 class="hero-title">Welcome to my Black Hole Portfolio</h1>
+            <p class="hero-subtitle">Explore the cosmic world of a backend developer</p>
+            <div class="hero-cta">
+                <a href="#" class="btn btn-primary">Explore</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="project-showcase">
+        <h2 class="project-showcase-title">My Projects</h2>
+        <div class="project-tiles">
+            <div class="project-tile">
+                <div class="project-tile-content">
+                    <h3 class="project-title">Project 1</h3>
+                    <p class="project-description">A cosmic-themed backend application with vaporwave glitches and steampunk elements.</p>
+                    <a href="#" class="project-link">View Project</a>
+                </div>
+            </div>
+            <div class="project-tile">
+                <div class="project-tile-content">
+                    <h3 class="project-title">Project 2</h3>
+                    <p class="project-description">A backend API that powers a skill galaxy, showcasing my expertise in a stunning cosmic display.</p>
+                    <a href="#" class="project-link">View Project</a>
+                </div>
+            </div>
+            <div class="project-tile">
+                <div class="project-tile-content">
+                    <h3 class="project-title">Project 3</h3>
+                    <p class="project-description">A neon-infused contact form that connects you to my cosmic backend services.</p>
+                    <a href="#" class="project-link">View Project</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="skill-galaxies">
+        <h2 class="skill-galaxies-title">My Skills</h2>
+        <div class="skill-galaxy">
+            <div class="skill-planet" style="top: 20%; left: 15%;">
+                <span>Node.js</span>
+                <div class="skill-planet-info">
+                    <h3 class="skill-name">Node.js</h3>
+                    <p class="skill-description">Proficient in building scalable and efficient backend applications using Node.js.</p>
+                    <p class="skill-tools">Express, Mongoose, Socket.IO</p>
+                </div>
+            </div>
+            <div class="skill-planet" style="top: 35%; left: 30%;">
+                <span>MongoDB</span>
+                <div class="skill-planet-info">
+                    <h3 class="skill-name">MongoDB</h3>
+                    <p class="skill-description">Skilled in designing and implementing NoSQL databases using MongoDB.</p>
+                    <p class="skill-tools">Mongoose, MongoDB Atlas</p>
+                </div>
+            </div>
+            <div class="skill-planet" style="top: 50%; left: 45%;">
+                <span>Python</span>
+                <div class="skill-planet-info">
+                    <h3 class="skill-name">Python</h3>
+                    <p class="skill-description">Proficient in using Python for backend development, including web frameworks and data analysis.</p>
+                    <p class="skill-tools">Django, Flask, Pandas, NumPy</p>
+                </div>
+            </div>
+            <div class="skill-planet" style="top: 65%; left: 60%;">
+                <span>Docker</span>
+                <div class="skill-planet-info">
+                    <h3 class="skill-name">Docker</h3>
+                    <p class="skill-description">Experienced in containerizing and deploying backend applications using Docker.</p>
+                    <p class="skill-tools">Docker, Docker Compose, Docker Swarm</p>
+                </div>
+            </div>
+            <div class="skill-planet" style="top: 80%; left: 75%;">
+                <span>AWS</span>
+                <div class="skill-planet-info">
+                    <h3 class="skill-name">AWS</h3>
+                    <p class="skill-description">Skilled in deploying and managing backend applications on AWS cloud infrastructure.</p>
+                    <p class="skill-tools">EC2, Lambda, RDS, S3</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="contact-form">
+        <h2 class="contact-form-title">Get in Touch</h2>
+        <div class="contact-form-container">
+            <form action="#" method="post">
+                <div class="form-group">
+                    <label for="name" class="form-label">Name</label>
+                    <input type="text" id="name" name="name" class="form-input" placeholder="Enter your name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email" class="form-label">Email</label>
+                    <input type="email" id="email" name="email" class="form-input" placeholder="Enter your email" required>
+                </div>
+                <div class="form-group">
+                    <label for="message" class="form-label">Message</label>
+                    <textarea id="message" name="message" class="form-input form-textarea" placeholder="Enter your message" required></textarea>
+                </div>
+                <button type="submit" class="form-submit">Submit</button>
+            </form>
+        </div>
+    </section>
+</body>
+</html>'<!-- Visit: https://github.com/Ishanoshada/portflair -->
+<!-- Visit: https://github.com/Ishanoshada/portflair -->

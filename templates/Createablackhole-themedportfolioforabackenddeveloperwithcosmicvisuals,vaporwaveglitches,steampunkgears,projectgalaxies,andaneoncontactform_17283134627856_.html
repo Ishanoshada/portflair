@@ -1,0 +1,375 @@
+<!-- Portfolio created by Ishan -->
+<!-- Check out my work at: https://github.com/Ishanoshada/portflair -->
+<!-- 2024/10/9 -->
+<!-- Portfolio created by Ishan -->
+'<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Black Hole Portfolio</title>
+  <style>
+    /* Global Styles */
+    body {
+      font-family: 'Orbitron', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #000;
+      color: #fff;
+      overflow-x: hidden;
+    }
+
+    /* Navigation */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 40px;
+      background-color: rgba(0, 0, 0, 0.5);
+      backdrop-filter: blur(10px);
+      position: relative;
+      z-index: 1;
+    }
+
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      font-size: 1.2rem;
+      transition: color 0.3s ease;
+    }
+
+    nav a:hover {
+      color: #9b59b6;
+    }
+
+    /* Project Galaxies */
+    #project-galaxies {
+      position: relative;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+    }
+
+    .galaxy {
+      position: absolute;
+      width: 300px;
+      height: 300px;
+      background-image: radial-gradient(ellipse at center, #9b59b6, #2980b9, #1abc9c);
+      border-radius: 50%;
+      animation: galaxy-rotate 20s linear infinite;
+      opacity: 0.7;
+      pointer-events: none;
+    }
+
+    .galaxy:before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: radial-gradient(ellipse at center, rgba(255, 255, 255, 0.2), transparent);
+      border-radius: 50%;
+      animation: galaxy-glow 2s ease-in-out infinite alternate;
+    }
+
+    .galaxy-info {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: rgba(0, 0, 0, 0.7);
+      padding: 20px;
+      border-radius: 10px;
+      text-align: center;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .galaxy-info h3 {
+      margin-top: 0;
+      font-size: 1.5rem;
+      color: #9b59b6;
+    }
+
+    .galaxy-info p {
+      margin-bottom: 0;
+      font-size: 1rem;
+    }
+
+    .galaxy-info a {
+      color: #1abc9c;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    .galaxy-info a:hover {
+      color: #16a085;
+    }
+
+    .galaxy:hover .galaxy-info {
+      opacity: 1;
+    }
+
+    /* Neon Contact Form */
+    #contact-form {
+      padding: 100px 40px;
+      background-image: linear-gradient(to bottom, #2980b9, #1abc9c);
+      text-align: center;
+    }
+
+    #contact-form h2 {
+      font-size: 2.5rem;
+      margin-bottom: 40px;
+      color: #9b59b6;
+      text-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+      animation: neon-glow 2s ease-in-out infinite;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    .form-group label {
+      display: block;
+      font-size: 1.2rem;
+      margin-bottom: 5px;
+      color: #fff;
+      text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+    }
+
+    .form-group input,
+    .form-group textarea {
+      width: 100%;
+      padding: 10px;
+      font-size: 1rem;
+      background-color: rgba(255, 255, 255, 0.2);
+      border: none;
+      border-radius: 5px;
+      color: #fff;
+      transition: background-color 0.3s ease;
+    }
+
+    .form-group input:focus,
+    .form-group textarea:focus {
+      background-color: rgba(255, 255, 255, 0.4);
+    }
+
+    .form-group button {
+      padding: 10px 20px;
+      font-size: 1.2rem;
+      background-color: #9b59b6;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .form-group button:hover {
+      background-color: #8e44ad;
+    }
+
+    /* About the Developer */
+    #about-developer {
+      padding: 100px 40px;
+      background-image: linear-gradient(to bottom, #1abc9c, #2980b9);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .developer-profile {
+      max-width: 800px;
+      display: flex;
+      align-items: center;
+      background-color: rgba(0, 0, 0, 0.5);
+      backdrop-filter: blur(10px);
+      border-radius: 10px;
+      padding: 40px;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    }
+
+    .developer-profile img {
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      margin-right: 40px;
+      box-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+    }
+
+    .developer-info h3 {
+      font-size: 2rem;
+      margin-top: 0;
+      color: #9b59b6;
+      text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+    }
+
+    .developer-info p {
+      font-size: 1.2rem;
+      line-height: 1.5;
+      color: #fff;
+      text-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+    }
+
+    .developer-info a {
+      color: #1abc9c;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    .developer-info a:hover {
+      color: #16a085;
+    }
+
+    /* Animations */
+    @keyframes galaxy-rotate {
+      0% {
+        transform: rotate(0deg);
+      }
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+
+    @keyframes galaxy-glow {
+      0% {
+        opacity: 0.7;
+      }
+      100% {
+        opacity: 1;
+      }
+    }
+
+    @keyframes neon-glow {
+      0% {
+        text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+      }
+      50% {
+        text-shadow: 0 0 20px rgba(255, 255, 255, 0.8);
+      }
+      100% {
+        text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+      }
+    }
+
+    /* Responsive Styles */
+    @media (max-width: 768px) {
+      nav {
+        padding: 15px 20px;
+      }
+
+      nav a {
+        font-size: 1rem;
+      }
+
+      #project-galaxies {
+        height: auto;
+        padding: 80px 0;
+      }
+
+      .galaxy {
+        width: 200px;
+        height: 200px;
+      }
+
+      #contact-form {
+        padding: 80px 20px;
+      }
+
+      #contact-form h2 {
+        font-size: 2rem;
+      }
+
+      .form-group label {
+        font-size: 1rem;
+      }
+
+      .form-group input,
+      .form-group textarea,
+      .form-group button {
+        font-size: 0.9rem;
+      }
+
+      #about-developer {
+        padding: 80px 20px;
+      }
+
+      .developer-profile {
+        flex-direction: column;
+        padding: 20px;
+      }
+
+      .developer-profile img {
+        width: 150px;
+        height: 150px;
+        margin-right: 0;
+        margin-bottom: 20px;
+      }
+
+      .developer-info h3 {
+        font-size: 1.5rem;
+      }
+
+      .developer-info p {
+        font-size: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="#">Home</a>
+    <a href="#project-galaxies">Projects</a>
+    <a href="#contact-form">Contact</a>
+    <a href="#about-developer">About</a>
+  </nav>
+
+  <section id="project-galaxies">
+    <div class="galaxy" style="top: 20%; left: 10%;"></div>
+    <div class="galaxy" style="top: 30%; left: 60%;"></div>
+    <div class="galaxy" style="top: 70%; left: 30%;"></div>
+    <div class="galaxy" style="top: 80%; left: 80%;"></div>
+    <div class="galaxy-info">
+      <h3>Project Galaxy</h3>
+      <p>Explore the details of this cosmic project.</p>
+      <a href="#">Learn More</a>
+    </div>
+  </section>
+
+  <section id="contact-form">
+    <h2>Get in Touch</h2>
+    <form>
+      <div class="form-group">
+        <label for="name">Name</label>
+        <input type="text" id="name" placeholder="Enter your name" required>
+      </div>
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" id="email" placeholder="Enter your email" required>
+      </div>
+      <div class="form-group">
+        <label for="message">Message</label>
+        <textarea id="message" rows="5" placeholder="Enter your message" required></textarea>
+      </div>
+      <div class="form-group">
+        <button type="submit">Send</button>
+      </div>
+    </form>
+  </section>
+
+  <section id="about-developer">
+    <div class="developer-profile">
+      <img src="https://dummyimage.com/400x400/ccc/000&text=Developer+Avatar" alt="Developer Avatar">
+      <div class="developer-info">
+        <h3>John Doe</h3>
+        <p>Experienced backend developer with a passion for creating cosmic, visually stunning projects. Skilled in a variety of technologies, including <a href="#">Nodejs</a>, <a href="#">Python</a>, and <a href="#">Golang</a>.</p>
+        <p>Loves experimenting with cutting-edge technologies and incorporating steampunk, vaporwave, and cosmic elements into his work.</p>
+      </div>
+    </div>
+  </section>
+</body>
+</html>'<!-- Visit: https://github.com/Ishanoshada/portflair -->
+<!-- Visit: https://github.com/Ishanoshada/portflair -->

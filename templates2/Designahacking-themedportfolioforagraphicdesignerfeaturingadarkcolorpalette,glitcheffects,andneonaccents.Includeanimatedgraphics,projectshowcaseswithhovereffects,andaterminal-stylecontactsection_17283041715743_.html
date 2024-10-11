@@ -1,0 +1,374 @@
+<!-- Portfolio created by Ishan -->
+<!-- Check out my work at: https://github.com/Ishanoshada/portflair -->
+<!-- 2024/10/9 -->
+<!-- Portfolio created by Ishan -->
+'<html>
+<head>
+  <title>Hacking-Themed Portfolio</title>
+  <style>
+    /* Global Styles */
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Courier New', monospace;
+      background-color: #0e0e0e;
+      color: #fff;
+      overflow-x: hidden;
+    }
+
+    /* Navigation Bar */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 40px;
+      background-color: #1a1a1a;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      z-index: 100;
+    }
+
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      font-size: 18px;
+      padding: 10px 20px;
+      transition: color 0.3s ease;
+    }
+
+    nav a:hover {
+      color: #8b00ff;
+    }
+
+    /* Hero Section */
+    .hero {
+      position: relative;
+      height: 80vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      background-image: linear-gradient(to bottom, #1a1a1a, #0e0e0e);
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: url("https://dummyimage.com/1200x800/ccc/000&text=Glitch+Effect");
+      background-size: cover;
+      background-position: center;
+      opacity: 0.1;
+      animation: glitch 3s infinite linear;
+    }
+
+    .hero h1 {
+      font-size: 5rem;
+      font-weight: bold;
+      text-shadow: 0 0 20px #8b00ff;
+      animation: flicker 1s infinite linear;
+    }
+
+    .hero p {
+      font-size: 2rem;
+      margin-top: 20px;
+      text-shadow: 0 0 10px #8b00ff;
+    }
+
+    .hero button {
+      margin-top: 40px;
+      padding: 15px 30px;
+      font-size: 18px;
+      background-color: #8b00ff;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      box-shadow: 0 0 20px #8b00ff;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+
+    .hero button:hover {
+      transform: scale(1.05);
+    }
+
+    /* Project Showcase */
+    .project-showcase {
+      padding: 80px 40px;
+      background-color: #1a1a1a;
+    }
+
+    .project-showcase h2 {
+      font-size: 3rem;
+      text-align: center;
+      margin-bottom: 40px;
+      text-shadow: 0 0 10px #8b00ff;
+    }
+
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-gap: 40px;
+    }
+
+    .project-item {
+      position: relative;
+      overflow: hidden;
+      border-radius: 5px;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+
+    .project-item:hover {
+      transform: scale(1.05);
+    }
+
+    .project-item img {
+      width: 100%;
+      height: 300px;
+      object-fit: cover;
+      filter: grayscale(100%);
+      transition: filter 0.3s ease;
+    }
+
+    .project-item:hover img {
+      filter: grayscale(0%);
+    }
+
+    .project-details {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.7);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .project-item:hover .project-details {
+      opacity: 1;
+    }
+
+    .project-details h3 {
+      font-size: 2rem;
+      margin-bottom: 10px;
+      text-shadow: 0 0 10px #8b00ff;
+    }
+
+    .project-details p {
+      font-size: 1.2rem;
+      margin-bottom: 20px;
+      text-shadow: 0 0 5px #8b00ff;
+    }
+
+    .project-details button {
+      padding: 10px 20px;
+      font-size: 16px;
+      background-color: #8b00ff;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      box-shadow: 0 0 10px #8b00ff;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+
+    .project-details button:hover {
+      transform: scale(1.1);
+    }
+
+    /* Terminal-Style Contact Section */
+    .contact {
+      padding: 80px 40px;
+      background-color: #0e0e0e;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .contact h2 {
+      font-size: 3rem;
+      margin-bottom: 40px;
+      text-shadow: 0 0 10px #00ff00;
+    }
+
+    .terminal {
+      background-color: #0e0e0e;
+      border: 2px solid #00ff00;
+      border-radius: 5px;
+      padding: 20px;
+      width: 80%;
+      max-width: 800px;
+      box-shadow: 0 0 20px #00ff00;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .terminal::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: url("https://dummyimage.com/800x600/ccc/000&text=Terminal+Background");
+      background-size: cover;
+      background-position: center;
+      opacity: 0.2;
+      animation: glitch 3s infinite linear;
+    }
+
+    .terminal p {
+      font-size: 16px;
+      line-height: 1.5;
+      color: #00ff00;
+      margin-bottom: 20px;
+    }
+
+    .terminal form {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .terminal input,
+    .terminal textarea {
+      width: 100%;
+      max-width: 500px;
+      padding: 10px;
+      font-size: 16px;
+      background-color: #0e0e0e;
+      color: #00ff00;
+      border: 2px solid #00ff00;
+      border-radius: 5px;
+      margin-bottom: 20px;
+      box-shadow: 0 0 10px #00ff00;
+      transition: box-shadow 0.3s ease;
+    }
+
+    .terminal input:focus,
+    .terminal textarea:focus {
+      outline: none;
+      box-shadow: 0 0 20px #00ff00;
+    }
+
+    .terminal button {
+      padding: 10px 20px;
+      font-size: 16px;
+      background-color: #00ff00;
+      color: #0e0e0e;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      box-shadow: 0 0 10px #00ff00;
+      transition: transform 0.3s ease;
+    }
+
+    .terminal button:hover {
+      transform: scale(1.1);
+    }
+
+    /* Animations */
+    @keyframes glitch {
+      0% {
+        background-position: 0 0;
+      }
+      20% {
+        background-position: -20px -20px;
+      }
+      40% {
+        background-position: 20px 20px;
+      }
+      60% {
+        background-position: -20px 20px;
+      }
+      80% {
+        background-position: 20px -20px;
+      }
+      100% {
+        background-position: 0 0;
+      }
+    }
+
+    @keyframes flicker {
+      0% {
+        text-shadow: 0 0 20px #8b00ff;
+      }
+      50% {
+        text-shadow: 0 0 5px #8b00ff;
+      }
+      100% {
+        text-shadow: 0 0 20px #8b00ff;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="#">Home</a>
+    <a href="#">About</a>
+    <a href="#">Portfolio</a>
+    <a href="#">Contact</a>
+  </nav>
+
+  <div class="hero">
+    <h1>John Doe</h1>
+    <p>Graphic Designer | Hacking Enthusiast</p>
+    <button>View Portfolio</button>
+  </div>
+
+  <div class="project-showcase">
+    <h2>Project Showcase</h2>
+    <div class="project-grid">
+      <div class="project-item">
+        <img src="https://dummyimage.com/600x400/ccc/000&text=Project+1" alt="Project 1">
+        <div class="project-details">
+          <h3>Project 1</h3>
+          <p>A hacking-inspired graphic design project.</p>
+          <button>View Project</button>
+        </div>
+      </div>
+      <div class="project-item">
+        <img src="https://dummyimage.com/600x400/ccc/000&text=Project+2" alt="Project 2">
+        <div class="project-details">
+          <h3>Project 2</h3>
+          <p>A futuristic and glitch-themed branding design.</p>
+          <button>View Project</button>
+        </div>
+      </div>
+      <div class="project-item">
+        <img src="https://dummyimage.com/600x400/ccc/000&text=Project+3" alt="Project 3">
+        <div class="project-details">
+          <h3>Project 3</h3>
+          <p>An experimental typography project with a hacking aesthetic.</p>
+          <button>View Project</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="contact">
+    <h2>Get in Touch</h2>
+    <div class="terminal">
+      <p>Welcome to the Hacking Terminal. Please enter your details to get in touch:</p>
+      <form>
+        <input type="text" placeholder="Name" />
+        <input type="email" placeholder="Email" />
+        <textarea placeholder="Message"></textarea>
+        <button type="submit">Send</button>
+      </form>
+    </div>
+  </div>
+</body>
+</html>'<!-- Visit: https://github.com/Ishanoshada/portflair -->
+<!-- Visit: https://github.com/Ishanoshada/portflair -->

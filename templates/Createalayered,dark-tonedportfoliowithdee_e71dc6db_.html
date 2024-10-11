@@ -1,0 +1,384 @@
+<!-- Portfolio created by Ishan -->
+<!-- Check out my work at: https://github.com/Ishanoshada/portflair -->
+<!-- 2024/10/9 -->
+<!-- Portfolio created by Ishan -->
+'<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dark Layered Portfolio</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+
+    body {
+      font-family: 'Montserrat', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #0f0f0f;
+      color: #f2f2f2;
+    }
+
+    /* Navigation */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 40px;
+      background-color: rgba(15, 15, 15, 0.8);
+      backdrop-filter: blur(10px);
+      position: relative;
+      z-index: 10;
+    }
+
+    nav a {
+      color: #f2f2f2;
+      text-decoration: none;
+      font-size: 16px;
+      font-weight: 700;
+      margin: 0 15px;
+      transition: color 0.3s ease;
+    }
+
+    nav a:hover {
+      color: #8c8c8c;
+    }
+
+    /* Hero Section */
+    .hero {
+      position: relative;
+      height: 80vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+    }
+
+    .hero-bg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(to bottom, #0f0f0f, #1a1a1a);
+      z-index: -1;
+    }
+
+    .hero-bg::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url('https://dummyimage.com/1200x500/000/fff&text=Portfolio+Background') no-repeat center center;
+      background-size: cover;
+      filter: blur(50px);
+      opacity: 0.5;
+    }
+
+    .hero-content {
+      text-align: center;
+      max-width: 800px;
+      padding: 0 20px;
+    }
+
+    .hero-content h1 {
+      font-size: 48px;
+      font-weight: 700;
+      margin-bottom: 20px;
+      text-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    }
+
+    .hero-content p {
+      font-size: 18px;
+      line-height: 1.6;
+      margin-bottom: 40px;
+      text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    }
+
+    .hero-content a {
+      display: inline-block;
+      background-color: #8c8c8c;
+      color: #0f0f0f;
+      text-decoration: none;
+      font-size: 16px;
+      font-weight: 700;
+      padding: 12px 24px;
+      border-radius: 4px;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+      transition: background-color 0.3s ease;
+    }
+
+    .hero-content a:hover {
+      background-color: #b3b3b3;
+    }
+
+    /* Portfolio Showcase */
+    .portfolio {
+      padding: 80px 40px;
+      background-color: #1a1a1a;
+    }
+
+    .portfolio-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      grid-gap: 40px;
+    }
+
+    .portfolio-item {
+      position: relative;
+      overflow: hidden;
+      border-radius: 8px;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+      transition: transform 0.3s ease;
+    }
+
+    .portfolio-item:hover {
+      transform: scale(1.05);
+    }
+
+    .portfolio-item img {
+      width: 100%;
+      height: 300px;
+      object-fit: cover;
+      filter: brightness(0.8);
+      transition: filter 0.3s ease;
+    }
+
+    .portfolio-item:hover img {
+      filter: brightness(1);
+    }
+
+    .portfolio-item .overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.6);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .portfolio-item:hover .overlay {
+      opacity: 1;
+    }
+
+    .portfolio-item .overlay h3 {
+      font-size: 24px;
+      font-weight: 700;
+      margin-bottom: 10px;
+      text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    }
+
+    .portfolio-item .overlay p {
+      font-size: 16px;
+      line-height: 1.4;
+      text-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+    }
+
+    /* About Section */
+    .about {
+      padding: 80px 40px;
+      background-color: #0f0f0f;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .about-image {
+      flex-basis: 40%;
+      margin-right: 40px;
+    }
+
+    .about-image img {
+      width: 100%;
+      height: auto;
+      border-radius: 8px;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+    }
+
+    .about-content {
+      flex-basis: 60%;
+    }
+
+    .about-content h2 {
+      font-size: 36px;
+      font-weight: 700;
+      margin-bottom: 20px;
+      text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    }
+
+    .about-content p {
+      font-size: 16px;
+      line-height: 1.6;
+      margin-bottom: 30px;
+      text-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+    }
+
+    .about-content a {
+      display: inline-block;
+      background-color: #8c8c8c;
+      color: #0f0f0f;
+      text-decoration: none;
+      font-size: 16px;
+      font-weight: 700;
+      padding: 12px 24px;
+      border-radius: 4px;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+      transition: background-color 0.3s ease;
+    }
+
+    .about-content a:hover {
+      background-color: #b3b3b3;
+    }
+
+    /* Responsive Styles */
+    @media (max-width: 768px) {
+      nav {
+        padding: 15px 20px;
+      }
+
+      nav a {
+        font-size: 14px;
+        margin: 0 10px;
+      }
+
+      .hero {
+        height: 60vh;
+      }
+
+      .hero-content h1 {
+        font-size: 36px;
+      }
+
+      .hero-content p {
+        font-size: 16px;
+        margin-bottom: 30px;
+      }
+
+      .portfolio {
+        padding: 60px 20px;
+      }
+
+      .portfolio-grid {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        grid-gap: 30px;
+      }
+
+      .portfolio-item .overlay h3 {
+        font-size: 20px;
+      }
+
+      .portfolio-item .overlay p {
+        font-size: 14px;
+      }
+
+      .about {
+        padding: 60px 20px;
+        flex-direction: column;
+      }
+
+      .about-image {
+        flex-basis: auto;
+        margin-right: 0;
+        margin-bottom: 40px;
+      }
+
+      .about-content {
+        flex-basis: auto;
+      }
+
+      .about-content h2 {
+        font-size: 30px;
+      }
+
+      .about-content p {
+        font-size: 14px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="#">Home</a>
+    <a href="#">Portfolio</a>
+    <a href="#">About</a>
+    <a href="#">Contact</a>
+  </nav>
+
+  <div class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-content">
+      <h1>Discover My Layered Portfolio</h1>
+      <p>Immerse yourself in a world of depth, sophistication, and captivating visuals.</p>
+      <a href="#">Explore the Portfolio</a>
+    </div>
+  </div>
+
+  <div class="portfolio">
+    <div class="portfolio-grid">
+      <div class="portfolio-item">
+        <img src="https://dummyimage.com/600x400/000/fff&text=Portfolio+Item+1" alt="Portfolio Item 1">
+        <div class="overlay">
+          <h3>Project Title</h3>
+          <p>A brief description of the project.</p>
+        </div>
+      </div>
+      <div class="portfolio-item">
+        <img src="https://dummyimage.com/600x400/000/fff&text=Portfolio+Item+2" alt="Portfolio Item 2">
+        <div class="overlay">
+          <h3>Project Title</h3>
+          <p>A brief description of the project.</p>
+        </div>
+      </div>
+      <div class="portfolio-item">
+        <img src="https://dummyimage.com/600x400/000/fff&text=Portfolio+Item+3" alt="Portfolio Item 3">
+        <div class="overlay">
+          <h3>Project Title</h3>
+          <p>A brief description of the project.</p>
+        </div>
+      </div>
+      <div class="portfolio-item">
+        <img src="https://dummyimage.com/600x400/000/fff&text=Portfolio+Item+4" alt="Portfolio Item 4">
+        <div class="overlay">
+          <h3>Project Title</h3>
+          <p>A brief description of the project.</p>
+        </div>
+      </div>
+      <div class="portfolio-item">
+        <img src="https://dummyimage.com/600x400/000/fff&text=Portfolio+Item+5" alt="Portfolio Item 5">
+        <div class="overlay">
+          <h3>Project Title</h3>
+          <p>A brief description of the project.</p>
+        </div>
+      </div>
+      <div class="portfolio-item">
+        <img src="https://dummyimage.com/600x400/000/fff&text=Portfolio+Item+6" alt="Portfolio Item 6">
+        <div class="overlay">
+          <h3>Project Title</h3>
+          <p>A brief description of the project.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="about">
+    <div class="about-image">
+      <img src="https://dummyimage.com/400x400/000/fff&text=About+Image" alt="About Image">
+    </div>
+    <div class="about-content">
+      <h2>About the Designer</h2>
+      <p>As a seasoned designer with a keen eye for detail and a passion for creating visually stunning portfolios, I take pride in my ability to craft experiences that captivate and inspire. My expertise lies in seamlessly blending dark, layered aesthetics with subtle shadow effects and sophisticated color gradients, all while maintaining a polished and engaging user experience.</p>
+      <a href="#">Learn More</a>
+    </div>
+  </div>
+</body>
+</html>'<!-- Visit: https://github.com/Ishanoshada/portflair -->
+<!-- Visit: https://github.com/Ishanoshada/portflair -->

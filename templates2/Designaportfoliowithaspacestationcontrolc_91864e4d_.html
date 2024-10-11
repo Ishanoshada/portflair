@@ -1,0 +1,335 @@
+<!-- Portfolio created by Ishan -->
+<!-- Check out my work at: https://github.com/Ishanoshada/portflair -->
+<!-- 2024/10/9 -->
+<!-- Portfolio created by Ishan -->
+'<!DOCTYPE html>
+<html>
+<head>
+  <title>Design a Portfolio - Space Station Control Console</title>
+  <style>
+    /* Global Styles */
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Roboto', sans-serif;
+      background-color: #000000;
+      color: #ffffff;
+    }
+
+    /* Navigation Bar */
+    .navbar {
+      display: flex;
+      justify-content: center;
+      background-color: #1c1c1c;
+      padding: 1rem 0;
+    }
+
+    .navbar a {
+      color: #ffffff;
+      text-decoration: none;
+      margin: 0 1.5rem;
+      font-size: 1.1rem;
+      font-weight: 500;
+      transition: color 0.3s ease;
+    }
+
+    .navbar a:hover {
+      color: #00ffff;
+    }
+
+    /* Mission Control Center */
+    .mission-control {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 4rem 2rem;
+    }
+
+    .mission-control h1 {
+      font-size: 3rem;
+      font-weight: 700;
+      text-align: center;
+      margin-bottom: 2rem;
+      text-shadow: 0 0 20px #00ffff;
+    }
+
+    .console {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-gap: 2rem;
+      width: 100%;
+      max-width: 1200px;
+    }
+
+    .screen {
+      background-color: #1c1c1c;
+      border-radius: 1rem;
+      box-shadow: 0 0 20px rgba(0, 255, 255, 0.3);
+      overflow: hidden;
+      position: relative;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+
+    .screen:hover {
+      transform: scale(1.05);
+    }
+
+    .screen img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      filter: brightness(0.8);
+      transition: filter 0.3s ease;
+    }
+
+    .screen:hover img {
+      filter: brightness(1);
+    }
+
+    .screen-content {
+      padding: 1.5rem;
+    }
+
+    .screen-content h3 {
+      font-size: 1.4rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+    }
+
+    .screen-content p {
+      font-size: 1rem;
+      line-height: 1.5;
+    }
+
+    .button-panel {
+      display: flex;
+      justify-content: center;
+      margin-top: 2rem;
+    }
+
+    .button {
+      background-color: #00ffff;
+      color: #000000;
+      border: none;
+      border-radius: 2rem;
+      padding: 0.8rem 2rem;
+      font-size: 1.1rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .button:hover {
+      background-color: #00d9d9;
+    }
+
+    /* Astronaut's Quarters */
+    .astronaut-quarters {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
+      padding: 4rem 2rem;
+    }
+
+    .quarters-image {
+      flex-basis: 50%;
+      max-width: 500px;
+      margin-right: 3rem;
+    }
+
+    .quarters-image img {
+      width: 100%;
+      height: auto;
+      border-radius: 1rem;
+      box-shadow: 0 0 20px rgba(0, 255, 255, 0.3);
+    }
+
+    .quarters-content {
+      flex-basis: 50%;
+    }
+
+    .quarters-content h2 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 1.5rem;
+      text-shadow: 0 0 20px #00ffff;
+    }
+
+    .quarters-content p {
+      font-size: 1.1rem;
+      line-height: 1.6;
+      margin-bottom: 2rem;
+    }
+
+    .quarters-content .button {
+      margin-top: 1rem;
+    }
+
+    /* Mission Briefing */
+    .mission-briefing {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 4rem 2rem;
+    }
+
+    .mission-briefing h2 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 2rem;
+      text-shadow: 0 0 20px #00ffff;
+    }
+
+    .briefing-content {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-gap: 2rem;
+      width: 100%;
+      max-width: 1200px;
+    }
+
+    .briefing-item {
+      background-color: #1c1c1c;
+      border-radius: 1rem;
+      box-shadow: 0 0 20px rgba(0, 255, 255, 0.3);
+      padding: 2rem;
+      text-align: center;
+      transition: transform 0.3s ease;
+    }
+
+    .briefing-item:hover {
+      transform: scale(1.05);
+    }
+
+    .briefing-item h3 {
+      font-size: 1.6rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+    }
+
+    .briefing-item p {
+      font-size: 1rem;
+      line-height: 1.5;
+    }
+
+    .briefing-item .button {
+      margin-top: 1.5rem;
+    }
+
+    /* Responsive Styles */
+    @media (max-width: 1024px) {
+      .console {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .astronaut-quarters {
+        flex-direction: column;
+      }
+
+      .quarters-image {
+        margin-right: 0;
+        margin-bottom: 2rem;
+      }
+
+      .briefing-content {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 768px) {
+      .mission-control h1 {
+        font-size: 2.5rem;
+      }
+
+      .console {
+        grid-template-columns: 1fr;
+      }
+
+      .quarters-content h2 {
+        font-size: 2rem;
+      }
+
+      .mission-briefing h2 {
+        font-size: 2rem;
+      }
+
+      .briefing-content {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="navbar">
+    <a href="#">Home</a>
+    <a href="#">About</a>
+    <a href="#">Portfolio</a>
+    <a href="#">Contact</a>
+  </div>
+
+  <div class="mission-control">
+    <h1>Welcome to Mission Control</h1>
+    <div class="console">
+      <div class="screen">
+        <img src="https://dummyimage.com/500x200/ccc/000&text=Project+1" alt="Project 1">
+        <div class="screen-content">
+          <h3>Project 1</h3>
+          <p>Explore the details of my first interstellar project, showcasing my coding skills and creativity.</p>
+        </div>
+      </div>
+      <div class="screen">
+        <img src="https://dummyimage.com/500x200/ccc/000&text=Project+2" alt="Project 2">
+        <div class="screen-content">
+          <h3>Project 2</h3>
+          <p>Dive into the intricacies of my second mission, where I pushed the boundaries of design and technology.</p>
+        </div>
+      </div>
+      <div class="screen">
+        <img src="https://dummyimage.com/500x200/ccc/000&text=Project+3" alt="Project 3">
+        <div class="screen-content">
+          <h3>Project 3</h3>
+          <p>Discover the innovative approach I took in my third project, combining cutting-edge techniques and visionary ideas.</p>
+        </div>
+      </div>
+    </div>
+    <div class="button-panel">
+      <button class="button">Explore My Portfolio</button>
+    </div>
+  </div>
+
+  <div class="astronaut-quarters">
+    <div class="quarters-image">
+      <img src="https://dummyimage.com/500x400/ccc/000&text=Astronaut%27s+Quarters" alt="Astronaut's Quarters">
+    </div>
+    <div class="quarters-content">
+      <h2>Astronaut's Quarters</h2>
+      <p>Step into my personal workspace, where the magic happens. Discover the thought process, design philosophy, and unique insights that shape my interstellar creations.</p>
+      <button class="button">Explore My Journey</button>
+    </div>
+  </div>
+
+  <div class="mission-briefing">
+    <h2>Mission Briefing</h2>
+    <div class="briefing-content">
+      <div class="briefing-item">
+        <h3>Coding Expertise</h3>
+        <p>Dive into my extensive coding skills and expertise, honed through years of interstellar missions and cutting-edge projects.</p>
+        <button class="button">Learn More</button>
+      </div>
+      <div class="briefing-item">
+        <h3>Design Prowess</h3>
+        <p>Explore the visionary design principles that guide my interstellar creations, blending form and function with a touch of the extraordinary.</p>
+        <button class="button">Discover My Designs</button>
+      </div>
+      <div class="briefing-item">
+        <h3>Interstellar Portfolio</h3>
+        <p>Witness the impressive breadth of my portfolio, showcasing a diverse range of interstellar projects that demonstrate my versatility and innovative spirit.</p>
+        <button class="button">View My Portfolio</button>
+      </div>
+    </div>
+  </div>
+</body>
+</html>'<!-- Visit: https://github.com/Ishanoshada/portflair -->
+<!-- Visit: https://github.com/Ishanoshada/portflair -->

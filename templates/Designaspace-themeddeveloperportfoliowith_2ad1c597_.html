@@ -1,0 +1,442 @@
+<!-- Portfolio created by Ishan -->
+<!-- Check out my work at: https://github.com/Ishanoshada/portflair -->
+<!-- 2024/10/9 -->
+<!-- Portfolio created by Ishan -->
+'<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Space-Themed Developer Portfolio</title>
+  <style>
+    /* Global Styles */
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Montserrat', sans-serif;
+      background-color: #0f0f0f;
+      color: #fff;
+      overflow-x: hidden;
+    }
+
+    /* Navigation */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.5rem 2rem;
+      background-color: rgba(15, 15, 15, 0.8);
+      backdrop-filter: blur(10px);
+      position: relative;
+      z-index: 1;
+    }
+
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      font-size: 1.1rem;
+      font-weight: 500;
+      margin-right: 2rem;
+      transition: color 0.3s ease;
+    }
+
+    nav a:hover {
+      color: #9b59b6;
+    }
+
+    /* Interactive Code Snippets Section */
+    #code-snippets {
+      padding: 5rem 2rem;
+      background: linear-gradient(to bottom, #0f0f0f, #1a1a1a);
+      position: relative;
+      overflow: hidden;
+    }
+
+    #code-snippets::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url(https://dummyimage.com/1200x500/ccc/000&text=Galaxy+Background) no-repeat center center;
+      background-size: cover;
+      opacity: 0.2;
+      z-index: -1;
+    }
+
+    #code-snippets h2 {
+      text-align: center;
+      font-size: 3rem;
+      margin-bottom: 4rem;
+      text-shadow: 0 0 20px #9b59b6, 0 0 40px #9b59b6, 0 0 60px #9b59b6;
+    }
+
+    .code-snippet-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      grid-gap: 3rem;
+    }
+
+    .code-snippet {
+      background-color: rgba(155, 89, 182, 0.2);
+      border-radius: 10px;
+      padding: 2rem;
+      box-shadow: 0 0 20px rgba(155, 89, 182, 0.5);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      cursor: pointer;
+    }
+
+    .code-snippet:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 40px rgba(155, 89, 182, 0.8);
+    }
+
+    .code-snippet pre {
+      background-color: #0f0f0f;
+      border-radius: 5px;
+      padding: 1.5rem;
+      font-family: 'Fira Code', monospace;
+      font-size: 1rem;
+      color: #9b59b6;
+      overflow-x: auto;
+    }
+
+    /* Animated Constellation Section */
+    #constellations {
+      padding: 5rem 2rem;
+      background: linear-gradient(to bottom, #1a1a1a, #0f0f0f);
+      position: relative;
+      overflow: hidden;
+    }
+
+    #constellations::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url(https://dummyimage.com/1200x800/ccc/000&text=Starry+Sky+Background) no-repeat center center;
+      background-size: cover;
+      opacity: 0.5;
+      z-index: -1;
+    }
+
+    #constellations h2 {
+      text-align: center;
+      font-size: 3rem;
+      margin-bottom: 4rem;
+      text-shadow: 0 0 20px #6c5ce7, 0 0 40px #6c5ce7, 0 0 60px #6c5ce7;
+    }
+
+    .constellation-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 60vh;
+      position: relative;
+    }
+
+    .constellation {
+      position: absolute;
+      width: 80%;
+      height: 80%;
+      background: url(https://dummyimage.com/800x800/ccc/000&text=Constellation+SVG) no-repeat center center;
+      background-size: contain;
+      opacity: 0.8;
+      transition: opacity 0.3s ease, transform 0.3s ease;
+    }
+
+    .constellation:hover {
+      opacity: 1;
+      transform: scale(1.1);
+    }
+
+    .constellation-details {
+      position: absolute;
+      background-color: rgba(15, 15, 15, 0.8);
+      backdrop-filter: blur(10px);
+      border-radius: 10px;
+      padding: 2rem;
+      width: 300px;
+      box-shadow: 0 0 20px rgba(108, 92, 231, 0.5);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .constellation:hover .constellation-details {
+      opacity: 1;
+    }
+
+    .constellation-details h3 {
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+      color: #6c5ce7;
+    }
+
+    .constellation-details p {
+      font-size: 1rem;
+      line-height: 1.5;
+      margin-bottom: 1rem;
+    }
+
+    .constellation-details a {
+      color: #9b59b6;
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s ease;
+    }
+
+    .constellation-details a:hover {
+      color: #6c5ce7;
+    }
+
+    /* About the Developer Section */
+    #about {
+      padding: 5rem 2rem;
+      background: linear-gradient(to bottom, #0f0f0f, #1a1a1a);
+      position: relative;
+      overflow: hidden;
+    }
+
+    #about::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url(https://dummyimage.com/1200x800/ccc/000&text=Nebula+Background) no-repeat center center;
+      background-size: cover;
+      opacity: 0.5;
+      z-index: -1;
+    }
+
+    #about .container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    #about .profile-picture {
+      width: 300px;
+      height: 300px;
+      border-radius: 50%;
+      background: url(https://dummyimage.com/300x300/ccc/000&text=Developer+Profile+Picture) no-repeat center center;
+      background-size: cover;
+      box-shadow: 0 0 20px rgba(155, 89, 182, 0.5);
+      position: relative;
+      z-index: 1;
+    }
+
+    #about .profile-picture::before {
+      content: "";
+      position: absolute;
+      top: -20px;
+      left: -20px;
+      width: 340px;
+      height: 340px;
+      border-radius: 50%;
+      background-color: rgba(155, 89, 182, 0.2);
+      filter: blur(20px);
+      z-index: -1;
+    }
+
+    #about .about-content {
+      flex: 1;
+      margin-left: 4rem;
+    }
+
+    #about h2 {
+      font-size: 3rem;
+      margin-bottom: 2rem;
+      color: #6c5ce7;
+      text-shadow: 0 0 20px #6c5ce7, 0 0 40px #6c5ce7, 0 0 60px #6c5ce7;
+    }
+
+    #about p {
+      font-size: 1.2rem;
+      line-height: 1.6;
+      margin-bottom: 2rem;
+      color: #ccc;
+    }
+
+    #about a {
+      display: inline-block;
+      background-color: #9b59b6;
+      color: #fff;
+      text-decoration: none;
+      padding: 1rem 2rem;
+      border-radius: 5px;
+      font-size: 1.1rem;
+      font-weight: 500;
+      transition: background-color 0.3s ease;
+    }
+
+    #about a:hover {
+      background-color: #6c5ce7;
+    }
+
+    /* Media Queries */
+    @media (max-width: 768px) {
+      nav {
+        padding: 1rem;
+      }
+
+      nav a {
+        font-size: 1rem;
+        margin-right: 1rem;
+      }
+
+      #code-snippets,
+      #constellations,
+      #about {
+        padding: 3rem 1rem;
+      }
+
+      #code-snippets h2,
+      #constellations h2,
+      #about h2 {
+        font-size: 2.5rem;
+        margin-bottom: 3rem;
+      }
+
+      .code-snippet-grid {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        grid-gap: 2rem;
+      }
+
+      .constellation-container {
+        height: 40vh;
+      }
+
+      .constellation {
+        width: 90%;
+        height: 90%;
+      }
+
+      #about .container {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      #about .profile-picture {
+        width: 200px;
+        height: 200px;
+        margin-bottom: 2rem;
+      }
+
+      #about .profile-picture::before {
+        width: 240px;
+        height: 240px;
+      }
+
+      #about .about-content {
+        margin-left: 0;
+      }
+
+      #about p {
+        font-size: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="#">Home</a>
+    <a href="#">Code Snippets</a>
+    <a href="#">Constellations</a>
+    <a href="#">About</a>
+  </nav>
+
+  <section id="code-snippets">
+    <h2>Interactive Code Snippets</h2>
+    <div class="code-snippet-grid">
+      <div class="code-snippet">
+        <pre><code>
+function calculateArea(width, height) {
+  return width * height;
+}
+
+let area = calculateArea(10, 5);
+console.log(area); // Output: 50
+        </code></pre>
+      </div>
+      <div class="code-snippet">
+        <pre><code>
+class Car {
+  constructor(make, model, year) {
+    this.make = make;
+    this.model = model;
+    this.year = year;
+  }
+
+  getDescription() {
+    return `This is a ${this.year} ${this.make} ${this.model}.`;
+  }
+}
+
+let myCar = new Car('Toyota', 'Camry', 2020);
+console.log(myCar.getDescription()); // Output: This is a 2020 Toyota Camry.
+        </code></pre>
+      </div>
+      <div class="code-snippet">
+        <pre><code>
+const fruits = ['apple', 'banana', 'cherry'];
+
+fruits.forEach(fruit => {
+  console.log(fruit);
+});
+
+// Output:
+// apple
+// banana
+// cherry
+        </code></pre>
+      </div>
+    </div>
+  </section>
+
+  <section id="constellations">
+    <h2>Animated Constellations</h2>
+    <div class="constellation-container">
+      <div class="constellation">
+        <div class="constellation-details">
+          <h3>Project 1</h3>
+          <p>A web application that allows users to create and manage their own to-do lists. Built with React, Redux, and Firebase.</p>
+          <a href="#">View Project</a>
+        </div>
+      </div>
+      <div class="constellation">
+        <div class="constellation-details">
+          <h3>Project 2</h3>
+          <p>A mobile-friendly e-commerce platform for selling handmade crafts. Developed using Node.js, Express, and MongoDB.</p>
+          <a href="#">View Project</a>
+        </div>
+      </div>
+      <div class="constellation">
+        <div class="constellation-details">
+          <h3>Project 3</h3>
+          <p>A data visualization dashboard that displays real-time stock market data. Created with D3.js, React, and Redux.</p>
+          <a href="#">View Project</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="about">
+    <div class="container">
+      <div class="profile-picture"></div>
+      <div class="about-content">
+        <h2>About the Developer</h2>
+        <p>Hi, I'm a passionate space enthusiast and a skilled full-stack developer. I love creating innovative web applications that push the boundaries of what's possible. My code is fueled by a deep fascination with the cosmos and a desire to bring the wonders of the universe to life through interactive and visually stunning projects.</p>
+        <a href="#">Learn More</a>
+      </div>
+    </div>
+  </section>
+</body>
+</html>'<!-- Visit: https://github.com/Ishanoshada/portflair -->
+<!-- Visit: https://github.com/Ishanoshada/portflair -->

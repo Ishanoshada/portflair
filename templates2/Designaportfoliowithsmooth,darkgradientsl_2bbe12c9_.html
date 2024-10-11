@@ -1,0 +1,350 @@
+<!-- Portfolio created by Ishan -->
+<!-- Check out my work at: https://github.com/Ishanoshada/portflair -->
+<!-- 2024/10/9 -->
+<!-- Portfolio created by Ishan -->
+'<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Design a Portfolio</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Montserrat', sans-serif;
+      background: linear-gradient(to bottom, #5B3A8B, #000000);
+      color: #ffffff;
+    }
+
+    /* Navigation */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 40px;
+      background-color: rgba(0, 0, 0, 0.3);
+      backdrop-filter: blur(10px);
+    }
+
+    nav a {
+      color: #ffffff;
+      text-decoration: none;
+      font-size: 16px;
+      font-weight: 500;
+      padding: 10px 20px;
+      border-radius: 20px;
+      transition: background-color 0.3s ease;
+    }
+
+    nav a:hover {
+      background-color: rgba(255, 255, 255, 0.2);
+    }
+
+    /* Hero Section */
+    .hero {
+      height: 80vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 0 20px;
+    }
+
+    .hero h1 {
+      font-size: 48px;
+      font-weight: 700;
+      margin-bottom: 20px;
+      text-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+    }
+
+    .hero p {
+      font-size: 24px;
+      font-weight: 400;
+      margin-bottom: 40px;
+      text-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+    }
+
+    .hero-image {
+      width: 100%;
+      max-width: 800px;
+      height: auto;
+      border-radius: 20px;
+      box-shadow: 0 0 50px rgba(255, 255, 255, 0.3);
+      animation: glow 3s ease-in-out infinite;
+    }
+
+    @keyframes glow {
+      0%, 100% {
+        box-shadow: 0 0 50px rgba(255, 255, 255, 0.3);
+      }
+      50% {
+        box-shadow: 0 0 80px rgba(255, 255, 255, 0.5);
+      }
+    }
+
+    /* Portfolio Section */
+    .portfolio {
+      padding: 80px 40px;
+    }
+
+    .portfolio h2 {
+      font-size: 36px;
+      font-weight: 700;
+      margin-bottom: 40px;
+      text-align: center;
+      text-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+    }
+
+    .portfolio-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      grid-gap: 40px;
+    }
+
+    .portfolio-item {
+      position: relative;
+      overflow: hidden;
+      border-radius: 20px;
+      box-shadow: 0 0 50px rgba(255, 255, 255, 0.1);
+      transition: transform 0.3s ease;
+    }
+
+    .portfolio-item:hover {
+      transform: scale(1.05);
+    }
+
+    .portfolio-item img {
+      width: 100%;
+      height: 300px;
+      object-fit: cover;
+      filter: brightness(0.7);
+      transition: filter 0.3s ease;
+    }
+
+    .portfolio-item:hover img {
+      filter: brightness(1);
+    }
+
+    .portfolio-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.6);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .portfolio-item:hover .portfolio-overlay {
+      opacity: 1;
+    }
+
+    .portfolio-overlay h3 {
+      font-size: 24px;
+      font-weight: 600;
+      margin-bottom: 10px;
+      text-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+    }
+
+    .portfolio-overlay p {
+      font-size: 16px;
+      font-weight: 400;
+      text-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+    }
+
+    /* About Section */
+    .about {
+      padding: 80px 40px;
+      background: linear-gradient(to bottom, #3C2A7C, #000000);
+    }
+
+    .about-container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .about-image {
+      flex: 0 0 40%;
+      text-align: center;
+    }
+
+    .about-image img {
+      width: 300px;
+      height: 300px;
+      object-fit: cover;
+      border-radius: 50%;
+      box-shadow: 0 0 50px rgba(255, 255, 255, 0.3);
+      animation: glow 3s ease-in-out infinite;
+    }
+
+    .about-content {
+      flex: 0 0 55%;
+    }
+
+    .about-content h2 {
+      font-size: 36px;
+      font-weight: 700;
+      margin-bottom: 20px;
+      text-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+    }
+
+    .about-content p {
+      font-size: 18px;
+      font-weight: 400;
+      line-height: 1.6;
+      margin-bottom: 30px;
+      text-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+    }
+
+    .about-content a {
+      display: inline-block;
+      background-color: #5B3A8B;
+      color: #ffffff;
+      text-decoration: none;
+      font-size: 16px;
+      font-weight: 500;
+      padding: 12px 30px;
+      border-radius: 30px;
+      box-shadow: 0 0 30px rgba(255, 255, 255, 0.2);
+      transition: background-color 0.3s ease;
+    }
+
+    .about-content a:hover {
+      background-color: #7C53B8;
+    }
+
+    /* Responsive Styles */
+    @media (max-width: 768px) {
+      nav {
+        padding: 15px 20px;
+      }
+
+      nav a {
+        font-size: 14px;
+        padding: 8px 16px;
+      }
+
+      .hero {
+        height: 60vh;
+      }
+
+      .hero h1 {
+        font-size: 36px;
+      }
+
+      .hero p {
+        font-size: 18px;
+      }
+
+      .portfolio {
+        padding: 60px 20px;
+      }
+
+      .portfolio h2 {
+        font-size: 30px;
+        margin-bottom: 30px;
+      }
+
+      .portfolio-grid {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        grid-gap: 30px;
+      }
+
+      .about {
+        padding: 60px 20px;
+      }
+
+      .about-container {
+        flex-direction: column;
+      }
+
+      .about-image {
+        flex: 0 0 auto;
+        margin-bottom: 40px;
+      }
+
+      .about-image img {
+        width: 200px;
+        height: 200px;
+      }
+
+      .about-content {
+        flex: 0 0 auto;
+        text-align: center;
+      }
+
+      .about-content h2 {
+        font-size: 30px;
+      }
+
+      .about-content p {
+        font-size: 16px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="#">Home</a>
+    <a href="#">Portfolio</a>
+    <a href="#">About</a>
+    <a href="#">Contact</a>
+  </nav>
+
+  <div class="hero">
+    <h1>Unleash Your Design Potential</h1>
+    <p>Explore a captivating collection of stunning portfolios</p>
+    <img src="https://dummyimage.com/1200x500/5B3A8B/000&text=Dreamy+Portfolio" alt="Hero Image" class="hero-image">
+  </div>
+
+  <div class="portfolio">
+    <h2>Featured Portfolios</h2>
+    <div class="portfolio-grid">
+      <div class="portfolio-item">
+        <img src="https://dummyimage.com/600x400/5B3A8B/000&text=Portfolio+1" alt="Portfolio 1">
+        <div class="portfolio-overlay">
+          <h3>Portfolio 1</h3>
+          <p>Showcase of creative designs</p>
+        </div>
+      </div>
+      <div class="portfolio-item">
+        <img src="https://dummyimage.com/600x400/5B3A8B/000&text=Portfolio+2" alt="Portfolio 2">
+        <div class="portfolio-overlay">
+          <h3>Portfolio 2</h3>
+          <p>Stunning visual aesthetics</p>
+        </div>
+      </div>
+      <div class="portfolio-item">
+        <img src="https://dummyimage.com/600x400/5B3A8B/000&text=Portfolio+3" alt="Portfolio 3">
+        <div class="portfolio-overlay">
+          <h3>Portfolio 3</h3>
+          <p>Innovative design solutions</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="about">
+    <div class="about-container">
+      <div class="about-image">
+        <img src="https://dummyimage.com/300x300/5B3A8B/000&text=Designer" alt="Designer">
+      </div>
+      <div class="about-content">
+        <h2>About the Designer</h2>
+        <p>Welcome to my portfolio, where I showcase my passion for design and the art of visually captivating storytelling. As a seasoned designer, I have honed my skills over the years, crafting stunning designs that evoke emotions and leave a lasting impression. From bold color palettes to intricate illustrations, my work is a reflection of my unwavering dedication to pushing the boundaries of creativity.</p>
+        <a href="#">Learn More</a>
+      </div>
+    </div>
+  </div>
+</body>
+</html>'<!-- Visit: https://github.com/Ishanoshada/portflair -->
+<!-- Visit: https://github.com/Ishanoshada/portflair -->

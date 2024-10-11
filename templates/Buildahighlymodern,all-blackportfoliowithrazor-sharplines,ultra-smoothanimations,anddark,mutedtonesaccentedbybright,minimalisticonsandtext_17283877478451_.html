@@ -1,0 +1,407 @@
+<!-- Portfolio created by Ishan -->
+<!-- Check out my work at: https://github.com/Ishanoshada/portflair -->
+<!-- 2024/10/9 -->
+<!-- Portfolio created by Ishan -->
+<!-- Portfolio created by Ishan -->
+'<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Build a Highly Modern Portfolio</title>
+  <style>
+    /* Reset Styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    /* Global Styles */
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background-color: #000;
+      color: #fff;
+    }
+
+    /* Navigation Styles */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 40px;
+      background-color: #111;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    nav .logo {
+      font-size: 24px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+    }
+
+    nav ul {
+      display: flex;
+      list-style-type: none;
+    }
+
+    nav ul li {
+      margin-left: 30px;
+    }
+
+    nav ul li a {
+      color: #fff;
+      text-decoration: none;
+      font-size: 16px;
+      font-weight: 500;
+      transition: color 0.3s ease;
+    }
+
+    nav ul li a:hover {
+      color: #ff6b6b;
+    }
+
+    /* Hero Section Styles */
+    .hero {
+      height: 80vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://dummyimage.com/1920x1080/111/fff&text=Portfolio+Hero+Image');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-content {
+      text-align: center;
+      z-index: 1;
+    }
+
+    .hero-content h1 {
+      font-size: 64px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 4px;
+      animation: fadeIn 1s ease-in-out;
+    }
+
+    .hero-content p {
+      font-size: 24px;
+      margin-top: 20px;
+      animation: fadeIn 1.5s ease-in-out;
+    }
+
+    @keyframes fadeIn {
+      0% {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Featured Projects Section Styles */
+    .featured-projects {
+      padding: 80px 40px;
+      background-color: #111;
+    }
+
+    .featured-projects h2 {
+      font-size: 36px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      margin-bottom: 40px;
+      text-align: center;
+    }
+
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-gap: 40px;
+    }
+
+    .project-item {
+      position: relative;
+      overflow: hidden;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease;
+    }
+
+    .project-item:hover {
+      transform: scale(1.05);
+    }
+
+    .project-item img {
+      width: 100%;
+      height: 300px;
+      object-fit: cover;
+    }
+
+    .project-details {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.7);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .project-item:hover .project-details {
+      opacity: 1;
+    }
+
+    .project-details h3 {
+      font-size: 24px;
+      font-weight: 600;
+      margin-bottom: 10px;
+      color: #ff6b6b;
+    }
+
+    .project-details p {
+      font-size: 16px;
+      color: #fff;
+    }
+
+    /* About Section Styles */
+    .about {
+      padding: 80px 40px;
+      background-color: #000;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .about-container {
+      max-width: 800px;
+      display: flex;
+      align-items: center;
+    }
+
+    .about-image {
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      overflow: hidden;
+      margin-right: 40px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      animation: fadeIn 1s ease-in-out;
+    }
+
+    .about-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .about-content {
+      flex-grow: 1;
+      animation: fadeIn 1.5s ease-in-out;
+    }
+
+    .about-content h2 {
+      font-size: 36px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      margin-bottom: 20px;
+      color: #ff6b6b;
+    }
+
+    .about-content p {
+      font-size: 18px;
+      line-height: 1.6;
+      margin-bottom: 20px;
+    }
+
+    .about-content blockquote {
+      font-size: 24px;
+      font-style: italic;
+      color: #ccc;
+      margin-top: 40px;
+      position: relative;
+      padding-left: 40px;
+    }
+
+    .about-content blockquote::before {
+      content: '"';
+      font-size: 48px;
+      color: #ff6b6b;
+      position: absolute;
+      left: 0;
+      top: -10px;
+    }
+
+    /* Footer Styles */
+    footer {
+      background-color: #111;
+      padding: 20px 0;
+      text-align: center;
+      font-size: 14px;
+      color: #ccc;
+    }
+
+    /* Responsive Styles */
+    @media (max-width: 991px) {
+      .hero-content h1 {
+        font-size: 48px;
+      }
+
+      .hero-content p {
+        font-size: 18px;
+      }
+
+      .project-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .about-container {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .about-image {
+        margin-right: 0;
+        margin-bottom: 40px;
+      }
+    }
+
+    @media (max-width: 767px) {
+      nav {
+        padding: 15px 20px;
+      }
+
+      nav .logo {
+        font-size: 20px;
+      }
+
+      nav ul li {
+        margin-left: 20px;
+      }
+
+      nav ul li a {
+        font-size: 14px;
+      }
+
+      .hero {
+        height: 60vh;
+      }
+
+      .hero-content h1 {
+        font-size: 36px;
+      }
+
+      .hero-content p {
+        font-size: 16px;
+      }
+
+      .featured-projects {
+        padding: 60px 20px;
+      }
+
+      .featured-projects h2 {
+        font-size: 28px;
+      }
+
+      .project-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .about {
+        padding: 60px 20px;
+      }
+
+      .about-content h2 {
+        font-size: 28px;
+      }
+
+      .about-content p {
+        font-size: 16px;
+      }
+
+      .about-content blockquote {
+        font-size: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="logo">Portfolio</div>
+    <ul>
+      <li><a href="#">Home</a></li>
+      <li><a href="#">Projects</a></li>
+      <li><a href="#">About</a></li>
+      <li><a href="#">Contact</a></li>
+    </ul>
+  </nav>
+
+  <section class="hero">
+    <div class="hero-content">
+      <h1>Build a Highly Modern Portfolio</h1>
+      <p>Razor-sharp lines, ultra-smooth animations, and dark, muted tones accented by bright, minimalist icons and text.</p>
+    </div>
+  </section>
+
+  <section class="featured-projects">
+    <h2>Featured Projects</h2>
+    <div class="project-grid">
+      <div class="project-item">
+        <img src="https://dummyimage.com/600x400/111/fff&text=Project+1" alt="Project 1">
+        <div class="project-details">
+          <h3>Project 1</h3>
+          <p>Description of Project 1</p>
+        </div>
+      </div>
+      <div class="project-item">
+        <img src="https://dummyimage.com/600x400/111/fff&text=Project+2" alt="Project 2">
+        <div class="project-details">
+          <h3>Project 2</h3>
+          <p>Description of Project 2</p>
+        </div>
+      </div>
+      <div class="project-item">
+        <img src="https://dummyimage.com/600x400/111/fff&text=Project+3" alt="Project 3">
+        <div class="project-details">
+          <h3>Project 3</h3>
+          <p>Description of Project 3</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="about">
+    <div class="about-container">
+      <div class="about-image">
+        <img src="https://dummyimage.com/400x400/111/fff&text=Designer+Portrait" alt="Designer Portrait">
+      </div>
+      <div class="about-content">
+        <h2>About the Designer</h2>
+        <p>This is a brief introduction to the designer and their background. They are a highly skilled professional with a strong passion for creating modern, visually stunning portfolios that showcase their expertise and unique design philosophy.</p>
+        <blockquote>
+          "I believe that design should be a balance of form and function, with each element working in harmony to create a truly captivating and immersive experience."
+        </blockquote>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    &copy; 2024 Build a Highly Modern Portfolio. All rights reserved.
+  </footer>
+</body>
+</html>'<!-- Visit: https://github.com/Ishanoshada/portflair -->
+<!-- Visit: https://github.com/Ishanoshada/portflair -->
+<!-- Visit: https://github.com/Ishanoshada/portflair -->

@@ -1,0 +1,461 @@
+<!-- Portfolio created by Ishan -->
+<!-- Check out my work at: https://github.com/Ishanoshada/portflair -->
+<!-- 2024/10/9 -->
+<!-- Portfolio created by Ishan -->
+'<html>
+<head>
+  <title>Animated Design Portfolio</title>
+  <style>
+    /* Global Styles */
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Poppins', sans-serif;
+      background-color: #0e0e0e;
+      color: #fff;
+      overflow-x: hidden;
+    }
+
+    /* Navigation Bar */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 40px;
+      background-color: rgba(14, 14, 14, 0.8);
+      backdrop-filter: blur(10px);
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+    }
+
+    nav .logo {
+      font-size: 24px;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 30px;
+    }
+
+    nav ul li a {
+      text-decoration: none;
+      color: #fff;
+      font-size: 16px;
+      font-weight: 500;
+      transition: color 0.3s ease;
+    }
+
+    nav ul li a:hover {
+      color: #8c52ff;
+    }
+
+    /* Interactive Portfolio Section */
+    .portfolio-section {
+      padding: 100px 40px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .portfolio-title {
+      font-size: 48px;
+      font-weight: bold;
+      text-align: center;
+      margin-bottom: 50px;
+      text-transform: uppercase;
+      letter-spacing: 4px;
+    }
+
+    .portfolio-container {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-gap: 40px;
+      perspective: 1000px;
+    }
+
+    .portfolio-item {
+      position: relative;
+      width: 300px;
+      height: 300px;
+      transform-style: preserve-3d;
+      transition: transform 0.5s;
+    }
+
+    .portfolio-item:hover {
+      transform: rotateY(180deg);
+    }
+
+    .portfolio-front,
+    .portfolio-back {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      backface-visibility: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 20px;
+      box-sizing: border-box;
+      border-radius: 10px;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    }
+
+    .portfolio-front {
+      background-color: #1d1d1d;
+      z-index: 2;
+    }
+
+    .portfolio-back {
+      background-color: #8c52ff;
+      transform: rotateY(180deg);
+      color: #0e0e0e;
+    }
+
+    .portfolio-item h3 {
+      font-size: 24px;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+
+    .portfolio-item p {
+      font-size: 16px;
+      line-height: 1.5;
+      margin-bottom: 20px;
+    }
+
+    .portfolio-item a {
+      display: inline-block;
+      background-color: #8c52ff;
+      color: #fff;
+      text-decoration: none;
+      padding: 10px 20px;
+      border-radius: 5px;
+      font-size: 14px;
+      font-weight: 500;
+      transition: background-color 0.3s ease;
+    }
+
+    .portfolio-item a:hover {
+      background-color: #6c3dff;
+    }
+
+    /* Skill Highlights Section */
+    .skills-section {
+      padding: 100px 40px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .skills-title {
+      font-size: 48px;
+      font-weight: bold;
+      text-align: center;
+      margin-bottom: 50px;
+      text-transform: uppercase;
+      letter-spacing: 4px;
+    }
+
+    .skills-container {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      grid-gap: 40px;
+    }
+
+    .skill-item {
+      background-color: #1d1d1d;
+      border-radius: 10px;
+      padding: 30px;
+      text-align: center;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .skill-item:before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: linear-gradient(to right, #8c52ff, #6c3dff);
+      opacity: 0;
+      transition: opacity 0.5s ease;
+    }
+
+    .skill-item:hover:before {
+      opacity: 0.3;
+    }
+
+    .skill-item i {
+      font-size: 48px;
+      color: #8c52ff;
+      margin-bottom: 20px;
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0% {
+        transform: scale(1);
+      }
+      50% {
+        transform: scale(1.2);
+      }
+      100% {
+        transform: scale(1);
+      }
+    }
+
+    .skill-item h3 {
+      font-size: 24px;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+
+    .skill-item p {
+      font-size: 16px;
+      line-height: 1.5;
+    }
+
+    /* Contact Form Section */
+    .contact-section {
+      padding: 100px 40px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+      background-image: linear-gradient(to right, #8c52ff, #6c3dff);
+    }
+
+    .contact-title {
+      font-size: 48px;
+      font-weight: bold;
+      text-align: center;
+      margin-bottom: 50px;
+      text-transform: uppercase;
+      letter-spacing: 4px;
+    }
+
+    .contact-form {
+      background-color: #1d1d1d;
+      border-radius: 10px;
+      padding: 40px;
+      width: 500px;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .contact-form:before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: linear-gradient(to right, #8c52ff, #6c3dff);
+      opacity: 0;
+      transition: opacity 0.5s ease;
+    }
+
+    .contact-form:hover:before {
+      opacity: 0.3;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+      display: block;
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 20px;
+      border: none;
+      border-radius: 5px;
+      font-size: 16px;
+      font-family: 'Poppins', sans-serif;
+      background-color: #2d2d2d;
+      color: #fff;
+      transition: background-color 0.3s ease;
+    }
+
+    .contact-form input:focus,
+    .contact-form textarea:focus {
+      background-color: #3d3d3d;
+      outline: none;
+    }
+
+    .contact-form button {
+      display: block;
+      width: 100%;
+      padding: 10px;
+      border: none;
+      border-radius: 5px;
+      font-size: 16px;
+      font-family: 'Poppins', sans-serif;
+      background-color: #8c52ff;
+      color: #fff;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .contact-form button:hover {
+      background-color: #6c3dff;
+    }
+
+    /* Floating Shapes */
+    .floating-shapes {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      overflow: hidden;
+    }
+
+    .floating-shape {
+      position: absolute;
+      width: 50px;
+      height: 50px;
+      background-color: rgba(140, 82, 255, 0.3);
+      border-radius: 50%;
+      animation: float 10s linear infinite;
+    }
+
+    @keyframes float {
+      0% {
+        transform: translate(0, 0);
+      }
+      50% {
+        transform: translate(100vw, 100vh);
+      }
+      100% {
+        transform: translate(0, 0);
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="logo">Animated Design Portfolio</div>
+    <ul>
+      <li><a href="#">Home</a></li>
+      <li><a href="#">Portfolio</a></li>
+      <li><a href="#">Skills</a></li>
+      <li><a href="#">Contact</a></li>
+    </ul>
+  </nav>
+
+  <div class="portfolio-section">
+    <h2 class="portfolio-title">My Portfolio</h2>
+    <div class="portfolio-container">
+      <div class="portfolio-item">
+        <div class="portfolio-front">
+          <img src="https://dummyimage.com/300x300/ccc/000&text=Project+1" alt="Project 1">
+          <h3>Project 1</h3>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+          <a href="#">View Project</a>
+        </div>
+        <div class="portfolio-back">
+          <h3>Project 1</h3>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ut risus in augue luctus venenatis.</p>
+          <a href="#">View Live</a>
+        </div>
+      </div>
+      <div class="portfolio-item">
+        <div class="portfolio-front">
+          <img src="https://dummyimage.com/300x300/ccc/000&text=Project+2" alt="Project 2">
+          <h3>Project 2</h3>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+          <a href="#">View Project</a>
+        </div>
+        <div class="portfolio-back">
+          <h3>Project 2</h3>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ut risus in augue luctus venenatis.</p>
+          <a href="#">View Live</a>
+        </div>
+      </div>
+      <div class="portfolio-item">
+        <div class="portfolio-front">
+          <img src="https://dummyimage.com/300x300/ccc/000&text=Project+3" alt="Project 3">
+          <h3>Project 3</h3>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+          <a href="#">View Project</a>
+        </div>
+        <div class="portfolio-back">
+          <h3>Project 3</h3>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ut risus in augue luctus venenatis.</p>
+          <a href="#">View Live</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="skills-section">
+    <h2 class="skills-title">My Skills</h2>
+    <div class="skills-container">
+      <div class="skill-item">
+        <i class="fas fa-code"></i>
+        <h3>Web Development</h3>
+        <p>Proficient in HTML, CSS, JavaScript, and various web frameworks.</p>
+      </div>
+      <div class="skill-item">
+        <i class="fas fa-palette"></i>
+        <h3>UI/UX Design</h3>
+        <p>Experienced in creating intuitive and visually appealing user interfaces.</p>
+      </div>
+      <div class="skill-item">
+        <i class="fas fa-mobile-alt"></i>
+        <h3>Mobile Development</h3>
+        <p>Skilled in developing responsive and cross-platform mobile applications.</p>
+      </div>
+      <div class="skill-item">
+        <i class="fas fa-chart-line"></i>
+        <h3>Data Visualization</h3>
+        <p>Proficient in creating meaningful and impactful data visualizations.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="contact-section">
+    <h2 class="contact-title">Get in Touch</h2>
+    <div class="contact-form">
+      <form>
+        <input type="text" placeholder="Name" required>
+        <input type="email" placeholder="Email" required>
+        <textarea placeholder="Message" rows="5" required></textarea>
+        <button type="submit">Send Message</button>
+      </form>
+    </div>
+  </div>
+
+  <div class="floating-shapes">
+    <div class="floating-shape"></div>
+    <div class="floating-shape"></div>
+    <div class="floating-shape"></div>
+    <div class="floating-shape"></div>
+    <div class="floating-shape"></div>
+    <div class="floating-shape"></div>
+    <div class="floating-shape"></div>
+    <div class="floating-shape"></div>
+    <div class="floating-shape"></div>
+    <div class="floating-shape"></div>
+  </div>
+
+  <!-- Add Font Awesome Icons -->
+  <script src="https://kit.fontawesome.com/your-font-awesome-kit.js" crossorigin="anonymous"></script>
+</body>
+</html>'<!-- Visit: https://github.com/Ishanoshada/portflair -->
+<!-- Visit: https://github.com/Ishanoshada/portflair -->

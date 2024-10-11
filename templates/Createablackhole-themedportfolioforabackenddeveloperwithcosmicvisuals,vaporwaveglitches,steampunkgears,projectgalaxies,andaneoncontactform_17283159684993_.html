@@ -1,0 +1,441 @@
+<!-- Portfolio created by Ishan -->
+<!-- Check out my work at: https://github.com/Ishanoshada/portflair -->
+<!-- 2024/10/9 -->
+<!-- Portfolio created by Ishan -->
+'<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Create a Black Hole-Themed Portfolio</title>
+  <style>
+    /* Fonts */
+    @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&display=swap');
+
+    /* Global Styles */
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Roboto Mono', monospace;
+      background-color: #000;
+      color: #fff;
+      overflow-x: hidden;
+    }
+
+    /* Navbar */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 40px;
+      background-color: rgba(0, 0, 0, 0.5);
+      backdrop-filter: blur(10px);
+      position: relative;
+      z-index: 1;
+    }
+
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      font-family: 'Orbitron', sans-serif;
+      font-size: 18px;
+      padding: 10px 20px;
+      transition: color 0.3s ease;
+    }
+
+    nav a:hover {
+      color: #7c4dff;
+    }
+
+    /* Project Galaxies Section */
+    #project-galaxies {
+      padding: 100px 40px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .galaxy {
+      width: 300px;
+      height: 300px;
+      background: radial-gradient(ellipse at center, #7c4dff 0%, #000 70%);
+      border-radius: 50%;
+      position: relative;
+      display: inline-block;
+      margin: 20px;
+      overflow: hidden;
+      transition: transform 0.3s ease;
+      cursor: pointer;
+    }
+
+    .galaxy:hover {
+      transform: scale(1.1);
+    }
+
+    .galaxy .project-info {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .galaxy:hover .project-info {
+      opacity: 1;
+    }
+
+    .galaxy .project-info h3 {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 24px;
+      margin-bottom: 10px;
+      text-shadow: 0 0 20px rgba(124, 77, 255, 0.5);
+    }
+
+    .galaxy .project-info p {
+      font-size: 16px;
+      margin-bottom: 20px;
+      text-shadow: 0 0 10px rgba(124, 77, 255, 0.5);
+    }
+
+    .galaxy .project-info a {
+      color: #fff;
+      text-decoration: none;
+      padding: 10px 20px;
+      background-color: #7c4dff;
+      border-radius: 20px;
+      font-size: 14px;
+      transition: background-color 0.3s ease;
+    }
+
+    .galaxy .project-info a:hover {
+      background-color: #5c35b8;
+    }
+
+    /* Steampunk Gears Section */
+    #steampunk-gears {
+      padding: 100px 40px;
+      background-color: #1a1a1a;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .gear {
+      width: 150px;
+      height: 150px;
+      background-image: url('https://dummyimage.com/150x150/ccc/000&text=Gear');
+      background-size: contain;
+      background-repeat: no-repeat;
+      position: absolute;
+      animation: rotate 10s linear infinite;
+    }
+
+    @keyframes rotate {
+      0% {
+        transform: rotate(0deg);
+      }
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+
+    .gear-1 {
+      top: 20%;
+      left: 10%;
+      animation-delay: 0s;
+    }
+
+    .gear-2 {
+      top: 40%;
+      right: 15%;
+      animation-delay: 2s;
+    }
+
+    .gear-3 {
+      bottom: 30%;
+      left: 25%;
+      animation-delay: 4s;
+    }
+
+    .gear-4 {
+      top: 60%;
+      right: 5%;
+      animation-delay: 6s;
+    }
+
+    .gear-info {
+      position: absolute;
+      background-color: rgba(26, 26, 26, 0.8);
+      padding: 20px;
+      border-radius: 10px;
+      text-align: center;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .gear:hover + .gear-info {
+      opacity: 1;
+    }
+
+    .gear-info h3 {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 20px;
+      margin-bottom: 10px;
+    }
+
+    .gear-info p {
+      font-size: 16px;
+    }
+
+    /* Neon Contact Form Section */
+    #neon-contact {
+      padding: 100px 40px;
+      background-color: #000;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .neon-form {
+      max-width: 600px;
+      margin: 0 auto;
+      background-color: rgba(0, 0, 0, 0.5);
+      padding: 40px;
+      border-radius: 20px;
+      box-shadow: 0 0 50px rgba(124, 77, 255, 0.5);
+    }
+
+    .neon-form h2 {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 32px;
+      text-align: center;
+      margin-bottom: 30px;
+      text-shadow: 0 0 20px rgba(124, 77, 255, 0.5);
+    }
+
+    .neon-form input,
+    .neon-form textarea {
+      width: 100%;
+      padding: 15px;
+      margin-bottom: 20px;
+      background-color: rgba(124, 77, 255, 0.2);
+      border: none;
+      border-radius: 10px;
+      color: #fff;
+      font-family: 'Roboto Mono', monospace;
+      font-size: 16px;
+      transition: background-color 0.3s ease;
+    }
+
+    .neon-form input:focus,
+    .neon-form textarea:focus {
+      background-color: rgba(124, 77, 255, 0.4);
+      outline: none;
+    }
+
+    .neon-form button {
+      display: block;
+      width: 100%;
+      padding: 15px;
+      background-color: #7c4dff;
+      border: none;
+      border-radius: 10px;
+      color: #fff;
+      font-family: 'Orbitron', sans-serif;
+      font-size: 18px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .neon-form button:hover {
+      background-color: #5c35b8;
+    }
+
+    /* Animation Styles */
+    @keyframes pulsate {
+      0% {
+        transform: scale(1);
+        opacity: 1;
+      }
+      50% {
+        transform: scale(1.1);
+        opacity: 0.5;
+      }
+      100% {
+        transform: scale(1);
+        opacity: 1;
+      }
+    }
+
+    .galaxy::before,
+    .galaxy::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(124, 77, 255, 0.5) 0%, rgba(0, 0, 0, 0) 70%);
+      animation: pulsate 3s ease-in-out infinite;
+      z-index: -1;
+    }
+
+    .galaxy::after {
+      animation-delay: 1.5s;
+    }
+
+    /* Responsive Styles */
+    @media (max-width: 768px) {
+      nav {
+        padding: 15px 20px;
+      }
+
+      nav a {
+        font-size: 16px;
+        padding: 8px 15px;
+      }
+
+      #project-galaxies,
+      #steampunk-gears,
+      #neon-contact {
+        padding: 80px 20px;
+      }
+
+      .galaxy {
+        width: 250px;
+        height: 250px;
+        margin: 15px;
+      }
+
+      .galaxy .project-info h3 {
+        font-size: 20px;
+      }
+
+      .galaxy .project-info p {
+        font-size: 14px;
+      }
+
+      .gear {
+        width: 100px;
+        height: 100px;
+      }
+
+      .gear-info {
+        padding: 15px;
+      }
+
+      .gear-info h3 {
+        font-size: 16px;
+      }
+
+      .gear-info p {
+        font-size: 14px;
+      }
+
+      .neon-form {
+        padding: 30px;
+      }
+
+      .neon-form h2 {
+        font-size: 28px;
+      }
+
+      .neon-form input,
+      .neon-form textarea,
+      .neon-form button {
+        font-size: 14px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="#">Home</a>
+    <a href="#">Projects</a>
+    <a href="#">About</a>
+    <a href="#">Contact</a>
+  </nav>
+
+  <section id="project-galaxies">
+    <div class="galaxy">
+      <div class="project-info">
+        <h3>Project Galaxy 1</h3>
+        <p>A brief description of the first project.</p>
+        <a href="#">View Project</a>
+      </div>
+    </div>
+    <div class="galaxy">
+      <div class="project-info">
+        <h3>Project Galaxy 2</h3>
+        <p>A brief description of the second project.</p>
+        <a href="#">View Project</a>
+      </div>
+    </div>
+    <div class="galaxy">
+      <div class="project-info">
+        <h3>Project Galaxy 3</h3>
+        <p>A brief description of the third project.</p>
+        <a href="#">View Project</a>
+      </div>
+    </div>
+    <div class="galaxy">
+      <div class="project-info">
+        <h3>Project Galaxy 4</h3>
+        <p>A brief description of the fourth project.</p>
+        <a href="#">View Project</a>
+      </div>
+    </div>
+    <div class="galaxy">
+      <div class="project-info">
+        <h3>Project Galaxy 5</h3>
+        <p>A brief description of the fifth project.</p>
+        <a href="#">View Project</a>
+      </div>
+    </div>
+    <div class="galaxy">
+      <div class="project-info">
+        <h3>Project Galaxy 6</h3>
+        <p>A brief description of the sixth project.</p>
+        <a href="#">View Project</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="steampunk-gears">
+    <div class="gear gear-1"></div>
+    <div class="gear-info">
+      <h3>Backend Development</h3>
+      <p>Expertise in server-side technologies and infrastructure.</p>
+    </div>
+    <div class="gear gear-2"></div>
+    <div class="gear-info">
+      <h3>Database Management</h3>
+      <p>Proficient in designing and maintaining robust database systems.</p>
+    </div>
+    <div class="gear gear-3"></div>
+    <div class="gear-info">
+      <h3>API Integration</h3>
+      <p>Skilled in building and integrating secure and scalable APIs.</p>
+    </div>
+    <div class="gear gear-4"></div>
+    <div class="gear-info">
+      <h3>Cloud Computing</h3>
+      <p>Experience in deploying and managing applications on cloud platforms.</p>
+    </div>
+  </section>
+
+  <section id="neon-contact">
+    <div class="neon-form">
+      <h2>Get in Touch</h2>
+      <form>
+        <input type="text" placeholder="Name" required>
+        <input type="email" placeholder="Email" required>
+        <textarea placeholder="Message" required></textarea>
+        <button type="submit">Send Message</button>
+      </form>
+    </div>
+  </section>
+</body>
+</html>'<!-- Visit: https://github.com/Ishanoshada/portflair -->
+<!-- Visit: https://github.com/Ishanoshada/portflair -->

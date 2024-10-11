@@ -1,0 +1,429 @@
+<!-- Portfolio created by Ishan -->
+<!-- Check out my work at: https://github.com/Ishanoshada/portflair -->
+<!-- 2024/10/9 -->
+<!-- Portfolio created by Ishan -->
+'<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Space-Themed Developer Portfolio</title>
+    <style>
+        /* Global Styles */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Montserrat', sans-serif;
+            background-color: #0f0f0f;
+            color: #ffffff;
+            overflow-x: hidden;
+        }
+
+        /* Navigation */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: rgba(15, 15, 15, 0.8);
+            padding: 1rem 2rem;
+            position: relative;
+            z-index: 100;
+        }
+
+        nav a {
+            color: #ffffff;
+            text-decoration: none;
+            font-size: 1.2rem;
+            font-weight: 500;
+            margin: 0 1rem;
+            transition: color 0.3s ease-in-out;
+        }
+
+        nav a:hover {
+            color: #9b59b6;
+        }
+
+        /* Interactive Code Snippet Galaxy */
+        .code-snippet-galaxy {
+            position: relative;
+            height: 100vh;
+            background: radial-gradient(ellipse at center, #251537 0%, #0f0f0f 100%);
+            overflow: hidden;
+        }
+
+        .code-snippet {
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            background-color: rgba(155, 89, 182, 0.3);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .code-snippet:before {
+            content: "";
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at center, #9b59b6 0%, #251537 70%);
+            border-radius: 50%;
+            opacity: 0.5;
+            transition: opacity 0.5s ease-in-out;
+        }
+
+        .code-snippet:hover {
+            transform: scale(1.1);
+        }
+
+        .code-snippet:hover:before {
+            opacity: 0.8;
+        }
+
+        .code-snippet-details {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: rgba(15, 15, 15, 0.8);
+            padding: 2rem;
+            border-radius: 1rem;
+            text-align: center;
+            width: 400px;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.5s ease-in-out, visibility 0.5s ease-in-out;
+        }
+
+        .code-snippet-details.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .code-snippet-details h3 {
+            color: #9b59b6;
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .code-snippet-details p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+        }
+
+        .code-snippet-details a {
+            display: inline-block;
+            background-color: #9b59b6;
+            color: #ffffff;
+            text-decoration: none;
+            padding: 0.8rem 1.5rem;
+            border-radius: 2rem;
+            font-size: 1.2rem;
+            transition: background-color 0.3s ease-in-out;
+        }
+
+        .code-snippet-details a:hover {
+            background-color: #8e44ad;
+        }
+
+        .constellation {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        .constellation:before {
+            content: "";
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-image: url("https://dummyimage.com/1200x500/ccc/000&text=Constellation");
+            background-size: cover;
+            background-position: center;
+            opacity: 0.3;
+            animation: constellation-animation 60s linear infinite;
+        }
+
+        @keyframes constellation-animation {
+            0% {
+                transform: translateX(0) translateY(0);
+            }
+            100% {
+                transform: translateX(-50%) translateY(-50%);
+            }
+        }
+
+        /* Skills and Technologies Showcase */
+        .skills-showcase {
+            padding: 4rem 2rem;
+            background-color: #251537;
+        }
+
+        .skills-showcase h2 {
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 3rem;
+            color: #9b59b6;
+        }
+
+        .skill-icons {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+            gap: 2rem;
+        }
+
+        .skill-icon {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            cursor: pointer;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .skill-icon:hover {
+            transform: scale(1.1);
+        }
+
+        .skill-icon img {
+            width: 64px;
+            height: 64px;
+            margin-bottom: 1rem;
+        }
+
+        .skill-icon p {
+            font-size: 1.2rem;
+            color: #ffffff;
+        }
+
+        .skill-description {
+            position: absolute;
+            background-color: rgba(15, 15, 15, 0.8);
+            padding: 1rem;
+            border-radius: 0.5rem;
+            font-size: 1rem;
+            color: #ffffff;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
+        }
+
+        .skill-icon:hover .skill-description {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        /* About and Contact */
+        .about-contact {
+            padding: 4rem 2rem;
+            background: radial-gradient(ellipse at center, #251537 0%, #0f0f0f 100%);
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .about-section {
+            flex: 1 1 400px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .about-section img {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            margin-bottom: 2rem;
+            box-shadow: 0 0 20px rgba(155, 89, 182, 0.5);
+        }
+
+        .about-section h3 {
+            font-size: 2rem;
+            color: #9b59b6;
+            margin-bottom: 1rem;
+        }
+
+        .about-section p {
+            font-size: 1.2rem;
+            line-height: 1.5;
+            margin-bottom: 2rem;
+        }
+
+        .contact-section {
+            flex: 1 1 400px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        .contact-section h3 {
+            font-size: 2rem;
+            color: #9b59b6;
+            margin-bottom: 1rem;
+        }
+
+        .contact-section p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+        }
+
+        .contact-section a {
+            display: inline-block;
+            background-color: #9b59b6;
+            color: #ffffff;
+            text-decoration: none;
+            padding: 0.8rem 1.5rem;
+            border-radius: 2rem;
+            font-size: 1.2rem;
+            transition: background-color 0.3s ease-in-out;
+        }
+
+        .contact-section a:hover {
+            background-color: #8e44ad;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            nav {
+                padding: 0.5rem 1rem;
+            }
+
+            nav a {
+                font-size: 1rem;
+                margin: 0 0.5rem;
+            }
+
+            .code-snippet-details {
+                width: 80%;
+            }
+
+            .skill-icons {
+                grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+            }
+
+            .skill-icon img {
+                width: 48px;
+                height: 48px;
+            }
+
+            .skill-icon p {
+                font-size: 1rem;
+            }
+
+            .about-section img {
+                width: 150px;
+                height: 150px;
+            }
+
+            .about-section h3,
+            .contact-section h3 {
+                font-size: 1.5rem;
+            }
+
+            .about-section p,
+            .contact-section p {
+                font-size: 1rem;
+            }
+
+            .contact-section a {
+                padding: 0.6rem 1.2rem;
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#skills">Skills</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+    </nav>
+
+    <section class="code-snippet-galaxy" id="home">
+        <div class="code-snippet">
+            <div class="code-snippet-details">
+                <h3>Project 1</h3>
+                <p>A dynamic web application with interactive code snippets, built using cutting-edge technologies.</p>
+                <a href="#">View Project</a>
+            </div>
+        </div>
+        <div class="code-snippet">
+            <div class="code-snippet-details">
+                <h3>Project 2</h3>
+                <p>An innovative mobile-friendly application that showcases the developer's expertise in responsive design.</p>
+                <a href="#">View Project</a>
+            </div>
+        </div>
+        <div class="code-snippet">
+            <div class="code-snippet-details">
+                <h3>Project 3</h3>
+                <p>A comprehensive data visualization dashboard that leverages the latest charting and analytics libraries.</p>
+                <a href="#">View Project</a>
+            </div>
+        </div>
+        <div class="constellation"></div>
+    </section>
+
+    <section class="skills-showcase" id="skills">
+        <h2>Skills and Technologies</h2>
+        <div class="skill-icons">
+            <div class="skill-icon">
+                <img src="https://dummyimage.com/64x64/ccc/000&text=JavaScript" alt="JavaScript">
+                <p>JavaScript</p>
+                <div class="skill-description">Proficient in modern JavaScript, including ES6+ features and popular frameworks/libraries.</div>
+            </div>
+            <div class="skill-icon">
+                <img src="https://dummyimage.com/64x64/ccc/000&text=React" alt="React">
+                <p>React</p>
+                <div class="skill-description">Extensive experience in building dynamic, responsive, and scalable user interfaces using React.</div>
+            </div>
+            <div class="skill-icon">
+                <img src="https://dummyimage.com/64x64/ccc/000&text=Node.js" alt="Node.js">
+                <p>Node.js</p>
+                <div class="skill-description">Skilled in building server-side applications and APIs using the Node.js runtime environment.</div>
+            </div>
+            <div class="skill-icon">
+                <img src="https://dummyimage.com/64x64/ccc/000&text=CSS" alt="CSS">
+                <p>CSS</p>
+                <div class="skill-description">Proficient in creating visually appealing and responsive designs using advanced CSS techniques.</div>
+            </div>
+            <div class="skill-icon">
+                <img src="https://dummyimage.com/64x64/ccc/000&text=MongoDB" alt="MongoDB">
+                <p>MongoDB</p>
+                <div class="skill-description">Experienced in designing and implementing scalable, NoSQL-based data solutions with MongoDB.</div>
+            </div>
+            <div class="skill-icon">
+                <img src="https://dummyimage.com/64x64/ccc/000&text=Docker" alt="Docker">
+                <p>Docker</p>
+                <div class="skill-description">Knowledgeable in containerizing applications and managing development environments using Docker.</div>
+            </div>
+        </div>
+    </section>
+
+    <section class="about-contact" id="about">
+        <div class="about-section">
+            <img src="https://dummyimage.com/200x200/ccc/000&text=Developer" alt="Developer">
+            <h3>John Doe</h3>
+            <p>Passionate full-stack developer with a focus on creating visually stunning and highly interactive web applications. I thrive on bringing ideas to life and solving complex challenges through code.</p>
+        </div>
+        <div class="contact-section">
+            <h3>Get in Touch</h3>
+            <p>Feel free to reach out for project inquiries or collaboration opportunities.</p>
+            <a href="mailto:johndoe@example.com">Contact Me</a>
+        </div>
+    </section>
+</body>
+</html>'<!-- Visit: https://github.com/Ishanoshada/portflair -->
+<!-- Visit: https://github.com/Ishanoshada/portflair -->

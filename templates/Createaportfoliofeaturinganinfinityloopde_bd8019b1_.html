@@ -1,0 +1,426 @@
+<!-- Portfolio created by Ishan -->
+<!-- Check out my work at: https://github.com/Ishanoshada/portflair -->
+<!-- 2024/10/9 -->
+<!-- Portfolio created by Ishan -->
+'<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create a Portfolio</title>
+    <style>
+        /* Reset some default styles */
+        body, html {
+            margin: 0;
+            padding: 0;
+            font-family: 'Montserrat', sans-serif;
+            background-color: #000;
+            color: #fff;
+        }
+
+        /* Navigation */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 3rem;
+            background-color: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(10px);
+            position: relative;
+            z-index: 100;
+        }
+
+        .navbar-brand {
+            font-size: 1.8rem;
+            font-weight: bold;
+            background: linear-gradient(to right, #00e5ff, #ba55d3);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .navbar-nav {
+            display: flex;
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .navbar-nav li {
+            margin-left: 2rem;
+        }
+
+        .navbar-nav li a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 1.1rem;
+            transition: color 0.3s ease;
+        }
+
+        .navbar-nav li a:hover {
+            color: #00e5ff;
+        }
+
+        /* Portfolio Showcase */
+        .portfolio-showcase {
+            position: relative;
+            height: 80vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        .infinity-loop {
+            position: absolute;
+            width: 80%;
+            height: 80%;
+            border-radius: 50%;
+            background: radial-gradient(ellipse at center, #00e5ff, #ba55d3);
+            animation: infinityLoop 20s linear infinite;
+        }
+
+        @keyframes infinityLoop {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        .portfolio-item {
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            background-color: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(10px);
+            border-radius: 10px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 1.5rem;
+            box-sizing: border-box;
+            opacity: 0;
+            transition: opacity 0.5s ease, transform 0.5s ease;
+        }
+
+        .portfolio-item.active {
+            opacity: 1;
+            transform: scale(1.1);
+        }
+
+        .portfolio-item h3 {
+            margin-top: 1rem;
+            font-size: 1.2rem;
+            text-align: center;
+        }
+
+        .portfolio-item p {
+            margin-top: 0.5rem;
+            font-size: 0.9rem;
+            text-align: center;
+        }
+
+        /* Skills Infographic */
+        .skills-infographic {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 5rem;
+        }
+
+        .skill-icon {
+            width: 80px;
+            height: 80px;
+            background-color: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(10px);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 1rem;
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+        }
+
+        .skill-icon img {
+            width: 50px;
+            height: 50px;
+            filter: invert(1);
+            transition: transform 0.3s ease;
+        }
+
+        .skill-icon:hover img {
+            transform: scale(1.2);
+        }
+
+        .skill-icon::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to right, #00e5ff, #ba55d3);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .skill-icon:hover::before {
+            opacity: 0.3;
+        }
+
+        .skill-icon .skill-name {
+            position: absolute;
+            bottom: -2rem;
+            font-size: 0.8rem;
+            color: #00e5ff;
+            white-space: nowrap;
+            opacity: 0;
+            transition: bottom 0.3s ease, opacity 0.3s ease;
+        }
+
+        .skill-icon:hover .skill-name {
+            bottom: 2rem;
+            opacity: 1;
+        }
+
+        /* About the Designer */
+        .about-designer {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 5rem;
+        }
+
+        .designer-portrait {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            background-image: url("https://dummyimage.com/400x400/ccc/000&text=Designer");
+            background-size: cover;
+            background-position: center;
+            margin-right: 3rem;
+            box-shadow: 0 0 20px rgba(0, 229, 255, 0.5);
+        }
+
+        .designer-info {
+            max-width: 500px;
+        }
+
+        .designer-info h2 {
+            font-size: 2rem;
+            background: linear-gradient(to right, #00e5ff, #ba55d3);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .designer-info p {
+            font-size: 1.1rem;
+            line-height: 1.6;
+        }
+
+        .designer-social {
+            display: flex;
+            margin-top: 2rem;
+        }
+
+        .designer-social a {
+            color: #fff;
+            text-decoration: none;
+            margin-right: 1rem;
+            font-size: 1.4rem;
+            transition: color 0.3s ease;
+        }
+
+        .designer-social a:hover {
+            color: #00e5ff;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .navbar {
+                padding: 1rem 2rem;
+            }
+
+            .navbar-brand {
+                font-size: 1.5rem;
+            }
+
+            .navbar-nav li {
+                margin-left: 1.5rem;
+            }
+
+            .navbar-nav li a {
+                font-size: 1rem;
+            }
+
+            .portfolio-showcase {
+                height: 60vh;
+            }
+
+            .portfolio-item {
+                width: 150px;
+                height: 150px;
+                padding: 1rem;
+            }
+
+            .portfolio-item h3 {
+                font-size: 1rem;
+            }
+
+            .portfolio-item p {
+                font-size: 0.8rem;
+            }
+
+            .skill-icon {
+                width: 60px;
+                height: 60px;
+                margin: 0.8rem;
+            }
+
+            .skill-icon img {
+                width: 40px;
+                height: 40px;
+            }
+
+            .skill-icon .skill-name {
+                font-size: 0.7rem;
+            }
+
+            .about-designer {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .designer-portrait {
+                width: 150px;
+                height: 150px;
+                margin-right: 0;
+                margin-bottom: 2rem;
+            }
+
+            .designer-info h2 {
+                font-size: 1.6rem;
+            }
+
+            .designer-info p {
+                font-size: 1rem;
+            }
+
+            .designer-social a {
+                font-size: 1.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <a href="#" class="navbar-brand">Create Portfolio</a>
+        <ul class="navbar-nav">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Projects</a></li>
+            <li><a href="#">Skills</a></li>
+            <li><a href="#">About</a></li>
+        </ul>
+    </nav>
+
+    <!-- Portfolio Showcase -->
+    <div class="portfolio-showcase">
+        <div class="infinity-loop"></div>
+        <div class="portfolio-item active">
+            <img src="https://dummyimage.com/150x150/ccc/000&text=Project+1" alt="Project 1">
+            <h3>Project 1</h3>
+            <p>Description of Project 1</p>
+        </div>
+        <div class="portfolio-item">
+            <img src="https://dummyimage.com/150x150/ccc/000&text=Project+2" alt="Project 2">
+            <h3>Project 2</h3>
+            <p>Description of Project 2</p>
+        </div>
+        <div class="portfolio-item">
+            <img src="https://dummyimage.com/150x150/ccc/000&text=Project+3" alt="Project 3">
+            <h3>Project 3</h3>
+            <p>Description of Project 3</p>
+        </div>
+        <div class="portfolio-item">
+            <img src="https://dummyimage.com/150x150/ccc/000&text=Skill+1" alt="Skill 1">
+            <h3>Skill 1</h3>
+            <p>Description of Skill 1</p>
+        </div>
+        <div class="portfolio-item">
+            <img src="https://dummyimage.com/150x150/ccc/000&text=Skill+2" alt="Skill 2">
+            <h3>Skill 2</h3>
+            <p>Description of Skill 2</p>
+        </div>
+        <div class="portfolio-item">
+            <img src="https://dummyimage.com/150x150/ccc/000&text=Skill+3" alt="Skill 3">
+            <h3>Skill 3</h3>
+            <p>Description of Skill 3</p>
+        </div>
+    </div>
+
+    <!-- Skills Infographic -->
+    <div class="skills-infographic">
+        <div class="skill-icon">
+            <img src="https://dummyimage.com/50x50/ccc/000&text=HTML" alt="HTML">
+            <span class="skill-name">HTML</span>
+        </div>
+        <div class="skill-icon">
+            <img src="https://dummyimage.com/50x50/ccc/000&text=CSS" alt="CSS">
+            <span class="skill-name">CSS</span>
+        </div>
+        <div class="skill-icon">
+            <img src="https://dummyimage.com/50x50/ccc/000&text=JavaScript" alt="JavaScript">
+            <span class="skill-name">JavaScript</span>
+        </div>
+        <div class="skill-icon">
+            <img src="https://dummyimage.com/50x50/ccc/000&text=React" alt="React">
+            <span class="skill-name">React</span>
+        </div>
+        <div class="skill-icon">
+            <img src="https://dummyimage.com/50x50/ccc/000&text=Node.js" alt="Node.js">
+            <span class="skill-name">Node.js</span>
+        </div>
+        <div class="skill-icon">
+            <img src="https://dummyimage.com/50x50/ccc/000&text=MongoDB" alt="MongoDB">
+            <span class="skill-name">MongoDB</span>
+        </div>
+    </div>
+
+    <!-- About the Designer -->
+    <div class="about-designer">
+        <div class="designer-portrait"></div>
+        <div class="designer-info">
+            <h2>About the Designer</h2>
+            <p>Hi, I'm a passionate web designer with a keen eye for detail and a love for creating visually stunning and interactive experiences. With years of experience in the industry, I've honed my skills in various areas, from responsive design to cutting-edge front-end technologies. I'm constantly exploring new trends and techniques to push the boundaries of what's possible in web design.</p>
+            <div class="designer-social">
+                <a href="#"><i class="fab fa-linkedin"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Font Awesome Script -->
+    <script src="https://kit.fontawesome.com/your-font-awesome-kit.js" crossorigin="anonymous"></script>
+
+    <!-- JavaScript for Portfolio Showcase -->
+    <script>
+        const portfolioItems = document.querySelectorAll('.portfolio-item');
+        let currentIndex = 0;
+
+        function showNextItem() {
+            portfolioItems.forEach(item => item.classList.remove('active'));
+            currentIndex = (currentIndex + 1) % portfolioItems.length;
+            portfolioItems[currentIndex].classList.add('active');
+        }
+
+        setInterval(showNextItem, 3000);
+    </script>
+</body>
+</html>'<!-- Visit: https://github.com/Ishanoshada/portflair -->
+<!-- Visit: https://github.com/Ishanoshada/portflair -->

@@ -1,0 +1,460 @@
+<!-- Portfolio created by Ishan -->
+<!-- Check out my work at: https://github.com/Ishanoshada/portflair -->
+<!-- 2024/10/9 -->
+<!-- Portfolio created by Ishan -->
+'<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Build an Immersive Portfolio</title>
+  <style>
+    /* Global Styles */
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap');
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #1a1a1a;
+      color: #f1f1f1;
+    }
+
+    /* Navigation */
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 40px;
+      background-color: rgba(26, 26, 26, 0.8);
+      backdrop-filter: blur(10px);
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 100;
+    }
+
+    .navbar-brand {
+      font-size: 24px;
+      font-weight: 700;
+      color: #f1f1f1;
+      text-decoration: none;
+    }
+
+    .navbar-nav {
+      display: flex;
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .navbar-nav li {
+      margin-left: 20px;
+    }
+
+    .navbar-nav li a {
+      color: #f1f1f1;
+      text-decoration: none;
+      font-size: 16px;
+      font-weight: 500;
+      transition: color 0.3s ease;
+    }
+
+    .navbar-nav li a:hover {
+      color: #00b8d4;
+    }
+
+    /* Interactive Showcase Section */
+    .showcase-section {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .showcase-background {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: linear-gradient(to bottom, rgba(26, 26, 26, 0.8), rgba(26, 26, 26, 0.9)), url('https://dummyimage.com/1920x1080/333/fff&text=Immersive+3D+Portfolio');
+      background-size: cover;
+      background-position: center;
+      z-index: -1;
+    }
+
+    .showcase-content {
+      text-align: center;
+      max-width: 800px;
+      padding: 40px;
+    }
+
+    .showcase-title {
+      font-size: 48px;
+      font-weight: 700;
+      margin-bottom: 20px;
+    }
+
+    .showcase-description {
+      font-size: 24px;
+      margin-bottom: 40px;
+    }
+
+    .showcase-cta {
+      display: inline-block;
+      padding: 12px 24px;
+      background-color: #00b8d4;
+      color: #1a1a1a;
+      font-size: 18px;
+      font-weight: 500;
+      text-decoration: none;
+      border-radius: 4px;
+      transition: background-color 0.3s ease;
+    }
+
+    .showcase-cta:hover {
+      background-color: #00a2b8;
+    }
+
+    /* Storytelling and Project Descriptions Section */
+    .story-section {
+      padding: 80px 40px;
+      background-color: #1a1a1a;
+    }
+
+    .story-content {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .story-hero {
+      position: relative;
+      height: 500px;
+      overflow: hidden;
+      border-radius: 8px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .story-hero img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .story-hero-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: linear-gradient(to bottom, rgba(26, 26, 26, 0.2), rgba(26, 26, 26, 0.6));
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      color: #f1f1f1;
+      padding: 40px;
+    }
+
+    .story-hero-title {
+      font-size: 36px;
+      font-weight: 700;
+      margin-bottom: 20px;
+    }
+
+    .story-hero-description {
+      font-size: 18px;
+      margin-bottom: 40px;
+    }
+
+    .story-projects {
+      margin-top: 60px;
+    }
+
+    .story-project {
+      display: flex;
+      align-items: center;
+      margin-bottom: 60px;
+    }
+
+    .story-project:nth-child(even) {
+      flex-direction: row-reverse;
+    }
+
+    .story-project-image {
+      flex: 1;
+      height: 400px;
+      overflow: hidden;
+      border-radius: 8px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .story-project-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .story-project-content {
+      flex: 1;
+      padding: 40px;
+    }
+
+    .story-project-title {
+      font-size: 24px;
+      font-weight: 700;
+      margin-bottom: 20px;
+    }
+
+    .story-project-description {
+      font-size: 16px;
+      line-height: 1.6;
+    }
+
+    /* Contact and Hire Me Section */
+    .contact-section {
+      padding: 80px 40px;
+      background-color: #f1f1f1;
+      color: #1a1a1a;
+    }
+
+    .contact-content {
+      max-width: 800px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .contact-title {
+      font-size: 36px;
+      font-weight: 700;
+      margin-bottom: 20px;
+    }
+
+    .contact-description {
+      font-size: 18px;
+      margin-bottom: 40px;
+    }
+
+    .contact-form {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+      width: 100%;
+      max-width: 500px;
+      padding: 12px 16px;
+      font-size: 16px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      margin-bottom: 20px;
+      transition: border-color 0.3s ease;
+    }
+
+    .contact-form input:focus,
+    .contact-form textarea:focus {
+      border-color: #00b8d4;
+      outline: none;
+    }
+
+    .contact-form button {
+      display: inline-block;
+      padding: 12px 24px;
+      background-color: #00b8d4;
+      color: #1a1a1a;
+      font-size: 18px;
+      font-weight: 500;
+      text-decoration: none;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .contact-form button:hover {
+      background-color: #00a2b8;
+    }
+
+    /* Responsive Styles */
+    @media (max-width: 767px) {
+      .navbar {
+        padding: 16px 20px;
+      }
+
+      .navbar-brand {
+        font-size: 20px;
+      }
+
+      .navbar-nav li {
+        margin-left: 16px;
+      }
+
+      .navbar-nav li a {
+        font-size: 14px;
+      }
+
+      .showcase-title {
+        font-size: 36px;
+      }
+
+      .showcase-description {
+        font-size: 20px;
+      }
+
+      .showcase-cta {
+        font-size: 16px;
+      }
+
+      .story-section {
+        padding: 60px 20px;
+      }
+
+      .story-hero {
+        height: 400px;
+      }
+
+      .story-hero-title {
+        font-size: 30px;
+      }
+
+      .story-hero-description {
+        font-size: 16px;
+      }
+
+      .story-project {
+        flex-direction: column;
+        margin-bottom: 40px;
+      }
+
+      .story-project:nth-child(even) {
+        flex-direction: column;
+      }
+
+      .story-project-image {
+        height: 300px;
+      }
+
+      .story-project-content {
+        padding: 20px;
+      }
+
+      .story-project-title {
+        font-size: 20px;
+      }
+
+      .story-project-description {
+        font-size: 14px;
+      }
+
+      .contact-section {
+        padding: 60px 20px;
+      }
+
+      .contact-title {
+        font-size: 30px;
+      }
+
+      .contact-description {
+        font-size: 16px;
+      }
+
+      .contact-form input,
+      .contact-form textarea {
+        font-size: 14px;
+      }
+
+      .contact-form button {
+        font-size: 16px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav class="navbar">
+      <a href="#" class="navbar-brand">Immersive Portfolio</a>
+      <ul class="navbar-nav">
+        <li><a href="#">Home</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Portfolio</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <!-- Interactive Showcase Section -->
+    <section class="showcase-section">
+      <div class="showcase-background"></div>
+      <div class="showcase-content">
+        <h1 class="showcase-title">Unlock Your Creativity</h1>
+        <p class="showcase-description">Explore our stunning 3D portfolio and let your imagination soar.</p>
+        <a href="#" class="showcase-cta">View Portfolio</a>
+      </div>
+    </section>
+
+    <!-- Storytelling and Project Descriptions Section -->
+    <section class="story-section">
+      <div class="story-content">
+        <div class="story-hero">
+          <img src="https://dummyimage.com/1920x1080/333/fff&text=Immersive+Portfolio+Hero" alt="Immersive Portfolio">
+          <div class="story-hero-overlay">
+            <h2 class="story-hero-title">Crafting Unforgettable Experiences</h2>
+            <p class="story-hero-description">Discover the art of blending technology and creativity.</p>
+          </div>
+        </div>
+        <div class="story-projects">
+          <div class="story-project">
+            <div class="story-project-image">
+              <img src="https://dummyimage.com/800x400/333/fff&text=Project+1" alt="Project 1">
+            </div>
+            <div class="story-project-content">
+              <h3 class="story-project-title">Project 1: Exploring the Depths</h3>
+              <p class="story-project-description">Dive into a captivating 3D world where the boundaries between digital and physical blur, inviting you to immerse yourself in a truly immersive experience.</p>
+            </div>
+          </div>
+          <div class="story-project">
+            <div class="story-project-image">
+              <img src="https://dummyimage.com/800x400/333/fff&text=Project+2" alt="Project 2">
+            </div>
+            <div class="story-project-content">
+              <h3 class="story-project-title">Project 2: Navigating the Ethereal</h3>
+              <p class="story-project-description">Embark on a journey through a dreamlike landscape where interactive 3D models and captivating scroll effects transport you to a realm of boundless possibilities.</p>
+            </div>
+          </div>
+          <div class="story-project">
+            <div class="story-project-image">
+              <img src="https://dummyimage.com/800x400/333/fff&text=Project+3" alt="Project 3">
+            </div>
+            <div class="story-project-content">
+              <h3 class="story-project-title">Project 3: Mastering the Infinite</h3>
+              <p class="story-project-description">Witness the fusion of art and technology as rotating models and seamless transitions guide you through a visually stunning portfolio, redefining the boundaries of digital expression.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact and Hire Me Section -->
+    <section class="contact-section">
+      <div class="contact-content">
+        <h2 class="contact-title">Get in Touch</h2>
+        <p class="contact-description">Collaborate with us to bring your vision to life.</p>
+        <form class="contact-form">
+          <input type="text" placeholder="Name" required>
+          <input type="email" placeholder="Email" required>
+          <textarea placeholder="Message" rows="5" required></textarea>
+          <button type="submit">Submit</button>
+        </form>
+      </div>
+    </section>
+  </main>
+</body>
+</html>'<!-- Visit: https://github.com/Ishanoshada/portflair -->
+<!-- Visit: https://github.com/Ishanoshada/portflair -->

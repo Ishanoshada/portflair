@@ -1,0 +1,340 @@
+<!-- Portfolio created by Ishan -->
+<!-- Check out my work at: https://github.com/Ishanoshada/portflair -->
+<!-- 2024/10/9 -->
+<!-- Portfolio created by Ishan -->
+'<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Black Hole Portfolio</title>
+  <style>
+    /* General Styles */
+    @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
+
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Orbitron', sans-serif;
+      background-color: #1a1a1a;
+      color: #fff;
+      overflow-x: hidden;
+    }
+
+    /* Navigation */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+      background-color: rgba(26, 26, 26, 0.8);
+      backdrop-filter: blur(10px);
+      position: relative;
+      z-index: 100;
+    }
+
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      font-size: 1.2rem;
+      transition: color 0.3s ease;
+    }
+
+    nav a:hover {
+      color: #9b59b6;
+    }
+
+    /* Interactive Project Galaxy */
+    .project-galaxy {
+      position: relative;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+    }
+
+    .project-galaxy::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(ellipse at center, rgba(26, 26, 26, 0.8) 0%, rgba(26, 26, 26, 1) 100%);
+      z-index: 1;
+    }
+
+    .galaxy-bg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url(https://dummyimage.com/1920x1080/000000/ffffff.jpg&text=Galaxy+Background) no-repeat center center;
+      background-size: cover;
+      filter: blur(5px);
+      transform: scale(1.1);
+      z-index: 0;
+    }
+
+    .project-planet {
+      position: absolute;
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      background-color: #9b59b6;
+      box-shadow: 0 0 20px rgba(155, 89, 182, 0.8);
+      animation: rotate 30s linear infinite;
+      z-index: 2;
+    }
+
+    .project-planet.planet1 {
+      top: 20%;
+      left: 15%;
+      animation-delay: 5s;
+    }
+
+    .project-planet.planet2 {
+      top: 35%;
+      right: 25%;
+      animation-delay: 10s;
+    }
+
+    .project-planet.planet3 {
+      bottom: 15%;
+      left: 30%;
+      animation-delay: 15s;
+    }
+
+    .project-planet-info {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+      color: #fff;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      z-index: 3;
+    }
+
+    .project-planet:hover .project-planet-info {
+      opacity: 1;
+    }
+
+    /* Skill Constellation */
+    .skill-constellation {
+      padding: 5rem 2rem;
+      background-color: #1a1a1a;
+      position: relative;
+      z-index: 10;
+    }
+
+    .skill-constellation h2 {
+      text-align: center;
+      font-size: 2.5rem;
+      margin-bottom: 3rem;
+      color: #9b59b6;
+      text-shadow: 0 0 20px rgba(155, 89, 182, 0.8);
+    }
+
+    .skill-icon {
+      position: absolute;
+      width: 60px;
+      height: 60px;
+      background-color: #9b59b6;
+      border-radius: 50%;
+      box-shadow: 0 0 20px rgba(155, 89, 182, 0.8);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 2rem;
+      color: #fff;
+      animation: pulse 2s ease-in-out infinite;
+    }
+
+    .skill-icon:nth-child(1) {
+      top: 20%;
+      left: 15%;
+      animation-delay: 0s;
+    }
+
+    .skill-icon:nth-child(2) {
+      top: 35%;
+      right: 25%;
+      animation-delay: 0.5s;
+    }
+
+    .skill-icon:nth-child(3) {
+      bottom: 15%;
+      left: 30%;
+      animation-delay: 1s;
+    }
+
+    .skill-icon:hover {
+      transform: scale(1.2);
+      box-shadow: 0 0 30px rgba(155, 89, 182, 1);
+    }
+
+    /* Neon Contact Form */
+    .neon-contact {
+      padding: 5rem 2rem;
+      background-color: #1a1a1a;
+      position: relative;
+      z-index: 10;
+    }
+
+    .neon-contact h2 {
+      text-align: center;
+      font-size: 2.5rem;
+      margin-bottom: 3rem;
+      color: #9b59b6;
+      text-shadow: 0 0 20px rgba(155, 89, 182, 0.8);
+    }
+
+    .neon-form {
+      max-width: 600px;
+      margin: 0 auto;
+      background-color: rgba(26, 26, 26, 0.8);
+      padding: 2rem;
+      border-radius: 10px;
+      box-shadow: 0 0 30px rgba(155, 89, 182, 0.8);
+    }
+
+    .neon-form label {
+      display: block;
+      font-size: 1.2rem;
+      margin-bottom: 0.5rem;
+      color: #9b59b6;
+      text-shadow: 0 0 10px rgba(155, 89, 182, 0.8);
+    }
+
+    .neon-form input,
+    .neon-form textarea {
+      width: 100%;
+      padding: 1rem;
+      font-size: 1rem;
+      background-color: #2d2d2d;
+      border: none;
+      border-radius: 5px;
+      color: #fff;
+      margin-bottom: 1.5rem;
+      box-shadow: 0 0 10px rgba(155, 89, 182, 0.5);
+      transition: box-shadow 0.3s ease;
+    }
+
+    .neon-form input:focus,
+    .neon-form textarea:focus {
+      outline: none;
+      box-shadow: 0 0 20px rgba(155, 89, 182, 0.8);
+    }
+
+    .neon-form button {
+      display: block;
+      width: 100%;
+      padding: 1rem;
+      font-size: 1.2rem;
+      background-color: #9b59b6;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      box-shadow: 0 0 20px rgba(155, 89, 182, 0.8);
+      transition: background-color 0.3s ease;
+    }
+
+    .neon-form button:hover {
+      background-color: #8e44ad;
+    }
+
+    /* Animations */
+    @keyframes rotate {
+      0% {
+        transform: rotate(0deg);
+      }
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+
+    @keyframes pulse {
+      0% {
+        transform: scale(1);
+        box-shadow: 0 0 20px rgba(155, 89, 182, 0.8);
+      }
+      50% {
+        transform: scale(1.2);
+        box-shadow: 0 0 30px rgba(155, 89, 182, 1);
+      }
+      100% {
+        transform: scale(1);
+        box-shadow: 0 0 20px rgba(155, 89, 182, 0.8);
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="#">Home</a>
+    <a href="#">About</a>
+    <a href="#">Projects</a>
+    <a href="#">Skills</a>
+    <a href="#">Contact</a>
+  </nav>
+
+  <div class="project-galaxy">
+    <div class="galaxy-bg"></div>
+    <div class="project-planet planet1">
+      <div class="project-planet-info">
+        <h3>Project 1</h3>
+        <p>Description of Project 1</p>
+      </div>
+    </div>
+    <div class="project-planet planet2">
+      <div class="project-planet-info">
+        <h3>Project 2</h3>
+        <p>Description of Project 2</p>
+      </div>
+    </div>
+    <div class="project-planet planet3">
+      <div class="project-planet-info">
+        <h3>Project 3</h3>
+        <p>Description of Project 3</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="skill-constellation">
+    <h2>My Skills</h2>
+    <div class="skill-icon">
+      <i class="fas fa-code"></i>
+    </div>
+    <div class="skill-icon">
+      <i class="fas fa-database"></i>
+    </div>
+    <div class="skill-icon">
+      <i class="fas fa-server"></i>
+    </div>
+  </div>
+
+  <div class="neon-contact">
+    <h2>Get in Touch</h2>
+    <div class="neon-form">
+      <form>
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" placeholder="Enter your name" required>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" placeholder="Enter your email" required>
+
+        <label for="message">Message:</label>
+        <textarea id="message" name="message" placeholder="Enter your message" rows="5" required></textarea>
+
+        <button type="submit">Send Message</button>
+      </form>
+    </div>
+  </div>
+</body>
+</html>'<!-- Visit: https://github.com/Ishanoshada/portflair -->
+<!-- Visit: https://github.com/Ishanoshada/portflair -->

@@ -1,0 +1,498 @@
+<!-- Portfolio created by Ishan -->
+<!-- Check out my work at: https://github.com/Ishanoshada/portflair -->
+<!-- 2024/10/9 -->
+<!-- Portfolio created by Ishan -->
+'<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Black Hole Portfolio</title>
+    <style>
+        /* Reset Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Roboto', sans-serif;
+        }
+
+        /* Global Styles */
+        body {
+            background-color: #000;
+            color: #fff;
+        }
+
+        /* Navigation */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 40px;
+            background-color: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(10px);
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 18px;
+            font-weight: 500;
+            transition: color 0.3s ease-in-out;
+        }
+
+        nav a:hover {
+            color: #9b59b6;
+        }
+
+        /* Project Galaxies */
+        .project-galaxies {
+            position: relative;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow-x: hidden;
+        }
+
+        .project-galaxies::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(ellipse at center, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 1) 100%), url("https://dummyimage.com/1200x500/ccc/000&text=Black+Hole");
+            background-size: cover;
+            background-position: center;
+            z-index: -1;
+        }
+
+        .project-galaxies .project-thumbnails {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .project-galaxies .project-thumbnail {
+            position: relative;
+            width: 200px;
+            height: 200px;
+            margin: 20px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.1);
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+            overflow: hidden;
+            cursor: pointer;
+            transition: all 0.3s ease-in-out;
+        }
+
+        .project-galaxies .project-thumbnail:hover {
+            transform: scale(1.1);
+        }
+
+        .project-galaxies .project-thumbnail::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at center, rgba(255, 255, 255, 0.2) 0%, rgba(0, 0, 0, 0.8) 100%);
+            z-index: 1;
+            opacity: 0;
+            transition: opacity 0.3s ease-in-out;
+        }
+
+        .project-galaxies .project-thumbnail:hover::before {
+            opacity: 1;
+        }
+
+        .project-galaxies .project-thumbnail img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transform: scale(1.1);
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .project-galaxies .project-thumbnail:hover img {
+            transform: scale(1);
+        }
+
+        .project-galaxies .project-thumbnail .project-details {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            z-index: 2;
+            opacity: 0;
+            transition: opacity 0.3s ease-in-out;
+        }
+
+        .project-galaxies .project-thumbnail:hover .project-details {
+            opacity: 1;
+        }
+
+        .project-galaxies .project-thumbnail .project-details h3 {
+            font-size: 18px;
+            font-weight: 500;
+            margin-bottom: 10px;
+        }
+
+        .project-galaxies .project-thumbnail .project-details p {
+            font-size: 14px;
+            font-weight: 400;
+            margin-bottom: 10px;
+        }
+
+        .project-galaxies .project-thumbnail .project-details a {
+            display: inline-block;
+            padding: 8px 16px;
+            background-color: #9b59b6;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 4px;
+            font-size: 14px;
+            font-weight: 500;
+            transition: background-color 0.3s ease-in-out;
+        }
+
+        .project-galaxies .project-thumbnail .project-details a:hover {
+            background-color: #8e44ad;
+        }
+
+        /* Vaporwave Glitches */
+        .vaporwave-glitches {
+            padding: 80px 40px;
+            background: linear-gradient(to right, #9b59b6, #8e44ad);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .vaporwave-glitches::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to right, #9b59b6, #8e44ad);
+            opacity: 0.5;
+            z-index: 1;
+        }
+
+        .vaporwave-glitches::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url("https://dummyimage.com/1200x500/ccc/000&text=Vaporwave+Glitches");
+            background-size: cover;
+            background-position: center;
+            opacity: 0.1;
+            z-index: 0;
+        }
+
+        .vaporwave-glitches .skills-panels {
+            position: relative;
+            z-index: 2;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-gap: 40px;
+        }
+
+        .vaporwave-glitches .skills-panel {
+            background-color: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 8px;
+            padding: 40px;
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .vaporwave-glitches .skills-panel:hover {
+            transform: translateY(-10px);
+        }
+
+        .vaporwave-glitches .skills-panel h3 {
+            font-size: 24px;
+            font-weight: 500;
+            margin-bottom: 20px;
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+        }
+
+        .vaporwave-glitches .skills-panel p {
+            font-size: 16px;
+            font-weight: 400;
+            line-height: 1.6;
+            margin-bottom: 20px;
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+        }
+
+        .vaporwave-glitches .skills-panel a {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #fff;
+            color: #9b59b6;
+            text-decoration: none;
+            border-radius: 4px;
+            font-size: 16px;
+            font-weight: 500;
+            transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+        }
+
+        .vaporwave-glitches .skills-panel a:hover {
+            background-color: #9b59b6;
+            color: #fff;
+        }
+
+        /* Neon Contact Form */
+        .neon-contact-form {
+            padding: 80px 40px;
+            background: radial-gradient(ellipse at center, #000 0%, #000 100%), url("https://dummyimage.com/1200x500/ccc/000&text=Neon+Contact+Form");
+            background-size: cover;
+            background-position: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .neon-contact-form::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(ellipse at center, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 1) 100%);
+            z-index: 1;
+        }
+
+        .neon-contact-form .form-container {
+            position: relative;
+            z-index: 2;
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 8px;
+            padding: 40px;
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+        }
+
+        .neon-contact-form .form-container h2 {
+            font-size: 32px;
+            font-weight: 500;
+            margin-bottom: 20px;
+            text-align: center;
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+        }
+
+        .neon-contact-form .form-container input,
+        .neon-contact-form .form-container textarea {
+            display: block;
+            width: 100%;
+            padding: 12px 16px;
+            margin-bottom: 20px;
+            background-color: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: none;
+            border-radius: 4px;
+            color: #fff;
+            font-size: 16px;
+            font-weight: 400;
+            transition: box-shadow 0.3s ease-in-out;
+        }
+
+        .neon-contact-form .form-container input:focus,
+        .neon-contact-form .form-container textarea:focus {
+            outline: none;
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+        }
+
+        .neon-contact-form .form-container button {
+            display: block;
+            width: 100%;
+            padding: 12px 16px;
+            background-color: #9b59b6;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            font-size: 16px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: background-color 0.3s ease-in-out;
+        }
+
+        .neon-contact-form .form-container button:hover {
+            background-color: #8e44ad;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            nav {
+                padding: 10px 20px;
+            }
+
+            nav a {
+                font-size: 16px;
+            }
+
+            .project-galaxies .project-thumbnail {
+                width: 150px;
+                height: 150px;
+                margin: 10px;
+            }
+
+            .project-galaxies .project-thumbnail .project-details h3 {
+                font-size: 16px;
+            }
+
+            .project-galaxies .project-thumbnail .project-details p {
+                font-size: 12px;
+            }
+
+            .project-galaxies .project-thumbnail .project-details a {
+                padding: 6px 12px;
+                font-size: 12px;
+            }
+
+            .vaporwave-glitches {
+                padding: 40px 20px;
+            }
+
+            .vaporwave-glitches .skills-panels {
+                grid-template-columns: 1fr;
+            }
+
+            .vaporwave-glitches .skills-panel {
+                padding: 20px;
+            }
+
+            .vaporwave-glitches .skills-panel h3 {
+                font-size: 20px;
+            }
+
+            .vaporwave-glitches .skills-panel p {
+                font-size: 14px;
+            }
+
+            .vaporwave-glitches .skills-panel a {
+                padding: 8px 16px;
+                font-size: 14px;
+            }
+
+            .neon-contact-form {
+                padding: 40px 20px;
+            }
+
+            .neon-contact-form .form-container {
+                padding: 20px;
+            }
+
+            .neon-contact-form .form-container h2 {
+                font-size: 24px;
+            }
+
+            .neon-contact-form .form-container input,
+            .neon-contact-form .form-container textarea {
+                padding: 10px 14px;
+                font-size: 14px;
+            }
+
+            .neon-contact-form .form-container button {
+                padding: 10px 14px;
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="#">Home</a>
+        <a href="#">About</a>
+        <a href="#">Projects</a>
+        <a href="#">Contact</a>
+    </nav>
+
+    <section class="project-galaxies">
+        <div class="project-thumbnails">
+            <div class="project-thumbnail">
+                <img src="https://dummyimage.com/400x400/ccc/000&text=Project+1" alt="Project 1">
+                <div class="project-details">
+                    <h3>Project 1</h3>
+                    <p>A cosmic-inspired web application</p>
+                    <a href="#">Learn More</a>
+                </div>
+            </div>
+            <div class="project-thumbnail">
+                <img src="https://dummyimage.com/400x400/ccc/000&text=Project+2" alt="Project 2">
+                <div class="project-details">
+                    <h3>Project 2</h3>
+                    <p>A vaporwave-themed backend system</p>
+                    <a href="#">Learn More</a>
+                </div>
+            </div>
+            <div class="project-thumbnail">
+                <img src="https://dummyimage.com/400x400/ccc/000&text=Project+3" alt="Project 3">
+                <div class="project-details">
+                    <h3>Project 3</h3>
+                    <p>A steampunk-infused data processing tool</p>
+                    <a href="#">Learn More</a>
+                </div>
+            </div>
+            <div class="project-thumbnail">
+                <img src="https://dummyimage.com/400x400/ccc/000&text=Project+4" alt="Project 4">
+                <div class="project/dummyimage.com/400x400/ccc/000&text=Project+4" alt="Project 4">
+                <div class="project-details">
+                    <h3>Project 4</h3>
+                    <p>A cosmic-powered data visualization dashboard</p>
+                    <a href="#">Learn More</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="vaporwave-glitches">
+        <div class="skills-panels">
+            <div class="skills-panel">
+                <h3>Backend Development</h3>
+                <p>Proficient in building scalable and robust backend systems using technologies like Node.js, Express, and MongoDB.</p>
+                <a href="#">Explore Skills</a>
+            </div>
+            <div class="skills-panel">
+                <h3>DevOps Automation</h3>
+                <p>Experienced in automating deployment and infrastructure management using tools like Docker, Kubernetes, and AWS.</p>
+                <a href="#">Explore Skills</a>
+            </div>
+            <div class="skills-panel">
+                <h3>Data Engineering</h3>
+                <p>Skilled in designing and implementing efficient data pipelines, data warehousing, and data analysis solutions.</p>
+                <a href="#">Explore Skills</a>
+            </div>
+            <div class="skills-panel">
+                <h3>Cybersecurity</h3>
+                <p>Knowledgeable in implementing robust security measures and protecting applications from various threats.</p>
+                <a href="#">Explore Skills</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="neon-contact-form">
+        <div class="form-container">
+            <h2>Get in Touch</h2>
+            <form>
+                <input type="text" placeholder="Name" required>
+                <input type="email" placeholder="Email" required>
+                <textarea placeholder="Message" required></textarea>
+                <button type="submit">Send Message</button>
+            </form>
+        </div>
+    </section>
+</body>
+</html>'<!-- Visit: https://github.com/Ishanoshada/portflair -->
+<!-- Visit: https://github.com/Ishanoshada/portflair -->

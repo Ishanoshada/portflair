@@ -1,0 +1,448 @@
+<!-- Portfolio created by Ishan -->
+<!-- Check out my work at: https://github.com/Ishanoshada/portflair -->
+<!-- 2024/10/9 -->
+<!-- Portfolio created by Ishan -->
+'<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Black Hole Portfolio</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
+
+        body {
+            font-family: 'Orbitron', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #0e0e0e;
+            color: #fff;
+            overflow-x: hidden;
+        }
+
+        /* Navbar */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 2rem;
+            background-color: rgba(14, 14, 14, 0.8);
+            backdrop-filter: blur(10px);
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 100;
+            transition: background-color 0.3s ease;
+        }
+
+        nav.scrolled {
+            background-color: #0e0e0e;
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 1.1rem;
+            margin: 0 1rem;
+            position: relative;
+            transition: color 0.3s ease;
+        }
+
+        nav a:before {
+            content: "";
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background-color: #9b59b6;
+            transition: width 0.3s ease;
+        }
+
+        nav a:hover {
+            color: #9b59b6;
+        }
+
+        nav a:hover:before {
+            width: 100%;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background: url('https://dummyimage.com/1920x1080/0e0e0e/9b59b6.jpg') no-repeat center center;
+            background-size: cover;
+            filter: blur(5px);
+            animation: bgScroll 60s linear infinite;
+        }
+
+        @keyframes bgScroll {
+            0% {
+                background-position: 0 0;
+            }
+            100% {
+                background-position: 100% 0;
+            }
+        }
+
+        .hero-content {
+            text-align: center;
+            z-index: 1;
+        }
+
+        .hero-content h1 {
+            font-size: 4rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            text-shadow: 0 0 20px #9b59b6, 0 0 40px #9b59b6, 0 0 80px #9b59b6;
+            animation: glitch 2s infinite;
+        }
+
+        @keyframes glitch {
+            0% {
+                text-shadow: 0 0 20px #9b59b6, 0 0 40px #9b59b6, 0 0 80px #9b59b6;
+            }
+            20% {
+                text-shadow: 0 0 20px #2980b9, 0 0 40px #2980b9, 0 0 80px #2980b9;
+            }
+            40% {
+                text-shadow: 0 0 20px #e74c3c, 0 0 40px #e74c3c, 0 0 80px #e74c3c;
+            }
+            60% {
+                text-shadow: 0 0 20px #9b59b6, 0 0 40px #9b59b6, 0 0 80px #9b59b6;
+            }
+            80% {
+                text-shadow: 0 0 20px #2980b9, 0 0 40px #2980b9, 0 0 80px #2980b9;
+            }
+            100% {
+                text-shadow: 0 0 20px #9b59b6, 0 0 40px #9b59b6, 0 0 80px #9b59b6;
+            }
+        }
+
+        .hero-content p {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            text-shadow: 0 0 10px #9b59b6;
+            animation: neon 2s infinite;
+        }
+
+        @keyframes neon {
+            0% {
+                text-shadow: 0 0 10px #9b59b6;
+            }
+            50% {
+                text-shadow: 0 0 20px #9b59b6, 0 0 30px #9b59b6;
+            }
+            100% {
+                text-shadow: 0 0 10px #9b59b6;
+            }
+        }
+
+        /* Projects Section */
+        .projects {
+            padding: 4rem 2rem;
+            background-color: #0e0e0e;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .projects-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background: url('https://dummyimage.com/1920x1080/0e0e0e/2980b9.jpg') no-repeat center center;
+            background-size: cover;
+            filter: blur(5px);
+            animation: bgScroll 60s linear infinite;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-gap: 2rem;
+        }
+
+        .project-card {
+            background-color: rgba(155, 89, 182, 0.2);
+            border-radius: 10px;
+            padding: 2rem;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 0 20px rgba(155, 89, 182, 0.5);
+        }
+
+        .project-card:before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, #9b59b6, #2980b9);
+            opacity: 0.2;
+            z-index: -1;
+            animation: rotate 10s linear infinite;
+        }
+
+        @keyframes rotate {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        .project-card h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            text-shadow: 0 0 10px #9b59b6;
+        }
+
+        .project-card p {
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
+            text-shadow: 0 0 5px #9b59b6;
+        }
+
+        .project-card a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 1.1rem;
+            padding: 0.8rem 1.6rem;
+            background-color: #9b59b6;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .project-card a:hover {
+            background-color: #8e44ad;
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 4rem 2rem;
+            background-color: #0e0e0e;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .contact-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background: url('https://dummyimage.com/1920x1080/0e0e0e/e74c3c.jpg') no-repeat center center;
+            background-size: cover;
+            filter: blur(5px);
+            animation: bgScroll 60s linear infinite;
+        }
+
+        .contact-form {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: rgba(231, 76, 60, 0.2);
+            border-radius: 10px;
+            padding: 2rem;
+            box-shadow: 0 0 20px rgba(231, 76, 60, 0.5);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .contact-form:before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, #e74c3c, #9b59b6);
+            opacity: 0.2;
+            z-index: -1;
+            animation: rotate 10s linear infinite;
+        }
+
+        .contact-form h2 {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            text-shadow: 0 0 10px #e74c3c;
+        }
+
+        .contact-form label {
+            display: block;
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+            text-shadow: 0 0 5px #e74c3c;
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 0.8rem 1rem;
+            font-size: 1.1rem;
+            border: none;
+            border-radius: 5px;
+            background-color: rgba(231, 76, 60, 0.3);
+            color: #fff;
+            margin-bottom: 1.5rem;
+            transition: background-color 0.3s ease;
+        }
+
+        .contact-form input:focus,
+        .contact-form textarea:focus {
+            background-color: rgba(231, 76, 60, 0.5);
+            outline: none;
+        }
+
+        .contact-form button {
+            display: block;
+            width: 100%;
+            padding: 0.8rem 1.6rem;
+            font-size: 1.1rem;
+            border: none;
+            border-radius: 5px;
+            background-color: #e74c3c;
+            color: #fff;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .contact-form button:hover {
+            background-color: #c0392b;
+        }
+
+        @media (max-width: 768px) {
+            nav a {
+                font-size: 1rem;
+                margin: 0 0.5rem;
+            }
+
+            .hero-content h1 {
+                font-size: 3rem;
+            }
+
+            .hero-content p {
+                font-size: 1.2rem;
+            }
+
+            .project-card h3 {
+                font-size: 1.5rem;
+            }
+
+            .project-card p {
+                font-size: 1rem;
+            }
+
+            .contact-form h2 {
+                font-size: 1.8rem;
+            }
+
+            .contact-form label,
+            .contact-form input,
+            .contact-form textarea,
+            .contact-form button {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav>
+        <a href="#">Home</a>
+        <a href="#">Projects</a>
+        <a href="#">Contact</a>
+    </nav>
+
+    <!-- Hero Section -->
+    <div class="hero">
+        <div class="hero-bg"></div>
+        <div class="hero-content">
+            <h1>Welcome to my Black Hole Portfolio</h1>
+            <p>Explore the cosmic wonders of my backend developer expertise.</p>
+        </div>
+    </div>
+
+    <!-- Projects Section -->
+    <div class="projects">
+        <div class="projects-bg"></div>
+        <div class="projects-grid">
+            <div class="project-card">
+                <h3>Project Galaxy 1</h3>
+                <p>Discover the intricacies of my backend development skills in this cosmic project.</p>
+                <a href="#">View Project</a>
+            </div>
+            <div class="project-card">
+                <h3>Project Galaxy 2</h3>
+                <p>Unravel the mysteries of my backend development expertise in this celestial project.</p>
+                <a href="#">View Project</a>
+            </div>
+            <div class="project-card">
+                <h3>Project Galaxy 3</h3>
+                <p>Delve into the depths of my backend development abilities in this galactic project.</p>
+                <a href="#">View Project</a>
+            </div>
+            <div class="project-card">
+                <h3>Project Galaxy 4</h3>
+                <p>Witness the collision of my backend development skills in this cosmic project.</p>
+                <a href="#">View Project</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Contact Section -->
+    <div class="contact">
+        <div class="contact-bg"></div>
+        <div class="contact-form">
+            <h2>Get in Touch</h2>
+            <form>
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+
+                <label for="message">Message:</label>
+                <textarea id="message" name="message" rows="5" required></textarea>
+
+                <button type="submit">Send Message</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // Navbar scroll effect
+        window.addEventListener('scroll', function() {
+            var nav = document.querySelector('nav');
+            nav.classList.toggle('scrolled', window.pageYOffset > 0);
+        });
+    </script>
+</body>
+</html>'<!-- Visit: https://github.com/Ishanoshada/portflair -->
+<!-- Visit: https://github.com/Ishanoshada/portflair -->

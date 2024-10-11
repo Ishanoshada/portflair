@@ -1,0 +1,462 @@
+<!-- Portfolio created by Ishan -->
+<!-- Check out my work at: https://github.com/Ishanoshada/portflair -->
+<!-- 2024/10/9 -->
+<!-- Portfolio created by Ishan -->
+'<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Matte-Black Portfolio</title>
+    <style>
+        /* Global Styles */
+        body {
+            font-family: 'Montserrat', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #1c1c1c;
+            color: #f2f2f2;
+        }
+
+        /* Navigation */
+        nav {
+            background-color: #1c1c1c;
+            padding: 1.5rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        nav .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            color: #f2f2f2;
+            text-decoration: none;
+        }
+
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+
+        nav ul li {
+            margin-right: 2rem;
+        }
+
+        nav ul li a {
+            color: #f2f2f2;
+            text-decoration: none;
+            font-size: 1rem;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            color: #8c8c8c;
+        }
+
+        /* About Me Section */
+        .about-me {
+            display: flex;
+            align-items: center;
+            padding: 4rem 2rem;
+        }
+
+        .about-me-content {
+            flex: 1;
+            animation: fadeIn 1s ease;
+        }
+
+        .about-me-content h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+        }
+
+        .about-me-content p {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            margin-bottom: 2rem;
+        }
+
+        .about-me-image {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            animation: scaleIn 1s ease;
+        }
+
+        .about-me-image img {
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            object-fit: cover;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Featured Projects Section */
+        .featured-projects {
+            padding: 4rem 2rem;
+        }
+
+        .featured-projects h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 3rem;
+            animation: fadeIn 1s ease;
+        }
+
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-gap: 2rem;
+            animation: fadeIn 1s ease;
+        }
+
+        .project-thumbnail {
+            position: relative;
+            overflow: hidden;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+        }
+
+        .project-thumbnail img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .project-thumbnail:hover img {
+            transform: scale(1.1);
+        }
+
+        .project-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.6);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .project-thumbnail:hover .project-overlay {
+            opacity: 1;
+        }
+
+        .project-overlay h3 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #f2f2f2;
+            margin-bottom: 0.5rem;
+        }
+
+        .project-overlay p {
+            font-size: 1rem;
+            color: #f2f2f2;
+            margin-bottom: 1.5rem;
+        }
+
+        .project-overlay a {
+            display: inline-block;
+            padding: 0.8rem 1.6rem;
+            background-color: #8c8c8c;
+            color: #1c1c1c;
+            text-decoration: none;
+            font-size: 1rem;
+            font-weight: 500;
+            border-radius: 4px;
+            transition: background-color 0.3s ease;
+        }
+
+        .project-overlay a:hover {
+            background-color: #6b6b6b;
+        }
+
+        /* Contact Section */
+        .contact {
+            background-color: #1c1c1c;
+            padding: 4rem 2rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            animation: fadeIn 1s ease;
+        }
+
+        .contact h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 2rem;
+        }
+
+        .contact-form {
+            width: 100%;
+            max-width: 600px;
+            background-color: #2d2d2d;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .contact-form .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-form label {
+            display: block;
+            font-size: 1rem;
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 0.8rem 1rem;
+            font-size: 1rem;
+            font-family: 'Montserrat', sans-serif;
+            background-color: #3d3d3d;
+            border: none;
+            border-radius: 4px;
+            color: #f2f2f2;
+            transition: box-shadow 0.3s ease;
+        }
+
+        .contact-form input:focus,
+        .contact-form textarea:focus {
+            outline: none;
+            box-shadow: 0 0 4px rgba(140, 140, 140, 0.5);
+        }
+
+        .contact-form button {
+            display: block;
+            width: 100%;
+            padding: 0.8rem 1.6rem;
+            background-color: #8c8c8c;
+            color: #1c1c1c;
+            font-size: 1rem;
+            font-weight: 500;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .contact-form button:hover {
+            background-color: #6b6b6b;
+        }
+
+        .social-links {
+            margin-top: 2rem;
+            display: flex;
+            justify-content: center;
+        }
+
+        .social-links a {
+            color: #8c8c8c;
+            font-size: 1.5rem;
+            margin: 0 1rem;
+            transition: color 0.3s ease;
+        }
+
+        .social-links a:hover {
+            color: #f2f2f2;
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes scaleIn {
+            0% {
+                transform: scale(0.8);
+                opacity: 0;
+            }
+            100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .about-me {
+                flex-direction: column;
+                padding: 3rem 1.5rem;
+            }
+
+            .about-me-content {
+                text-align: center;
+                margin-bottom: 2rem;
+            }
+
+            .about-me-image img {
+                width: 200px;
+                height: 200px;
+            }
+
+            .project-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 480px) {
+            nav {
+                padding: 1rem 1.5rem;
+            }
+
+            nav .logo {
+                font-size: 1.5rem;
+            }
+
+            nav ul li {
+                margin-right: 1.5rem;
+            }
+
+            nav ul li a {
+                font-size: 0.9rem;
+            }
+
+            .featured-projects,
+            .contact {
+                padding: 3rem 1.5rem;
+            }
+
+            .featured-projects h2,
+            .contact h2,
+            .about-me-content h2 {
+                font-size: 2rem;
+            }
+
+            .project-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="#" class="logo">Matte-Black Portfolio</a>
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Projects</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+    </nav>
+
+    <section class="about-me">
+        <div class="about-me-content">
+            <h2>About Me</h2>
+            <p>As a passionate designer, I thrive on creating stunning, matte-black portfolios with a focus on flat, dark tones and minimal bright accents. My approach is to use understated animations and subtle shadows to craft a smooth, professional look that captivates my clients and showcases my expertise.</p>
+            <p>With a keen eye for detail and a deep understanding of the latest UI/UX best practices, I strive to deliver exceptional designs that not only look visually striking but also provide a seamless and engaging user experience.</p>
+        </div>
+        <div class="about-me-image">
+            <img src="https://dummyimage.com/300x300/ccc/000&text=Designer+Portrait" alt="Designer Portrait">
+        </div>
+    </section>
+
+    <section class="featured-projects">
+        <h2>Featured Projects</h2>
+        <div class="project-grid">
+            <div class="project-thumbnail">
+                <img src="https://dummyimage.com/400x250/ccc/000&text=Project+1" alt="Project 1">
+                <div class="project-overlay">
+                    <h3>Project 1</h3>
+                    <p>A modern, matte-black design with subtle animations.</p>
+                    <a href="#">View Project</a>
+                </div>
+            </div>
+            <div class="project-thumbnail">
+                <img src="https://dummyimage.com/400x250/ccc/000&text=Project+2" alt="Project 2">
+                <div class="project-overlay">
+                    <h3>Project 2</h3>
+                    <p>Flat, dark tones and minimal bright accents.</p>
+                    <a href="#">View Project</a>
+                </div>
+            </div>
+            <div class="project-thumbnail">
+                <img src="https://dummyimage.com/400x250/ccc/000&text=Project+3" alt="Project 3">
+                <div class="project-overlay">
+                    <h3>Project 3</h3>
+                    <p>Smooth, professional look with subtle shadows.</p>
+                    <a href="#">View Project</a>
+                </div>
+            </div>
+            <div class="project-thumbnail">
+                <img src="https://dummyimage.com/400x250/ccc/000&text=Project+4" alt="Project 4">
+                <div class="project-overlay">
+                    <h3>Project 4</h3>
+                    <p>Captivating UI/UX design with a matte-black aesthetic.</p>
+                    <a href="#">View Project</a>
+                </div>
+            </div>
+            <div class="project-thumbnail">
+                <img src="https://dummyimage.com/400x250/ccc/000&text=Project+5" alt="Project 5">
+                <div class="project-overlay">
+                    <h3>Project 5</h3>
+                    <p>Minimalist design with a focus on dark tones and animations.</p>
+                    <a href="#">View Project</a>
+                </div>
+            </div>
+            <div class="project-thumbnail">
+                <img src="https://dummyimage.com/400x250/ccc/000&text=Project+6" alt="Project 6">
+                <div class="project-overlay">
+                    <h3>Project 6</h3>
+                    <p>Visually striking portfolio with a cohesive matte-black aesthetic.</p>
+                    <a href="#">View Project</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="contact">
+        <h2>Get in Touch</h2>
+        <div class="contact-form">
+            <form>
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" id="name" name="name" placeholder="Enter your name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" placeholder="Enter your email" required>
+                </div>
+                <div class="form-group">
+                    <label for="message">Message</label>
+                    <textarea id="message" name="message" rows="5" placeholder="Enter your message" required></textarea>
+                </div>
+                <button type="submit">Send Message</button>
+            </form>
+        </div>
+        <div class="social-links">
+            <a href="#"><i class="fab fa-linkedin"></i></a>
+            <a href="#"><i class="fab fa-behance"></i></a>
+            <a href="#"><i class="fab fa-dribbble"></i></a>
+        </div>
+    </section>
+
+    <script src="https://kit.fontawesome.com/your-font-awesome-kit.js" crossorigin="anonymous"></script>
+</body>
+</html>'<!-- Visit: https://github.com/Ishanoshada/portflair -->
+<!-- Visit: https://github.com/Ishanoshada/portflair -->

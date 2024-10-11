@@ -1,0 +1,515 @@
+<!-- Portfolio created by Ishan -->
+<!-- Check out my work at: https://github.com/Ishanoshada/portflair -->
+<!-- 2024/10/9 -->
+<!-- Portfolio created by Ishan -->
+'<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Develop a Space-Themed Portfolio</title>
+  <style>
+    /* Global Styles */
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Roboto', sans-serif;
+      background-color: #000;
+      color: #fff;
+      overflow-x: hidden;
+    }
+
+    /* Navigation Bar */
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 40px;
+      background-color: rgba(0, 0, 0, 0.6);
+      backdrop-filter: blur(10px);
+      position: relative;
+      z-index: 100;
+    }
+
+    .navbar-brand {
+      font-size: 24px;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: #fff;
+      text-decoration: none;
+    }
+
+    .navbar-nav {
+      display: flex;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .nav-item {
+      margin-left: 30px;
+    }
+
+    .nav-link {
+      color: #fff;
+      text-decoration: none;
+      font-size: 16px;
+      font-weight: 500;
+      transition: color 0.3s ease;
+    }
+
+    .nav-link:hover {
+      color: #8b6aff;
+    }
+
+    /* Hero Section */
+    .hero {
+      position: relative;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(ellipse at center, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 1) 100%);
+      z-index: 1;
+    }
+
+    .hero-bg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url("https://dummyimage.com/1200x500/000/fff&text=Space+Background") no-repeat center center;
+      background-size: cover;
+      animation: starfield 60s linear infinite;
+      z-index: 0;
+    }
+
+    @keyframes starfield {
+      0% {
+        background-position: 0 0;
+      }
+      100% {
+        background-position: -100% -100%;
+      }
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+    }
+
+    .hero-title {
+      font-size: 64px;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: 4px;
+      background: linear-gradient(to right, #8b6aff, #00c6ff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: glowText 2s ease-in-out infinite;
+    }
+
+    @keyframes glowText {
+      0% {
+        text-shadow: 0 0 10px #8b6aff, 0 0 20px #00c6ff;
+      }
+      50% {
+        text-shadow: 0 0 20px #8b6aff, 0 0 30px #00c6ff;
+      }
+      100% {
+        text-shadow: 0 0 10px #8b6aff, 0 0 20px #00c6ff;
+      }
+    }
+
+    .hero-subtitle {
+      font-size: 24px;
+      font-weight: 400;
+      margin-top: 20px;
+      color: #bdbdbd;
+    }
+
+    .hero-cta {
+      margin-top: 40px;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 12px 32px;
+      font-size: 16px;
+      font-weight: 500;
+      text-decoration: none;
+      border-radius: 30px;
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+    .btn-primary {
+      background: linear-gradient(to right, #8b6aff, #00c6ff);
+      color: #fff;
+      box-shadow: 0 10px 20px rgba(139, 106, 255, 0.4);
+    }
+
+    .btn-primary:hover {
+      background: linear-gradient(to right, #7352d9, #00a8d9);
+      box-shadow: 0 10px 20px rgba(115, 82, 217, 0.4);
+    }
+
+    /* Skills Section */
+    .skills {
+      padding: 80px 40px;
+      background-color: #0a0a0a;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .skills::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(ellipse at center, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 1) 100%);
+      z-index: 1;
+    }
+
+    .skills-bg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url("https://dummyimage.com/1200x500/000/fff&text=Starry+Background") no-repeat center center;
+      background-size: cover;
+      animation: starfield 60s linear infinite;
+      z-index: 0;
+    }
+
+    .skills-content {
+      position: relative;
+      z-index: 2;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+      grid-gap: 40px;
+      justify-items: center;
+    }
+
+    .skill-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      cursor: pointer;
+    }
+
+    .skill-item:hover .skill-icon {
+      transform: scale(1.1);
+    }
+
+    .skill-icon {
+      width: 60px;
+      height: 60px;
+      background: linear-gradient(to right, #8b6aff, #00c6ff);
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      transition: transform 0.3s ease;
+    }
+
+    .skill-icon img {
+      width: 40px;
+      height: 40px;
+      filter: invert(100%) sepia(0%) saturate(7500%) hue-rotate(252deg) brightness(108%) contrast(103%);
+    }
+
+    .skill-label {
+      margin-top: 12px;
+      font-size: 14px;
+      font-weight: 500;
+      color: #bdbdbd;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    /* Projects Section */
+    .projects {
+      padding: 80px 40px;
+      background-color: #0a0a0a;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .projects::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(ellipse at center, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 1) 100%);
+      z-index: 1;
+    }
+
+    .projects-bg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url("https://dummyimage.com/1200x500/000/fff&text=Starry+Background") no-repeat center center;
+      background-size: cover;
+      animation: starfield 60s linear infinite;
+      z-index: 0;
+    }
+
+    .projects-content {
+      position: relative;
+      z-index: 2;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      grid-gap: 40px;
+    }
+
+    .project-item {
+      position: relative;
+      overflow: hidden;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+
+    .project-item:hover .project-overlay {
+      opacity: 1;
+    }
+
+    .project-thumbnail {
+      width: 100%;
+      height: 200px;
+      background: linear-gradient(to right, #8b6aff, #00c6ff);
+      background-size: cover;
+      background-position: center;
+      transition: transform 0.3s ease;
+    }
+
+    .project-item:hover .project-thumbnail {
+      transform: scale(1.1);
+    }
+
+    .project-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.7);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .project-name {
+      font-size: 20px;
+      font-weight: bold;
+      color: #fff;
+      text-align: center;
+      margin-bottom: 10px;
+    }
+
+    .project-description {
+      font-size: 14px;
+      color: #bdbdbd;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .project-tech {
+      font-size: 12px;
+      color: #8b6aff;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    /* Responsive Styles */
+    @media (max-width: 768px) {
+      .navbar {
+        padding: 15px 20px;
+      }
+
+      .navbar-brand {
+        font-size: 20px;
+      }
+
+      .nav-item {
+        margin-left: 20px;
+      }
+
+      .nav-link {
+        font-size: 14px;
+      }
+
+      .hero-title {
+        font-size: 48px;
+      }
+
+      .hero-subtitle {
+        font-size: 18px;
+      }
+
+      .btn {
+        padding: 10px 24px;
+        font-size: 14px;
+      }
+
+      .skills,
+      .projects {
+        padding: 60px 20px;
+      }
+
+      .skill-icon {
+        width: 50px;
+        height: 50px;
+      }
+
+      .skill-icon img {
+        width: 30px;
+        height: 30px;
+      }
+
+      .skill-label {
+        font-size: 12px;
+      }
+
+      .project-thumbnail {
+        height: 150px;
+      }
+
+      .project-name {
+        font-size: 18px;
+      }
+
+      .project-description {
+        font-size: 12px;
+      }
+
+      .project-tech {
+        font-size: 10px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav class="navbar">
+      <a href="#" class="navbar-brand">Develop</a>
+      <ul class="navbar-nav">
+        <li class="nav-item"><a href="#" class="nav-link">Home</a></li>
+        <li class="nav-item"><a href="#" class="nav-link">Skills</a></li>
+        <li class="nav-item"><a href="#" class="nav-link">Projects</a></li>
+        <li class="nav-item"><a href="#" class="nav-link">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-bg"></div>
+      <div class="hero-content">
+        <h1 class="hero-title">Develop</h1>
+        <p class="hero-subtitle">A Space-Themed Portfolio</p>
+        <div class="hero-cta">
+          <a href="#" class="btn btn-primary">Explore My Portfolio</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="skills">
+      <div class="skills-bg"></div>
+      <div class="skills-content">
+        <div class="skill-item">
+          <div class="skill-icon">
+            <img src="https://dummyimage.com/40x40/000/fff&text=HTML" alt="HTML Icon">
+          </div>
+          <div class="skill-label">HTML</div>
+        </div>
+        <div class="skill-item">
+          <div class="skill-icon">
+            <img src="https://dummyimage.com/40x40/000/fff&text=CSS" alt="CSS Icon">
+          </div>
+          <div class="skill-label">CSS</div>
+        </div>
+        <div class="skill-item">
+          <div class="skill-icon">
+            <img src="https://dummyimage.com/40x40/000/fff&text=JavaScript" alt="JavaScript Icon">
+          </div>
+          <div class="skill-label">JavaScript</div>
+        </div>
+        <div class="skill-item">
+          <div class="skill-icon">
+            <img src="https://dummyimage.com/40x40/000/fff&text=React" alt="React Icon">
+          </div>
+          <div class="skill-label">React</div>
+        </div>
+        <div class="skill-item">
+          <div class="skill-icon">
+            <img src="https://dummyimage.com/40x40/000/fff&text=Node.js" alt="Node.js Icon">
+          </div>
+          <div class="skill-label">Node.js</div>
+        </div>
+        <div class="skill-item">
+          <div class="skill-icon">
+            <img src="https://dummyimage.com/40x40/000/fff&text=MongoDB" alt="MongoDB Icon">
+          </div>
+          <div class="skill-label">MongoDB</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="projects">
+      <div class="projects-bg"></div>
+      <div class="projects-content">
+        <div class="project-item">
+          <div class="project-thumbnail" style="background-image: url('https://dummyimage.com/300x200/8b6aff/000&text=Project+1')"></div>
+          <div class="project-overlay">
+            <h3 class="project-name">Project 1</h3>
+            <p class="project-description">A space-themed web application with cosmic gradients and interactive elements.</p>
+            <p class="project-tech">HTML, CSS, JavaScript</p>
+          </div>
+        </div>
+        <div class="project-item">
+          <div class="project-thumbnail" style="background-image: url('https://dummyimage.com/300x200/00c6ff/000&text=<div class="project-item">
+  <div class="project-thumbnail" style="background-image: url('https://dummyimage.com/300x200/00c6ff/000&text=Project+2')"></div>
+  <div class="project-overlay">
+    <h3 class="project-name">Project 2</h3>
+    <p class="project-description">A responsive, space-themed portfolio website with smooth scrolling and interactive elements.</p>
+    <p class="project-tech">HTML, CSS, JavaScript, React</p>
+  </div>
+</div>
+<div class="project-item">
+  <div class="project-thumbnail" style="background-image: url('https://dummyimage.com/300x200/8b6aff/000&text=Project+3')"></div>
+  <div class="project-overlay">
+    <h3 class="project-name">Project 3</h3>
+    <p class="project-description">A cosmic-themed web application with data visualization and interactive charts.</p>
+    <p class="project-tech">HTML, CSS, JavaScript, D3.js</p>
+  </div>
+</div>
+</section>
+</main>
+</body>
+</html>'<!-- Visit: https://github.com/Ishanoshada/portflair -->
+<!-- Visit: https://github.com/Ishanoshada/portflair -->

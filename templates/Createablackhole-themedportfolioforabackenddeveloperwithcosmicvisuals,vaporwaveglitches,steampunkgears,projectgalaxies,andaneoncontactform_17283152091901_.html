@@ -1,0 +1,380 @@
+<!-- Portfolio created by Ishan -->
+<!-- Check out my work at: https://github.com/Ishanoshada/portflair -->
+<!-- 2024/10/9 -->
+<!-- Portfolio created by Ishan -->
+'<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Black Hole Portfolio</title>
+  <style>
+    /* Global Styles */
+    @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
+
+    body {
+      font-family: 'Orbitron', sans-serif;
+      background-color: #0d0d0d;
+      color: #fff;
+      margin: 0;
+      padding: 0;
+      overflow-x: hidden;
+    }
+
+    /* Navigation */
+    nav {
+      display: flex;
+      justify-content: center;
+      background-color: rgba(0, 0, 0, 0.7);
+      padding: 1.5rem 0;
+      position: relative;
+      z-index: 10;
+    }
+
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      margin: 0 1.5rem;
+      font-size: 1.1rem;
+      position: relative;
+      transition: color 0.3s ease;
+    }
+
+    nav a:before {
+      content: "";
+      position: absolute;
+      width: 0;
+      height: 2px;
+      bottom: -5px;
+      left: 0;
+      background-color: #9b59b6;
+      transition: width 0.3s ease;
+    }
+
+    nav a:hover {
+      color: #9b59b6;
+    }
+
+    nav a:hover:before {
+      width: 100%;
+    }
+
+    /* Portfolio Section */
+    .portfolio-section {
+      padding: 5rem 0;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .portfolio-title {
+      text-align: center;
+      font-size: 3rem;
+      margin-bottom: 3rem;
+      text-shadow: 0 0 20px #9b59b6, 0 0 40px #9b59b6, 0 0 80px #9b59b6;
+      animation: glitch 1s infinite;
+    }
+
+    .project-galaxy {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+      margin-bottom: 4rem;
+    }
+
+    .project-orb {
+      width: 150px;
+      height: 150px;
+      background-color: #1a1a1a;
+      border-radius: 50%;
+      margin: 2rem;
+      box-shadow: 0 0 20px #9b59b6, 0 0 40px #9b59b6, 0 0 80px #9b59b6;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+      cursor: pointer;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .project-orb:hover {
+      transform: scale(1.1);
+      box-shadow: 0 0 40px #9b59b6, 0 0 80px #9b59b6, 0 0 160px #9b59b6;
+    }
+
+    .project-orb:before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(circle, rgba(155, 89, 182, 0.5) 0%, rgba(0, 0, 0, 0) 70%);
+      z-index: 1;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .project-orb:hover:before {
+      opacity: 1;
+    }
+
+    .project-orb-content {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      color: #fff;
+      text-shadow: 0 0 10px #9b59b6;
+      font-size: 1.2rem;
+      font-weight: bold;
+    }
+
+    /* About Section */
+    .about-section {
+      padding: 5rem 0;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .about-title {
+      text-align: center;
+      font-size: 3rem;
+      margin-bottom: 3rem;
+      text-shadow: 0 0 20px #9b59b6, 0 0 40px #9b59b6, 0 0 80px #9b59b6;
+      animation: glitch 1s infinite;
+    }
+
+    .about-content {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .about-image {
+      width: 300px;
+      height: 300px;
+      background-image: url("https://dummyimage.com/300x300/ccc/000&text=Developer+Profile");
+      background-size: cover;
+      background-position: center;
+      border-radius: 50%;
+      box-shadow: 0 0 20px #9b59b6, 0 0 40px #9b59b6, 0 0 80px #9b59b6;
+      margin-right: 4rem;
+      position: relative;
+      z-index: 2;
+    }
+
+    .about-text {
+      max-width: 500px;
+      font-size: 1.1rem;
+      line-height: 1.6;
+      text-shadow: 0 0 10px #9b59b6;
+    }
+
+    .about-text h3 {
+      font-size: 2rem;
+      margin-bottom: 1.5rem;
+      text-shadow: 0 0 20px #9b59b6, 0 0 40px #9b59b6, 0 0 80px #9b59b6;
+      animation: glitch 1s infinite;
+    }
+
+    /* Contact Form */
+    .contact-section {
+      padding: 5rem 0;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .contact-title {
+      text-align: center;
+      font-size: 3rem;
+      margin-bottom: 3rem;
+      text-shadow: 0 0 20px #9b59b6, 0 0 40px #9b59b6, 0 0 80px #9b59b6;
+      animation: glitch 1s infinite;
+    }
+
+    .contact-form {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      background-color: rgba(0, 0, 0, 0.7);
+      padding: 3rem;
+      border-radius: 10px;
+      box-shadow: 0 0 20px #9b59b6, 0 0 40px #9b59b6, 0 0 80px #9b59b6;
+      position: relative;
+      z-index: 2;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+      width: 100%;
+      max-width: 500px;
+      padding: 1rem;
+      margin-bottom: 1.5rem;
+      background-color: #1a1a1a;
+      border: none;
+      border-radius: 5px;
+      color: #fff;
+      font-family: 'Orbitron', sans-serif;
+      font-size: 1rem;
+      box-shadow: 0 0 10px #9b59b6;
+    }
+
+    .contact-form textarea {
+      resize: vertical;
+    }
+
+    .contact-form button {
+      background-color: #9b59b6;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      padding: 1rem 2rem;
+      font-family: 'Orbitron', sans-serif;
+      font-size: 1.1rem;
+      cursor: pointer;
+      box-shadow: 0 0 20px #9b59b6, 0 0 40px #9b59b6, 0 0 80px #9b59b6;
+      transition: transform 0.3s ease;
+    }
+
+    .contact-form button:hover {
+      transform: scale(1.1);
+    }
+
+    /* Animations */
+    @keyframes glitch {
+      0% {
+        text-shadow: 0 0 20px #9b59b6, 0 0 40px #9b59b6, 0 0 80px #9b59b6;
+      }
+      50% {
+        text-shadow: 0 0 10px #9b59b6, 0 0 20px #9b59b6, 0 0 40px #9b59b6;
+      }
+      100% {
+        text-shadow: 0 0 20px #9b59b6, 0 0 40px #9b59b6, 0 0 80px #9b59b6;
+      }
+    }
+
+    /* Responsive Styles */
+    @media (max-width: 768px) {
+      nav {
+        padding: 1rem 0;
+      }
+
+      nav a {
+        margin: 0 1rem;
+        font-size: 0.9rem;
+      }
+
+      .portfolio-title,
+      .about-title,
+      .contact-title {
+        font-size: 2.5rem;
+      }
+
+      .project-orb {
+        width: 120px;
+        height: 120px;
+        margin: 1.5rem;
+      }
+
+      .about-image {
+        width: 250px;
+        height: 250px;
+        margin-right: 2rem;
+      }
+
+      .about-text {
+        font-size: 1rem;
+      }
+
+      .about-text h3 {
+        font-size: 1.8rem;
+      }
+
+      .contact-form {
+        padding: 2rem;
+      }
+
+      .contact-form input,
+      .contact-form textarea {
+        padding: 0.8rem;
+        margin-bottom: 1.2rem;
+        font-size: 0.9rem;
+      }
+
+      .contact-form button {
+        padding: 0.8rem 1.5rem;
+        font-size: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation -->
+  <nav>
+    <a href="#">Home</a>
+    <a href="#">Portfolio</a>
+    <a href="#">About</a>
+    <a href="#">Contact</a>
+  </nav>
+
+  <!-- Portfolio Section -->
+  <div class="portfolio-section">
+    <h2 class="portfolio-title">Project Galaxies</h2>
+    <div class="project-galaxy">
+      <div class="project-orb">
+        <div class="project-orb-content">Project 1</div>
+      </div>
+      <div class="project-orb">
+        <div class="project-orb-content">Project 2</div>
+      </div>
+      <div class="project-orb">
+        <div class="project-orb-content">Project 3</div>
+      </div>
+      <div class="project-orb">
+        <div class="project-orb-content">Project 4</div>
+      </div>
+    </div>
+    <div class="project-galaxy">
+      <div class="project-orb">
+        <div class="project-orb-content">Project 5</div>
+      </div>
+      <div class="project-orb">
+        <div class="project-orb-content">Project 6</div>
+      </div>
+      <div class="project-orb">
+        <div class="project-orb-content">Project 7</div>
+      </div>
+      <div class="project-orb">
+        <div class="project-orb-content">Project 8</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- About Section -->
+  <div class="about-section">
+    <h2 class="about-title">About the Developer</h2>
+    <div class="about-content">
+      <div class="about-image"></div>
+      <div class="about-text">
+        <h3>Cosmic Coding Maestro</h3>
+        <p>Explore the depths of my backend development expertise, where I harness the power of black holes and cosmic forces to craft innovative solutions. From harnessing the gravitational pull of data to navigating the event horizon of complex algorithms, I'm a true wizard of the digital realm.</p>
+        <p>With a keen eye for detail and a passion for pushing the boundaries of technology, I weave steampunk-inspired gears and vaporwave-infused glitches into my work, creating a unique blend of form and function that is out of this world.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Contact Form -->
+  <div class="contact-section">
+    <h2 class="contact-title">Reach for the Stars</h2>
+    <form class="contact-form">
+      <input type="text" placeholder="Name" required>
+      <input type="email" placeholder="Email" required>
+      <textarea placeholder="Message" required></textarea>
+      <button type="submit">Send</button>
+    </form>
+  </div>
+</body>
+</html>'<!-- Visit: https://github.com/Ishanoshada/portflair -->
+<!-- Visit: https://github.com/Ishanoshada/portflair -->

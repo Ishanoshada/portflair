@@ -1,0 +1,358 @@
+<!-- Portfolio created by Ishan -->
+<!-- Check out my work at: https://github.com/Ishanoshada/portflair -->
+<!-- 2024/10/9 -->
+<!-- Portfolio created by Ishan -->
+'<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Develop a Space-Themed Portfolio</title>
+  <style>
+    /* Global Styles */
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Montserrat', sans-serif;
+      background-color: #000000;
+      color: #ffffff;
+      overflow-x: hidden;
+    }
+
+    /* Navigation Bar */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 40px;
+      background-color: rgba(0, 0, 0, 0.5);
+      backdrop-filter: blur(10px);
+      position: relative;
+      z-index: 1;
+    }
+
+    nav a {
+      color: #ffffff;
+      text-decoration: none;
+      font-size: 18px;
+      font-weight: 500;
+      margin: 0 20px;
+      transition: color 0.3s ease-in-out;
+    }
+
+    nav a:hover {
+      color: #b388ff;
+    }
+
+    /* Hero Section */
+    .hero {
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(to bottom, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.2));
+      z-index: 0;
+    }
+
+    .hero-content {
+      text-align: center;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero h1 {
+      font-size: 64px;
+      font-weight: 700;
+      background: linear-gradient(to right, #b388ff, #9b59b6, #8e44ad);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: glowText 3s ease-in-out infinite;
+    }
+
+    .hero p {
+      font-size: 24px;
+      margin-top: 10px;
+      background: linear-gradient(to right, #00c6ff, #0072ff, #00b3ff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: glowText 3s ease-in-out infinite;
+    }
+
+    .hero .cta {
+      display: inline-block;
+      background: linear-gradient(to right, #b388ff, #9b59b6, #8e44ad);
+      color: #ffffff;
+      text-decoration: none;
+      padding: 16px 32px;
+      border-radius: 30px;
+      font-size: 18px;
+      font-weight: 500;
+      margin-top: 40px;
+      box-shadow: 0 10px 20px rgba(179, 136, 255, 0.4);
+      transition: transform 0.3s ease-in-out;
+    }
+
+    .hero .cta:hover {
+      transform: translateY(-5px);
+    }
+
+    /* Skills Section */
+    .skills {
+      padding: 80px 40px;
+      background-color: #111111;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .skills::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(ellipse at center, rgba(179, 136, 255, 0.1) 0%, rgba(0, 0, 0, 0.8) 100%);
+      z-index: 0;
+    }
+
+    .skills-content {
+      position: relative;
+      z-index: 1;
+    }
+
+    .skills h2 {
+      font-size: 40px;
+      font-weight: 700;
+      text-align: center;
+      background: linear-gradient(to right, #b388ff, #9b59b6, #8e44ad);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 40px;
+    }
+
+    .skill-item {
+      display: flex;
+      align-items: center;
+      margin-bottom: 30px;
+    }
+
+    .skill-item .skill-name {
+      font-size: 24px;
+      font-weight: 500;
+      flex: 1;
+      background: linear-gradient(to right, #00c6ff, #0072ff, #00b3ff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .skill-item .skill-progress {
+      width: 50%;
+      height: 20px;
+      background-color: #333333;
+      border-radius: 10px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .skill-item .skill-progress-bar {
+      height: 100%;
+      background: linear-gradient(to right, #b388ff, #9b59b6, #8e44ad);
+      width: 0%;
+      transition: width 1s ease-in-out;
+    }
+
+    /* Projects Section */
+    .projects {
+      padding: 80px 40px;
+      background-color: #000000;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .projects::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(ellipse at center, rgba(255, 255, 255, 0.1) 0%, rgba(0, 0, 0, 0.8) 100%);
+      z-index: 0;
+    }
+
+    .projects-content {
+      position: relative;
+      z-index: 1;
+    }
+
+    .projects h2 {
+      font-size: 40px;
+      font-weight: 700;
+      text-align: center;
+      background: linear-gradient(to right, #b388ff, #9b59b6, #8e44ad);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 40px;
+    }
+
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 40px;
+    }
+
+    .project-item {
+      position: relative;
+      overflow: hidden;
+      border-radius: 10px;
+      box-shadow: 0 10px 20px rgba(179, 136, 255, 0.4);
+      transition: transform 0.3s ease-in-out;
+    }
+
+    .project-item:hover {
+      transform: translateY(-10px);
+    }
+
+    .project-item img {
+      width: 100%;
+      height: 300px;
+      object-fit: cover;
+      filter: brightness(0.7);
+      transition: filter 0.3s ease-in-out;
+    }
+
+    .project-item:hover img {
+      filter: brightness(1);
+    }
+
+    .project-item .project-info {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      padding: 20px;
+      background: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.8));
+      transition: transform 0.3s ease-in-out;
+    }
+
+    .project-item:hover .project-info {
+      transform: translateY(-20px);
+    }
+
+    .project-item .project-title {
+      font-size: 24px;
+      font-weight: 500;
+      margin-bottom: 5px;
+      background: linear-gradient(to right, #b388ff, #9b59b6, #8e44ad);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .project-item .project-description {
+      font-size: 16px;
+      color: #ffffff;
+    }
+
+    /* Animations */
+    @keyframes glowText {
+      0% {
+        text-shadow: 0 0 10px rgba(179, 136, 255, 0.5);
+      }
+      50% {
+        text-shadow: 0 0 20px rgba(179, 136, 255, 0.8);
+      }
+      100% {
+        text-shadow: 0 0 10px rgba(179, 136, 255, 0.5);
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="#">Home</a>
+    <a href="#">Skills</a>
+    <a href="#">Projects</a>
+    <a href="#">Contact</a>
+  </nav>
+
+  <section class="hero">
+    <div class="hero-content">
+      <h1>Develop a Space-Themed Portfolio</h1>
+      <p>Unleash your cosmic creativity with a stunning space-themed portfolio</p>
+      <a href="#" class="cta">Get Started</a>
+    </div>
+  </section>
+
+  <section class="skills">
+    <div class="skills-content">
+      <h2>My Skills</h2>
+      <div class="skill-item">
+        <div class="skill-name">HTML/CSS</div>
+        <div class="skill-progress">
+          <div class="skill-progress-bar" style="width: 90%;"></div>
+        </div>
+      </div>
+      <div class="skill-item">
+        <div class="skill-name">JavaScript</div>
+        <div class="skill-progress">
+          <div class="skill-progress-bar" style="width: 85%;"></div>
+        </div>
+      </div>
+      <div class="skill-item">
+        <div class="skill-name">React.js</div>
+        <div class="skill-progress">
+          <div class="skill-progress-bar" style="width: 80%;"></div>
+        </div>
+      </div>
+      <div class="skill-item">
+        <div class="skill-name">UI/UX Design</div>
+        <div class="skill-progress">
+          <div class="skill-progress-bar" style="width: 92%;"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="projects">
+    <div class="projects-content">
+      <h2>My Projects</h2>
+      <div class="project-grid">
+        <div class="project-item">
+          <img src="https://dummyimage.com/600x400/ccc/000&text=Project+1" alt="Project 1">
+          <div class="project-info">
+            <h3 class="project-title">Project 1</h3>
+            <p class="project-description">A stunning space-themed website design.</p>
+          </div>
+        </div>
+        <div class="project-item">
+          <img src="https://dummyimage.com/600x400/ccc/000&text=Project+2" alt="Project 2">
+          <div class="project-info">
+            <h3 class="project-title">Project 2</h3>
+            <p class="project-description">An interactive portfolio showcasing cosmic-inspired art.</p>
+          </div>
+        </div>
+        <div class="project-item">
+          <img src="https://dummyimage.com/600x400/ccc/000&text=Project+3" alt="Project 3">
+          <div class="project-info">
+            <h3 class="project-title">Project 3</h3>
+            <p class="project-description">A responsive, space-themed landing page design.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</body>
+</html>'<!-- Visit: https://github.com/Ishanoshada/portflair -->
+<!-- Visit: https://github.com/Ishanoshada/portflair -->

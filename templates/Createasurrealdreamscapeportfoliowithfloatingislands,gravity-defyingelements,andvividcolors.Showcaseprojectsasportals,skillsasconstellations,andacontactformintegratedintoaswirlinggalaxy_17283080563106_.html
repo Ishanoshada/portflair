@@ -1,0 +1,382 @@
+<!-- Portfolio created by Ishan -->
+<!-- Check out my work at: https://github.com/Ishanoshada/portflair -->
+<!-- 2024/10/9 -->
+<!-- Portfolio created by Ishan -->
+'<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Surreal Dreamscape Portfolio</title>
+  <style>
+    /* Global Styles */
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Poppins', sans-serif;
+      background-color: #0D0D0D;
+      color: #FFFFFF;
+      overflow-x: hidden;
+    }
+
+    /* Navigation Bar */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 40px;
+      background-color: rgba(13, 13, 13, 0.8);
+      backdrop-filter: blur(10px);
+      position: relative;
+      z-index: 100;
+    }
+
+    nav a {
+      color: #FFFFFF;
+      text-decoration: none;
+      font-size: 18px;
+      font-weight: 500;
+      margin: 0 20px;
+      transition: color 0.3s ease;
+    }
+
+    nav a:hover {
+      color: #9B59B6;
+    }
+
+    /* Portfolio Section */
+    .portfolio-section {
+      position: relative;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+    }
+
+    .portfolio-background {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(circle, #9B59B6, #2980B9, #1ABC9C);
+      animation: galaxyAnimation 60s linear infinite;
+      z-index: -1;
+    }
+
+    .portfolio-container {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-gap: 40px;
+      width: 80%;
+      max-width: 1200px;
+    }
+
+    .portfolio-item {
+      position: relative;
+      width: 100%;
+      height: 0;
+      padding-bottom: 100%;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+
+    .portfolio-item:hover {
+      transform: scale(1.05);
+    }
+
+    .portfolio-item img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.3s ease;
+    }
+
+    .portfolio-item:hover img {
+      transform: scale(1.1);
+    }
+
+    .portfolio-item-details {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      padding: 20px;
+      background-color: rgba(13, 13, 13, 0.8);
+      backdrop-filter: blur(10px);
+      color: #FFFFFF;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .portfolio-item:hover .portfolio-item-details {
+      opacity: 1;
+    }
+
+    /* Skills Section */
+    .skills-section {
+      padding: 100px 40px;
+      background-color: #0D0D0D;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .skills-background {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(to bottom, #9B59B6, #2980B9, #1ABC9C);
+      opacity: 0.1;
+      z-index: -1;
+    }
+
+    .skills-container {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      grid-gap: 40px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .skill-item {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      padding: 40px;
+      background-color: rgba(255, 255, 255, 0.05);
+      border-radius: 20px;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+
+    .skill-item:hover {
+      transform: translateY(-10px);
+    }
+
+    .skill-item i {
+      font-size: 48px;
+      margin-bottom: 20px;
+      background: linear-gradient(to right, #9B59B6, #2980B9, #1ABC9C);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .skill-item h3 {
+      font-size: 24px;
+      font-weight: 600;
+      margin-bottom: 10px;
+    }
+
+    .skill-item p {
+      font-size: 16px;
+      color: #CCCCCC;
+    }
+
+    /* Contact Section */
+    .contact-section {
+      padding: 100px 40px;
+      background-color: #0D0D0D;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .contact-background {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(circle, #9B59B6, #2980B9, #1ABC9C);
+      animation: galaxyAnimation 60s linear infinite;
+      z-index: -1;
+    }
+
+    .contact-container {
+      max-width: 800px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .contact-form {
+      width: 100%;
+      background-color: rgba(255, 255, 255, 0.05);
+      border-radius: 20px;
+      padding: 40px;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+      width: 100%;
+      padding: 16px 20px;
+      margin-bottom: 20px;
+      border: none;
+      border-radius: 10px;
+      background-color: rgba(255, 255, 255, 0.1);
+      color: #FFFFFF;
+      font-size: 16px;
+      font-family: 'Poppins', sans-serif;
+      transition: background-color 0.3s ease;
+    }
+
+    .contact-form input:focus,
+    .contact-form textarea:focus {
+      background-color: rgba(255, 255, 255, 0.2);
+      outline: none;
+    }
+
+    .contact-form textarea {
+      resize: vertical;
+      min-height: 150px;
+    }
+
+    .contact-form button {
+      width: 100%;
+      padding: 16px 20px;
+      background: linear-gradient(to right, #9B59B6, #2980B9, #1ABC9C);
+      border: none;
+      border-radius: 10px;
+      color: #FFFFFF;
+      font-size: 16px;
+      font-weight: 600;
+      font-family: 'Poppins', sans-serif;
+      cursor: pointer;
+      transition: opacity 0.3s ease;
+    }
+
+    .contact-form button:hover {
+      opacity: 0.9;
+    }
+
+    /* Animations */
+    @keyframes galaxyAnimation {
+      0% {
+        background-position: 0% 0%;
+      }
+      50% {
+        background-position: 100% 100%;
+      }
+      100% {
+        background-position: 0% 0%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="#">Home</a>
+    <a href="#">Portfolio</a>
+    <a href="#">Skills</a>
+    <a href="#">Contact</a>
+  </nav>
+
+  <section class="portfolio-section">
+    <div class="portfolio-background"></div>
+    <div class="portfolio-container">
+      <div class="portfolio-item">
+        <img src="https://dummyimage.com/1200x1200/ccc/000&text=Project+1" alt="Project 1">
+        <div class="portfolio-item-details">
+          <h3>Project 1</h3>
+          <p>Client: Client Name</p>
+          <p>Year: 2024</p>
+        </div>
+      </div>
+      <div class="portfolio-item">
+        <img src="https://dummyimage.com/1200x1200/ccc/000&text=Project+2" alt="Project 2">
+        <div class="portfolio-item-details">
+          <h3>Project 2</h3>
+          <p>Client: Client Name</p>
+          <p>Year: 2024</p>
+        </div>
+      </div>
+      <div class="portfolio-item">
+        <img src="https://dummyimage.com/1200x1200/ccc/000&text=Project+3" alt="Project 3">
+        <div class="portfolio-item-details">
+          <h3>Project 3</h3>
+          <p>Client: Client Name</p>
+          <p>Year: 2024</p>
+        </div>
+      </div>
+      <div class="portfolio-item">
+        <img src="https://dummyimage.com/1200x1200/ccc/000&text=Project+4" alt="Project 4">
+        <div class="portfolio-item-details">
+          <h3>Project 4</h3>
+          <p>Client: Client Name</p>
+          <p>Year: 2024</p>
+        </div>
+      </div>
+      <div class="portfolio-item">
+        <img src="https://dummyimage.com/1200x1200/ccc/000&text=Project+5" alt="Project 5">
+        <div class="portfolio-item-details">
+          <h3>Project 5</h3>
+          <p>Client: Client Name</p>
+          <p>Year: 2024</p>
+        </div>
+      </div>
+      <div class="portfolio-item">
+        <img src="https://dummyimage.com/1200x1200/ccc/000&text=Project+6" alt="Project 6">
+        <div class="portfolio-item-details">
+          <h3>Project 6</h3>
+          <p>Client: Client Name</p>
+          <p>Year: 2024</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="skills-section">
+    <div class="skills-background"></div>
+    <div class="skills-container">
+      <div class="skill-item">
+        <i class="fas fa-palette"></i>
+        <h3>Graphic Design</h3>
+        <p>Expertise in creating visually stunning designs</p>
+      </div>
+      <div class="skill-item">
+        <i class="fas fa-code"></i>
+        <h3>Web Development</h3>
+        <p>Proficient in building responsive and interactive websites</p>
+      </div>
+      <div class="skill-item">
+        <i class="fas fa-brush"></i>
+        <h3>Illustration</h3>
+        <p>Skilled in creating unique and imaginative illustrations</p>
+      </div>
+      <div class="skill-item">
+        <i class="fas fa-video"></i>
+        <h3>Motion Graphics</h3>
+        <p>Experienced in producing captivating animated videos</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact-section">
+    <div class="contact-background"></div>
+    <div class="contact-container">
+      <div class="contact-form">
+        <input type="text" placeholder="Name" required>
+        <input type="email" placeholder="Email" required>
+        <textarea placeholder="Message" required></textarea>
+        <button type="submit">Submit</button>
+      </div>
+    </div>
+  </section>
+
+  <script src="https://kit.fontawesome.com/your-font-awesome-kit.js" crossorigin="anonymous"></script>
+</body>
+</html>'<!-- Visit: https://github.com/Ishanoshada/portflair -->
+<!-- Visit: https://github.com/Ishanoshada/portflair -->

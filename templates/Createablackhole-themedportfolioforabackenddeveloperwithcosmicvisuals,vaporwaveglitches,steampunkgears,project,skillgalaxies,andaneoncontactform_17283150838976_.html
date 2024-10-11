@@ -1,0 +1,757 @@
+<!-- Portfolio created by Ishan -->
+<!-- Check out my work at: https://github.com/Ishanoshada/portflair -->
+<!-- 2024/10/9 -->
+<!-- Portfolio created by Ishan -->
+'<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Black Hole Portfolio</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Orbitron', sans-serif;
+            background-color: #000;
+            color: #fff;
+            overflow-x: hidden;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 40px;
+            background-color: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(10px);
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: #9bf6ff;
+            text-shadow: 0 0 20px #9bf6ff, 0 0 40px #9bf6ff, 0 0 80px #9bf6ff;
+            animation: glow 2s ease-in-out infinite;
+        }
+
+        @keyframes glow {
+            0% {
+                text-shadow: 0 0 20px #9bf6ff, 0 0 40px #9bf6ff, 0 0 80px #9bf6ff;
+            }
+            50% {
+                text-shadow: 0 0 30px #9bf6ff, 0 0 60px #9bf6ff, 0 0 100px #9bf6ff;
+            }
+            100% {
+                text-shadow: 0 0 20px #9bf6ff, 0 0 40px #9bf6ff, 0 0 80px #9bf6ff;
+            }
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav ul li {
+            margin-left: 30px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #fff;
+            font-size: 16px;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            position: relative;
+            padding-bottom: 5px;
+        }
+
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: #9bf6ff;
+            transition: width 0.3s ease-in-out;
+        }
+
+        nav ul li a:hover::after {
+            width: 100%;
+        }
+
+        .hero {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background-image: url('https://dummyimage.com/1920x1080/000/9bf6ff.jpg&text=Black+Hole+Portfolio');
+            background-size: cover;
+            background-position: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(ellipse at center, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0.5) 70%, rgba(0, 0, 0, 0.3) 100%);
+            z-index: 1;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            max-width: 800px;
+            padding: 0 20px;
+        }
+
+        .hero-title {
+            font-size: 60px;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            text-shadow: 0 0 20px #9bf6ff, 0 0 40px #9bf6ff, 0 0 80px #9bf6ff;
+            animation: glow 2s ease-in-out infinite;
+        }
+
+        .hero-subtitle {
+            font-size: 24px;
+            margin-top: 20px;
+            letter-spacing: 2px;
+            opacity: 0.8;
+        }
+
+        .project-gallery {
+            padding: 80px 40px;
+            background-color: #0a0a0a;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .project-gallery::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(ellipse at center, rgba(10, 10, 10, 0.8) 0%, rgba(10, 10, 10, 0.5) 70%, rgba(10, 10, 10, 0.3) 100%);
+            z-index: 1;
+        }
+
+        .project-gallery-content {
+            position: relative;
+            z-index: 2;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-gap: 40px;
+        }
+
+        .project-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(155, 246, 255, 0.3);
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .project-item:hover {
+            transform: scale(1.05);
+        }
+
+        .project-item img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            filter: brightness(0.7) saturate(1.2) contrast(1.2);
+            transition: filter 0.3s ease-in-out;
+        }
+
+        .project-item:hover img {
+            filter: brightness(1) saturate(1) contrast(1);
+        }
+
+        .project-item-content {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background-color: rgba(0, 0, 0, 0.6);
+            opacity: 0;
+            transition: opacity 0.3s ease-in-out;
+        }
+
+        .project-item:hover .project-item-content {
+            opacity: 1;
+        }
+
+        .project-title {
+            font-size: 24px;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            text-shadow: 0 0 10px #9bf6ff, 0 0 20px #9bf6ff, 0 0 40px #9bf6ff;
+            margin-bottom: 10px;
+        }
+
+        .project-description {
+            font-size: 16px;
+            opacity: 0.8;
+            margin-bottom: 20px;
+        }
+
+        .skills-galaxy {
+            padding: 80px 40px;
+            background-color: #0a0a0a;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .skills-galaxy::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(ellipse at center, rgba(10, 10, 10, 0.8) 0%, rgba(10, 10, 10, 0.5) 70%, rgba(10, 10, 10, 0.3) 100%);
+            z-index: 1;
+        }
+
+        .skills-galaxy-content {
+            position: relative;
+            z-index: 2;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .skills-galaxy-container {
+            position: relative;
+            width: 100%;
+            max-width: 800px;
+            height: 600px;
+            margin-top: 40px;
+        }
+
+        .skills-planet {
+            position: absolute;
+            width: 80px;
+            height: 80px;
+            background-color: #9bf6ff;
+            border-radius: 50%;
+            box-shadow: 0 0 20px rgba(155, 246, 255, 0.5);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 14px;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            opacity: 0.8;
+            transition: all 0.3s ease-in-out;
+            cursor: pointer;
+        }
+
+        .skills-planet:hover {
+            transform: scale(1.2);
+            opacity: 1;
+            box-shadow: 0 0 30px rgba(155, 246, 255, 0.7);
+        }
+
+        .skills-planet-details {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: rgba(0, 0, 0, 0.8);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(155, 246, 255, 0.5);
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease-in-out;
+        }
+
+        .skills-planet:hover .skills-planet-details {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .skills-planet-title {
+            font-size: 18px;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 10px;
+        }
+
+        .skills-planet-description {
+            font-size: 14px;
+            opacity: 0.8;
+        }
+
+        .contact-form {
+            padding: 80px 40px;
+            background-color: #0a0a0a;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .contact-form::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(ellipse at center, rgba(10, 10, 10, 0.8) 0%, rgba(10, 10, 10, 0.5) 70%, rgba(10, 10, 10, 0.3) 100%);
+            z-index: 1;
+        }
+
+        .contact-form-content {
+            position: relative;
+            z-index: 2;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .contact-form-container {
+            width: 100%;
+            max-width: 600px;
+            padding: 40px;
+            background-color: rgba(0, 0, 0, 0.6);
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(155, 246, 255, 0.3);
+            animation: form-glow 2s ease-in-out infinite;
+        }
+
+        @keyframes form-glow {
+            0% {
+                box-shadow: 0 0 20px rgba(155, 246, 255, 0.3);
+            }
+            50% {
+                box-shadow: 0 0 30px rgba(155, 246, 255, 0.5);
+            }
+            100% {
+                box-shadow: 0 0 20px rgba(155, 246, 255, 0.3);
+            }
+        }
+
+        .form-title {
+            font-size: 24px;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            text-shadow: 0 0 10px #9bf6ff, 0 0 20px #9bf6ff, 0 0 40px #9bf6ff;
+            margin-bottom: 20px;
+        }
+
+        .form-field {
+            margin-bottom: 20px;
+        }
+
+        .form-field label {
+            display: block;
+            font-size: 16px;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 5px;
+        }
+
+        .form-field input, .form-field textarea {
+            width: 100%;
+            padding: 10px;
+            background-color: rgba(0, 0, 0, 0.4);
+            border: 1px solid #9bf6ff;
+            border-radius: 5px;
+            color: #fff;
+            font-size: 16px;
+            font-family: 'Orbitron', sans-serif;
+            transition: border-color 0.3s ease-in-out;
+        }
+
+        .form-field input:focus, .form-field textarea:focus {
+            outline: none;
+            border-color: #fff;
+        }
+
+        .form-field textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .form-submit {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            background-color: #9bf6ff;
+            border: none;
+            border-radius: 5px;
+            color: #000;
+            font-size: 16px;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            cursor: pointer;
+            transition: background-color 0.3s ease-in-out;
+        }
+
+        .form-submit:hover {
+            background-color: #00b4d8;
+        }
+
+        .form-submit:focus {
+            outline: none;
+        }
+
+        .form-confirmation {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 200;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease-in-out;
+        }
+
+        .form-confirmation.show {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .form-confirmation-content {
+            background-color: #0a0a0a;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(155, 246, 255, 0.5);
+            text-align: center;
+            animation: confirmation-glow 2s ease-in-out infinite;
+        }
+
+        @keyframes confirmation-glow {
+            0% {
+                box-shadow: 0 0 20px rgba(155, 246, 255, 0.5);
+            }
+            50% {
+                box-shadow: 0 0 30px rgba(155, 246, 255, 0.7);
+            }
+            100% {
+                box-shadow: 0 0 20px rgba(155, 246, 255, 0.5);}
+
+.form-confirmation-title {
+    font-size: 24px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-shadow: 0 0 10px #9bf6ff, 0 0 20px #9bf6ff, 0 0 40px #9bf6ff;
+    margin-bottom: 20px;
+}
+
+.form-confirmation-message {
+    font-size: 16px;
+    opacity: 0.8;
+}
+
+.form-confirmation-close {
+    display: block;
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #9bf6ff;
+    border: none;
+    border-radius: 5px;
+    color: #000;
+    font-size: 16px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.form-confirmation-close:hover {
+    background-color: #00b4d8;
+}
+
+.form-confirmation-close:focus {
+    outline: none;
+}
+
+footer {
+    padding: 20px 40px;
+    background-color: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(10px);
+    text-align: center;
+    font-size: 14px;
+    opacity: 0.8;
+}
+
+@media (max-width: 1024px) {
+    .project-gallery-content {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .skills-galaxy-container {
+        max-width: 600px;
+        height: 500px;
+    }
+
+    .skills-planet {
+        width: 60px;
+        height: 60px;
+        font-size: 12px;
+    }
+}
+
+@media (max-width: 768px) {
+    header {
+        padding: 15px 20px;
+    }
+
+    .logo {
+        font-size: 20px;
+    }
+
+    nav ul li {
+        margin-left: 20px;
+    }
+
+    nav ul li a {
+        font-size: 14px;
+    }
+
+    .hero-title {
+        font-size: 40px;
+    }
+
+    .hero-subtitle {
+        font-size: 18px;
+    }
+
+    .project-gallery,
+    .skills-galaxy,
+    .contact-form {
+        padding: 60px 20px;
+    }
+
+    .project-gallery-content {
+        grid-template-columns: 1fr;
+    }
+
+    .skills-galaxy-container {
+        max-width: 400px;
+        height: 400px;
+    }
+
+    .skills-planet {
+        width: 50px;
+        height: 50px;
+        font-size: 10px;
+    }
+
+    .contact-form-container {
+        padding: 30px;
+    }
+
+    .form-title {
+        font-size: 20px;
+    }
+
+    .form-field label {
+        font-size: 14px;
+    }
+
+    .form-field input,
+    .form-field textarea,
+    .form-submit {
+        font-size: 14px;
+    }
+
+    .form-confirmation-content {
+        padding: 30px;
+    }
+
+    .form-confirmation-title {
+        font-size: 20px;
+    }
+
+    .form-confirmation-message {
+        font-size: 14px;
+    }
+
+    .form-confirmation-close {
+        font-size: 14px;
+    }
+
+    footer {
+        padding: 15px 20px;
+        font-size: 12px;
+    }
+}
+
+</style>
+</head>
+<body>
+    <header>
+        <div class="logo">Black Hole Portfolio</div>
+        <nav>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Projects</a></li>
+                <li><a href="#">Skills</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1 class="hero-title">Welcome to the Black Hole Portfolio</h1>
+            <p class="hero-subtitle">Explore the cosmic wonders of a backend developer's work</p>
+        </div>
+    </section>
+
+    <section class="project-gallery">
+        <div class="project-gallery-content">
+            <div class="project-item">
+                <img src="https://dummyimage.com/600x400/000/9bf6ff.jpg&text=Project+1" alt="Project 1">
+                <div class="project-item-content">
+                    <h3 class="project-title">Project 1</h3>
+                    <p class="project-description">A brief description of the first project.</p>
+                </div>
+            </div>
+            <div class="project-item">
+                <img src="https://dummyimage.com/600x400/000/9bf6ff.jpg&text=Project+2" alt="Project 2">
+                <div class="project-item-content">
+                    <h3 class="project-title">Project 2</h3>
+                    <p class="project-description">A brief description of the second project.</p>
+                </div>
+            </div>
+            <div class="project-item">
+                <img src="https://dummyimage.com/600x400/000/9bf6ff.jpg&text=Project+3" alt="Project 3">
+                <div class="project-item-content">
+                    <h3 class="project-title">Project 3</h3>
+                    <p class="project-description">A brief description of the third project.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="skills-galaxy">
+        <div class="skills-galaxy-content">
+            <h2 class="section-title">Skills and Expertise Galaxy</h2>
+            <div class="skills-galaxy-container">
+                <div class="skills-planet" style="top: 20%; left: 10%;">
+                    <span>JavaScript</span>
+                    <div class="skills-planet-details">
+                        <h3 class="skills-planet-title">JavaScript</h3>
+                        <p class="skills-planet-description">Proficient in modern JavaScript, including ES6+ features and best practices.</p>
+                    </div>
+                </div>
+                <div class="skills-planet" style="top: 40%; left: 30%;">
+                    <span>Node.js</span>
+                    <div class="skills-planet-details">
+                        <h3 class="skills-planet-title">Node.js</h3>
+                        <p class="skills-planet-description">Experienced in building server-side applications using Node.js and its ecosystem.</p>
+                    </div>
+                </div>
+                <div class="skills-planet" style="top: 60%; left: 50%;">
+                    <span>MongoDB</span>
+                    <div class="skills-planet-details">
+                        <h3 class="skills-planet-title">MongoDB</h3>
+                        <p class="skills-planet-description">Skilled in working with MongoDB, a popular NoSQL database, for data storage and management.</p>
+                    </div>
+                </div>
+                <div class="skills-planet" style="top: 80%; left: 70%;">
+                    <span>Redis</span>
+                    <div class="skills-planet-details">
+                        <h3 class="skills-planet-title">Redis</h3>
+                        <p class="skills-planet-description">Proficient in using Redis, an open-source in-memory data structure store, for caching and real-time applications.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="contact-form">
+        <div class="contact-form-content">
+            <div class="contact-form-container">
+                <h2 class="form-title">Get in Touch</h2>
+                <form id="contact-form">
+                    <div class="form-field">
+                        <label for="name">Name</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-field">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-field">
+                        <label for="message">Message</label>
+                        <textarea id="message" name="message" required></textarea>
+                    </div>
+                    <button type="submit" class="form-submit">Send</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <div class="form-confirmation">
+        <div class="form-confirmation-content">
+            <h2 class="form-confirmation-title">Thank you!</h2>
+            <p class="form-confirmation-message">Your message has been sent successfully. I'll get back to you as soon as possible.</p>
+            <button class="form-confirmation-close">Close</button>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Black Hole Portfolio. All rights reserved.</p>
+    </footer>
+
+    <script>
+        document.getElementById('contact-form').addEventListener('submit', (event) => {
+            event.preventDefault();
+            const formConfirmation = document.querySelector('.form-confirmation');
+            formConfirmation.classList.add('show');
+
+            document.querySelector('.form-confirmation-close').addEventListener('click', () => {
+                formConfirmation.classList.remove('show');
+            });
+        });
+    </script>
+</body>
+</html>'<!-- Visit: https://github.com/Ishanoshada/portflair -->
+<!-- Visit: https://github.com/Ishanoshada/portflair -->

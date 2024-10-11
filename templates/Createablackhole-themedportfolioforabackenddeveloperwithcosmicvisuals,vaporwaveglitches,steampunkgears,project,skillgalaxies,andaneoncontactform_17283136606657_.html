@@ -1,0 +1,474 @@
+<!-- Portfolio created by Ishan -->
+<!-- Check out my work at: https://github.com/Ishanoshada/portflair -->
+<!-- 2024/10/9 -->
+<!-- Portfolio created by Ishan -->
+'<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Black Hole Portfolio</title>
+    <style>
+        /* Reset some default styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Body styles */
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: #0d0d0d;
+            color: #f1f1f1;
+            overflow-x: hidden;
+        }
+
+        /* Navbar styles */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 2rem;
+            background-color: rgba(13, 13, 13, 0.8);
+            backdrop-filter: blur(10px);
+            position: relative;
+            z-index: 100;
+        }
+
+        nav a {
+            color: #f1f1f1;
+            text-decoration: none;
+            font-size: 1.1rem;
+            font-weight: 500;
+            margin: 0 1rem;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: #9b59b6;
+        }
+
+        /* Project Galaxy section */
+        #project-galaxy {
+            position: relative;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        #project-galaxy::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: radial-gradient(circle, #0d0d0d 0%, #000000 100%);
+            z-index: -1;
+        }
+
+        .project-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            width: 100%;
+            max-width: 1200px;
+            padding: 2rem;
+        }
+
+        .project-item {
+            position: relative;
+            width: 200px;
+            height: 200px;
+            margin: 1rem;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            cursor: pointer;
+            transition: transform 0.3s ease, background-color 0.3s ease;
+        }
+
+        .project-item:hover {
+            transform: scale(1.1);
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .project-item img {
+            width: 80%;
+            height: 80%;
+            object-fit: contain;
+            filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.5));
+        }
+
+        .project-details {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(13, 13, 13, 0.9);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .project-item:hover .project-details {
+            opacity: 1;
+        }
+
+        .project-details h3 {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .project-details p {
+            font-size: 0.9rem;
+            text-align: center;
+            max-width: 80%;
+        }
+
+        /* Skill Galaxy section */
+        #skill-galaxy {
+            position: relative;
+            padding: 6rem 2rem;
+            background-image: radial-gradient(circle, #0d0d0d 0%, #000000 100%);
+            overflow: hidden;
+        }
+
+        .skill-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .skill-item {
+            position: relative;
+            width: 150px;
+            height: 150px;
+            margin: 1rem;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            cursor: pointer;
+            transition: transform 0.3s ease, background-color 0.3s ease;
+        }
+
+        .skill-item:hover {
+            transform: scale(1.1);
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .skill-item i {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+            color: #9b59b6;
+            text-shadow: 0 0 10px rgba(155, 89, 182, 0.5);
+        }
+
+        .skill-item h4 {
+            font-size: 1rem;
+            text-align: center;
+        }
+
+        .skill-details {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(13, 13, 13, 0.9);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .skill-item:hover .skill-details {
+            opacity: 1;
+        }
+
+        .skill-details p {
+            font-size: 0.9rem;
+            text-align: center;
+            max-width: 80%;
+        }
+
+        /* Contact Form section */
+        #contact {
+            position: relative;
+            padding: 6rem 2rem;
+            background-image: linear-gradient(to bottom, #0d0d0d, #000000);
+            overflow: hidden;
+        }
+
+        .contact-form {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(155, 89, 182, 0.3);
+        }
+
+        .contact-form h2 {
+            text-align: center;
+            margin-bottom: 1.5rem;
+            color: #9b59b6;
+            text-shadow: 0 0 10px rgba(155, 89, 182, 0.5);
+        }
+
+        .contact-form .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-form label {
+            display: block;
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+            color: #f1f1f1;
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 0.8rem 1rem;
+            font-size: 1rem;
+            border: none;
+            border-radius: 5px;
+            background-color: rgba(255, 255, 255, 0.2);
+            color: #f1f1f1;
+            transition: background-color 0.3s ease;
+        }
+
+        .contact-form input:focus,
+        .contact-form textarea:focus {
+            outline: none;
+            background-color: rgba(255, 255, 255, 0.3);
+        }
+
+        .contact-form textarea {
+            resize: vertical;
+        }
+
+        .contact-form button {
+            display: block;
+            width: 100%;
+            padding: 1rem;
+            font-size: 1rem;
+            font-weight: 500;
+            border: none;
+            border-radius: 5px;
+            background-color: #9b59b6;
+            color: #f1f1f1;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .contact-form button:hover {
+            background-color: #8e44ad;
+        }
+
+        /* Animations */
+        @keyframes starfield {
+            0% {
+                transform: translateY(0);
+            }
+            100% {
+                transform: translateY(-100%);
+            }
+        }
+
+        .starfield {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('https://dummyimage.com/1200x500/ccc/000&text=Starfield');
+            background-size: cover;
+            animation: starfield 120s linear infinite;
+        }
+
+        .glitch {
+            animation: glitch 2s linear infinite;
+        }
+
+        @keyframes glitch {
+            0% {
+                transform: translate(0);
+            }
+            20% {
+                transform: translate(-2px, 2px);
+            }
+            40% {
+                transform: translate(-2px, -2px);
+            }
+            60% {
+                transform: translate(2px, 2px);
+            }
+            80% {
+                transform: translate(2px, -2px);
+            }
+            100% {
+                transform: translate(0);
+            }
+        }
+
+        /* Responsive styles */
+        @media (max-width: 768px) {
+            nav {
+                padding: 1rem;
+            }
+
+            nav a {
+                font-size: 0.9rem;
+                margin: 0 0.5rem;
+            }
+
+            .project-item,
+            .skill-item {
+                width: 150px;
+                height: 150px;
+                margin: 0.5rem;
+            }
+
+            .contact-form {
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="#">Home</a>
+        <a href="#">Projects</a>
+        <a href="#">Skills</a>
+        <a href="#">Contact</a>
+    </nav>
+
+    <section id="project-galaxy">
+        <div class="starfield"></div>
+        <div class="project-container">
+            <div class="project-item">
+                <img src="https://dummyimage.com/200x200/ccc/000&text=Project+1" alt="Project 1">
+                <div class="project-details">
+                    <h3>Project 1</h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                </div>
+            </div>
+            <div class="project-item">
+                <img src="https://dummyimage.com/200x200/ccc/000&text=Project+2" alt="Project 2">
+                <div class="project-details">
+                    <h3>Project 2</h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                </div>
+            </div>
+            <div class="project-item">
+                <img src="https://dummyimage.com/200x200/ccc/000&text=Project+3" alt="Project 3">
+                <div class="project-details">
+                    <h3>Project 3</h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                </div>
+            </div>
+            <div class="project-item">
+                <img src="https://dummyimage.com/200x200/ccc/000&text=Project+4" alt="Project 4">
+                <div class="project-details">
+                    <h3>Project 4</h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="skill-galaxy">
+        <div class="skill-container">
+            <div class="skill-item">
+                <i class="fas fa-code glitch"></i>
+                <h4>JavaScript</h4>
+                <div class="skill-details">
+                    <p>Proficient in JavaScript, including ES6 and modern frameworks.</p>
+                </div>
+            </div>
+            <div class="skill-item">
+                <i class="fas fa-database glitch"></i>
+                <h4>SQL</h4>
+                <div class="skill-details">
+                    <p>Experienced in designing and optimizing SQL databases.</p>
+                </div>
+            </div>
+            <div class="skill-item">
+                <i class="fab fa-node-js glitch"></i>
+                <h4>Node.js</h4>
+                <div class="skill-details">
+                    <p>Skilled in building robust and scalable Node.js applications.</p>
+                </div>
+            </div>
+            <div class="skill-item">
+                <i class="fas fa-cloud glitch"></i>
+                <h4>Cloud</h4>
+                <div class="skill-details">
+                    <p>Proficient in cloud computing technologies like AWS and Azure.</p>
+                </div>
+            </div>
+            <div class="skill-item">
+                <i class="fas fa-cog glitch"></i>
+                <h4>DevOps</h4>
+                <div class="skill-details">
+                    <p>Experienced in DevOps practices and tools like Docker and Kubernetes.</p>
+                </div>
+            </div>
+            <div class="skill-item">
+                <i class="fas fa-mobile-alt glitch"></i>
+                <h4>Mobile</h4>
+                <div class="skill-details">
+                    <p>Skilled in building mobile-friendly and responsive web applications.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <div class="starfield"></div>
+        <div class="contact-form">
+            <h2>Get in Touch</h2>
+            <form>
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" id="name" name="name" placeholder="Enter your name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" placeholder="Enter your email" required>
+                </div>
+                <div class="form-group">
+                    <label for="message">Message</label>
+                    <textarea id="message" name="message" placeholder="Enter your message" required></textarea>
+                </div>
+                <button type="submit">Send Message</button>
+            </form>
+        </div>
+    </section>
+
+    <script src="https://kit.fontawesome.com/your-font-awesome-kit.js" crossorigin="anonymous"></script>
+</body>
+</html>'<!-- Visit: https://github.com/Ishanoshada/portflair -->
+<!-- Visit: https://github.com/Ishanoshada/portflair -->

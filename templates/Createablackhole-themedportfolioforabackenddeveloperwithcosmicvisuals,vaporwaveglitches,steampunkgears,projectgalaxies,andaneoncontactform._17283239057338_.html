@@ -1,0 +1,488 @@
+<!-- Portfolio created by Ishan -->
+<!-- Check out my work at: https://github.com/Ishanoshada/portflair -->
+<!-- 2024/10/9 -->
+<!-- Portfolio created by Ishan -->
+'<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Black Hole Portfolio</title>
+  <style>
+    /* Global Styles */
+    body {
+      margin: 0;
+      font-family: 'Roboto', sans-serif;
+      background-color: #0c0c0c;
+      color: #fff;
+      overflow-x: hidden;
+    }
+
+    /* Navigation */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 40px;
+      background-color: rgba(12, 12, 12, 0.8);
+      backdrop-filter: blur(10px);
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 999;
+    }
+
+    nav .logo {
+      font-size: 24px;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: #9b59b6;
+      text-shadow: 0 0 20px #9b59b6, 0 0 40px #9b59b6, 0 0 60px #9b59b6;
+      animation: neonGlow 2s ease-in-out infinite;
+    }
+
+    nav ul {
+      display: flex;
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    nav ul li {
+      margin-left: 30px;
+    }
+
+    nav ul li a {
+      color: #fff;
+      text-decoration: none;
+      font-size: 16px;
+      font-weight: 500;
+      position: relative;
+      padding-bottom: 5px;
+    }
+
+    nav ul li a:before {
+      content: "";
+      position: absolute;
+      width: 0;
+      height: 2px;
+      bottom: 0;
+      left: 0;
+      background-color: #9b59b6;
+      transition: width 0.3s ease-in-out;
+    }
+
+    nav ul li a:hover:before {
+      width: 100%;
+    }
+
+    /* Hero Section */
+    .hero {
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-bg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      background: radial-gradient(ellipse at center, #0c0c0c 0%, #000 100%);
+      animation: blackHoleSwirl 60s linear infinite;
+    }
+
+    .hero-content {
+      text-align: center;
+      max-width: 800px;
+      padding: 0 20px;
+    }
+
+    .hero-content h1 {
+      font-size: 48px;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 4px;
+      color: #fff;
+      text-shadow: 0 0 20px #9b59b6, 0 0 40px #9b59b6, 0 0 60px #9b59b6;
+      animation: neonGlow 2s ease-in-out infinite;
+    }
+
+    .hero-content p {
+      font-size: 20px;
+      margin-top: 20px;
+      color: #ccc;
+      text-shadow: 0 0 10px rgba(155, 89, 182, 0.5);
+    }
+
+    .cta-button {
+      display: inline-block;
+      margin-top: 40px;
+      padding: 12px 30px;
+      font-size: 16px;
+      font-weight: 500;
+      text-decoration: none;
+      color: #fff;
+      background-color: #9b59b6;
+      border-radius: 30px;
+      box-shadow: 0 0 20px rgba(155, 89, 182, 0.5);
+      transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    }
+
+    .cta-button:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 0 40px rgba(155, 89, 182, 0.8);
+    }
+
+    /* Project Showcase */
+    .project-showcase {
+      padding: 80px 40px;
+      background-color: #0c0c0c;
+      background-image: url("https://dummyimage.com/1920x1080/333/fff&text=Cosmic+Backdrop");
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+    }
+
+    .project-showcase h2 {
+      font-size: 36px;
+      font-weight: bold;
+      text-align: center;
+      text-transform: uppercase;
+      letter-spacing: 4px;
+      color: #fff;
+      text-shadow: 0 0 20px #9b59b6, 0 0 40px #9b59b6, 0 0 60px #9b59b6;
+      animation: neonGlow 2s ease-in-out infinite;
+    }
+
+    .project-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      grid-gap: 40px;
+      margin-top: 60px;
+    }
+
+    .project-card {
+      background-color: rgba(12, 12, 12, 0.8);
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 0 20px rgba(155, 89, 182, 0.3);
+      transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    }
+
+    .project-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 0 40px rgba(155, 89, 182, 0.5);
+    }
+
+    .project-card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      object-position: center;
+    }
+
+    .project-card h3 {
+      font-size: 24px;
+      font-weight: bold;
+      margin: 20px;
+      color: #fff;
+      text-shadow: 0 0 10px rgba(155, 89, 182, 0.5);
+    }
+
+    .project-card p {
+      font-size: 16px;
+      margin: 0 20px 20px;
+      color: #ccc;
+      text-shadow: 0 0 10px rgba(155, 89, 182, 0.3);
+    }
+
+    .project-card a {
+      display: inline-block;
+      margin: 0 20px 20px;
+      padding: 8px 20px;
+      font-size: 14px;
+      font-weight: 500;
+      text-decoration: none;
+      color: #fff;
+      background-color: #9b59b6;
+      border-radius: 20px;
+      box-shadow: 0 0 10px rgba(155, 89, 182, 0.5);
+      transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    }
+
+    .project-card a:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 0 20px rgba(155, 89, 182, 0.8);
+    }
+
+    /* Contact Form */
+    .contact-form {
+      padding: 80px 40px;
+      background-color: #0c0c0c;
+      background-image: url("https://dummyimage.com/1920x1080/333/fff&text=Neon+Grid+Backdrop");
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+    }
+
+    .contact-form h2 {
+      font-size: 36px;
+      font-weight: bold;
+      text-align: center;
+      text-transform: uppercase;
+      letter-spacing: 4px;
+      color: #fff;
+      text-shadow: 0 0 20px #9b59b6, 0 0 40px #9b59b6, 0 0 60px #9b59b6;
+      animation: neonGlow 2s ease-in-out infinite;
+    }
+
+    .contact-form form {
+      max-width: 600px;
+      margin: 60px auto 0;
+      background-color: rgba(12, 12, 12, 0.8);
+      padding: 40px;
+      border-radius: 10px;
+      box-shadow: 0 0 20px rgba(155, 89, 182, 0.3);
+    }
+
+    .contact-form .form-group {
+      margin-bottom: 30px;
+    }
+
+    .contact-form label {
+      display: block;
+      font-size: 16px;
+      font-weight: 500;
+      color: #fff;
+      text-shadow: 0 0 10px rgba(155, 89, 182, 0.5);
+      margin-bottom: 10px;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+      width: 100%;
+      padding: 12px 20px;
+      font-size: 16px;
+      border: none;
+      border-radius: 30px;
+      background-color: rgba(255, 255, 255, 0.1);
+      color: #fff;
+      box-shadow: 0 0 10px rgba(155, 89, 182, 0.2);
+      transition: box-shadow 0.3s ease-in-out;
+    }
+
+    .contact-form input:focus,
+    .contact-form textarea:focus {
+      outline: none;
+      box-shadow: 0 0 20px rgba(155, 89, 182, 0.5);
+    }
+
+    .contact-form textarea {
+      resize: vertical;
+      min-height: 150px;
+    }
+
+    .contact-form button {
+      display: block;
+      width: 100%;
+      padding: 12px 30px;
+      font-size: 16px;
+      font-weight: 500;
+      text-decoration: none;
+      color: #fff;
+      background-color: #9b59b6;
+      border: none;
+      border-radius: 30px;
+      box-shadow: 0 0 20px rgba(155, 89, 182, 0.5);
+      cursor: pointer;
+      transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    }
+
+    .contact-form button:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 0 40px rgba(155, 89, 182, 0.8);
+    }
+
+    /* Animations */
+    @keyframes blackHoleSwirl {
+      0% {
+        transform: scale(1) rotate(0deg);
+      }
+      100% {
+        transform: scale(1.2) rotate(360deg);
+      }
+    }
+
+    @keyframes neonGlow {
+      0% {
+        text-shadow: 0 0 10px #9b59b6, 0 0 20px #9b59b6, 0 0 30px #9b59b6;
+      }
+      50% {
+        text-shadow: 0 0 20px #9b59b6, 0 0 40px #9b59b6, 0 0 50px #9b59b6;
+      }
+      100% {
+        text-shadow: 0 0 10px #9b59b6, 0 0 20px #9b59b6, 0 0 30px #9b59b6;
+      }
+    }
+
+    /* Responsive Styles */
+    @media (max-width: 768px) {
+      nav {
+        padding: 15px 20px;
+      }
+
+      nav .logo {
+        font-size: 20px;
+      }
+
+      nav ul li {
+        margin-left: 20px;
+      }
+
+      nav ul li a {
+        font-size: 14px;
+      }
+
+      .hero-content h1 {
+        font-size: 36px;
+      }
+
+      .hero-content p {
+        font-size: 16px;
+      }
+
+      .cta-button {
+        font-size: 14px;
+        padding: 10px 25px;
+      }
+
+      .project-showcase,
+      .contact-form {
+        padding: 60px 20px;
+      }
+
+      .project-showcase h2,
+      .contact-form h2 {
+        font-size: 30px;
+      }
+
+      .project-cards {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        grid-gap: 30px;
+      }
+
+      .project-card h3 {
+        font-size: 20px;
+      }
+
+      .project-card p {
+        font-size: 14px;
+      }
+
+      .project-card a {
+        font-size: 12px;
+      }
+
+      .contact-form form {
+        padding: 30px;
+      }
+
+      .contact-form label {
+        font-size: 14px;
+      }
+
+      .contact-form input,
+      .contact-form textarea {
+        font-size: 14px;
+      }
+
+      .contact-form button {
+        font-size: 14px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="logo">Black Hole Portfolio</div>
+    <ul>
+      <li><a href="#">Home</a></li>
+      <li><a href="#">About</a></li>
+      <li><a href="#">Projects</a></li>
+      <li><a href="#">Contact</a></li>
+    </ul>
+  </nav>
+
+  <section class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-content">
+      <h1>Welcome to the Black Hole</h1>
+      <p>Explore the cosmic portfolio of a backend developer extraordinaire.</p>
+      <a href="#" class="cta-button">Dive In</a>
+    </div>
+  </section>
+
+  <section class="project-showcase">
+    <h2>Project Galaxies</h2>
+    <div class="project-cards">
+      <div class="project-card">
+        <img src="https://dummyimage.com/600x400/333/fff&text=Project+1" alt="Project 1">
+        <h3>Project 1</h3>
+        <p>A brief description of the first project.</p>
+        <a href="#">View Project</a>
+      </div>
+      <div class="project-card">
+        <img src="https://dummyimage.com/600x400/333/fff&text=Project+2" alt="Project 2">
+        <h3>Project 2</h3>
+        <p>A brief description of the second project.</p>
+        <a href="#">View Project</a>
+      </div>
+      <div class="project-card">
+        <img src="https://dummyimage.com/600x400/333/fff&text=Project+3" alt="Project 3">
+        <h3>Project 3</h3>
+        <p>A brief description of the third project.</p>
+        <a href="#">View Project</a>
+      </div>
+      <div class="project-card">
+        <img src="https://dummef="#">View Project</a>
+      </div>
+      <div class="project-card">
+        <img src="https://dummyimage.com/600x400/333/fff&text=Project+5" alt="Project 5">
+        <h3>Project 5</h3>
+        <p>A brief description of the fifth project.</p>
+        <a href="#">View Project</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact-form">
+    <h2>Get in Touch</h2>
+    <form>
+      <div class="form-group">
+        <label for="name">Name</label>
+        <input type="text" id="name" name="name" placeholder="Enter your name" required>
+      </div>
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" placeholder="Enter your email" required>
+      </div>
+      <div class="form-group">
+        <label for="message">Message</label>
+        <textarea id="message" name="message" placeholder="Enter your message" required></textarea>
+      </div>
+      <button type="submit">Send Message</button>
+    </form>
+  </section>
+
+</body>
+</html>'<!-- Visit: https://github.com/Ishanoshada/portflair -->
+<!-- Visit: https://github.com/Ishanoshada/portflair -->

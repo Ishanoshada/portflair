@@ -1,0 +1,462 @@
+<!-- Portfolio created by Ishan -->
+<!-- Check out my work at: https://github.com/Ishanoshada/portflair -->
+<!-- 2024/10/9 -->
+<!-- Portfolio created by Ishan -->
+'<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Black Hole Portfolio</title>
+    <style>
+        /* Global Styles */
+        body {
+            font-family: 'Orbitron', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #0C0C0C;
+            color: #fff;
+            overflow-x: hidden;
+        }
+
+        /* Navigation Bar */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 2rem;
+            background-color: rgba(12, 12, 12, 0.8);
+            backdrop-filter: blur(10px);
+            position: relative;
+            z-index: 100;
+        }
+
+        .navbar-brand {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #FFF;
+            text-decoration: none;
+            text-shadow: 0 0 20px #9b59b6, 0 0 30px #9b59b6, 0 0 40px #9b59b6;
+            transition: text-shadow 0.3s ease-in-out;
+        }
+
+        .navbar-brand:hover {
+            text-shadow: 0 0 20px #e74c3c, 0 0 30px #e74c3c, 0 0 40px #e74c3c;
+        }
+
+        .navbar-nav {
+            display: flex;
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .navbar-nav li {
+            margin-left: 2rem;
+        }
+
+        .navbar-nav li a {
+            color: #FFF;
+            text-decoration: none;
+            font-size: 1.2rem;
+            position: relative;
+            padding-bottom: 0.5rem;
+        }
+
+        .navbar-nav li a:before {
+            content: "";
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: #9b59b6;
+            visibility: hidden;
+            transition: all 0.3s ease-in-out;
+        }
+
+        .navbar-nav li a:hover:before {
+            visibility: visible;
+            width: 100%;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background-image: url('https://dummyimage.com/1200x500/0C0C0C/9b59b6.jpg&text=Black+Hole');
+            background-size: cover;
+            background-position: center;
+            filter: blur(5px);
+            animation: blackHoleSwirl 60s linear infinite;
+        }
+
+        @keyframes blackHoleSwirl {
+            0% {
+                transform: rotate(0deg) scale(1);
+            }
+            100% {
+                transform: rotate(360deg) scale(1.2);
+            }
+        }
+
+        .hero-content {
+            text-align: center;
+            text-shadow: 0 0 20px #9b59b6, 0 0 30px #9b59b6, 0 0 40px #9b59b6;
+            animation: glitch 2s infinite;
+        }
+
+        .hero-content h1 {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero-content p {
+            font-size: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        @keyframes glitch {
+            0% {
+                text-shadow: 0 0 20px #9b59b6, 0 0 30px #9b59b6, 0 0 40px #9b59b6;
+            }
+            20% {
+                text-shadow: 0 0 20px #e74c3c, 0 0 30px #e74c3c, 0 0 40px #e74c3c;
+            }
+            40% {
+                text-shadow: 0 0 20px #9b59b6, 0 0 30px #9b59b6, 0 0 40px #9b59b6;
+            }
+            60% {
+                text-shadow: 0 0 20px #e74c3c, 0 0 30px #e74c3c, 0 0 40px #e74c3c;
+            }
+            80% {
+                text-shadow: 0 0 20px #9b59b6, 0 0 30px #9b59b6, 0 0 40px #9b59b6;
+            }
+            100% {
+                text-shadow: 0 0 20px #9b59b6, 0 0 30px #9b59b6, 0 0 40px #9b59b6;
+            }
+        }
+
+        /* Project Gallery */
+        .project-gallery {
+            padding: 4rem 2rem;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-gap: 2rem;
+            perspective: 1000px;
+        }
+
+        .project-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(155, 89, 182, 0.5);
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .project-item:hover {
+            transform: translateZ(50px);
+        }
+
+        .project-item img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            filter: blur(2px) grayscale(50%);
+            transition: filter 0.3s ease-in-out;
+        }
+
+        .project-item:hover img {
+            filter: blur(0) grayscale(0);
+        }
+
+        .project-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(155, 89, 182, 0.7);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transition: opacity 0.3s ease-in-out;
+        }
+
+        .project-item:hover .project-overlay {
+            opacity: 1;
+        }
+
+        .project-overlay h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            text-shadow: 0 0 10px #0C0C0C, 0 0 20px #0C0C0C, 0 0 30px #0C0C0C;
+        }
+
+        .project-overlay p {
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
+            text-shadow: 0 0 10px #0C0C0C, 0 0 20px #0C0C0C, 0 0 30px #0C0C0C;
+        }
+
+        .project-overlay a {
+            display: inline-block;
+            padding: 0.8rem 1.5rem;
+            background-color: #0C0C0C;
+            color: #FFF;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 1.2rem;
+            box-shadow: 0 0 10px rgba(155, 89, 182, 0.5);
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+        }
+
+        .project-overlay a:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 0 20px rgba(155, 89, 182, 0.7);
+        }
+
+        /* Contact Form */
+        .contact-form {
+            padding: 4rem 2rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-image: url('https://dummyimage.com/1200x500/0C0C0C/e74c3c.jpg&text=Contact');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+
+        .contact-form-container {
+            background-color: rgba(12, 12, 12, 0.8);
+            backdrop-filter: blur(10px);
+            padding: 3rem;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(231, 76, 60, 0.5);
+            width: 80%;
+            max-width: 600px;
+        }
+
+        .contact-form h2 {
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 2rem;
+            text-shadow: 0 0 10px #e74c3c, 0 0 20px #e74c3c, 0 0 30px #e74c3c;
+        }
+
+        .contact-form form {
+            display: grid;
+            grid-template-columns: 1fr;
+            grid-gap: 1.5rem;
+        }
+
+        .contact-form .form-group {
+            position: relative;
+        }
+
+        .contact-form .form-group label {
+            position: absolute;
+            top: 50%;
+            left: 1rem;
+            transform: translateY(-50%);
+            font-size: 1.2rem;
+            color: #9b59b6;
+            pointer-events: none;
+            transition: all 0.3s ease-in-out;
+        }
+
+        .contact-form .form-group input,
+        .contact-form .form-group textarea {
+            width: 100%;
+            padding: 1rem 1rem 1rem 2rem;
+            font-size: 1.2rem;
+            background-color: transparent;
+            border: none;
+            border-bottom: 2px solid #9b59b6;
+            color: #FFF;
+            outline: none;
+            transition: border-color 0.3s ease-in-out;
+        }
+
+        .contact-form .form-group input:focus,
+        .contact-form .form-group textarea:focus {
+            border-color: #e74c3c;
+        }
+
+        .contact-form .form-group input:focus + label,
+        .contact-form .form-group textarea:focus + label,
+        .contact-form .form-group input:not(:placeholder-shown) + label,
+        .contact-form .form-group textarea:not(:placeholder-shown) + label {
+            top: 0;
+            font-size: 0.9rem;
+        }
+
+        .contact-form button[type="submit"] {
+            display: block;
+            width: 100%;
+            padding: 1rem;
+            font-size: 1.2rem;
+            background-color: #e74c3c;
+            color: #FFF;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            box-shadow: 0 0 10px rgba(231, 76, 60, 0.5);
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+        }
+
+        .contact-form button[type="submit"]:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 0 20px rgba(231, 76, 60, 0.7);
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .navbar {
+                padding: 1rem;
+            }
+
+            .navbar-brand {
+                font-size: 1.5rem;
+            }
+
+            .navbar-nav li {
+                margin-left: 1rem;
+            }
+
+            .navbar-nav li a {
+                font-size: 1rem;
+            }
+
+            .hero-content h1 {
+                font-size: 3rem;
+            }
+
+            .hero-content p {
+                font-size: 1.5rem;
+            }
+
+            .project-gallery {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .contact-form-container {
+                width: 90%;
+            }
+
+            .contact-form h2 {
+                font-size: 2rem;
+            }
+
+            .contact-form .form-group label,
+            .contact-form .form-group input,
+            .contact-form .form-group textarea,
+            .contact-form button[type="submit"] {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <a href="#" class="navbar-brand">Black Hole Portfolio</a>
+        <ul class="navbar-nav">
+            <li><a href="#hero">Home</a></li>
+            <li><a href="#project-gallery">Projects</a></li>
+            <li><a href="#contact-form">Contact</a></li>
+        </ul>
+    </nav>
+
+    <section class="hero" id="hero">
+        <div class="hero-background"></div>
+        <div class="hero-content">
+            <h1>Welcome to the Black Hole</h1>
+            <p>Backend Developer with Cosmic Visuals</p>
+        </div>
+    </section>
+
+    <section class="project-gallery" id="project-gallery">
+        <div class="project-item">
+            <img src="https://dummyimage.com/300x300/0C0C0C/9b59b6.jpg&text=Project+1" alt="Project 1">
+            <div class="project-overlay">
+                <h3>Project 1</h3>
+                <p>Explore the depths of this cosmic project</p>
+                <a href="#">Learn More</a>
+            </div>
+        </div>
+        <div class="project-item">
+            <img src="https://dummyimage.com/300x300/0C0C0C/9b59b6.jpg&text=Project+2" alt="Project 2">
+            <div class="project-overlay">
+                <h3>Project 2</h3>
+                <p>Dive into the vaporwave glitches of this project</p>
+                <a href="#">Learn More</a>
+            </div>
+        </div>
+        <div class="project-item">
+            <img src="https://dummyimage.com/300x300/0C0C0C/9b59b6.jpg&text=Project+3" alt="Project 3">
+            <div class="project-overlay">
+                <h3>Project 3</h3>
+                <p>Witness the steampunk gears of this cosmic creation</p>
+                <a href="#">Learn More</a>
+            </div>
+        </div>
+        <div class="project-item">
+            <img src="https://dummyimage.com/300x300/0C0C0C/9b59b6.jpg&text=Project+4" alt="Project 4">
+            <div class="project-overlay">
+                <h3>Project 4</h3>
+                <p>Explore the skill galaxies of this backend marvel</p>
+                <a href="#">Learn More</a>
+            </div>
+        </div>
+        <div class="project-item">
+            <img src="https://dummyimage.com/300x300/0C0C0C/9</div>
+        <div class="project-item">
+            <img src="https://dummyimage.com/300x300/0C0C0C/9b59b6.jpg&text=Project+5" alt="Project 5">
+            <div class="project-overlay">
+                <h3>Project 5</h3>
+                <p>Delve into the cosmic mysteries of this project</p>
+                <a href="#">Learn More</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="contact-form" id="contact-form">
+        <div class="contact-form-container">
+            <h2>Get in Touch</h2>
+            <form>
+                <div class="form-group">
+                    <input type="text" id="name" placeholder=" " required>
+                    <label for="name">Name</label>
+                </div>
+                <div class="form-group">
+                    <input type="email" id="email" placeholder=" " required>
+                    <label for="email">Email</label>
+                </div>
+                <div class="form-group">
+                    <textarea id="message" placeholder=" " required></textarea>
+                    <label for="message">Message</label>
+                </div>
+                <button type="submit">Send</button>
+            </form>
+        </div>
+    </section>
+</body>
+</html>'<!-- Visit: https://github.com/Ishanoshada/portflair -->
+<!-- Visit: https://github.com/Ishanoshada/portflair -->

@@ -1,0 +1,315 @@
+<!-- Portfolio created by Ishan -->
+<!-- Check out my work at: https://github.com/Ishanoshada/portflair -->
+<!-- 2024/10/9 -->
+<!-- Portfolio created by Ishan -->
+'<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Design a Portfolio - Space Station Control Console</title>
+  <style>
+    /* Global Styles */
+    @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
+
+    body {
+      font-family: 'Orbitron', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #0d0d0d;
+      color: #fff;
+    }
+
+    /* Navigation */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: #1c1c1c;
+      padding: 1rem 2rem;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      font-size: 1.1rem;
+      font-weight: 700;
+      padding: 0.5rem 1rem;
+      transition: color 0.3s ease;
+    }
+
+    nav a:hover {
+      color: #8c8c8c;
+    }
+
+    /* Mission Control Dashboard */
+    .mission-control {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 4rem 2rem;
+      background-image: linear-gradient(to bottom, #1c1c1c, #0d0d0d);
+    }
+
+    .control-panel {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-gap: 2rem;
+      width: 100%;
+      max-width: 1200px;
+    }
+
+    .screen {
+      background-color: #0d0d0d;
+      border: 2px solid #4d4d4d;
+      border-radius: 10px;
+      padding: 2rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .screen-content {
+      z-index: 1;
+      text-align: center;
+    }
+
+    .screen-content h3 {
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .screen-content p {
+      font-size: 1rem;
+      color: #8c8c8c;
+    }
+
+    .screen:before {
+      content: "";
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background-image: conic-gradient(transparent, transparent, transparent, #ff00ff);
+      animation: rotate 4s linear infinite;
+      z-index: 0;
+    }
+
+    @keyframes rotate {
+      from {
+        transform: rotate(0deg);
+      }
+      to {
+        transform: rotate(360deg);
+      }
+    }
+
+    /* Project Docking Bay */
+    .project-docking-bay {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 4rem 2rem;
+      background-color: #1c1c1c;
+    }
+
+    .project-modules {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      grid-gap: 2rem;
+      width: 100%;
+      max-width: 1200px;
+    }
+
+    .project-module {
+      background-color: #0d0d0d;
+      border: 2px solid #4d4d4d;
+      border-radius: 10px;
+      padding: 2rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+
+    .project-module:hover {
+      transform: scale(1.05);
+    }
+
+    .project-module:before {
+      content: "";
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background-image: conic-gradient(transparent, transparent, transparent, #00ffff);
+      animation: rotate 4s linear infinite;
+      z-index: 0;
+    }
+
+    .project-module h3 {
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+      z-index: 1;
+    }
+
+    .project-module p {
+      font-size: 1rem;
+      color: #8c8c8c;
+      z-index: 1;
+    }
+
+    /* Mission Briefing Room */
+    .mission-briefing-room {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 4rem 2rem;
+      background-image: linear-gradient(to bottom, #0d0d0d, #1c1c1c);
+    }
+
+    .hologram {
+      width: 100%;
+      max-width: 800px;
+      background-color: #0d0d0d;
+      border: 2px solid #4d4d4d;
+      border-radius: 10px;
+      padding: 2rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hologram:before {
+      content: "";
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background-image: conic-gradient(transparent, transparent, transparent, #00ff00);
+      animation: rotate 4s linear infinite;
+      z-index: 0;
+    }
+
+    .hologram-content {
+      z-index: 1;
+      text-align: center;
+    }
+
+    .hologram-content h3 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+
+    .hologram-content p {
+      font-size: 1.2rem;
+      color: #8c8c8c;
+    }
+
+    /* Responsive Styles */
+    @media (max-width: 768px) {
+      .control-panel {
+        grid-template-columns: 1fr;
+      }
+
+      .project-modules {
+        grid-template-columns: 1fr;
+      }
+
+      .hologram {
+        padding: 1.5rem;
+      }
+
+      .hologram-content h3 {
+        font-size: 1.8rem;
+      }
+
+      .hologram-content p {
+        font-size: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="#">Home</a>
+    <a href="#">Projects</a>
+    <a href="#">About</a>
+    <a href="#">Contact</a>
+  </nav>
+
+  <section class="mission-control">
+    <h2>Mission Control Dashboard</h2>
+    <div class="control-panel">
+      <div class="screen">
+        <div class="screen-content">
+          <h3>Project Showcase</h3>
+          <p>Explore my coding and design skills through interactive project previews.</p>
+        </div>
+      </div>
+      <div class="screen">
+        <div class="screen-content">
+          <h3>Interstellar Journey</h3>
+          <p>Learn about my creative process and professional development as a designer.</p>
+        </div>
+      </div>
+      <div class="screen">
+        <div class="screen-content">
+          <h3>Mission Accomplishments</h3>
+          <p>Discover my achievements and awards earned throughout my design career.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="project-docking-bay">
+    <h2>Project Docking Bay</h2>
+    <div class="project-modules">
+      <div class="project-module">
+        <h3>Project 1</h3>
+        <p>Responsive website design for a tech startup</p>
+      </div>
+      <div class="project-module">
+        <h3>Project 2</h3>
+        <p>Mobile app UI design for a fitness tracking application</p>
+      </div>
+      <div class="project-module">
+        <h3>Project 3</h3>
+        <p>Branding and visual identity for a sustainable fashion brand</p>
+      </div>
+      <div class="project-module">
+        <h3>Project 4</h3>
+        <p>Interactive data visualization dashboard for a financial services company</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="mission-briefing-room">
+    <h2>Mission Briefing Room</h2>
+    <div class="hologram">
+      <div class="hologram-content">
+        <h3>About the Designer</h3>
+        <p>Discover my passion for design, my expertise in cutting-edge technologies, and my commitment to pushing the boundaries of creativity.</p>
+      </div>
+    </div>
+  </section>
+</body>
+</html>'<!-- Visit: https://github.com/Ishanoshada/portflair -->
+<!-- Visit: https://github.com/Ishanoshada/portflair -->

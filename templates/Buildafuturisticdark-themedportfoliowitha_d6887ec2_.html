@@ -1,0 +1,399 @@
+<!-- Portfolio created by Ishan -->
+<!-- Check out my work at: https://github.com/Ishanoshada/portflair -->
+<!-- 2024/10/9 -->
+<!-- Portfolio created by Ishan -->
+<!-- Portfolio created by Ishan -->
+'<html>
+<head>
+  <title>Futuristic Dark Portfolio</title>
+  <style>
+    /* Global Styles */
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Prompt', sans-serif;
+      background-color: #000;
+      color: #fff;
+      overflow-x: hidden;
+    }
+
+    /* Navbar Styles */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 40px;
+      background-color: rgba(0, 0, 0, 0.8);
+      backdrop-filter: blur(10px);
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 999;
+    }
+
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      font-size: 18px;
+      font-weight: 500;
+      margin: 0 20px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    nav a:before {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: -100%;
+      width: 100%;
+      height: 2px;
+      background-color: #4dffff;
+      transition: all 0.3s ease-in-out;
+    }
+
+    nav a:hover:before {
+      left: 0;
+    }
+
+    /* Hero Section Styles */
+    .hero {
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      background-image: url(https://dummyimage.com/1920x1080/000/4dffff.jpg);
+      background-size: cover;
+      background-position: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero:before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.6);
+      z-index: 1;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      max-width: 800px;
+      padding: 0 20px;
+    }
+
+    .hero-title {
+      font-size: 60px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 5px;
+      background: linear-gradient(to right, #4dffff, #ff00ff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: glowText 3s ease-in-out infinite;
+    }
+
+    .hero-subtitle {
+      font-size: 24px;
+      font-weight: 400;
+      margin-top: 20px;
+      color: #fff;
+      animation: glowText 4s ease-in-out infinite;
+    }
+
+    @keyframes glowText {
+      0% {
+        text-shadow: 0 0 10px #4dffff, 0 0 20px #4dffff, 0 0 30px #4dffff, 0 0 40px #ff00ff, 0 0 70px #ff00ff, 0 0 80px #ff00ff, 0 0 100px #ff00ff, 0 0 150px #ff00ff;
+      }
+      50% {
+        text-shadow: 0 0 5px #4dffff, 0 0 10px #4dffff, 0 0 15px #4dffff, 0 0 20px #ff00ff, 0 0 35px #ff00ff, 0 0 40px #ff00ff, 0 0 50px #ff00ff, 0 0 75px #ff00ff;
+      }
+      100% {
+        text-shadow: 0 0 10px #4dffff, 0 0 20px #4dffff, 0 0 30px #4dffff, 0 0 40px #ff00ff, 0 0 70px #ff00ff, 0 0 80px #ff00ff, 0 0 100px #ff00ff, 0 0 150px #ff00ff;
+      }
+    }
+
+    /* Projects Section Styles */
+    .projects {
+      padding: 100px 40px;
+      background-color: #111;
+    }
+
+    .projects-title {
+      font-size: 40px;
+      font-weight: 700;
+      text-align: center;
+      margin-bottom: 50px;
+      background: linear-gradient(to right, #4dffff, #ff00ff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: glowText 3s ease-in-out infinite;
+    }
+
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 40px;
+    }
+
+    .project-item {
+      position: relative;
+      overflow: hidden;
+      border-radius: 10px;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+      cursor: pointer;
+    }
+
+    .project-item:before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.6);
+      z-index: 1;
+      transition: all 0.3s ease-in-out;
+    }
+
+    .project-item:hover:before {
+      background-color: rgba(0, 0, 0, 0.3);
+    }
+
+    .project-image {
+      width: 100%;
+      height: 300px;
+      object-fit: cover;
+      transition: all 0.3s ease-in-out;
+    }
+
+    .project-item:hover .project-image {
+      transform: scale(1.1);
+    }
+
+    .project-details {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 2;
+      text-align: center;
+      opacity: 0;
+      transition: all 0.3s ease-in-out;
+    }
+
+    .project-item:hover .project-details {
+      opacity: 1;
+    }
+
+    .project-title {
+      font-size: 24px;
+      font-weight: 700;
+      margin-bottom: 10px;
+      color: #4dffff;
+      text-shadow: 0 0 10px #4dffff, 0 0 20px #4dffff, 0 0 30px #4dffff;
+    }
+
+    .project-description {
+      font-size: 16px;
+      color: #fff;
+      text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff;
+    }
+
+    /* Contact Section Styles */
+    .contact {
+      padding: 100px 40px;
+      background-color: #000;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .contact:before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: url(https://dummyimage.com/1920x1080/111/4dffff.jpg);
+      background-size: cover;
+      background-position: center;
+      opacity: 0.1;
+      z-index: 1;
+    }
+
+    .contact-content {
+      position: relative;
+      z-index: 2;
+      max-width: 800px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .contact-title {
+      font-size: 40px;
+      font-weight: 700;
+      margin-bottom: 40px;
+      background: linear-gradient(to right, #4dffff, #ff00ff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: glowText 3s ease-in-out infinite;
+    }
+
+    .contact-form {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-gap: 20px;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+      background-color: rgba(255, 255, 255, 0.1);
+      border: none;
+      padding: 15px;
+      font-size: 16px;
+      color: #fff;
+      border-radius: 5px;
+      transition: all 0.3s ease-in-out;
+    }
+
+    .contact-form input:focus,
+    .contact-form textarea:focus {
+      outline: none;
+      box-shadow: 0 0 10px #4dffff, 0 0 20px #4dffff, 0 0 30px #4dffff;
+    }
+
+    .contact-form textarea {
+      grid-column: 1 / -1;
+    }
+
+    .contact-form button {
+      grid-column: 1 / -1;
+      background-color: #4dffff;
+      color: #000;
+      font-size: 18px;
+      font-weight: 700;
+      padding: 15px 30px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: all 0.3s ease-in-out;
+      box-shadow: 0 0 10px #4dffff, 0 0 20px #4dffff, 0 0 30px #4dffff;
+    }
+
+    .contact-form button:hover {
+      background-color: #ff00ff;
+      box-shadow: 0 0 10px #ff00ff, 0 0 20px #ff00ff, 0 0 30px #ff00ff;
+    }
+
+    .social-links {
+      display: flex;
+      justify-content: center;
+      margin-top: 40px;
+    }
+
+    .social-links a {
+      color: #fff;
+      font-size: 24px;
+      margin: 0 20px;
+      transition: all 0.3s ease-in-out;
+    }
+
+    .social-links a:hover {
+      color: #4dffff;
+      text-shadow: 0 0 10px #4dffff, 0 0 20px #4dffff, 0 0 30px #4dffff;
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="#">Home</a>
+    <a href="#">Projects</a>
+    <a href="#">About</a>
+    <a href="#">Contact</a>
+  </nav>
+
+  <section class="hero">
+    <div class="hero-content">
+      <h1 class="hero-title">Futuristic Dark Portfolio</h1>
+      <p class="hero-subtitle">Unleash the power of your creativity in a cyberpunk-inspired world.</p>
+    </div>
+  </section>
+
+  <section class="projects">
+    <h2 class="projects-title">Featured Projects</h2>
+    <div class="project-grid">
+      <div class="project-item">
+        <img src="https://dummyimage.com/600x400/111/4dffff.jpg" alt="Project 1" class="project-image">
+        <div class="project-details">
+          <h3 class="project-title">Project 1</h3>
+          <p class="project-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+        </div>
+      </div>
+      <div class="project-item">
+        <img src="https://dummyimage.com/600x400/111/ff00ff.jpg" alt="Project 2" class="project-image">
+        <div class="project-details">
+          <h3 class="project-title">Project 2</h3>
+          <p class="project-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+        </div>
+      </div>
+      <div class="project-item">
+        <img src="https://dummyimage.com/600x400/111/4dffff.jpg" alt="Project 3" class="project-image">
+        <div class="project-details">
+          <h3 class="project-title">Project 3</h3>
+          <p class="project-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+        </div>
+      </div>
+      <div class="project-item">
+        <img src="https://dummyimage.com/600x400/111/ff00ff.jpg" alt="Project 4" class="project-image">
+        <div class="project-details">
+          <h3 class="project-title">Project 4</h3>
+          <p class="project-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+        </div>
+      </div>
+      <div class="project-item">
+        <img src="https://dummyimage.com/600x400/111/4dffff.jpg" alt="Project 5" class="project-image">
+        <div class="project-details">
+          <h3 class="project-title">Project 5</h3>
+          <p class="project-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+        </div>
+      </div>
+      <div class="project-item">
+        <img src="https://dummyimage.com/600x400/111/ff00ff.jpg" alt="Project 6" class="project-image">
+        <div class="project-details">
+          <h3 class="project-title">Project 6</h3>
+          <p class="project-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact">
+    <div class="contact-content">
+      <h2 class="contact-title">Get in Touch</h2>
+      <form class="contact-form">
+        <input type="text" placeholder="Name" required>
+        <input type="email" placeholder="Email" required>
+        <textarea placeholder="Message" required></textarea>
+        <button type="submit">Send</button>
+      </form>
+      <div class="social-links">
+        <a href="#"><i class="fab fa-twitter"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+        <a href="#"><i class="fab fa-linkedin"></i></a>
+        <a href="#"><i class="fab fa-github"></i></a>
+      </div>
+    </div>
+  </section>
+</body>
+</html>'<!-- Visit: https://github.com/Ishanoshada/portflair -->
+<!-- Visit: https://github.com/Ishanoshada/portflair -->
+<!-- Visit: https://github.com/Ishanoshada/portflair -->

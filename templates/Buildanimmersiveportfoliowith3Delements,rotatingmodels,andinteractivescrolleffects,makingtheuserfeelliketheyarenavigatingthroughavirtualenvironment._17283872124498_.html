@@ -1,0 +1,451 @@
+<!-- Portfolio created by Ishan -->
+<!-- Check out my work at: https://github.com/Ishanoshada/portflair -->
+<!-- 2024/10/9 -->
+<!-- Portfolio created by Ishan -->
+'<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Build an Immersive Portfolio</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #0f0f0f;
+      color: #fff;
+      overflow-x: hidden;
+    }
+
+    /* Navbar */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 40px;
+      background-color: rgba(15, 15, 15, 0.8);
+      backdrop-filter: blur(10px);
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 999;
+    }
+
+    nav .logo {
+      font-size: 24px;
+      font-weight: 700;
+      color: #fff;
+      text-decoration: none;
+    }
+
+    nav ul {
+      list-style-type: none;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 0;
+      padding: 0;
+    }
+
+    nav ul li {
+      margin: 0 20px;
+    }
+
+    nav ul li a {
+      color: #fff;
+      text-decoration: none;
+      font-size: 16px;
+      font-weight: 600;
+      transition: color 0.3s ease;
+    }
+
+    nav ul li a:hover {
+      color: #b3b3b3;
+    }
+
+    /* Interactive 3D Showcase */
+    .interactive-3d {
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .interactive-3d .background {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: url('https://dummyimage.com/1920x1080/000/fff&text=Interactive+3D+Background');
+      background-size: cover;
+      background-position: center;
+      z-index: -1;
+      filter: blur(20px);
+      transform: scale(1.1);
+      transition: transform 0.5s ease;
+    }
+
+    .interactive-3d:hover .background {
+      transform: scale(1);
+    }
+
+    .interactive-3d .showcase {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      max-width: 800px;
+      padding: 40px;
+      background-color: rgba(255, 255, 255, 0.1);
+      border-radius: 10px;
+      backdrop-filter: blur(10px);
+      box-shadow: 0 0 30px rgba(0, 0, 0, 0.3);
+      opacity: 0;
+      transform: translateY(50px);
+      animation: fadeIn 1s ease forwards;
+    }
+
+    .interactive-3d .showcase h1 {
+      font-size: 48px;
+      font-weight: 700;
+      margin-bottom: 20px;
+    }
+
+    .interactive-3d .showcase p {
+      font-size: 18px;
+      margin-bottom: 40px;
+    }
+
+    .interactive-3d .showcase .btn {
+      display: inline-block;
+      background-color: #fff;
+      color: #0f0f0f;
+      text-decoration: none;
+      font-size: 16px;
+      font-weight: 600;
+      padding: 12px 24px;
+      border-radius: 30px;
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+    .interactive-3d .showcase .btn:hover {
+      background-color: #0f0f0f;
+      color: #fff;
+    }
+
+    /* Scrolling Parallax Effects */
+    .parallax-effects {
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .parallax-effects .background {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: url('https://dummyimage.com/1920x1080/000/fff&text=Parallax+Background');
+      background-size: cover;
+      background-position: center;
+      z-index: -1;
+      transform: scale(1.1);
+      transition: transform 0.5s ease;
+    }
+
+    .parallax-effects:hover .background {
+      transform: scale(1);
+    }
+
+    .parallax-effects .content {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      max-width: 800px;
+      padding: 40px;
+      background-color: rgba(255, 255, 255, 0.1);
+      border-radius: 10px;
+      backdrop-filter: blur(10px);
+      box-shadow: 0 0 30px rgba(0, 0, 0, 0.3);
+      opacity: 0;
+      transform: translateY(50px);
+      animation: fadeIn 1s ease forwards;
+    }
+
+    .parallax-effects .content h2 {
+      font-size: 36px;
+      font-weight: 700;
+      margin-bottom: 20px;
+    }
+
+    .parallax-effects .content p {
+      font-size: 18px;
+      margin-bottom: 40px;
+    }
+
+    .parallax-effects .content .btn {
+      display: inline-block;
+      background-color: #fff;
+      color: #0f0f0f;
+      text-decoration: none;
+      font-size: 16px;
+      font-weight: 600;
+      padding: 12px 24px;
+      border-radius: 30px;
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+    .parallax-effects .content .btn:hover {
+      background-color: #0f0f0f;
+      color: #fff;
+    }
+
+    /* Portfolio Presentation */
+    .portfolio-presentation {
+      padding: 80px 40px;
+      background-color: #0f0f0f;
+    }
+
+    .portfolio-presentation h2 {
+      font-size: 36px;
+      font-weight: 700;
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .portfolio-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-gap: 40px;
+    }
+
+    .portfolio-item {
+      position: relative;
+      overflow: hidden;
+      border-radius: 10px;
+      box-shadow: 0 0 30px rgba(0, 0, 0, 0.3);
+      opacity: 0;
+      transform: translateY(50px);
+      animation: fadeIn 1s ease forwards;
+    }
+
+    .portfolio-item:nth-child(1) {
+      animation-delay: 0.2s;
+    }
+
+    .portfolio-item:nth-child(2) {
+      animation-delay: 0.4s;
+    }
+
+    .portfolio-item:nth-child(3) {
+      animation-delay: 0.6s;
+    }
+
+    .portfolio-item img {
+      width: 100%;
+      height: 300px;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+
+    .portfolio-item:hover img {
+      transform: scale(1.1);
+    }
+
+    .portfolio-item .overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.6);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .portfolio-item:hover .overlay {
+      opacity: 1;
+    }
+
+    .portfolio-item .overlay h3 {
+      font-size: 24px;
+      font-weight: 600;
+      color: #fff;
+      margin-bottom: 10px;
+    }
+
+    .portfolio-item .overlay p {
+      font-size: 16px;
+      color: #fff;
+      margin-bottom: 20px;
+    }
+
+    .portfolio-item .overlay .btn {
+      display: inline-block;
+      background-color: #fff;
+      color: #0f0f0f;
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 600;
+      padding: 8px 16px;
+      border-radius: 20px;
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+    .portfolio-item .overlay .btn:hover {
+      background-color: #0f0f0f;
+      color: #fff;
+    }
+
+    @keyframes fadeIn {
+      0% {
+        opacity: 0;
+        transform: translateY(50px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Responsive Styles */
+    @media (max-width: 767px) {
+      nav {
+        padding: 15px 20px;
+      }
+
+      nav .logo {
+        font-size: 20px;
+      }
+
+      nav ul li {
+        margin: 0 10px;
+      }
+
+      nav ul li a {
+        font-size: 14px;
+      }
+
+      .interactive-3d .showcase h1 {
+        font-size: 36px;
+      }
+
+      .interactive-3d .showcase p {
+        font-size: 16px;
+      }
+
+      .parallax-effects .content h2 {
+        font-size: 30px;
+      }
+
+      .parallax-effects .content p {
+        font-size: 16px;
+      }
+
+      .portfolio-presentation {
+        padding: 60px 20px;
+      }
+
+      .portfolio-presentation h2 {
+        font-size: 30px;
+        margin-bottom: 30px;
+      }
+
+      .portfolio-grid {
+        grid-template-columns: repeat(2, 1fr);
+        grid-gap: 30px;
+      }
+
+      .portfolio-item img {
+        height: 250px;
+      }
+
+      .portfolio-item .overlay h3 {
+        font-size: 20px;
+      }
+
+      .portfolio-item .overlay p {
+        font-size: 14px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="#" class="logo">Build Immersive Portfolio</a>
+    <ul>
+      <li><a href="#">Home</a></li>
+      <li><a href="#">About</a></li>
+      <li><a href="#">Portfolio</a></li>
+      <li><a href="#">Contact</a></li>
+    </ul>
+  </nav>
+
+  <section class="interactive-3d">
+    <div class="background"></div>
+    <div class="showcase">
+      <h1>Immerse Yourself in 3D</h1>
+      <p>Explore our interactive 3D elements and bring your portfolio to life.</p>
+      <a href="#" class="btn">Discover More</a>
+    </div>
+  </section>
+
+  <section class="parallax-effects">
+    <div class="background"></div>
+    <div class="content">
+      <h2>Captivating Scroll Effects</h2>
+      <p>Experience the power of parallax scrolling and create a truly immersive journey.</p>
+      <a href="#" class="btn">Learn More</a>
+    </div>
+  </section>
+
+  <section class="portfolio-presentation">
+    <h2>Showcase Your Masterpieces</h2>
+    <div class="portfolio-grid">
+      <div class="portfolio-item">
+        <img src="https://dummyimage.com/600x400/000/fff&text=Portfolio+Item+1" alt="Portfolio Item 1">
+        <div class="overlay">
+          <h3>Project Title</h3>
+          <p>Description of the project</p>
+          <a href="#" class="btn">View Project</a>
+        </div>
+      </div>
+      <div class="portfolio-item">
+        <img src="https://dummyimage.com/600x400/000/fff&text=Portfolio+Item+2" alt="Portfolio Item 2">
+        <div class="overlay">
+          <h3>Project Title</h3>
+          <p>Description of the project</p>
+          <a href="#" class="btn">View Project</a>
+        </div>
+      </div>
+      <div class="portfolio-item">
+        <img src="https://dummyimage.com/600x400/000/fff&text=Portfolio+Item+3" alt="Portfolio Item 3">
+        <div class="overlay">
+          <h3>Project Title</h3>
+          <p>Description of the project</p>
+          <a href="#" class="btn">View Project</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</body>
+</html>'<!-- Visit: https://github.com/Ishanoshada/portflair -->
+<!-- Visit: https://github.com/Ishanoshada/portflair -->

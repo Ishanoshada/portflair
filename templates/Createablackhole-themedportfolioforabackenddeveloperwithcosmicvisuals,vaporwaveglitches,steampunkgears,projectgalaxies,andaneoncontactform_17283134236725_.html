@@ -1,0 +1,364 @@
+<!-- Portfolio created by Ishan -->
+<!-- Check out my work at: https://github.com/Ishanoshada/portflair -->
+<!-- 2024/10/9 -->
+<!-- Portfolio created by Ishan -->
+'<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Black Hole Portfolio</title>
+  <style>
+    /* General Styles */
+    body {
+      font-family: 'Chakra Petch', sans-serif;
+      background-color: #1a1a1a;
+      color: #fff;
+      margin: 0;
+      padding: 0;
+    }
+
+    /* Navbar Styles */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 40px;
+      background-color: rgba(26, 26, 26, 0.8);
+      backdrop-filter: blur(10px);
+      position: relative;
+      z-index: 2;
+    }
+
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      margin: 0 20px;
+      font-size: 18px;
+      font-weight: 500;
+      transition: color 0.3s ease;
+    }
+
+    nav a:hover {
+      color: #9b59b6;
+    }
+
+    /* Hero Section Styles */
+    .hero {
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-background {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: url('https://dummyimage.com/1920x1080/000/fff&text=Black+Hole');
+      background-size: cover;
+      background-position: center;
+      filter: blur(10px);
+      z-index: 1;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      animation: glitch 2s infinite;
+    }
+
+    .hero-content h1 {
+      font-size: 6rem;
+      font-weight: 700;
+      margin-bottom: 20px;
+      background: linear-gradient(to right, #9b59b6, #8e44ad);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      text-shadow: 0 0 20px rgba(155, 89, 182, 0.5);
+    }
+
+    .hero-content p {
+      font-size: 2rem;
+      font-weight: 400;
+      margin-bottom: 40px;
+      color: #fff;
+      text-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+    }
+
+    /* Project Gallery Styles */
+    .project-gallery {
+      padding: 80px 40px;
+      background-color: #1a1a1a;
+      position: relative;
+      z-index: 2;
+    }
+
+    .project-gallery h2 {
+      font-size: 3rem;
+      font-weight: 700;
+      text-align: center;
+      margin-bottom: 40px;
+      background: linear-gradient(to right, #9b59b6, #8e44ad);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      text-shadow: 0 0 20px rgba(155, 89, 182, 0.5);
+    }
+
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      grid-gap: 40px;
+    }
+
+    .project-card {
+      background-color: #333;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+      position: relative;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+
+    .project-card:hover {
+      transform: translateY(-10px);
+    }
+
+    .project-card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      filter: brightness(0.7) saturate(1.2) contrast(1.2);
+      transition: filter 0.3s ease;
+    }
+
+    .project-card:hover img {
+      filter: brightness(1) saturate(1) contrast(1);
+    }
+
+    .project-card h3 {
+      font-size: 1.8rem;
+      font-weight: 600;
+      margin: 20px;
+    }
+
+    .project-card p {
+      font-size: 1.4rem;
+      font-weight: 400;
+      margin: 0 20px 20px;
+    }
+
+    /* Contact Form Styles */
+    .contact-form {
+      padding: 80px 40px;
+      background-image: linear-gradient(to right, #9b59b6, #8e44ad);
+      position: relative;
+      z-index: 2;
+    }
+
+    .contact-form h2 {
+      font-size: 3rem;
+      font-weight: 700;
+      text-align: center;
+      margin-bottom: 40px;
+      color: #fff;
+      text-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+    }
+
+    .contact-form form {
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .contact-form .form-group {
+      margin-bottom: 20px;
+    }
+
+    .contact-form label {
+      font-size: 1.6rem;
+      font-weight: 500;
+      display: block;
+      margin-bottom: 10px;
+      color: #fff;
+      text-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+      width: 100%;
+      padding: 15px;
+      font-size: 1.6rem;
+      font-weight: 400;
+      border: none;
+      border-radius: 5px;
+      background-color: rgba(255, 255, 255, 0.2);
+      color: #fff;
+      transition: background-color 0.3s ease;
+    }
+
+    .contact-form input:focus,
+    .contact-form textarea:focus {
+      background-color: rgba(255, 255, 255, 0.3);
+      outline: none;
+    }
+
+    .contact-form button {
+      display: block;
+      width: 100%;
+      padding: 15px;
+      font-size: 1.6rem;
+      font-weight: 500;
+      border: none;
+      border-radius: 5px;
+      background-color: #fff;
+      color: #9b59b6;
+      cursor: pointer;
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+    .contact-form button:hover {
+      background-color: #9b59b6;
+      color: #fff;
+    }
+
+    /* Animations */
+    @keyframes glitch {
+      0% {
+        transform: translate(0);
+      }
+      20% {
+        transform: translate(-2px, 2px);
+      }
+      40% {
+        transform: translate(-2px, -2px);
+      }
+      60% {
+        transform: translate(2px, 2px);
+      }
+      80% {
+        transform: translate(2px, -2px);
+      }
+      100% {
+        transform: translate(0);
+      }
+    }
+
+    /* Responsive Styles */
+    @media (max-width: 768px) {
+      nav {
+        padding: 15px 20px;
+      }
+
+      nav a {
+        font-size: 16px;
+        margin: 0 10px;
+      }
+
+      .hero-content h1 {
+        font-size: 4rem;
+      }
+
+      .hero-content p {
+        font-size: 1.8rem;
+      }
+
+      .project-gallery,
+      .contact-form {
+        padding: 60px 20px;
+      }
+
+      .project-gallery h2,
+      .contact-form h2 {
+        font-size: 2.5rem;
+      }
+
+      .project-card h3 {
+        font-size: 1.6rem;
+      }
+
+      .project-card p {
+        font-size: 1.2rem;
+      }
+
+      .contact-form label {
+        font-size: 1.4rem;
+      }
+
+      .contact-form input,
+      .contact-form textarea,
+      .contact-form button {
+        font-size: 1.4rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="#">Home</a>
+    <a href="#">About</a>
+    <a href="#">Projects</a>
+    <a href="#">Contact</a>
+  </nav>
+
+  <div class="hero">
+    <div class="hero-background"></div>
+    <div class="hero-content">
+      <h1>Black Hole Portfolio</h1>
+      <p>Immerse yourself in the cosmic realm of a backend developer's masterpieces.</p>
+    </div>
+  </div>
+
+  <div class="project-gallery">
+    <h2>Explore the Project Galaxy</h2>
+    <div class="project-grid">
+      <div class="project-card">
+        <img src="https://dummyimage.com/600x400/000/fff&text=Project+1" alt="Project 1">
+        <h3>Project 1</h3>
+        <p>A cosmic journey through the depths of backend development.</p>
+      </div>
+      <div class="project-card">
+        <img src="https://dummyimage.com/600x400/000/fff&text=Project+2" alt="Project 2">
+        <h3>Project 2</h3>
+        <p>Unraveling the mysteries of the universe, one line of code at a time.</p>
+      </div>
+      <div class="project-card">
+        <img src="https://dummyimage.com/600x400/000/fff&text=Project+3" alt="Project 3">
+        <h3>Project 3</h3>
+        <p>Harnessing the power of the black hole to create digital masterpieces.</p>
+      </div>
+      <div class="project-card">
+        <img src="https://dummyimage.com/600x400/000/fff&text=Project+4" alt="Project 4">
+        <h3>Project 4</h3>
+        <p>Bridging the gap between the cosmic and the tangible.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="contact-form">
+    <h2>Reach out to the Cosmic Developer</h2>
+    <form>
+      <div class="form-group">
+        <label for="name">Name</label>
+        <input type="text" id="name" name="name" placeholder="Enter your name" required>
+      </div>
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" placeholder="Enter your email" required>
+      </div>
+      <div class="form-group">
+        <label for="message">Message</label>
+        <textarea id="message" name="message" placeholder="Enter your message" required></textarea>
+      </div>
+      <button type="submit">Send Message</button>
+    </form>
+  </div>
+</body>
+</html>'<!-- Visit: https://github.com/Ishanoshada/portflair -->
+<!-- Visit: https://github.com/Ishanoshada/portflair -->

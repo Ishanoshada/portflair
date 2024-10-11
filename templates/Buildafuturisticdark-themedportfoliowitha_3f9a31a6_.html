@@ -1,0 +1,435 @@
+<!-- Portfolio created by Ishan -->
+<!-- Check out my work at: https://github.com/Ishanoshada/portflair -->
+<!-- 2024/10/9 -->
+<!-- Portfolio created by Ishan -->
+<!-- Portfolio created by Ishan -->
+'<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Futurescape - Cyberpunk Portfolio</title>
+    <style>
+        /* Global Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Orbitron', sans-serif;
+        }
+
+        body {
+            background-color: #000;
+            color: #fff;
+            overflow-x: hidden;
+        }
+
+        /* Navigation */
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 40px;
+            background-color: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(10px);
+            position: relative;
+            z-index: 100;
+        }
+
+        .nav-logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #00ffff;
+            text-shadow: 0 0 20px #00ffff, 0 0 40px #00ffff, 0 0 80px #00ffff;
+            animation: neon-glow 2s ease-in-out infinite;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style-type: none;
+        }
+
+        .nav-menu li {
+            margin-left: 30px;
+        }
+
+        .nav-menu li a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 16px;
+            transition: color 0.3s ease-in-out;
+        }
+
+        .nav-menu li a:hover {
+            color: #00ffff;
+            text-shadow: 0 0 10px #00ffff;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background-image: url("https://dummyimage.com/1920x1080/000/00ffff.jpg&text=Futurescape");
+            background-size: cover;
+            background-position: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-content {
+            text-align: center;
+            z-index: 10;
+        }
+
+        .hero-title {
+            font-size: 64px;
+            font-weight: bold;
+            color: #00ffff;
+            text-shadow: 0 0 20px #00ffff, 0 0 40px #00ffff, 0 0 80px #00ffff;
+            animation: neon-glow 2s ease-in-out infinite;
+        }
+
+        .hero-subtitle {
+            font-size: 24px;
+            color: #fff;
+            margin-top: 20px;
+            text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff;
+        }
+
+        .hero-cta {
+            margin-top: 40px;
+        }
+
+        .hero-cta a {
+            display: inline-block;
+            padding: 12px 30px;
+            background-color: #00ffff;
+            color: #000;
+            font-size: 18px;
+            text-decoration: none;
+            border-radius: 30px;
+            box-shadow: 0 0 20px #00ffff, 0 0 40px #00ffff, 0 0 80px #00ffff;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .hero-cta a:hover {
+            transform: scale(1.1);
+        }
+
+        .hero-particles {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+        }
+
+        /* Portfolio Section */
+        .portfolio {
+            padding: 80px 40px;
+            background-color: #0a0a0a;
+        }
+
+        .portfolio-title {
+            font-size: 36px;
+            font-weight: bold;
+            color: #00ffff;
+            text-align: center;
+            margin-bottom: 40px;
+            text-shadow: 0 0 10px #00ffff, 0 0 20px #00ffff, 0 0 30px #00ffff;
+        }
+
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-gap: 40px;
+        }
+
+        .portfolio-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 255, 255, 0.3);
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .portfolio-item:hover {
+            transform: scale(1.05);
+        }
+
+        .portfolio-item img {
+            width: 100%;
+            height: auto;
+            display: block;
+            filter: grayscale(100%) contrast(120%);
+            transition: filter 0.3s ease-in-out;
+        }
+
+        .portfolio-item:hover img {
+            filter: none;
+        }
+
+        .portfolio-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 255, 255, 0.2);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transition: opacity 0.3s ease-in-out;
+        }
+
+        .portfolio-item:hover .portfolio-overlay {
+            opacity: 1;
+        }
+
+        .portfolio-overlay h3 {
+            font-size: 24px;
+            color: #fff;
+            text-shadow: 0 0 10px #00ffff, 0 0 20px #00ffff, 0 0 30px #00ffff;
+            margin-bottom: 10px;
+        }
+
+        .portfolio-overlay p {
+            font-size: 16px;
+            color: #fff;
+            text-shadow: 0 0 5px #00ffff, 0 0 10px #00ffff, 0 0 15px #00ffff;
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 80px 40px;
+            background-color: #0a0a0a;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .contact-title {
+            font-size: 36px;
+            font-weight: bold;
+            color: #00ffff;
+            text-align: center;
+            margin-bottom: 40px;
+            text-shadow: 0 0 10px #00ffff, 0 0 20px #00ffff, 0 0 30px #00ffff;
+        }
+
+        .contact-form {
+            max-width: 600px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-gap: 30px;
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            background-color: #0a0a0a;
+            border: none;
+            padding: 16px 20px;
+            font-size: 16px;
+            color: #fff;
+            border-radius: 30px;
+            box-shadow: 0 0 20px rgba(0, 255, 255, 0.3);
+            transition: box-shadow 0.3s ease-in-out;
+        }
+
+        .contact-form input:focus,
+        .contact-form textarea:focus {
+            outline: none;
+            box-shadow: 0 0 30px rgba(0, 255, 255, 0.5);
+        }
+
+        .contact-form textarea {
+            grid-column: 1 / -1;
+            resize: vertical;
+        }
+
+        .contact-form button {
+            grid-column: 1 / -1;
+            background-color: #00ffff;
+            color: #000;
+            font-size: 18px;
+            font-weight: bold;
+            padding: 16px 30px;
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+            box-shadow: 0 0 20px #00ffff, 0 0 40px #00ffff, 0 0 80px #00ffff;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .contact-form button:hover {
+            transform: scale(1.1);
+        }
+
+        .contact-particles {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+        }
+
+        /* Animations */
+        @keyframes neon-glow {
+            0% {
+                text-shadow: 0 0 10px #00ffff, 0 0 20px #00ffff, 0 0 30px #00ffff;
+            }
+            50% {
+                text-shadow: 0 0 20px #00ffff, 0 0 40px #00ffff, 0 0 60px #00ffff;
+            }
+            100% {
+                text-shadow: 0 0 10px #00ffff, 0 0 20px #00ffff, 0 0 30px #00ffff;
+            }
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 1024px) {
+            .portfolio-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav {
+                padding: 15px 20px;
+            }
+
+            .nav-logo {
+                font-size: 20px;
+            }
+
+            .nav-menu li {
+                margin-left: 20px;
+            }
+
+            .nav-menu li a {
+                font-size: 14px;
+            }
+
+            .hero-title {
+                font-size: 48px;
+            }
+
+            .hero-subtitle {
+                font-size: 20px;
+            }
+
+            .portfolio-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-form {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="nav">
+        <div class="nav-logo">Futurescape</div>
+        <ul class="nav-menu">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Portfolio</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+    </nav>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1 class="hero-title">Embrace the Future</h1>
+            <p class="hero-subtitle">Discover the Cyberpunk Portfolio of Tomorrow</p>
+            <div class="hero-cta">
+                <a href="#">Explore the Portfolio</a>
+            </div>
+        </div>
+        <div class="hero-particles"></div>
+    </section>
+
+    <section class="portfolio">
+        <h2 class="portfolio-title">Featured Projects</h2>
+        <div class="portfolio-grid">
+            <div class="portfolio-item">
+                <img src="https://dummyimage.com/600x400/000/00ffff.jpg&text=Project+1" alt="Project 1">
+                <div class="portfolio-overlay">
+                    <h3>Project 1</h3>
+                    <p>Cyberpunk-inspired Design</p>
+                </div>
+            </div>
+            <div class="portfolio-item">
+                <img src="https://dummyimage.com/600x400/000/00ffff.jpg&text=Project+2" alt="Project 2">
+                <div class="portfolio-overlay">
+                    <h3>Project 2</h3>
+                    <p>Futuristic User Interface</p>
+                </div>
+            </div>
+            <div class="portfolio-item">
+                <img src="https://dummyimage.com/600x400/000/00ffff.jpg&text=Project+3" alt="Project 3">
+                <div class="portfolio-overlay">
+                    <h3>Project 3</h3>
+                    <p>Cutting-edge Technology</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="contact">
+        <h2 class="contact-title">Get in Touch</h2>
+        <form class="contact-form">
+            <input type="text" placeholder="Name" required>
+            <input type="email" placeholder="Email" required>
+            <textarea placeholder="Message" required></textarea>
+            <button type="submit">Send Message</button>
+        </form>
+        <div class="contact-particles"></div>
+    </section>
+
+    <script>
+        // Add particle effects to the hero and contact sections
+        const heroParticles = document.querySelector('.hero-particles');
+        const contactParticles = document.querySelector('.contact-particles');
+
+        function createParticles(container) {
+            for (let i = 0; i < 100; i++) {
+                const particle = document.createElement('div');
+                particle.classList.add('particle');
+                particle.style.left = `${Math.random() * 100}%`;
+                particle.style.top = `${Math.random() * 100}%`;
+                particle.style.width = `${Math.random() * 4 + 2}px`;
+                particle.style.height = `${Math.random() * 4 + 2}px`;
+                particle.style.backgroundColor = '#00ffff';
+                particle.style.boxShadow = '0 0 10px #00ffff, 0 0 20px #00ffff, 0 0 30px #00ffff';
+                particle.style.animation = 'particle-animation 4s linear infinite';
+                container.appendChild(particle);
+            }
+        }
+
+        createParticles(heroParticles);
+        createParticles(contactParticles);
+
+        // Add neon glow effect to the logo and title
+        const logo = document.querySelector('.nav-logo');
+        const heroTitle = document.querySelector('.hero-title');
+
+        function addNeonGlow(element) {
+            element.style.animation = 'neon-glow 2s ease-in-out infinite';
+        }
+
+        addNeonGlow(logo);
+        addNeonGlow(heroTitle);
+    </script>
+</body>
+</html>'<!-- Visit: https://github.com/Ishanoshada/portflair -->
+<!-- Visit: https://github.com/Ishanoshada/portflair -->
+<!-- Visit: https://github.com/Ishanoshada/portflair -->

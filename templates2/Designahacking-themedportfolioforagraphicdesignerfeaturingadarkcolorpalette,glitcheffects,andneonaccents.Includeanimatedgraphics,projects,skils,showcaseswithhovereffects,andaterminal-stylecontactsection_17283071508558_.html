@@ -1,0 +1,373 @@
+<!-- Portfolio created by Ishan -->
+<!-- Check out my work at: https://github.com/Ishanoshada/portflair -->
+<!-- 2024/10/9 -->
+<!-- Portfolio created by Ishan -->
+'<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hacking-Themed Portfolio</title>
+  <style>
+    /* General Styles */
+    body {
+      font-family: 'Courier New', monospace;
+      margin: 0;
+      padding: 0;
+      background-color: #0d0d0d;
+      color: #fff;
+    }
+
+    /* Navigation */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: #111;
+      padding: 1rem 2rem;
+      font-size: 1.1rem;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    nav a {
+      color: #9b59b6;
+      text-decoration: none;
+      margin: 0 1rem;
+      transition: color 0.3s ease;
+    }
+
+    nav a:hover {
+      color: #c39bd3;
+    }
+
+    /* Hero Section */
+    .hero {
+      height: 80vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: #0d0d0d;
+      opacity: 0.7;
+      z-index: -1;
+    }
+
+    .hero-bg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: url("https://dummyimage.com/1920x1080/0d0d0d/9b59b6&text=Hacking+Aesthetic");
+      background-size: cover;
+      background-position: center;
+      filter: blur(5px);
+      z-index: -2;
+    }
+
+    .hero-content {
+      text-align: center;
+      z-index: 1;
+    }
+
+    .hero-content h1 {
+      font-size: 4rem;
+      margin-bottom: 1rem;
+      color: #9b59b6;
+      text-shadow: 0 0 20px #c39bd3;
+      animation: neon-glow 2s ease-in-out infinite;
+    }
+
+    .hero-content p {
+      font-size: 1.5rem;
+      margin-bottom: 2rem;
+      color: #c39bd3;
+      animation: glitch 1s infinite;
+    }
+
+    @keyframes neon-glow {
+      0%, 100% {
+        text-shadow: 0 0 20px #c39bd3;
+      }
+      50% {
+        text-shadow: 0 0 40px #c39bd3, 0 0 80px #c39bd3;
+      }
+    }
+
+    @keyframes glitch {
+      0% {
+        transform: translateX(0);
+      }
+      20% {
+        transform: translateX(-2px);
+      }
+      40% {
+        transform: translateX(2px);
+      }
+      60% {
+        transform: translateX(-2px);
+      }
+      80% {
+        transform: translateX(2px);
+      }
+      100% {
+        transform: translateX(0);
+      }
+    }
+
+    /* Projects Showcase */
+    .projects {
+      padding: 4rem 2rem;
+      background-color: #111;
+    }
+
+    .projects h2 {
+      font-size: 2.5rem;
+      text-align: center;
+      margin-bottom: 3rem;
+      color: #9b59b6;
+      text-shadow: 0 0 20px #c39bd3;
+    }
+
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+    }
+
+    .project-card {
+      position: relative;
+      overflow: hidden;
+      cursor: pointer;
+    }
+
+    .project-card img {
+      width: 100%;
+      height: 300px;
+      object-fit: cover;
+      transition: transform 0.5s ease-in-out;
+    }
+
+    .project-card:hover img {
+      transform: scale(1.1);
+    }
+
+    .project-details {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(17, 17, 17, 0.8);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      opacity: 0;
+      transition: opacity 0.5s ease-in-out;
+    }
+
+    .project-card:hover .project-details {
+      opacity: 1;
+    }
+
+    .project-details h3 {
+      font-size: 1.8rem;
+      margin-bottom: 0.5rem;
+      color: #9b59b6;
+      text-shadow: 0 0 10px #c39bd3;
+    }
+
+    .project-details p {
+      font-size: 1.2rem;
+      margin-bottom: 1rem;
+      color: #c39bd3;
+    }
+
+    .project-details .tags {
+      font-size: 1rem;
+      color: #7f8c8d;
+    }
+
+    /* Terminal-style Contact Section */
+    .contact {
+      padding: 4rem 2rem;
+      background-color: #0d0d0d;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .contact h2 {
+      font-size: 2.5rem;
+      margin-bottom: 2rem;
+      color: #9b59b6;
+      text-shadow: 0 0 20px #c39bd3;
+    }
+
+    .terminal {
+      background-color: #1b1b1b;
+      padding: 2rem;
+      border-radius: 10px;
+      box-shadow: 0 0 20px rgba(155, 89, 182, 0.5);
+      width: 80%;
+      max-width: 600px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .terminal::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: linear-gradient(to bottom, rgba(155, 89, 182, 0.1), rgba(155, 89, 182, 0));
+      z-index: 1;
+    }
+
+    .terminal-input {
+      display: flex;
+      align-items: center;
+      margin-bottom: 1rem;
+      position: relative;
+      z-index: 2;
+    }
+
+    .terminal-input::before {
+      content: "$ ";
+      color: #9b59b6;
+      margin-right: 0.5rem;
+    }
+
+    .terminal-input input {
+      flex: 1;
+      background-color: transparent;
+      border: none;
+      outline: none;
+      color: #c39bd3;
+      font-family: 'Courier New', monospace;
+      font-size: 1rem;
+      padding: 0.5rem 0;
+      caret-color: #9b59b6;
+      animation: blink-caret 0.8s infinite;
+    }
+
+    @keyframes blink-caret {
+      50% {
+        opacity: 0;
+      }
+    }
+
+    .terminal-output {
+      color: #c39bd3;
+      font-size: 1rem;
+      line-height: 1.5;
+      position: relative;
+      z-index: 2;
+    }
+
+    .terminal-output p {
+      margin: 0.5rem 0;
+    }
+
+    .social-icons {
+      display: flex;
+      justify-content: center;
+      margin-top: 2rem;
+      position: relative;
+      z-index: 2;
+    }
+
+    .social-icons a {
+      color: #9b59b6;
+      font-size: 1.5rem;
+      margin: 0 1rem;
+      transition: color 0.3s ease;
+    }
+
+    .social-icons a:hover {
+      color: #c39bd3;
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="#">Home</a>
+    <a href="#">Projects</a>
+    <a href="#">Skills</a>
+    <a href="#">Contact</a>
+  </nav>
+
+  <div class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-content">
+      <h1>Hacking-Themed Portfolio</h1>
+      <p>Explore the digital world of a graphic designer</p>
+    </div>
+  </div>
+
+  <div class="projects">
+    <h2>Featured Projects</h2>
+    <div class="project-grid">
+      <div class="project-card">
+        <img src="https://dummyimage.com/600x400/9b59b6/ffffff&text=Project+1" alt="Project 1">
+        <div class="project-details">
+          <h3>Project 1</h3>
+          <p>A hacking-inspired design</p>
+          <div class="tags">Tags: Glitch, Neon, Cyberpunk</div>
+        </div>
+      </div>
+      <div class="project-card">
+        <img src="https://dummyimage.com/600x400/9b59b6/ffffff&text=Project+2" alt="Project 2">
+        <div class="project-details">
+          <h3>Project 2</h3>
+          <p>Futuristic interfaces</p>
+          <div class="tags">Tags: Minimalism, Data Visualization, UI/UX</div>
+        </div>
+      </div>
+      <div class="project-card">
+        <img src="https://dummyimage.com/600x400/9b59b6/ffffff&text=Project+3" alt="Project 3">
+        <div class="project-details">
+          <h3>Project 3</h3>
+          <p>Glitch art and experimental design</p>
+          <div class="tags">Tags: Glitch, Art, Experimental</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="contact">
+    <h2>Get in Touch</h2>
+    <div class="terminal">
+      <div class="terminal-input">
+        <input type="text" placeholder="Type your message here..." />
+      </div>
+      <div class="terminal-output">
+        <p>Welcome to the hacking-themed contact section!</p>
+        <p>Please enter your message below and press Enter to send.</p>
+      </div>
+      <div class="social-icons">
+        <a href="#" class="fab fa-twitter"></a>
+        <a href="#" class="fab fa-linkedin-in"></a>
+        <a href="#" class="fab fa-github"></a>
+      </div>
+    </div>
+  </div>
+</body>
+</html>'<!-- Visit: https://github.com/Ishanoshada/portflair -->
+<!-- Visit: https://github.com/Ishanoshada/portflair -->

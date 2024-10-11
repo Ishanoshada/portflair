@@ -1,0 +1,422 @@
+<!-- Portfolio created by Ishan -->
+<!-- Check out my work at: https://github.com/Ishanoshada/portflair -->
+<!-- 2024/10/9 -->
+<!-- Portfolio created by Ishan -->
+'<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Editor's Portfolio</title>
+  <style>
+    /* Global Styles */
+    body {
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #F8F8F8;
+      color: #333;
+    }
+
+    /* Navigation Bar */
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: #1E1E1E;
+      padding: 20px 40px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    .navbar-brand {
+      font-size: 24px;
+      font-weight: bold;
+      color: #FFFFFF;
+      text-decoration: none;
+    }
+
+    .navbar-nav {
+      display: flex;
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .navbar-nav li {
+      margin-left: 20px;
+    }
+
+    .navbar-nav li a {
+      color: #FFFFFF;
+      text-decoration: none;
+      font-size: 16px;
+      transition: color 0.3s ease;
+    }
+
+    .navbar-nav li a:hover {
+      color: #9B59B6;
+    }
+
+    /* Interactive Project Showcase */
+    .project-showcase {
+      padding: 80px 40px;
+    }
+
+    .project-showcase h2 {
+      font-size: 36px;
+      font-weight: bold;
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .project-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      grid-gap: 40px;
+    }
+
+    .project-card {
+      background-color: #FFFFFF;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+      position: relative;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+
+    .project-card:hover {
+      transform: translateY(-10px);
+    }
+
+    .project-card-image {
+      height: 300px;
+      background-size: cover;
+      background-position: center;
+      transition: opacity 0.3s ease;
+    }
+
+    .project-card:hover .project-card-image {
+      opacity: 0.8;
+    }
+
+    .project-card-content {
+      padding: 20px;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.3s ease, transform 0.3s ease;
+    }
+
+    .project-card:hover .project-card-content {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .project-card-title {
+      font-size: 20px;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+
+    .project-card-description {
+      font-size: 16px;
+      color: #666;
+      margin-bottom: 20px;
+    }
+
+    .project-card-button {
+      display: inline-block;
+      background-color: #9B59B6;
+      color: #FFFFFF;
+      text-decoration: none;
+      padding: 10px 20px;
+      border-radius: 4px;
+      font-size: 16px;
+      transition: background-color 0.3s ease;
+    }
+
+    .project-card-button:hover {
+      background-color: #8E44AD;
+    }
+
+    /* About the Editor */
+    .about-editor {
+      background-color: #1E1E1E;
+      color: #FFFFFF;
+      padding: 80px 40px;
+    }
+
+    .about-editor-content {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .about-editor-image {
+      flex-basis: 40%;
+      background-image: url('https://dummyimage.com/600x600/ccc/000&text=Editor+Image');
+      background-size: cover;
+      background-position: center;
+      border-radius: 50%;
+      height: 300px;
+      width: 300px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      animation: profilePicRotate 10s linear infinite;
+    }
+
+    @keyframes profilePicRotate {
+      0% {
+        transform: rotate(0deg);
+      }
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+
+    .about-editor-text {
+      flex-basis: 55%;
+    }
+
+    .about-editor-text h2 {
+      font-size: 36px;
+      font-weight: bold;
+      margin-bottom: 20px;
+    }
+
+    .about-editor-text p {
+      font-size: 18px;
+      line-height: 1.6;
+      margin-bottom: 30px;
+    }
+
+    .about-editor-text .cta-button {
+      display: inline-block;
+      background-color: #9B59B6;
+      color: #FFFFFF;
+      text-decoration: none;
+      padding: 12px 30px;
+      border-radius: 4px;
+      font-size: 18px;
+      transition: background-color 0.3s ease;
+    }
+
+    .about-editor-text .cta-button:hover {
+      background-color: #8E44AD;
+    }
+
+    /* Contact and Inquiry Form */
+    .contact-section {
+      padding: 80px 40px;
+      background-color: #F8F8F8;
+    }
+
+    .contact-section h2 {
+      font-size: 36px;
+      font-weight: bold;
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .contact-form {
+      max-width: 600px;
+      margin: 0 auto;
+      background-color: #FFFFFF;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      padding: 40px;
+    }
+
+    .contact-form-group {
+      margin-bottom: 20px;
+    }
+
+    .contact-form-group label {
+      display: block;
+      font-size: 16px;
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
+
+    .contact-form-group input,
+    .contact-form-group textarea {
+      width: 100%;
+      padding: 10px;
+      font-size: 16px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      transition: border-color 0.3s ease;
+    }
+
+    .contact-form-group input:focus,
+    .contact-form-group textarea:focus {
+      border-color: #9B59B6;
+      outline: none;
+    }
+
+    .contact-form-button {
+      display: block;
+      background-color: #9B59B6;
+      color: #FFFFFF;
+      text-decoration: none;
+      padding: 12px 30px;
+      border-radius: 4px;
+      font-size: 18px;
+      border: none;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .contact-form-button:hover {
+      background-color: #8E44AD;
+    }
+
+    /* Responsive Styles */
+    @media (max-width: 768px) {
+      .navbar {
+        padding: 15px 20px;
+      }
+
+      .navbar-brand {
+        font-size: 20px;
+      }
+
+      .navbar-nav li {
+        margin-left: 15px;
+      }
+
+      .navbar-nav li a {
+        font-size: 14px;
+      }
+
+      .project-showcase,
+      .about-editor,
+      .contact-section {
+        padding: 60px 20px;
+      }
+
+      .project-showcase h2,
+      .about-editor-text h2,
+      .contact-section h2 {
+        font-size: 28px;
+      }
+
+      .project-card-image {
+        height: 200px;
+      }
+
+      .about-editor-content {
+        flex-direction: column;
+      }
+
+      .about-editor-image {
+        height: 200px;
+        width: 200px;
+        margin-bottom: 30px;
+      }
+
+      .about-editor-text p {
+        font-size: 16px;
+      }
+
+      .contact-form {
+        padding: 30px;
+      }
+
+      .contact-form-group input,
+      .contact-form-group textarea {
+        font-size: 14px;
+      }
+
+      .contact-form-button {
+        font-size: 16px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav class="navbar">
+      <a href="#" class="navbar-brand">Editor's Portfolio</a>
+      <ul class="navbar-nav">
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Projects</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <!-- Interactive Project Showcase -->
+    <section class="project-showcase">
+      <h2>Featured Projects</h2>
+      <div class="project-cards">
+        <div class="project-card">
+          <div class="project-card-image" style="background-image: url('https://dummyimage.com/600x400/ccc/000&text=Project+1');">
+          </div>
+          <div class="project-card-content">
+            <h3 class="project-card-title">Project 1</h3>
+            <p class="project-card-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            <a href="#" class="project-card-button">Learn More</a>
+          </div>
+        </div>
+        <div class="project-card">
+          <div class="project-card-image" style="background-image: url('https://dummyimage.com/600x400/ccc/000&text=Project+2');">
+          </div>
+          <div class="project-card-content">
+            <h3 class="project-card-title">Project 2</h3>
+            <p class="project-card-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            <a href="#" class="project-card-button">Learn More</a>
+          </div>
+        </div>
+        <div class="project-card">
+          <div class="project-card-image" style="background-image: url('https://dummyimage.com/600x400/ccc/000&text=Project+3');">
+          </div>
+          <div class="project-card-content">
+            <h3 class="project-card-title">Project 3</h3>
+            <p class="project-card-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            <a href="#" class="project-card-button">Learn More</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- About the Editor -->
+    <section class="about-editor">
+      <div class="about-editor-content">
+        <div class="about-editor-image"></div>
+        <div class="about-editor-text">
+          <h2>About the Editor</h2>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ut risus in augue luctus venenatis. Sed tincidunt, risus in finibus rutrum, lectus mauris tempus mauris, an hendrerit felis nisl et libero. Fusce at vulputate turpis, ac tincidunt libero. Sed posuere consectetur est at lobortis. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
+          <a href="#" class="cta-button">Explore Portfolio</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact and Inquiry Form -->
+    <section class="contact-section">
+      <h2>Get in Touch</h2>
+      <form class="contact-form">
+        <div class="contact-form-group">
+          <label for="name">Name</label>
+          <input type="text" id="name" name="name" placeholder="Enter your name" required>
+        </div>
+        <div class="contact-form-group">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" placeholder="Enter your email" required>
+        </div>
+        <div class="contact-form-group">
+          <label for="message">Message</label>
+          <textarea id="message" name="message" placeholder="Enter your message" rows="5" required></textarea>
+        </div>
+        <button type="submit" class="contact-form-button">Submit</button>
+      </form>
+    </section>
+  </main>
+
+  <footer>
+    <!-- Add your footer content here -->
+  </footer>
+</body>
+</html>'<!-- Visit: https://github.com/Ishanoshada/portflair -->
+<!-- Visit: https://github.com/Ishanoshada/portflair -->

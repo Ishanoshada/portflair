@@ -1,0 +1,525 @@
+<!-- Portfolio created by Ishan -->
+<!-- Check out my work at: https://github.com/Ishanoshada/portflair -->
+<!-- 2024/10/9 -->
+<!-- Portfolio created by Ishan -->
+'<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pixel Prodigy: Hacking the Digital Canvas</title>
+  <style>
+    /* Global Styles */
+    body {
+      font-family: 'Bangers', cursive;
+      margin: 0;
+      padding: 0;
+      background-color: #0d0d0d;
+      color: #f1f1f1;
+    }
+
+    /* Navigation */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px;
+      background-color: #0d0d0d;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    nav a {
+      color: #f1f1f1;
+      text-decoration: none;
+      font-size: 18px;
+      margin: 0 10px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    nav a:before {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background-color: #00ff00;
+      transform: scaleX(0);
+      transition: transform 0.3s ease-in-out;
+    }
+
+    nav a:hover:before {
+      transform: scaleX(1);
+    }
+
+    /* Hero Section */
+    .hero {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 80vh;
+      background-color: #0d0d0d;
+      background-image: linear-gradient(to bottom, rgba(13, 13, 13, 0.8), rgba(13, 13, 13, 0.8)), url("https://dummyimage.com/1200x500/ccc/000&text=Hacking+Graphic+Design");
+      background-size: cover;
+      background-position: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-content {
+      text-align: center;
+      z-index: 1;
+    }
+
+    .hero-content h1 {
+      font-size: 4rem;
+      margin-bottom: 20px;
+      text-shadow: 0 0 10px #00ff00, 0 0 20px #00ff00, 0 0 30px #00ff00;
+      animation: glitch 1s infinite;
+    }
+
+    .hero-content p {
+      font-size: 1.5rem;
+      margin-bottom: 40px;
+      text-shadow: 0 0 10px #00ff00, 0 0 20px #00ff00, 0 0 30px #00ff00;
+      animation: glitch 1s infinite;
+    }
+
+    @keyframes glitch {
+      0% {
+        text-shadow: 0 0 10px #00ff00, 0 0 20px #00ff00, 0 0 30px #00ff00;
+      }
+      50% {
+        text-shadow: 0 0 20px #00ff00, 0 0 40px #00ff00, 0 0 60px #00ff00;
+      }
+      100% {
+        text-shadow: 0 0 10px #00ff00, 0 0 20px #00ff00, 0 0 30px #00ff00;
+      }
+    }
+
+    .hero-animated-graphics {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 0;
+      overflow: hidden;
+    }
+
+    .hero-animated-graphics .data-stream {
+      position: absolute;
+      width: 2px;
+      height: 100%;
+      background-color: #00ff00;
+      animation: dataStream 10s linear infinite;
+    }
+
+    @keyframes dataStream {
+      0% {
+        transform: translateX(-100%);
+      }
+      100% {
+        transform: translateX(100%);
+      }
+    }
+
+    .hero-animated-graphics .neon-grid {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background-image: radial-gradient(rgba(0, 255, 0, 0.1), rgba(0, 0, 0, 0.8));
+      animation: neonGrid 10s linear infinite;
+    }
+
+    @keyframes neonGrid {
+      0% {
+        transform: scale(1);
+      }
+      50% {
+        transform: scale(1.1);
+      }
+      100% {
+        transform: scale(1);
+      }
+    }
+
+    /* Projects Showcase */
+    .projects {
+      padding: 80px 20px;
+      background-color: #0d0d0d;
+    }
+
+    .projects h2 {
+      text-align: center;
+      font-size: 3rem;
+      margin-bottom: 40px;
+      text-shadow: 0 0 10px #00ff00, 0 0 20px #00ff00, 0 0 30px #00ff00;
+      animation: glitch 1s infinite;
+    }
+
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      grid-gap: 40px;
+    }
+
+    .project-card {
+      position: relative;
+      overflow: hidden;
+      border-radius: 10px;
+      box-shadow: 0 0 20px rgba(0, 255, 0, 0.3);
+      transition: transform 0.3s ease-in-out;
+    }
+
+    .project-card:hover {
+      transform: scale(1.05);
+    }
+
+    .project-card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      filter: grayscale(100%);
+      transition: filter 0.3s ease-in-out;
+    }
+
+    .project-card:hover img {
+      filter: grayscale(0%);
+    }
+
+    .project-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.7);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      opacity: 0;
+      transition: opacity 0.3s ease-in-out;
+    }
+
+    .project-card:hover .project-overlay {
+      opacity: 1;
+    }
+
+    .project-overlay h3 {
+      font-size: 1.8rem;
+      margin-bottom: 10px;
+      text-shadow: 0 0 10px #00ff00, 0 0 20px #00ff00, 0 0 30px #00ff00;
+      animation: glitch 1s infinite;
+    }
+
+    .project-overlay p {
+      font-size: 1.2rem;
+      margin-bottom: 20px;
+      text-shadow: 0 0 10px #00ff00, 0 0 20px #00ff00, 0 0 30px #00ff00;
+      animation: glitch 1s infinite;
+    }
+
+    .project-overlay a {
+      display: inline-block;
+      padding: 10px 20px;
+      background-color: #00ff00;
+      color: #0d0d0d;
+      text-decoration: none;
+      font-size: 1.2rem;
+      border-radius: 5px;
+      transition: background-color 0.3s ease-in-out;
+    }
+
+    .project-overlay a:hover {
+      background-color: #00cc00;
+    }
+
+    /* Contact Section */
+    .contact {
+      padding: 80px 20px;
+      background-color: #0d0d0d;
+      background-image: linear-gradient(to bottom, rgba(13, 13, 13, 0.8), rgba(13, 13, 13, 0.8)), url("https://dummyimage.com/1200x500/ccc/000&text=Contact");
+      background-size: cover;
+      background-position: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .contact h2 {
+      text-align: center;
+      font-size: 3rem;
+      margin-bottom: 40px;
+      text-shadow: 0 0 10px #00ff00, 0 0 20px #00ff00, 0 0 30px #00ff00;
+      animation: glitch 1s infinite;
+    }
+
+    .contact-form {
+      max-width: 600px;
+      margin: 0 auto;
+      background-color: rgba(0, 0, 0, 0.7);
+      padding: 40px;
+      border-radius: 10px;
+      box-shadow: 0 0 20px rgba(0, 255, 0, 0.3);
+      position: relative;
+      z-index: 1;
+    }
+
+    .contact-form label {
+      display: block;
+      font-size: 1.2rem;
+      margin-bottom: 10px;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+      display: block;
+      width: 100%;
+      padding: 10px;
+      font-size: 1.2rem;
+      background-color: #0d0d0d;
+      border: none;
+      border-bottom: 2px solid #00ff00;
+      color: #f1f1f1;
+      margin-bottom: 20px;
+      font-family: 'Bangers', cursive;
+      caret-color: #00ff00;
+      animation: typewriter 0.5s steps(20) infinite;
+    }
+
+    @keyframes typewriter {
+      from {
+        border-color: #00ff00;
+      }
+      to {
+        border-color: transparent;
+      }
+    }
+
+    .contact-form button {
+      display: block;
+      width: 100%;
+      padding: 10px;
+      font-size: 1.2rem;
+      background-color: #00ff00;
+      color: #0d0d0d;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-family: 'Bangers', cursive;
+      transition: background-color 0.3s ease-in-out;
+    }
+
+    .contact-form button:hover {
+      background-color: #00cc00;
+    }
+
+    .contact-info {
+      max-width: 600px;
+      margin: 40px auto 0;
+      background-color: rgba(0, 0, 0, 0.7);
+      padding: 40px;
+      border-radius: 10px;
+      box-shadow: 0 0 20px rgba(0, 255, 0, 0.3);
+      position: relative;
+      z-index: 1;
+    }
+
+    .contact-info h3 {
+      font-size: 2rem;
+      margin-bottom: 20px;
+      text-shadow: 0 0 10px #00ff00, 0 0 20px #00ff00, 0 0 30px #00ff00;
+      animation: glitch 1s infinite;
+    }
+
+    .contact-info p {
+      font-size: 1.2rem;
+      margin-bottom: 10px;
+    }
+
+    .contact-info a {
+      color: #00ff00;
+      text-decoration: none;
+      transition: color 0.3s ease-in-out;
+    }
+
+    .contact-info a:hover {
+      color: #00cc00;
+    }
+
+    .contact-animated-graphics {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 0;
+      overflow: hidden;
+    }
+
+    .contact-animated-graphics .terminal-lines {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background-image: linear-gradient(to bottom, #00ff00 1px, transparent 1px);
+      background-size: 1px 20px;
+      animation: terminalLines 10s linear infinite;
+    }
+
+    @keyframes terminalLines {
+      0% {
+        background-position: 0 0;
+      }
+      100% {
+        background-position: 0 -20px;
+      }
+    }
+
+    .contact-animated-graphics .terminal-noise {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background-image: url("https://dummyimage.com/20x20/111111/00ff00.png");
+      animation: terminalNoise 10s linear infinite;
+    }
+
+    @keyframes terminalNoise {
+      0% {
+        background-position: 0 0;
+      }
+      100% {
+        background-position: 20px 20px;
+      }
+    }
+
+    /* Responsive Styles */
+    @media (max-width: 768px) {
+      .hero-content h1 {
+        font-size: 3rem;
+      }
+
+      .hero-content p {
+        font-size: 1.2rem;
+      }
+
+      .projects h2,
+      .contact h2 {
+        font-size: 2.5rem;
+      }
+
+      .contact-form,
+      .contact-info {
+        max-width: 100%;
+      }
+    }
+  </style>
+  <link href="https://fonts.googleapis.com/css2?family=Bangers&display=swap" rel="stylesheet">
+</head>
+<body>
+  <nav>
+    <a href="#">Home</a>
+    <a href="#">Projects</a>
+    <a href="#">About</a>
+    <a href="#">Contact</a>
+  </nav>
+
+  <section class="hero">
+    <div class="hero-content">
+      <h1>Pixel Prodigy: Hacking the Digital Canvas</h1>
+      <p>Unleashing the power of glitch art and neon-infused designs.</p>
+    </div>
+    <div class="hero-animated-graphics">
+      <div class="data-stream"></div>
+      <div class="data-stream" style="animation-delay: 2s;"></div>
+      <div class="data-stream" style="animation-delay: 4s;"></div>
+      <div class="neon-grid"></div>
+    </div>
+  </section>
+
+  <section class="projects">
+    <h2>Featured Projects</h2>
+    <div class="project-grid">
+      <div class="project-card">
+        <img src="https://dummyimage.com/300x200/ccc/000&text=Project+1" alt="Project 1">
+        <div class="project-overlay">
+          <h3>Project 1</h3>
+          <p>Explore the digital realm with this glitch-infused masterpiece.</p>
+          <a href="#">View Project</a>
+        </div>
+      </div>
+      <div class="project-card">
+        <img src="https://dummyimage.com/300x200/ccc/000&text=Project+2" alt="Project 2">
+        <div class="project-overlay">
+          <h3>Project 2</h3>
+          <p>Dive into the neon-drenched world of our latest design experiment.</p>
+          <a href="#">View Project</a>
+        </div>
+      </div>
+      <div class="project-card">
+        <img src="https://dummyimage.com/300x200/ccc/000&text=Project+3" alt="Project 3">
+        <div class="project-overlay">
+          <h3>Project 3</h3>
+          <p>Witness the convergence of hacking and design in this captivating piece.</p>
+          <a href="#">View Project</a>
+        </div>
+      </div>
+      <div class="project-card">
+        <img src="https://dummyimage.com/300x200/ccc/000&text=Project+4" alt="Project 4">
+        <div class="project-overlay">
+          <h3>Project 4</h3>
+          <p>Explore the boundaries of digital art with our latest glitch-inspired creation.</p>
+          <a href="#">View Project</a>
+        </div>
+      </div>
+      <div class="project-card">
+        <img src="https://dummyimage.com/300x200/ccc/000&text=Project+5" alt="Project 5">
+        <div class="project-overlay">
+          <h3>Project 5</h3>
+          <p>Dive into a world of neon-infused designs that push the limits of graphic design.</p>
+          <a href="#">View Project</a>
+        </div>
+      </div>
+      <div class="project-card">
+        <img src="https://dummyimage.com/300x200/ccc/000&text=Project+6" alt="Project 6">
+        <div class="project-overlay">
+          <h3>Project 6</h3>
+          <p>Explore the intersection of technology and creativity in this captivating project.</p>
+          <a href="#">View Project</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact">
+    <h2>Get in Touch</h2>
+    <div class="contact-form">
+      <form>
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required>
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+        <label for="message">Message:</label>
+        <textarea id="message" name="message" rows="5" required></textarea>
+        <button type="submit">Send</button>
+      </form>
+    </div>
+    <div class="contact-info">
+      <h3>Contact Info</h3>
+      <p>Email: <a href="mailto:info@pixelprodigy.com">info@pixelprodigy.com</a></p>
+      <p>Phone: <a href="tel:+1234567890">+1 (234) 567-890</a></p>
+      <p>Follow us on social media:</p>
+      <p>
+        <a href="#">Twitter</a> | <a href="#">Instagram</a> | <a href="#">Behance</a>
+      </p>
+    </div>
+    <div class="contact-animated-graphics">
+      <div class="terminal-lines"></div>
+      <div class="terminal-noise"></div>
+    </div>
+  </section>
+</body>
+</html>'<!-- Visit: https://github.com/Ishanoshada/portflair -->
+<!-- Visit: https://github.com/Ishanoshada/portflair -->

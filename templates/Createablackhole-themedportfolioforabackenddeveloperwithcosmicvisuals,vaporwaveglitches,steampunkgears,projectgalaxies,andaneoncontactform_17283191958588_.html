@@ -1,0 +1,452 @@
+<!-- Portfolio created by Ishan -->
+<!-- Check out my work at: https://github.com/Ishanoshada/portflair -->
+<!-- 2024/10/9 -->
+<!-- Portfolio created by Ishan -->
+'<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Black Hole Portfolio</title>
+  <style>
+    /* Global Styles */
+    @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
+    body {
+      font-family: 'Orbitron', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #0f0f0f;
+      color: #fff;
+      overflow-x: hidden;
+    }
+
+    /* Navigation */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 40px;
+      background: linear-gradient(to right, #1e1e1e, #2b2b2b);
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      z-index: 100;
+    }
+
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      font-size: 18px;
+      font-weight: 700;
+      padding: 10px 20px;
+      border-radius: 20px;
+      transition: background-color 0.3s ease;
+    }
+
+    nav a:hover {
+      background-color: #3b3b3b;
+    }
+
+    /* Hero Section */
+    .hero {
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      background: url('https://dummyimage.com/1920x1080/ccc/000&text=Cosmic+Visuals') no-repeat center center / cover;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero:before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(ellipse at center, rgba(15, 15, 15, 0.8) 0%, rgba(15, 15, 15, 0.6) 70%, rgba(15, 15, 15, 0.4) 100%);
+      z-index: 1;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      animation: glitch 2s infinite linear;
+    }
+
+    .hero-title {
+      font-size: 6rem;
+      font-weight: 700;
+      color: #00ffff;
+      text-shadow: 0 0 20px #00ffff, 0 0 40px #00ffff, 0 0 80px #00ffff;
+    }
+
+    .hero-subtitle {
+      font-size: 2.5rem;
+      font-weight: 400;
+      color: #fff;
+      text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff;
+    }
+
+    @keyframes glitch {
+      0% {
+        transform: translate(0);
+      }
+      20% {
+        transform: translate(-5px, 5px);
+      }
+      40% {
+        transform: translate(5px, -5px);
+      }
+      60% {
+        transform: translate(-5px, 0);
+      }
+      80% {
+        transform: translate(5px, 0);
+      }
+      100% {
+        transform: translate(0);
+      }
+    }
+
+    /* Project Gallery */
+    .project-gallery {
+      padding: 80px 40px;
+      background: linear-gradient(to bottom, #1e1e1e, #2b2b2b);
+    }
+
+    .project-gallery-title {
+      text-align: center;
+      font-size: 3rem;
+      font-weight: 700;
+      margin-bottom: 40px;
+      color: #00ffff;
+      text-shadow: 0 0 10px #00ffff, 0 0 20px #00ffff, 0 0 30px #00ffff;
+    }
+
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      grid-gap: 40px;
+    }
+
+    .project-item {
+      background: radial-gradient(ellipse at center, #3b3b3b 0%, #2b2b2b 70%, #1e1e1e 100%);
+      padding: 40px;
+      border-radius: 20px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      position: relative;
+      overflow: hidden;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+
+    .project-item:hover {
+      transform: translateY(-10px);
+    }
+
+    .project-item:before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(ellipse at center, rgba(59, 59, 59, 0.8) 0%, rgba(43, 43, 43, 0.6) 70%, rgba(30, 30, 30, 0.4) 100%);
+      z-index: 1;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .project-item:hover:before {
+      opacity: 1;
+    }
+
+    .project-title {
+      font-size: 2rem;
+      font-weight: 700;
+      color: #00ffff;
+      text-shadow: 0 0 10px #00ffff, 0 0 20px #00ffff, 0 0 30px #00ffff;
+      margin-bottom: 10px;
+    }
+
+    .project-description {
+      font-size: 1.2rem;
+      color: #fff;
+    }
+
+    .project-details {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 2;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .project-item:hover .project-details {
+      opacity: 1;
+    }
+
+    .project-details-title {
+      font-size: 3rem;
+      font-weight: 700;
+      color: #00ffff;
+      text-shadow: 0 0 10px #00ffff, 0 0 20px #00ffff, 0 0 30px #00ffff;
+      margin-bottom: 20px;
+    }
+
+    .project-details-description {
+      font-size: 1.5rem;
+      color: #fff;
+      margin-bottom: 20px;
+    }
+
+    .project-details-tech {
+      font-size: 1.2rem;
+      color: #ccc;
+    }
+
+    /* Contact Form */
+    .contact-form {
+      padding: 80px 40px;
+      background: linear-gradient(to bottom, #2b2b2b, #1e1e1e);
+    }
+
+    .contact-form-title {
+      text-align: center;
+      font-size: 3rem;
+      font-weight: 700;
+      margin-bottom: 40px;
+      color: #00ffff;
+      text-shadow: 0 0 10px #00ffff, 0 0 20px #00ffff, 0 0 30px #00ffff;
+    }
+
+    .contact-form-container {
+      max-width: 600px;
+      margin: 0 auto;
+      background: radial-gradient(ellipse at center, #3b3b3b 0%, #2b2b2b 70%, #1e1e1e 100%);
+      padding: 40px;
+      border-radius: 20px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .contact-form-group {
+      margin-bottom: 20px;
+      position: relative;
+    }
+
+    .contact-form-label {
+      font-size: 1.2rem;
+      color: #00ffff;
+      position: absolute;
+      top: 50%;
+      left: 20px;
+      transform: translateY(-50%);
+      pointer-events: none;
+      transition: all 0.3s ease;
+    }
+
+    .contact-form-input,
+    .contact-form-textarea {
+      width: 100%;
+      padding: 20px;
+      font-size: 1.2rem;
+      color: #fff;
+      background-color: #2b2b2b;
+      border: none;
+      border-radius: 10px;
+      outline: none;
+      transition: all 0.3s ease;
+    }
+
+    .contact-form-input:focus,
+    .contact-form-textarea:focus {
+      background-color: #3b3b3b;
+      box-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+    }
+
+    .contact-form-input:focus + .contact-form-label,
+    .contact-form-textarea:focus + .contact-form-label,
+    .contact-form-input:not(:placeholder-shown) + .contact-form-label,
+    .contact-form-textarea:not(:placeholder-shown) + .contact-form-label {
+      top: 0;
+      left: 20px;
+      font-size: 1rem;
+      color: #00ffff;
+    }
+
+    .contact-form-textarea {
+      resize: vertical;
+      min-height: 150px;
+    }
+
+    .contact-form-button {
+      display: block;
+      width: 100%;
+      padding: 15px;
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: #0f0f0f;
+      background-color: #00ffff;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .contact-form-button:hover {
+      background-color: #00d9d9;
+    }
+
+    .contact-form-button:before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(circle, #00ffff 0%, rgba(0, 255, 255, 0.5) 50%, rgba(0, 255, 255, 0) 100%);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .contact-form-button:hover:before {
+      opacity: 1;
+    }
+
+    .contact-form-button:active {
+      transform: scale(0.95);
+    }
+
+    /* Responsive Styles */
+    @media (max-width: 768px) {
+      nav {
+        padding: 10px 20px;
+      }
+
+      nav a {
+        font-size: 16px;
+        padding: 8px 16px;
+      }
+
+      .hero-title {
+        font-size: 4rem;
+      }
+
+      .hero-subtitle {
+        font-size: 2rem;
+      }
+
+      .project-gallery-title,
+      .contact-form-title {
+        font-size: 2.5rem;
+      }
+
+      .project-title {
+        font-size: 1.8rem;
+      }
+
+      .project-description {
+        font-size: 1rem;
+      }
+
+      .project-details-title {
+        font-size: 2.5rem;
+      }
+
+      .project-details-description {
+        font-size: 1.2rem;
+      }
+
+      .project-details-tech {
+        font-size: 1rem;
+      }
+
+      .contact-form-input,
+      .contact-form-textarea,
+      .contact-form-button {
+        font-size: 1rem;
+      }
+
+      .contact-form-label {
+        font-size: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="#">Home</a>
+    <a href="#">Portfolio</a>
+    <a href="#">About</a>
+    <a href="#">Contact</a>
+  </nav>
+
+  <div class="hero">
+    <div class="hero-content">
+      <h1 class="hero-title">John Doe</h1>
+      <p class="hero-subtitle">Backend Developer | Cosmic Visionary</p>
+    </div>
+  </div>
+
+  <div class="project-gallery">
+    <h2 class="project-gallery-title">Project Gallery</h2>
+    <div class="project-grid">
+      <div class="project-item">
+        <h3 class="project-title">Project Galaxy</h3>
+        <p class="project-description">Explore the cosmic wonders of this backend project.</p>
+        <div class="project-details">
+          <h4 class="project-details-title">Project Galaxy</h4>
+          <p class="project-details-description">A backend application that simulates the formation and evolution of galaxies in a cosmic environment.</p>
+          <p class="project-details-tech">Technologies: Node.js, MongoDB, WebGL</p>
+        </div>
+      </div>
+      <div class="project-item">
+        <h3 class="project-title">Vaporwave Distortion</h3>
+        <p class="project-description">Experience the mesmerizing glitches of this backend experiment.</p>
+        <div class="project-details">
+          <h4 class="project-details-title">Vaporwave Distortion</h4>
+          <p class="project-details-description">A backend project that explores the creative possibilities of vaporwave aesthetics and digital distortion.</p>
+          <p class="project-details-tech">Technologies: Rust, WebAssembly, Three.js</p>
+        </div>
+      </div>
+      <div class="project-item">
+        <h3 class="project-title">Steampunk Singularity</h3>
+        <p class="project-description">Dive into the intricate machinery of this backend marvel.</p>
+        <div class="project-details">
+          <h4 class="project-details-title">Steampunk Singularity</h4>
+          <p class="project-details-description">A backend application that combines the visuals of steampunk engineering with the power of quantum computing.</p>
+          <p class="project-details-tech">Technologies: Go, Quantum SDK, Canvas API</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="contact-form">
+    <h2 class="contact-form-title">Get in Touch</h2>
+    <div class="contact-form-container">
+      <form action="#" method="post">
+        <div class="contact-form-group">
+          <input type="text" id="name" class="contact-form-input" placeholder=" " required>
+          <label for="name" class="contact-form-label">Name</label>
+        </div>
+        <div class="contact-form-group">
+          <input type="email" id="email" class="contact-form-input" placeholder=" " required>
+          <label for="email" class="contact-form-label">Email</label>
+        </div>
+        <div class="contact-form-group">
+          <textarea id="message" class="contact-form-textarea" placeholder=" " required></textarea>
+          <label for="message" class="contact-form-label">Message</label>
+        </div>
+        <button type="submit" class="contact-form-button>
+          Send Message
+        </button>
+      </form>
+    </div>
+  </div>
+</body>
+</html>'<!-- Visit: https://github.com/Ishanoshada/portflair -->
+<!-- Visit: https://github.com/Ishanoshada/portflair -->

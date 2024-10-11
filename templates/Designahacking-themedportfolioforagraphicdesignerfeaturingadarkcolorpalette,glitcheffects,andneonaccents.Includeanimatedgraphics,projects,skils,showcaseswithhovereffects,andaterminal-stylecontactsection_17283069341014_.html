@@ -1,0 +1,405 @@
+<!-- Portfolio created by Ishan -->
+<!-- Check out my work at: https://github.com/Ishanoshada/portflair -->
+<!-- 2024/10/9 -->
+<!-- Portfolio created by Ishan -->
+'<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hacking-Themed Portfolio</title>
+    <style>
+        /* Global Styles */
+        body {
+            font-family: 'Courier New', monospace;
+            background-color: #111111;
+            color: #c4c4c4;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Navigation Bar */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #1a1a1a;
+            padding: 1rem 2rem;
+        }
+
+        .navbar-brand {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #00ff00;
+            text-decoration: none;
+            text-shadow: 0 0 10px #00ff00;
+            animation: glitch 0.5s infinite;
+        }
+
+        .navbar-nav {
+            display: flex;
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .navbar-nav li {
+            margin-left: 1.5rem;
+        }
+
+        .navbar-nav li a {
+            color: #c4c4c4;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .navbar-nav li a:hover {
+            color: #00ff00;
+            text-shadow: 0 0 10px #00ff00;
+        }
+
+        /* Interactive Projects Showcase */
+        .project-showcase {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            padding: 2rem;
+        }
+
+        .project-thumbnail {
+            position: relative;
+            overflow: hidden;
+            border-radius: 5px;
+            box-shadow: 0 0 20px rgba(0, 255, 0, 0.3);
+            cursor: pointer;
+            animation: glitch 0.5s infinite;
+        }
+
+        .project-thumbnail img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: transform 0.3s ease;
+        }
+
+        .project-thumbnail:hover img {
+            transform: scale(1.1);
+        }
+
+        .project-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .project-thumbnail:hover .project-overlay {
+            opacity: 1;
+        }
+
+        .project-overlay h3 {
+            color: #00ff00;
+            font-size: 1.5rem;
+            text-shadow: 0 0 10px #00ff00;
+            margin-bottom: 0.5rem;
+        }
+
+        .project-overlay p {
+            color: #c4c4c4;
+            font-size: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .view-project-btn {
+            background-color: #00ff00;
+            color: #111111;
+            padding: 0.5rem 1rem;
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            cursor: pointer;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+        }
+
+        .view-project-btn:hover {
+            background-color: #00d600;
+        }
+
+        /* Skills and Expertise Section */
+        .skills-section {
+            padding: 2rem;
+            background-color: #1a1a1a;
+        }
+
+        .skills-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 2rem;
+        }
+
+        .skill-card {
+            background-color: #111111;
+            border-radius: 5px;
+            box-shadow: 0 0 20px rgba(0, 255, 0, 0.3);
+            padding: 1.5rem;
+            text-align: center;
+            width: 200px;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+            animation: glitch 0.5s infinite;
+        }
+
+        .skill-card:hover {
+            transform: scale(1.05);
+        }
+
+        .skill-card h3 {
+            color: #00ff00;
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+            text-shadow: 0 0 10px #00ff00;
+        }
+
+        .skill-card p {
+            color: #c4c4c4;
+            font-size: 0.9rem;
+        }
+
+        /* Interactive Contact Form */
+        .contact-section {
+            padding: 2rem;
+            background-color: #111111;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .contact-form {
+            background-color: #1a1a1a;
+            border-radius: 5px;
+            box-shadow: 0 0 20px rgba(0, 255, 0, 0.3);
+            padding: 2rem;
+            width: 100%;
+            max-width: 500px;
+            animation: glitch 0.5s infinite;
+        }
+
+        .contact-form h2 {
+            color: #00ff00;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            text-shadow: 0 0 10px #00ff00;
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 0.5rem;
+            margin-bottom: 1rem;
+            background-color: #111111;
+            border: 1px solid #00ff00;
+            border-radius: 5px;
+            color: #c4c4c4;
+            font-family: 'Courier New', monospace;
+            font-size: 1rem;
+        }
+
+        .contact-form textarea {
+            height: 150px;
+        }
+
+        .contact-form button {
+            background-color: #00ff00;
+            color: #111111;
+            padding: 0.5rem 1rem;
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .contact-form button:hover {
+            background-color: #00d600;
+        }
+
+        .terminal-window {
+            background-color: #111111;
+            border-radius: 5px;
+            box-shadow: 0 0 20px rgba(0, 255, 0, 0.3);
+            padding: 1rem;
+            width: 100%;
+            max-width: 300px;
+            margin-top: 2rem;
+            font-size: 0.9rem;
+            line-height: 1.5;
+            animation: glitch 0.5s infinite;
+        }
+
+        .terminal-window span {
+            color: #00ff00;
+            font-weight: bold;
+        }
+
+        /* Animations */
+        @keyframes glitch {
+            0% {
+                transform: translateX(0);
+            }
+            20% {
+                transform: translateX(-2px);
+            }
+            40% {
+                transform: translateX(2px);
+            }
+            60% {
+                transform: translateX(-2px);
+            }
+            80% {
+                transform: translateX(2px);
+            }
+            100% {
+                transform: translateX(0);
+            }
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .navbar {
+                padding: 1rem;
+            }
+
+            .navbar-brand {
+                font-size: 1.2rem;
+            }
+
+            .navbar-nav li {
+                margin-left: 1rem;
+            }
+
+            .project-showcase {
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            }
+
+            .skill-card {
+                width: 180px;
+            }
+
+            .contact-form {
+                padding: 1.5rem;
+            }
+
+            .terminal-window {
+                max-width: 250px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <a href="#" class="navbar-brand">Hacking-Themed Portfolio</a>
+            <ul class="navbar-nav">
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Projects</a></li>
+                <li><a href="#">Skills</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="project-showcase">
+            <div class="project-thumbnail">
+                <img src="https://dummyimage.com/600x400/111/00ff00&text=Project+1" alt="Project 1">
+                <div class="project-overlay">
+                    <h3>Project 1</h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                    <a href="#" class="view-project-btn">View Project</a>
+                </div>
+            </div>
+            <div class="project-thumbnail">
+                <img src="https://dummyimage.com/600x400/111/00ff00&text=Project+2" alt="Project 2">
+                <div class="project-overlay">
+                    <h3>Project 2</h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                    <a href="#" class="view-project-btn">View Project</a>
+                </div>
+            </div>
+            <div class="project-thumbnail">
+                <img src="https://dummyimage.com/600x400/111/00ff00&text=Project+3" alt="Project 3">
+                <div class="project-overlay">
+                    <h3>Project 3</h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                    <a href="#" class="view-project-btn">View Project</a>
+                </div>
+            </div>
+            <div class="project-thumbnail">
+                <img src="https://dummyimage.com/600x400/111/00ff00&text=Project+4" alt="Project 4">
+                <div class="project-overlay">
+                    <h3>Project 4</h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                    <a href="#" class="view-project-btn">View Project</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="skills-section">
+            <div class="skills-container">
+                <div class="skill-card">
+                    <h3>Photoshop</h3>
+                    <p>Expert level proficiency</p>
+                </div>
+                <div class="skill-card">
+                    <h3>Illustrator</h3>
+                    <p>Advanced skills</p>
+                </div>
+                <div class="skill-card">
+                    <h3>After Effects</h3>
+                    <p>Proficient in motion graphics</p>
+                </div>
+                <div class="skill-card">
+                    <h3>HTML/CSS</h3>
+                    <p>Mastery of web development</p>
+                </div>
+                <div class="skill-card">
+                    <h3>JavaScript</h3>
+                    <p>Experienced in interactive design</p>
+                </div>
+                <div class="skill-card">
+                    <h3>UI/UX Design</h3>
+                    <p>Strong user-centric approach</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="contact-section">
+            <div class="contact-form">
+                <h2>Get in Touch</h2>
+                <form>
+                    <input type="text" placeholder="Enter your handle" required>
+                    <input type="email" placeholder="Enter your encrypted email" required>
+                    <textarea placeholder="Upload your encrypted message" required></textarea>
+                    <button type="submit">Send Message</button>
+                </form>
+            </div>
+            <div class="terminal-window">
+                <p><span>root@hacker:~$</span> Connecting to secure server...</p>
+                <p><span>root@hacker:~$</span> Decrypting message...</p>
+                <p><span>root@hacker:~$</span> Message received. Forwarding to client...</p>
+            </div>
+        </section>
+    </main>
+</body>
+</html>'<!-- Visit: https://github.com/Ishanoshada/portflair -->
+<!-- Visit: https://github.com/Ishanoshada/portflair -->

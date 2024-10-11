@@ -1,0 +1,542 @@
+<!-- Portfolio created by Ishan -->
+<!-- Check out my work at: https://github.com/Ishanoshada/portflair -->
+<!-- 2024/10/9 -->
+<!-- Portfolio created by Ishan -->
+'<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Black Hole Portfolio</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
+
+    body {
+      font-family: 'Orbitron', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #000;
+      color: #fff;
+      overflow-x: hidden;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px;
+      background: linear-gradient(to bottom, #000, #111);
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    .logo {
+      font-size: 24px;
+      font-weight: bold;
+      letter-spacing: 2px;
+      text-shadow: 0 0 10px #9b59b6, 0 0 20px #9b59b6, 0 0 30px #9b59b6;
+      animation: glow 2s ease-in-out infinite;
+    }
+
+    @keyframes glow {
+      0%, 100% {
+        text-shadow: 0 0 10px #9b59b6, 0 0 20px #9b59b6, 0 0 30px #9b59b6;
+      }
+      50% {
+        text-shadow: 0 0 20px #9b59b6, 0 0 30px #9b59b6, 0 0 40px #9b59b6;
+      }
+    }
+
+    nav ul {
+      display: flex;
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    nav li {
+      margin-left: 20px;
+    }
+
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      font-size: 16px;
+      font-weight: bold;
+      letter-spacing: 1px;
+      position: relative;
+      padding-bottom: 5px;
+    }
+
+    nav a::after {
+      content: '';
+      position: absolute;
+      width: 100%;
+      height: 2px;
+      bottom: 0;
+      left: 0;
+      background-color: #9b59b6;
+      transform: scaleX(0);
+      transition: transform 0.3s ease-in-out;
+    }
+
+    nav a:hover::after {
+      transform: scaleX(1);
+    }
+
+    .hero {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 80vh;
+      background-image: url('https://dummyimage.com/1920x1080/000/fff&text=Black+Hole+Portfolio');
+      background-size: cover;
+      background-position: center;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(circle, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.8) 100%);
+      z-index: 1;
+    }
+
+    .hero h1 {
+      font-size: 64px;
+      font-weight: bold;
+      text-shadow: 0 0 20px #9b59b6, 0 0 30px #9b59b6, 0 0 40px #9b59b6;
+      animation: glow 3s ease-in-out infinite;
+      z-index: 2;
+    }
+
+    .hero p {
+      font-size: 24px;
+      margin-top: 20px;
+      z-index: 2;
+    }
+
+    .project-galaxies {
+      padding: 80px 0;
+      background-color: #111;
+    }
+
+    .project-galaxies h2 {
+      font-size: 48px;
+      text-align: center;
+      margin-bottom: 40px;
+      text-shadow: 0 0 20px #9b59b6, 0 0 30px #9b59b6, 0 0 40px #9b59b6;
+      animation: glow 3s ease-in-out infinite;
+    }
+
+    .galaxy-container {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-gap: 40px;
+    }
+
+    .galaxy {
+      background-image: url('https://dummyimage.com/600x400/000/fff&text=Galaxy');
+      background-size: cover;
+      background-position: center;
+      position: relative;
+      height: 300px;
+      border-radius: 10px;
+      overflow: hidden;
+      cursor: pointer;
+      transition: transform 0.3s ease-in-out;
+    }
+
+    .galaxy:hover {
+      transform: scale(1.05);
+    }
+
+    .galaxy-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(0,0,0,0.8));
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      transition: opacity 0.3s ease-in-out;
+    }
+
+    .galaxy:hover .galaxy-overlay {
+      opacity: 1;
+    }
+
+    .galaxy-overlay h3 {
+      font-size: 24px;
+      margin-bottom: 10px;
+      text-shadow: 0 0 10px #9b59b6, 0 0 20px #9b59b6, 0 0 30px #9b59b6;
+    }
+
+    .galaxy-overlay p {
+      font-size: 16px;
+      text-align: center;
+      max-width: 80%;
+      text-shadow: 0 0 10px #9b59b6, 0 0 20px #9b59b6, 0 0 30px #9b59b6;
+    }
+
+    .steampunk-gears {
+      padding: 80px 0;
+      background-color: #222;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .steampunk-gears h2 {
+      font-size: 48px;
+      text-align: center;
+      margin-bottom: 40px;
+      text-shadow: 0 0 20px #9b59b6, 0 0 30px #9b59b6, 0 0 40px #9b59b6;
+      animation: glow 3s ease-in-out infinite;
+    }
+
+    .gear-container {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      grid-gap: 40px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .gear {
+      background-image: url('https://dummyimage.com/150x150/000/fff&text=Gear');
+      background-size: cover;
+      background-position: center;
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      position: relative;
+      cursor: pointer;
+      transition: transform 0.3s ease-in-out;
+    }
+
+    .gear:hover {
+      transform: scale(1.1);
+    }
+
+    .gear-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0,0,0,0.8);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      transition: opacity 0.3s ease-in-out;
+    }
+
+    .gear:hover .gear-overlay {
+      opacity: 1;
+    }
+
+    .gear-overlay h3 {
+      font-size: 18px;
+      margin-bottom: 10px;
+      text-shadow: 0 0 10px #9b59b6, 0 0 20px #9b59b6, 0 0 30px #9b59b6;
+    }
+
+    .gear-overlay p {
+      font-size: 14px;
+      text-align: center;
+      max-width: 80%;
+      text-shadow: 0 0 10px #9b59b6, 0 0 20px #9b59b6, 0 0 30px #9b59b6;
+    }
+
+    .steampunk-gears::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: url('https://dummyimage.com/1920x1080/000/fff&text=Steampunk+Gears');
+      background-size: cover;
+      background-position: center;
+      opacity: 0.1;
+      z-index: 1;
+    }
+
+    .neon-contact {
+      padding: 80px 0;
+      background-image: radial-gradient(circle, #111, #000);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .neon-contact h2 {
+      font-size: 48px;
+      text-align: center;
+      margin-bottom: 40px;
+      text-shadow: 0 0 20px #9b59b6, 0 0 30px #9b59b6, 0 0 40px #9b59b6;
+      animation: glow 3s ease-in-out infinite;
+    }
+
+    .neon-contact-form {
+      max-width: 600px;
+      margin: 0 auto;
+      background-color: rgba(0,0,0,0.8);
+      padding: 40px;
+      border-radius: 10px;
+      box-shadow: 0 0 20px rgba(155,89,182,0.5);
+      position: relative;
+      z-index: 2;
+    }
+
+    .neon-contact-form input,
+    .neon-contact-form textarea {
+      display: block;
+      width: 100%;
+      margin-bottom: 20px;
+      padding: 10px;
+      font-size: 16px;
+      font-family: 'Orbitron', sans-serif;
+      border: none;
+      border-radius: 5px;
+      background-color: rgba(255,255,255,0.1);
+      color: #fff;
+      transition: background-color 0.3s ease-in-out;
+    }
+
+    .neon-contact-form input:focus,
+    .neon-contact-form textarea:focus {
+      background-color: rgba(255,255,255,0.2);
+    }
+
+    .neon-contact-form button {
+      display: block;
+      width: 100%;
+      padding: 10px;
+      font-size: 16px;
+      font-family: 'Orbitron', sans-serif;
+      font-weight: bold;
+      border: none;
+      border-radius: 5px;
+      background-color: #9b59b6;
+      color: #fff;
+      cursor: pointer;
+      transition: background-color 0.3s ease-in-out;
+    }
+
+    .neon-contact-form button:hover {
+      background-color: #8e44ad;
+    }
+
+    .neon-contact::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: url('https://dummyimage.com/1920x1080/000/fff&text=Neon+Cosmic+Shapes');
+      background-size: cover;
+      background-position: center;
+      opacity: 0.3;
+      z-index: 1;
+    }
+
+    .neon-contact::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(circle, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.8) 100%);
+      z-index: 1;
+    }
+
+    @media (max-width: 768px) {
+      header {
+        padding: 10px;
+      }
+
+      .logo {
+        font-size: 20px;
+      }
+
+      nav li {
+        margin-left: 10px;
+      }
+
+      nav a {
+        font-size: 14px;
+      }
+
+      .hero h1 {
+        font-size: 48px;
+      }
+
+      .hero p {
+        font-size: 18px;
+      }
+
+      .project-galaxies,
+      .steampunk-gears,
+      .neon-contact {
+        padding: 40px 0;
+      }
+
+      .project-galaxies h2,
+      .steampunk-gears h2,
+      .neon-contact h2 {
+        font-size: 36px;
+      }
+
+      .galaxy-container {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .gear-container {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .neon-contact-form {
+        padding: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">Black Hole Portfolio</div>
+    <nav>
+      <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Projects</a></li>
+        <li><a href="#">Skills</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <h1>Welcome to the Black Hole Portfolio</h1>
+      <p>Explore the cosmic wonders of a backend developer's work</p>
+    </section>
+
+    <section class="project-galaxies">
+      <h2>Project Galaxies</h2>
+      <div class="galaxy-container">
+        <div class="galaxy">
+          <div class="galaxy-overlay">
+            <h3>Galaxy Project</h3>
+            <p>Dive into the details of this cosmic creation</p>
+          </div>
+        </div>
+        <div class="galaxy">
+          <div class="galaxy-overlay">
+            <h3>Nebula Project</h3>
+            <p>Uncover the secrets of this shimmering masterpiece</p>
+          </div>
+        </div>
+        <div class="galaxy">
+          <div class="galaxy-overlay">
+            <h3>Supernova Project</h3>
+            <p>Witness the explosive brilliance of this backend wonder</p>
+          </div>
+        </div>
+        <div class="galaxy">
+          <div class="galaxy-overlay">
+            <h3>Quasar Project</h3>
+            <p>Explore the dazzling brilliance of this backend showcase</p>
+          </div>
+        </div>
+        <div class="galaxy">
+          <div class="galaxy-overlay">
+            <h3>Pulsar Project</h3>
+            <p>Dive into the rhythmic pulses of this backend masterpiece</p>
+          </div>
+        </div>
+        <div class="galaxy</div>
+      </div>
+    </section>
+
+    <section class="steampunk-gears">
+      <h2>Steampunk Gears</h2>
+      <div class="gear-container">
+        <div class="gear">
+          <div class="gear-overlay">
+            <h3>Backend Development</h3>
+            <p>Proficient in building robust and scalable backend systems</p>
+          </div>
+        </div>
+        <div class="gear">
+          <div class="gear-overlay">
+            <h3>Database Management</h3>
+            <p>Skilled in designing and optimizing database architectures</p>
+          </div>
+        </div>
+        <div class="gear">
+          <div class="gear-overlay">
+            <h3>API Development</h3>
+            <p>Experienced in creating secure and efficient API endpoints</p>
+          </div>
+        </div>
+        <div class="gear">
+          <div class="gear-overlay">
+            <h3>Cloud Computing</h3>
+            <p>Proficient in deploying and managing applications on cloud platforms</p>
+          </div>
+        </div>
+        <div class="gear">
+          <div class="gear-overlay">
+            <h3>Microservices</h3>
+            <p>Adept at building scalable and modular microservices architectures</p>
+          </div>
+        </div>
+        <div class="gear">
+          <div class="gear-overlay">
+            <h3>DevOps Practices</h3>
+            <p>Experienced in implementing CI/CD pipelines and DevOps workflows</p>
+          </div>
+        </div>
+        <div class="gear">
+          <div class="gear-overlay">
+            <h3>Performance Optimization</h3>
+            <p>Skilled in profiling and optimizing backend applications for maximum efficiency</p>
+          </div>
+        </div>
+        <div class="gear">
+          <div class="gear-overlay">
+            <h3>Security Best Practices</h3>
+            <p>Committed to implementing robust security measures in backend systems</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="neon-contact">
+      <h2>Get in Touch</h2>
+      <div class="neon-contact-form">
+        <form>
+          <input type="text" placeholder="Name" required>
+          <input type="email" placeholder="Email" required>
+          <textarea placeholder="Message" rows="5" required></textarea>
+          <button type="submit">Send Message</button>
+        </form>
+      </div>
+    </section>
+  </main>
+</body>
+</html>'<!-- Visit: https://github.com/Ishanoshada/portflair -->
+<!-- Visit: https://github.com/Ishanoshada/portflair -->

@@ -1,0 +1,407 @@
+<!-- Portfolio created by Ishan -->
+<!-- Check out my work at: https://github.com/Ishanoshada/portflair -->
+<!-- 2024/10/9 -->
+<!-- Portfolio created by Ishan -->
+'<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Black Hole Portfolio</title>
+  <style>
+    /* General Styles */
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Audiowide', cursive;
+      background-color: #000000;
+      color: #ffffff;
+    }
+
+    /* Navigation Bar */
+    .navbar {
+      display: flex;
+      justify-content: center;
+      background-color: rgba(255, 255, 255, 0.1);
+      padding: 20px 0;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .navbar a {
+      color: #ffffff;
+      text-decoration: none;
+      margin: 0 20px;
+      font-size: 18px;
+      transition: color 0.3s ease;
+    }
+
+    .navbar a:hover {
+      color: #7fff00;
+    }
+
+    /* Project Galaxy Section */
+    .project-galaxy {
+      padding: 100px 0;
+      background: radial-gradient(ellipse at center, #000000 0%, #1c1c1c 100%);
+      overflow-x: hidden;
+    }
+
+    .project-galaxy-title {
+      text-align: center;
+      font-size: 48px;
+      margin-bottom: 50px;
+      text-shadow: 0 0 20px #7fff00, 0 0 50px #7fff00;
+      animation: glitch 2s infinite;
+    }
+
+    .project-galaxy-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      grid-gap: 50px;
+      justify-items: center;
+    }
+
+    .project-galaxy-item {
+      width: 200px;
+      height: 200px;
+      background-size: cover;
+      background-position: center;
+      border-radius: 50%;
+      position: relative;
+      overflow: hidden;
+      cursor: pointer;
+      box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .project-galaxy-item:before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(circle, transparent 0%, rgba(0, 0, 0, 0.5) 100%);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .project-galaxy-item:hover {
+      transform: scale(1.1);
+      box-shadow: 0 0 50px rgba(255, 255, 255, 0.5);
+    }
+
+    .project-galaxy-item:hover:before {
+      opacity: 1;
+    }
+
+    .project-galaxy-item .project-details {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .project-galaxy-item:hover .project-details {
+      opacity: 1;
+    }
+
+    .project-galaxy-item .project-details h3 {
+      font-size: 24px;
+      margin-bottom: 10px;
+      text-shadow: 0 0 10px #7fff00;
+    }
+
+    .project-galaxy-item .project-details p {
+      font-size: 16px;
+      margin-bottom: 20px;
+      text-shadow: 0 0 10px #7fff00;
+    }
+
+    .project-galaxy-item .project-details a {
+      display: inline-block;
+      padding: 10px 20px;
+      background-color: #7fff00;
+      color: #000000;
+      text-decoration: none;
+      border-radius: 20px;
+      font-size: 14px;
+      transition: background-color 0.3s ease;
+    }
+
+    .project-galaxy-item .project-details a:hover {
+      background-color: #00ff00;
+    }
+
+    /* Steampunk Gears Section */
+    .steampunk-gears {
+      padding: 100px 0;
+      background-image: url("https://dummyimage.com/1200x500/ccc/000&text=Steampunk+Gears");
+      background-size: cover;
+      background-position: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .steampunk-gears-title {
+      text-align: center;
+      font-size: 48px;
+      margin-bottom: 50px;
+      text-shadow: 0 0 20px #ff6b6b, 0 0 50px #ff6b6b;
+      animation: glitch 2s infinite;
+    }
+
+    .steampunk-gears-content {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      z-index: 1;
+    }
+
+    .steampunk-gears-timeline {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      width: 40%;
+      padding-right: 50px;
+    }
+
+    .steampunk-gears-timeline-item {
+      display: flex;
+      align-items: center;
+      margin-bottom: 30px;
+    }
+
+    .steampunk-gears-timeline-item .icon {
+      width: 50px;
+      height: 50px;
+      background-image: url("https://dummyimage.com/50x50/ff6b6b/000&text=+");
+      background-size: cover;
+      background-position: center;
+      margin-right: 20px;
+    }
+
+    .steampunk-gears-timeline-item h3 {
+      font-size: 24px;
+      margin-bottom: 10px;
+      text-shadow: 0 0 10px #ff6b6b;
+    }
+
+    .steampunk-gears-timeline-item p {
+      font-size: 16px;
+      text-shadow: 0 0 10px #ff6b6b;
+    }
+
+    .steampunk-gears-diagram {
+      width: 60%;
+      height: 400px;
+      background-image: url("https://dummyimage.com/600x400/ccc/000&text=Steampunk+Diagram");
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center;
+      position: relative;
+      animation: rotate 30s linear infinite;
+    }
+
+    @keyframes rotate {
+      0% {
+        transform: rotate(0deg);
+      }
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+
+    /* Neon Contact Form Section */
+    .neon-contact {
+      padding: 100px 0;
+      background-color: #000000;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .neon-contact-title {
+      text-align: center;
+      font-size: 48px;
+      margin-bottom: 50px;
+      text-shadow: 0 0 20px #00c4ff, 0 0 50px #00c4ff;
+      animation: glitch 2s infinite;
+    }
+
+    .neon-contact-form {
+      max-width: 600px;
+      margin: 0 auto;
+      background-color: rgba(0, 0, 0, 0.5);
+      padding: 40px;
+      border-radius: 20px;
+      box-shadow: 0 0 20px rgba(0, 196, 255, 0.5);
+      position: relative;
+      z-index: 1;
+    }
+
+    .neon-contact-form input,
+    .neon-contact-form textarea {
+      width: 100%;
+      padding: 15px;
+      margin-bottom: 20px;
+      background-color: rgba(0, 196, 255, 0.2);
+      border: none;
+      border-radius: 10px;
+      color: #ffffff;
+      font-size: 16px;
+      font-family: 'Audiowide', cursive;
+      transition: background-color 0.3s ease;
+    }
+
+    .neon-contact-form input:focus,
+    .neon-contact-form textarea:focus {
+      background-color: rgba(0, 196, 255, 0.4);
+    }
+
+    .neon-contact-form button {
+      display: block;
+      width: 100%;
+      padding: 15px;
+      background-color: #00c4ff;
+      border: none;
+      border-radius: 10px;
+      color: #000000;
+      font-size: 16px;
+      font-family: 'Audiowide', cursive;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .neon-contact-form button:hover {
+      background-color: #00ffff;
+    }
+
+    .neon-contact-background {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: radial-gradient(circle, #00c4ff 0%, #000000 100%);
+      opacity: 0.1;
+      animation: pulsate 5s ease-in-out infinite;
+    }
+
+    @keyframes pulsate {
+      0% {
+        opacity: 0.1;
+      }
+      50% {
+        opacity: 0.3;
+      }
+      100% {
+        opacity: 0.1;
+      }
+    }
+
+    @keyframes glitch {
+      0% {
+        text-shadow: 0 0 20px #7fff00, 0 0 50px #7fff00;
+      }
+      50% {
+        text-shadow: 0 0 20px #ff6b6b, 0 0 50px #ff6b6b;
+      }
+      100% {
+        text-shadow: 0 0 20px #00c4ff, 0 0 50px #00c4ff;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav class="navbar">
+    <a href="#">Home</a>
+    <a href="#">About</a>
+    <a href="#">Projects</a>
+    <a href="#">Contact</a>
+  </nav>
+
+  <section class="project-galaxy">
+    <h2 class="project-galaxy-title">Project Galaxy</h2>
+    <div class="project-galaxy-grid">
+      <div class="project-galaxy-item" style="background-image: url('https://dummyimage.com/200x200/7fff00/000&text=Project+1');">
+        <div class="project-details">
+          <h3>Project 1</h3>
+          <p>A cosmic exploration of backend development</p>
+          <a href="#">View Project</a>
+        </div>
+      </div>
+      <div class="project-galaxy-item" style="background-image: url('https://dummyimage.com/200x200/ff6b6b/000&text=Project+2');">
+        <div class="project-details">
+          <h3>Project 2</h3>
+          <p>Navigating the black hole of backend challenges</p>
+          <a href="#">View Project</a>
+        </div>
+      </div>
+      <div class="project-galaxy-item" style="background-image: url('https://dummyimage.com/200x200/00c4ff/000&text=Project+3');">
+        <div class="project-details">
+          <h3>Project 3</h3>
+          <p>Cosmic solutions for backend optimization</p>
+          <a href="#">View Project</a>
+        </div>
+      </div>
+      <div class="project-galaxy-item" style="background-image: url('https://dummyimage.com/200x200/ff00ff/000&text=Project+4');">
+        <div class="project-details">
+          <h3>Project 4</h3>
+          <p>Gravitational pull of backend expertise</p>
+          <a href="#">View Project</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="steampunk-gears">
+    <h2 class="steampunk-gears-title">Steampunk Gears</h2>
+    <div class="steampunk-gears-content">
+      <div class="steampunk-gears-timeline">
+        <div class="steampunk-gears-timeline-item">
+          <div class="icon"></div>
+          <div>
+            <h3>Backend Mastery</h3>
+            <p>Crafting complex backend systems with precision and expertise</p>
+          </div>
+        </div>
+        <div class="steampunk-gears-timeline-item">
+          <div class="icon"></div>
+          <div>
+            <h3>Technological Innovations</h3>
+            <p>Leveraging the latest backend technologies to drive progress</p>
+          </div>
+        </div>
+        <div class="steampunk-gears-timeline-item">
+          <div class="icon"></div>
+          <div>
+            <h3>Scalable Solutions</h3>
+            <p>Building backend architectures that can handle exponential growth</p>
+          </div>
+        </div>
+      </div>
+      <div class="steampunk-gears-diagram"></div>
+    </div>
+  </section>
+
+  <section class="neon-contact">
+    <h2 class="neon-contact-title">Neon Contact</h2>
+    <div class="neon-contact-form">
+      <form>
+        <input type="text" placeholder="Name" required>
+        <input type="email" placeholder="Email" required>
+        <textarea placeholder="Message" rows="5" required></textarea>
+        <button type="submit">Submit</button>
+      </form>
+    </div>
+    <div class="neon-contact-background"></div>
+  </section>
+</body>
+</html>'<!-- Visit: https://github.com/Ishanoshada/portflair -->
+<!-- Visit: https://github.com/Ishanoshada/portflair -->

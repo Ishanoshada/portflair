@@ -1,0 +1,494 @@
+<!-- Portfolio created by Ishan -->
+<!-- Check out my work at: https://github.com/Ishanoshada/portflair -->
+<!-- 2024/10/9 -->
+<!-- Portfolio created by Ishan -->
+'<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Space-Themed Developer Portfolio</title>
+  <style>
+    /* Global Styles */
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Montserrat', sans-serif;
+      background-color: #000024;
+      color: #fff;
+      overflow-x: hidden;
+    }
+
+    /* Navigation */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 40px;
+      background-color: rgba(0, 0, 36, 0.7);
+      backdrop-filter: blur(10px);
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 999;
+    }
+
+    nav .logo {
+      font-size: 24px;
+      font-weight: bold;
+      color: #9B7CFF;
+      text-shadow: 0 0 20px #9B7CFF;
+      animation: pulsate 2s infinite;
+    }
+
+    nav .menu {
+      display: flex;
+      gap: 30px;
+    }
+
+    nav .menu a {
+      color: #fff;
+      text-decoration: none;
+      font-size: 16px;
+      position: relative;
+      padding-bottom: 5px;
+    }
+
+    nav .menu a:after {
+      content: "";
+      position: absolute;
+      width: 0;
+      height: 2px;
+      background-color: #9B7CFF;
+      left: 50%;
+      transform: translateX(-50%);
+      bottom: 0;
+      transition: width 0.3s ease-in-out;
+    }
+
+    nav .menu a:hover:after {
+      width: 100%;
+    }
+
+    /* Interactive Code Snippets Galaxy */
+    #code-snippets {
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(to bottom, #000024, #1A1A3D);
+      overflow: hidden;
+    }
+
+    #code-snippets h1 {
+      font-size: 48px;
+      font-weight: bold;
+      text-align: center;
+      margin-bottom: 40px;
+      text-shadow: 0 0 20px #9B7CFF;
+      animation: pulsate 3s infinite;
+    }
+
+    .code-snippet {
+      position: absolute;
+      width: 150px;
+      height: 150px;
+      background-color: rgba(155, 124, 255, 0.1);
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 24px;
+      font-weight: bold;
+      color: #9B7CFF;
+      text-shadow: 0 0 20px #9B7CFF;
+      cursor: pointer;
+      transition: all 0.3s ease-in-out;
+      animation: float 10s linear infinite;
+    }
+
+    .code-snippet:hover {
+      transform: scale(1.2);
+      box-shadow: 0 0 20px #9B7CFF;
+    }
+
+    .code-snippet-details {
+      position: absolute;
+      background-color: rgba(0, 0, 36, 0.8);
+      backdrop-filter: blur(10px);
+      padding: 20px;
+      border-radius: 10px;
+      display: none;
+      text-align: center;
+      animation: fade-in 0.5s ease-in-out;
+    }
+
+    .code-snippet-details h3 {
+      font-size: 24px;
+      margin-bottom: 10px;
+    }
+
+    .code-snippet-details p {
+      font-size: 16px;
+      margin-bottom: 20px;
+    }
+
+    .code-snippet-details a {
+      color: #9B7CFF;
+      text-decoration: none;
+      font-size: 14px;
+      transition: color 0.3s ease-in-out;
+    }
+
+    .code-snippet-details a:hover {
+      color: #fff;
+    }
+
+    /* Constellation Navigation */
+    #constellation-nav {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 40px 0;
+      background-color: #000024;
+      position: relative;
+    }
+
+    .constellation {
+      position: relative;
+      width: 80px;
+      height: 80px;
+      margin: 0 20px;
+      cursor: pointer;
+      transition: transform 0.3s ease-in-out;
+    }
+
+    .constellation:before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: url(https://dummyimage.com/80x80/9B7CFF/000024.png&text=+);
+      background-size: cover;
+      opacity: 0.5;
+      transition: opacity 0.3s ease-in-out;
+    }
+
+    .constellation:hover {
+      transform: scale(1.2);
+    }
+
+    .constellation:hover:before {
+      opacity: 1;
+    }
+
+    .constellation-label {
+      position: absolute;
+      bottom: -30px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 14px;
+      color: #9B7CFF;
+      text-shadow: 0 0 10px #9B7CFF;
+      white-space: nowrap;
+    }
+
+    /* Cosmic Inspiration Showcase */
+    #cosmic-inspiration {
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(to bottom, #1A1A3D, #000024);
+      overflow: hidden;
+    }
+
+    #cosmic-inspiration h2 {
+      font-size: 36px;
+      font-weight: bold;
+      text-align: center;
+      margin-bottom: 40px;
+      text-shadow: 0 0 20px #9B7CFF;
+      animation: pulsate 3s infinite;
+    }
+
+    .cosmic-element {
+      position: relative;
+      width: 300px;
+      height: 300px;
+      background-color: rgba(155, 124, 255, 0.1);
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 24px;
+      font-weight: bold;
+      color: #9B7CFF;
+      text-shadow: 0 0 20px #9B7CFF;
+      cursor: pointer;
+      transition: all 0.3s ease-in-out;
+      animation: float 15s linear infinite;
+    }
+
+    .cosmic-element:hover {
+      transform: scale(1.1);
+      box-shadow: 0 0 20px #9B7CFF;
+    }
+
+    .cosmic-element-details {
+      position: absolute;
+      background-color: rgba(0, 0, 36, 0.8);
+      backdrop-filter: blur(10px);
+      padding: 20px;
+      border-radius: 10px;
+      display: none;
+      text-align: center;
+      animation: fade-in 0.5s ease-in-out;
+    }
+
+    .cosmic-element-details h3 {
+      font-size: 24px;
+      margin-bottom: 10px;
+    }
+
+    .cosmic-element-details p {
+      font-size: 16px;
+      margin-bottom: 20px;
+    }
+
+    .cosmic-element-details a {
+      color: #9B7CFF;
+      text-decoration: none;
+      font-size: 14px;
+      transition: color 0.3s ease-in-out;
+    }
+
+    .cosmic-element-details a:hover {
+      color: #fff;
+    }
+
+    /* Animations */
+    @keyframes pulsate {
+      0% {
+        text-shadow: 0 0 20px #9B7CFF;
+      }
+      50% {
+        text-shadow: 0 0 40px #9B7CFF;
+      }
+      100% {
+        text-shadow: 0 0 20px #9B7CFF;
+      }
+    }
+
+    @keyframes float {
+      0% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(-20px);
+      }
+      100% {
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes fade-in {
+      0% {
+        opacity: 0;
+      }
+      100% {
+        opacity: 1;
+      }
+    }
+
+    /* Responsive Styles */
+    @media (max-width: 768px) {
+      nav {
+        padding: 10px 20px;
+      }
+
+      nav .logo {
+        font-size: 20px;
+      }
+
+      nav .menu {
+        gap: 20px;
+      }
+
+      nav .menu a {
+        font-size: 14px;
+      }
+
+      #code-snippets h1 {
+        font-size: 36px;
+      }
+
+      .code-snippet {
+        width: 100px;
+        height: 100px;
+        font-size: 18px;
+      }
+
+      .code-snippet-details h3 {
+        font-size: 20px;
+      }
+
+      .code-snippet-details p {
+        font-size: 14px;
+      }
+
+      #constellation-nav {
+        padding: 20px 0;
+      }
+
+      .constellation {
+        width: 60px;
+        height: 60px;
+        margin: 0 10px;
+      }
+
+      .constellation-label {
+        font-size: 12px;
+      }
+
+      #cosmic-inspiration h2 {
+        font-size: 28px;
+      }
+
+      .cosmic-element {
+        width: 200px;
+        height: 200px;
+        font-size: 18px;
+      }
+
+      .cosmic-element-details h3 {
+        font-size: 20px;
+      }
+
+      .cosmic-element-details p {
+        font-size: 14px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="logo">Space-Themed Portfolio</div>
+    <div class="menu">
+      <a href="#">Home</a>
+      <a href="#">Code Snippets</a>
+      <a href="#">Constellation Nav</a>
+      <a href="#">Cosmic Inspiration</a>
+    </div>
+  </nav>
+
+  <section id="code-snippets">
+    <h1>Interactive Code Snippets Galaxy</h1>
+    <div class="code-snippet" style="top: 20%; left: 10%;">
+      <div class="code-snippet-details">
+        <h3>Project 1</h3>
+        <p>Description of the project and the technologies used.</p>
+        <a href="#">Live Demo</a>
+      </div>
+    </div>
+    <div class="code-snippet" style="top: 40%; left: 30%;">
+      <div class="code-snippet-details">
+        <h3>Project 2</h3>
+        <p>Description of the project and the technologies used.</p>
+        <a href="#">GitHub</a>
+      </div>
+    </div>
+    <div class="code-snippet" style="top: 60%; left: 50%;">
+      <div class="code-snippet-details">
+        <h3>Project 3</h3>
+        <p>Description of the project and the technologies used.</p>
+        <a href="#">Live Demo</a>
+      </div>
+    </div>
+    <div class="code-snippet" style="top: 20%; left: 70%;">
+      <div class="code-snippet-details">
+        <h3>Project 4</h3>
+        <p>Description of the project and the technologies used.</p>
+        <a href="#">GitHub</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="constellation-nav">
+    <div class="constellation" style="top: 50%; left: 10%;">
+      <div class="constellation-label">Project 1</div>
+    </div>
+    <div class="constellation" style="top: 30%; left: 30%;">
+      <div class="constellation-label">Project 2</div>
+    </div>
+    <div class="constellation" style="top: 70%; left: 50%;">
+      <div class="constellation-label">Project 3</div>
+    </div>
+    <div class="constellation" style="top: 20%; left: 70%;">
+      <div class="constellation-label">Project 4</div>
+    </div>
+  </section>
+
+  <section id="cosmic-inspiration">
+    <h2>Cosmic Inspiration Showcase</h2>
+    <div class="cosmic-element" style="top: 30%; left: 20%;">
+      <div class="cosmic-element-details">
+        <h3>Cosmic Element 1</h3>
+        <p>Description of the cosmic element and how it inspired the developer.</p>
+        <a href="#">Learn More</a>
+      </div>
+    </div>
+    <div class="cosmic-element" style="top: 50%; left: 40%;">
+      <div class="cosmic-element-details">
+        <h3>Cosmic Element 2</h3>
+        <p>Description of the cosmic element and how it inspired the developer.</p>
+        <a href="#">Learn More</a>
+      </div>
+    </div>
+    <div class="cosmic-element" style="top: 20%; left: 60%;">
+      <div class="cosmic-element-details">
+        <h3>Cosmic Element 3</h3>
+        <p>Description of the cosmic element and how it inspired the developer.</p>
+        <a href="#">Learn More</a>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    const codeSnippets = document.querySelectorAll('.code-snippet');
+    const codeSnippetDetails = document.querySelectorAll('.code-snippet-details');
+    const cosmicElements = document.querySelectorAll('.cosmic-element');
+    const cosmicElementDetails = document.querySelectorAll('.cosmic-element-details');
+
+    codeSnippets.forEach((snippet, index) => {
+      snippet.addEventListener('click', () => {
+        codeSnippetDetails[index].style.display = 'block';
+      });
+    });
+
+    codeSnippetDetails.forEach((detail) => {
+      detail.addEventListener('click', () => {
+        detail.style.display = 'none';
+      });
+    });
+
+    cosmicElements.forEach((element, index) => {
+      element.addEventListener('click', () => {
+        cosmicElementDetails[index].style.display = 'block';
+      });
+    });
+
+    cosmicElementDetails.forEach((detail) => {
+      detail.addEventListener('click', () => {
+        detail.style.display = 'none';
+      });
+    });
+  </script>
+</body>
+</html>'<!-- Visit: https://github.com/Ishanoshada/portflair -->
+<!-- Visit: https://github.com/Ishanoshada/portflair -->

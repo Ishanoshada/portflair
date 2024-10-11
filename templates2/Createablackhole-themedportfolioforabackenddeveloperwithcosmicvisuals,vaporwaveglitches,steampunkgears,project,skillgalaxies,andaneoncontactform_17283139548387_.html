@@ -1,0 +1,365 @@
+<!-- Portfolio created by Ishan -->
+<!-- Check out my work at: https://github.com/Ishanoshada/portflair -->
+<!-- 2024/10/9 -->
+<!-- Portfolio created by Ishan -->
+'<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Black Hole Portfolio</title>
+  <style>
+    /* Global Styles */
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Orbitron', sans-serif;
+      background-color: #0f0f0f;
+      color: #fff;
+      overflow-x: hidden;
+    }
+
+    /* Navigation */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.5rem 2rem;
+      background-color: rgba(15, 15, 15, 0.8);
+      backdrop-filter: blur(10px);
+      position: relative;
+      z-index: 100;
+    }
+
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      font-size: 1.1rem;
+      padding: 0.5rem 1rem;
+      border-radius: 0.5rem;
+      transition: background-color 0.3s ease;
+    }
+
+    nav a:hover {
+      background-color: rgba(255, 255, 255, 0.1);
+    }
+
+    /* Project Galaxies */
+    #project-galaxies {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      padding: 4rem 2rem;
+      position: relative;
+      z-index: 10;
+    }
+
+    .project-planet {
+      background-color: rgba(255, 255, 255, 0.1);
+      border-radius: 1rem;
+      padding: 2rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+
+    .project-planet:hover {
+      transform: scale(1.05);
+    }
+
+    .project-planet::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(45deg, #ff00ff, #00ffff);
+      z-index: -1;
+      opacity: 0.5;
+      filter: blur(50px);
+      animation: glitch 5s infinite linear;
+    }
+
+    .project-planet h3 {
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .project-planet p {
+      font-size: 1rem;
+      color: #ccc;
+    }
+
+    /* Skill Nebulae */
+    #skill-nebulae {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 2rem;
+      padding: 4rem 2rem;
+      position: relative;
+      z-index: 10;
+    }
+
+    .skill-nebula {
+      background-color: rgba(255, 255, 255, 0.1);
+      border-radius: 1rem;
+      padding: 2rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+
+    .skill-nebula:hover {
+      transform: scale(1.05);
+    }
+
+    .skill-nebula::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(45deg, #ff6b6b, #ffa500);
+      z-index: -1;
+      opacity: 0.5;
+      filter: blur(50px);
+      animation: glitch 5s infinite linear;
+    }
+
+    .skill-nebula h3 {
+      font-size: 1.2rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .skill-nebula p {
+      font-size: 0.9rem;
+      color: #ccc;
+    }
+
+    /* Neon Contact Form */
+    #contact-form {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 4rem 2rem;
+      position: relative;
+      z-index: 10;
+    }
+
+    .neon-form {
+      background-color: rgba(255, 255, 255, 0.1);
+      border-radius: 1rem;
+      padding: 2rem;
+      width: 100%;
+      max-width: 500px;
+      box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .neon-form::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(45deg, #00ffff, #ff00ff);
+      z-index: -1;
+      opacity: 0.5;
+      filter: blur(50px);
+      animation: glitch 5s infinite linear;
+    }
+
+    .neon-form h2 {
+      font-size: 2rem;
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+
+    .neon-form input,
+    .neon-form textarea {
+      display: block;
+      width: 100%;
+      padding: 1rem;
+      margin-bottom: 1.5rem;
+      background-color: transparent;
+      border: 2px solid rgba(255, 255, 255, 0.2);
+      border-radius: 0.5rem;
+      color: #fff;
+      font-size: 1rem;
+      transition: border-color 0.3s ease;
+    }
+
+    .neon-form input:focus,
+    .neon-form textarea:focus {
+      outline: none;
+      border-color: #00ffff;
+    }
+
+    .neon-form button {
+      display: block;
+      width: 100%;
+      padding: 1rem;
+      background-color: #00ffff;
+      color: #0f0f0f;
+      border: none;
+      border-radius: 0.5rem;
+      font-size: 1.2rem;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .neon-form button:hover {
+      background-color: #ff00ff;
+    }
+
+    /* Animations */
+    @keyframes glitch {
+      0% {
+        transform: translateX(0);
+      }
+      20% {
+        transform: translateX(-2px);
+      }
+      40% {
+        transform: translateX(2px);
+      }
+      60% {
+        transform: translateX(-2px);
+      }
+      80% {
+        transform: translateX(2px);
+      }
+      100% {
+        transform: translateX(0);
+      }
+    }
+
+    /* Responsive Styles */
+    @media (max-width: 768px) {
+      nav {
+        padding: 1rem;
+      }
+
+      nav a {
+        font-size: 1rem;
+        padding: 0.5rem;
+      }
+
+      #project-galaxies,
+      #skill-nebulae,
+      #contact-form {
+        padding: 2rem;
+      }
+
+      .project-planet,
+      .skill-nebula {
+        padding: 1.5rem;
+      }
+
+      .neon-form {
+        padding: 1.5rem;
+      }
+
+      .neon-form h2 {
+        font-size: 1.5rem;
+        margin-bottom: 1.5rem;
+      }
+
+      .neon-form input,
+      .neon-form textarea {
+        padding: 0.8rem;
+        margin-bottom: 1rem;
+      }
+
+      .neon-form button {
+        padding: 0.8rem;
+        font-size: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="#">Home</a>
+    <a href="#">Projects</a>
+    <a href="#">Skills</a>
+    <a href="#">Contact</a>
+  </nav>
+
+  <section id="project-galaxies">
+    <div class="project-planet">
+      <h3>Project 1</h3>
+      <p>Cosmic API Integration</p>
+    </div>
+    <div class="project-planet">
+      <h3>Project 2</h3>
+      <p>Vaporwave Dashboard</p>
+    </div>
+    <div class="project-planet">
+      <h3>Project 3</h3>
+      <p>Steampunk CMS</p>
+    </div>
+    <div class="project-planet">
+      <h3>Project 4</h3>
+      <p>Neon Analytics</p>
+    </div>
+    <div class="project-planet">
+      <h3>Project 5</h3>
+      <p>Cosmic Automation</p>
+    </div>
+    <div class="project-planet">
+      <h3>Project 6</h3>
+      <p>Vaporwave Microservices</p>
+    </div>
+  </section>
+
+  <section id="skill-nebulae">
+    <div class="skill-nebula">
+      <h3>JavaScript</h3>
+      <p>Proficient</p>
+    </div>
+    <div class="skill-nebula">
+      <h3>Node.js</h3>
+      <p>Expert</p>
+    </div>
+    <div class="skill-nebula">
+      <h3>MongoDB</h3>
+      <p>Experienced</p>
+    </div>
+    <div class="skill-nebula">
+      <h3>Docker</h3>
+      <p>Proficient</p>
+    </div>
+    <div class="skill-nebula">
+      <h3>Kubernetes</h3>
+      <p>Intermediate</p>
+    </div>
+    <div class="skill-nebula">
+      <h3>AWS</h3>
+      <p>Expert</p>
+    </div>
+  </section>
+
+  <section id="contact-form">
+    <div class="neon-form">
+      <h2>Get in Touch</h2>
+      <form>
+        <input type="text" placeholder="Name" required>
+        <input type="email" placeholder="Email" required>
+        <textarea placeholder="Message" required></textarea>
+        <button type="submit">Submit</button>
+      </form>
+    </div>
+  </section>
+</body>
+</html>'<!-- Visit: https://github.com/Ishanoshada/portflair -->
+<!-- Visit: https://github.com/Ishanoshada/portflair -->

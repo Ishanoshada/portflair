@@ -1,0 +1,361 @@
+<!-- Portfolio created by Ishan -->
+<!-- Check out my work at: https://github.com/Ishanoshada/portflair -->
+<!-- 2024/10/9 -->
+<!-- Portfolio created by Ishan -->
+'<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modernist Portfolio</title>
+    <style>
+        /* Global Styles */
+        body {
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #000;
+            color: #fff;
+        }
+
+        /* Navigation */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 2rem;
+            background-color: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(10px);
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            transition: background-color 0.3s ease;
+        }
+
+        nav.scrolled {
+            background-color: #000;
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 1.1rem;
+            font-weight: 500;
+            margin: 0 1rem;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: #bbb;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(to bottom, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.4)), url(https://dummyimage.com/1200x800/000/fff&text=Modernist+Portfolio);
+            background-size: cover;
+            background-position: center;
+            text-align: center;
+            overflow: hidden;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            opacity: 0;
+            animation: fadeIn 1s ease forwards;
+        }
+
+        .hero p {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            opacity: 0;
+            animation: fadeIn 1s ease 0.5s forwards;
+        }
+
+        .hero a {
+            display: inline-block;
+            background-color: #fff;
+            color: #000;
+            padding: 1rem 2rem;
+            font-size: 1.1rem;
+            font-weight: 500;
+            text-decoration: none;
+            border-radius: 4px;
+            opacity: 0;
+            animation: fadeIn 1s ease 1s forwards;
+            transition: transform 0.3s ease;
+        }
+
+        .hero a:hover {
+            transform: translateY(-5px);
+        }
+
+        /* About Section */
+        .about {
+            padding: 6rem 2rem;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            grid-gap: 4rem;
+            align-items: center;
+        }
+
+        .about-image {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transform: translateX(-50px);
+            animation: fadeInLeft 1s ease forwards;
+        }
+
+        .about-image img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .about-content {
+            opacity: 0;
+            transform: translateX(50px);
+            animation: fadeInRight 1s ease forwards;
+        }
+
+        .about-content h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+        }
+
+        .about-content p {
+            font-size: 1.2rem;
+            line-height: 1.6;
+            margin-bottom: 2rem;
+        }
+
+        .about-content a {
+            display: inline-block;
+            background-color: #fff;
+            color: #000;
+            padding: 1rem 2rem;
+            font-size: 1.1rem;
+            font-weight: 500;
+            text-decoration: none;
+            border-radius: 4px;
+            transition: transform 0.3s ease;
+        }
+
+        .about-content a:hover {
+            transform: translateY(-5px);
+        }
+
+        /* Project Section */
+        .projects {
+            padding: 6rem 2rem;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-gap: 3rem;
+        }
+
+        .project {
+            background-color: #111;
+            border-radius: 8px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+            opacity: 0;
+            transform: translateY(50px);
+            animation: fadeInUp 1s ease forwards;
+        }
+
+        .project:nth-child(1) {
+            animation-delay: 0.2s;
+        }
+
+        .project:nth-child(2) {
+            animation-delay: 0.4s;
+        }
+
+        .project:nth-child(3) {
+            animation-delay: 0.6s;
+        }
+
+        .project-image {
+            height: 250px;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+
+        .project-image:before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            transition: background-color 0.3s ease;
+        }
+
+        .project-image:hover:before {
+            background-color: rgba(0, 0, 0, 0.2);
+        }
+
+        .project-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .project-content {
+            padding: 2rem;
+        }
+
+        .project-content h3 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .project-content p {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+
+        .project-content a {
+            display: inline-block;
+            background-color: #fff;
+            color: #000;
+            padding: 0.8rem 1.5rem;
+            font-size: 1rem;
+            font-weight: 500;
+            text-decoration: none;
+            border-radius: 4px;
+            transition: transform 0.3s ease;
+        }
+
+        .project-content a:hover {
+            transform: translateY(-5px);
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+
+        @keyframes fadeInLeft {
+            0% {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes fadeInRight {
+            0% {
+                opacity: 0;
+                transform: translateX(50px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            0% {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="#">Home</a>
+        <a href="#">About</a>
+        <a href="#">Projects</a>
+        <a href="#">Contact</a>
+    </nav>
+
+    <section class="hero">
+        <h1>Modernist Portfolio</h1>
+        <p>Discover the power of minimalism and elegance.</p>
+        <a href="#">Explore My Work</a>
+    </section>
+
+    <section class="about">
+        <div class="about-image">
+            <img src="https://dummyimage.com/600x400/000/fff&text=About+Me" alt="About Me">
+        </div>
+        <div class="about-content">
+            <h2>About Me</h2>
+            <p>As a modern designer, I believe in the power of minimalism and clean lines. My work is characterized by a sleek, all-black aesthetic, with razor-sharp edges and smooth animations that captivate the viewer. I strive to create a seamless and visually striking experience that reflects my passion for design.</p>
+            <a href="#">Learn More</a>
+        </div>
+    </section>
+
+    <section class="projects">
+        <div class="project">
+            <div class="project-image" style="background-image: url(https://dummyimage.com/600x400/000/fff&text=Project+1);">
+                <img src="https://dummyimage.com/600x400/000/fff&text=Project+1" alt="Project 1">
+            </div>
+            <div class="project-content">
+                <h3>Project 1</h3>
+                <p>A sleek and modern web design that showcases my attention to detail and minimalist approach.</p>
+                <a href="#">View Project</a>
+            </div>
+        </div>
+        <div class="project">
+            <div class="project-image" style="background-image: url(https://dummyimage.com/600x400/000/fff&text=Project+2);">
+                <img src="https://dummyimage.com/600x400/000/fff&text=Project+2" alt="Project 2">
+            </div>
+            <div class="project-content">
+                <h3>Project 2</h3>
+                <p>A stunning branding project that combines bold typography and a sophisticated color palette.</p>
+                <a href="#">View Project</a>
+            </div>
+        </div>
+        <div class="project">
+            <div class="project-image" style="background-image: url(https://dummyimage.com/600x400/000/fff&text=Project+3);">
+                <img src="https://dummyimage.com/600x400/000/fff&text=Project+3" alt="Project 3">
+            </div>
+            <div class="project-content">
+                <h3>Project 3</h3>
+                <p>A visually striking mobile app design that showcases my expertise in creating intuitive user experiences.</p>
+                <a href="#">View Project</a>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Add scrolling behavior to the navigation
+        window.addEventListener('scroll', function() {
+            var nav = document.querySelector('nav');
+            nav.classList.toggle('scrolled', window.pageYOffset > 0);
+        });
+    </script>
+</body>
+</html>'<!-- Visit: https://github.com/Ishanoshada/portflair -->
+<!-- Visit: https://github.com/Ishanoshada/portflair -->

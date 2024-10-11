@@ -1,0 +1,470 @@
+<!-- Portfolio created by Ishan -->
+<!-- Check out my work at: https://github.com/Ishanoshada/portflair -->
+<!-- 2024/10/9 -->
+<!-- Portfolio created by Ishan -->
+'<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Black Hole Portfolio</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
+
+    :root {
+      --primary-color: #8b00ff;
+      --secondary-color: #00ffff;
+      --bg-gradient: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+      --gear-color: #c0c0c0;
+      --vaporwave-gradient: linear-gradient(45deg, #ff6b6b, #ffa500, #ffff00, #00ff00, #00ffff, #0000ff, #ff00ff);
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Orbitron', sans-serif;
+      background: var(--bg-gradient);
+      color: #fff;
+      overflow-x: hidden;
+    }
+
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+      background-color: rgba(0, 0, 0, 0.5);
+      backdrop-filter: blur(10px);
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+    }
+
+    .navbar-brand {
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--secondary-color);
+      text-shadow: 0 0 10px var(--secondary-color), 0 0 20px var(--secondary-color);
+      animation: glow 2s ease-in-out infinite;
+    }
+
+    .navbar-nav {
+      display: flex;
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .nav-item a {
+      display: block;
+      padding: 1rem;
+      color: #fff;
+      text-decoration: none;
+      transition: color 0.3s ease-in-out;
+    }
+
+    .nav-item a:hover {
+      color: var(--primary-color);
+      text-shadow: 0 0 10px var(--primary-color), 0 0 20px var(--primary-color);
+    }
+
+    .project-galaxies {
+      padding: 5rem 2rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .project-galaxies::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url('https://dummyimage.com/1920x1080/000/fff.jpg&text=Cosmic+Background') no-repeat center center;
+      background-size: cover;
+      filter: blur(5px);
+      z-index: -1;
+    }
+
+    .project-galaxies h2 {
+      font-size: 3rem;
+      text-align: center;
+      margin-bottom: 3rem;
+      color: var(--secondary-color);
+      text-shadow: 0 0 10px var(--secondary-color), 0 0 20px var(--secondary-color);
+      animation: glow 2s ease-in-out infinite;
+    }
+
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      grid-gap: 2rem;
+    }
+
+    .project-card {
+      background-color: rgba(0, 0, 0, 0.5);
+      backdrop-filter: blur(10px);
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+      transition: transform 0.3s ease-in-out;
+    }
+
+    .project-card:hover {
+      transform: scale(1.05);
+    }
+
+    .project-card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      transition: filter 0.3s ease-in-out;
+    }
+
+    .project-card:hover img {
+      filter: brightness(0.8) saturate(1.2) hue-rotate(20deg);
+    }
+
+    .project-details {
+      padding: 1.5rem;
+    }
+
+    .project-details h3 {
+      font-size: 1.5rem;
+      margin-bottom: 0.5rem;
+      color: var(--secondary-color);
+      text-shadow: 0 0 10px var(--secondary-color), 0 0 20px var(--secondary-color);
+    }
+
+    .project-details p {
+      font-size: 1rem;
+      line-height: 1.5;
+    }
+
+    .steampunk-gears {
+      padding: 5rem 2rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .steampunk-gears::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url('https://dummyimage.com/1920x1080/000/fff.jpg&text=Steampunk+Gears') no-repeat center center;
+      background-size: cover;
+      filter: blur(5px);
+      z-index: -1;
+    }
+
+    .steampunk-gears h2 {
+      font-size: 3rem;
+      text-align: center;
+      margin-bottom: 3rem;
+      color: var(--gear-color);
+      text-shadow: 0 0 10px var(--gear-color), 0 0 20px var(--gear-color);
+      animation: glow 2s ease-in-out infinite;
+    }
+
+    .gear-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      height: 400px;
+    }
+
+    .gear {
+      position: absolute;
+      width: 100px;
+      height: 100px;
+      background-color: var(--gear-color);
+      border-radius: 50%;
+      box-shadow: 0 0 20px rgba(192, 192, 192, 0.5);
+      animation: rotate 10s linear infinite;
+    }
+
+    .gear:nth-child(1) {
+      width: 150px;
+      height: 150px;
+      animation-delay: 0s;
+    }
+
+    .gear:nth-child(2) {
+      width: 120px;
+      height: 120px;
+      animation-delay: -5s;
+    }
+
+    .gear:nth-child(3) {
+      width: 180px;
+      height: 180px;
+      animation-delay: -2.5s;
+    }
+
+    .vaporwave-contact {
+      padding: 5rem 2rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .vaporwave-contact::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: var(--vaporwave-gradient);
+      background-size: 200% 200%;
+      animation: vaporwave-bg 10s ease infinite;
+      z-index: -1;
+    }
+
+    .vaporwave-contact h2 {
+      font-size: 3rem;
+      text-align: center;
+      margin-bottom: 3rem;
+      color: #fff;
+      text-shadow: 0 0 10px var(--secondary-color), 0 0 20px var(--secondary-color);
+      animation: glow 2s ease-in-out infinite;
+    }
+
+    .contact-form {
+      max-width: 600px;
+      margin: 0 auto;
+      background-color: rgba(0, 0, 0, 0.5);
+      backdrop-filter: blur(10px);
+      padding: 2rem;
+      border-radius: 10px;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    }
+
+    .form-group {
+      margin-bottom: 1.5rem;
+    }
+
+    .form-group label {
+      display: block;
+      font-size: 1.2rem;
+      margin-bottom: 0.5rem;
+      color: var(--secondary-color);
+      text-shadow: 0 0 10px var(--secondary-color), 0 0 20px var(--secondary-color);
+    }
+
+    .form-group input,
+    .form-group textarea {
+      width: 100%;
+      padding: 0.75rem 1rem;
+      font-size: 1rem;
+      border: none;
+      border-radius: 5px;
+      background-color: rgba(255, 255, 255, 0.1);
+      color: #fff;
+      transition: background-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    }
+
+    .form-group input:focus,
+    .form-group textarea:focus {
+      background-color: rgba(255, 255, 255, 0.2);
+      box-shadow: 0 0 10px var(--secondary-color), 0 0 20px var(--secondary-color);
+      outline: none;
+    }
+
+    .form-group button {
+      display: block;
+      width: 100%;
+      padding: 0.75rem 1rem;
+      font-size: 1.2rem;
+      font-weight: 700;
+      background-color: var(--primary-color);
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    }
+
+    .form-group button:hover {
+      background-color: #6b00cc;
+      box-shadow: 0 0 10px var(--primary-color), 0 0 20px var(--primary-color);
+    }
+
+    @keyframes glow {
+      0%, 100% {
+        text-shadow: 0 0 10px var(--secondary-color), 0 0 20px var(--secondary-color);
+      }
+      50% {
+        text-shadow: 0 0 20px var(--secondary-color), 0 0 30px var(--secondary-color);
+      }
+    }
+
+    @keyframes rotate {
+      0% {
+        transform: rotate(0deg);
+      }
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+
+    @keyframes vaporwave-bg {
+      0% {
+        background-position: 0% 50%;
+      }
+      50% {
+        background-position: 100% 50%;
+      }
+      100% {
+        background-position: 0% 50%;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .navbar {
+        padding: 0.5rem 1rem;
+      }
+
+      .navbar-brand {
+        font-size: 1.5rem;
+      }
+
+      .nav-item a {
+        padding: 0.5rem;
+      }
+
+      .project-galaxies,
+      .steampunk-gears,
+      .vaporwave-contact {
+        padding: 3rem 1rem;
+      }
+
+      .project-galaxies h2,
+      .steampunk-gears h2,
+      .vaporwave-contact h2 {
+        font-size: 2rem;
+      }
+
+      .project-grid {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      }
+
+      .project-card img {
+        height: 150px;
+      }
+
+      .gear-container {
+        height: 300px;
+      }
+
+      .gear {
+        width: 80px;
+        height: 80px;
+      }
+
+      .gear:nth-child(1) {
+        width: 120px;
+        height: 120px;
+      }
+
+      .gear:nth-child(2) {
+        width: 100px;
+        height: 100px;
+      }
+
+      .gear:nth-child(3) {
+        width: 150px;
+        height: 150px;
+      }
+
+      .form-group input,
+      .form-group textarea {
+        font-size: 0.9rem;
+      }
+
+      .form-group button {
+        font-size: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="navbar">
+    <div class="navbar-brand">Black Hole Portfolio</div>
+    <nav>
+      <ul class="navbar-nav">
+        <li class="nav-item"><a href="#">Home</a></li>
+        <li class="nav-item"><a href="#">Projects</a></li>
+        <li class="nav-item"><a href="#">About</a></li>
+        <li class="nav-item"><a href="#">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="project-galaxies">
+    <h2>Project Galaxies</h2>
+    <div class="project-grid">
+      <div class="project-card">
+        <img src="https://dummyimage.com/600x400/000/fff.jpg&text=Project+1" alt="Project 1">
+        <div class="project-details">
+          <h3>Project 1</h3>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, nisl eget ultricies tincidunt, nisl nisl aliquam nisl, eget aliquam nisl nisl eget nisl.</p>
+        </div>
+      </div>
+      <div class="project-card">
+        <img src="https://dummyimage.com/600x400/000/fff.jpg&text=Project+2" alt="Project 2">
+        <div class="project-details">
+          <h3>Project 2</h3>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, nisl eget ultricies tincidunt, nisl nisl aliquam nisl, eget aliquam nisl nisl eget nisl.</p>
+        </div>
+      </div>
+      <div class="project-card">
+        <img src="https://dummyimage.com/600x400/000/fff.jpg&text=Project+3" alt="Project 3">
+        <div class="project-details">
+          <h3>Project 3</h3>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, nisl eget ultricies tincidunt, nisl nisl aliquam nisl, eget aliquam nisl nisl eget nisl.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="steampunk-gears">
+    <h2>Steampunk Gears</h2>
+    <div class="gear-container">
+      <div class="gear"></div>
+      <div class="gear"></div>
+      <div class="gear"></div>
+    </div>
+  </section>
+
+  <section class="vaporwave-contact">
+    <h2>Vaporwave Contact</h2>
+    <div class="contact-form">
+      <form>
+        <div class="form-group">
+          <div class="form-group">
+          <label for="name">Name:</label>
+          <input type="text" id="name" name="name" placeholder="Enter your name" required>
+        </div>
+        <div class="form-group">
+          <label for="email">Email:</label>
+          <input type="email" id="email" name="email" placeholder="Enter your email" required>
+        </div>
+        <div class="form-group">
+          <label for="message">Message:</label>
+          <textarea id="message" name="message" placeholder="Enter your message" required></textarea>
+        </div>
+        <div class="form-group">
+          <button type="submit">Send</button>
+        </div>
+      </form>
+    </div>
+  </section>
+</body>
+</html>'<!-- Visit: https://github.com/Ishanoshada/portflair -->
+<!-- Visit: https://github.com/Ishanoshada/portflair -->

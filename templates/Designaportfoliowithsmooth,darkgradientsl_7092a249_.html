@@ -1,0 +1,386 @@
+<!-- Portfolio created by Ishan -->
+<!-- Check out my work at: https://github.com/Ishanoshada/portflair -->
+<!-- 2024/10/9 -->
+<!-- Portfolio created by Ishan -->
+'<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Design a Portfolio</title>
+    <style>
+        /* Global Styles */
+        body {
+            margin: 0;
+            font-family: 'Montserrat', sans-serif;
+            background: linear-gradient(to bottom, #6a2c70, #000000);
+            color: #f0f0f0;
+        }
+
+        /* Navigation Bar */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 40px;
+            background-color: rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(10px);
+        }
+
+        nav a {
+            color: #f0f0f0;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 16px;
+            padding: 10px 20px;
+            border-radius: 20px;
+            transition: background-color 0.3s ease;
+        }
+
+        nav a:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 80vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, #6a2c70, #000000);
+            z-index: -1;
+            animation: heroGradient 10s ease infinite;
+        }
+
+        .hero::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, rgba(0, 0, 0, 0.8) 100%);
+            z-index: -1;
+        }
+
+        .hero-content {
+            text-align: center;
+            max-width: 800px;
+            padding: 40px;
+            background-color: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(20px);
+            border-radius: 20px;
+            box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+        }
+
+        .hero-content h1 {
+            font-size: 48px;
+            font-weight: 800;
+            margin-bottom: 20px;
+            text-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+        }
+
+        .hero-content p {
+            font-size: 18px;
+            margin-bottom: 30px;
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+        }
+
+        .hero-content a.cta {
+            display: inline-block;
+            background-color: #9b59b6;
+            color: #f0f0f0;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 16px;
+            padding: 14px 30px;
+            border-radius: 30px;
+            box-shadow: 0 0 20px rgba(155, 89, 182, 0.5);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .hero-content a.cta:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 0 30px rgba(155, 89, 182, 0.8);
+        }
+
+        /* Portfolio Section */
+        .portfolio {
+            padding: 80px 40px;
+            background-color: rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(10px);
+        }
+
+        .portfolio h2 {
+            font-size: 36px;
+            font-weight: 800;
+            text-align: center;
+            margin-bottom: 40px;
+            text-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+        }
+
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-gap: 40px;
+        }
+
+        .portfolio-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .portfolio-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 0 40px rgba(0, 0, 0, 0.8);
+        }
+
+        .portfolio-item img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            filter: brightness(0.8);
+            transition: filter 0.3s ease;
+        }
+
+        .portfolio-item:hover img {
+            filter: brightness(1);
+        }
+
+        .portfolio-item .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(106, 44, 112, 0.8);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .portfolio-item:hover .overlay {
+            opacity: 1;
+        }
+
+        .portfolio-item .overlay h3 {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 10px;
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+        }
+
+        .portfolio-item .overlay p {
+            font-size: 16px;
+            text-shadow: 0 0 5px rgba(255, 255, 255, 0.3);
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 80px 40px;
+            background-color: rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(10px);
+        }
+
+        .contact h2 {
+            font-size: 36px;
+            font-weight: 800;
+            text-align: center;
+            margin-bottom: 40px;
+            text-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+        }
+
+        .contact-form {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: rgba(0, 0, 0, 0.5);
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+        }
+
+        .contact-form .form-group {
+            margin-bottom: 20px;
+        }
+
+        .contact-form label {
+            display: block;
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 5px;
+            text-shadow: 0 0 5px rgba(255, 255, 255, 0.3);
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 30px;
+            background-color: rgba(255, 255, 255, 0.1);
+            color: #f0f0f0;
+            font-size: 16px;
+            font-family: 'Montserrat', sans-serif;
+            transition: background-color 0.3s ease;
+        }
+
+        .contact-form input:focus,
+        .contact-form textarea:focus {
+            outline: none;
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .contact-form button {
+            display: block;
+            width: 100%;
+            background-color: #9b59b6;
+            color: #f0f0f0;
+            border: none;
+            border-radius: 30px;
+            padding: 14px 0;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            box-shadow: 0 0 20px rgba(155, 89, 182, 0.5);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .contact-form button:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 0 30px rgba(155, 89, 182, 0.8);
+        }
+
+        /* Footer */
+        footer {
+            background-color: rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(10px);
+            padding: 20px 0;
+            text-align: center;
+            font-size: 14px;
+            color: #f0f0f0;
+            text-shadow: 0 0 5px rgba(255, 255, 255, 0.3);
+        }
+
+        /* Animations */
+        @keyframes heroGradient {
+            0% {
+                background: linear-gradient(to bottom, #6a2c70, #000000);
+            }
+            50% {
+                background: linear-gradient(to bottom, #2980b9, #000000);
+            }
+            100% {
+                background: linear-gradient(to bottom, #6a2c70, #000000);
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="#">Home</a>
+        <a href="#">Portfolio</a>
+        <a href="#">About</a>
+        <a href="#">Contact</a>
+    </nav>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Design a Portfolio with Dark Gradients</h1>
+            <p>Showcase your work with a smooth, dark gradient design and a dreamy nighttime effect.</p>
+            <a href="#" class="cta">Get Started</a>
+        </div>
+    </section>
+
+    <section class="portfolio">
+        <h2>Portfolio</h2>
+        <div class="portfolio-grid">
+            <div class="portfolio-item">
+                <img src="https://dummyimage.com/600x400/ccc/000&text=Portfolio+Item+1" alt="Portfolio Item 1">
+                <div class="overlay">
+                    <h3>Project Title 1</h3>
+                    <p>Project description goes here.</p>
+                </div>
+            </div>
+            <div class="portfolio-item">
+                <img src="https://dummyimage.com/600x400/ccc/000&text=Portfolio+Item+2" alt="Portfolio Item 2">
+                <div class="overlay">
+                    <h3>Project Title 2</h3>
+                    <p>Project description goes here.</p>
+                </div>
+            </div>
+            <div class="portfolio-item">
+                <img src="https://dummyimage.com/600x400/ccc/000&text=Portfolio+Item+3" alt="Portfolio Item 3">
+                <div class="overlay">
+                    <h3>Project Title 3</h3>
+                    <p>Project description goes here.</p>
+                </div>
+            </div>
+            <div class="portfolio-item">
+                <img src="https://dummyimage.com/600x400/ccc/000&text=Portfolio+Item+4" alt="Portfolio Item 4">
+                <div class="overlay">
+                    <h3>Project Title 4</h3>
+                    <p>Project description goes here.</p>
+                </div>
+            </div>
+            <div class="portfolio-item">
+                <img src="https://dummyimage.com/600x400/ccc/000&text=Portfolio+Item+5" alt="Portfolio Item 5">
+                <div class="overlay">
+                    <h3>Project Title 5</h3>
+                    <p>Project description goes here.</p>
+                </div>
+            </div>
+            <div class="portfolio-item">
+                <img src="https://dummyimage.com/600x400/ccc/000&text=Portfolio+Item+6" alt="Portfolio Item 6">
+                <div class="overlay">
+                    <h3>Project Title 6</h3>
+                    <p>Project description goes here.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="contact">
+        <h2>Contact</h2>
+        <div class="contact-form">
+            <form>
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" id="name" name="name" placeholder="Enter your name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" placeholder="Enter your email" required>
+                </div>
+                <div class="form-group">
+                    <label for="message">Message</label>
+                    <textarea id="message" name="message" placeholder="Enter your message" rows="5" required></textarea>
+                </div>
+                <button type="submit">Send Message</button>
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        &copy; 2024 Design a Portfolio. All rights reserved.
+    </footer>
+</body>
+</html>'<!-- Visit: https://github.com/Ishanoshada/portflair -->
+<!-- Visit: https://github.com/Ishanoshada/portflair -->

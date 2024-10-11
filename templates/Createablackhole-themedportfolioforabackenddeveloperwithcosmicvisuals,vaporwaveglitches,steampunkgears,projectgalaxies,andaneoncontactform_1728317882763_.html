@@ -1,0 +1,561 @@
+<!-- Portfolio created by Ishan -->
+<!-- Check out my work at: https://github.com/Ishanoshada/portflair -->
+<!-- 2024/10/9 -->
+<!-- Portfolio created by Ishan -->
+'<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Black Hole-Themed Portfolio</title>
+  <style>
+    /* Global Styles */
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Roboto', sans-serif;
+      background-color: #0f0f0f;
+      color: #ffffff;
+    }
+
+    /* Navbar Styles */
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.5rem 2rem;
+      background-color: rgba(15, 15, 15, 0.8);
+      backdrop-filter: blur(10px);
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+    }
+
+    .navbar-brand {
+      font-size: 1.5rem;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      text-shadow: 0 0 10px #9b59b6, 0 0 20px #9b59b6, 0 0 30px #9b59b6, 0 0 40px #9b59b6;
+      animation: pulsate 2s infinite;
+    }
+
+    .navbar-nav {
+      display: flex;
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .navbar-nav li {
+      margin-left: 2rem;
+    }
+
+    .navbar-nav li a {
+      color: #ffffff;
+      text-decoration: none;
+      font-size: 1.1rem;
+      font-weight: 500;
+      position: relative;
+      padding-bottom: 0.5rem;
+    }
+
+    .navbar-nav li a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 0;
+      height: 2px;
+      background-color: #9b59b6;
+      transition: width 0.3s ease-in-out;
+    }
+
+    .navbar-nav li a:hover::after {
+      width: 100%;
+    }
+
+    /* Project Galaxies Section */
+    .project-galaxies {
+      padding: 6rem 2rem;
+      background: linear-gradient(to bottom, #0f0f0f, #1a1a1a);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .project-galaxies::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(ellipse at center, rgba(155, 89, 182, 0.1) 0%, rgba(15, 15, 15, 0.9) 100%);
+      z-index: -1;
+    }
+
+    .project-galaxies::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: url("https://dummyimage.com/1200x500/ccc/000&text=Vaporwave+Glitches");
+      background-size: cover;
+      background-position: center;
+      opacity: 0.1;
+      z-index: -1;
+    }
+
+    .project-galaxies h2 {
+      font-size: 2.5rem;
+      font-weight: bold;
+      text-align: center;
+      margin-bottom: 3rem;
+      text-shadow: 0 0 10px #9b59b6, 0 0 20px #9b59b6, 0 0 30px #9b59b6, 0 0 40px #9b59b6;
+      animation: pulsate 2s infinite;
+    }
+
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      grid-gap: 2rem;
+    }
+
+    .project-item {
+      position: relative;
+      overflow: hidden;
+      border-radius: 10px;
+      box-shadow: 0 0 20px rgba(155, 89, 182, 0.5);
+      transition: transform 0.3s ease-in-out;
+    }
+
+    .project-item:hover {
+      transform: scale(1.05);
+    }
+
+    .project-item img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      filter: saturate(1.5) contrast(1.2) brightness(0.8);
+    }
+
+    .project-details {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(155, 89, 182, 0.8);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      opacity: 0;
+      transition: opacity 0.3s ease-in-out;
+    }
+
+    .project-item:hover .project-details {
+      opacity: 1;
+    }
+
+    .project-details h3 {
+      font-size: 1.5rem;
+      font-weight: bold;
+      margin-bottom: 0.5rem;
+      text-shadow: 0 0 10px #ffffff, 0 0 20px #ffffff, 0 0 30px #ffffff, 0 0 40px #ffffff;
+    }
+
+    .project-details p {
+      font-size: 1.1rem;
+      margin-bottom: 1rem;
+      text-shadow: 0 0 10px #ffffff, 0 0 20px #ffffff, 0 0 30px #ffffff, 0 0 40px #ffffff;
+    }
+
+    /* Steampunk Gears Section */
+    .steampunk-gears {
+      padding: 6rem 2rem;
+      background-color: #1a1a1a;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .steampunk-gears::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: url("https://dummyimage.com/1200x500/ccc/000&text=Steampunk+Gears");
+      background-size: cover;
+      background-position: center;
+      opacity: 0.1;
+      z-index: -1;
+    }
+
+    .steampunk-gears h2 {
+      font-size: 2.5rem;
+      font-weight: bold;
+      text-align: center;
+      margin-bottom: 3rem;
+      text-shadow: 0 0 10px #9b59b6, 0 0 20px #9b59b6, 0 0 30px #9b59b6, 0 0 40px #9b59b6;
+      animation: pulsate 2s infinite;
+    }
+
+    .skill-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      grid-gap: 2rem;
+    }
+
+    .skill-item {
+      position: relative;
+      background-color: rgba(26, 26, 26, 0.8);
+      padding: 2rem;
+      border-radius: 10px;
+      box-shadow: 0 0 20px rgba(155, 89, 182, 0.5);
+      transition: transform 0.3s ease-in-out;
+    }
+
+    .skill-item:hover {
+      transform: translateY(-10px);
+    }
+
+    .skill-item .gear {
+      position: absolute;
+      top: -50px;
+      right: -50px;
+      width: 150px;
+      height: 150px;
+      background-image: url("https://dummyimage.com/150x150/ccc/000&text=Gear");
+      background-size: contain;
+      background-repeat: no-repeat;
+      animation: rotate 10s linear infinite;
+    }
+
+    .skill-item h3 {
+      font-size: 1.5rem;
+      font-weight: bold;
+      margin-bottom: 1rem;
+      text-shadow: 0 0 10px #9b59b6, 0 0 20px #9b59b6, 0 0 30px #9b59b6, 0 0 40px #9b59b6;
+    }
+
+    .skill-item p {
+      font-size: 1.1rem;
+      margin-bottom: 1rem;
+      text-shadow: 0 0 10px #ffffff, 0 0 20px #ffffff, 0 0 30px #ffffff, 0 0 40px #ffffff;
+    }
+
+    /* Neon Contact Form */
+    .neon-contact {
+      padding: 6rem 2rem;
+      background: linear-gradient(to bottom, #1a1a1a, #0f0f0f);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .neon-contact::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: url("https://dummyimage.com/1200x500/ccc/000&text=Cosmic+Visuals");
+      background-size: cover;
+      background-position: center;
+      opacity: 0.1;
+      z-index: -1;
+    }
+
+    .neon-contact::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(ellipse at center, rgba(155, 89, 182, 0.1) 0%, rgba(15, 15, 15, 0.9) 100%);
+      z-index: -1;
+    }
+
+    .neon-contact h2 {
+      font-size: 2.5rem;
+      font-weight: bold;
+      text-align: center;
+      margin-bottom: 3rem;
+      text-shadow: 0 0 10px #9b59b6, 0 0 20px #9b59b6, 0 0 30px #9b59b6, 0 0 40px #9b59b6;
+      animation: pulsate 2s infinite;
+    }
+
+    .contact-form {
+      max-width: 600px;
+      margin: 0 auto;
+      background-color: rgba(26, 26, 26, 0.8);
+      padding: 2rem;
+      border-radius: 10px;
+      box-shadow: 0 0 20px rgba(155, 89, 182, 0.5);
+    }
+
+    .form-group {
+      margin-bottom: 1.5rem;
+    }
+
+    .form-group label {
+      display: block;
+      font-size: 1.1rem;
+      font-weight: 500;
+      margin-bottom: 0.5rem;
+      color: #9b59b6;
+      text-shadow: 0 0 10px #9b59b6, 0 0 20px #9b59b6, 0 0 30px #9b59b6, 0 0 40px #9b59b6;
+    }
+
+    .form-group input,
+    .form-group textarea {
+      width: 100%;
+      padding: 1rem;
+      font-size: 1.1rem;
+      border: none;
+      border-radius: 5px;
+      background-color: #2d2d2d;
+      color: #ffffff;
+      transition: box-shadow 0.3s ease-in-out;
+    }
+
+    .form-group input:focus,
+    .form-group textarea:focus {
+      outline: none;
+      box-shadow: 0 0 10px rgba(155, 89, 182, 0.5);
+    }
+
+    .form-group textarea {
+      resize: vertical;
+      min-height: 150px;
+    }
+
+    .submit-btn {
+      display: block;
+      width: 100%;
+      padding: 1rem;
+      font-size: 1.1rem;
+      font-weight: bold;
+      text-transform: uppercase;
+      border: none;
+      border-radius: 5px;
+      background-color: #9b59b6;
+      color: #ffffff;
+      cursor: pointer;
+      transition: background-color 0.3s ease-in-out;
+    }
+
+    .submit-btn:hover {
+      background-color: #8e44ad;
+    }
+
+    /* Animations */
+    @keyframes pulsate {
+      0% {
+        text-shadow: 0 0 10px #9b59b6, 0 0 20px #9b59b6, 0 0 30px #9b59b6, 0 0 40px #9b59b6;
+      }
+      50% {
+        text-shadow: 0 0 20px #9b59b6, 0 0 30px #9b59b6, 0 0 40px #9b59b6, 0 0 50px #9b59b6;
+      }
+      100% {
+        text-shadow: 0 0 10px #9b59b6, 0 0 20px #9b59b6, 0 0 30px #9b59b6, 0 0 40px #9b59b6;
+      }
+    }
+
+    @keyframes rotate {
+      0% {
+        transform: rotate(0deg);
+      }
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+
+    /* Responsive Styles */
+    @media (max-width: 768px) {
+      .navbar {
+        padding: 1rem;
+      }
+
+      .navbar-brand {
+        font-size: 1.2rem;
+      }
+
+      .navbar-nav li {
+        margin-left: 1.5rem;
+      }
+
+      .navbar-nav li a {
+        font-size: 1rem;
+      }
+
+      .project-galaxies,
+      .steampunk-gears,
+      .neon-contact {
+        padding: 4rem 1rem;
+      }
+
+      .project-details h3 {
+        font-size: 1.2rem;
+      }
+
+      .project-details p {
+        font-size: 1rem;
+      }
+
+      .skill-item h3 {
+        font-size: 1.2rem;
+      }
+
+      .skill-item p {
+        font-size: 1rem;
+      }
+
+      .contact-form {
+        padding: 1.5rem;
+      }
+
+      .form-group label {
+        font-size: 1rem;
+      }
+
+      .form-group input,
+      .form-group textarea {
+        font-size: 1rem;
+      }
+
+      .submit-btn {
+        font-size: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar">
+    <a href="#" class="navbar-brand">Black Hole Portfolio</a>
+    <ul class="navbar-nav">
+      <li><a href="#project-galaxies">Project Galaxies</a></li>
+      <li><a href="#steampunk-gears">Steampunk Gears</a></li>
+      <li><a href="#neon-contact">Neon Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- Project Galaxies Section -->
+  <section class="project-galaxies">
+    <h2>Project Galaxies</h2>
+    <div class="project-grid">
+      <div class="project-item">
+        <img src="https://dummyimage.com/300x200/ccc/000&text=Project+1" alt="Project 1">
+        <div class="project-details">
+          <h3>Project 1</h3>
+          <p>A cosmic backend project with vaporwave glitches.</p>
+        </div>
+      </div>
+      <div class="project-item">
+        <img src="https://dummyimage.com/300x200/ccc/000&text=Project+2" alt="Project 2">
+        <div class="project-details">
+          <h3>Project 2</h3>
+          <p>A steampunk-inspired backend application.</p>
+        </div>
+      </div>
+      <div class="project-item">
+        <img src="https://dummyimage.com/300x200/ccc/000&text=Project+3" alt="Project 3">
+        <div class="project-details">
+          <h3>Project 3</h3>
+          <p>A cosmic-themed backend system with neon accents.</p>
+        </div>
+      </div>
+      <div class="project-item">
+        <img src="https://dummyimage.com/300x200/ccc/000&text=Project+4" alt="Project 4">
+        <div class="project-details">
+          <h3>Project 4</h3>
+          <p>A backend solution with a vaporwave-inspired interface.</p>
+        </div>
+      </div>
+      <div class="project-item">
+        <img src="https://dummyimage.com/300x200/ccc/000&text=Project+5" alt="Project 5">
+        <div class="project-details">
+          <h3>Project 5</h3>
+          <p>A steampunk-infused backend platform.</p>
+        </div>
+      </div>
+      <div class="project-item">
+        <img src="https://dummyimage.com/300x200/ccc/000&text=Project+6" alt="Project 6">
+        <div class="project-details">
+          <h3>Project 6</h3>
+          <p>A cosmic-themed backend system with neon touches.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Steampunk Gears Section -->
+  <section class="steampunk-gears">
+    <h2>Steampunk Gears</h2>
+    <div class="skill-grid">
+      <div class="skill-item">
+        <div class="gear"></div>
+        <h3>Programming Languages</h3>
+        <p>Proficient in Python, JavaScript, and Ruby, with a focus on efficient and scalable backend development.</p>
+      </div>
+      <div class="skill-item">
+        <div class="gear"></div>
+        <h3>Frameworks and Libraries</h3>
+        <p>Experienced in working with Django, Flask, Express.js, and Ruby on Rails to build robust and modular backend applications.</p>
+      </div>
+      <div class="skill-item">
+        <div class="gear"></div>
+        <h3>Databases</h3>
+        <p>Skilled in managing and optimizing relational databases like PostgreSQL and MySQL, as well as NoSQL databases like MongoDB and Cassandra.</p>
+      </div>
+      <div class="skill-item">
+        <div class="gear"></div>
+        <h3>DevOps and Cloud</h3>
+        <p>Experienced in setting up and managing infrastructure on cloud platforms like AWS, Google Cloud, and Azure, using tools like Terraform, Ansible, and Docker.</p>
+      </div>
+      <div class="skill-item">
+        <div class="gear"></div>
+        <h3>Testing and Deployment</h3>
+        <p>Proficient in writing comprehensive unit, integration, and end-to-end tests, as well as automating deployment workflows using CI/CD pipelines.</p>
+      </div>
+      <div class="skill-item">
+        <div class="gear"></div>
+        <h3>API Design and Integration</h3>
+        <p>Skilled in designing and implementing RESTful and GraphQL APIs, ensuring seamless integration with frontend applications and third-party services.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Neon Contact Form -->
+  <section class="neon-contact">
+    <h2>Get in Touch</h2>
+    <div class="contact-form">
+      <form>
+        <div class="form-group">
+          <label for="name">Name</label>
+          <input type="text" id="name" name="name" placeholder="Enter your name" required>
+        </div>
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" placeholder="Enter your email" required>
+        </div>
+        <div class="form-group">
+          <label for="message">Message</label>
+          <textarea id="message" name="message" placeholder="Enter your message" required></textarea>
+        </div>
+        <button type="submit" class="submit-btn">Send Message</button>
+      </form>
+    </div>
+  </section>
+</body>
+</html>'<!-- Visit: https://github.com/Ishanoshada/portflair -->
+<!-- Visit: https://github.com/Ishanoshada/portflair -->

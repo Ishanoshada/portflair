@@ -1,0 +1,332 @@
+<!-- Portfolio created by Ishan -->
+<!-- Check out my work at: https://github.com/Ishanoshada/portflair -->
+<!-- 2024/10/9 -->
+<!-- Portfolio created by Ishan -->
+'<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mind-Bending Abstract Portfolio</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #000;
+      color: #fff;
+      overflow-x: hidden;
+    }
+
+    /* Navigation */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 40px;
+      background-color: rgba(0, 0, 0, 0.7);
+      backdrop-filter: blur(10px);
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1000;
+    }
+
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      font-size: 18px;
+      font-weight: 700;
+      padding: 10px 20px;
+      border-radius: 20px;
+      transition: background-color 0.3s ease;
+    }
+
+    nav a:hover {
+      background-color: rgba(255, 255, 255, 0.1);
+    }
+
+    /* Interactive 3D Showcase */
+    .showcase {
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      perspective: 1000px;
+      overflow: hidden;
+    }
+
+    .showcase-container {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      transform-style: preserve-3d;
+      animation: rotate 30s linear infinite;
+    }
+
+    .showcase-item {
+      position: absolute;
+      width: 300px;
+      height: 300px;
+      background-color: rgba(255, 255, 255, 0.1);
+      border-radius: 10px;
+      box-shadow: 0 0 50px rgba(255, 255, 255, 0.3);
+      transition: transform 0.5s ease;
+    }
+
+    .showcase-item:nth-child(1) {
+      transform: translateZ(400px);
+    }
+
+    .showcase-item:nth-child(2) {
+      transform: rotateY(45deg) translateZ(400px);
+    }
+
+    .showcase-item:nth-child(3) {
+      transform: rotateY(90deg) translateZ(400px);
+    }
+
+    .showcase-item:nth-child(4) {
+      transform: rotateY(135deg) translateZ(400px);
+    }
+
+    .showcase-item:nth-child(5) {
+      transform: rotateY(180deg) translateZ(400px);
+    }
+
+    .showcase-item:nth-child(6) {
+      transform: rotateY(225deg) translateZ(400px);
+    }
+
+    .showcase-item:nth-child(7) {
+      transform: rotateY(270deg) translateZ(400px);
+    }
+
+    .showcase-item:nth-child(8) {
+      transform: rotateY(315deg) translateZ(400px);
+    }
+
+    .showcase-item:hover {
+      transform: scale(1.1);
+      box-shadow: 0 0 100px rgba(255, 255, 255, 0.5);
+    }
+
+    @keyframes rotate {
+      from {
+        transform: rotateY(0deg);
+      }
+      to {
+        transform: rotateY(360deg);
+      }
+    }
+
+    /* Neon Grid Navigation */
+    .nav-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      grid-gap: 20px;
+      padding: 40px;
+      background-color: rgba(0, 0, 0, 0.7);
+      backdrop-filter: blur(10px);
+    }
+
+    .nav-item {
+      background-color: rgba(255, 255, 255, 0.1);
+      border-radius: 10px;
+      padding: 20px;
+      text-align: center;
+      transition: all 0.3s ease;
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .nav-item:before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(45deg, #ff0, #0ff, #f0f, #ff0);
+      background-size: 200% 200%;
+      animation: neon-glow 5s ease infinite;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .nav-item:hover:before {
+      opacity: 0.5;
+    }
+
+    .nav-item:hover {
+      transform: scale(1.1);
+      box-shadow: 0 0 50px rgba(255, 255, 255, 0.5);
+    }
+
+    .nav-item a {
+      color: #fff;
+      text-decoration: none;
+      font-size: 18px;
+      font-weight: 700;
+    }
+
+    @keyframes neon-glow {
+      0% {
+        background-position: 0% 50%;
+      }
+      50% {
+        background-position: 100% 50%;
+      }
+      100% {
+        background-position: 0% 50%;
+      }
+    }
+
+    /* Immersive Project Transitions */
+    .project-page {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: #000;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.5s ease;
+      z-index: 2000;
+    }
+
+    .project-page.active {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .project-content {
+      max-width: 800px;
+      padding: 40px;
+      background-color: rgba(0, 0, 0, 0.7);
+      backdrop-filter: blur(10px);
+      border-radius: 20px;
+      text-align: center;
+      position: relative;
+      transform: translateY(-50px);
+      opacity: 0;
+      transition: all 0.5s ease 0.3s;
+    }
+
+    .project-page.active .project-content {
+      transform: translateY(0);
+      opacity: 1;
+    }
+
+    .project-content h2 {
+      font-size: 36px;
+      margin-bottom: 20px;
+    }
+
+    .project-content p {
+      font-size: 18px;
+      line-height: 1.5;
+      margin-bottom: 30px;
+    }
+
+    .project-content img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 10px;
+      margin-bottom: 30px;
+    }
+
+    .project-content video {
+      max-width: 100%;
+      height: auto;
+      border-radius: 10px;
+      margin-bottom: 30px;
+    }
+
+    .close-button {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      font-size: 24px;
+      color: #fff;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="#">Home</a>
+    <a href="#">About</a>
+    <a href="#">Projects</a>
+    <a href="#">Contact</a>
+  </nav>
+
+  <div class="showcase">
+    <div class="showcase-container">
+      <div class="showcase-item"></div>
+      <div class="showcase-item"></div>
+      <div class="showcase-item"></div>
+      <div class="showcase-item"></div>
+      <div class="showcase-item"></div>
+      <div class="showcase-item"></div>
+      <div class="showcase-item"></div>
+      <div class="showcase-item"></div>
+    </div>
+  </div>
+
+  <div class="nav-grid">
+    <div class="nav-item">
+      <a href="#">Home</a>
+    </div>
+    <div class="nav-item">
+      <a href="#">About</a>
+    </div>
+    <div class="nav-item">
+      <a href="#">Projects</a>
+    </div>
+    <div class="nav-item">
+      <a href="#">Contact</a>
+    </div>
+    <div class="nav-item">
+      <a href="#">Services</a>
+    </div>
+  </div>
+
+  <div class="project-page">
+    <div class="project-content">
+      <h2>Project Title</h2>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, nisl eget ultricies tincidunt, nisl nisl aliquam nisl, eget aliquam nisl nisl eget nisl.</p>
+      <img src="https://dummyimage.com/800x500/ccc/000&text=Project+Image" alt="Project Image">
+      <video controls>
+        <source src="https://dummyimage.com/800x450/ccc/000&text=Project+Video" type="video/mp4">
+      </video>
+      <div class="close-button">â</div>
+    </div>
+  </div>
+
+  <script>
+    // Show and hide the project page
+    const projectPage = document.querySelector('.project-page');
+    const closeButton = document.querySelector('.close-button');
+
+    document.querySelectorAll('.nav-item').forEach(item => {
+      item.addEventListener('click', () => {
+        projectPage.classList.add('active');
+      });
+    });
+
+    closeButton.addEventListener('click', () => {
+      projectPage.classList.remove('active');
+    });
+  </script>
+</body>
+</html>'<!-- Visit: https://github.com/Ishanoshada/portflair -->
+<!-- Visit: https://github.com/Ishanoshada/portflair -->

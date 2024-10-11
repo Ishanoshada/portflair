@@ -1,0 +1,330 @@
+<!-- Portfolio created by Ishan -->
+<!-- Check out my work at: https://github.com/Ishanoshada/portflair -->
+<!-- 2024/10/9 -->
+<!-- Portfolio created by Ishan -->
+'<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Develop a Matte-Black Portfolio</title>
+  <style>
+    /* General Styles */
+    body {
+      font-family: 'Montserrat', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #0f0f0f;
+      color: #f0f0f0;
+    }
+
+    /* Navigation */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 40px;
+      background-color: #0f0f0f;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    nav a {
+      color: #f0f0f0;
+      text-decoration: none;
+      font-size: 16px;
+      font-weight: 500;
+      transition: color 0.3s ease;
+    }
+
+    nav a:hover {
+      color: #d0d0d0;
+    }
+
+    /* Hero Section */
+    .hero-section {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 80vh;
+      background: linear-gradient(to bottom, #0f0f0f, #1a1a1a);
+      overflow: hidden;
+    }
+
+    .hero-title {
+      font-size: 4rem;
+      font-weight: 700;
+      text-align: center;
+      margin-bottom: 16px;
+      opacity: 0;
+      transform: translateY(50px);
+      animation: fadeInUp 0.8s ease forwards;
+    }
+
+    .hero-description {
+      font-size: 1.6rem;
+      text-align: center;
+      max-width: 800px;
+      margin-bottom: 32px;
+      opacity: 0;
+      transform: translateY(50px);
+      animation: fadeInUp 0.8s ease 0.2s forwards;
+    }
+
+    @keyframes fadeInUp {
+      0% {
+        opacity: 0;
+        transform: translateY(50px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Portfolio Showcase */
+    .portfolio-section {
+      padding: 80px 40px;
+      background-color: #1a1a1a;
+    }
+
+    .portfolio-title {
+      font-size: 2.4rem;
+      font-weight: 700;
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .portfolio-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-gap: 40px;
+    }
+
+    .portfolio-item {
+      position: relative;
+      overflow: hidden;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      cursor: pointer;
+    }
+
+    .portfolio-item:before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .portfolio-item:hover:before {
+      opacity: 1;
+    }
+
+    .portfolio-item img {
+      width: 100%;
+      height: 300px;
+      object-fit: cover;
+      transition: transform 0.3s ease;
+    }
+
+    .portfolio-item:hover img {
+      transform: scale(1.1);
+    }
+
+    .portfolio-overlay {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .portfolio-item:hover .portfolio-overlay {
+      opacity: 1;
+    }
+
+    .portfolio-title {
+      font-size: 1.8rem;
+      font-weight: 600;
+      margin-bottom: 8px;
+      color: #f0f0f0;
+    }
+
+    .portfolio-description {
+      font-size: 1.4rem;
+      color: #d0d0d0;
+    }
+
+    /* About Section */
+    .about-section {
+      display: flex;
+      align-items: center;
+      padding: 80px 40px;
+      background-color: #0f0f0f;
+    }
+
+    .about-image {
+      flex: 0 0 300px;
+      margin-right: 60px;
+      border-radius: 50%;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+      opacity: 0;
+      transform: translateX(-50px);
+      animation: fadeInLeft 0.8s ease forwards;
+    }
+
+    .about-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .about-content {
+      flex: 1;
+      opacity: 0;
+      transform: translateX(50px);
+      animation: fadeInRight 0.8s ease forwards;
+    }
+
+    .about-title {
+      font-size: 2.4rem;
+      font-weight: 700;
+      margin-bottom: 16px;
+    }
+
+    .about-description {
+      font-size: 1.6rem;
+      line-height: 1.6;
+      margin-bottom: 24px;
+    }
+
+    @keyframes fadeInLeft {
+      0% {
+        opacity: 0;
+        transform: translateX(-50px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+
+    @keyframes fadeInRight {
+      0% {
+        opacity: 0;
+        transform: translateX(50px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+
+    /* Responsive Styles */
+    @media (max-width: 768px) {
+      .hero-title {
+        font-size: 3rem;
+      }
+
+      .hero-description {
+        font-size: 1.4rem;
+      }
+
+      .portfolio-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .about-section {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .about-image {
+        margin-right: 0;
+        margin-bottom: 40px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="#">Home</a>
+    <a href="#">Portfolio</a>
+    <a href="#">About</a>
+    <a href="#">Contact</a>
+  </nav>
+
+  <div class="hero-section">
+    <h1 class="hero-title">Develop a Matte-Black Portfolio</h1>
+    <p class="hero-description">Explore a visually stunning portfolio website with a matte-black aesthetic, flat design, and subtle animations to create a smooth, professional look.</p>
+  </div>
+
+  <div class="portfolio-section">
+    <h2 class="portfolio-title">Portfolio</h2>
+    <div class="portfolio-grid">
+      <div class="portfolio-item">
+        <img src="https://dummyimage.com/600x400/1a1a1a/f0f0f0&text=Portfolio+Item+1" alt="Portfolio Item 1">
+        <div class="portfolio-overlay">
+          <h3 class="portfolio-title">Project 1</h3>
+          <p class="portfolio-description">Detailed project description goes here.</p>
+        </div>
+      </div>
+      <div class="portfolio-item">
+        <img src="https://dummyimage.com/600x400/1a1a1a/f0f0f0&text=Portfolio+Item+2" alt="Portfolio Item 2">
+        <div class="portfolio-overlay">
+          <h3 class="portfolio-title">Project 2</h3>
+          <p class="portfolio-description">Detailed project description goes here.</p>
+        </div>
+      </div>
+      <div class="portfolio-item">
+        <img src="https://dummyimage.com/600x400/1a1a1a/f0f0f0&text=Portfolio+Item+3" alt="Portfolio Item 3">
+        <div class="portfolio-overlay">
+          <h3 class="portfolio-title">Project 3</h3>
+          <p class="portfolio-description">Detailed project description goes here.</p>
+        </div>
+      </div>
+      <div class="portfolio-item">
+        <img src="https://dummyimage.com/600x400/1a1a1a/f0f0f0&text=Portfolio+Item+4" alt="Portfolio Item 4">
+        <div class="portfolio-overlay">
+          <h3 class="portfolio-title">Project 4</h3>
+          <p class="portfolio-description">Detailed project description goes here.</p>
+        </div>
+      </div>
+      <div class="portfolio-item">
+        <img src="https://dummyimage.com/600x400/1a1a1a/f0f0f0&text=Portfolio+Item+5" alt="Portfolio Item 5">
+        <div class="portfolio-overlay">
+          <h3 class="portfolio-title">Project 5</h3>
+          <p class="portfolio-description">Detailed project description goes here.</p>
+        </div>
+      </div>
+      <div class="portfolio-item">
+        <img src="https://dummyimage.com/600x400/1a1a1a/f0f0f0&text=Portfolio+Item+6" alt="Portfolio Item 6">
+        <div class="portfolio-overlay">
+          <h3 class="portfolio-title">Project 6</h3>
+          <p class="portfolio-description">Detailed project description goes here.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="about-section">
+    <div class="about-image">
+      <img src="https://dummyimage.com/300x300/1a1a1a/f0f0f0&text=Designer+Profile" alt="Designer Profile">
+    </div>
+    <div class="about-content">
+      <h2 class="about-title">About the Designer</h2>
+      <p class="about-description">I'm a passionate designer with a deep love for creating visually stunning and user-friendly experiences. My portfolio showcases my expertise in crafting matte-black, flat-design websites with subtle animations and shadows, all while maintaining a smooth and professional look.</p>
+      <p class="about-description">Through my work, I aim to deliver unique and impactful solutions that not only captivate the audience but also effectively communicate the brand's identity. I'm committed to staying at the forefront of design trends and continuously expanding my skillset to deliver exceptional results.</p>
+    </div>
+  </div>
+</body>
+</html>'<!-- Visit: https://github.com/Ishanoshada/portflair -->
+<!-- Visit: https://github.com/Ishanoshada/portflair -->

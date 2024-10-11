@@ -1,0 +1,319 @@
+<!-- Portfolio created by Ishan -->
+<!-- Check out my work at: https://github.com/Ishanoshada/portflair -->
+<!-- 2024/10/9 -->
+<!-- Portfolio created by Ishan -->
+'<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Space-Themed Developer Portfolio</title>
+    <style>
+        /* Global Styles */
+        @import url('https://fonts.googleapis.com/css2?family=Fira+Sans:wght@400;700&display=swap');
+
+        body {
+            font-family: 'Fira Sans', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #0b0c10;
+            color: #fff;
+            overflow-x: hidden;
+        }
+
+        /* Navbar */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: rgba(11, 12, 16, 0.8);
+            padding: 1.5rem 2rem;
+            position: relative;
+            z-index: 100;
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 1.1rem;
+            font-weight: bold;
+            transition: color 0.3s ease-in-out;
+        }
+
+        nav a:hover {
+            color: #66fcf1;
+        }
+
+        /* Interactive Code Snippet Showcase */
+        #code-showcase {
+            position: relative;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        #code-showcase::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(ellipse at center, rgba(6, 18, 28, 0.8) 0%, rgba(11, 12, 16, 1) 100%);
+            z-index: -1;
+        }
+
+        .constellation {
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            background-image: url('https://dummyimage.com/200x200/66fcf1/000&text=Code+Snippet');
+            background-size: contain;
+            background-repeat: no-repeat;
+            cursor: pointer;
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+        }
+
+        .constellation:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 20px rgba(102, 252, 241, 0.8);
+        }
+
+        .constellation-details {
+            position: absolute;
+            bottom: -3rem;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: rgba(11, 12, 16, 0.8);
+            padding: 1rem;
+            border-radius: 0.5rem;
+            text-align: center;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
+        }
+
+        .constellation:hover .constellation-details {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .constellation-details h3 {
+            margin-top: 0;
+            font-size: 1.2rem;
+            color: #66fcf1;
+        }
+
+        .constellation-details p {
+            margin-bottom: 0;
+            font-size: 0.9rem;
+        }
+
+        /* About the Developer */
+        #about {
+            padding: 4rem 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #0b0c10;
+            background-image: url('https://dummyimage.com/1200x500/333/fff&text=Nebula+Background');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+        .about-content {
+            max-width: 800px;
+            text-align: center;
+        }
+
+        .profile-picture {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            border: 4px solid #66fcf1;
+            box-shadow: 0 0 20px rgba(102, 252, 241, 0.8);
+            margin-bottom: 2rem;
+        }
+
+        .about-content h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .about-content p {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            margin-bottom: 2rem;
+        }
+
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-bottom: 2rem;
+        }
+
+        .skill-tag {
+            background-color: #45a29e;
+            color: #0b0c10;
+            padding: 0.5rem 1rem;
+            border-radius: 2rem;
+            font-size: 0.9rem;
+            margin: 0.5rem;
+            cursor: pointer;
+            transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+        }
+
+        .skill-tag:hover {
+            background-color: #66fcf1;
+            color: #0b0c10;
+        }
+
+        /* Contact and Call-to-Action */
+        #contact {
+            padding: 4rem 2rem;
+            background: linear-gradient(to bottom, #0b0c10, #1f2833);
+        }
+
+        .contact-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .contact-content h2 {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: rgba(31, 40, 51, 0.8);
+            padding: 2rem;
+            border-radius: 1rem;
+            box-shadow: 0 0 20px rgba(102, 252, 241, 0.4);
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            max-width: 400px;
+            padding: 1rem;
+            margin-bottom: 1.5rem;
+            background-color: #0b0c10;
+            border: none;
+            border-radius: 0.5rem;
+            color: #fff;
+            font-size: 1rem;
+            transition: box-shadow 0.3s ease-in-out;
+        }
+
+        .contact-form input:focus,
+        .contact-form textarea:focus {
+            outline: none;
+            box-shadow: 0 0 10px rgba(102, 252, 241, 0.6);
+        }
+
+        .contact-form button {
+            background-color: #66fcf1;
+            color: #0b0c10;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 2rem;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out;
+        }
+
+        .contact-form button:hover {
+            background-color: #45a29e;
+            transform: scale(1.1);
+        }
+
+        .contact-info {
+            margin-top: 2rem;
+            font-size: 1.1rem;
+        }
+
+        .contact-info a {
+            color: #66fcf1;
+            text-decoration: none;
+            transition: color 0.3s ease-in-out;
+        }
+
+        .contact-info a:hover {
+            color: #45a29e;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="#">Home</a>
+        <a href="#">About</a>
+        <a href="#">Projects</a>
+        <a href="#">Contact</a>
+    </nav>
+
+    <section id="code-showcase">
+        <div class="constellation" style="top: 20%; left: 15%;">
+            <div class="constellation-details">
+                <h3>Project 1</h3>
+                <p>JavaScript, React, Firebase</p>
+            </div>
+        </div>
+        <div class="constellation" style="top: 40%; left: 40%;">
+            <div class="constellation-details">
+                <h3>Project 2</h3>
+                <p>HTML, CSS, Node.js</p>
+            </div>
+        </div>
+        <div class="constellation" style="top: 60%; left: 70%;">
+            <div class="constellation-details">
+                <h3>Project 3</h3>
+                <p>Python, Django, PostgreSQL</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="about">
+        <div class="about-content">
+            <img src="https://dummyimage.com/150x150/66fcf1/000&text=Profile+Picture" alt="Developer Profile Picture" class="profile-picture">
+            <h2>John Doe</h2>
+            <p>I am a passionate and experienced full-stack developer with a deep love for coding and creating exceptional digital experiences. With expertise in a wide range of technologies, I specialize in crafting visually stunning and highly interactive applications.</p>
+            <div class="skill-tags">
+                <div class="skill-tag">JavaScript</div>
+                <div class="skill-tag">React</div>
+                <div class="skill-tag">Node.js</div>
+                <div class="skill-tag">Python</div>
+                <div class="skill-tag">Django</div>
+                <div class="skill-tag">SQL</div>
+                <div class="skill-tag">UI/UX Design</div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <div class="contact-content">
+            <h2>Get in Touch</h2>
+            <div class="contact-form">
+                <input type="text" placeholder="Name" />
+                <input type="email" placeholder="Email" />
+                <textarea rows="5" placeholder="Message"></textarea>
+                <button type="submit">Let's Work Together</button>
+            </div>
+            <div class="contact-info">
+                <p>Email: <a href="mailto:example@email.com">example@email.com</a></p>
+                <p>Phone: <a href="tel:+1234567890">+1 (234) 567-890</a></p>
+            </div>
+        </div>
+    </section>
+</body>
+</html>'<!-- Visit: https://github.com/Ishanoshada/portflair -->
+<!-- Visit: https://github.com/Ishanoshada/portflair -->

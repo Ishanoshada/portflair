@@ -1,0 +1,459 @@
+<!-- Portfolio created by Ishan -->
+<!-- Check out my work at: https://github.com/Ishanoshada/portflair -->
+<!-- 2024/10/9 -->
+<!-- Portfolio created by Ishan -->
+'<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hacking-Themed Portfolio</title>
+  <style>
+    /* Global Styles */
+    @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
+
+    body {
+      font-family: 'Orbitron', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #0f0f0f;
+      color: #fff;
+      overflow-x: hidden;
+    }
+
+    /* Navigation Bar */
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: #0f0f0f;
+      padding: 1rem 2rem;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      z-index: 100;
+    }
+
+    .navbar-brand {
+      font-size: 1.5rem;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: #00ff00;
+      text-shadow: 0 0 10px #00ff00, 0 0 20px #00ff00, 0 0 30px #00ff00;
+      animation: glitch 2s infinite;
+    }
+
+    .navbar-nav {
+      display: flex;
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .nav-item {
+      margin-left: 2rem;
+    }
+
+    .nav-link {
+      color: #fff;
+      text-decoration: none;
+      font-size: 1.1rem;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      transition: color 0.3s ease;
+    }
+
+    .nav-link:hover {
+      color: #00ff00;
+      text-shadow: 0 0 10px #00ff00, 0 0 20px #00ff00, 0 0 30px #00ff00;
+    }
+
+    /* Animated Graphics Showcase */
+    .animated-graphics-showcase {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      padding: 4rem 2rem;
+      background-color: #0f0f0f;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .animated-graphics-showcase::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: linear-gradient(to right, #0f0f0f, #1a1a1a, #0f0f0f);
+      animation: glitch 3s infinite;
+      z-index: -1;
+    }
+
+    .animated-graphics-showcase .graphic {
+      width: 300px;
+      height: 300px;
+      margin: 2rem;
+      background-color: #1a1a1a;
+      border-radius: 10px;
+      box-shadow: 0 0 20px rgba(0, 255, 0, 0.3);
+      position: relative;
+      overflow: hidden;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+
+    .animated-graphics-showcase .graphic:hover {
+      transform: scale(1.05);
+    }
+
+    .animated-graphics-showcase .graphic img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: brightness(0.8) contrast(1.2) saturate(1.5);
+      transition: filter 0.3s ease;
+    }
+
+    .animated-graphics-showcase .graphic:hover img {
+      filter: brightness(1) contrast(1) saturate(1);
+    }
+
+    .animated-graphics-showcase .graphic::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: linear-gradient(to right, #00ff00, #ff00ff);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .animated-graphics-showcase .graphic:hover::before {
+      opacity: 0.3;
+    }
+
+    .animated-graphics-showcase .graphic::after {
+      content: attr(data-title);
+      position: absolute;
+      bottom: 1rem;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 1.2rem;
+      font-weight: bold;
+      color: #fff;
+      text-shadow: 0 0 10px #00ff00, 0 0 20px #00ff00, 0 0 30px #00ff00;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .animated-graphics-showcase .graphic:hover::after {
+      opacity: 1;
+    }
+
+    /* Project Showcase */
+    .project-showcase {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      padding: 4rem 2rem;
+      background-color: #0f0f0f;
+    }
+
+    .project-thumbnail {
+      position: relative;
+      overflow: hidden;
+      border-radius: 10px;
+      box-shadow: 0 0 20px rgba(0, 255, 0, 0.3);
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+
+    .project-thumbnail:hover {
+      transform: scale(1.05);
+    }
+
+    .project-thumbnail img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      filter: brightness(0.8) contrast(1.2) saturate(1.5);
+      transition: filter 0.3s ease;
+    }
+
+    .project-thumbnail:hover img {
+      filter: brightness(1) contrast(1) saturate(1);
+    }
+
+    .project-thumbnail::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: linear-gradient(to right, #00ff00, #ff00ff);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .project-thumbnail:hover::before {
+      opacity: 0.3;
+    }
+
+    .project-thumbnail::after {
+      content: attr(data-title);
+      position: absolute;
+      bottom: 1rem;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 1.2rem;
+      font-weight: bold;
+      color: #fff;
+      text-shadow: 0 0 10px #00ff00, 0 0 20px #00ff00, 0 0 30px #00ff00;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .project-thumbnail:hover::after {
+      opacity: 1;
+    }
+
+    /* Terminal-Style Contact Section */
+    .terminal-contact {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 4rem 2rem;
+      background-color: #0f0f0f;
+      font-family: 'Courier New', monospace;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .terminal-contact::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: linear-gradient(to right, #0f0f0f, #1a1a1a, #0f0f0f);
+      animation: glitch 3s infinite;
+      z-index: -1;
+    }
+
+    .terminal-contact h2 {
+      font-size: 2rem;
+      font-weight: bold;
+      color: #00ff00;
+      text-shadow: 0 0 10px #00ff00, 0 0 20px #00ff00, 0 0 30px #00ff00;
+      margin-bottom: 2rem;
+    }
+
+    .terminal-contact .terminal-input {
+      width: 100%;
+      max-width: 600px;
+      background-color: #1a1a1a;
+      border: none;
+      border-radius: 5px;
+      padding: 1rem;
+      font-size: 1.1rem;
+      color: #00ff00;
+      outline: none;
+      box-shadow: 0 0 20px rgba(0, 255, 0, 0.3);
+      margin-bottom: 1rem;
+      animation: blink-cursor 0.7s infinite;
+    }
+
+    .terminal-contact .terminal-input::placeholder {
+      color: #00ff00;
+      opacity: 0.5;
+    }
+
+    .terminal-contact button {
+      background-color: #00ff00;
+      border: none;
+      border-radius: 5px;
+      padding: 1rem 2rem;
+      font-size: 1.1rem;
+      font-weight: bold;
+      color: #0f0f0f;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .terminal-contact button:hover {
+      background-color: #00d900;
+    }
+
+    /* Animations */
+    @keyframes glitch {
+      0% {
+        background-position: 0 0;
+      }
+      20% {
+        background-position: -20px 0;
+      }
+      40% {
+        background-position: 20px 0;
+      }
+      60% {
+        background-position: -20px 0;
+      }
+      80% {
+        background-position: 20px 0;
+      }
+      100% {
+        background-position: 0 0;
+      }
+    }
+
+    @keyframes blink-cursor {
+      0% {
+        opacity: 1;
+      }
+      50% {
+        opacity: 0;
+      }
+      100% {
+        opacity: 1;
+      }
+    }
+
+    /* Responsive Styles */
+    @media (max-width: 768px) {
+      .navbar {
+        padding: 1rem;
+      }
+
+      .navbar-brand {
+        font-size: 1.2rem;
+      }
+
+      .nav-link {
+        font-size: 1rem;
+      }
+
+      .animated-graphics-showcase .graphic {
+        width: 250px;
+        height: 250px;
+        margin: 1.5rem;
+      }
+
+      .project-showcase {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 1.5rem;
+      }
+
+      .project-thumbnail img {
+        height: 180px;
+      }
+
+      .terminal-contact h2 {
+        font-size: 1.8rem;
+      }
+
+      .terminal-contact .terminal-input {
+        font-size: 1rem;
+      }
+
+      .terminal-contact button {
+        font-size: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav class="navbar">
+      <a href="#" class="navbar-brand">Hacking Portfolio</a>
+      <ul class="navbar-nav">
+        <li class="nav-item"><a href="#" class="nav-link">Home</a></li>
+        <li class="nav-item"><a href="#" class="nav-link">About</a></li>
+        <li class="nav-item"><a href="#" class="nav-link">Portfolio</a></li>
+        <li class="nav-item"><a href="#" class="nav-link">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <!-- Animated Graphics Showcase -->
+    <section class="animated-graphics-showcase">
+      <div class="graphic" data-title="Glitch Effect">
+        <img src="https://dummyimage.com/300x300/00ff00/000000&text=Glitch+Effect" alt="Glitch Effect">
+      </div>
+      <div class="graphic" data-title="Neon Glow">
+        <img src="https://dummyimage.com/300x300/ff00ff/000000&text=Neon+Glow" alt="Neon Glow">
+      </div>
+      <div class="graphic" data-title="Hacker Terminals">
+        <img src="https://dummyimage.com/300x300/00ffff/000000&text=Hacker+Terminals" alt="Hacker Terminals">
+      </div>
+      <div class="graphic" data-title="Cyberpunk Vibes">
+        <img src="https://dummyimage.com/300x300/ff00ff/000000&text=Cyberpunk+Vibes" alt="Cyberpunk Vibes">
+      </div>
+      <div class="graphic" data-title="Pixel Art Explosion">
+        <img src="https://dummyimage.com/300x300/00ff00/000000&text=Pixel+Art+Explosion" alt="Pixel Art Explosion">
+      </div>
+      <div class="graphic" data-title="Distorted Landscapes">
+        <img src="https://dummyimage.com/300x300/00ffff/000000&text=Distorted+Landscapes" alt="Distorted Landscapes">
+      </div>
+    </section>
+
+    <!-- Project Showcase -->
+    <section class="project-showcase">
+      <div class="project-thumbnail" data-title="Cyberpunk Cityscape">
+        <img src="https://dummyimage.com/300x200/ff00ff/000000&text=Cyberpunk+Cityscape" alt="Cyberpunk Cityscape">
+      </div>
+      <div class="project-thumbnail" data-title="Hacker's Dashboard">
+        <img src="https://dummyimage.com/300x200/00ff00/000000&text=Hacker%27s+Dashboard" alt="Hacker's Dashboard">
+      </div>
+      <div class="project-thumbnail" data-title="Glitch Art Collage">
+        <img src="https://dummyimage.com/300x200/00ffff/000000&text=Glitch+Art+Collage" alt="Glitch Art Collage">
+      </div>
+      <div class="project-thumbnail" data-title="Neon-Infused Branding">
+        <img src="https://dummyimage.com/300x200/ff00ff/000000&text=Neon-Infused+Branding" alt="Neon-Infused Branding">
+      </div>
+      <div class="project-thumbnail" data-title="Distorted Typography">
+        <img src="https://dummyimage.com/300x200/00ff00/000000&text=Distorted+Typography" alt="Distorted Typography">
+      </div>
+      <div class="project-thumbnail" data-title="Hacker's Lair Illustration">
+        <img src="https://dummyimage.com/300x200/00ffff/000000&text=Hacker%27s+Lair+Illustration" alt="Hacker's Lair Illustration">
+      </div>
+    </section>
+
+    <!-- Terminal-Style Contact Section -->
+    <section class="terminal-contact">
+      <h2>Get in Touch</h2>
+      <input type="text" class="terminal-input" placeholder="Enter your message..." />
+      <button>Submit</button>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-content">
+      <p>&copy; 2024 Hacking Portfolio. All rights reserved.</p>
+      <div class="social-links">
+        <a href="#" class="social-link">
+          <i class="fab fa-twitter"></i>
+        </a>
+        <a href="#" class="social-link">
+          <i class="fab fa-instagram"></i>
+        </a>
+        <a href="#" class="social-link">
+          <i class="fab fa-linkedin"></i>
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://kit.fontawesome.com/your-font-awesome-kit.js" crossorigin="anonymous"></script>
+</body>
+</html>'<!-- Visit: https://github.com/Ishanoshada/portflair -->
+<!-- Visit: https://github.com/Ishanoshada/portflair -->

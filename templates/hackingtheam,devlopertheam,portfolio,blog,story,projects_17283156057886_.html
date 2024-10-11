@@ -1,0 +1,420 @@
+<!-- Portfolio created by Ishan -->
+<!-- Check out my work at: https://github.com/Ishanoshada/portflair -->
+<!-- 2024/10/9 -->
+<!-- Portfolio created by Ishan -->
+'<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hacking, Development, Portfolio, Blog, Story, and Projects</title>
+  <style>
+    /* Reset Styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    /* Global Styles */
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background-color: #1D1D1D;
+      color: #F5F5F5;
+    }
+
+    a {
+      text-decoration: none;
+      color: #F5F5F5;
+    }
+
+    /* Navigation */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 40px;
+      background-color: #1D1D1D;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    nav .logo {
+      font-size: 24px;
+      font-weight: bold;
+    }
+
+    nav ul {
+      display: flex;
+      list-style-type: none;
+    }
+
+    nav ul li {
+      margin-left: 30px;
+    }
+
+    nav ul li a {
+      font-size: 16px;
+      transition: color 0.3s ease;
+    }
+
+    nav ul li a:hover {
+      color: #00C2CB;
+    }
+
+    /* Portfolio Section */
+    .portfolio {
+      padding: 80px 40px;
+    }
+
+    .portfolio h2 {
+      font-size: 32px;
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .portfolio-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-gap: 40px;
+    }
+
+    .portfolio-item {
+      position: relative;
+      overflow: hidden;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease;
+    }
+
+    .portfolio-item:hover {
+      transform: translateY(-10px);
+    }
+
+    .portfolio-item img {
+      width: 100%;
+      height: 300px;
+      object-fit: cover;
+    }
+
+    .portfolio-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(29, 29, 29, 0.8);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .portfolio-item:hover .portfolio-overlay {
+      opacity: 1;
+    }
+
+    .portfolio-overlay h3 {
+      font-size: 24px;
+      margin-bottom: 10px;
+    }
+
+    .portfolio-overlay p {
+      font-size: 16px;
+      margin-bottom: 20px;
+    }
+
+    .portfolio-overlay a {
+      display: inline-block;
+      padding: 10px 20px;
+      background-color: #00C2CB;
+      border-radius: 4px;
+      font-size: 14px;
+      transition: background-color 0.3s ease;
+    }
+
+    .portfolio-overlay a:hover {
+      background-color: #00a2ab;
+    }
+
+    /* Blog Section */
+    .blog {
+      padding: 80px 40px;
+    }
+
+    .blog h2 {
+      font-size: 32px;
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .blog-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-gap: 40px;
+    }
+
+    .blog-item {
+      background-color: #2D2D2D;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+      transition: transform 0.3s ease;
+    }
+
+    .blog-item:hover {
+      transform: translateY(-10px);
+    }
+
+    .blog-item img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+
+    .blog-content {
+      padding: 20px;
+    }
+
+    .blog-content h3 {
+      font-size: 20px;
+      margin-bottom: 10px;
+    }
+
+    .blog-content p {
+      font-size: 16px;
+      margin-bottom: 20px;
+    }
+
+    .blog-content a {
+      display: inline-block;
+      padding: 10px 20px;
+      background-color: #00C2CB;
+      border-radius: 4px;
+      font-size: 14px;
+      transition: background-color 0.3s ease;
+    }
+
+    .blog-content a:hover {
+      background-color: #00a2ab;
+    }
+
+    /* Projects Section */
+    .projects {
+      padding: 80px 40px;
+    }
+
+    .projects h2 {
+      font-size: 32px;
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .projects-list {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 40px;
+    }
+
+    .project-item {
+      width: 300px;
+      background-color: #2D2D2D;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+      transition: transform 0.3s ease;
+    }
+
+    .project-item:hover {
+      transform: translateY(-10px);
+    }
+
+    .project-item img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+
+    .project-content {
+      padding: 20px;
+    }
+
+    .project-content h3 {
+      font-size: 20px;
+      margin-bottom: 10px;
+    }
+
+    .project-content p {
+      font-size: 16px;
+      margin-bottom: 20px;
+    }
+
+    .project-content .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .project-content .tags span {
+      background-color: #00C2CB;
+      padding: 5px 10px;
+      border-radius: 4px;
+      font-size: 12px;
+    }
+
+    .project-content a {
+      display: inline-block;
+      padding: 10px 20px;
+      background-color: #00C2CB;
+      border-radius: 4px;
+      font-size: 14px;
+      transition: background-color 0.3s ease;
+    }
+
+    .project-content a:hover {
+      background-color: #00a2ab;
+    }
+
+    /* Footer */
+    footer {
+      background-color: #1D1D1D;
+      padding: 20px;
+      text-align: center;
+      font-size: 14px;
+      color: #999999;
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation -->
+  <nav>
+    <div class="logo">
+      <a href="#">Hacking, Development, Portfolio</a>
+    </div>
+    <ul>
+      <li><a href="#">Home</a></li>
+      <li><a href="#">Portfolio</a></li>
+      <li><a href="#">Blog</a></li>
+      <li><a href="#">Projects</a></li>
+      <li><a href="#">About</a></li>
+      <li><a href="#">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- Portfolio Section -->
+  <section class="portfolio">
+    <h2>Our Portfolio</h2>
+    <div class="portfolio-grid">
+      <div class="portfolio-item">
+        <img src="https://dummyimage.com/600x400/ccc/000&text=Portfolio+Image+1" alt="Portfolio Image 1">
+        <div class="portfolio-overlay">
+          <h3>Project Title 1</h3>
+          <p>Description of the project goes here.</p>
+          <a href="#">View Project</a>
+        </div>
+      </div>
+      <div class="portfolio-item">
+        <img src="https://dummyimage.com/600x400/ccc/000&text=Portfolio+Image+2" alt="Portfolio Image 2">
+        <div class="portfolio-overlay">
+          <h3>Project Title 2</h3>
+          <p>Description of the project goes here.</p>
+          <a href="#">View Project</a>
+        </div>
+      </div>
+      <div class="portfolio-item">
+        <img src="https://dummyimage.com/600x400/ccc/000&text=Portfolio+Image+3" alt="Portfolio Image 3">
+        <div class="portfolio-overlay">
+          <h3>Project Title 3</h3>
+          <p>Description of the project goes here.</p>
+          <a href="#">View Project</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Blog Section -->
+  <section class="blog">
+    <h2>Our Blog</h2>
+    <div class="blog-grid">
+      <div class="blog-item">
+        <img src="https://dummyimage.com/600x400/ccc/000&text=Blog+Image+1" alt="Blog Image 1">
+        <div class="blog-content">
+          <h3>Blog Post Title 1</h3>
+          <p>This is a brief description of the blog post. It should be concise and intriguing to encourage readers to click and read more.</p>
+          <a href="#">Read More</a>
+        </div>
+      </div>
+      <div class="blog-item">
+        <img src="https://dummyimage.com/600x400/ccc/000&text=Blog+Image+2" alt="Blog Image 2">
+        <div class="blog-content">
+          <h3>Blog Post Title 2</h3>
+          <p>This is a brief description of the blog post. It should be concise and intriguing to encourage readers to click and read more.</p>
+          <a href="#">Read More</a>
+        </div>
+      </div>
+      <div class="blog-item">
+        <img src="https://dummyimage.com/600x400/ccc/000&text=Blog+Image+3" alt="Blog Image 3">
+        <div class="blog-content">
+          <h3>Blog Post Title 3</h3>
+          <p>This is a brief description of the blog post. It should be concise and intriguing to encourage readers to click and read more.</p>
+          <a href="#">Read More</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects Section -->
+  <section class="projects">
+    <h2>Our Projects</h2>
+    <div class="projects-list">
+      <div class="project-item">
+        <img src="https://dummyimage.com/600x400/ccc/000&text=Project+Image+1" alt="Project Image 1">
+        <div class="project-content">
+          <h3>Project Title 1</h3>
+          <p>This is a brief description of the project. It should highlight the key features and technologies used.</p>
+          <div class="tags">
+            <span>Hacking</span>
+            <span>Development</span>
+            <span>Portfolio</span>
+          </div>
+          <a href="#">View Project</a>
+        </div>
+      </div>
+      <div class="project-item">
+        <img src="https://dummyimage.com/600x400/ccc/000&text=Project+Image+2" alt="Project Image 2">
+        <div class="project-content">
+          <h3>Project Title 2</h3>
+          <p>This is a brief description of the project. It should highlight the key features and technologies used.</p>
+          <div class="tags">
+            <span>Hacking</span>
+            <span>Development</span>
+            <span>Portfolio</span>
+          </div>
+          <a href="#">View Project</a>
+        </div>
+      </div>
+      <div class="project-item">
+        <img src="https://dummyimage.com/600x400/ccc/000&text=Project+Image+3" alt="Project Image 3">
+        <div class="project-content">
+          <h3>Project Title 3</h3>
+          <p>This is a brief description of the project. It should highlight the key features and technologies used.</p>
+          <div class="tags">
+            <span>Hacking</span>
+            <span>Development</span>
+            <span>Portfolio</span>
+          </div>
+          <a href="#">View Project</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2024 Hacking, Development, Portfolio. All rights reserved.</p>
+  </footer>
+</body>
+</html>'<!-- Visit: https://github.com/Ishanoshada/portflair -->
+<!-- Visit: https://github.com/Ishanoshada/portflair -->

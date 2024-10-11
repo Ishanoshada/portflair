@@ -1,0 +1,437 @@
+<!-- Portfolio created by Ishan -->
+<!-- Check out my work at: https://github.com/Ishanoshada/portflair -->
+<!-- 2024/10/9 -->
+<!-- Portfolio created by Ishan -->
+'<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hacking-Themed Portfolio</title>
+  <style>
+    /* Global Styles */
+    body {
+      font-family: 'Courier New', monospace;
+      background-color: #0c0c0c;
+      color: #fff;
+      margin: 0;
+      padding: 0;
+      overflow-x: hidden;
+    }
+
+    /* Navigation Bar */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: #0c0c0c;
+      padding: 1.5rem 2rem;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    nav a {
+      color: #00ff00;
+      text-decoration: none;
+      font-size: 1.2rem;
+      padding: 0.5rem 1rem;
+      transition: color 0.3s ease;
+    }
+
+    nav a:hover {
+      color: #00d600;
+    }
+
+    /* Project Showcase Section */
+    .project-showcase {
+      padding: 4rem 2rem;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      grid-gap: 3rem;
+    }
+
+    .project-card {
+      background-color: #1a1a1a;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+      position: relative;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+
+    .project-card:hover {
+      transform: translateY(-10px);
+    }
+
+    .project-card:before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(45deg, #00ff00, #00d600, #00ff00);
+      background-size: 200% 200%;
+      animation: glitch 5s ease infinite;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .project-card:hover:before {
+      opacity: 0.5;
+    }
+
+    .project-card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .project-details {
+      padding: 1.5rem;
+    }
+
+    .project-details h3 {
+      margin-top: 0;
+      font-size: 1.4rem;
+      color: #00ff00;
+    }
+
+    .project-details p {
+      margin-bottom: 1rem;
+      font-size: 1rem;
+    }
+
+    /* About/Skills Section */
+    .about-skills {
+      padding: 4rem 2rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .terminal-intro {
+      background-color: #1a1a1a;
+      padding: 2rem;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      width: 80%;
+      max-width: 600px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .terminal-intro:before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(45deg, #00ff00, #00d600, #00ff00);
+      background-size: 200% 200%;
+      animation: glitch 5s ease infinite;
+      opacity: 0.2;
+    }
+
+    .terminal-intro p {
+      margin: 0;
+      font-size: 1.2rem;
+      color: #00ff00;
+      line-height: 1.5;
+      animation: typewriter 2s steps(20) infinite;
+    }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+      grid-gap: 2rem;
+      margin-top: 3rem;
+      width: 80%;
+      max-width: 800px;
+    }
+
+    .skill-item {
+      background-color: #1a1a1a;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      padding: 2rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+      cursor: pointer;
+    }
+
+    .skill-item:before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(45deg, #00ff00, #00d600, #00ff00);
+      background-size: 200% 200%;
+      animation: glitch 5s ease infinite;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .skill-item:hover:before {
+      opacity: 0.5;
+    }
+
+    .skill-item i {
+      font-size: 3rem;
+      color: #00ff00;
+      margin-bottom: 1rem;
+      position: relative;
+      z-index: 1;
+      animation: pulse 2s ease-in-out infinite;
+    }
+
+    .skill-item h4 {
+      margin-top: 0;
+      font-size: 1.2rem;
+      color: #00ff00;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* Contact Section */
+    .contact {
+      padding: 4rem 2rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .terminal-form {
+      background-color: #1a1a1a;
+      padding: 2rem;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      width: 80%;
+      max-width: 600px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .terminal-form:before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(45deg, #00ff00, #00d600, #00ff00);
+      background-size: 200% 200%;
+      animation: glitch 5s ease infinite;
+      opacity: 0.2;
+    }
+
+    .terminal-form label,
+    .terminal-form input,
+    .terminal-form textarea {
+      display: block;
+      width: 100%;
+      margin-bottom: 1rem;
+      padding: 0.5rem;
+      font-size: 1.2rem;
+      color: #00ff00;
+      background-color: transparent;
+      border: none;
+      border-bottom: 2px solid #00ff00;
+      font-family: 'Courier New', monospace;
+      animation: typewriter 2s steps(20) infinite;
+    }
+
+    .terminal-form textarea {
+      height: 150px;
+    }
+
+    .terminal-form button {
+      display: block;
+      margin: 2rem auto 0;
+      padding: 0.8rem 2rem;
+      font-size: 1.2rem;
+      color: #0c0c0c;
+      background-color: #00ff00;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .terminal-form button:hover {
+      background-color: #00d600;
+    }
+
+    .social-icons {
+      display: flex;
+      justify-content: center;
+      margin-top: 2rem;
+    }
+
+    .social-icons a {
+      color: #00ff00;
+      font-size: 2rem;
+      margin: 0 1rem;
+      transition: color 0.3s ease;
+    }
+
+    .social-icons a:hover {
+      color: #00d600;
+    }
+
+    /* Animations */
+    @keyframes glitch {
+      0% {
+        background-position: 0% 50%;
+      }
+      50% {
+        background-position: 100% 50%;
+      }
+      100% {
+        background-position: 0% 50%;
+      }
+    }
+
+    @keyframes typewriter {
+      from {
+        width: 0;
+      }
+      to {
+        width: 100%;
+      }
+    }
+
+    @keyframes pulse {
+      0% {
+        transform: scale(1);
+      }
+      50% {
+        transform: scale(1.2);
+      }
+      100% {
+        transform: scale(1);
+      }
+    }
+
+    /* Responsive Styles */
+    @media (max-width: 768px) {
+      .project-showcase,
+      .skills-grid {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      }
+
+      .terminal-intro,
+      .terminal-form {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="#">Home</a>
+    <a href="#">Projects</a>
+    <a href="#">About</a>
+    <a href="#">Contact</a>
+  </nav>
+
+  <section class="project-showcase">
+    <div class="project-card">
+      <img src="https://dummyimage.com/600x400/0c0c0c/00ff00&text=Project+1" alt="Project 1">
+      <div class="project-details">
+        <h3>Project 1</h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+      </div>
+    </div>
+    <div class="project-card">
+      <img src="https://dummyimage.com/600x400/0c0c0c/00ff00&text=Project+2" alt="Project 2">
+      <div class="project-details">
+        <h3>Project 2</h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+      </div>
+    </div>
+    <div class="project-card">
+      <img src="https://dummyimage.com/600x400/0c0c0c/00ff00&text=Project+3" alt="Project 3">
+      <div class="project-details">
+        <h3>Project 3</h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+      </div>
+    </div>
+    <div class="project-card">
+      <img src="https://dummyimage.com/600x400/0c0c0c/00ff00&text=Project+4" alt="Project 4">
+      <div class="project-details">
+        <h3>Project 4</h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="about-skills">
+    <div class="terminal-intro">
+      <p>
+        Name: John Doe<br>
+        Occupation: Graphic Designer<br>
+        Specialties: Branding, UI/UX Design, 3D Modeling
+      </p>
+    </div>
+    <div class="skills-grid">
+      <div class="skill-item">
+        <i class="fas fa-code"></i>
+        <h4>HTML/CSS</h4>
+      </div>
+      <div class="skill-item">
+        <i class="fab fa-js"></i>
+        <h4>JavaScript</h4>
+      </div>
+      <div class="skill-item">
+        <i class="fab fa-figma"></i>
+        <h4>Figma</h4>
+      </div>
+      <div class="skill-item">
+        <i class="fab fa-adobe"></i>
+        <h4>Adobe Suite</h4>
+      </div>
+      <div class="skill-item">
+        <i class="fas fa-cube"></i>
+        <h4>3D Modeling</h4>
+      </div>
+      <div class="skill-item">
+        <i class="fas fa-palette"></i>
+        <h4>Branding</h4>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact">
+    <div class="terminal-form">
+      <label for="name">Name:</label>
+      <input type="text" id="name" name="name" placeholder="Enter your name">
+
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" placeholder="Enter your email">
+
+      <label for="message">Message:</label>
+      <textarea id="message" name="message" placeholder="Enter your message"></textarea>
+
+      <button type="submit">Submit</button>
+    </div>
+    <div class="social-icons">
+      <a href="#" class="fab fa-twitter"></a>
+      <a href="#" class="fab fa-linkedin"></a>
+      <a href="#" class="fab fa-instagram"></a>
+      <a href="#" class="fab fa-dribbble"></a>
+    </div>
+  </section>
+
+  <script src="https://kit.fontawesome.com/your-font-awesome-kit.js" crossorigin="anonymous"></script>
+</body>
+</html>'<!-- Visit: https://github.com/Ishanoshada/portflair -->
+<!-- Visit: https://github.com/Ishanoshada/portflair -->

@@ -1,0 +1,494 @@
+<!-- Portfolio created by Ishan -->
+<!-- Check out my work at: https://github.com/Ishanoshada/portflair -->
+<!-- 2024/10/9 -->
+<!-- Portfolio created by Ishan -->
+'<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animated Portfolio</title>
+    <style>
+        /* General Styles */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Montserrat', sans-serif;
+            background-color: #0f0f0f;
+            color: #ffffff;
+            overflow-x: hidden;
+        }
+
+        a {
+            text-decoration: none;
+            color: #ffffff;
+        }
+
+        /* Navigation */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 40px;
+            background-color: rgba(15, 15, 15, 0.8);
+            backdrop-filter: blur(10px);
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+        }
+
+        nav a {
+            font-size: 18px;
+            font-weight: 500;
+            padding: 10px 20px;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: #8c1aff;
+        }
+
+        /* Portfolio Section */
+        #portfolio {
+            padding: 100px 40px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            background-image: linear-gradient(to bottom, rgba(15, 15, 15, 0.8), rgba(15, 15, 15, 0.9)), url(https://dummyimage.com/1200x500/8c1aff/ffffff&text=Portfolio+Background);
+            background-size: cover;
+            background-position: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        #portfolio h2 {
+            font-size: 48px;
+            font-weight: 700;
+            margin-bottom: 40px;
+            text-align: center;
+            text-shadow: 0 0 20px rgba(140, 26, 255, 0.5);
+        }
+
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-gap: 40px;
+            width: 100%;
+            max-width: 1200px;
+        }
+
+        .portfolio-item {
+            position: relative;
+            perspective: 1000px;
+            cursor: pointer;
+        }
+
+        .portfolio-item-inner {
+            position: relative;
+            width: 100%;
+            height: 0;
+            padding-bottom: 100%;
+            transform-style: preserve-3d;
+            transition: transform 0.5s;
+        }
+
+        .portfolio-item-front,
+        .portfolio-item-back {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            box-sizing: border-box;
+            background-color: rgba(15, 15, 15, 0.8);
+            backdrop-filter: blur(10px);
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(140, 26, 255, 0.3);
+        }
+
+        .portfolio-item-front {
+            z-index: 2;
+            transform: rotateY(0deg);
+        }
+
+        .portfolio-item-back {
+            transform: rotateY(180deg);
+        }
+
+        .portfolio-item:hover .portfolio-item-inner {
+            transform: rotateY(180deg);
+        }
+
+        .portfolio-item h3 {
+            font-size: 24px;
+            font-weight: 600;
+            margin-bottom: 10px;
+            text-shadow: 0 0 10px rgba(140, 26, 255, 0.5);
+        }
+
+        .portfolio-item p {
+            font-size: 16px;
+            line-height: 1.5;
+            text-align: center;
+        }
+
+        /* Skills and Highlights Section */
+        #skills {
+            padding: 100px 40px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            background-image: linear-gradient(to bottom, rgba(15, 15, 15, 0.9), rgba(15, 15, 15, 0.95)), url(https://dummyimage.com/1200x500/8c1aff/ffffff&text=Skills+Background);
+            background-size: cover;
+            background-position: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        #skills h2 {
+            font-size: 48px;
+            font-weight: 700;
+            margin-bottom: 40px;
+            text-align: center;
+            text-shadow: 0 0 20px rgba(140, 26, 255, 0.5);
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-gap: 40px;
+            width: 100%;
+            max-width: 1200px;
+        }
+
+        .skill-item {
+            background-color: rgba(15, 15, 15, 0.8);
+            backdrop-filter: blur(10px);
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(140, 26, 255, 0.3);
+            padding: 40px;
+            text-align: center;
+            opacity: 0;
+            transform: translateY(50px);
+            animation: skillFadeIn 0.7s ease-in-out forwards;
+        }
+
+        @keyframes skillFadeIn {
+            0% {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .skill-item h3 {
+            font-size: 24px;
+            font-weight: 600;
+            margin-bottom: 20px;
+            text-shadow: 0 0 10px rgba(140, 26, 255, 0.5);
+        }
+
+        .skill-item p {
+            font-size: 16px;
+            line-height: 1.5;
+        }
+
+        .skill-highlight {
+            margin-top: 40px;
+            background-color: rgba(140, 26, 255, 0.1);
+            border-radius: 10px;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 0 20px rgba(140, 26, 255, 0.2);
+        }
+
+        .skill-highlight h4 {
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .skill-highlight p {
+            font-size: 16px;
+            line-height: 1.5;
+        }
+
+        /* Contact Form Section */
+        #contact {
+            padding: 100px 40px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            background-image: linear-gradient(to bottom, rgba(15, 15, 15, 0.95), rgba(15, 15, 15, 0.97)), url(https://dummyimage.com/1200x500/0f0f0f/8c1aff&text=Contact+Background);
+            background-size: cover;
+            background-position: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        #contact h2 {
+            font-size: 48px;
+            font-weight: 700;
+            margin-bottom: 40px;
+            text-align: center;
+            text-shadow: 0 0 20px rgba(140, 26, 255, 0.5);
+        }
+
+        .contact-form {
+            width: 100%;
+            max-width: 600px;
+            background-color: rgba(15, 15, 15, 0.8);
+            backdrop-filter: blur(10px);
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(140, 26, 255, 0.3);
+            padding: 40px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .contact-form:before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: linear-gradient(45deg, #8c1aff, #4b0082);
+            opacity: 0.2;
+            z-index: -1;
+            animation: shiftBackground 10s ease-in-out infinite;
+        }
+
+        @keyframes shiftBackground {
+            0% {
+                transform: translate(-5%, -5%);
+            }
+            50% {
+                transform: translate(5%, 5%);
+            }
+            100% {
+                transform: translate(-5%, -5%);
+            }
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 15px;
+            margin-bottom: 20px;
+            border: none;
+            border-radius: 5px;
+            background-color: rgba(255, 255, 255, 0.1);
+            color: #ffffff;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+        }
+
+        .contact-form input:focus,
+        .contact-form textarea:focus {
+            outline: none;
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .contact-form button {
+            display: block;
+            width: 100%;
+            padding: 15px;
+            background-color: #8c1aff;
+            color: #ffffff;
+            border: none;
+            border-radius: 5px;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .contact-form button:hover {
+            background-color: #4b0082;
+        }
+
+        .contact-info {
+            margin-top: 40px;
+            text-align: center;
+        }
+
+        .contact-info p {
+            font-size: 16px;
+            line-height: 1.5;
+            margin-bottom: 10px;
+        }
+
+        .contact-info a {
+            font-size: 16px;
+            line-height: 1.5;
+            transition: color 0.3s ease;
+        }
+
+        .contact-info a:hover {
+            color: #8c1aff;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="#">Home</a>
+        <a href="#portfolio">Portfolio</a>
+        <a href="#skills">Skills</a>
+        <a href="#contact">Contact</a>
+    </nav>
+
+    <section id="portfolio">
+        <h2>My Portfolio</h2>
+        <div class="portfolio-grid">
+            <div class="portfolio-item">
+                <div class="portfolio-item-inner">
+                    <div class="portfolio-item-front">
+                        <h3>Project 1</h3>
+                        <p>Client: ABC Company</p>
+                    </div>
+                    <div class="portfolio-item-back">
+                        <h3>Project 1</h3>
+                        <p>Description: This project involved the design and development of a responsive website for ABC Company, showcasing their products and services.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="portfolio-item">
+                <div class="portfolio-item-inner">
+                    <div class="portfolio-item-front">
+                        <h3>Project 2</h3>
+                        <p>Client: XYZ Corporation</p>
+                    </div>
+                    <div class="portfolio-item-back">
+                        <h3>Project 2</h3>
+                        <p>Description: For XYZ Corporation, I designed and developed a custom web application that streamlined their internal workflow and increased productivity.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="portfolio-item">
+                <div class="portfolio-item-inner">
+                    <div class="portfolio-item-front">
+                        <h3>Project 3</h3>
+                        <p>Client: Design Studio</p>
+                    </div>
+                    <div class="portfolio-item-back">
+                        <h3>Project 3</h3>
+                        <p>Description: This project involved the design and development of a visually striking portfolio website for a leading design studio, showcasing their innovative work.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="portfolio-item">
+                <div class="portfolio-item-inner">
+                    <div class="portfolio-item-front">
+                        <h3>Project 4</h3>
+                        <p>Client: Tech Startup</p>
+                    </div>
+                    <div class="portfolio-item-back">
+                        <h3>Project 4</h3>
+                        <p>Description: For a fast-growing tech startup, I designed and developed a modern, user-friendly web application that enhanced their customer experience and increased engagement.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="portfolio-item">
+                <div class="portfolio-item-inner">
+                    <div class="portfolio-item-front">
+                        <h3>Project 5</h3>
+                        <p>Client: Non-Profit Organization</p>
+                    </div>
+                    <div class="portfolio-item-back">
+                        <h3>Project 5</h3>
+                        <p>Description: This project involved the design and development of a responsive, accessible website for a non-profit organization, helping them to better connect with their audience and drive donations.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="portfolio-item">
+                <div class="portfolio-item-inner">
+                    <div class="portfolio-item-front">
+                        <h3>Project 6</h3>
+                        <p>Client: Luxury Brand</p>
+                    </div>
+                    <div class="portfolio-item-back">
+                        <h3>Project 6</h3>
+                        <p>Description: For a prestigious luxury brand, I designed and developed a visually captivating website that showcased their high-end products and elevated their online presence.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="skills">
+        <h2>My Skills</h2>
+        <div class="skills-grid">
+            <div class="skill-item">
+                <h3>3D Modeling</h3>
+                <p>Proficient in creating detailed, photorealistic 3D models and animations using advanced software tools.</p>
+            </div>
+            <div class="skill-item">
+                <h3>UI/UX Design</h3>
+                <p>Expertise in designing intuitive, user-centric interfaces that deliver exceptional digital experiences.</p>
+            </div>
+            <div class="skill-item">
+                <h3>Motion Graphics</h3>
+                <p>Skilled in creating dynamic, eye-catching motion graphics for a variety of digital</p>
+            </div>
+            <div class="skill-item">
+                <h3>Web Development</h3>
+                <p>Experienced in building responsive, scalable, and visually appealing websites and web applications using the latest technologies.</p>
+            </div>
+            <div class="skill-item">
+                <h3>Branding</h3>
+                <p>Proficient in developing cohesive brand identities, including logo design, color palettes, and visual guidelines.</p>
+            </div>
+            <div class="skill-item">
+                <h3>Illustration</h3>
+                <p>Skilled in creating custom illustrations and vector art to enhance digital experiences and bring concepts to life.</p>
+            </div>
+        </div>
+        <div class="skill-highlight">
+            <h4>Highlights</h4>
+            <p>My work has been featured in industry-leading design publications and has won several prestigious awards, including the Red Dot Design Award and the Web Marketing Association's WebAward for Outstanding Achievement in Web Development.</p>
+        </div>
+    </section>
+
+    <section id="contact">
+        <h2>Get in Touch</h2>
+        <div class="contact-form">
+            <form>
+                <input type="text" placeholder="Name" required>
+                <input type="email" placeholder="Email" required>
+                <textarea placeholder="Message" required></textarea>
+                <button type="submit">Submit</button>
+            </form>
+        </div>
+        <div class="contact-info">
+            <p>Email: designer@example.com</p>
+            <p>Phone: +1 (123) 456-7890</p>
+            <p>Follow me on:
+                <a href="#">LinkedIn</a>
+                <a href="#">Twitter</a>
+                <a href="#">Instagram</a>
+            </p>
+        </div>
+    </section>
+</body>
+</html>'<!-- Visit: https://github.com/Ishanoshada/portflair -->
+<!-- Visit: https://github.com/Ishanoshada/portflair -->

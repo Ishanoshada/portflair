@@ -1,0 +1,399 @@
+<!-- Portfolio created by Ishan -->
+<!-- Check out my work at: https://github.com/Ishanoshada/portflair -->
+<!-- 2024/10/9 -->
+<!-- Portfolio created by Ishan -->
+'<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Space-Themed Developer Portfolio</title>
+    <style>
+        /* Global Styles */
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #0f0f0f;
+            color: #fff;
+            overflow-x: hidden;
+        }
+
+        /* Navigation Bar */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 40px;
+            background-color: rgba(15, 15, 15, 0.8);
+            backdrop-filter: blur(10px);
+            position: relative;
+            z-index: 999;
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 18px;
+            font-weight: 500;
+            margin-right: 30px;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: #9b59b6;
+        }
+
+        /* Interactive Code Snippet Gallery */
+        #code-snippet-gallery {
+            padding: 80px 40px;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-gap: 40px;
+            background: linear-gradient(to bottom, #0f0f0f, #1c1c1c);
+        }
+
+        .code-snippet {
+            background-color: #1c1c1c;
+            border-radius: 10px;
+            padding: 40px;
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .code-snippet:hover {
+            transform: translateY(-10px);
+        }
+
+        .code-snippet h3 {
+            font-size: 24px;
+            margin-top: 0;
+        }
+
+        .code-snippet p {
+            font-size: 16px;
+            color: #bdbdbd;
+            margin-bottom: 20px;
+        }
+
+        .code-snippet pre {
+            background-color: #0f0f0f;
+            padding: 20px;
+            border-radius: 5px;
+            font-family: 'Fira Code', monospace;
+            font-size: 14px;
+            overflow-x: auto;
+            white-space: pre-wrap;
+            position: relative;
+            z-index: 1;
+        }
+
+        .code-snippet:before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, #9b59b6, #2980b9);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .code-snippet:hover:before {
+            opacity: 0.3;
+        }
+
+        .code-snippet:after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url("https://dummyimage.com/1200x500/ccc/000&text=Constellation");
+            background-size: cover;
+            background-position: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .code-snippet:hover:after {
+            opacity: 0.1;
+        }
+
+        /* About Me Section */
+        #about-me {
+            padding: 80px 40px;
+            display: flex;
+            align-items: center;
+            background: linear-gradient(to right, #1c1c1c, #2c2c2c);
+        }
+
+        #about-me-content {
+            flex: 1;
+            margin-right: 40px;
+        }
+
+        #about-me-content h2 {
+            font-size: 36px;
+            margin-top: 0;
+        }
+
+        #about-me-content p {
+            font-size: 18px;
+            color: #bdbdbd;
+            line-height: 1.6;
+        }
+
+        #about-me-image {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+        }
+
+        #about-me-image img {
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.1);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        /* Contact and Hiring Section */
+        #contact-hiring {
+            padding: 80px 40px;
+            background: linear-gradient(to bottom, #2c2c2c, #3c3c3c);
+        }
+
+        #contact-hiring h2 {
+            font-size: 36px;
+            margin-top: 0;
+            text-align: center;
+        }
+
+        #contact-form {
+            display: flex;
+            justify-content: center;
+            margin-top: 40px;
+        }
+
+        #contact-form form {
+            background-color: #3c3c3c;
+            border-radius: 10px;
+            padding: 40px;
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+            width: 100%;
+            max-width: 500px;
+        }
+
+        #contact-form label {
+            display: block;
+            font-size: 16px;
+            margin-bottom: 10px;
+        }
+
+        #contact-form input,
+        #contact-form textarea {
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            background-color: #4c4c4c;
+            color: #fff;
+            margin-bottom: 20px;
+            resize: none;
+        }
+
+        #contact-form button {
+            background-color: #9b59b6;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        #contact-form button:hover {
+            background-color: #8e44ad;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            #code-snippet-gallery {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            #about-me {
+                flex-direction: column;
+            }
+
+            #about-me-content {
+                margin-right: 0;
+                margin-bottom: 40px;
+            }
+
+            #about-me-image img {
+                width: 200px;
+                height: 200px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            nav {
+                padding: 10px 20px;
+            }
+
+            nav a {
+                font-size: 16px;
+                margin-right: 20px;
+            }
+
+            #code-snippet-gallery {
+                grid-template-columns: 1fr;
+            }
+
+            #about-me {
+                padding: 40px 20px;
+            }
+
+            #about-me-content h2 {
+                font-size: 28px;
+            }
+
+            #about-me-content p {
+                font-size: 16px;
+            }
+
+            #about-me-image img {
+                width: 150px;
+                height: 150px;
+            }
+
+            #contact-hiring {
+                padding: 40px 20px;
+            }
+
+            #contact-hiring h2 {
+                font-size: 28px;
+            }
+
+            #contact-form {
+                margin-top: 20px;
+            }
+
+            #contact-form form {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="#">Home</a>
+        <a href="#">About</a>
+        <a href="#">Projects</a>
+        <a href="#">Contact</a>
+    </nav>
+
+    <section id="code-snippet-gallery">
+        <div class="code-snippet">
+            <h3>Project 1</h3>
+            <p>A responsive web application built with React and Redux.</p>
+            <pre><code>
+import React from 'react';
+import { Provider } from 'react-redux';
+import store from './store';
+import App from './components/App';
+
+ReactDOM.render(
+  <Provider store={store}>
+    <App />
+  </Provider>,
+  document.getElementById('root')
+);
+            </code></pre>
+        </div>
+        <div class="code-snippet">
+            <h3>Project 2</h3>
+            <p>A microservices-based architecture using Node.js and Docker.</p>
+            <pre><code>
+const express = require('express');
+const app = express();
+
+app.get('/api/data', (req, res) => {
+  res.json({ message: 'Hello from the API service!' });
+});
+
+app.listen(3000, () => {
+  console.log('API service running on port 3000');
+});
+            </code></pre>
+        </div>
+        <div class="code-snippet">
+            <h3>Project 3</h3>
+            <p>A machine learning model for image classification, built with TensorFlow.js.</p>
+            <pre><code>
+import * as tf from '@tensorflow/tfjs';
+
+async function loadModel() {
+  const model = await tf.loadLayersModel('https://my-model.com/model.json');
+  return model;
+}
+
+async function classifyImage(model, image) {
+  const predictions = await model.predict(image);
+  return predictions.argMax(-1).dataSync()[0];
+}
+            </code></pre>
+        </div>
+    </section>
+
+    <section id="about-me">
+        <div id="about-me-content">
+            <h2>About Me</h2>
+            <p>Hi, I'm a passionate web developer with a love for creating visually stunning and interactive applications. I specialize in building responsive and scalable web applications using the latest technologies and frameworks. My goal is to deliver innovative solutions that push the boundaries of what's possible on the web.</p>
+        </div>
+        <div id="about-me-image">
+            <img src="https://dummyimage.com/300x300/ccc/000&text=Developer" alt="Developer Profile Picture">
+        </div>
+    </section>
+
+    <section id="contact-hiring">
+        <h2>Contact and Hiring</h2>
+        <div id="contact-form">
+            <form>
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" placeholder="Enter your name" required>
+
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" placeholder="Enter your email" required>
+
+                <label for="message">Message:</label>
+                <textarea id="message" name="message" placeholder="Enter your message" required></textarea>
+
+                <button type="submit">Send</button>
+            </form>
+        </div>
+    </section>
+</body>
+</html>'<!-- Visit: https://github.com/Ishanoshada/portflair -->
+<!-- Visit: https://github.com/Ishanoshada/portflair -->

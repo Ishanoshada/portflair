@@ -1,0 +1,356 @@
+<!-- Portfolio created by Ishan -->
+<!-- Check out my work at: https://github.com/Ishanoshada/portflair -->
+<!-- 2024/10/9 -->
+<!-- Portfolio created by Ishan -->
+'<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cosmic Odyssey: [Developer's Name]'s Portfolio</title>
+  <style>
+    /* Global Styles */
+    @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
+    body {
+      font-family: 'Orbitron', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #0d0d0d;
+      color: #fff;
+    }
+
+    /* Navigation */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: rgba(13, 13, 13, 0.8);
+      padding: 1.5rem 3rem;
+      backdrop-filter: blur(10px);
+      position: relative;
+      z-index: 2;
+    }
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      font-size: 1.1rem;
+      margin: 0 1rem;
+      transition: color 0.3s ease;
+    }
+    nav a:hover {
+      color: #9b59b6;
+    }
+
+    /* Hero Section */
+    .hero {
+      height: 80vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: url("https://dummyimage.com/1920x1080/0d0d0d/9b59b6.jpg&text=Black+Hole");
+      background-size: cover;
+      background-position: center;
+      filter: blur(5px);
+      z-index: -1;
+    }
+    .hero::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(ellipse at center, rgba(13, 13, 13, 0.8) 0%, rgba(13, 13, 13, 0.2) 70%, rgba(13, 13, 13, 0) 100%);
+      z-index: -1;
+    }
+    .hero-title {
+      font-size: 4rem;
+      font-weight: 700;
+      text-align: center;
+      text-shadow: 0 0 20px #9b59b6, 0 0 40px #9b59b6, 0 0 80px #9b59b6;
+      animation: glowEffect 3s infinite;
+    }
+    .hero-subtitle {
+      font-size: 1.8rem;
+      text-align: center;
+      margin-top: 1rem;
+      animation: pulseEffect 3s infinite;
+    }
+
+    /* Project Gallery */
+    .project-gallery {
+      padding: 4rem 3rem;
+      background-color: #0d0d0d;
+      position: relative;
+    }
+    .project-gallery::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: url("https://dummyimage.com/1920x1080/333/9b59b6.jpg&text=Steampunk+Gears");
+      background-size: cover;
+      background-position: center;
+      opacity: 0.1;
+      z-index: 0;
+    }
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      grid-gap: 3rem;
+      position: relative;
+      z-index: 1;
+    }
+    .project-item {
+      background-color: rgba(155, 89, 182, 0.2);
+      border-radius: 10px;
+      overflow: hidden;
+      position: relative;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+    .project-item:hover {
+      transform: scale(1.05);
+    }
+    .project-item img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      transition: transform 0.3s ease;
+    }
+    .project-item:hover img {
+      transform: scale(1.1);
+    }
+    .project-details {
+      padding: 1.5rem;
+      background-color: rgba(13, 13, 13, 0.8);
+      backdrop-filter: blur(10px);
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      transform: translateY(100%);
+      transition: transform 0.3s ease;
+    }
+    .project-item:hover .project-details {
+      transform: translateY(0);
+    }
+    .project-name {
+      font-size: 1.4rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+    .project-description {
+      font-size: 1rem;
+      line-height: 1.4;
+    }
+
+    /* Contact Form */
+    .contact-section {
+      padding: 4rem 3rem;
+      background-color: #0d0d0d;
+      position: relative;
+    }
+    .contact-section::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: url("https://dummyimage.com/1920x1080/333/9b59b6.jpg&text=Cosmic+Vortex");
+      background-size: cover;
+      background-position: center;
+      opacity: 0.2;
+      z-index: 0;
+    }
+    .contact-form {
+      max-width: 600px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
+    }
+    .contact-form h2 {
+      font-size: 2.4rem;
+      text-align: center;
+      margin-bottom: 2rem;
+      text-shadow: 0 0 10px #9b59b6, 0 0 20px #9b59b6, 0 0 40px #9b59b6;
+      animation: glowEffect 3s infinite;
+    }
+    .form-group {
+      margin-bottom: 1.5rem;
+    }
+    .form-group label {
+      display: block;
+      font-size: 1.1rem;
+      margin-bottom: 0.5rem;
+    }
+    .form-group input,
+    .form-group textarea {
+      width: 100%;
+      padding: 1rem;
+      font-size: 1rem;
+      border: none;
+      border-radius: 5px;
+      background-color: rgba(155, 89, 182, 0.2);
+      color: #fff;
+      outline: none;
+      transition: background-color 0.3s ease;
+    }
+    .form-group input:focus,
+    .form-group textarea:focus {
+      background-color: rgba(155, 89, 182, 0.4);
+    }
+    .form-group input::placeholder,
+    .form-group textarea::placeholder {
+      color: #ccc;
+    }
+    .form-group button {
+      display: block;
+      width: 100%;
+      padding: 1rem;
+      font-size: 1.1rem;
+      font-weight: 700;
+      border: none;
+      border-radius: 5px;
+      background-color: #9b59b6;
+      color: #fff;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    .form-group button:hover {
+      background-color: #8e44ad;
+    }
+
+    /* Animations */
+    @keyframes glowEffect {
+      0% {
+        text-shadow: 0 0 10px #9b59b6, 0 0 20px #9b59b6, 0 0 40px #9b59b6;
+      }
+      50% {
+        text-shadow: 0 0 20px #9b59b6, 0 0 40px #9b59b6, 0 0 80px #9b59b6;
+      }
+      100% {
+        text-shadow: 0 0 10px #9b59b6, 0 0 20px #9b59b6, 0 0 40px #9b59b6;
+      }
+    }
+    @keyframes pulseEffect {
+      0% {
+        transform: scale(1);
+      }
+      50% {
+        transform: scale(1.05);
+      }
+      100% {
+        transform: scale(1);
+      }
+    }
+
+    /* Responsive Styles */
+    @media (max-width: 768px) {
+      nav {
+        padding: 1rem 2rem;
+      }
+      nav a {
+        font-size: 1rem;
+      }
+      .hero-title {
+        font-size: 3rem;
+      }
+      .hero-subtitle {
+        font-size: 1.4rem;
+      }
+      .project-gallery,
+      .contact-section {
+        padding: 3rem 2rem;
+      }
+      .project-grid {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      }
+      .contact-form h2 {
+        font-size: 2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation -->
+  <nav>
+    <a href="#">Home</a>
+    <a href="#">Projects</a>
+    <a href="#">About</a>
+    <a href="#">Contact</a>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <h1 class="hero-title">Cosmic Odyssey: [Developer's Name]'s Portfolio</h1>
+    <p class="hero-subtitle">Explore the depths of a cosmic landscape, where vaporwave glitches and steampunk gears collide.</p>
+  </section>
+
+  <!-- Project Gallery -->
+  <section class="project-gallery">
+    <div class="project-grid">
+      <div class="project-item">
+        <img src="https://dummyimage.com/600x400/333/9b59b6.jpg&text=Project+1" alt="Project 1">
+        <div class="project-details">
+          <h3 class="project-name">Project 1</h3>
+          <p class="project-description">A cosmic-themed web application that showcases the developer's expertise.</p>
+        </div>
+      </div>
+      <div class="project-item">
+        <img src="https://dummyimage.com/600x400/333/9b59b6.jpg&text=Project+2" alt="Project 2">
+        <div class="project-details">
+          <h3 class="project-name">Project 2</h3>
+          <p class="project-description">A vaporwave-inspired backend service that integrates with a steampunk-themed API.</p>
+        </div>
+      </div>
+      <div class="project-item">
+        <img src="https://dummyimage.com/600x400/333/9b59b6.jpg&text=Project+3" alt="Project 3">
+        <div class="project-details">
+          <h3 class="project-name">Project 3</h3>
+          <p class="project-description">A cosmic data visualization tool that leverages the developer's expertise in backend engineering.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Form -->
+  <section class="contact-section">
+    <div class="contact-form">
+      <h2>Get in Touch</h2>
+      <form>
+        <div class="form-group">
+          <label for="name">Name</label>
+          <input type="text" id="name" placeholder="Enter your name" required>
+        </div>
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" id="email" placeholder="Enter your email" required>
+        </div>
+        <div class="form-group">
+          <label for="message">Message</label>
+          <textarea id="message" rows="5" placeholder="Enter your message" required></textarea>
+        </div>
+        <div class="form-group">
+          <button type="submit">Send Message</button>
+        </div>
+      </form>
+    </div>
+  </section>
+</body>
+</html>'<!-- Visit: https://github.com/Ishanoshada/portflair -->
+<!-- Visit: https://github.com/Ishanoshada/portflair -->

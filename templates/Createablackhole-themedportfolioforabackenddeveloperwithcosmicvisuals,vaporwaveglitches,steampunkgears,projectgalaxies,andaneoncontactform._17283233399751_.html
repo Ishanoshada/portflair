@@ -1,0 +1,421 @@
+<!-- Portfolio created by Ishan -->
+<!-- Check out my work at: https://github.com/Ishanoshada/portflair -->
+<!-- 2024/10/9 -->
+<!-- Portfolio created by Ishan -->
+'<html>
+<head>
+    <title>Black Hole Portfolio</title>
+    <style>
+        /* Global Styles */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Orbitron', sans-serif;
+            background-color: #121212;
+            color: #fff;
+            overflow-x: hidden;
+        }
+
+        /* Navigation Bar */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 40px;
+            background-color: rgba(18, 18, 18, 0.8);
+            backdrop-filter: blur(10px);
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 18px;
+            margin: 0 20px;
+            transition: color 0.3s ease-in-out;
+        }
+
+        nav a:hover {
+            color: #9b59b6;
+        }
+
+        /* Project Galaxies Section */
+        #project-galaxies {
+            padding: 80px 40px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .galaxy {
+            width: 300px;
+            height: 300px;
+            margin: 20px;
+            background-size: cover;
+            background-position: center;
+            border-radius: 50%;
+            box-shadow: 0 0 20px rgba(155, 89, 182, 0.5);
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+            transition: all 0.5s ease-in-out;
+        }
+
+        .galaxy:before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle, rgba(155, 89, 182, 0.3) 0%, rgba(18, 18, 18, 0.8) 100%);
+            opacity: 0;
+            transition: opacity 0.5s ease-in-out;
+        }
+
+        .galaxy:hover:before {
+            opacity: 1;
+        }
+
+        .galaxy-info {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            opacity: 0;
+            transition: opacity 0.5s ease-in-out;
+        }
+
+        .galaxy:hover .galaxy-info {
+            opacity: 1;
+        }
+
+        .galaxy-info h3 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            text-shadow: 0 0 10px rgba(155, 89, 182, 0.8);
+        }
+
+        .galaxy-info p {
+            font-size: 16px;
+            margin-bottom: 20px;
+            text-shadow: 0 0 10px rgba(155, 89, 182, 0.8);
+        }
+
+        .galaxy-info a {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #9b59b6;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 20px;
+            box-shadow: 0 0 10px rgba(155, 89, 182, 0.8);
+            transition: background-color 0.3s ease-in-out;
+        }
+
+        .galaxy-info a:hover {
+            background-color: #8e44ad;
+        }
+
+        /* Steampunk Gears Section */
+        #steampunk-gears {
+            padding: 80px 40px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .gear-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-top: 40px;
+        }
+
+        .gear {
+            width: 150px;
+            height: 150px;
+            margin: 20px;
+            background-image: url(https://dummyimage.com/150x150/ccc/000&text=Gear);
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+            position: relative;
+            cursor: pointer;
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .gear:before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url(https://dummyimage.com/150x150/9b59b6/fff&text=Gear);
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+            opacity: 0;
+            transition: opacity 0.5s ease-in-out;
+        }
+
+        .gear:hover {
+            transform: rotate(360deg);
+        }
+
+        .gear:hover:before {
+            opacity: 1;
+        }
+
+        .gear-info {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            opacity: 0;
+            transition: opacity 0.5s ease-in-out;
+        }
+
+        .gear:hover .gear-info {
+            opacity: 1;
+        }
+
+        .gear-info h3 {
+            font-size: 18px;
+            margin-bottom: 10px;
+            text-shadow: 0 0 10px rgba(155, 89, 182, 0.8);
+        }
+
+        .gear-info p {
+            font-size: 14px;
+            margin-bottom: 0;
+            text-shadow: 0 0 10px rgba(155, 89, 182, 0.8);
+        }
+
+        /* Neon Contact Form Section */
+        #neon-contact {
+            padding: 80px 40px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .neon-form {
+            width: 500px;
+            padding: 40px;
+            background-color: rgba(155, 89, 182, 0.1);
+            border-radius: 20px;
+            box-shadow: 0 0 20px rgba(155, 89, 182, 0.5);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .neon-form:before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, #9b59b6, #8e44ad, #2980b9, #e74c3c, #9b59b6);
+            background-size: 200% 200%;
+            animation: neonGradient 10s ease infinite;
+            z-index: -1;
+        }
+
+        @keyframes neonGradient {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        .neon-form input,
+        .neon-form textarea {
+            display: block;
+            width: 100%;
+            padding: 10px 20px;
+            margin-bottom: 20px;
+            border: none;
+            border-radius: 20px;
+            background-color: rgba(255, 255, 255, 0.1);
+            color: #fff;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 16px;
+            outline: none;
+            transition: background-color 0.3s ease-in-out;
+        }
+
+        .neon-form input:focus,
+        .neon-form textarea:focus {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .neon-form textarea {
+            resize: vertical;
+        }
+
+        .neon-form button {
+            display: block;
+            width: 100%;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 20px;
+            background-color: #9b59b6;
+            color: #fff;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 16px;
+            cursor: pointer;
+            box-shadow: 0 0 10px rgba(155, 89, 182, 0.8);
+            transition: background-color 0.3s ease-in-out;
+        }
+
+        .neon-form button:hover {
+            background-color: #8e44ad;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            nav {
+                padding: 10px 20px;
+            }
+
+            nav a {
+                font-size: 14px;
+                margin: 0 10px;
+            }
+
+            #project-galaxies,
+            #steampunk-gears,
+            #neon-contact {
+                padding: 40px 20px;
+            }
+
+            .galaxy {
+                width: 200px;
+                height: 200px;
+                margin: 10px;
+            }
+
+            .gear {
+                width: 100px;
+                height: 100px;
+                margin: 10px;
+            }
+
+            .neon-form {
+                width: 100%;
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="#">Home</a>
+        <a href="#">Projects</a>
+        <a href="#">Skills</a>
+        <a href="#">Contact</a>
+    </nav>
+
+    <section id="project-galaxies">
+        <div class="galaxy" style="background-image: url(https://dummyimage.com/300x300/ccc/000&text=Galaxy+1);">
+            <div class="galaxy-info">
+                <h3>Project Galaxy 1</h3>
+                <p>Backend development, Cosmic visuals</p>
+                <a href="#">View Project</a>
+            </div>
+        </div>
+        <div class="galaxy" style="background-image: url(https://dummyimage.com/300x300/ccc/000&text=Galaxy+2);">
+            <div class="galaxy-info">
+                <h3>Project Galaxy 2</h3>
+                <p>Vaporwave glitches, Steampunk gears</p>
+                <a href="#">View Project</a>
+            </div>
+        </div>
+        <div class="galaxy" style="background-image: url(https://dummyimage.com/300x300/ccc/000&text=Galaxy+3);">
+            <div class="galaxy-info">
+                <h3>Project Galaxy 3</h3>
+                <p>Neon contact form, Cosmic visuals</p>
+                <a href="#">View Project</a>
+            </div>
+        </div>
+        <div class="galaxy" style="background-image: url(https://dummyimage.com/300x300/ccc/000&text=Galaxy+4);">
+            <div class="galaxy-info">
+                <h3>Project Galaxy 4</h3>
+                <p>Steampunk gears, Vaporwave glitches</p>
+                <a href="#">View Project</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="steampunk-gears">
+        <h2>My Skills</h2>
+        <div class="gear-container">
+            <div class="gear">
+                <div class="gear-info">
+                    <h3>Python</h3>
+                    <p>Expert</p>
+                </div>
+            </div>
+            <div class="gear">
+                <div class="gear-info">
+                    <h3>Django</h3>
+                    <p>Advanced</p>
+                </div>
+            </div>
+            <div class="gear">
+                <div class="gear-info">
+                    <h3>FastAPI</h3>
+                    <p>Proficient</p>
+                </div>
+            </div>
+            <div class="gear">
+                <div class="gear-info">
+                    <h3>MongoDB</h3>
+                    <p>Experienced</p>
+                </div>
+            </div>
+            <div class="gear">
+                <div class="gear-info">
+                    <h3>PostgreSQL</h3>
+                    <p>Proficient</p>
+                </div>
+            </div>
+            <div class="gear">
+                <div class="gear-info">
+                    <h3>Docker</h3>
+                    <p>Experienced</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="neon-contact">
+        <h2>Get in Touch</h2>
+        <div class="neon-form">
+            <form>
+                <input type="text" placeholder="Name" required>
+                <input type="email" placeholder="Email" required>
+                <textarea placeholder="Message" rows="5" required></textarea>
+                <button type="submit">Send</button>
+            </form>
+        </div>
+    </section>
+</body>
+</html>'<!-- Visit: https://github.com/Ishanoshada/portflair -->
+<!-- Visit: https://github.com/Ishanoshada/portflair -->

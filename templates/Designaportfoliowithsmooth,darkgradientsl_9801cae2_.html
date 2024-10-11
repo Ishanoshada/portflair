@@ -1,0 +1,395 @@
+<!-- Portfolio created by Ishan -->
+<!-- Check out my work at: https://github.com/Ishanoshada/portflair -->
+<!-- 2024/10/9 -->
+<!-- Portfolio created by Ishan -->
+'<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Design a Portfolio</title>
+  <style>
+    /* Reset CSS */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    /* Global Styles */
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background: linear-gradient(to bottom, #5e3a7e, #000000);
+      color: #f2f2f2;
+      line-height: 1.6;
+    }
+
+    /* Navigation */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.5rem 2rem;
+      background: rgba(0, 0, 0, 0.3);
+      backdrop-filter: blur(10px);
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+    }
+
+    nav a {
+      color: #f2f2f2;
+      text-decoration: none;
+      font-size: 1.1rem;
+      font-weight: 500;
+      transition: color 0.3s ease;
+    }
+
+    nav a:hover {
+      color: #b388ff;
+    }
+
+    /* Hero Section */
+    .hero {
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 2rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-bg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(to bottom, #5e3a7e, #000000);
+      z-index: -1;
+      animation: bgGradient 10s ease infinite;
+    }
+
+    .hero-content {
+      max-width: 800px;
+      z-index: 1;
+    }
+
+    .hero-content h1 {
+      font-size: 4rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      text-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+      animation: glowText 2s ease-in-out infinite;
+    }
+
+    .hero-content p {
+      font-size: 1.8rem;
+      margin-bottom: 2rem;
+      text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+    }
+
+    .btn {
+      display: inline-block;
+      background-color: #b388ff;
+      color: #fff;
+      text-decoration: none;
+      padding: 1rem 2rem;
+      border-radius: 30px;
+      font-size: 1.2rem;
+      font-weight: 500;
+      box-shadow: 0 0 20px rgba(179, 136, 255, 0.5);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .btn:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 0 30px rgba(179, 136, 255, 0.7);
+    }
+
+    /* Portfolio Section */
+    .portfolio {
+      padding: 4rem 2rem;
+      background: linear-gradient(to bottom, #3d2651, #000000);
+    }
+
+    .portfolio-title {
+      font-size: 2.5rem;
+      font-weight: 700;
+      text-align: center;
+      margin-bottom: 3rem;
+      text-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
+    }
+
+    .portfolio-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      grid-gap: 3rem;
+    }
+
+    .portfolio-item {
+      background-color: rgba(0, 0, 0, 0.3);
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .portfolio-item:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+    }
+
+    .portfolio-item img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      filter: brightness(0.8);
+      transition: filter 0.3s ease;
+    }
+
+    .portfolio-item:hover img {
+      filter: brightness(1);
+    }
+
+    .portfolio-item-content {
+      padding: 1.5rem;
+    }
+
+    .portfolio-item-title {
+      font-size: 1.5rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+      text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+    }
+
+    .portfolio-item-description {
+      font-size: 1rem;
+      color: #c2c2c2;
+      margin-bottom: 1rem;
+      text-shadow: 0 0 5px rgba(255, 255, 255, 0.2);
+    }
+
+    .portfolio-item-link {
+      display: inline-block;
+      color: #b388ff;
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s ease;
+    }
+
+    .portfolio-item-link:hover {
+      color: #d8bbff;
+    }
+
+    /* Contact Section */
+    .contact {
+      padding: 4rem 2rem;
+      background: linear-gradient(to bottom, #2a1a3d, #000000);
+    }
+
+    .contact-title {
+      font-size: 2.5rem;
+      font-weight: 700;
+      text-align: center;
+      margin-bottom: 3rem;
+      text-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
+    }
+
+    .contact-form {
+      max-width: 600px;
+      margin: 0 auto;
+      background-color: rgba(0, 0, 0, 0.3);
+      padding: 2rem;
+      border-radius: 10px;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+    }
+
+    .contact-form-group {
+      margin-bottom: 1.5rem;
+    }
+
+    .contact-form label {
+      display: block;
+      font-size: 1.1rem;
+      font-weight: 500;
+      margin-bottom: 0.5rem;
+      text-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+      width: 100%;
+      padding: 0.8rem 1.2rem;
+      font-size: 1rem;
+      border: none;
+      border-radius: 5px;
+      background-color: rgba(255, 255, 255, 0.1);
+      color: #f2f2f2;
+      transition: background-color 0.3s ease;
+    }
+
+    .contact-form input:focus,
+    .contact-form textarea:focus {
+      background-color: rgba(255, 255, 255, 0.2);
+      outline: none;
+    }
+
+    .contact-form textarea {
+      resize: vertical;
+      min-height: 150px;
+    }
+
+    .contact-form button {
+      display: block;
+      width: 100%;
+      background-color: #b388ff;
+      color: #fff;
+      border: none;
+      border-radius: 30px;
+      padding: 1rem 2rem;
+      font-size: 1.2rem;
+      font-weight: 500;
+      cursor: pointer;
+      box-shadow: 0 0 20px rgba(179, 136, 255, 0.5);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .contact-form button:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 0 30px rgba(179, 136, 255, 0.7);
+    }
+
+    /* Footer */
+    footer {
+      background-color: #1a1a1a;
+      color: #c2c2c2;
+      padding: 1.5rem;
+      text-align: center;
+      font-size: 0.9rem;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    }
+
+    /* Animations */
+    @keyframes bgGradient {
+      0% {
+        background-position: 0% 50%;
+      }
+      50% {
+        background-position: 100% 50%;
+      }
+      100% {
+        background-position: 0% 50%;
+      }
+    }
+
+    @keyframes glowText {
+      0% {
+        text-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+      }
+      50% {
+        text-shadow: 0 0 30px rgba(255, 255, 255, 0.7);
+      }
+      100% {
+        text-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+      }
+    }
+
+    /* Responsive Styles */
+    @media (max-width: 768px) {
+      .hero-content h1 {
+        font-size: 3rem;
+      }
+
+      .hero-content p {
+        font-size: 1.5rem;
+      }
+
+      .portfolio-title,
+      .contact-title {
+        font-size: 2rem;
+      }
+
+      .portfolio-grid {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="#">Home</a>
+    <a href="#">Portfolio</a>
+    <a href="#">About</a>
+    <a href="#">Contact</a>
+  </nav>
+
+  <section class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-content">
+      <h1>Design a Portfolio</h1>
+      <p>Unleash your creative vision with our smooth, dark gradient designs.</p>
+      <a href="#" class="btn">Explore Portfolio</a>
+    </div>
+  </section>
+
+  <section class="portfolio">
+    <h2 class="portfolio-title">Our Latest Projects</h2>
+    <div class="portfolio-grid">
+      <div class="portfolio-item">
+        <img src="https://dummyimage.com/600x400/ccc/000&text=Project+1" alt="Project 1">
+        <div class="portfolio-item-content">
+          <h3 class="portfolio-item-title">Project 1</h3>
+          <p class="portfolio-item-description">A captivating design with a smooth, dark gradient.</p>
+          <a href="#" class="portfolio-item-link">View Case Study</a>
+        </div>
+      </div>
+      <div class="portfolio-item">
+        <img src="https://dummyimage.com/600x400/ccc/000&text=Project+2" alt="Project 2">
+        <div class="portfolio-item-content">
+          <h3 class="portfolio-item-title">Project 2</h3>
+          <p class="portfolio-item-description">Immerse yourself in the dreamy nighttime effect.</p>
+          <a href="#" class="portfolio-item-link">View Case Study</a>
+        </div>
+      </div>
+      <div class="portfolio-item">
+        <img src="https://dummyimage.com/600x400/ccc/000&text=Project+3" alt="Project 3">
+        <div class="portfolio-item-content">
+          <h3 class="portfolio-item-title">Project 3</h3>
+          <p class="portfolio-item-description">Explore the depths of our dark gradient designs.</p>
+          <a href="#" class="portfolio-item-link">View Case Study</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact">
+    <h2 class="contact-title">Get in Touch</h2>
+    <form class="contact-form">
+      <div class="contact-form-group">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required>
+      </div>
+      <div class="contact-form-group">
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+      </div>
+      <div class="contact-form-group">
+        <label for="message">Message:</label>
+        <textarea id="message" name="message" required></textarea>
+      </div>
+      <button type="submit">Send Message</button>
+    </form>
+  </section>
+
+  <footer>
+    &copy; 2024 Design a Portfolio. All rights reserved.
+  </footer>
+</body>
+</html>'<!-- Visit: https://github.com/Ishanoshada/portflair -->
+<!-- Visit: https://github.com/Ishanoshada/portflair -->

@@ -1,0 +1,359 @@
+<!-- Portfolio created by Ishan -->
+<!-- Check out my work at: https://github.com/Ishanoshada/portflair -->
+<!-- 2024/10/9 -->
+<!-- Portfolio created by Ishan -->
+'<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Black Hole Portfolio</title>
+  <style>
+    /* Global Styles */
+    @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
+
+    body {
+      font-family: 'Orbitron', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #0f0f0f;
+      color: #fff;
+      overflow-x: hidden;
+    }
+
+    /* Navigation */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 40px;
+      background-color: rgba(15, 15, 15, 0.8);
+      backdrop-filter: blur(10px);
+      position: relative;
+      z-index: 100;
+    }
+
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      font-size: 18px;
+      margin: 0 20px;
+      transition: color 0.3s ease-in-out;
+    }
+
+    nav a:hover {
+      color: #8b00ff;
+    }
+
+    /* Project Galaxies Section */
+    #project-galaxies {
+      position: relative;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    #project-galaxies::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: url("https://dummyimage.com/1920x1080/000/fff&text=Cosmic+Background");
+      background-size: cover;
+      background-position: center;
+      filter: blur(10px);
+      z-index: -1;
+    }
+
+    .galaxy-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100%;
+    }
+
+    .galaxy {
+      position: relative;
+      width: 200px;
+      height: 200px;
+      margin: 0 40px;
+      background-image: url("https://dummyimage.com/200x200/8b00ff/fff&text=Galaxy");
+      background-size: cover;
+      background-position: center;
+      border-radius: 50%;
+      box-shadow: 0 0 20px 5px rgba(139, 0, 255, 0.5);
+      transition: transform 0.3s ease-in-out;
+      cursor: pointer;
+    }
+
+    .galaxy:hover {
+      transform: scale(1.1);
+    }
+
+    .galaxy-details {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+      opacity: 0;
+      transition: opacity 0.3s ease-in-out;
+    }
+
+    .galaxy:hover .galaxy-details {
+      opacity: 1;
+    }
+
+    .galaxy-details h3 {
+      font-size: 24px;
+      margin-bottom: 10px;
+    }
+
+    .galaxy-details p {
+      font-size: 16px;
+    }
+
+    /* Vaporwave Glitch Gallery */
+    #vaporwave-gallery {
+      padding: 80px 40px;
+      background: linear-gradient(to bottom, #ff00bf, #8b00ff);
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-gap: 40px;
+    }
+
+    .gallery-item {
+      position: relative;
+      overflow: hidden;
+      border-radius: 10px;
+      box-shadow: 0 0 20px 5px rgba(139, 0, 255, 0.5);
+      cursor: pointer;
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: auto;
+      transition: transform 0.3s ease-in-out, filter 0.3s ease-in-out;
+    }
+
+    .gallery-item:hover img {
+      transform: scale(1.1);
+      filter: brightness(0.7) contrast(1.2) hue-rotate(20deg);
+    }
+
+    .gallery-details {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+      opacity: 0;
+      transition: opacity 0.3s ease-in-out;
+    }
+
+    .gallery-item:hover .gallery-details {
+      opacity: 1;
+    }
+
+    .gallery-details h3 {
+      font-size: 24px;
+      margin-bottom: 10px;
+      text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+    }
+
+    .gallery-details p {
+      font-size: 16px;
+      text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+    }
+
+    /* Neon Contact Form */
+    #contact {
+      padding: 80px 40px;
+      background-image: url("https://dummyimage.com/1920x1080/000/fff&text=Cosmic+Background");
+      background-size: cover;
+      background-position: center;
+      position: relative;
+      z-index: 1;
+    }
+
+    #contact::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(15, 15, 15, 0.8);
+      backdrop-filter: blur(10px);
+      z-index: -1;
+    }
+
+    .contact-form {
+      max-width: 600px;
+      margin: 0 auto;
+      background-color: rgba(139, 0, 255, 0.8);
+      padding: 40px;
+      border-radius: 10px;
+      box-shadow: 0 0 20px 5px rgba(139, 0, 255, 0.5);
+    }
+
+    .contact-form h2 {
+      font-size: 32px;
+      text-align: center;
+      margin-bottom: 40px;
+      text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+    }
+
+    .contact-form .form-group {
+      margin-bottom: 20px;
+    }
+
+    .contact-form label {
+      display: block;
+      font-size: 16px;
+      margin-bottom: 5px;
+      text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+      width: 100%;
+      padding: 10px;
+      font-size: 16px;
+      border: none;
+      border-radius: 5px;
+      background-color: rgba(255, 255, 255, 0.8);
+      color: #0f0f0f;
+      transition: box-shadow 0.3s ease-in-out;
+    }
+
+    .contact-form input:focus,
+    .contact-form textarea:focus {
+      outline: none;
+      box-shadow: 0 0 10px 2px rgba(139, 0, 255, 0.5);
+    }
+
+    .contact-form button {
+      display: block;
+      width: 100%;
+      padding: 10px;
+      font-size: 18px;
+      font-weight: bold;
+      background-color: #8b00ff;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease-in-out;
+    }
+
+    .contact-form button:hover {
+      background-color: #ff00bf;
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="#">Home</a>
+    <a href="#">About</a>
+    <a href="#">Projects</a>
+    <a href="#">Contact</a>
+  </nav>
+
+  <section id="project-galaxies">
+    <div class="galaxy-container">
+      <div class="galaxy">
+        <div class="galaxy-details">
+          <h3>Project Galaxy 1</h3>
+          <p>Backend development, cosmic visuals</p>
+        </div>
+      </div>
+      <div class="galaxy">
+        <div class="galaxy-details">
+          <h3>Project Galaxy 2</h3>
+          <p>Backend development, vaporwave glitches</p>
+        </div>
+      </div>
+      <div class="galaxy">
+        <div class="galaxy-details">
+          <h3>Project Galaxy 3</h3>
+          <p>Backend development, steampunk gears</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="vaporwave-gallery">
+    <div class="gallery-grid">
+      <div class="gallery-item">
+        <img src="https://dummyimage.com/400x400/ff00bf/fff&text=Vaporwave+Glitch+1" alt="Vaporwave Glitch 1">
+        <div class="gallery-details">
+          <h3>Vaporwave Glitch 1</h3>
+          <p>Experimental artwork</p>
+        </div>
+      </div>
+      <div class="gallery-item">
+        <img src="https://dummyimage.com/400x400/8b00ff/fff&text=Vaporwave+Glitch+2" alt="Vaporwave Glitch 2">
+        <div class="gallery-details">
+          <h3>Vaporwave Glitch 2</h3>
+          <p>Experimental artwork</p>
+        </div>
+      </div>
+      <div class="gallery-item">
+        <img src="https://dummyimage.com/400x400/ff00bf/fff&text=Vaporwave+Glitch+3" alt="Vaporwave Glitch 3">
+        <div class="gallery-details">
+          <h3>Vaporwave Glitch 3</h3>
+          <p>Experimental artwork</p>
+        </div>
+      </div>
+      <div class="gallery-item">
+        <img src="https://dummyimage.com/400x400/8b00ff/fff&text=Vaporwave+Glitch+4" alt="Vaporwave Glitch 4">
+        <div class="gallery-details">
+          <h3>Vaporwave Glitch 4</h3>
+          <p>Experimental artwork</p>
+        </div>
+      </div>
+      <div class="gallery-item">
+        <img src="https://dummyimage.com/400x400/ff00bf/fff&text=Vaporwave+Glitch+5" alt="Vaporwave Glitch 5">
+        <div class="gallery-details">
+          <h3>Vaporwave Glitch 5</h3>
+          <p>Experimental artwork</p>
+        </div>
+      </div>
+      <div class="gallery-item">
+        <img src="https://dummyimage.com/400x400/8b00ff/fff&text=Vaporwave+Glitch+6" alt="Vaporwave Glitch 6">
+        <div class="gallery-details">
+          <h3>Vaporwave Glitch 6</h3>
+          <p>Experimental artwork</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="contact-form">
+      <h2>Get in Touch</h2>
+      <form>
+        <div class="form-group">
+          <label for="name">Name</label>
+          <input type="text" id="name" name="name" required>
+        </div>
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" required>
+        </div>
+        <div class="form-group">
+          <label for="message">Message</label>
+          <textarea id="message" name="message" rows="5" required></textarea>
+        </div>
+        <button type="submit">Send Message</button>
+      </form>
+    </div>
+  </section>
+</body>
+</html>'<!-- Visit: https://github.com/Ishanoshada/portflair -->
+<!-- Visit: https://github.com/Ishanoshada/portflair -->

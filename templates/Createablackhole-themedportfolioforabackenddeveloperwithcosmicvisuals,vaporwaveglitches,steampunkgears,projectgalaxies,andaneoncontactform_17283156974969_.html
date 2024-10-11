@@ -1,0 +1,383 @@
+<!-- Portfolio created by Ishan -->
+<!-- Check out my work at: https://github.com/Ishanoshada/portflair -->
+<!-- 2024/10/9 -->
+<!-- Portfolio created by Ishan -->
+'<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Black Hole Portfolio</title>
+  <style>
+    /* Global styles */
+    @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
+    body {
+      font-family: 'Orbitron', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #000000;
+      color: #ffffff;
+    }
+
+    /* Navigation */
+    nav {
+      display: flex;
+      justify-content: center;
+      padding: 20px 0;
+      background-color: rgba(0, 0, 0, 0.7);
+      backdrop-filter: blur(10px);
+    }
+    nav a {
+      color: #ffffff;
+      text-decoration: none;
+      margin: 0 20px;
+      font-size: 18px;
+      position: relative;
+      transition: color 0.3s ease;
+    }
+    nav a:after {
+      content: "";
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background-color: #7b68ee;
+      transition: width 0.3s ease;
+    }
+    nav a:hover {
+      color: #7b68ee;
+    }
+    nav a:hover:after {
+      width: 100%;
+    }
+
+    /* Project Galaxies */
+    #project-galaxies {
+      padding: 100px 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      background: linear-gradient(to bottom, #000000, #121212);
+    }
+    .galaxy-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      grid-gap: 50px;
+      width: 80%;
+      margin-top: 50px;
+    }
+    .galaxy-item {
+      position: relative;
+      overflow: hidden;
+      border-radius: 10px;
+      box-shadow: 0 0 20px rgba(123, 104, 238, 0.5);
+      cursor: pointer;
+    }
+    .galaxy-item img {
+      width: 100%;
+      height: 300px;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+    .galaxy-item:hover img {
+      transform: scale(1.1);
+    }
+    .galaxy-item .overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.7);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      opacity: 0;
+      transition: opacity 0.5s ease;
+    }
+    .galaxy-item:hover .overlay {
+      opacity: 1;
+    }
+    .galaxy-item .overlay h3 {
+      font-size: 24px;
+      margin-bottom: 10px;
+      text-shadow: 0 0 10px rgba(123, 104, 238, 0.8);
+    }
+    .galaxy-item .overlay p {
+      font-size: 16px;
+      text-align: center;
+      text-shadow: 0 0 10px rgba(123, 104, 238, 0.8);
+    }
+
+    /* Steampunk Gears */
+    #steampunk-gears {
+      padding: 100px 0;
+      background-color: #121212;
+      position: relative;
+      overflow: hidden;
+    }
+    .gear-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 500px;
+      position: relative;
+    }
+    .gear {
+      width: 100px;
+      height: 100px;
+      background-image: url("https://dummyimage.com/100x100/7b68ee/ffffff&text=Gear");
+      background-size: contain;
+      background-repeat: no-repeat;
+      animation: gear-rotation 10s linear infinite;
+      position: absolute;
+    }
+    @keyframes gear-rotation {
+      0% {
+        transform: rotate(0deg);
+      }
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+    .gear:nth-child(1) {
+      top: 50px;
+      left: 100px;
+      animation-delay: 0s;
+    }
+    .gear:nth-child(2) {
+      top: 200px;
+      right: 50px;
+      animation-delay: 2s;
+    }
+    .gear:nth-child(3) {
+      bottom: 100px;
+      left: 200px;
+      animation-delay: 4s;
+    }
+    .gear:nth-child(4) {
+      top: 150px;
+      left: 400px;
+      animation-delay: 6s;
+    }
+    .gear:nth-child(5) {
+      bottom: 50px;
+      right: 100px;
+      animation-delay: 8s;
+    }
+    .skills-container {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+    }
+    .skills-container h2 {
+      font-size: 36px;
+      margin-bottom: 30px;
+      text-shadow: 0 0 20px rgba(123, 104, 238, 0.8);
+    }
+    .skills-container ul {
+      list-style-type: none;
+      padding: 0;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      grid-gap: 20px;
+    }
+    .skills-container li {
+      background-color: rgba(123, 104, 238, 0.2);
+      padding: 10px;
+      border-radius: 5px;
+      font-size: 18px;
+      box-shadow: 0 0 10px rgba(123, 104, 238, 0.5);
+      transition: transform 0.3s ease;
+    }
+    .skills-container li:hover {
+      transform: scale(1.1);
+      box-shadow: 0 0 20px rgba(123, 104, 238, 0.8);
+    }
+
+    /* Neon Contact Form */
+    #neon-contact {
+      padding: 100px 0;
+      background: linear-gradient(to bottom, #121212, #000000);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .neon-form {
+      background-color: rgba(0, 0, 0, 0.7);
+      padding: 50px;
+      border-radius: 10px;
+      box-shadow: 0 0 20px rgba(123, 104, 238, 0.8);
+      width: 80%;
+      max-width: 600px;
+    }
+    .neon-form h2 {
+      font-size: 36px;
+      margin-bottom: 30px;
+      text-shadow: 0 0 20px rgba(123, 104, 238, 0.8);
+    }
+    .neon-form .form-group {
+      margin-bottom: 20px;
+    }
+    .neon-form label {
+      display: block;
+      font-size: 18px;
+      margin-bottom: 5px;
+      text-shadow: 0 0 10px rgba(123, 104, 238, 0.8);
+    }
+    .neon-form input,
+    .neon-form textarea {
+      width: 100%;
+      padding: 10px;
+      font-size: 16px;
+      background-color: rgba(123, 104, 238, 0.1);
+      border: 2px solid #7b68ee;
+      border-radius: 5px;
+      color: #ffffff;
+      outline: none;
+      transition: border-color 0.3s ease;
+    }
+    .neon-form input:focus,
+    .neon-form textarea:focus {
+      border-color: #ffffff;
+    }
+    .neon-form button {
+      display: block;
+      width: 100%;
+      padding: 10px;
+      font-size: 18px;
+      background-color: #7b68ee;
+      color: #ffffff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    .neon-form button:hover {
+      background-color: #5c4ee5;
+    }
+
+    /* Media Queries */
+    @media (max-width: 768px) {
+      nav a {
+        font-size: 16px;
+        margin: 0 10px;
+      }
+      .galaxy-container {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      }
+      .gear {
+        width: 80px;
+        height: 80px;
+      }
+      .skills-container h2 {
+        font-size: 28px;
+      }
+      .skills-container li {
+        font-size: 16px;
+      }
+      .neon-form {
+        padding: 30px;
+      }
+      .neon-form h2 {
+        font-size: 28px;
+      }
+      .neon-form label,
+      .neon-form input,
+      .neon-form textarea,
+      .neon-form button {
+        font-size: 14px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="#">Home</a>
+    <a href="#">About</a>
+    <a href="#">Projects</a>
+    <a href="#">Contact</a>
+  </nav>
+
+  <section id="project-galaxies">
+    <h2>Project Galaxies</h2>
+    <div class="galaxy-container">
+      <div class="galaxy-item">
+        <img src="https://dummyimage.com/600x400/7b68ee/ffffff&text=Project+1" alt="Project 1">
+        <div class="overlay">
+          <h3>Project 1</h3>
+          <p>Explore the depths of this cosmic wonder.</p>
+        </div>
+      </div>
+      <div class="galaxy-item">
+        <img src="https://dummyimage.com/600x400/7b68ee/ffffff&text=Project+2" alt="Project 2">
+        <div class="overlay">
+          <h3>Project 2</h3>
+          <p>Unravel the mysteries of the universe.</p>
+        </div>
+      </div>
+      <div class="galaxy-item">
+        <img src="https://dummyimage.com/600x400/7b68ee/ffffff&text=Project+3" alt="Project 3">
+        <div class="overlay">
+          <h3>Project 3</h3>
+          <p>Discover the wonders of the cosmos.</p>
+        </div>
+      </div>
+      <div class="galaxy-item">
+        <img src="https://dummyimage.com/600x400/7b68ee/ffffff&text=Project+4" alt="Project 4">
+        <div class="overlay">
+          <h3>Project 4</h3>
+          <p>Dive into the black hole of possibilities.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="steampunk-gears">
+    <div class="gear-container">
+      <div class="gear"></div>
+      <div class="gear"></div>
+      <div class="gear"></div>
+      <div class="gear"></div>
+      <div class="gear"></div>
+    </div>
+    <div class="skills-container">
+      <h2>Steampunk Expertise</h2>
+      <ul>
+        <li>Node.js</li>
+        <li>Python</li>
+        <li>MongoDB</li>
+        <li>Redis</li>
+        <li>Kafka</li>
+        <li>Kubernetes</li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="neon-contact">
+    <div class="neon-form">
+      <h2>Get in Touch</h2>
+      <form>
+        <div class="form-group">
+          <label for="name">Name</label>
+          <input type="text" id="name" name="name" placeholder="Enter your name" required>
+        </div>
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" placeholder="Enter your email" required>
+        </div>
+        <div class="form-group">
+          <label for="message">Message</label>
+          <textarea id="message" name="message" rows="5" placeholder="Enter your message" required></textarea>
+        </div>
+        <button type="submit">Submit</button>
+      </form>
+    </div>
+  </section>
+</body>
+</html>'<!-- Visit: https://github.com/Ishanoshada/portflair -->
+<!-- Visit: https://github.com/Ishanoshada/portflair -->

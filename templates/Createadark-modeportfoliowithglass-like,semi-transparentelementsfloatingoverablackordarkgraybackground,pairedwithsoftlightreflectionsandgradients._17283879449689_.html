@@ -1,0 +1,353 @@
+<!-- Portfolio created by Ishan -->
+<!-- Check out my work at: https://github.com/Ishanoshada/portflair -->
+<!-- 2024/10/9 -->
+<!-- Portfolio created by Ishan -->
+'<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dark Mode Portfolio</title>
+  <style>
+    /* Global Styles */
+    body {
+      font-family: 'Montserrat', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #1a1a1a;
+      color: #f2f2f2;
+      overflow-x: hidden;
+    }
+
+    /* Navigation Bar */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.5rem 2rem;
+      background-color: rgba(26, 26, 26, 0.8);
+      backdrop-filter: blur(10px);
+      position: relative;
+      z-index: 100;
+    }
+
+    nav a {
+      color: #f2f2f2;
+      text-decoration: none;
+      font-size: 1.1rem;
+      font-weight: 500;
+      margin: 0 1rem;
+      transition: color 0.3s ease;
+    }
+
+    nav a:hover {
+      color: #8c8c8c;
+    }
+
+    /* Hero Section */
+    .hero {
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-bg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(to bottom right, #1a1a1a, #333333);
+      z-index: -1;
+    }
+
+    .hero-content {
+      text-align: center;
+      max-width: 800px;
+      padding: 2rem;
+    }
+
+    .hero-content h1 {
+      font-size: 4rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      text-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+    }
+
+    .hero-content p {
+      font-size: 1.5rem;
+      margin-bottom: 2rem;
+      text-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+    }
+
+    .hero-content a.cta {
+      display: inline-block;
+      background-color: #007bff;
+      color: #f2f2f2;
+      text-decoration: none;
+      padding: 1rem 2rem;
+      border-radius: 30px;
+      font-size: 1.2rem;
+      font-weight: 500;
+      box-shadow: 0 0 20px rgba(0, 123, 255, 0.5);
+      transition: background-color 0.3s ease, transform 0.3s ease;
+    }
+
+    .hero-content a.cta:hover {
+      background-color: #0056b3;
+      transform: translateY(-5px);
+    }
+
+    .glass-elements {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      z-index: -1;
+    }
+
+    .glass-element {
+      position: absolute;
+      background-color: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(20px);
+      border-radius: 50%;
+      animation: float 10s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0% {
+        transform: translateY(0) rotate(0deg);
+      }
+      50% {
+        transform: translateY(-50px) rotate(180deg);
+      }
+      100% {
+        transform: translateY(0) rotate(360deg);
+      }
+    }
+
+    /* Portfolio Section */
+    .portfolio {
+      padding: 4rem 2rem;
+    }
+
+    .portfolio h2 {
+      font-size: 3rem;
+      font-weight: 700;
+      text-align: center;
+      margin-bottom: 3rem;
+      text-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+    }
+
+    .portfolio-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      grid-gap: 3rem;
+    }
+
+    .portfolio-item {
+      background-color: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(20px);
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+      transition: transform 0.3s ease;
+    }
+
+    .portfolio-item:hover {
+      transform: translateY(-10px);
+    }
+
+    .portfolio-item img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+
+    .portfolio-item-content {
+      padding: 1.5rem;
+    }
+
+    .portfolio-item-content h3 {
+      font-size: 1.5rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+    }
+
+    .portfolio-item-content p {
+      font-size: 1rem;
+      color: #8c8c8c;
+      margin-bottom: 1rem;
+    }
+
+    .portfolio-item-content a {
+      display: inline-block;
+      background-color: #007bff;
+      color: #f2f2f2;
+      text-decoration: none;
+      padding: 0.75rem 1.5rem;
+      border-radius: 20px;
+      font-size: 0.9rem;
+      font-weight: 500;
+      box-shadow: 0 0 10px rgba(0, 123, 255, 0.5);
+      transition: background-color 0.3s ease, transform 0.3s ease;
+    }
+
+    .portfolio-item-content a:hover {
+      background-color: #0056b3;
+      transform: translateY(-3px);
+    }
+
+    /* About Section */
+    .about {
+      padding: 4rem 2rem;
+      display: flex;
+      flex-direction: row-reverse;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .about-content {
+      flex: 1;
+      max-width: 600px;
+    }
+
+    .about-content h2 {
+      font-size: 3rem;
+      font-weight: 700;
+      margin-bottom: 1.5rem;
+      text-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+    }
+
+    .about-content p {
+      font-size: 1.2rem;
+      color: #8c8c8c;
+      line-height: 1.6;
+      margin-bottom: 2rem;
+    }
+
+    .about-image {
+      flex: 1;
+      max-width: 400px;
+      margin-right: 4rem;
+    }
+
+    .about-image img {
+      width: 100%;
+      height: auto;
+      border-radius: 10px;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+    }
+
+    /* Responsive Styles */
+    @media (max-width: 768px) {
+      nav {
+        padding: 1rem;
+      }
+
+      nav a {
+        font-size: 1rem;
+        margin: 0 0.5rem;
+      }
+
+      .hero-content h1 {
+        font-size: 3rem;
+      }
+
+      .hero-content p {
+        font-size: 1.2rem;
+      }
+
+      .portfolio h2 {
+        font-size: 2.5rem;
+      }
+
+      .about {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .about-content {
+        max-width: 100%;
+        margin-bottom: 2rem;
+      }
+
+      .about-image {
+        max-width: 100%;
+        margin-right: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="#">Home</a>
+    <a href="#">Portfolio</a>
+    <a href="#">About</a>
+    <a href="#">Contact</a>
+  </nav>
+
+  <div class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-content">
+      <h1>Welcome to My Dark Mode Portfolio</h1>
+      <p>Explore a world of design excellence and creativity.</p>
+      <a href="#" class="cta">View My Work</a>
+    </div>
+    <div class="glass-elements">
+      <div class="glass-element" style="width: 100px; height: 100px; top: 20%; left: 10%;"></div>
+      <div class="glass-element" style="width: 150px; height: 150px; top: 50%; left: 30%;"></div>
+      <div class="glass-element" style="width: 80px; height: 80px; top: 70%; left: 60%;"></div>
+      <div class="glass-element" style="width: 120px; height: 120px; top: 30%; left: 75%;"></div>
+      <div class="glass-element" style="width: 90px; height: 90px; top: 60%; left: 15%;"></div>
+    </div>
+  </div>
+
+  <div class="portfolio">
+    <h2>My Latest Projects</h2>
+    <div class="portfolio-grid">
+      <div class="portfolio-item">
+        <img src="https://dummyimage.com/600x400/ccc/000&text=Project+1" alt="Project 1">
+        <div class="portfolio-item-content">
+          <h3>Project 1</h3>
+          <p>A stunning UI design for a leading tech company.</p>
+          <a href="#">View Case Study</a>
+        </div>
+      </div>
+      <div class="portfolio-item">
+        <img src="https://dummyimage.com/600x400/ccc/000&text=Project+2" alt="Project 2">
+        <div class="portfolio-item-content">
+          <h3>Project 2</h3>
+          <p>An innovative e-commerce platform with a sleek interface.</p>
+          <a href="#">View Case Study</a>
+        </div>
+      </div>
+      <div class="portfolio-item">
+        <img src="https://dummyimage.com/600x400/ccc/000&text=Project+3" alt="Project 3">
+        <div class="portfolio-item-content">
+          <h3>Project 3</h3>
+          <p>A mobile app design that revolutionizes the fitness industry.</p>
+          <a href="#">View Case Study</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="about">
+    <div class="about-image">
+      <img src="https://dummyimage.com/400x400/ccc/000&text=Designer+Profile" alt="Designer Profile">
+    </div>
+    <div class="about-content">
+      <h2>About Me</h2>
+      <p>Hi there! I'm a passionate and experienced designer who specializes in creating stunning, user-friendly interfaces. With a keen eye for detail and a deep understanding of design principles, I strive to bring your ideas to life in a visually captivating and highly functional way.</p>
+      <p>My design philosophy is centered around creating experiences that not only look great but also enhance the way people interact with digital products. I'm constantly exploring new techniques and trends to stay at the forefront of the industry, and I'm always eager to collaborate with clients who share my passion for design excellence.</p>
+    </div>
+  </div>
+</body>
+</html>'<!-- Visit: https://github.com/Ishanoshada/portflair -->
+<!-- Visit: https://github.com/Ishanoshada/portflair -->

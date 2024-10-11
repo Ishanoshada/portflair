@@ -1,0 +1,389 @@
+<!-- Portfolio created by Ishan -->
+<!-- Check out my work at: https://github.com/Ishanoshada/portflair -->
+<!-- 2024/10/9 -->
+<!-- Portfolio created by Ishan -->
+'<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hacking-Themed Portfolio</title>
+  <style>
+    /* Global Styles */
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Courier New', monospace;
+      background-color: #0c0c0c;
+      color: #00ff00;
+      overflow-x: hidden;
+    }
+
+    /* Navbar Styles */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+      background-color: #0c0c0c;
+      border-bottom: 1px solid #00ff00;
+    }
+
+    nav a {
+      color: #00ff00;
+      text-decoration: none;
+      font-size: 1.2rem;
+      padding: 0.5rem 1rem;
+      border-radius: 0.25rem;
+      transition: background-color 0.3s ease;
+    }
+
+    nav a:hover {
+      background-color: #00ff00;
+      color: #0c0c0c;
+    }
+
+    /* Project Showcase Styles */
+    .project-showcase {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      padding: 4rem 2rem;
+    }
+
+    .project-item {
+      position: relative;
+      overflow: hidden;
+      border-radius: 0.5rem;
+      box-shadow: 0 0 20px rgba(0, 255, 0, 0.3);
+      cursor: pointer;
+    }
+
+    .project-item img {
+      width: 100%;
+      height: auto;
+      display: block;
+      transition: transform 0.3s ease;
+    }
+
+    .project-item:hover img {
+      transform: scale(1.1);
+    }
+
+    .project-item:before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: linear-gradient(to right, #00ff00, #0c0c0c);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .project-item:hover:before {
+      opacity: 0.5;
+    }
+
+    .project-item .project-details {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .project-item:hover .project-details {
+      opacity: 1;
+    }
+
+    .project-details h3 {
+      font-size: 1.5rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .project-details p {
+      font-size: 1.2rem;
+      margin-bottom: 1rem;
+    }
+
+    /* About Me Styles */
+    .about-me {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 4rem 2rem;
+      background-color: #0c0c0c;
+      border-top: 1px solid #00ff00;
+      border-bottom: 1px solid #00ff00;
+    }
+
+    .about-me-content {
+      max-width: 800px;
+      text-align: center;
+    }
+
+    .about-me-content h2 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      position: relative;
+      display: inline-block;
+    }
+
+    .about-me-content h2:before {
+      content: "";
+      position: absolute;
+      bottom: -0.5rem;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 50%;
+      height: 2px;
+      background-color: #00ff00;
+      animation: glitch 0.5s infinite;
+    }
+
+    .about-me-content p {
+      font-size: 1.2rem;
+      line-height: 1.5;
+      margin-bottom: 2rem;
+    }
+
+    .about-me-content .profile-image {
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      overflow: hidden;
+      box-shadow: 0 0 20px rgba(0, 255, 0, 0.3);
+      margin-bottom: 2rem;
+    }
+
+    .about-me-content .profile-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      animation: glitch 1s infinite;
+    }
+
+    /* Contact Section Styles */
+    .contact-section {
+      padding: 4rem 2rem;
+      text-align: center;
+    }
+
+    .contact-section h2 {
+      font-size: 2rem;
+      margin-bottom: 2rem;
+      position: relative;
+      display: inline-block;
+    }
+
+    .contact-section h2:before {
+      content: "";
+      position: absolute;
+      bottom: -0.5rem;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 50%;
+      height: 2px;
+      background-color: #00ff00;
+      animation: glitch 0.5s infinite;
+    }
+
+    .contact-form {
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .contact-form .form-field {
+      margin-bottom: 1.5rem;
+      position: relative;
+    }
+
+    .contact-form .form-field input,
+    .contact-form .form-field textarea {
+      width: 100%;
+      padding: 0.5rem 1rem;
+      font-size: 1.2rem;
+      font-family: 'Courier New', monospace;
+      background-color: transparent;
+      border: 1px solid #00ff00;
+      border-radius: 0.25rem;
+      color: #00ff00;
+      outline: none;
+      transition: border-color 0.3s ease;
+    }
+
+    .contact-form .form-field input:focus,
+    .contact-form .form-field textarea:focus {
+      border-color: #00ff00;
+    }
+
+    .contact-form .form-field label {
+      position: absolute;
+      top: 50%;
+      left: 1rem;
+      transform: translateY(-50%);
+      font-size: 1.2rem;
+      transition: all 0.3s ease;
+    }
+
+    .contact-form .form-field input:focus + label,
+    .contact-form .form-field textarea:focus + label,
+    .contact-form .form-field input:not(:placeholder-shown) + label,
+    .contact-form .form-field textarea:not(:placeholder-shown) + label {
+      top: 0;
+      font-size: 0.8rem;
+      background-color: #0c0c0c;
+      padding: 0 0.25rem;
+    }
+
+    .contact-form button {
+      font-size: 1.2rem;
+      font-family: 'Courier New', monospace;
+      padding: 0.5rem 1rem;
+      background-color: #00ff00;
+      color: #0c0c0c;
+      border: none;
+      border-radius: 0.25rem;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .contact-form button:hover {
+      background-color: #0c0c0c;
+      color: #00ff00;
+    }
+
+    /* Animations */
+    @keyframes glitch {
+      0% {
+        transform: translateX(0);
+      }
+      20% {
+        transform: translateX(-2px);
+      }
+      40% {
+        transform: translateX(2px);
+      }
+      60% {
+        transform: translateX(-2px);
+      }
+      80% {
+        transform: translateX(2px);
+      }
+      100% {
+        transform: translateX(0);
+      }
+    }
+
+    /* Responsive Styles */
+    @media (max-width: 768px) {
+      .project-showcase {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      }
+
+      .about-me-content h2,
+      .contact-section h2 {
+        font-size: 1.8rem;
+      }
+
+      .about-me-content p,
+      .contact-form .form-field input,
+      .contact-form .form-field textarea,
+      .contact-form button {
+        font-size: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="#">Home</a>
+    <a href="#">Projects</a>
+    <a href="#">About</a>
+    <a href="#">Contact</a>
+  </nav>
+
+  <section class="project-showcase">
+    <div class="project-item">
+      <img src="https://dummyimage.com/600x400/ccc/000&text=Project+1" alt="Project 1">
+      <div class="project-details">
+        <h3>Project 1</h3>
+        <p>Description of Project 1</p>
+      </div>
+    </div>
+    <div class="project-item">
+      <img src="https://dummyimage.com/600x400/ccc/000&text=Project+2" alt="Project 2">
+      <div class="project-details">
+        <h3>Project 2</h3>
+        <p>Description of Project 2</p>
+      </div>
+    </div>
+    <div class="project-item">
+      <img src="https://dummyimage.com/600x400/ccc/000&text=Project+3" alt="Project 3">
+      <div class="project-details">
+        <h3>Project 3</h3>
+        <p>Description of Project 3</p>
+      </div>
+    </div>
+    <div class="project-item">
+      <img src="https://dummyimage.com/600x400/ccc/000&text=Project+4" alt="Project 4">
+      <div class="project-details">
+        <h3>Project 4</h3>
+        <p>Description of Project 4</p>
+      </div>
+    </div>
+    <div class="project-item">
+      <img src="https://dummyimage.com/600x400/ccc/000&text=Project+5" alt="Project 5">
+      <div class="project-details">
+        <h3>Project 5</h3>
+        <p>Description of Project 5</p>
+      </div>
+    </div>
+    <div class="project-item">
+      <img src="https://dummyimage.com/600x400/ccc/000&text=Project+6" alt="Project 6">
+      <div class="project-details">
+        <h3>Project 6</h3>
+        <p>Description of Project 6</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="about-me">
+    <div class="about-me-content">
+      <div class="profile-image">
+        <img src="https://dummyimage.com/400x400/ccc/000&text=Profile+Image" alt="Profile Image">
+      </div>
+      <h2>About Me</h2>
+      <p>
+        Hi, I'm a graphic designer with a passion for hacking-inspired design. I love creating visually striking and interactive projects that push the boundaries of traditional design. My portfolio showcases my skills in creating dynamic, glitch-infused designs with a focus on neon accents and a dark color palette.
+      </p>
+    </div>
+  </section>
+
+  <section class="contact-section">
+    <h2>Get in Touch</h2>
+    <div class="contact-form">
+      <form>
+        <div class="form-field">
+          <input type="text" id="name" placeholder=" " required>
+          <label for="name">Name</label>
+        </div>
+        <div class="form-field">
+          <input type="email" id="email" placeholder=" " required>
+          <label for="email">Email</label>
+        </div>
+        <div class="form-field">
+          <textarea id="message" placeholder=" " required></textarea>
+          <label for="message">Message</label>
+        </div>
+        <button type="submit">Send</button>
+      </form>
+    </div>
+  </section>
+</body>
+</html>'<!-- Visit: https://github.com/Ishanoshada/portflair -->
+<!-- Visit: https://github.com/Ishanoshada/portflair -->

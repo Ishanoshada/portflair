@@ -1,0 +1,419 @@
+<!-- Portfolio created by Ishan -->
+<!-- Check out my work at: https://github.com/Ishanoshada/portflair -->
+<!-- 2024/10/9 -->
+<!-- Portfolio created by Ishan -->
+'<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animated Portfolio</title>
+    <style>
+        /* Global Styles */
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #0a0a0a;
+            color: #fff;
+        }
+
+        /* Navigation Styles */
+        nav {
+            background-color: rgba(10, 10, 10, 0.8);
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 20px;
+            font-size: 18px;
+            font-weight: 700;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: #5d5dff;
+        }
+
+        /* Hero Section Styles */
+        .hero-section {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background-image: url('https://dummyimage.com/1920x1080/0a0a0a/5d5dff&text=Animated+Portfolio');
+            background-size: cover;
+            background-position: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-section::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(10, 10, 10, 0.7);
+            z-index: 1;
+        }
+
+        .hero-content {
+            text-align: center;
+            z-index: 2;
+        }
+
+        .hero-title {
+            font-size: 60px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        .hero-description {
+            font-size: 24px;
+            margin-bottom: 40px;
+            animation: fadeIn 1.5s ease-in-out;
+        }
+
+        .rotating-cubes {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            animation: rotateAndScale 10s linear infinite;
+        }
+
+        .cube {
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            background-color: #5d5dff;
+            transform-style: preserve-3d;
+            animation: rotate 10s linear infinite;
+        }
+
+        .cube:nth-child(1) {
+            top: 20%;
+            left: 10%;
+        }
+
+        .cube:nth-child(2) {
+            top: 40%;
+            left: 70%;
+        }
+
+        .cube:nth-child(3) {
+            top: 60%;
+            left: 30%;
+        }
+
+        .cube:nth-child(4) {
+            top: 80%;
+            left: 50%;
+        }
+
+        /* Skills Section Styles */
+        .skills-section {
+            padding: 80px 0;
+            background-color: #141414;
+        }
+
+        .skills-section-title {
+            font-size: 40px;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .skill-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 40px;
+        }
+
+        .skill-icon {
+            font-size: 40px;
+            color: #5d5dff;
+            margin-right: 20px;
+            animation: brushstrokeAnimation 2s infinite linear;
+        }
+
+        .skill-info {
+            flex-grow: 1;
+        }
+
+        .skill-title {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .skill-description {
+            font-size: 16px;
+            line-height: 1.5;
+        }
+
+        /* Contact Section Styles */
+        .contact-section {
+            padding: 80px 0;
+            background-image: url('https://dummyimage.com/1920x1080/141414/5d5dff&text=Contact');
+            background-size: cover;
+            background-position: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .contact-section::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(20, 20, 20, 0.8);
+            z-index: 1;
+        }
+
+        .contact-content {
+            position: relative;
+            z-index: 2;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .contact-form {
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: 40px;
+            border-radius: 10px;
+            width: 400px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            animation: shiftAndScale 10s linear infinite;
+        }
+
+        .form-field {
+            margin-bottom: 20px;
+        }
+
+        .form-field label {
+            display: block;
+            font-size: 16px;
+            font-weight: 700;
+            margin-bottom: 5px;
+        }
+
+        .form-field input,
+        .form-field textarea {
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            background-color: rgba(255, 255, 255, 0.1);
+            color: #fff;
+            transition: background-color 0.3s ease;
+        }
+
+        .form-field input:focus,
+        .form-field textarea:focus {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .submit-button {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            font-weight: 700;
+            background-color: #5d5dff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .submit-button:hover {
+            background-color: #4747d1;
+        }
+
+        .contact-info {
+            margin-left: 40px;
+            color: #fff;
+        }
+
+        .contact-info h3 {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        .contact-info p {
+            font-size: 16px;
+            margin-bottom: 10px;
+        }
+
+        .contact-info a {
+            color: #5d5dff;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .contact-info a:hover {
+            color: #4747d1;
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes rotateAndScale {
+            0% {
+                transform: rotate(0deg) scale(1);
+            }
+            50% {
+                transform: rotate(180deg) scale(1.2);
+            }
+            100% {
+                transform: rotate(360deg) scale(1);
+            }
+        }
+
+        @keyframes rotate {
+            0% {
+                transform: rotateX(0deg) rotateY(0deg);
+            }
+            100% {
+                transform: rotateX(360deg) rotateY(360deg);
+            }
+        }
+
+        @keyframes brushstrokeAnimation {
+            0% {
+                transform: translateX(-10px) scale(1);
+            }
+            50% {
+                transform: translateX(10px) scale(1.2);
+            }
+            100% {
+                transform: translateX(-10px) scale(1);
+            }
+        }
+
+        @keyframes shiftAndScale {
+            0% {
+                transform: translateX(-20px) scale(1);
+            }
+            50% {
+                transform: translateX(20px) scale(1.05);
+            }
+            100% {
+                transform: translateX(-20px) scale(1);
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="#">Home</a>
+        <a href="#">About</a>
+        <a href="#">Portfolio</a>
+        <a href="#">Skills</a>
+        <a href="#">Contact</a>
+    </nav>
+
+    <div class="hero-section">
+        <div class="hero-content">
+            <h1 class="hero-title">Unleash Your Creativity with 3D Wonders</h1>
+            <p class="hero-description">Explore my full-page animated portfolio showcasing 3D visuals, floating shapes, and rotating project cubes.</p>
+        </div>
+        <div class="rotating-cubes">
+            <div class="cube"></div>
+            <div class="cube"></div>
+            <div class="cube"></div>
+            <div class="cube"></div>
+        </div>
+    </div>
+
+    <div class="skills-section">
+        <h2 class="skills-section-title">My Skills</h2>
+        <div class="skill-item">
+            <div class="skill-icon">&#x1F3A8;</div>
+            <div class="skill-info">
+                <h3 class="skill-title">3D Modeling</h3>
+                <p class="skill-description">Proficient in creating high-quality 3D models and assets for various projects.</p>
+            </div>
+        </div>
+        <div class="skill-item">
+            <div class="skill-icon">&#x1F4C8;</div>
+            <div class="skill-info">
+                <h3 class="skill-title">Animation</h3>
+                <p class="skill-description">Skilled in bringing 3D models to life through dynamic and fluid animations.</p>
+            </div>
+        </div>
+        <div class="skill-item">
+            <div class="skill-icon">&#x1F3A5;</div>
+            <div class="skill-info">
+                <h3 class="skill-title">Visual Effects</h3>
+                <p class="skill-description">Expertise in creating captivating visual effects and motion graphics.</p>
+            </div>
+        </div>
+        <div class="skill-item">
+            <div class="skill-icon">&#x1F4BB;</div>
+            <div class="skill-info">
+                <h3 class="skill-title">Interactive Design</h3>
+                <p class="skill-description">Experienced in designing immersive and interactive user experiences.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="contact-section">
+        <div class="contact-content">
+            <div class="contact-form">
+                <form>
+                    <div class="form-field">
+                        <label for="name">Name</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-field">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-field">
+                        <label for="message">Message</label>
+                        <textarea id="message" name="message" rows="5" required></textarea>
+                    </div>
+                    <button type="submit" class="submit-button">Send Message</button>
+                </form>
+            </div>
+            <div class="contact-info">
+                <h3>Get in Touch</h3>
+                <p>Email: <a href="mailto:example@example.com">example@example.com</a></p>
+                <p>Phone: <a href="tel:+1234567890">+1 (234) 567-890</a></p>
+                <p>Follow me on:</p>
+                <p>
+                    <a href="#">LinkedIn</a> | <a href="#">Twitter</a> | <a href="#">Instagram</a>
+                </p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>'<!-- Visit: https://github.com/Ishanoshada/portflair -->
+<!-- Visit: https://github.com/Ishanoshada/portflair -->

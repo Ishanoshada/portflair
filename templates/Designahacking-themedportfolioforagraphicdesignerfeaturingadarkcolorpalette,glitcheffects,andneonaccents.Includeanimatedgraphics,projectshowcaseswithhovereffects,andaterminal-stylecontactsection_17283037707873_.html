@@ -1,0 +1,431 @@
+<!-- Portfolio created by Ishan -->
+<!-- Check out my work at: https://github.com/Ishanoshada/portflair -->
+<!-- 2024/10/9 -->
+<!-- Portfolio created by Ishan -->
+'<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hacking-Themed Portfolio</title>
+  <style>
+    /* Global Styles */
+    @import url('https://fonts.googleapis.com/css2?family=Oxanium:wght@400;600;800&display=swap');
+
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Oxanium', monospace;
+      background-color: #0D0D0D;
+      color: #FFFFFF;
+      overflow-x: hidden;
+    }
+
+    /* Navigation */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 40px;
+      background-color: #0D0D0D;
+      position: relative;
+      z-index: 1;
+    }
+
+    nav a {
+      color: #FFFFFF;
+      text-decoration: none;
+      font-size: 18px;
+      font-weight: 600;
+      padding: 10px 20px;
+      transition: color 0.3s ease;
+    }
+
+    nav a:hover {
+      color: #00FF00;
+    }
+
+    /* Hero Section */
+    .hero {
+      position: relative;
+      height: 80vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+    }
+
+    .hero-bg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: url('https://dummyimage.com/1920x1080/0D0D0D/00FF00.jpg');
+      background-size: cover;
+      background-position: center;
+      filter: blur(8px);
+      z-index: -1;
+    }
+
+    .hero-content {
+      text-align: center;
+      z-index: 1;
+    }
+
+    .hero-title {
+      font-size: 64px;
+      font-weight: 800;
+      margin-bottom: 20px;
+      text-shadow: 0 0 20px #00FF00;
+      animation: glitch 1s infinite linear;
+    }
+
+    .hero-description {
+      font-size: 24px;
+      font-weight: 600;
+      margin-bottom: 40px;
+      text-shadow: 0 0 10px #00FF00;
+    }
+
+    .hero-button {
+      display: inline-block;
+      background-color: #00FF00;
+      color: #0D0D0D;
+      font-size: 18px;
+      font-weight: 600;
+      padding: 12px 30px;
+      border-radius: 30px;
+      text-decoration: none;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .hero-button:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 20px #00FF00;
+    }
+
+    /* Project Showcase Section */
+    .project-showcase {
+      padding: 80px 40px;
+    }
+
+    .project-showcase-title {
+      font-size: 36px;
+      font-weight: 800;
+      text-align: center;
+      margin-bottom: 40px;
+      text-shadow: 0 0 10px #00FF00;
+    }
+
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-gap: 40px;
+    }
+
+    .project-item {
+      position: relative;
+      overflow: hidden;
+      border-radius: 10px;
+      box-shadow: 0 0 20px rgba(0, 255, 0, 0.3);
+      cursor: pointer;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .project-item:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 40px rgba(0, 255, 0, 0.5);
+    }
+
+    .project-item img {
+      width: 100%;
+      height: auto;
+      display: block;
+      filter: brightness(0.7) contrast(1.2) saturate(1.5);
+      transition: filter 0.3s ease;
+    }
+
+    .project-item:hover img {
+      filter: brightness(1) contrast(1) saturate(1);
+    }
+
+    .project-details {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .project-item:hover .project-details {
+      opacity: 1;
+    }
+
+    .project-title {
+      font-size: 24px;
+      font-weight: 800;
+      margin-bottom: 10px;
+      text-shadow: 0 0 10px #00FF00;
+    }
+
+    .project-description {
+      font-size: 16px;
+      font-weight: 400;
+      text-shadow: 0 0 5px #00FF00;
+    }
+
+    /* Contact Section */
+    .contact {
+      padding: 80px 40px;
+      background-color: #0D0D0D;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .contact-bg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: url('https://dummyimage.com/1920x1080/0D0D0D/00FF00.jpg');
+      background-size: cover;
+      background-position: center;
+      filter: blur(8px);
+      z-index: -1;
+    }
+
+    .contact-title {
+      font-size: 36px;
+      font-weight: 800;
+      text-align: center;
+      margin-bottom: 40px;
+      text-shadow: 0 0 10px #00FF00;
+    }
+
+    .contact-form {
+      max-width: 600px;
+      margin: 0 auto;
+      background-color: rgba(13, 13, 13, 0.8);
+      padding: 40px;
+      border-radius: 10px;
+      box-shadow: 0 0 20px rgba(0, 255, 0, 0.3);
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    .form-group label {
+      display: block;
+      font-size: 18px;
+      font-weight: 600;
+      margin-bottom: 5px;
+      color: #00FF00;
+      text-shadow: 0 0 5px #00FF00;
+    }
+
+    .form-group input,
+    .form-group textarea {
+      width: 100%;
+      padding: 10px;
+      font-size: 16px;
+      font-family: 'Oxanium', monospace;
+      background-color: #0D0D0D;
+      color: #FFFFFF;
+      border: 1px solid #00FF00;
+      border-radius: 5px;
+      outline: none;
+      transition: border-color 0.3s ease;
+    }
+
+    .form-group input:focus,
+    .form-group textarea:focus {
+      border-color: #FFFFFF;
+    }
+
+    .form-group textarea {
+      height: 150px;
+    }
+
+    .form-button {
+      display: block;
+      width: 100%;
+      background-color: #00FF00;
+      color: #0D0D0D;
+      font-size: 18px;
+      font-weight: 600;
+      padding: 12px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .form-button:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 20px #00FF00;
+    }
+
+    /* Animations */
+    @keyframes glitch {
+      0% {
+        text-shadow: 0 0 20px #00FF00;
+      }
+      20% {
+        text-shadow: -5px 0 20px #FF00FF, 5px 0 20px #0000FF;
+      }
+      40% {
+        text-shadow: 0 0 20px #FF00FF;
+      }
+      60% {
+        text-shadow: -5px 0 20px #0000FF, 5px 0 20px #00FF00;
+      }
+      80% {
+        text-shadow: 0 0 20px #00FF00;
+      }
+      100% {
+        text-shadow: 0 0 20px #00FF00;
+      }
+    }
+
+    /* Responsive Styles */
+    @media (max-width: 768px) {
+      .hero-title {
+        font-size: 48px;
+      }
+
+      .hero-description {
+        font-size: 20px;
+      }
+
+      .project-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .contact-form {
+        padding: 30px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .hero-title {
+        font-size: 36px;
+      }
+
+      .hero-description {
+        font-size: 18px;
+      }
+
+      .project-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .contact-form {
+        padding: 20px;
+      }
+
+      .form-group label {
+        font-size: 16px;
+      }
+
+      .form-group input,
+      .form-group textarea {
+        font-size: 14px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="#">Home</a>
+    <a href="#">About</a>
+    <a href="#">Projects</a>
+    <a href="#">Contact</a>
+  </nav>
+
+  <section class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-content">
+      <h1 class="hero-title">Hacking-Inspired Portfolio</h1>
+      <p class="hero-description">Explore the digital world of a talented graphic designer</p>
+      <a href="#" class="hero-button">View Projects</a>
+    </div>
+  </section>
+
+  <section class="project-showcase">
+    <h2 class="project-showcase-title">Featured Projects</h2>
+    <div class="project-grid">
+      <div class="project-item">
+        <img src="https://dummyimage.com/400x300/0D0D0D/00FF00.jpg" alt="Project 1">
+        <div class="project-details">
+          <h3 class="project-title">Cyberpunk Illustration</h3>
+          <p class="project-description">A dystopian digital landscape</p>
+        </div>
+      </div>
+      <div class="project-item">
+        <img src="https://dummyimage.com/400x300/0D0D0D/00FF00.jpg" alt="Project 2">
+        <div class="project-details">
+          <h3 class="project-title">Glitch Art Series</h3>
+          <p class="project-description">Experimental digital art</p>
+        </div>
+      </div>
+      <div class="project-item">
+        <img src="https://dummyimage.com/400x300/0D0D0D/00FF00.jpg" alt="Project 3">
+        <div class="project-details">
+          <h3 class="project-title">Neon Branding</h3>
+          <p class="project-description">Vibrant and futuristic design</p>
+        </div>
+      </div>
+      <div class="project-item">
+        <img src="https://dummyimage.com/400x300/0D0D0D/00FF00.jpg" alt="Project 4">
+        <div class="project-details">
+          <h3 class="project-title">Pixel Art Animations</h3>
+          <p class="project-description">Retro-inspired digital animations</p>
+        </div>
+      </div>
+      <div class="project-item">
+        <img src="https://dummyimage.com/400x300/0D0D0D/00FF00.jpg" alt="Project 5">
+        <div class="project-details">
+          <h3 class="project-title">Data Visualization</h3>
+          <p class="project-description">Innovative data presentation</p>
+        </div>
+      </div>
+      <div class="project-item">
+        <img src="https://dummyimage.com/400x300/0D0D0D/00FF00.jpg" alt="Project 6">
+        <div class="project-details">
+          <h3 class="project-title">Hacker-Themed Branding</h3>
+          <p class="project-description">Sleek and sophisticated design</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact">
+    <div class="contact-bg"></div>
+    <h2 class="contact-title">Get in Touch</h2>
+    <div class="contact-form">
+      <form>
+        <div class="form-group">
+          <label for="name">Name</label>
+          <input type="text" id="name" placeholder="Enter your name" required>
+        </div>
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" id="email" placeholder="Enter your email" required>
+        </div>
+        <div class="form-group">
+          <label for="message">Message</label>
+          <textarea id="message" placeholder="Enter your message" required></textarea>
+        </div>
+        <button type="submit" class="form-button">Submit</button>
+      </form>
+    </div>
+  </section>
+</body>
+</html>'<!-- Visit: https://github.com/Ishanoshada/portflair -->
+<!-- Visit: https://github.com/Ishanoshada/portflair -->

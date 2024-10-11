@@ -1,0 +1,404 @@
+<!-- Portfolio created by Ishan -->
+<!-- Check out my work at: https://github.com/Ishanoshada/portflair -->
+<!-- 2024/10/9 -->
+<!-- Portfolio created by Ishan -->
+'<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Black Hole Portfolio</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
+
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Orbitron', sans-serif;
+      background: radial-gradient(ellipse at center, #161326, #0b0614);
+      color: #fff;
+      overflow-x: hidden;
+    }
+
+    /* Navigation */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 40px;
+      background-color: rgba(22, 19, 38, 0.8);
+      backdrop-filter: blur(10px);
+      position: relative;
+      z-index: 100;
+    }
+
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      font-size: 18px;
+      padding: 10px 20px;
+      border-radius: 20px;
+      transition: background-color 0.3s, color 0.3s;
+    }
+
+    nav a:hover {
+      background-color: #7c25d6;
+      color: #fff;
+    }
+
+    /* Project Galaxy */
+    #project-galaxy {
+      position: relative;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+    }
+
+    .galaxy-background {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(ellipse at center, #161326, #0b0614);
+      z-index: 0;
+    }
+
+    .project-orb {
+      position: absolute;
+      width: 100px;
+      height: 100px;
+      background: radial-gradient(circle at center, #7c25d6, #4b1785);
+      border-radius: 50%;
+      box-shadow: 0 0 20px rgba(124, 37, 214, 0.5), 0 0 40px rgba(124, 37, 214, 0.3), 0 0 60px rgba(124, 37, 214, 0.2);
+      animation: orb-pulse 3s infinite;
+      cursor: pointer;
+      transition: transform 0.3s;
+      z-index: 10;
+    }
+
+    .project-orb:hover {
+      transform: scale(1.2);
+    }
+
+    .project-details {
+      position: absolute;
+      background-color: rgba(22, 19, 38, 0.8);
+      backdrop-filter: blur(10px);
+      padding: 20px;
+      border-radius: 10px;
+      text-align: center;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s;
+    }
+
+    .project-orb:hover + .project-details {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .project-details h3 {
+      margin-top: 0;
+      font-size: 24px;
+    }
+
+    .project-details p {
+      margin-bottom: 0;
+      font-size: 16px;
+    }
+
+    /* Skill Nebula */
+    #skill-nebula {
+      position: relative;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+    }
+
+    .nebula-background {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(ellipse at center, #161326, #0b0614);
+      z-index: 0;
+    }
+
+    .skill-icon {
+      position: absolute;
+      width: 50px;
+      height: 50px;
+      background-image: url('https://dummyimage.com/50x50/7c25d6/ffffff.png&text=+');
+      background-size: contain;
+      background-repeat: no-repeat;
+      animation: icon-pulse 3s infinite;
+      cursor: pointer;
+      transition: transform 0.3s;
+      z-index: 10;
+    }
+
+    .skill-icon:hover {
+      transform: scale(1.2);
+    }
+
+    .skill-description {
+      position: absolute;
+      background-color: rgba(22, 19, 38, 0.8);
+      backdrop-filter: blur(10px);
+      padding: 10px 20px;
+      border-radius: 10px;
+      text-align: center;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s;
+    }
+
+    .skill-icon:hover + .skill-description {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .skill-description h4 {
+      margin-top: 0;
+      font-size: 18px;
+    }
+
+    .skill-description p {
+      margin-bottom: 0;
+      font-size: 14px;
+    }
+
+    /* Neon Contact Form */
+    #contact-form {
+      position: relative;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+    }
+
+    .form-background {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(to right, #161326, #0b0614);
+      z-index: 0;
+    }
+
+    .neon-form {
+      position: relative;
+      background-color: rgba(22, 19, 38, 0.8);
+      backdrop-filter: blur(10px);
+      padding: 40px;
+      border-radius: 20px;
+      box-shadow: 0 0 20px rgba(124, 37, 214, 0.5), 0 0 40px rgba(124, 37, 214, 0.3), 0 0 60px rgba(124, 37, 214, 0.2);
+      z-index: 10;
+    }
+
+    .neon-form input,
+    .neon-form textarea {
+      display: block;
+      width: 300px;
+      margin-bottom: 20px;
+      padding: 10px;
+      border: 2px solid #7c25d6;
+      border-radius: 5px;
+      background-color: transparent;
+      color: #fff;
+      font-family: 'Orbitron', sans-serif;
+      font-size: 16px;
+      transition: border-color 0.3s, box-shadow 0.3s;
+    }
+
+    .neon-form input:focus,
+    .neon-form textarea:focus {
+      border-color: #a456ff;
+      box-shadow: 0 0 10px rgba(124, 37, 214, 0.5);
+    }
+
+    .neon-form button {
+      display: block;
+      width: 100%;
+      padding: 10px;
+      border: none;
+      border-radius: 5px;
+      background-color: #7c25d6;
+      color: #fff;
+      font-family: 'Orbitron', sans-serif;
+      font-size: 18px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    .neon-form button:hover {
+      background-color: #a456ff;
+    }
+
+    .neon-form button:focus {
+      outline: none;
+    }
+
+    @keyframes orb-pulse {
+      0% {
+        box-shadow: 0 0 20px rgba(124, 37, 214, 0.5), 0 0 40px rgba(124, 37, 214, 0.3), 0 0 60px rgba(124, 37, 214, 0.2);
+      }
+      50% {
+        box-shadow: 0 0 30px rgba(124, 37, 214, 0.7), 0 0 60px rgba(124, 37, 214, 0.5), 0 0 90px rgba(124, 37, 214, 0.3);
+      }
+      100% {
+        box-shadow: 0 0 20px rgba(124, 37, 214, 0.5), 0 0 40px rgba(124, 37, 214, 0.3), 0 0 60px rgba(124, 37, 214, 0.2);
+      }
+    }
+
+    @keyframes icon-pulse {
+      0% {
+        transform: scale(1);
+        opacity: 1;
+      }
+      50% {
+        transform: scale(1.2);
+        opacity: 0.7;
+      }
+      100% {
+        transform: scale(1);
+        opacity: 1;
+      }
+    }
+
+    @media (max-width: 768px) {
+      nav {
+        padding: 10px 20px;
+      }
+
+      nav a {
+        font-size: 16px;
+        padding: 8px 16px;
+      }
+
+      .project-orb {
+        width: 80px;
+        height: 80px;
+      }
+
+      .project-details {
+        padding: 15px;
+      }
+
+      .project-details h3 {
+        font-size: 20px;
+      }
+
+      .project-details p {
+        font-size: 14px;
+      }
+
+      .skill-icon {
+        width: 40px;
+        height: 40px;
+      }
+
+      .skill-description {
+        padding: 8px 16px;
+      }
+
+      .skill-description h4 {
+        font-size: 16px;
+      }
+
+      .skill-description p {
+        font-size: 12px;
+      }
+
+      .neon-form {
+        padding: 30px;
+      }
+
+      .neon-form input,
+      .neon-form textarea {
+        width: 250px;
+        font-size: 14px;
+      }
+
+      .neon-form button {
+        font-size: 16px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="#">Home</a>
+    <a href="#">Projects</a>
+    <a href="#">Skills</a>
+    <a href="#">Contact</a>
+  </nav>
+
+  <section id="project-galaxy">
+    <div class="galaxy-background"></div>
+    <div class="project-orb" style="top: 20%; left: 30%;" data-project-title="Project 1" data-project-description="This is the description for Project 1."></div>
+    <div class="project-orb" style="top: 40%; left: 60%;" data-project-title="Project 2" data-project-description="This is the description for Project 2."></div>
+    <div class="project-orb" style="top: 70%; left: 40%;" data-project-title="Project 3" data-project-description="This is the description for Project 3."></div>
+    <div class="project-details">
+      <h3>Project Title</h3>
+      <p>Project description goes here.</p>
+    </div>
+  </section>
+
+  <section id="skill-nebula">
+    <div class="nebula-background"></div>
+    <div class="skill-icon" style="top: 30%; left: 20%;" data-skill-name="Backend Development"></div>
+    <div class="skill-icon" style="top: 50%; left: 50%;" data-skill-name="Database Management"></div>
+    <div class="skill-icon" style="top: 70%; left: 70%;" data-skill-name="Cloud Infrastructure"></div>
+    <div class="skill-description">
+      <h4>Skill Name</h4>
+      <p>Skill description goes here.</p>
+    </div>
+  </section>
+
+  <section id="contact-form">
+    <div class="form-background"></div>
+    <div class="neon-form">
+      <input type="text" placeholder="Name" required>
+      <input type="email" placeholder="Email" required>
+      <textarea placeholder="Message" rows="5" required></textarea>
+      <button type="submit">Send</button>
+    </div>
+  </section>
+
+  <script>
+    // Attach event listeners to project orbs
+    const projectOrbs = document.querySelectorAll('.project-orb');
+    const projectDetails = document.querySelector('.project-details');
+    const projectTitleElement = projectDetails.querySelector('h3');
+    const projectDescriptionElement = projectDetails.querySelector('p');
+
+    projectOrbs.forEach(orb => {
+      orb.addEventListener('mouseover', () => {
+        projectTitleElement.textContent = orb.dataset.projectTitle;
+        projectDescriptionElement.textContent = orb.dataset.projectDescription;
+      });
+    });
+
+    // Attach event listeners to skill icons
+    const skillIcons = document.querySelectorAll('.skill-icon');
+    const skillDescriptions = document.querySelectorAll('.skill-description');
+
+    skillIcons.forEach((icon, index) => {
+      icon.addEventListener('mouseover', () => {
+        skillDescriptions[index].querySelector('h4').textContent = icon.dataset.skillName;
+        skillDescriptions[index].querySelector('p').textContent = 'Skill description goes here.';
+      });
+    });
+  </script>
+</body>
+</html>'<!-- Visit: https://github.com/Ishanoshada/portflair -->
+<!-- Visit: https://github.com/Ishanoshada/portflair -->

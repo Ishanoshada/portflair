@@ -1,0 +1,458 @@
+<!-- Portfolio created by Ishan -->
+<!-- Check out my work at: https://github.com/Ishanoshada/portflair -->
+<!-- 2024/10/9 -->
+<!-- Portfolio created by Ishan -->
+'<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Black Hole Portfolio</title>
+  <style>
+    /* Reset some default styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    /* Global styles */
+    body {
+      font-family: 'Roboto', sans-serif;
+      background-color: #0f0f0f;
+      color: #ffffff;
+    }
+
+    /* Navigation */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.5rem;
+      background-color: rgba(0, 0, 0, 0.8);
+      backdrop-filter: blur(10px);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    nav a {
+      color: #ffffff;
+      text-decoration: none;
+      font-size: 1.2rem;
+      padding: 0.5rem 1rem;
+      transition: color 0.3s ease-in-out, transform 0.3s ease-in-out;
+    }
+
+    nav a:hover {
+      color: #9b59b6;
+      transform: scale(1.1);
+    }
+
+    /* Project Galaxy */
+    #project-galaxy {
+      padding: 4rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    #project-galaxy::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: url("https://dummyimage.com/1200x500/0f0f0f/ffffff.jpg&text=Cosmic+Nebula");
+      background-size: cover;
+      background-position: center;
+      filter: blur(50px);
+      z-index: -1;
+    }
+
+    .project-planet {
+      position: relative;
+      width: 150px;
+      height: 150px;
+      background-color: rgba(255, 255, 255, 0.1);
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 2rem;
+      cursor: pointer;
+      transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    }
+
+    .project-planet:hover {
+      transform: scale(1.1);
+      box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+    }
+
+    .project-planet img {
+      width: 80%;
+      height: 80%;
+      object-fit: contain;
+    }
+
+    .project-planet .project-info {
+      position: absolute;
+      bottom: -50px;
+      left: 50%;
+      transform: translateX(-50%);
+      background-color: rgba(0, 0, 0, 0.8);
+      padding: 0.5rem 1rem;
+      border-radius: 4px;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out, transform 0.3s ease-in-out;
+    }
+
+    .project-planet:hover .project-info {
+      opacity: 1;
+      visibility: visible;
+      transform: translateX(-50%) translateY(-100%);
+    }
+
+    /* Skill Supernova */
+    #skill-supernova {
+      padding: 4rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    #skill-supernova::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: url("https://dummyimage.com/1200x500/000/9b59b6.jpg&text=Cosmic+Supernova");
+      background-size: cover;
+      background-position: center;
+      filter: blur(50px);
+      z-index: -1;
+    }
+
+    .skill-ring {
+      position: relative;
+      width: 300px;
+      height: 300px;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 2rem;
+      animation: pulsate 3s ease-in-out infinite;
+    }
+
+    @keyframes pulsate {
+      0% {
+        transform: scale(1);
+      }
+      50% {
+        transform: scale(1.1);
+      }
+      100% {
+        transform: scale(1);
+      }
+    }
+
+    .skill-ring .skill-icon {
+      width: 50px;
+      height: 50px;
+      background-color: rgba(255, 255, 255, 0.1);
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 1rem;
+      position: absolute;
+      transition: transform 0.3s ease-in-out;
+    }
+
+    .skill-ring .skill-icon:hover {
+      transform: scale(1.2);
+    }
+
+    .skill-ring .skill-icon img {
+      width: 30px;
+      height: 30px;
+      object-fit: contain;
+    }
+
+    .skill-ring .skill-icon .skill-tooltip {
+      position: absolute;
+      bottom: -50px;
+      left: 50%;
+      transform: translateX(-50%);
+      background-color: rgba(0, 0, 0, 0.8);
+      padding: 0.5rem 1rem;
+      border-radius: 4px;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out, transform 0.3s ease-in-out;
+    }
+
+    .skill-ring .skill-icon:hover .skill-tooltip {
+      opacity: 1;
+      visibility: visible;
+      transform: translateX(-50%) translateY(-100%);
+    }
+
+    /* Neon Contact Form */
+    #neon-contact {
+      padding: 4rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    #neon-contact::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: url("https://dummyimage.com/1200x500/000/9b59b6.jpg&text=Neon+Glow");
+      background-size: cover;
+      background-position: center;
+      filter: blur(50px);
+      z-index: -1;
+    }
+
+    .neon-form {
+      max-width: 500px;
+      margin: 0 auto;
+      background-color: rgba(0, 0, 0, 0.8);
+      padding: 2rem;
+      border-radius: 8px;
+      box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+    }
+
+    .neon-form h2 {
+      text-align: center;
+      margin-bottom: 1.5rem;
+      color: #9b59b6;
+      text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+    }
+
+    .neon-form .form-group {
+      margin-bottom: 1.5rem;
+    }
+
+    .neon-form label {
+      display: block;
+      margin-bottom: 0.5rem;
+      color: #9b59b6;
+      text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+    }
+
+    .neon-form input,
+    .neon-form textarea {
+      width: 100%;
+      padding: 0.75rem 1rem;
+      background-color: rgba(255, 255, 255, 0.1);
+      border: none;
+      border-radius: 4px;
+      color: #ffffff;
+      font-size: 1rem;
+      transition: box-shadow 0.3s ease-in-out;
+    }
+
+    .neon-form input:focus,
+    .neon-form textarea:focus {
+      outline: none;
+      box-shadow: 0 0 20px rgba(155, 89, 182, 0.5);
+    }
+
+    .neon-form button {
+      display: block;
+      width: 100%;
+      padding: 0.75rem 1rem;
+      background-color: #9b59b6;
+      border: none;
+      border-radius: 4px;
+      color: #ffffff;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out;
+    }
+
+    .neon-form button:hover {
+      background-color: #8e44ad;
+      transform: scale(1.05);
+    }
+
+    /* Responsive Styles */
+    @media (max-width: 768px) {
+      nav {
+        padding: 1rem;
+      }
+
+      nav a {
+        font-size: 1rem;
+      }
+
+      #project-galaxy,
+      #skill-supernova,
+      #neon-contact {
+        padding: 2rem;
+      }
+
+      .project-planet,
+      .skill-ring {
+        width: 120px;
+        height: 120px;
+        margin: 1rem;
+      }
+
+      .skill-ring .skill-icon {
+        width: 40px;
+        height: 40px;
+        margin: 0.5rem;
+      }
+
+      .skill-ring .skill-icon img {
+        width: 20px;
+        height: 20px;
+      }
+
+      .neon-form {
+        max-width: 100%;
+        padding: 1.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="#">Home</a>
+    <a href="#">About</a>
+    <a href="#">Projects</a>
+    <a href="#">Skills</a>
+    <a href="#">Contact</a>
+  </nav>
+
+  <section id="project-galaxy">
+    <div class="project-planet">
+      <img src="https://dummyimage.com/120x120/ffffff/000000.jpg&text=P1" alt="Project 1">
+      <div class="project-info">
+        <h3>Project 1</h3>
+        <p>A brief description of Project 1.</p>
+        <a href="#">View Project</a>
+      </div>
+    </div>
+    <div class="project-planet">
+      <img src="https://dummyimage.com/120x120/ffffff/000000.jpg&text=P2" alt="Project 2">
+      <div class="project-info">
+        <h3>Project 2</h3>
+        <p>A brief description of Project 2.</p>
+        <a href="#">View Project</a>
+      </div>
+    </div>
+    <div class="project-planet">
+      <img src="https://dummyimage.com/120x120/ffffff/000000.jpg&text=P3" alt="Project 3">
+      <div class="project-info">
+        <h3>Project 3</h3>
+        <p>A brief description of Project 3.</p>
+        <a href="#">View Project</a>
+      </div>
+    </div>
+    <div class="project-planet">
+      <img src="https://dummyimage.com/120x120/ffffff/000000.jpg&text=P4" alt="Project 4">
+      <div class="project-info">
+        <h3>Project 4</h3>
+        <p>A brief description of Project 4.</p>
+        <a href="#">View Project</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="skill-supernova">
+    <div class="skill-ring">
+      <div class="skill-icon">
+        <img src="https://dummyimage.com/40x40/9b59b6/ffffff.jpg&text=JS" alt="JavaScript">
+        <div class="skill-tooltip">
+          <h4>JavaScript</h4>
+          <p>Proficient in JavaScript, including modern frameworks and libraries.</p>
+        </div>
+      </div>
+      <div class="skill-icon">
+        <img src="https://dummyimage.com/40x40/9b59b6/ffffff.jpg&text=Py" alt="Python">
+        <div class="skill-tooltip">
+          <h4>Python</h4>
+          <p>Experienced in Python, with expertise in data analysis and machine learning.</p>
+        </div>
+      </div>
+      <div class="skill-icon">
+        <img src="https://dummyimage.com/40x40/9b59b6/ffffff.jpg&text=Node" alt="Node.js">
+        <div class="skill-tooltip">
+          <h4>Node.js</h4>
+          <p>Skilled in building server-side applications using Node.js and its ecosystem.</p>
+        </div>
+      </div>
+      <div class="skill-icon">
+        <img src="https://dummyimage.com/40x40/9b59b6/ffffff.jpg&text=SQL" alt="SQL">
+        <div class="skill-tooltip">
+          <h4>SQL</h4>
+          <p>Proficient in SQL, with experience in designing and optimizing databases.</p>
+        </div>
+      </div>
+    </div>
+    <div class="skill-ring">
+      <div class="skill-icon">
+        <img src="https://dummyimage.com/40x40/9b59b6/ffffff.jpg&text=React" alt="React">
+        <div class="skill-tooltip">
+          <h4>React</h4>
+          <p>Experienced in building dynamic and responsive user interfaces with React.</p>
+        </div>
+      </div>
+      <div class="skill-icon">
+        <img src="https://dummyimage.com/40x40/9b59b6/ffffff.jpg&text=Docker" alt="Docker">
+        <div class="skill-tooltip">
+          <h4>Docker</h4>
+          <p>Skilled in containerization and deployment using Docker.</p>
+        </div>
+      </div>
+      <div class="skill-icon">
+        <img src="https://dummyimage.com/40x40/9b59b6/ffffff.jpg&text=AWS" alt="AWS">
+        <div class="skill-tooltip">
+          <h4>AWS</h4>
+          <p>Experienced in cloud infrastructure and deployment on Amazon Web Services.</p>
+        </div>
+      </div>
+      <div class="skill-icon">
+        <img src="https://dummyimage.com/40x40/9b59b6/ffffff.jpg&text=Git" alt="Git">
+        <div class="skill-tooltip">
+          <h4>Git</h4>
+          <p>Proficient in version control using Git, with experience in collaborating on projects.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="neon-contact">
+    <div class="neon-form">
+      <h2>Get in Touch</h2>
+      <form>
+        <div class="form-group">
+          <label for="name">Name</label>
+          <input type="text" id="name" name="name" placeholder="Enter your name" required>
+        </div>
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" placeholder="Enter youremail" required>
+        </div>
+        <div class="form-group">
+          <label for="message">Message</label>
+          <textarea id="message" name="message" rows="5" placeholder="Enter your message" required></textarea>
+        </div>
+        <button type="submit">Send Message</button>
+      </form>
+    </div>
+  </section>
+</body>
+</html>'<!-- Visit: https://github.com/Ishanoshada/portflair -->
+<!-- Visit: https://github.com/Ishanoshada/portflair -->

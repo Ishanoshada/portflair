@@ -1,0 +1,577 @@
+<!-- Portfolio created by Ishan -->
+<!-- Check out my work at: https://github.com/Ishanoshada/portflair -->
+<!-- 2024/10/9 -->
+<!-- Portfolio created by Ishan -->
+'<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Black Hole Portfolio</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
+
+    body {
+      font-family: 'Orbitron', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #000;
+      color: #fff;
+    }
+
+    .nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 40px;
+      background: linear-gradient(to bottom, rgba(0,0,0,0.8), rgba(0,0,0,0));
+    }
+
+    .nav-logo {
+      font-size: 24px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-shadow: 0 0 10px #00e6e6, 0 0 20px #00e6e6, 0 0 30px #00e6e6;
+    }
+
+    .nav-menu {
+      display: flex;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .nav-menu li {
+      margin-left: 30px;
+      font-size: 16px;
+      font-weight: 400;
+      letter-spacing: 1px;
+      cursor: pointer;
+      transition: color 0.3s ease;
+    }
+
+    .nav-menu li:hover {
+      color: #00e6e6;
+      text-shadow: 0 0 10px #00e6e6, 0 0 20px #00e6e6, 0 0 30px #00e6e6;
+    }
+
+    .hero {
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      background: url(https://dummyimage.com/1920x1080/000/fff&text=BLACK+HOLE) no-repeat center;
+      background-size: cover;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(ellipse at center, rgba(0,0,0,0.8) 0%, rgba(0,0,0,1) 100%);
+      z-index: 1;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      animation: glitch 2s infinite;
+    }
+
+    .hero-title {
+      font-size: 72px;
+      font-weight: 700;
+      letter-spacing: 4px;
+      text-shadow: 0 0 20px #00e6e6, 0 0 40px #00e6e6, 0 0 60px #00e6e6;
+      margin-bottom: 20px;
+    }
+
+    .hero-subtitle {
+      font-size: 24px;
+      font-weight: 400;
+      letter-spacing: 2px;
+      margin-bottom: 40px;
+    }
+
+    .hero-btn {
+      display: inline-block;
+      padding: 16px 32px;
+      font-size: 16px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      background-color: #00e6e6;
+      color: #000;
+      border: none;
+      border-radius: 50px;
+      cursor: pointer;
+      box-shadow: 0 0 20px #00e6e6, 0 0 40px #00e6e6, 0 0 60px #00e6e6;
+      transition: transform 0.3s ease;
+    }
+
+    .hero-btn:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 0 30px #00e6e6, 0 0 50px #00e6e6, 0 0 70px #00e6e6;
+    }
+
+    .project-galaxies {
+      padding: 80px 40px;
+      background: radial-gradient(ellipse at center, rgba(0,0,0,0.9) 0%, rgba(0,0,0,1) 100%);
+    }
+
+    .project-galaxies-title {
+      font-size: 48px;
+      font-weight: 700;
+      letter-spacing: 4px;
+      text-align: center;
+      margin-bottom: 40px;
+      text-shadow: 0 0 20px #00e6e6, 0 0 40px #00e6e6, 0 0 60px #00e6e6;
+    }
+
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-gap: 40px;
+    }
+
+    .project-item {
+      position: relative;
+      overflow: hidden;
+      border-radius: 10px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.5);
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+
+    .project-item:hover {
+      transform: scale(1.05);
+    }
+
+    .project-item::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(ellipse at center, rgba(0,0,0,0.5) 0%, rgba(0,0,0,1) 100%);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .project-item:hover::before {
+      opacity: 1;
+    }
+
+    .project-item img {
+      width: 100%;
+      height: 300px;
+      object-fit: cover;
+      filter: brightness(0.7) contrast(1.2) saturate(1.2);
+      transition: filter 0.3s ease;
+    }
+
+    .project-item:hover img {
+      filter: brightness(1) contrast(1) saturate(1);
+    }
+
+    .project-info {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .project-item:hover .project-info {
+      opacity: 1;
+    }
+
+    .project-title {
+      font-size: 24px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-shadow: 0 0 10px #00e6e6, 0 0 20px #00e6e6, 0 0 30px #00e6e6;
+      margin-bottom: 10px;
+    }
+
+    .project-description {
+      font-size: 16px;
+      font-weight: 400;
+      letter-spacing: 1px;
+      text-shadow: 0 0 10px #00e6e6, 0 0 20px #00e6e6, 0 0 30px #00e6e6;
+    }
+
+    .vaporwave-glitches {
+      padding: 80px 40px;
+      background: linear-gradient(to bottom, #8f00ff, #4b0082);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .vaporwave-glitches-title {
+      font-size: 48px;
+      font-weight: 700;
+      letter-spacing: 4px;
+      text-align: center;
+      margin-bottom: 40px;
+      text-shadow: 0 0 20px #ff00ff, 0 0 40px #ff00ff, 0 0 60px #ff00ff;
+    }
+
+    .skills-expertise {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-bottom: 40px;
+    }
+
+    .skills,
+    .expertise {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .skills-title,
+    .expertise-title {
+      font-size: 24px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      margin-bottom: 20px;
+      text-shadow: 0 0 10px #ff00ff, 0 0 20px #ff00ff, 0 0 30px #ff00ff;
+    }
+
+    .skill-item,
+    .expertise-item {
+      font-size: 18px;
+      font-weight: 400;
+      letter-spacing: 1px;
+      margin-bottom: 10px;
+      padding: 10px 20px;
+      background-color: rgba(255, 255, 255, 0.1);
+      border-radius: 20px;
+      box-shadow: 0 0 10px rgba(255, 0, 255, 0.5);
+      cursor: pointer;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .skill-item:hover,
+    .expertise-item:hover {
+      transform: scale(1.1);
+      box-shadow: 0 0 20px rgba(255, 0, 255, 0.7);
+    }
+
+    .vaporwave-bg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(circle, #8f00ff, #4b0082);
+      opacity: 0.3;
+      z-index: -1;
+      animation: vaporwave-bg 10s ease-in-out infinite;
+    }
+
+    @keyframes vaporwave-bg {
+      0% {
+        transform: scale(1);
+      }
+      50% {
+        transform: scale(1.1);
+      }
+      100% {
+        transform: scale(1);
+      }
+    }
+
+    .contact-form {
+      padding: 80px 40px;
+      background: radial-gradient(ellipse at center, #000 0%, #1a1a1a 100%);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .contact-form-title {
+      font-size: 48px;
+      font-weight: 700;
+      letter-spacing: 4px;
+      text-align: center;
+      margin-bottom: 40px;
+      text-shadow: 0 0 20px #00e6e6, 0 0 40px #00e6e6, 0 0 60px #00e6e6;
+    }
+
+    .contact-form-container {
+      max-width: 600px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    .form-label {
+      display: block;
+      font-size: 16px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      margin-bottom: 10px;
+      text-shadow: 0 0 10px #00e6e6, 0 0 20px #00e6e6, 0 0 30px #00e6e6;
+    }
+
+    .form-input {
+      width: 100%;
+      padding: 16px 24px;
+      font-size: 16px;
+      font-weight: 400;
+      letter-spacing: 1px;
+      background-color: rgba(255, 255, 255, 0.1);
+      border: none;
+      border-radius: 50px;
+      color: #fff;
+      box-shadow: 0 0 20px rgba(0, 230, 230, 0.5);
+      transition: box-shadow 0.3s ease;
+    }
+
+    .form-input:focus {
+      outline: none;
+      box-shadow: 0 0 30px rgba(0, 230, 230, 0.7);
+    }
+
+    .form-textarea {
+      resize: none;
+      height: 150px;
+    }
+
+    .form-submit {
+      display: block;
+      width: 100%;
+      padding: 16px 24px;
+      font-size: 16px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      background-color: #00e6e6;
+      color: #000;
+      border: none;
+      border-radius: 50px;
+      cursor: pointer;
+      box-shadow: 0 0 20px #00e6e6, 0 0 40px #00e6e6, 0 0 60px #00e6e6;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .form-submit:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 0 30px #00e6e6, 0 0 50px #00e6e6, 0 0 70px #00e6e6;
+    }
+
+    .steampunk-gears {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(circle, #333 0%, #000 100%);
+      opacity: 0.3;
+      z-index: 0;
+      animation: steampunk-gears 60s linear infinite;
+    }
+
+    @keyframes steampunk-gears {
+      0% {
+        transform: rotate(0deg);
+      }
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+
+    @keyframes glitch {
+      0% {
+        text-shadow: 0 0 20px #00e6e6, 0 0 40px #00e6e6, 0 0 60px #00e6e6;
+      }
+      25% {
+        text-shadow: -2px -2px 0 #00e6e6, 2px 2px 0 #00e6e6;
+      }
+      50% {
+        text-shadow: 2px -2px 0 #00e6e6, -2px 2px 0 #00e6e6;
+      }
+      75% {
+        text-shadow: -2px 2px 0 #00e6e6, 2px -2px 0 #00e6e6;
+      }
+      100% {
+        text-shadow: 0 0 20px #00e6e6, 0 0 40px #00e6e6, 0 0 60px #00e6e6;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .nav {
+        padding: 10px 20px;
+      }
+
+      .nav-logo {
+        font-size: 20px;
+      }
+
+      .nav-menu li {
+        margin-left: 20px;
+        font-size: 14px;
+      }
+
+      .hero-title {
+        font-size: 48px;
+      }
+
+      .hero-subtitle {
+        font-size: 18px;
+        margin-bottom: 30px;
+      }
+
+      .hero-btn {
+        padding: 12px 24px;
+        font-size: 14px;
+      }
+
+      .project-galaxies,
+      .vaporwave-glitches,
+      .contact-form {
+        padding: 60px 20px;
+      }
+
+      .project-galaxies-title,.vaporwave-glitches-title,
+      .contact-form-title {
+        font-size: 36px;
+      }
+
+      .project-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .skills-expertise {
+        flex-direction: column;
+      }
+
+      .skills,
+      .expertise {
+        margin-bottom: 30px;
+      }
+
+      .skills-title,
+      .expertise-title {
+        font-size: 20px;
+      }
+
+      .skill-item,
+      .expertise-item {
+        font-size: 16px;
+      }
+
+      .form-input,
+      .form-submit {
+        padding: 12px 20px;
+        font-size: 14px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="nav">
+    <div class="nav-logo">BLACK HOLE PORTFOLIO</div>
+    <ul class="nav-menu">
+      <li>Home</li>
+      <li>Projects</li>
+      <li>Skills</li>
+      <li>Contact</li>
+    </ul>
+  </header>
+
+  <section class="hero">
+    <div class="hero-content">
+      <h1 class="hero-title">WELCOME TO MY BLACK HOLE</h1>
+      <p class="hero-subtitle">Explore the cosmic depths of my backend developer portfolio</p>
+      <button class="hero-btn">Dive in</button>
+    </div>
+  </section>
+
+  <section class="project-galaxies">
+    <h2 class="project-galaxies-title">PROJECT GALAXIES</h2>
+    <div class="project-grid">
+      <div class="project-item">
+        <img src="https://dummyimage.com/600x400/000/fff&text=PROJECT+GALAXY+1" alt="Project Galaxy 1">
+        <div class="project-info">
+          <h3 class="project-title">Project Galaxy 1</h3>
+          <p class="project-description">Explore the depths of this cosmic project</p>
+        </div>
+      </div>
+      <div class="project-item">
+        <img src="https://dummyimage.com/600x400/000/fff&text=PROJECT+GALAXY+2" alt="Project Galaxy 2">
+        <div class="project-info">
+          <h3 class="project-title">Project Galaxy 2</h3>
+          <p class="project-description">Dive into the abyss of this cosmic project</p>
+        </div>
+      </div>
+      <div class="project-item">
+        <img src="https://dummyimage.com/600x400/000/fff&text=PROJECT+GALAXY+3" alt="Project Galaxy 3">
+        <div class="project-info">
+          <h3 class="project-title">Project Galaxy 3</h3>
+          <p class="project-description">Unravel the mysteries of this cosmic project</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="vaporwave-glitches">
+    <h2 class="vaporwave-glitches-title">VAPORWAVE GLITCHES</h2>
+    <div class="skills-expertise">
+      <div class="skills">
+        <h3 class="skills-title">SKILLS</h3>
+        <div class="skill-item">Backend Development</div>
+        <div class="skill-item">Database Management</div>
+        <div class="skill-item">API Integration</div>
+        <div class="skill-item">Agile Methodologies</div>
+      </div>
+      <div class="expertise">
+        <h3 class="expertise-title">EXPERTISE</h3>
+        <div class="expertise-item">Scalable Systems</div>
+        <div class="expertise-item">Microservices Architecture</div>
+        <div class="expertise-item">Distributed Computing</div>
+        <div class="expertise-item">DevOps Practices</div>
+      </div>
+    </div>
+    <div class="vaporwave-bg"></div>
+  </section>
+
+  <section class="contact-form">
+    <h2 class="contact-form-title">STEAMPUNK NEON CONTACT</h2>
+    <div class="contact-form-container">
+      <form>
+        <div class="form-group">
+          <label for="name" class="form-label">Name</label>
+          <input type="text" id="name" class="form-input" placeholder="Enter your name" required>
+        </div>
+        <div class="form-group">
+          <label for="email" class="form-label">Email</label>
+          <input type="email" id="email" class="form-input" placeholder="Enter your email" required>
+        </div>
+        <div class="form-group">
+          <label for="message" class="form-label">Message</label>
+          <textarea id="message" class="form-input form-textarea" placeholder="Enter your message" required></textarea>
+        </div>
+        <button type="submit" class="form-submit">Send Message</button>
+      </form>
+    </div>
+    <div class="steampunk-gears"></div>
+  </section>
+</body>
+</html>'<!-- Visit: https://github.com/Ishanoshada/portflair -->
+<!-- Visit: https://github.com/Ishanoshada/portflair -->

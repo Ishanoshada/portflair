@@ -1,0 +1,383 @@
+<!-- Portfolio created by Ishan -->
+<!-- Check out my work at: https://github.com/Ishanoshada/portflair -->
+<!-- 2024/10/9 -->
+<!-- Portfolio created by Ishan -->
+<!-- Portfolio created by Ishan -->
+'<html>
+<head>
+  <title>Fractal Animation Portfolio</title>
+  <style>
+    /* Global Styles */
+    body {
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #121212;
+      color: #fff;
+    }
+
+    /* Navigation */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 40px;
+      background-color: #1f1f1f;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      font-size: 18px;
+      font-weight: 500;
+      margin-right: 30px;
+      transition: color 0.3s ease;
+    }
+
+    nav a:hover {
+      color: #ff6b6b;
+    }
+
+    /* Interactive Fractal Visualization */
+    #fractal-visualization {
+      position: relative;
+      height: 80vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+      background-image: radial-gradient(circle, #ff6b6b, #ffa500, #ffff00, #00ff00, #00ffff, #00b0ff, #8000ff);
+      background-size: 400% 400%;
+      animation: gradient-animation 10s ease infinite;
+    }
+
+    @keyframes gradient-animation {
+      0% {
+        background-position: 0% 50%;
+      }
+      50% {
+        background-position: 100% 50%;
+      }
+      100% {
+        background-position: 0% 50%;
+      }
+    }
+
+    #fractal-canvas {
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 1;
+    }
+
+    #fractal-controls {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+
+    #fractal-controls h1 {
+      font-size: 48px;
+      font-weight: 800;
+      margin-bottom: 20px;
+      text-shadow: 0 0 20px rgba(255, 255, 255, 0.8);
+      animation: pulse 2s ease-in-out infinite;
+    }
+
+    @keyframes pulse {
+      0% {
+        transform: scale(1);
+      }
+      50% {
+        transform: scale(1.1);
+      }
+      100% {
+        transform: scale(1);
+      }
+    }
+
+    #fractal-controls button {
+      font-size: 18px;
+      font-weight: 600;
+      padding: 12px 30px;
+      background-color: #ff6b6b;
+      color: #fff;
+      border: none;
+      border-radius: 30px;
+      cursor: pointer;
+      box-shadow: 0 4px 8px rgba(255, 107, 107, 0.4);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    #fractal-controls button:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 16px rgba(255, 107, 107, 0.6);
+    }
+
+    /* Project Showcase */
+    #project-showcase {
+      padding: 80px 40px;
+      background-color: #1f1f1f;
+    }
+
+    #project-showcase h2 {
+      font-size: 36px;
+      font-weight: 800;
+      text-align: center;
+      margin-bottom: 40px;
+      text-shadow: 0 0 20px rgba(255, 255, 255, 0.6);
+    }
+
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-gap: 40px;
+    }
+
+    .project-card {
+      background-color: #2f2f2f;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+      cursor: pointer;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .project-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    }
+
+    .project-card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+
+    .project-details {
+      padding: 20px;
+    }
+
+    .project-details h3 {
+      font-size: 24px;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+
+    .project-details p {
+      font-size: 16px;
+      color: #ccc;
+      margin-bottom: 20px;
+    }
+
+    .project-details a {
+      font-size: 18px;
+      font-weight: 600;
+      color: #ff6b6b;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    .project-details a:hover {
+      color: #ffa500;
+    }
+
+    /* About and Contact */
+    #about-contact {
+      padding: 80px 40px;
+      background-color: #121212;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .about-section {
+      flex: 1;
+      margin-right: 80px;
+    }
+
+    .about-section h2 {
+      font-size: 36px;
+      font-weight: 800;
+      margin-bottom: 20px;
+      text-shadow: 0 0 20px rgba(255, 255, 255, 0.6);
+    }
+
+    .about-section p {
+      font-size: 18px;
+      line-height: 1.6;
+      margin-bottom: 30px;
+    }
+
+    .about-section .testimonial {
+      display: flex;
+      align-items: center;
+      margin-bottom: 30px;
+    }
+
+    .about-section .testimonial img {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      margin-right: 20px;
+    }
+
+    .about-section .testimonial blockquote {
+      font-size: 16px;
+      font-style: italic;
+      color: #ccc;
+    }
+
+    .contact-section {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+    }
+
+    .contact-section h2 {
+      font-size: 36px;
+      font-weight: 800;
+      margin-bottom: 20px;
+      text-shadow: 0 0 20px rgba(255, 255, 255, 0.6);
+    }
+
+    .contact-section form {
+      background-color: #1f1f1f;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      width: 80%;
+    }
+
+    .contact-section input,
+    .contact-section textarea {
+      width: 100%;
+      padding: 12px 20px;
+      margin-bottom: 20px;
+      background-color: #2f2f2f;
+      border: none;
+      border-radius: 5px;
+      color: #fff;
+      font-size: 16px;
+    }
+
+    .contact-section textarea {
+      height: 120px;
+    }
+
+    .contact-section button {
+      font-size: 18px;
+      font-weight: 600;
+      padding: 12px 30px;
+      background-color: #ff6b6b;
+      color: #fff;
+      border: none;
+      border-radius: 30px;
+      cursor: pointer;
+      box-shadow: 0 4px 8px rgba(255, 107, 107, 0.4);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .contact-section button:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 16px rgba(255, 107, 107, 0.6);
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="#">Home</a>
+    <a href="#">Projects</a>
+    <a href="#">About</a>
+    <a href="#">Contact</a>
+  </nav>
+
+  <section id="fractal-visualization">
+    <canvas id="fractal-canvas"></canvas>
+    <div id="fractal-controls">
+      <h1>Explore the Fractals</h1>
+      <button>Play Animation</button>
+    </div>
+  </section>
+
+  <section id="project-showcase">
+    <h2>My Coding Projects</h2>
+    <div class="project-grid">
+      <div class="project-card">
+        <img src="https://dummyimage.com/600x400/ccc/000&text=Project+1" alt="Project 1">
+        <div class="project-details">
+          <h3>Project 1</h3>
+          <p>A dynamic and interactive fractal animation website.</p>
+          <a href="#">Learn More</a>
+        </div>
+      </div>
+      <div class="project-card">
+        <img src="https://dummyimage.com/600x400/ccc/000&text=Project+2" alt="Project 2">
+        <div class="project-details">
+          <h3>Project 2</h3>
+          <p>A responsive and visually striking portfolio website.</p>
+          <a href="#">Learn More</a>
+        </div>
+      </div>
+      <div class="project-card">
+        <img src="https://dummyimage.com/600x400/ccc/000&text=Project+3" alt="Project 3">
+        <div class="project-details">
+          <h3>Project 3</h3>
+          <p>A modern and user-friendly e-commerce platform.</p>
+          <a href="#">Learn More</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="about-contact">
+    <div class="about-section">
+      <h2>About Me</h2>
+      <p>I'm a passionate web designer and developer with a deep fascination for fractals and generative art. My goal is to create visually stunning and interactive experiences that showcase the beauty of code and the power of creativity.</p>
+      <div class="testimonial">
+        <img src="https://dummyimage.com/60x60/ccc/000&text=Client" alt="Client">
+        <blockquote>"Their work is simply breathtaking. The way they combine technology and art is truly inspiring."</blockquote>
+      </div>
+    </div>
+    <div class="contact-section">
+      <h2>Get in Touch</h2>
+      <form>
+        <input type="text" placeholder="Name" required>
+        <input type="email" placeholder="Email" required>
+        <textarea placeholder="Message" required></textarea>
+        <button type="submit">Submit</button>
+      </form>
+    </div>
+  </section>
+
+  <script>
+    // Interactive Fractal Visualization
+    const canvas = document.getElementById('fractal-canvas');
+    const ctx = canvas.getContext('2d');
+    const playButton = document.getElementById('fractal-controls').querySelector('button');
+
+    // Fractal generation and animation logic
+    function generateFractal() {
+      // Implement your fractal generation and animation logic here
+      // Using a JavaScript library or framework like three.js or p5.js
+      // Update the canvas with the evolving fractal patterns
+    }
+
+    playButton.addEventListener('click', () => {
+      generateFractal();
+    });
+  </script>
+</body>
+</html>'<!-- Visit: https://github.com/Ishanoshada/portflair -->
+<!-- Visit: https://github.com/Ishanoshada/portflair -->
+<!-- Visit: https://github.com/Ishanoshada/portflair -->

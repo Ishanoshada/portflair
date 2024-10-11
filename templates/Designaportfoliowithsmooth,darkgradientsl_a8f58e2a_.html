@@ -1,0 +1,443 @@
+<!-- Portfolio created by Ishan -->
+<!-- Check out my work at: https://github.com/Ishanoshada/portflair -->
+<!-- 2024/10/9 -->
+<!-- Portfolio created by Ishan -->
+'<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Design a Portfolio</title>
+  <style>
+    /* CSS Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    /* Body Styles */
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background: linear-gradient(to bottom, #4b0082, #000000);
+      color: #ffffff;
+      overflow-x: hidden;
+    }
+
+    /* Navigation Styles */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 40px;
+      background-color: rgba(0, 0, 0, 0.3);
+      backdrop-filter: blur(10px);
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+    }
+
+    nav a {
+      color: #ffffff;
+      text-decoration: none;
+      font-size: 18px;
+      font-weight: 600;
+      transition: color 0.3s ease;
+    }
+
+    nav a:hover {
+      color: #c0c0c0;
+    }
+
+    /* Hero Section Styles */
+    .hero {
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 0 40px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(to bottom, #4b0082, #000000);
+      opacity: 0.8;
+      z-index: -1;
+    }
+
+    .hero h1 {
+      font-size: 5rem;
+      font-weight: 800;
+      text-align: center;
+      text-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+      animation: fadeIn 1s ease-in-out;
+    }
+
+    .hero p {
+      font-size: 2rem;
+      text-align: center;
+      margin-top: 20px;
+      text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+      animation: fadeIn 1.5s ease-in-out;
+    }
+
+    .hero-image {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: url("https://dummyimage.com/1920x1080/000000/ffffff.jpg&text=Dreamy+Portfolio+Background");
+      background-size: cover;
+      background-position: center;
+      z-index: -2;
+      filter: blur(5px);
+      animation: scaleIn 10s ease-in-out infinite;
+    }
+
+    /* Featured Projects Section Styles */
+    .featured-projects {
+      padding: 80px 40px;
+      background-color: rgba(0, 0, 0, 0.3);
+      backdrop-filter: blur(10px);
+    }
+
+    .featured-projects h2 {
+      font-size: 3rem;
+      font-weight: 800;
+      text-align: center;
+      margin-bottom: 40px;
+      text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+      animation: fadeIn 1s ease-in-out;
+    }
+
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      grid-gap: 40px;
+    }
+
+    .project-thumbnail {
+      position: relative;
+      overflow: hidden;
+      border-radius: 10px;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+      transition: transform 0.3s ease;
+    }
+
+    .project-thumbnail:hover {
+      transform: scale(1.05);
+    }
+
+    .project-thumbnail img {
+      width: 100%;
+      height: 300px;
+      object-fit: cover;
+      filter: brightness(0.8) contrast(1.2);
+      transition: filter 0.3s ease;
+    }
+
+    .project-thumbnail:hover img {
+      filter: brightness(1) contrast(1);
+    }
+
+    .project-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(to bottom, rgba(75, 0, 130, 0.8), rgba(0, 0, 0, 0.8));
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .project-thumbnail:hover .project-overlay {
+      opacity: 1;
+    }
+
+    .project-overlay h3 {
+      font-size: 2rem;
+      font-weight: 700;
+      text-align: center;
+      margin-bottom: 10px;
+      text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+    }
+
+    .project-overlay p {
+      font-size: 1.2rem;
+      text-align: center;
+      margin-bottom: 20px;
+      text-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+    }
+
+    .project-overlay a {
+      display: inline-block;
+      padding: 10px 20px;
+      background-color: #4b0082;
+      color: #ffffff;
+      text-decoration: none;
+      border-radius: 5px;
+      font-size: 1.2rem;
+      font-weight: 600;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+      transition: background-color 0.3s ease;
+    }
+
+    .project-overlay a:hover {
+      background-color: #6a00b8;
+    }
+
+    /* About Section Styles */
+    .about {
+      padding: 80px 40px;
+      background-color: rgba(0, 0, 0, 0.3);
+      backdrop-filter: blur(10px);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .about-content {
+      display: flex;
+      align-items: center;
+      max-width: 1200px;
+      width: 100%;
+    }
+
+    .about-image {
+      flex: 0 0 300px;
+      margin-right: 40px;
+      border-radius: 50%;
+      overflow: hidden;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+      animation: fadeIn 1s ease-in-out;
+    }
+
+    .about-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: brightness(0.8) contrast(1.2);
+      transition: filter 0.3s ease;
+    }
+
+    .about-image:hover img {
+      filter: brightness(1) contrast(1);
+    }
+
+    .about-text {
+      flex: 1;
+      animation: fadeIn 1.5s ease-in-out;
+    }
+
+    .about-text h2 {
+      font-size: 3rem;
+      font-weight: 800;
+      margin-bottom: 20px;
+      text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+    }
+
+    .about-text p {
+      font-size: 1.6rem;
+      line-height: 1.5;
+      margin-bottom: 40px;
+      text-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+    }
+
+    .about-text a {
+      display: inline-block;
+      padding: 10px 20px;
+      background-color: #4b0082;
+      color: #ffffff;
+      text-decoration: none;
+      border-radius: 5px;
+      font-size: 1.2rem;
+      font-weight: 600;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+      transition: background-color 0.3s ease;
+    }
+
+    .about-text a:hover {
+      background-color: #6a00b8;
+    }
+
+    /* Responsive Styles */
+    @media (max-width: 768px) {
+      nav {
+        padding: 10px 20px;
+      }
+
+      nav a {
+        font-size: 16px;
+      }
+
+      .hero {
+        padding: 0 20px;
+      }
+
+      .hero h1 {
+        font-size: 3rem;
+      }
+
+      .hero p {
+        font-size: 1.5rem;
+      }
+
+      .featured-projects {
+        padding: 40px 20px;
+      }
+
+      .featured-projects h2 {
+        font-size: 2rem;
+        margin-bottom: 20px;
+      }
+
+      .project-grid {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        grid-gap: 20px;
+      }
+
+      .project-thumbnail img {
+        height: 200px;
+      }
+
+      .project-overlay h3 {
+        font-size: 1.5rem;
+      }
+
+      .project-overlay p {
+        font-size: 1rem;
+      }
+
+      .project-overlay a {
+        font-size: 1rem;
+      }
+
+      .about {
+        padding: 40px 20px;
+      }
+
+      .about-content {
+        flex-direction: column;
+      }
+
+      .about-image {
+        flex: 0 0 200px;
+        margin-right: 0;
+        margin-bottom: 20px;
+      }
+
+      .about-text h2 {
+        font-size: 2rem;
+        margin-bottom: 10px;
+      }
+
+      .about-text p {
+        font-size: 1.2rem;
+        margin-bottom: 20px;
+      }
+
+      .about-text a {
+        font-size: 1rem;
+      }
+    }
+
+    /* Animations */
+    @keyframes fadeIn {
+      0% {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes scaleIn {
+      0% {
+        transform: scale(1);
+      }
+      50% {
+        transform: scale(1.05);
+      }
+      100% {
+        transform: scale(1);
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="#">Home</a>
+    <a href="#">Featured Projects</a>
+    <a href="#">About</a>
+    <a href="#">Contact</a>
+  </nav>
+
+  <section class="hero">
+    <div class="hero-image"></div>
+    <h1>Design a Breathtaking Portfolio</h1>
+    <p>Showcase your work with smooth, dark gradients and a dreamy nighttime effect.</p>
+  </section>
+
+  <section class="featured-projects">
+    <h2>Featured Projects</h2>
+    <div class="project-grid">
+      <div class="project-thumbnail">
+        <img src="https://dummyimage.com/600x400/4b0082/ffffff.jpg&text=Project+1" alt="Project 1">
+        <div class="project-overlay">
+          <h3>Project 1</h3>
+          <p>A stunning portfolio piece with a dreamy vibe.</p>
+          <a href="#">View Project</a>
+        </div>
+      </div>
+      <div class="project-thumbnail">
+        <img src="https://dummyimage.com/600x400/4b0082/ffffff.jpg&text=Project+2" alt="Project 2">
+        <div class="project-overlay">
+          <h3>Project 2</h3>
+          <p>Showcasing the power of dark gradients and glowing effects.</p>
+          <a href="#">View Project</a>
+        </div>
+      </div>
+      <div class="project-thumbnail">
+        <img src="https://dummyimage.com/600x400/4b0082/ffffff.jpg&text=Project+3" alt="Project 3">
+        <div class="project-overlay">
+          <h3>Project 3</h3>
+          <p>A breathtaking design that captures the essence of your skills.</p>
+          <a href="#">View Project</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="about">
+    <div class="about-content">
+      <div class="about-image">
+        <img src="https://dummyimage.com/300x300/4b0082/ffffff.jpg&text=Designer+Portrait" alt="Designer Portrait">
+      </div>
+      <div class="about-text">
+        <h2>About the Designer</h2>
+        <p>I am a passionate designer with a keen eye for detail and a love for creating visually stunning portfolios. My expertise lies in crafting smooth, dark gradients and incorporating a dreamy nighttime effect to captivate my clients and showcase their work in the most captivating way.</p>
+        <a href="#">Learn More</a>
+      </div>
+    </div>
+  </section>
+</body>
+</html>'<!-- Visit: https://github.com/Ishanoshada/portflair -->
+<!-- Visit: https://github.com/Ishanoshada/portflair -->

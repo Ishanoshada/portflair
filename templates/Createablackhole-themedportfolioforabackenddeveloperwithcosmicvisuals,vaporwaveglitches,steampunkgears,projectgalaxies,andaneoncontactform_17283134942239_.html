@@ -1,0 +1,366 @@
+<!-- Portfolio created by Ishan -->
+<!-- Check out my work at: https://github.com/Ishanoshada/portflair -->
+<!-- 2024/10/9 -->
+<!-- Portfolio created by Ishan -->
+'<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cosmic Vortex - Backend Developer Portfolio</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Orbitron', sans-serif;
+            background-color: #0d0d0d;
+            color: #fff;
+            overflow-x: hidden;
+        }
+
+        /* Navbar */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 2rem;
+            background-color: rgba(13, 13, 13, 0.8);
+            backdrop-filter: blur(10px);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 1.1rem;
+            font-weight: 700;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: #9b59b6;
+        }
+
+        /* Interactive Black Hole Visualization */
+        #black-hole {
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-image: linear-gradient(to bottom, #0d0d0d, #1a1a1a);
+            overflow: hidden;
+            position: relative;
+        }
+
+        #black-hole::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url("https://dummyimage.com/1200x500/2c3e50/ffffff.jpg&text=Cosmic+Void");
+            background-size: cover;
+            background-position: center;
+            filter: blur(10px);
+            z-index: -1;
+        }
+
+        #black-hole-container {
+            width: 80%;
+            height: 80%;
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #black-hole-container::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: radial-gradient(circle, #9b59b6, #8e44ad, #2980b9, #1abc9c);
+            background-size: 400% 400%;
+            animation: vaporwave-glitch 10s ease infinite;
+            z-index: -1;
+        }
+
+        #black-hole-visualization {
+            width: 100%;
+            height: 100%;
+            background-image: url("https://dummyimage.com/800x800/000/fff.jpg&text=Black+Hole");
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+            position: relative;
+            animation: rotate 60s linear infinite;
+        }
+
+        #black-hole-visualization::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: radial-gradient(circle, #9b59b6, #8e44ad, #2980b9, #1abc9c);
+            background-size: 400% 400%;
+            animation: vaporwave-glitch 10s ease infinite;
+            opacity: 0.5;
+        }
+
+        @keyframes rotate {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        @keyframes vaporwave-glitch {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        /* Steampunk-inspired Project Galaxies */
+        #project-galaxies {
+            padding: 5rem 2rem;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-gap: 3rem;
+        }
+
+        .project-galaxy {
+            background-color: rgba(26, 26, 26, 0.8);
+            border-radius: 1rem;
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .project-galaxy:hover {
+            transform: translateY(-10px);
+        }
+
+        .project-galaxy::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url("https://dummyimage.com/400x400/000/fff.jpg&text=Project+Galaxy");
+            background-size: cover;
+            background-position: center;
+            filter: blur(10px) brightness(0.5);
+            z-index: -1;
+        }
+
+        .project-galaxy h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            color: #9b59b6;
+        }
+
+        .project-galaxy p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+        }
+
+        .project-galaxy button {
+            background-color: #9b59b6;
+            color: #fff;
+            border: none;
+            border-radius: 0.5rem;
+            padding: 1rem 2rem;
+            font-size: 1.1rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .project-galaxy button:hover {
+            background-color: #8e44ad;
+        }
+
+        /* Neon-Powered Contact Form */
+        #contact {
+            padding: 5rem 2rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-image: linear-gradient(to bottom, #1a1a1a, #0d0d0d);
+        }
+
+        #contact-form {
+            width: 80%;
+            max-width: 600px;
+            background-color: rgba(26, 26, 26, 0.8);
+            border-radius: 1rem;
+            padding: 3rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        #contact-form::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: radial-gradient(circle, #9b59b6, #8e44ad, #2980b9, #1abc9c);
+            background-size: 400% 400%;
+            animation: neon-glow 10s ease infinite;
+            z-index: -1;
+        }
+
+        #contact-form h2 {
+            font-size: 2.2rem;
+            margin-bottom: 2rem;
+            color: #9b59b6;
+        }
+
+        #contact-form .form-group {
+            width: 100%;
+            margin-bottom: 2rem;
+        }
+
+        #contact-form label {
+            display: block;
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        #contact-form input,
+        #contact-form textarea {
+            width: 100%;
+            padding: 1rem;
+            font-size: 1.1rem;
+            background-color: #1a1a1a;
+            border: none;
+            border-radius: 0.5rem;
+            color: #fff;
+            transition: box-shadow 0.3s ease;
+        }
+
+        #contact-form input:focus,
+        #contact-form textarea:focus {
+            outline: none;
+            box-shadow: 0 0 1rem rgba(155, 89, 182, 0.5);
+        }
+
+        #contact-form button {
+            background-color: #9b59b6;
+            color: #fff;
+            border: none;
+            border-radius: 0.5rem;
+            padding: 1rem 2rem;
+            font-size: 1.1rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        #contact-form button:hover {
+            background-color: #8e44ad;
+        }
+
+        @keyframes neon-glow {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="#">Cosmic Vortex</a>
+        <div>
+            <a href="#">Home</a>
+            <a href="#">Projects</a>
+            <a href="#">About</a>
+            <a href="#">Contact</a>
+        </div>
+    </nav>
+
+    <section id="black-hole">
+        <div id="black-hole-container">
+            <div id="black-hole-visualization"></div>
+        </div>
+    </section>
+
+    <section id="project-galaxies">
+        <div class="project-galaxy">
+            <h3>Project Galaxy</h3>
+            <p>Explore the details of this captivating project.</p>
+            <button>View Project</button>
+        </div>
+        <div class="project-galaxy">
+            <h3>Project Galaxy</h3>
+            <p>Explore the details of this captivating project.</p>
+            <button>View Project</button>
+        </div>
+        <div class="project-galaxy">
+            <h3>Project Galaxy</h3>
+            <p>Explore the details of this captivating project.</p>
+            <button>View Project</button>
+        </div>
+        <div class="project-galaxy">
+            <h3>Project Galaxy</h3>
+            <p>Explore the details of this captivating project.</p>
+            <button>View Project</button>
+        </div>
+    </section>
+
+    <section id="contact">
+        <div id="contact-form">
+            <h2>Get in Touch</h2>
+            <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" id="name" placeholder="Enter your name" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" placeholder="Enter your email" required>
+            </div>
+            <div class="form-group">
+                <label for="message">Message</label>
+                <textarea id="message" rows="5" placeholder="Enter your message" required></textarea>
+            </div>
+            <button type="submit">Send Message</button>
+        </div>
+    </section>
+</body>
+</html>'<!-- Visit: https://github.com/Ishanoshada/portflair -->
+<!-- Visit: https://github.com/Ishanoshada/portflair -->

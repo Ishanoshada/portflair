@@ -1,0 +1,571 @@
+<!-- Portfolio created by Ishan -->
+<!-- Check out my work at: https://github.com/Ishanoshada/portflair -->
+<!-- 2024/10/9 -->
+<!-- Portfolio created by Ishan -->
+'<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cosmic Coder | 3D Animations & Sci-Fi Universe</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Roboto+Mono&display=swap');
+
+        :root {
+            --primary-color: #00ffff;
+            --secondary-color: #ff00ff;
+            --background-color: #050520;
+            --text-color: #ffffff;
+            --accent-color: #ff8c00;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Orbitron', sans-serif;
+            background-color: var(--background-color);
+            color: var(--text-color);
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        header {
+            position: relative;
+            padding: 20px 0;
+            background: linear-gradient(to right, rgba(0,0,0,0.8), rgba(0,0,0,0.4));
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--primary-color);
+            text-shadow: 0 0 10px var(--primary-color);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            color: var(--text-color);
+            text-decoration: none;
+            font-size: 16px;
+            transition: all 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-color);
+            text-shadow: 0 0 10px var(--primary-color);
+        }
+
+        .hero {
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('https://dummyimage.com/1920x1080/000/fff&text=Cosmic+Background') no-repeat center center / cover;
+            opacity: 0.5;
+            animation: pulse 10s infinite alternate;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            100% { transform: scale(1.1); }
+        }
+
+        .hero-content {
+            text-align: center;
+            z-index: 1;
+        }
+
+        h1 {
+            font-size: 4rem;
+            margin-bottom: 20px;
+            color: var(--primary-color);
+            text-shadow: 0 0 20px var(--primary-color);
+        }
+
+        .hero p {
+            font-size: 1.5rem;
+            margin-bottom: 30px;
+            max-width: 600px;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 15px 30px;
+            background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+            color: var(--background-color);
+            text-decoration: none;
+            font-size: 1.2rem;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            box-shadow: 0 0 20px rgba(0, 255, 255, 0.5);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 255, 255, 0.7);
+        }
+
+        .portfolio-showcase {
+            padding: 100px 0;
+            position: relative;
+        }
+
+        .galaxy-container {
+            position: relative;
+            width: 100%;
+            height: 600px;
+            perspective: 1000px;
+        }
+
+        .galaxy {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            transform-style: preserve-3d;
+            animation: rotateGalaxy 60s linear infinite;
+        }
+
+        @keyframes rotateGalaxy {
+            0% { transform: rotateY(0deg); }
+            100% { transform: rotateY(360deg); }
+        }
+
+        .project-orb {
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background: radial-gradient(circle at 30% 30%, var(--primary-color), var(--secondary-color));
+            box-shadow: 0 0 20px var(--primary-color);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .project-orb:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 30px var(--primary-color), 0 0 50px var(--secondary-color);
+        }
+
+        .project-orb:nth-child(1) { transform: translateZ(200px) translateX(-100px) translateY(-50px); }
+        .project-orb:nth-child(2) { transform: translateZ(-100px) translateX(150px) translateY(100px); }
+        .project-orb:nth-child(3) { transform: translateZ(50px) translateX(-200px) translateY(150px); }
+
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            z-index: 2000;
+        }
+
+        .modal-content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 80%;
+            max-width: 800px;
+            background-color: var(--background-color);
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 0 50px var(--primary-color);
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 30px;
+            color: var(--text-color);
+            cursor: pointer;
+        }
+
+        .code-universe {
+            padding: 100px 0;
+            background: linear-gradient(45deg, #1a1a2e, #16213e);
+        }
+
+        .code-interface {
+            display: flex;
+            gap: 30px;
+            background-color: rgba(0, 0, 0, 0.3);
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 0 30px rgba(0, 255, 255, 0.2);
+        }
+
+        .code-editor {
+            flex: 1;
+            background-color: #1e1e1e;
+            border-radius: 10px;
+            padding: 20px;
+            font-family: 'Roboto Mono', monospace;
+            font-size: 14px;
+            line-height: 1.5;
+            color: #d4d4d4;
+            overflow: auto;
+            max-height: 500px;
+        }
+
+        .visualization {
+            flex: 1;
+            background-color: #000;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .toolbar {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+
+        .toolbar button {
+            padding: 10px 20px;
+            background-color: var(--accent-color);
+            color: var(--background-color);
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .toolbar button:hover {
+            background-color: var(--primary-color);
+            box-shadow: 0 0 10px var(--primary-color);
+        }
+
+        .story-lab {
+            padding: 100px 0;
+            background: linear-gradient(45deg, #2c3e50, #4a69bd);
+        }
+
+        .story-interface {
+            display: flex;
+            gap: 30px;
+        }
+
+        .story-orb {
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle at 30% 30%, var(--primary-color), var(--secondary-color));
+            border-radius: 50%;
+            position: relative;
+            box-shadow: 0 0 50px var(--primary-color);
+        }
+
+        .story-elements {
+            flex: 1;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+
+        .story-element {
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .story-element:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+            transform: translateY(-5px);
+        }
+
+        footer {
+            background-color: var(--background-color);
+            color: var(--text-color);
+            text-align: center;
+            padding: 20px 0;
+        }
+
+        @media (max-width: 768px) {
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero-content p {
+                font-size: 1rem;
+            }
+
+            .code-interface, .story-interface {
+                flex-direction: column;
+            }
+
+            .galaxy-container {
+                height: 400px;
+            }
+
+            .project-orb {
+                width: 60px;
+                height: 60px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="container">
+            <div class="logo">Cosmic Coder</div>
+            <div class="nav-links">
+                <a href="#portfolio">Portfolio</a>
+                <a href="#code-universe">Code Universe</a>
+                <a href="#story-lab">Story Lab</a>
+                <a href="#contact">Contact</a>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="hero-content">
+                <h1>Welcome to the Multidimensional Universe</h1>
+                <p>Explore mind-bending 3D animations, dive into sci-fi worlds, and unleash your coding creativity.</p>
+                <a href="#portfolio" class="cta-button">Begin Your Journey</a>
+            </div>
+        </section>
+
+        <section id="portfolio" class="portfolio-showcase">
+            <div class="container">
+                <h2>Interactive 3D Universe</h2>
+                <div class="galaxy-container">
+                    <div class="galaxy">
+                        <div class="project-orb" data-project="1"></div>
+                        <div class="project-orb" data-project="2"></div>
+                        <div class="project-orb" data-project="3"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="code-universe" class="code-universe">
+            <div class="container">
+                <h2>Code-to-Universe Generator</h2>
+                <div class="code-interface">
+                    <div class="code-editor">
+                        function createGalaxy() {
+                            // Your code here
+                        }
+
+                        function spawnAlienRace() {
+                            // Your code here
+                        }
+
+                        createGalaxy();
+                        spawnAlienRace();
+                    </div>
+                    <div class="visualization">
+                        <div id="universe-render"></div>
+                    </div>
+                </div>
+                <div class="toolbar">
+                    <button id="run-code">Run</button>
+                    <button id="reset-universe">Reset</button>
+                    <button id="random-seed">Random Seed</button>
+                    <button id="share-universe">Share</button>
+                </div>
+            </div>
+        </section>
+
+        <section id="story-lab" class="story-lab">
+            <div class="container">
+                <h2>Sci-Fi Story Lab</h2>
+                <div class="story-interface">
+                    <div class="story-orb" id="story-orb"></div>
+                    <div class="story-elements">
+                        <div class="story-element" data-type="character">Character</div>
+                        <div class="story-element" data-type="setting">Setting</div>
+                        <div class="story-element" data-type="plot">Plot</div>
+                        <div class="story-element" data-type="technology">Technology</div>
+                    </div>
+                </div>
+                <button id="visualize-story">Visualize Story</button>
+                <button id="random-inspiration">Random Inspiration</button>
+                <textarea id="story-output" rows="10" placeholder="Your story will appear here..."></textarea>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Cosmic Coder. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <div class="modal" id="project-modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h3 id="modal-title"></h3>
+            <div id="modal-animation"></div>
+            <p id="modal-description"></p>
+            <div id="modal-tech-details"></div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const modal = document.getElementById('project-modal');
+            const closeModal = document.querySelector('.close-modal');
+            const projectOrbs = document.querySelectorAll('.project-orb');
+
+            projectOrbs.forEach(orb => {
+                orb.addEventListener('click', () => {
+                    const projectId = orb.getAttribute('data-project');
+                    openProjectModal(projectId);
+                });
+            });
+
+            closeModal.addEventListener('click', () => {
+                modal.style.display = 'none';
+            });
+
+            window.addEventListener('click', (e) => {
+                if (e.target === modal) {
+                    modal.style.display = 'none';
+                }
+            });
+
+            function openProjectModal(projectId) {
+                const projectData = {
+                    1: {
+                        title: "Nebula Nexus",
+                        description: "A sprawling space opera set in a distant galaxy.",
+                        techDetails: "Created using WebGL and Three.js"
+                    },
+                    2: {
+                        title: "Quantum Quandary",
+                        description: "An mind-bending exploration of parallel universes.",
+                        techDetails: "Powered by custom physics engine"
+                    },
+                    3: {
+                        title: "Cybernetic Cityscape",
+                title: "Cybernetic Cityscape",
+                        description: "A futuristic metropolis where humans and AI coexist.",
+                        techDetails: "Rendered using ray tracing techniques"
+                    }
+                };
+
+                const project = projectData[projectId];
+                document.getElementById('modal-title').textContent = project.title;
+                document.getElementById('modal-description').textContent = project.description;
+                document.getElementById('modal-tech-details').textContent = project.techDetails;
+                document.getElementById('modal-animation').innerHTML = `<div style="width:100%;height:200px;background:linear-gradient(45deg,#00ffff,#ff00ff);border-radius:10px;"></div>`;
+                modal.style.display = 'block';
+            }
+
+            const codeEditor = document.querySelector('.code-editor');
+            const runCodeBtn = document.getElementById('run-code');
+            const resetUniverseBtn = document.getElementById('reset-universe');
+            const randomSeedBtn = document.getElementById('random-seed');
+            const shareUniverseBtn = document.getElementById('share-universe');
+
+            runCodeBtn.addEventListener('click', () => {
+                const code = codeEditor.textContent;
+                try {
+                    eval(code);
+                    alert('Code executed successfully!');
+                } catch (error) {
+                    alert('Error: ' + error.message);
+                }
+            });
+
+            resetUniverseBtn.addEventListener('click', () => {
+                document.getElementById('universe-render').innerHTML = '';
+                alert('Universe reset!');
+            });
+
+            randomSeedBtn.addEventListener('click', () => {
+                const randomCode = `function createRandomGalaxy() {
+    const stars = Math.floor(Math.random() * 1000000);
+    const planets = Math.floor(Math.random() * 100);
+    console.log(\`Created a galaxy with \${stars} stars and \${planets} planets.\`);
+}
+
+createRandomGalaxy();`;
+                codeEditor.textContent = randomCode;
+            });
+
+            shareUniverseBtn.addEventListener('click', () => {
+                alert('Universe shared! (Simulation)');
+            });
+
+            const storyOrb = document.getElementById('story-orb');
+            const storyElements = document.querySelectorAll('.story-element');
+            const visualizeStoryBtn = document.getElementById('visualize-story');
+            const randomInspirationBtn = document.getElementById('random-inspiration');
+            const storyOutput = document.getElementById('story-output');
+
+            storyElements.forEach(element => {
+                element.addEventListener('click', () => {
+                    const type = element.getAttribute('data-type');
+                    addStoryElement(type);
+                });
+            });
+
+            function addStoryElement(type) {
+                const elements = {
+                    character: ['Space pirate', 'AI consciousness', 'Alien diplomat'],
+                    setting: ['Dyson sphere', 'Underwater city on Europa', 'Martian colony'],
+                    plot: ['Time travel paradox', 'First contact gone wrong', 'Intergalactic war'],
+                    technology: ['Quantum teleportation', 'Nanobots', 'Faster-than-light drive']
+                };
+                const element = elements[type][Math.floor(Math.random() * elements[type].length)];
+                storyOutput.value += `${type.charAt(0).toUpperCase() + type.slice(1)}: ${element}\n`;
+                storyOrb.style.boxShadow = `0 0 50px ${getRandomColor()}`;
+            }
+
+            visualizeStoryBtn.addEventListener('click', () => {
+                alert('Story visualization in progress! (Simulation)');
+            });
+
+            randomInspirationBtn.addEventListener('click', () => {
+                const inspirations = ['A black hole that leads to another universe', 'A planet where time flows backwards', 'An AI that believes it\'s human'];
+                const inspiration = inspirations[Math.floor(Math.random() * inspirations.length)];
+                storyOutput.value += `Random Inspiration: ${inspiration}\n`;
+            });
+
+            function getRandomColor() {
+                return `#${Math.floor(Math.random()*16777215).toString(16)}`;
+            }
+        });
+    </script>
+</body>
+</html>'<!-- Visit: https://github.com/Ishanoshada/portflair -->
+<!-- Visit: https://github.com/Ishanoshada/portflair -->

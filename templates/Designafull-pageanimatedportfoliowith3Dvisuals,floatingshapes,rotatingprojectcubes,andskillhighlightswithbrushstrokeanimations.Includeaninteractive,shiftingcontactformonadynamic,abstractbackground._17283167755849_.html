@@ -1,0 +1,448 @@
+<!-- Portfolio created by Ishan -->
+<!-- Check out my work at: https://github.com/Ishanoshada/portflair -->
+<!-- 2024/10/9 -->
+<!-- Portfolio created by Ishan -->
+'<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Design a full-page animated portfolio</title>
+    <style>
+        /* Global Styles */
+        body {
+            margin: 0;
+            font-family: 'Montserrat', sans-serif;
+            background-color: #121212;
+            color: #f2f2f2;
+            overflow-x: hidden;
+        }
+
+        /* Navigation */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 40px;
+            background-color: rgba(18, 18, 18, 0.8);
+            backdrop-filter: blur(10px);
+            position: fixed;
+            width: 100%;
+            z-index: 100;
+            transition: all 0.3s ease-in-out;
+        }
+
+        nav a {
+            color: #f2f2f2;
+            text-decoration: none;
+            font-size: 18px;
+            font-weight: 500;
+            padding: 10px 20px;
+            border-radius: 20px;
+            transition: all 0.3s ease-in-out;
+        }
+
+        nav a:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        /* Hero/Intro Section */
+        .hero {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, #2b2b2b, #1c1c1c, #121212);
+            background-size: 400% 400%;
+            animation: heroAnimation 20s ease infinite;
+            z-index: -1;
+        }
+
+        @keyframes heroAnimation {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        .hero h1 {
+            font-size: 72px;
+            font-weight: 800;
+            text-align: center;
+            text-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+            animation: heroFade 2s ease-in-out;
+        }
+
+        @keyframes heroFade {
+            0% {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero-3d {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 800px;
+            height: 600px;
+            perspective: 1000px;
+            animation: heroRotate 20s linear infinite;
+        }
+
+        @keyframes heroRotate {
+            0% {
+                transform: translate(-50%, -50%) rotate(0deg);
+            }
+            100% {
+                transform: translate(-50%, -50%) rotate(360deg);
+            }
+        }
+
+        .hero-cube {
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+            transform-style: preserve-3d;
+            animation: cubeSpin 10s linear infinite;
+        }
+
+        @keyframes cubeSpin {
+            0% {
+                transform: rotateX(0deg) rotateY(0deg);
+            }
+            100% {
+                transform: rotateX(360deg) rotateY(360deg);
+            }
+        }
+
+        /* Portfolio Section */
+        .portfolio {
+            padding: 100px 40px;
+            background-color: #1c1c1c;
+        }
+
+        .portfolio h2 {
+            font-size: 48px;
+            font-weight: 800;
+            text-align: center;
+            margin-bottom: 60px;
+            text-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+        }
+
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-gap: 40px;
+        }
+
+        .portfolio-item {
+            position: relative;
+            perspective: 1000px;
+        }
+
+        .portfolio-item-inner {
+            position: relative;
+            width: 100%;
+            height: 0;
+            padding-bottom: 100%;
+            transform-style: preserve-3d;
+            transition: transform 0.5s;
+        }
+
+        .portfolio-item:hover .portfolio-item-inner {
+            transform: rotateY(180deg);
+        }
+
+        .portfolio-front,
+        .portfolio-back {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .portfolio-back {
+            transform: rotateY(180deg);
+        }
+
+        .portfolio-item h3 {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .portfolio-item p {
+            font-size: 16px;
+            margin-bottom: 20px;
+        }
+
+        .portfolio-item a {
+            color: #f2f2f2;
+            text-decoration: none;
+            padding: 10px 20px;
+            border-radius: 20px;
+            background-color: rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease-in-out;
+        }
+
+        .portfolio-item a:hover {
+            background-color: rgba(255, 255, 255, 0.3);
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 100px 40px;
+            background: linear-gradient(45deg, #2b2b2b, #1c1c1c, #121212);
+            background-size: 400% 400%;
+            animation: contactAnimation 20s ease infinite;
+        }
+
+        @keyframes contactAnimation {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        .contact h2 {
+            font-size: 48px;
+            font-weight: 800;
+            text-align: center;
+            margin-bottom: 60px;
+            text-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+        }
+
+        .contact-form {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+            padding: 40px;
+            animation: formShift 10s linear infinite;
+        }
+
+        @keyframes formShift {
+            0% {
+                transform: translateX(-20px) translateY(10px) rotate(-5deg);
+            }
+            50% {
+                transform: translateX(20px) translateY(-10px) rotate(5deg);
+            }
+            100% {
+                transform: translateX(-20px) translateY(10px) rotate(-5deg);
+            }
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 10px 20px;
+            margin-bottom: 20px;
+            background-color: rgba(255, 255, 255, 0.2);
+            border: none;
+            border-radius: 20px;
+            color: #f2f2f2;
+            font-size: 16px;
+            font-family: 'Montserrat', sans-serif;
+            transition: all 0.3s ease-in-out;
+        }
+
+        .contact-form input:focus,
+        .contact-form textarea:focus {
+            outline: none;
+            background-color: rgba(255, 255, 255, 0.3);
+        }
+
+        .contact-form button {
+            display: block;
+            width: 100%;
+            padding: 10px 20px;
+            background-color: rgba(255, 255, 255, 0.2);
+            border: none;
+            border-radius: 20px;
+            color: #f2f2f2;
+            font-size: 16px;
+            font-weight: 600;
+            font-family: 'Montserrat', sans-serif;
+            cursor: pointer;
+            transition: all 0.3s ease-in-out;
+        }
+
+        .contact-form button:hover {
+            background-color: rgba(255, 255, 255, 0.3);
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            nav {
+                padding: 10px 20px;
+            }
+
+            nav a {
+                font-size: 16px;
+                padding: 8px 16px;
+            }
+
+            .hero h1 {
+                font-size: 48px;
+            }
+
+            .hero-3d {
+                width: 500px;
+                height: 375px;
+            }
+
+            .portfolio {
+                padding: 60px 20px;
+            }
+
+            .portfolio h2 {
+                font-size: 36px;
+                margin-bottom: 40px;
+            }
+
+            .portfolio-grid {
+                grid-template-columns: repeat(2, 1fr);
+                grid-gap: 30px;
+            }
+
+            .contact {
+                padding: 60px 20px;
+            }
+
+            .contact h2 {
+                font-size: 36px;
+                margin-bottom: 40px;
+            }
+
+            .contact-form {
+                padding: 30px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="#">Home</a>
+        <a href="#">Portfolio</a>
+        <a href="#">About</a>
+        <a href="#">Contact</a>
+    </nav>
+
+    <div class="hero">
+        <div class="hero-bg"></div>
+        <h1>Unleash Your Creative Vision</h1>
+        <div class="hero-3d">
+            <div class="hero-cube"></div>
+            <div class="hero-cube"></div>
+            <div class="hero-cube"></div>
+            <div class="hero-cube"></div>
+            <div class="hero-cube"></div>
+            <div class="hero-cube"></div>
+        </div>
+    </div>
+
+    <div class="portfolio">
+        <h2>My Portfolio</h2>
+        <div class="portfolio-grid">
+            <div class="portfolio-item">
+                <div class="portfolio-item-inner">
+                    <div class="portfolio-front">
+                        <h3>Project 1</h3>
+                        <p>Explore the 3D visuals and floating shapes.</p>
+                        <a href="#">View Project</a>
+                    </div>
+                    <div class="portfolio-back">
+                        <h3>Project 1</h3>
+                        <p>Discover the intricate details and animations.</p>
+                        <a href="#">View Project</a>
+                    </div>
+                </div>
+            </div>
+            <div class="portfolio-item">
+                <div class="portfolio-item-inner">
+                    <div class="portfolio-front">
+                        <h3>Project 2</h3>
+                        <p>Experience the rotating project cubes.</p>
+                        <a href="#">View Project</a>
+                    </div>
+                    <div class="portfolio-back">
+                        <h3>Project 2</h3>
+                        <p>Dive into the brushstroke animations.</p>
+                        <a href="#">View Project</a>
+                    </div>
+                </div>
+            </div>
+            <div class="portfolio-item">
+                <div class="portfolio-item-inner">
+                    <div class="portfolio-front">
+                        <h3>Project 3</h3>
+                        <p>Immerse yourself in the dynamic design.</p>
+                        <a href="#">View Project</a>
+                    </div>
+                    <div class="portfolio-back">
+                        <h3>Project 3</h3>
+                        <p>Explore the interactive elements.</p>
+                        <a href="#">View Project</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="contact">
+        <h2>Get in Touch</h2>
+        <div class="contact-form">
+            <form>
+                <input type="text" placeholder="Name" />
+                <input type="email" placeholder="Email" />
+                <textarea placeholder="Message"></textarea>
+                <button type="submit">Submit</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>'<!-- Visit: https://github.com/Ishanoshada/portflair -->
+<!-- Visit: https://github.com/Ishanoshada/portflair -->

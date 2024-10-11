@@ -1,0 +1,425 @@
+<!-- Portfolio created by Ishan -->
+<!-- Check out my work at: https://github.com/Ishanoshada/portflair -->
+<!-- 2024/10/9 -->
+<!-- Portfolio created by Ishan -->
+<!-- Portfolio created by Ishan -->
+'<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Build a Highly Modern Portfolio</title>
+  <style>
+    /* Global Styles */
+    body {
+      font-family: 'Montserrat', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #000;
+      color: #fff;
+    }
+
+    /* Navbar Styles */
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 40px;
+      background-color: #0d0d0d;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    .navbar-brand {
+      font-size: 24px;
+      font-weight: bold;
+      color: #fff;
+      text-decoration: none;
+    }
+
+    .navbar-nav {
+      display: flex;
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .navbar-nav li {
+      margin-left: 20px;
+    }
+
+    .navbar-nav li a {
+      color: #fff;
+      text-decoration: none;
+      font-size: 16px;
+      transition: color 0.3s ease;
+    }
+
+    .navbar-nav li a:hover {
+      color: #ccc;
+    }
+
+    /* About Me Section Styles */
+    .about-me {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 80px 40px;
+    }
+
+    .about-me-content {
+      max-width: 800px;
+      text-align: center;
+    }
+
+    .about-me-content h1 {
+      font-size: 48px;
+      font-weight: bold;
+      margin-bottom: 20px;
+    }
+
+    .about-me-content p {
+      font-size: 18px;
+      line-height: 1.6;
+      margin-bottom: 40px;
+    }
+
+    .about-me-image {
+      max-width: 300px;
+      border-radius: 50%;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+      margin-right: 40px;
+    }
+
+    .about-me-skills {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-top: 40px;
+    }
+
+    .about-me-skills i {
+      font-size: 32px;
+      color: #fff;
+      margin: 10px;
+      transition: transform 0.3s ease;
+    }
+
+    .about-me-skills i:hover {
+      transform: scale(1.2);
+    }
+
+    /* Portfolio Section Styles */
+    .portfolio {
+      padding: 80px 40px;
+    }
+
+    .portfolio h2 {
+      font-size: 36px;
+      font-weight: bold;
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .portfolio-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-gap: 40px;
+    }
+
+    .portfolio-item {
+      position: relative;
+      overflow: hidden;
+      border-radius: 8px;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+      cursor: pointer;
+    }
+
+    .portfolio-item img {
+      width: 100%;
+      height: 300px;
+      object-fit: cover;
+      transition: transform 0.3s ease;
+    }
+
+    .portfolio-item:hover img {
+      transform: scale(1.1);
+    }
+
+    .portfolio-item-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.7);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .portfolio-item:hover .portfolio-item-overlay {
+      opacity: 1;
+    }
+
+    .portfolio-item-overlay h3 {
+      font-size: 24px;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+
+    .portfolio-item-overlay p {
+      font-size: 16px;
+      margin-bottom: 20px;
+    }
+
+    .portfolio-item-overlay a {
+      color: #fff;
+      text-decoration: none;
+      font-size: 16px;
+      padding: 10px 20px;
+      background-color: #333;
+      border-radius: 4px;
+      transition: background-color 0.3s ease;
+    }
+
+    .portfolio-item-overlay a:hover {
+      background-color: #555;
+    }
+
+    /* Contact Section Styles */
+    .contact {
+      padding: 80px 40px;
+      background-color: #0d0d0d;
+    }
+
+    .contact h2 {
+      font-size: 36px;
+      font-weight: bold;
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .contact-form {
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+      display: block;
+      width: 100%;
+      padding: 16px;
+      font-size: 16px;
+      border: none;
+      border-radius: 4px;
+      background-color: #1a1a1a;
+      color: #fff;
+      margin-bottom: 20px;
+      transition: background-color 0.3s ease;
+    }
+
+    .contact-form input:focus,
+    .contact-form textarea:focus {
+      background-color: #333;
+    }
+
+    .contact-form button {
+      display: block;
+      width: 100%;
+      padding: 16px;
+      font-size: 16px;
+      font-weight: bold;
+      border: none;
+      border-radius: 4px;
+      background-color: #ff6b6b;
+      color: #fff;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .contact-form button:hover {
+      background-color: #ff4d4d;
+    }
+
+    .contact-info {
+      text-align: center;
+      margin-top: 40px;
+    }
+
+    .contact-info a {
+      color: #fff;
+      text-decoration: none;
+      font-size: 16px;
+      margin: 0 10px;
+      transition: color 0.3s ease;
+    }
+
+    .contact-info a:hover {
+      color: #ccc;
+    }
+
+    /* Media Queries */
+    @media (max-width: 991px) {
+      .about-me {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .about-me-image {
+        margin-right: 0;
+        margin-bottom: 40px;
+      }
+
+      .portfolio-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 767px) {
+      .navbar {
+        padding: 16px 24px;
+      }
+
+      .navbar-brand {
+        font-size: 20px;
+      }
+
+      .navbar-nav li {
+        margin-left: 16px;
+      }
+
+      .navbar-nav li a {
+        font-size: 14px;
+      }
+
+      .about-me-content h1 {
+        font-size: 36px;
+      }
+
+      .about-me-content p {
+        font-size: 16px;
+      }
+
+      .portfolio {
+        padding: 60px 24px;
+      }
+
+      .portfolio-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .contact {
+        padding: 60px 24px;
+      }
+
+      .contact h2 {
+        font-size: 28px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav class="navbar">
+    <a href="#" class="navbar-brand">Build</a>
+    <ul class="navbar-nav">
+      <li><a href="#">Home</a></li>
+      <li><a href="#">About</a></li>
+      <li><a href="#">Portfolio</a></li>
+      <li><a href="#">Contact</a></li>
+    </ul>
+  </nav>
+
+  <section class="about-me">
+    <img src="https://dummyimage.com/300x300/ccc/000&text=Designer+Portrait" alt="Designer Portrait" class="about-me-image">
+    <div class="about-me-content">
+      <h1>John Doe</h1>
+      <p>I'm a highly skilled and experienced designer, specializing in creating modern, visually stunning portfolios. With a keen eye for detail and a passion for clean, minimalist design, I strive to deliver exceptional work that pushes the boundaries of what's possible.</p>
+      <div class="about-me-skills">
+        <i class="fas fa-palette"></i>
+        <i class="fas fa-code"></i>
+        <i class="fas fa-mobile-alt"></i>
+        <i class="fas fa-desktop"></i>
+        <i class="fas fa-rocket"></i>
+      </div>
+    </div>
+  </section>
+
+  <section class="portfolio">
+    <h2>My Portfolio</h2>
+    <div class="portfolio-grid">
+      <div class="portfolio-item">
+        <img src="https://dummyimage.com/600x400/ccc/000&text=Project+1" alt="Project 1">
+        <div class="portfolio-item-overlay">
+          <h3>Project 1</h3>
+          <p>A sleek and modern website design</p>
+          <a href="#">View Case Study</a>
+        </div>
+      </div>
+      <div class="portfolio-item">
+        <img src="https://dummyimage.com/600x400/ccc/000&text=Project+2" alt="Project 2">
+        <div class="portfolio-item-overlay">
+          <h3>Project 2</h3>
+          <p>A minimalist branding and identity system</p>
+          <a href="#">View Case Study</a>
+        </div>
+      </div>
+      <div class="portfolio-item">
+        <img src="https://dummyimage.com/600x400/ccc/000&text=Project+3" alt="Project 3">
+        <div class="portfolio-item-overlay">
+          <h3>Project 3</h3>
+          <p>An interactive and engaging web application</p>
+          <a href="#">View Case Study</a>
+        </div>
+      </div>
+      <div class="portfolio-item">
+        <img src="https://dummyimage.com/600x400/ccc/000&text=Project+4" alt="Project 4">
+        <div class="portfolio-item-overlay">
+          <h3>Project 4</h3>
+          <p>A bold and ambitious mobile app design</p>
+          <a href="#">View Case Study</a>
+        </div>
+      </div>
+      <div class="portfolio-item">
+        <img src="https://dummyimage.com/600x400/ccc/000&text=Project+5" alt="Project 5">
+        <div class="portfolio-item-overlay">
+          <h3>Project 5</h3>
+          <p>A comprehensive brand identity system</p>
+          <a href="#">View Case Study</a>
+        </div>
+      </div>
+      <div class="portfolio-item">
+        <img src="https://dummyimage.com/600x400/ccc/000&text=Project+6" alt="Project 6">
+        <div class="portfolio-item-overlay">
+          <h3>Project 6</h3>
+          <p>A cutting-edge e-commerce platform</p>
+          <a href="#">View Case Study</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact">
+    <h2>Get in Touch</h2>
+    <form class="contact-form">
+      <input type="text" placeholder="Name" required>
+      <input type="email" placeholder="Email" required>
+      <textarea placeholder="Message" required></textarea>
+      <button type="submit">Submit</button>
+    </form>
+    <div class="contact-info">
+      <a href="mailto:john@example.com">john@example.com</a>
+      <a href="tel:+1234567890">+1 (234) 567-890</a>
+      <a href="#" target="_blank">LinkedIn</a>
+      <a href="#" target="_blank">Twitter</a>
+    </div>
+  </section>
+
+  <!-- Font Awesome Icons -->
+  <script src="https://kit.fontawesome.com/your-font-awesome-kit.js" crossorigin="anonymous"></script>
+</body>
+</html>'<!-- Visit: https://github.com/Ishanoshada/portflair -->
+<!-- Visit: https://github.com/Ishanoshada/portflair -->
+<!-- Visit: https://github.com/Ishanoshada/portflair -->

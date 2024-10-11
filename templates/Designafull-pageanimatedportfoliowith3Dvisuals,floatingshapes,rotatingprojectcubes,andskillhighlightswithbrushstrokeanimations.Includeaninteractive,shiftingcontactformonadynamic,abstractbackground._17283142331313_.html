@@ -1,0 +1,361 @@
+<!-- Portfolio created by Ishan -->
+<!-- Check out my work at: https://github.com/Ishanoshada/portflair -->
+<!-- 2024/10/9 -->
+<!-- Portfolio created by Ishan -->
+'<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Design Portfolio</title>
+  <style>
+    /* CSS Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    /* Body Styles */
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background: linear-gradient(to right, #4b6cb7, #182848);
+      overflow-x: hidden;
+    }
+
+    /* Navigation Styles */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 40px;
+      background-color: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      position: fixed;
+      width: 100%;
+      z-index: 100;
+    }
+
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      font-size: 18px;
+      font-weight: 500;
+      margin: 0 20px;
+      transition: color 0.3s ease-in-out;
+    }
+
+    nav a:hover {
+      color: #9bc5c3;
+    }
+
+    /* Interactive Portfolio Section */
+    .portfolio-section {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .portfolio-background {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(to right, #8e9eab, #eef2f3);
+      z-index: -1;
+      animation: background-shift 10s ease-in-out infinite;
+    }
+
+    .portfolio-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      width: 80%;
+      height: 80%;
+      perspective: 1000px;
+    }
+
+    .portfolio-item {
+      width: 200px;
+      height: 200px;
+      margin: 20px;
+      position: relative;
+      transform-style: preserve-3d;
+      transition: transform 0.5s;
+    }
+
+    .portfolio-item:hover {
+      transform: rotateY(180deg);
+    }
+
+    .portfolio-front,
+    .portfolio-back {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      backface-visibility: hidden;
+    }
+
+    .portfolio-front {
+      background-color: #fff;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    }
+
+    .portfolio-back {
+      background-color: #9bc5c3;
+      color: #fff;
+      transform: rotateY(180deg);
+      padding: 20px;
+      text-align: center;
+    }
+
+    /* Skills Highlight Section */
+    .skills-section {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      background: linear-gradient(to right, #4b6cb7, #182848);
+      overflow: hidden;
+    }
+
+    .skills-background {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: url('https://dummyimage.com/1200x500/ccc/000&text=Skills+Background');
+      background-size: cover;
+      background-position: center;
+      opacity: 0.3;
+      animation: background-shift 10s ease-in-out infinite;
+    }
+
+    .skills-container {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      grid-gap: 40px;
+      width: 80%;
+      z-index: 1;
+    }
+
+    .skill-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background-color: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      border-radius: 10px;
+      padding: 30px;
+      text-align: center;
+      color: #fff;
+      transition: transform 0.3s ease-in-out;
+    }
+
+    .skill-item:hover {
+      transform: translateY(-10px);
+    }
+
+    .skill-item i {
+      font-size: 40px;
+      margin-bottom: 20px;
+      animation: rotate 5s linear infinite;
+    }
+
+    /* Contact Form Section */
+    .contact-section {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      background: linear-gradient(to right, #8e9eab, #eef2f3);
+      overflow: hidden;
+    }
+
+    .contact-background {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: url('https://dummyimage.com/1200x500/ccc/000&text=Contact+Background');
+      background-size: cover;
+      background-position: center;
+      opacity: 0.3;
+      animation: background-shift 10s ease-in-out infinite;
+    }
+
+    .contact-form {
+      background-color: rgba(255, 255, 255, 0.9);
+      backdrop-filter: blur(10px);
+      border-radius: 10px;
+      padding: 40px;
+      width: 400px;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+      position: relative;
+      z-index: 1;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 20px;
+      border: none;
+      border-radius: 5px;
+      background-color: rgba(255, 255, 255, 0.5);
+      backdrop-filter: blur(5px);
+      font-size: 16px;
+      color: #333;
+      transition: background-color 0.3s ease-in-out;
+    }
+
+    .contact-form input:focus,
+    .contact-form textarea:focus {
+      background-color: #fff;
+    }
+
+    .contact-form button {
+      background-color: #9bc5c3;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background-color 0.3s ease-in-out;
+    }
+
+    .contact-form button:hover {
+      background-color: #7aa6a3;
+    }
+
+    /* Animations */
+    @keyframes background-shift {
+      0% {
+        background-position: 0% 50%;
+      }
+      50% {
+        background-position: 100% 50%;
+      }
+      100% {
+        background-position: 0% 50%;
+      }
+    }
+
+    @keyframes rotate {
+      0% {
+        transform: rotate(0deg);
+      }
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="#">Home</a>
+    <a href="#">Portfolio</a>
+    <a href="#">Skills</a>
+    <a href="#">Contact</a>
+  </nav>
+
+  <section class="portfolio-section">
+    <div class="portfolio-background"></div>
+    <div class="portfolio-container">
+      <div class="portfolio-item">
+        <div class="portfolio-front">
+          <img src="https://dummyimage.com/200x200/ccc/000&text=Project+1" alt="Project 1">
+        </div>
+        <div class="portfolio-back">
+          <h3>Project 1</h3>
+          <p>Client: ABC Company</p>
+          <p>Design Process: Branding, UI/UX</p>
+          <p>Outcome: Responsive Website</p>
+        </div>
+      </div>
+      <div class="portfolio-item">
+        <div class="portfolio-front">
+          <img src="https://dummyimage.com/200x200/ccc/000&text=Project+2" alt="Project 2">
+        </div>
+        <div class="portfolio-back">
+          <h3>Project 2</h3>
+          <p>Client: XYZ Inc.</p>
+          <p>Design Process: Illustration, Motion</p>
+          <p>Outcome: Interactive Landing Page</p>
+        </div>
+      </div>
+      <div class="portfolio-item">
+        <div class="portfolio-front">
+          <img src="https://dummyimage.com/200x200/ccc/000&text=Project+3" alt="Project 3">
+        </div>
+        <div class="portfolio-back">
+          <h3>Project 3</h3>
+          <p>Client: PQR Design</p>
+          <p>Design Process: 3D Modeling, Rendering</p>
+          <p>Outcome: Virtual Showroom</p>
+        </div>
+      </div>
+      <!-- Additional portfolio items -->
+    </div>
+  </section>
+
+  <section class="skills-section">
+    <div class="skills-background"></div>
+    <div class="skills-container">
+      <div class="skill-item">
+        <i class="fas fa-paint-brush"></i>
+        <h3>Graphic Design</h3>
+        <p>Proficiency: Expert</p>
+      </div>
+      <div class="skill-item">
+        <i class="fas fa-code"></i>
+        <h3>Web Development</h3>
+        <p>Proficiency: Advanced</p>
+      </div>
+      <div class="skill-item">
+        <i class="fas fa-cubes"></i>
+        <h3>3D Modeling</h3>
+        <p>Proficiency: Intermediate</p>
+      </div>
+      <div class="skill-item">
+        <i class="fas fa-magic"></i>
+        <h3>Motion Design</h3>
+        <p>Proficiency: Proficient</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact-section">
+    <div class="contact-background"></div>
+    <div class="contact-form">
+      <h2>Get in Touch</h2>
+      <form>
+        <input type="text" placeholder="Name" required>
+        <input type="email" placeholder="Email" required>
+        <textarea placeholder="Message" required></textarea>
+        <button type="submit">Submit</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- Font Awesome Icons -->
+  <script src="https://kit.fontawesome.com/your-font-awesome-kit.js" crossorigin="anonymous"></script>
+</body>
+</html>'<!-- Visit: https://github.com/Ishanoshada/portflair -->
+<!-- Visit: https://github.com/Ishanoshada/portflair -->

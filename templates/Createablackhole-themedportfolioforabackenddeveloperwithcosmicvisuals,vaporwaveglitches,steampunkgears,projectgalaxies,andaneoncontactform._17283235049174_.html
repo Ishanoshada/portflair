@@ -1,0 +1,374 @@
+<!-- Portfolio created by Ishan -->
+<!-- Check out my work at: https://github.com/Ishanoshada/portflair -->
+<!-- 2024/10/9 -->
+<!-- Portfolio created by Ishan -->
+'<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Black Hole Portfolio</title>
+  <style>
+    /* Global Styles */
+    body {
+      font-family: 'Orbitron', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #000;
+      color: #fff;
+    }
+
+    /* Navigation Bar */
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 40px;
+      background-color: rgba(0, 0, 0, 0.5);
+      backdrop-filter: blur(10px);
+    }
+
+    .navbar a {
+      color: #fff;
+      text-decoration: none;
+      font-size: 18px;
+      padding: 10px 20px;
+      border-radius: 20px;
+      transition: background-color 0.3s, color 0.3s;
+    }
+
+    .navbar a:hover {
+      background-color: #fff;
+      color: #000;
+    }
+
+    /* Hero Section */
+    .hero {
+      height: 80vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-bg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      background: url(https://dummyimage.com/1920x1080/000/fff.jpg&text=Black+Hole+Universe) no-repeat center center;
+      background-size: cover;
+      filter: blur(5px);
+    }
+
+    .hero-content {
+      text-align: center;
+      z-index: 1;
+      animation: vaporwaveGlitch 5s infinite linear;
+    }
+
+    .hero-name {
+      font-size: 60px;
+      font-weight: bold;
+      text-shadow: 0 0 20px #9b59b6, 0 0 30px #8e44ad, 0 0 40px #9b59b6;
+      animation: neonGlow 2s infinite alternate;
+    }
+
+    .hero-title {
+      font-size: 30px;
+      margin-top: 10px;
+      text-shadow: 0 0 10px #1abc9c, 0 0 20px #16a085, 0 0 30px #1abc9c;
+    }
+
+    .hero-cta {
+      margin-top: 30px;
+      padding: 15px 30px;
+      font-size: 18px;
+      background-color: #9b59b6;
+      color: #fff;
+      border: none;
+      border-radius: 30px;
+      cursor: pointer;
+      box-shadow: 0 0 20px #9b59b6;
+      transition: background-color 0.3s, box-shadow 0.3s;
+    }
+
+    .hero-cta:hover {
+      background-color: #8e44ad;
+      box-shadow: 0 0 30px #8e44ad;
+    }
+
+    /* Project Showcase Section */
+    .project-showcase {
+      padding: 80px 40px;
+      background-color: #0d1117;
+    }
+
+    .project-showcase h2 {
+      text-align: center;
+      font-size: 36px;
+      margin-bottom: 40px;
+      text-shadow: 0 0 10px #1abc9c, 0 0 20px #16a085, 0 0 30px #1abc9c;
+    }
+
+    .project-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      grid-gap: 40px;
+    }
+
+    .project-card {
+      background-color: #1c2127;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 0 20px rgba(155, 89, 182, 0.5);
+      position: relative;
+      cursor: pointer;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .project-card:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 30px rgba(155, 89, 182, 0.8);
+    }
+
+    .project-card::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(circle at center, transparent, rgba(0, 0, 0, 0.5));
+      z-index: 1;
+    }
+
+    .project-thumbnail {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+
+    .project-details {
+      padding: 20px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .project-details h3 {
+      font-size: 24px;
+      margin-bottom: 10px;
+      text-shadow: 0 0 10px #1abc9c, 0 0 20px #16a085, 0 0 30px #1abc9c;
+    }
+
+    .project-details p {
+      font-size: 16px;
+      color: #aaa;
+      margin-bottom: 20px;
+    }
+
+    .project-link {
+      color: #1abc9c;
+      text-decoration: none;
+      font-size: 18px;
+      transition: color 0.3s;
+    }
+
+    .project-link:hover {
+      color: #16a085;
+    }
+
+    /* Contact Form Section */
+    .contact-form {
+      padding: 80px 40px;
+      background-color: #0d1117;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .contact-form::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(to bottom, #0d1117, #1c2127);
+      opacity: 0.8;
+      z-index: -1;
+    }
+
+    .contact-form h2 {
+      text-align: center;
+      font-size: 36px;
+      margin-bottom: 40px;
+      text-shadow: 0 0 10px #1abc9c, 0 0 20px #16a085, 0 0 30px #1abc9c;
+    }
+
+    .contact-form form {
+      max-width: 500px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+      width: 100%;
+      padding: 15px 20px;
+      margin-bottom: 20px;
+      font-size: 16px;
+      background-color: transparent;
+      border: 2px solid #1abc9c;
+      border-radius: 30px;
+      color: #fff;
+      transition: border-color 0.3s, box-shadow 0.3s;
+    }
+
+    .contact-form input:focus,
+    .contact-form textarea:focus {
+      outline: none;
+      border-color: #16a085;
+      box-shadow: 0 0 10px rgba(22, 160, 133, 0.5);
+    }
+
+    .contact-form textarea {
+      resize: vertical;
+      min-height: 150px;
+    }
+
+    .contact-form button {
+      padding: 15px 30px;
+      font-size: 18px;
+      background-color: #1abc9c;
+      color: #fff;
+      border: none;
+      border-radius: 30px;
+      cursor: pointer;
+      box-shadow: 0 0 20px rgba(22, 160, 133, 0.5);
+      transition: background-color 0.3s, box-shadow 0.3s;
+    }
+
+    .contact-form button:hover {
+      background-color: #16a085;
+      box-shadow: 0 0 30px rgba(22, 160, 133, 0.8);
+    }
+
+    /* Animations */
+    @keyframes vaporwaveGlitch {
+      0% {
+        transform: translate(0, 0);
+      }
+      10% {
+        transform: translate(-2px, 2px);
+      }
+      20% {
+        transform: translate(2px, -2px);
+      }
+      30% {
+        transform: translate(-2px, 2px);
+      }
+      40% {
+        transform: translate(2px, -2px);
+      }
+      50% {
+        transform: translate(-2px, 2px);
+      }
+      60% {
+        transform: translate(2px, -2px);
+      }
+      70% {
+        transform: translate(-2px, 2px);
+      }
+      80% {
+        transform: translate(2px, -2px);
+      }
+      90% {
+        transform: translate(-2px, 2px);
+      }
+      100% {
+        transform: translate(0, 0);
+      }
+    }
+
+    @keyframes neonGlow {
+      0% {
+        text-shadow: 0 0 10px #9b59b6, 0 0 20px #8e44ad, 0 0 30px #9b59b6;
+      }
+      100% {
+        text-shadow: 0 0 20px #9b59b6, 0 0 30px #8e44ad, 0 0 40px #9b59b6;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav class="navbar">
+      <a href="#">Home</a>
+      <a href="#">Projects</a>
+      <a href="#">About</a>
+      <a href="#">Contact</a>
+    </nav>
+  </header>
+
+  <main>
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="hero-bg"></div>
+      <div class="hero-content">
+        <h1 class="hero-name">John Doe</h1>
+        <h2 class="hero-title">Backend Developer</h2>
+        <button class="hero-cta">View Portfolio</button>
+      </div>
+    </section>
+
+    <!-- Project Showcase Section -->
+    <section class="project-showcase">
+      <h2>My Projects</h2>
+      <div class="project-cards">
+        <div class="project-card">
+          <img src="https://dummyimage.com/600x400/000/fff.jpg&text=Project+1" alt="Project 1" class="project-thumbnail">
+          <div class="project-details">
+            <h3>Project 1</h3>
+            <p>A cosmic-themed backend project using cutting-edge technologies.</p>
+            <a href="#" class="project-link">Learn More</a>
+          </div>
+        </div>
+        <div class="project-card">
+          <img src="https://dummyimage.com/600x400/000/fff.jpg&text=Project+2" alt="Project 2" class="project-thumbnail">
+          <div class="project-details">
+            <h3>Project 2</h3>
+            <p>A steampunk-inspired backend system with a galactic twist.</p>
+            <a href="#" class="project-link">Learn More</a>
+          </div>
+        </div>
+        <div class="project-card">
+          <img src="https://dummyimage.com/600x400/000/fff.jpg&text=Project+3" alt="Project 3" class="project-thumbnail">
+          <div class="project-details">
+            <h3>Project 3</h3>
+            <p>A vaporwave-infused backend application that defies gravity.</p>
+            <a href="#" class="project-link">Learn More</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Form Section -->
+    <section class="contact-form">
+      <h2>Get in Touch</h2>
+      <form>
+        <input type="text" placeholder="Name" required>
+        <input type="email" placeholder="Email" required>
+        <textarea placeholder="Message" required></textarea>
+        <button type="submit">Send</button>
+      </form>
+    </section>
+  </main>
+</body>
+</html>'<!-- Visit: https://github.com/Ishanoshada/portflair -->
+<!-- Visit: https://github.com/Ishanoshada/portflair -->

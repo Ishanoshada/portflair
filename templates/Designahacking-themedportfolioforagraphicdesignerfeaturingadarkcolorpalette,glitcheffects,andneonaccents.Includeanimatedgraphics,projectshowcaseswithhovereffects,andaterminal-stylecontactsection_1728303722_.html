@@ -1,0 +1,365 @@
+<!-- Portfolio created by Ishan -->
+<!-- Check out my work at: https://github.com/Ishanoshada/portflair -->
+<!-- 2024/10/9 -->
+<!-- Portfolio created by Ishan -->
+'<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hacking-Themed Portfolio</title>
+    <style>
+        /* Global Styles */
+        body {
+            font-family: 'Consolas', monospace;
+            background-color: #0a0a0a;
+            color: #00ff00;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Navigation */
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+            background-color: #0a0a0a;
+            box-shadow: 0 2px 4px rgba(0, 255, 0, 0.1);
+            position: relative;
+            z-index: 100;
+        }
+
+        .nav a {
+            color: #00ff00;
+            text-decoration: none;
+            font-size: 1.1rem;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+
+        .nav a:hover {
+            color: #7fff00;
+        }
+
+        /* Interactive Project Showcase */
+        .project-showcase {
+            padding: 4rem 2rem;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-gap: 2rem;
+        }
+
+        .project-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 255, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .project-item:hover {
+            transform: scale(1.05);
+        }
+
+        .project-item img {
+            width: 100%;
+            height: auto;
+            display: block;
+            filter: brightness(0.8);
+            transition: filter 0.3s ease;
+        }
+
+        .project-item:hover img {
+            filter: brightness(1);
+        }
+
+        .project-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 255, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .project-item:hover .project-overlay {
+            opacity: 1;
+        }
+
+        .project-overlay h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+            text-shadow: 0 0 10px #00ff00;
+            animation: neon-glow 2s ease-in-out infinite;
+        }
+
+        .project-overlay p {
+            font-size: 1.1rem;
+            text-align: center;
+            max-width: 80%;
+        }
+
+        @keyframes neon-glow {
+            0%, 100% {
+                text-shadow: 0 0 10px #00ff00, 0 0 20px #00ff00, 0 0 30px #00ff00, 0 0 40px #00ff00, 0 0 50px #00ff00, 0 0 60px #00ff00, 0 0 70px #00ff00;
+            }
+            50% {
+                text-shadow: 0 0 5px #00ff00, 0 0 10px #00ff00, 0 0 15px #00ff00, 0 0 20px #00ff00, 0 0 25px #00ff00, 0 0 30px #00ff00, 0 0 35px #00ff00;
+            }
+        }
+
+        /* Interactive Terminal-Style Contact Form */
+        .terminal-contact {
+            padding: 4rem 2rem;
+            background-color: #0a0a0a;
+            box-shadow: 0 -2px 4px rgba(0, 255, 0, 0.1);
+            position: relative;
+        }
+
+        .terminal-contact h2 {
+            font-size: 2rem;
+            margin-bottom: 2rem;
+            text-align: center;
+            text-shadow: 0 0 10px #00ff00;
+            animation: neon-glow 2s ease-in-out infinite;
+        }
+
+        .terminal-form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .terminal-form .form-group {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1.5rem;
+            width: 100%;
+            max-width: 600px;
+        }
+
+        .terminal-form label {
+            font-size: 1.1rem;
+            margin-right: 1rem;
+            width: 100px;
+        }
+
+        .terminal-form input,
+        .terminal-form textarea {
+            flex-grow: 1;
+            background-color: #0a0a0a;
+            color: #00ff00;
+            border: 2px solid #00ff00;
+            border-radius: 4px;
+            padding: 0.5rem 1rem;
+            font-family: 'Consolas', monospace;
+            font-size: 1.1rem;
+            transition: border-color 0.3s ease;
+        }
+
+        .terminal-form input:focus,
+        .terminal-form textarea:focus {
+            outline: none;
+            border-color: #7fff00;
+        }
+
+        .terminal-form button {
+            background-color: #00ff00;
+            color: #0a0a0a;
+            border: none;
+            border-radius: 4px;
+            padding: 0.75rem 1.5rem;
+            font-family: 'Consolas', monospace;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .terminal-form button:hover {
+            background-color: #7fff00;
+        }
+
+        /* Animated Graphic Backgrounds */
+        .animated-backgrounds {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            overflow: hidden;
+        }
+
+        .animated-backgrounds .background {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+            opacity: 0;
+            animation: background-animation 30s ease-in-out infinite;
+        }
+
+        .animated-backgrounds .background:nth-child(1) {
+            background-image: url('https://dummyimage.com/1920x1080/0a0a0a/00ff00&text=Hacking+Background+1');
+            animation-delay: 0s;
+        }
+
+        .animated-backgrounds .background:nth-child(2) {
+            background-image: url('https://dummyimage.com/1920x1080/0a0a0a/00ff00&text=Hacking+Background+2');
+            animation-delay: 10s;
+        }
+
+        .animated-backgrounds .background:nth-child(3) {
+            background-image: url('https://dummyimage.com/1920x1080/0a0a0a/00ff00&text=Hacking+Background+3');
+            animation-delay: 20s;
+        }
+
+        @keyframes background-animation {
+            0% {
+                opacity: 0;
+                transform: scale(1);
+            }
+            10% {
+                opacity: 1;
+                transform: scale(1.05);
+            }
+            90% {
+                opacity: 1;
+                transform: scale(1.05);
+            }
+            100% {
+                opacity: 0;
+                transform: scale(1);
+            }
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .nav {
+                padding: 0.75rem 1.5rem;
+            }
+
+            .nav a {
+                font-size: 1rem;
+            }
+
+            .project-showcase {
+                padding: 3rem 1.5rem;
+                grid-gap: 1.5rem;
+            }
+
+            .project-overlay h3 {
+                font-size: 1.2rem;
+            }
+
+            .project-overlay p {
+                font-size: 1rem;
+            }
+
+            .terminal-contact {
+                padding: 3rem 1.5rem;
+            }
+
+            .terminal-form .form-group {
+                flex-direction: column;
+                align-items: flex-start;
+                margin-bottom: 1rem;
+            }
+
+            .terminal-form label {
+                margin-right: 0;
+                margin-bottom: 0.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="nav">
+        <a href="#">Home</a>
+        <a href="#">About</a>
+        <a href="#">Projects</a>
+        <a href="#">Contact</a>
+    </nav>
+
+    <div class="project-showcase">
+        <div class="project-item">
+            <img src="https://dummyimage.com/600x400/0a0a0a/00ff00&text=Project+1" alt="Project 1">
+            <div class="project-overlay">
+                <h3>Project 1</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            </div>
+        </div>
+        <div class="project-item">
+            <img src="https://dummyimage.com/600x400/0a0a0a/00ff00&text=Project+2" alt="Project 2">
+            <div class="project-overlay">
+                <h3>Project 2</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            </div>
+        </div>
+        <div class="project-item">
+            <img src="https://dummyimage.com/600x400/0a0a0a/00ff00&text=Project+3" alt="Project 3">
+            <div class="project-overlay">
+                <h3>Project 3</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            </div>
+        </div>
+        <div class="project-item">
+            <img src="https://dummyimage.com/600x400/0a0a0a/00ff00&text=Project+4" alt="Project 4">
+            <div class="project-overlay">
+                <h3>Project 4</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            </div>
+        </div>
+        <div class="project-item">
+            <img src="https://dummyimage.com/600x400/0a0a0a/00ff00&text=Project+5" alt="Project 5">
+            <div class="project-overlay">
+                <h3>Project 5</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            </div>
+        </div>
+        <div class="project-item">
+            <img src="https://dummyimage.com/600x400/0a0a0a/00ff00&text=Project+6" alt="Project 6">
+            <div class="project-overlay">
+                <h3>Project 6</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="terminal-contact">
+        <h2>Contact Me</h2>
+        <form class="terminal-form">
+            <div class="form-group">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" placeholder="Enter your name">
+            </div>
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" placeholder="Enter your email">
+            </div>
+            <div class="form-group">
+                <label for="message">Message:</label>
+                <textarea id="message" name="message" placeholder="Enter your message"></textarea>
+            </div>
+            <button type="submit">Send</button>
+        </form>
+    </div>
+
+    <div class="animated-backgrounds">
+        <div class="background"></div>
+        <div class="background"></div>
+        <div class="background"></div>
+    </div>
+</body>
+</html>'<!-- Visit: https://github.com/Ishanoshada/portflair -->
+<!-- Visit: https://github.com/Ishanoshada/portflair -->

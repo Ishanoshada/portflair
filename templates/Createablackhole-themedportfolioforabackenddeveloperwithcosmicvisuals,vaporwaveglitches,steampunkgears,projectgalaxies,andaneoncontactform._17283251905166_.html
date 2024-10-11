@@ -1,0 +1,402 @@
+<!-- Portfolio created by Ishan -->
+<!-- Check out my work at: https://github.com/Ishanoshada/portflair -->
+<!-- 2024/10/9 -->
+<!-- Portfolio created by Ishan -->
+'<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Black Hole Portfolio</title>
+    <style>
+        /* Global Styles */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Orbitron', sans-serif;
+            background-color: #151515;
+            color: #f8f8f8;
+            overflow-x: hidden;
+        }
+
+        /* Navbar Styles */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #1c1c1c;
+            padding: 1rem 2rem;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .navbar-brand {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #f8f8f8;
+            text-decoration: none;
+            letter-spacing: 2px;
+        }
+
+        .navbar-nav {
+            display: flex;
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .navbar-nav li {
+            margin-left: 2rem;
+        }
+
+        .navbar-nav li a {
+            color: #f8f8f8;
+            text-decoration: none;
+            font-size: 1.1rem;
+            transition: color 0.3s ease;
+        }
+
+        .navbar-nav li a:hover {
+            color: #9b59b6;
+        }
+
+        /* Project Galaxies Section */
+        .project-galaxies {
+            background: radial-gradient(ellipse at center, #1b2735 0%, #090a0f 100%);
+            padding: 4rem 2rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .project-galaxies h2 {
+            font-size: 3rem;
+            margin-bottom: 3rem;
+            text-align: center;
+            text-shadow: 0 0 20px rgba(155, 89, 182, 0.5);
+        }
+
+        .galaxy-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-gap: 3rem;
+        }
+
+        .galaxy {
+            background-color: #1c1c1c;
+            border-radius: 10px;
+            box-shadow: 0 0 30px rgba(155, 89, 182, 0.3);
+            overflow: hidden;
+            position: relative;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .galaxy:hover {
+            transform: scale(1.05);
+        }
+
+        .galaxy::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, rgba(155, 89, 182, 0.3), rgba(29, 29, 29, 0.7));
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .galaxy:hover::before {
+            opacity: 1;
+        }
+
+        .galaxy-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            filter: brightness(0.8) contrast(1.2) saturate(1.2);
+        }
+
+        .galaxy-content {
+            padding: 1.5rem;
+        }
+
+        .galaxy-title {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+            text-shadow: 0 0 10px rgba(155, 89, 182, 0.5);
+        }
+
+        .galaxy-description {
+            font-size: 1rem;
+            color: #c0c0c0;
+            margin-bottom: 1rem;
+        }
+
+        .galaxy-link {
+            display: inline-block;
+            background-color: #9b59b6;
+            color: #f8f8f8;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            font-size: 0.9rem;
+            transition: background-color 0.3s ease;
+        }
+
+        .galaxy-link:hover {
+            background-color: #8e44ad;
+        }
+
+        /* Vaporwave Glitched Skills Section */
+        .vaporwave-skills {
+            background-color: #1c1c1c;
+            padding: 4rem 2rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .vaporwave-skills h2 {
+            font-size: 3rem;
+            margin-bottom: 3rem;
+            text-align: center;
+            text-shadow: 0 0 20px rgba(155, 89, 182, 0.5);
+        }
+
+        .skill-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            grid-gap: 2rem;
+            width: 100%;
+        }
+
+        .skill-tile {
+            background-color: #2c2c2c;
+            border-radius: 10px;
+            box-shadow: 0 0 30px rgba(155, 89, 182, 0.3);
+            padding: 2rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .skill-tile:hover {
+            transform: scale(1.05);
+        }
+
+        .skill-tile::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, #9b59b6, #8e44ad, #2980b9, #2c3e50);
+            background-size: 200% 200%;
+            animation: glitch 5s ease infinite;
+            opacity: 0.5;
+        }
+
+        @keyframes glitch {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        .skill-title {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            text-shadow: 0 0 10px rgba(155, 89, 182, 0.5);
+        }
+
+        .skill-description {
+            font-size: 1rem;
+            color: #c0c0c0;
+        }
+
+        /* Neon Contact Form Section */
+        .neon-contact {
+            background-image: url('https://dummyimage.com/1200x500/000000/ffffff&text=Cosmic+Swirl+Background');
+            background-size: cover;
+            background-position: center;
+            padding: 4rem 2rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .neon-contact h2 {
+            font-size: 3rem;
+            margin-bottom: 3rem;
+            text-align: center;
+            text-shadow: 0 0 20px rgba(155, 89, 182, 0.5);
+        }
+
+        .neon-form {
+            background-color: rgba(28, 28, 28, 0.8);
+            border-radius: 10px;
+            box-shadow: 0 0 30px rgba(155, 89, 182, 0.3);
+            padding: 2rem;
+            width: 100%;
+            max-width: 600px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .neon-form input,
+        .neon-form textarea {
+            width: 100%;
+            padding: 1rem;
+            margin-bottom: 1.5rem;
+            background-color: #2c2c2c;
+            border: none;
+            border-radius: 5px;
+            color: #f8f8f8;
+            font-size: 1rem;
+            font-family: 'Orbitron', sans-serif;
+            box-shadow: 0 0 10px rgba(155, 89, 182, 0.3);
+            transition: box-shadow 0.3s ease;
+        }
+
+        .neon-form input:focus,
+        .neon-form textarea:focus {
+            outline: none;
+            box-shadow: 0 0 20px rgba(155, 89, 182, 0.5);
+        }
+
+        .neon-form button {
+            background-color: #9b59b6;
+            color: #f8f8f8;
+            border: none;
+            border-radius: 5px;
+            padding: 1rem 2rem;
+            font-size: 1.1rem;
+            font-family: 'Orbitron', sans-serif;
+            cursor: pointer;
+            box-shadow: 0 0 10px rgba(155, 89, 182, 0.3);
+            transition: background-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .neon-form button:hover {
+            background-color: #8e44ad;
+            box-shadow: 0 0 20px rgba(155, 89, 182, 0.5);
+        }
+
+        /* Footer Styles */
+        footer {
+            background-color: #1c1c1c;
+            color: #c0c0c0;
+            text-align: center;
+            padding: 1rem;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+        }
+
+        footer a {
+            color: #9b59b6;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        footer a:hover {
+            color: #8e44ad;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <a href="#" class="navbar-brand">Black Hole Portfolio</a>
+            <ul class="navbar-nav">
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Projects</a></li>
+                <li><a href="#">Skills</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Project Galaxies Section -->
+        <section class="project-galaxies">
+            <h2>Project Galaxies</h2>
+            <div class="galaxy-container">
+                <div class="galaxy">
+                    <img src="https://dummyimage.com/600x400/4d004d/ffffff&text=Project+Galaxy+1" alt="Project Galaxy 1" class="galaxy-image">
+                    <div class="galaxy-content">
+                        <h3 class="galaxy-title">Project Galaxy 1</h3>
+                        <p class="galaxy-description">This is a description of Project Galaxy 1, showcasing the developer's skills and creativity.</p>
+                        <a href="#" class="galaxy-link">View Project</a>
+                    </div>
+                </div>
+                <div class="galaxy">
+                    <img src="https://dummyimage.com/600x400/4d004d/ffffff&text=Project+Galaxy+2" alt="Project Galaxy 2" class="galaxy-image">
+                    <div class="galaxy-content">
+                        <h3 class="galaxy-title">Project Galaxy 2</h3>
+                        <p class="galaxy-description">This is a description of Project Galaxy 2, showcasing the developer's skills and creativity.</p>
+                        <a href="#" class="galaxy-link">View Project</a>
+                    </div>
+                </div>
+                <div class="galaxy">
+                    <img src="https://dummyimage.com/600x400/4d004d/ffffff&text=Project+Galaxy+3" alt="Project Galaxy 3" class="galaxy-image">
+                    <div class="galaxy-content">
+                        <h3 class="galaxy-title">Project Galaxy 3</h3>
+                        <p class="galaxy-description">This is a description of Project Galaxy 3, showcasing the developer's skills and creativity.</p>
+                        <a href="#" class="galaxy-link">View Project</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Vaporwave Glitched Skills Section -->
+        <section class="vaporwave-skills">
+            <h2>Vaporwave Glitched Skills</h2>
+            <div class="skill-grid">
+                <div class="skill-tile">
+                    <h3 class="skill-title">Backend Development</h3>
+                    <p class="skill-description">Expertise in building robust and scalable backend systems using Python, Node.js, and database technologies.</p>
+                </div>
+                <div class="skill-tile">
+                    <h3 class="skill-title">Cloud Architecture</h3>
+                    <p class="skill-description">Proficient in designing and implementing cloud-based solutions on platforms like AWS, Google Cloud, and Azure.</p>
+                </div>
+                <div class="skill-tile">
+                    <h3 class="skill-title">DevOps Automation</h3>
+                    <p class="skill-description">Skilled in automating software development and deployment processes using tools like Docker, Kubernetes, and CI/CD pipelines.</p>
+                </div>
+                <div class="skill-tile">
+                    <h3 class="skill-title">Data Engineering</h3>
+                    <p class="skill-description">Experienced in building data pipelines, data warehouses, and data analysis solutions using technologies like Spark, Hadoop, and SQL.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Neon Contact Form Section -->
+        <section class="neon-contact">
+            <h2>Get in Touch</h2>
+            <div class="neon-form">
+                <input type="text" placeholder="Name" required>
+                <input type="email" placeholder="Email" required>
+                <textarea placeholder="Message" rows="5" required></textarea>
+                <button type="submit">Send Message</button>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Black Hole Portfolio. Designed by <a href="#">Your Name</a>.</p>
+    </footer>
+</body>
+</html>'<!-- Visit: https://github.com/Ishanoshada/portflair -->
+<!-- Visit: https://github.com/Ishanoshada/portflair -->

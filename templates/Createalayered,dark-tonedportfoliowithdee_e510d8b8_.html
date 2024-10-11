@@ -1,0 +1,370 @@
+<!-- Portfolio created by Ishan -->
+<!-- Check out my work at: https://github.com/Ishanoshada/portflair -->
+<!-- 2024/10/9 -->
+<!-- Portfolio created by Ishan -->
+'<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Layered Portfolio</title>
+  <style>
+    /* Global Styles */
+    body {
+      margin: 0;
+      font-family: 'Montserrat', sans-serif;
+      background-color: #0f0f0f;
+      color: #f0f0f0;
+    }
+
+    /* Navigation */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.5rem 2rem;
+      background-color: #0f0f0f;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    nav a {
+      color: #f0f0f0;
+      text-decoration: none;
+      font-size: 1.1rem;
+      font-weight: 500;
+      transition: color 0.3s ease;
+    }
+
+    nav a:hover {
+      color: #b3b3b3;
+    }
+
+    /* Featured Projects Section */
+    .featured-projects {
+      padding: 4rem 2rem;
+      background: linear-gradient(to bottom, #0f0f0f, #1a1a1a);
+    }
+
+    .featured-projects h2 {
+      text-align: center;
+      font-size: 2.5rem;
+      font-weight: 600;
+      margin-bottom: 3rem;
+      text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    }
+
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      grid-gap: 2rem;
+    }
+
+    .project-card {
+      position: relative;
+      overflow: hidden;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      transition: transform 0.3s ease;
+    }
+
+    .project-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .project-card img {
+      width: 100%;
+      height: 300px;
+      object-fit: cover;
+      filter: brightness(0.8);
+      transition: filter 0.3s ease;
+    }
+
+    .project-card:hover img {
+      filter: brightness(1);
+    }
+
+    .project-info {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      padding: 1.5rem;
+      background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+      transition: background 0.3s ease;
+    }
+
+    .project-card:hover .project-info {
+      background: linear-gradient(to top, rgba(0, 0, 0, 0.9), transparent);
+    }
+
+    .project-info h3 {
+      font-size: 1.5rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+      text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    }
+
+    .project-info p {
+      font-size: 1rem;
+      margin-bottom: 0;
+      text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    }
+
+    /* About the Designer Section */
+    .about-designer {
+      padding: 4rem 2rem;
+      background: linear-gradient(to bottom, #1a1a1a, #0f0f0f);
+    }
+
+    .about-designer-content {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .designer-portrait {
+      flex: 0 0 300px;
+      margin-right: 3rem;
+      border-radius: 50%;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+      overflow: hidden;
+    }
+
+    .designer-portrait img {
+      width: 100%;
+      height: auto;
+      filter: brightness(0.8);
+      transition: filter 0.3s ease;
+    }
+
+    .designer-portrait:hover img {
+      filter: brightness(1);
+    }
+
+    .designer-info {
+      flex: 1;
+    }
+
+    .designer-info h2 {
+      font-size: 2.5rem;
+      font-weight: 600;
+      margin-bottom: 1.5rem;
+      text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    }
+
+    .designer-info p {
+      font-size: 1.1rem;
+      line-height: 1.6;
+      margin-bottom: 2rem;
+      text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    }
+
+    .cta-button {
+      display: inline-block;
+      background-color: #b3b3b3;
+      color: #0f0f0f;
+      text-decoration: none;
+      font-size: 1.1rem;
+      font-weight: 500;
+      padding: 1rem 2rem;
+      border-radius: 4px;
+      transition: background-color 0.3s ease;
+    }
+
+    .cta-button:hover {
+      background-color: #999999;
+    }
+
+    /* Contact and Inquiry Form Section */
+    .contact-form {
+      padding: 4rem 2rem;
+      background: linear-gradient(to bottom, #0f0f0f, #1a1a1a);
+    }
+
+    .contact-form h2 {
+      text-align: center;
+      font-size: 2.5rem;
+      font-weight: 600;
+      margin-bottom: 3rem;
+      text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    }
+
+    .contact-form-container {
+      max-width: 800px;
+      margin: 0 auto;
+      background-color: #1a1a1a;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      padding: 3rem;
+    }
+
+    .form-group {
+      margin-bottom: 2rem;
+    }
+
+    .form-group label {
+      display: block;
+      font-size: 1.1rem;
+      font-weight: 500;
+      margin-bottom: 0.5rem;
+    }
+
+    .form-group input,
+    .form-group textarea {
+      width: 100%;
+      padding: 1rem;
+      font-size: 1rem;
+      background-color: #0f0f0f;
+      border: none;
+      border-radius: 4px;
+      color: #f0f0f0;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      transition: box-shadow 0.3s ease;
+    }
+
+    .form-group input:focus,
+    .form-group textarea:focus {
+      outline: none;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    .form-group textarea {
+      resize: vertical;
+    }
+
+    .submit-button {
+      display: block;
+      width: 100%;
+      background-color: #b3b3b3;
+      color: #0f0f0f;
+      font-size: 1.1rem;
+      font-weight: 500;
+      padding: 1rem;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .submit-button:hover {
+      background-color: #999999;
+    }
+
+    /* Responsive Styles */
+    @media (max-width: 768px) {
+      nav {
+        padding: 1rem;
+      }
+
+      .featured-projects,
+      .about-designer,
+      .contact-form {
+        padding: 3rem 1rem;
+      }
+
+      .project-grid {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      }
+
+      .project-card img {
+        height: 250px;
+      }
+
+      .about-designer-content {
+        flex-direction: column;
+      }
+
+      .designer-portrait {
+        flex: 0 0 200px;
+        margin-right: 0;
+        margin-bottom: 2rem;
+      }
+
+      .designer-info h2 {
+        font-size: 2rem;
+      }
+
+      .designer-info p {
+        font-size: 1rem;
+      }
+
+      .contact-form-container {
+        padding: 2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="#">Home</a>
+    <a href="#">Portfolio</a>
+    <a href="#">About</a>
+    <a href="#">Contact</a>
+  </nav>
+
+  <section class="featured-projects">
+    <h2>Featured Projects</h2>
+    <div class="project-grid">
+      <div class="project-card">
+        <img src="https://dummyimage.com/600x400/000/fff&text=Project+1" alt="Project 1">
+        <div class="project-info">
+          <h3>Project 1</h3>
+          <p>This is a description of the first featured project.</p>
+        </div>
+      </div>
+      <div class="project-card">
+        <img src="https://dummyimage.com/600x400/000/fff&text=Project+2" alt="Project 2">
+        <div class="project-info">
+          <h3>Project 2</h3>
+          <p>This is a description of the second featured project.</p>
+        </div>
+      </div>
+      <div class="project-card">
+        <img src="https://dummyimage.com/600x400/000/fff&text=Project+3" alt="Project 3">
+        <div class="project-info">
+          <h3>Project 3</h3>
+          <p>This is a description of the third featured project.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="about-designer">
+    <div class="about-designer-content">
+      <div class="designer-portrait">
+        <img src="https://dummyimage.com/300x300/000/fff&text=Designer" alt="Designer Portrait">
+      </div>
+      <div class="designer-info">
+        <h2>About the Designer</h2>
+        <p>Greetings! I'm a passionate and versatile designer with a keen eye for detail and a deep understanding of visual aesthetics. With years of experience in the industry, I've honed my skills in creating layered, dark-toned portfolios that exude sophistication and depth.</p>
+        <p>My design philosophy is rooted in the pursuit of balance, harmony, and emotional resonance. I believe that great design has the power to captivate, inspire, and leave a lasting impression. Through the use of subtle shadow effects, rich color gradients, and a keen attention to typography, I strive to craft digital experiences that are both visually stunning and highly functional.</p>
+        <a href="#" class="cta-button">Explore My Portfolio</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact-form">
+    <h2>Get in Touch</h2>
+    <div class="contact-form-container">
+      <form>
+        <div class="form-group">
+          <label for="name">Name</label>
+          <input type="text" id="name" name="name" placeholder="Enter your name" required>
+        </div>
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" placeholder="Enter your email" required>
+        </div>
+        <div class="form-group">
+          <label for="message">Message</label>
+          <textarea id="message" name="message" rows="5" placeholder="Enter your message" required></textarea>
+        </div>
+        <button type="submit" class="submit-button">Send Message</button>
+      </form>
+    </div>
+  </section>
+</body>
+</html>'<!-- Visit: https://github.com/Ishanoshada/portflair -->
+<!-- Visit: https://github.com/Ishanoshada/portflair -->

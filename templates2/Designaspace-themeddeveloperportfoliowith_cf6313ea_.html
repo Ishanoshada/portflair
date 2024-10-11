@@ -1,0 +1,332 @@
+<!-- Portfolio created by Ishan -->
+<!-- Check out my work at: https://github.com/Ishanoshada/portflair -->
+<!-- 2024/10/9 -->
+<!-- Portfolio created by Ishan -->
+'<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Space-Themed Developer Portfolio</title>
+  <style>
+    /* Global Styles */
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Montserrat', sans-serif;
+      background-color: #000;
+      color: #fff;
+      overflow-x: hidden;
+    }
+
+    /* Navigation */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.5rem 2rem;
+      background-color: rgba(0, 0, 0, 0.5);
+      backdrop-filter: blur(10px);
+      position: relative;
+      z-index: 1;
+    }
+
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      font-size: 1.1rem;
+      font-weight: 500;
+      padding: 0.5rem 1rem;
+      transition: color 0.3s ease;
+    }
+
+    nav a:hover {
+      color: #8b5cf6;
+    }
+
+    /* Interactive Code Snippets Section */
+    #code-snippets {
+      padding: 4rem 2rem;
+      background: linear-gradient(to bottom, #1e1e1e, #0f0f0f);
+      position: relative;
+      overflow: hidden;
+    }
+
+    #code-snippets::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url(https://dummyimage.com/1920x1080/000/8b5cf6.jpg) no-repeat center center;
+      background-size: cover;
+      opacity: 0.1;
+      z-index: -1;
+    }
+
+    .code-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      grid-gap: 2rem;
+    }
+
+    .code-snippet {
+      background-color: rgba(0, 0, 0, 0.5);
+      border-radius: 10px;
+      padding: 2rem;
+      position: relative;
+      overflow: hidden;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+
+    .code-snippet:hover {
+      transform: scale(1.05);
+    }
+
+    .code-snippet::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url(https://dummyimage.com/300x300/8b5cf6/000.jpg) no-repeat center center;
+      background-size: cover;
+      opacity: 0.2;
+      z-index: -1;
+      animation: constellation 10s linear infinite;
+    }
+
+    .code-snippet h3 {
+      margin-top: 0;
+      font-size: 1.5rem;
+      color: #8b5cf6;
+    }
+
+    .code-snippet pre {
+      background-color: #1e1e1e;
+      border-radius: 5px;
+      padding: 1rem;
+      overflow-x: auto;
+      font-family: 'Fira Code', monospace;
+      font-size: 0.9rem;
+      color: #fff;
+    }
+
+    /* About Section */
+    #about {
+      padding: 4rem 2rem;
+      background: linear-gradient(to bottom, #0f0f0f, #000);
+      display: flex;
+      align-items: center;
+    }
+
+    #about-content {
+      max-width: 800px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    #about-content img {
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      box-shadow: 0 0 20px rgba(139, 92, 246, 0.5);
+      margin-bottom: 2rem;
+    }
+
+    #about-content h2 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+      color: #8b5cf6;
+    }
+
+    #about-content p {
+      font-size: 1.1rem;
+      line-height: 1.6;
+      margin-bottom: 2rem;
+    }
+
+    /* Contact Section */
+    #contact {
+      padding: 4rem 2rem;
+      background: url(https://dummyimage.com/1920x1080/000/8b5cf6.jpg) no-repeat center center;
+      background-size: cover;
+      position: relative;
+      z-index: 0;
+    }
+
+    #contact::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.7);
+      z-index: -1;
+    }
+
+    #contact-form {
+      max-width: 600px;
+      margin: 0 auto;
+      background-color: rgba(0, 0, 0, 0.7);
+      border-radius: 10px;
+      padding: 2rem;
+      box-shadow: 0 0 20px rgba(139, 92, 246, 0.5);
+    }
+
+    #contact-form h2 {
+      font-size: 2.5rem;
+      margin-bottom: 2rem;
+      color: #8b5cf6;
+    }
+
+    #contact-form label {
+      display: block;
+      font-size: 1.1rem;
+      margin-bottom: 0.5rem;
+    }
+
+    #contact-form input,
+    #contact-form textarea {
+      width: 100%;
+      padding: 1rem;
+      font-size: 1rem;
+      border: none;
+      border-radius: 5px;
+      background-color: #f0f0f0;
+      color: #000;
+      margin-bottom: 1.5rem;
+    }
+
+    #contact-form button {
+      display: block;
+      width: 100%;
+      padding: 1rem;
+      font-size: 1.1rem;
+      font-weight: 500;
+      background-color: #8b5cf6;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    #contact-form button:hover {
+      background-color: #7846d1;
+    }
+
+    /* Animations */
+    @keyframes constellation {
+      0% {
+        background-position: 0 0;
+      }
+      100% {
+        background-position: 100% 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation -->
+  <nav>
+    <a href="#">Home</a>
+    <a href="#code-snippets">Code Snippets</a>
+    <a href="#about">About</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
+  <!-- Interactive Code Snippets Section -->
+  <section id="code-snippets">
+    <h2 style="font-size: 3rem; margin-bottom: 3rem; color: #8b5cf6;">Interactive Code Snippets</h2>
+    <div class="code-grid">
+      <div class="code-snippet">
+        <h3>Project 1</h3>
+        <pre><code>
+  function fibonacci(n) {
+    if (n <= 1) {
+      return n;
+    }
+    return fibonacci(n - 1) + fibonacci(n - 2);
+  }
+        </code></pre>
+      </div>
+      <div class="code-snippet">
+        <h3>Project 2</h3>
+        <pre><code>
+  class BinaryTree {
+    constructor(value) {
+      this.value = value;
+      this.left = null;
+      this.right = null;
+    }
+
+    insert(value) {
+      // Binary tree insertion logic
+    }
+  }
+        </code></pre>
+      </div>
+      <div class="code-snippet">
+        <h3>Project 3</h3>
+        <pre><code>
+  const reverseString = (str) => {
+    return str.split('').reverse().join('');
+  }
+        </code></pre>
+      </div>
+      <div class="code-snippet">
+        <h3>Project 4</h3>
+        <pre><code>
+  function bubbleSort(arr) {
+    for (let i = 0; i < arr.length; i++) {
+      for (let j = 0; j < arr.length - i - 1; j++) {
+        if (arr[j] > arr[j + 1]) {
+          [arr[j], arr[j + 1]] = [arr[j + 1], arr[j]];
+        }
+      }
+    }
+    return arr;
+  }
+        </code></pre>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about">
+    <div id="about-content">
+      <img src="https://dummyimage.com/200x200/8b5cf6/fff.jpg" alt="Developer Portrait">
+      <h2>About the Developer</h2>
+      <p>
+        Hello! I'm a passionate space-themed developer with a keen eye for detail and a love for creating visually stunning websites. My portfolio showcases a galaxy of interactive code snippets, each representing a unique project I've worked on. I'm excited to share my skills and expertise with you.
+      </p>
+      <a href="#contact" class="btn">Get in Touch</a>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact">
+    <div id="contact-form">
+      <h2>Contact Me</h2>
+      <form>
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+
+        <label for="message">Message:</label>
+        <textarea id="message" name="message" rows="5" required></textarea>
+
+        <button type="submit">Send Message</button>
+      </form>
+    </div>
+  </section>
+</body>
+</html>'<!-- Visit: https://github.com/Ishanoshada/portflair -->
+<!-- Visit: https://github.com/Ishanoshada/portflair -->

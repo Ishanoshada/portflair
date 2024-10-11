@@ -1,0 +1,355 @@
+<!-- Portfolio created by Ishan -->
+<!-- Check out my work at: https://github.com/Ishanoshada/portflair -->
+<!-- 2024/10/9 -->
+<!-- Portfolio created by Ishan -->
+'<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animated Portfolio</title>
+    <style>
+        /* Global Styles */
+        body {
+            font-family: 'Montserrat', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #121212;
+            color: #fff;
+        }
+
+        /* Navigation Bar */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 40px;
+            background-color: rgba(18, 18, 18, 0.8);
+            backdrop-filter: blur(10px);
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 100;
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: 500;
+            margin: 0 20px;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: #ff6b6b;
+        }
+
+        /* Animated Portfolio Showcase */
+        .portfolio-showcase {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .portfolio-cube {
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+            transition: all 0.5s ease;
+            cursor: pointer;
+        }
+
+        .portfolio-cube:hover {
+            transform: scale(1.1);
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.3);
+        }
+
+        .portfolio-cube img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+
+        .portfolio-cube-info {
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            background-color: rgba(18, 18, 18, 0.8);
+            backdrop-filter: blur(10px);
+            padding: 10px 20px;
+            border-radius: 5px;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .portfolio-cube:hover .portfolio-cube-info {
+            opacity: 1;
+        }
+
+        .portfolio-cube-info h3 {
+            margin: 0;
+            font-size: 18px;
+            font-weight: 600;
+        }
+
+        .portfolio-cube-info p {
+            margin: 5px 0 0 0;
+            font-size: 14px;
+            color: #ccc;
+        }
+
+        /* Skill Highlights with Brushstroke Animations */
+        .skill-highlights {
+            padding: 100px 40px;
+            background-color: #1a1a1a;
+        }
+
+        .skill-icon {
+            display: inline-block;
+            width: 100px;
+            height: 100px;
+            margin: 20px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .skill-icon svg {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            transition: transform 0.5s ease;
+        }
+
+        .skill-icon:hover svg {
+            transform: rotate(360deg);
+        }
+
+        .skill-icon svg path {
+            stroke: #ff6b6b;
+            stroke-width: 4px;
+            fill: none;
+            stroke-dasharray: 1000;
+            stroke-dashoffset: 1000;
+            animation: brushstroke 2s ease forwards;
+        }
+
+        @keyframes brushstroke {
+            to {
+                stroke-dashoffset: 0;
+            }
+        }
+
+        .skill-highlights h2 {
+            text-align: center;
+            font-size: 36px;
+            font-weight: 700;
+            margin-bottom: 40px;
+        }
+
+        .skill-highlights p {
+            text-align: center;
+            font-size: 18px;
+            color: #ccc;
+            margin-top: 20px;
+        }
+
+        /* Interactive Contact Form */
+        .contact-form {
+            padding: 100px 40px;
+            background-image: linear-gradient(to right, #1a1a1a, #121212);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .contact-form-wrapper {
+            max-width: 600px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .contact-form h2 {
+            text-align: center;
+            font-size: 36px;
+            font-weight: 700;
+            margin-bottom: 40px;
+        }
+
+        .contact-form-field {
+            margin-bottom: 20px;
+            position: relative;
+        }
+
+        .contact-form-field input,
+        .contact-form-field textarea {
+            width: 100%;
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border: none;
+            border-radius: 5px;
+            color: #fff;
+            transition: background-color 0.3s ease;
+        }
+
+        .contact-form-field input:focus,
+        .contact-form-field textarea:focus {
+            background-color: rgba(255, 255, 255, 0.2);
+            outline: none;
+        }
+
+        .contact-form-field label {
+            position: absolute;
+            top: 50%;
+            left: 20px;
+            transform: translateY(-50%);
+            font-size: 16px;
+            color: #ccc;
+            pointer-events: none;
+            transition: all 0.3s ease;
+        }
+
+        .contact-form-field input:focus + label,
+        .contact-form-field textarea:focus + label,
+        .contact-form-field input:not(:placeholder-shown) + label,
+        .contact-form-field textarea:not(:placeholder-shown) + label {
+            top: 0;
+            font-size: 12px;
+            color: #ff6b6b;
+        }
+
+        .contact-form-submit {
+            display: block;
+            width: 100%;
+            padding: 10px 20px;
+            font-size: 16px;
+            font-weight: 600;
+            background-color: #ff6b6b;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .contact-form-submit:hover {
+            background-color: #e64b4b;
+        }
+
+        .contact-form-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: radial-gradient(circle at 50% 50%, #1a1a1a 0%, #121212 100%);
+            z-index: 0;
+            animation: shiftBackground 10s ease infinite;
+        }
+
+        @keyframes shiftBackground {
+            0% {
+                background-position: 0% 0%;
+            }
+            50% {
+                background-position: 100% 100%;
+            }
+            100% {
+                background-position: 0% 0%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav>
+        <a href="#">Home</a>
+        <a href="#">Portfolio</a>
+        <a href="#">Skills</a>
+        <a href="#">Contact</a>
+    </nav>
+
+    <!-- Animated Portfolio Showcase -->
+    <div class="portfolio-showcase">
+        <div class="portfolio-cube">
+            <img src="https://dummyimage.com/300x300/fff/000.png&text=Project+1" alt="Project 1">
+            <div class="portfolio-cube-info">
+                <h3>Project 1</h3>
+                <p>Design process and description</p>
+            </div>
+        </div>
+        <div class="portfolio-cube">
+            <img src="https://dummyimage.com/300x300/fff/000.png&text=Project+2" alt="Project 2">
+            <div class="portfolio-cube-info">
+                <h3>Project 2</h3>
+                <p>Design process and description</p>
+            </div>
+        </div>
+        <div class="portfolio-cube">
+            <img src="https://dummyimage.com/300x300/fff/000.png&text=Project+3" alt="Project 3">
+            <div class="portfolio-cube-info">
+                <h3>Project 3</h3>
+                <p>Design process and description</p>
+            </div>
+        </div>
+        <!-- Add more portfolio cubes as needed -->
+    </div>
+
+    <!-- Skill Highlights with Brushstroke Animations -->
+    <div class="skill-highlights">
+        <h2>My Skills</h2>
+        <div class="skill-icon">
+            <svg viewBox="0 0 100 100">
+                <path d="M10,50 C10,30 30,10 50,10 C70,10 90,30 90,50 C90,70 70,90 50,90 C30,90 10,70 10,50 Z" />
+            </svg>
+        </div>
+        <div class="skill-icon">
+            <svg viewBox="0 0 100 100">
+                <path d="M20,20 L80,20 L80,80 L20,80 Z" />
+            </svg>
+        </div>
+        <div class="skill-icon">
+            <svg viewBox="0 0 100 100">
+                <path d="M10,10 L90,10 L90,90 L10,90 Z" />
+            </svg>
+        </div>
+        <!-- Add more skill icons as needed -->
+        <p>Explore my diverse design expertise and see how I can bring your vision to life.</p>
+    </div>
+
+    <!-- Interactive Contact Form -->
+    <div class="contact-form">
+        <div class="contact-form-background"></div>
+        <div class="contact-form-wrapper">
+            <h2>Get in Touch</h2>
+            <form action="#" method="post">
+                <div class="contact-form-field">
+                    <input type="text" id="name" placeholder=" " required>
+                    <label for="name">Name</label>
+                </div>
+                <div class="contact-form-field">
+                    <input type="email" id="email" placeholder=" " required>
+                    <label for="email">Email</label>
+                </div>
+                <div class="contact-form-field">
+                    <textarea id="message" placeholder=" " required></textarea>
+                    <label for="message">Message</label>
+                </div>
+                <button type="submit" class="contact-form-submit">Send</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>'<!-- Visit: https://github.com/Ishanoshada/portflair -->
+<!-- Visit: https://github.com/Ishanoshada/portflair -->

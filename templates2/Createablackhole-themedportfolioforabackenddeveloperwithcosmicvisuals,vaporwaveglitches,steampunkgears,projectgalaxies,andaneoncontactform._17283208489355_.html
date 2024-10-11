@@ -1,0 +1,345 @@
+<!-- Portfolio created by Ishan -->
+<!-- Check out my work at: https://github.com/Ishanoshada/portflair -->
+<!-- 2024/10/9 -->
+<!-- Portfolio created by Ishan -->
+'<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Black Hole Portfolio</title>
+  <style>
+    /* Global Styles */
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Montserrat', sans-serif;
+      background-color: #0d0d0d;
+      color: #fff;
+      overflow-x: hidden;
+    }
+
+    /* Navigation */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.5rem 2rem;
+      background-color: rgba(13, 13, 13, 0.8);
+      backdrop-filter: blur(10px);
+      position: relative;
+      z-index: 100;
+    }
+
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      font-size: 1.1rem;
+      font-weight: 500;
+      margin: 0 1rem;
+      transition: color 0.3s ease-in-out;
+    }
+
+    nav a:hover {
+      color: #9b59b6;
+    }
+
+    /* Project Showcase Section */
+    .project-showcase {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      grid-gap: 2rem;
+      padding: 4rem 2rem;
+      background: radial-gradient(ellipse at center, #0d0d0d 0%, #090909 100%);
+    }
+
+    .project-galaxy {
+      position: relative;
+      height: 300px;
+      background-image: url('https://dummyimage.com/600x400/ccc/000&text=Project+Galaxy');
+      background-size: cover;
+      background-position: center;
+      border-radius: 10px;
+      box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+      overflow: hidden;
+      transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    }
+
+    .project-galaxy:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 50px rgba(0, 0, 0, 0.8);
+    }
+
+    .project-galaxy:before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, rgba(0, 0, 0, 0.8) 100%);
+      opacity: 0;
+      transition: opacity 0.3s ease-in-out;
+    }
+
+    .project-galaxy:hover:before {
+      opacity: 1;
+    }
+
+    .project-galaxy h3 {
+      position: absolute;
+      bottom: 1.5rem;
+      left: 1.5rem;
+      font-size: 1.4rem;
+      font-weight: 600;
+      text-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+    }
+
+    .project-galaxy:hover h3 {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Skills Section */
+    .skills-section {
+      padding: 4rem 2rem;
+      background-color: #171717;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .skills-section h2 {
+      font-size: 2.2rem;
+      font-weight: 700;
+      margin-bottom: 2rem;
+      text-align: center;
+    }
+
+    .skills-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      grid-gap: 2rem;
+      width: 100%;
+      max-width: 1200px;
+    }
+
+    .skill-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      background-color: #222;
+      padding: 2rem;
+      border-radius: 10px;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+      transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    }
+
+    .skill-item:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+    }
+
+    .skill-item i {
+      font-size: 3rem;
+      color: #9b59b6;
+      margin-bottom: 1rem;
+      animation: spin 3s linear infinite;
+    }
+
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    .skill-item h3 {
+      font-size: 1.2rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+    }
+
+    .skill-item p {
+      font-size: 0.9rem;
+      color: #ccc;
+    }
+
+    /* Contact Form Section */
+    .contact-section {
+      padding: 4rem 2rem;
+      background-image: url('https://dummyimage.com/1200x500/ccc/000&text=Cosmic+Glitches');
+      background-size: cover;
+      background-position: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .contact-section h2 {
+      font-size: 2.2rem;
+      font-weight: 700;
+      margin-bottom: 2rem;
+      text-align: center;
+    }
+
+    .contact-form {
+      background-color: rgba(13, 13, 13, 0.8);
+      backdrop-filter: blur(10px);
+      padding: 2rem;
+      border-radius: 10px;
+      width: 100%;
+      max-width: 500px;
+      box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+      display: block;
+      width: 100%;
+      padding: 1rem;
+      margin-bottom: 1.5rem;
+      font-size: 1rem;
+      font-family: 'Montserrat', sans-serif;
+      background-color: #222;
+      border: none;
+      border-radius: 5px;
+      color: #fff;
+      transition: box-shadow 0.3s ease-in-out;
+    }
+
+    .contact-form input:focus,
+    .contact-form textarea:focus {
+      outline: none;
+      box-shadow: 0 0 15px rgba(155, 89, 182, 0.5);
+    }
+
+    .contact-form button {
+      display: block;
+      width: 100%;
+      padding: 1rem;
+      font-size: 1.1rem;
+      font-family: 'Montserrat', sans-serif;
+      background-color: #9b59b6;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease-in-out;
+    }
+
+    .contact-form button:hover {
+      background-color: #8e44ad;
+    }
+
+    /* Responsive Styles */
+    @media (max-width: 768px) {
+      nav {
+        padding: 1rem;
+      }
+
+      nav a {
+        font-size: 1rem;
+        margin: 0 0.5rem;
+      }
+
+      .project-showcase {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        padding: 3rem 1rem;
+      }
+
+      .skills-section {
+        padding: 3rem 1rem;
+      }
+
+      .contact-section {
+        padding: 3rem 1rem;
+      }
+
+      .contact-form {
+        padding: 1.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="#">Home</a>
+    <a href="#">Projects</a>
+    <a href="#">Skills</a>
+    <a href="#">Contact</a>
+  </nav>
+
+  <section class="project-showcase">
+    <div class="project-galaxy">
+      <h3>Project 1</h3>
+    </div>
+    <div class="project-galaxy">
+      <h3>Project 2</h3>
+    </div>
+    <div class="project-galaxy">
+      <h3>Project 3</h3>
+    </div>
+    <div class="project-galaxy">
+      <h3>Project 4</h3>
+    </div>
+    <div class="project-galaxy">
+      <h3>Project 5</h3>
+    </div>
+    <div class="project-galaxy">
+      <h3>Project 6</h3>
+    </div>
+  </section>
+
+  <section class="skills-section">
+    <h2>My Skills</h2>
+    <div class="skills-container">
+      <div class="skill-item">
+        <i class="fas fa-code"></i>
+        <h3>Backend Development</h3>
+        <p>Proficient in building robust and scalable backend systems.</p>
+      </div>
+      <div class="skill-item">
+        <i class="fas fa-database"></i>
+        <h3>Database Management</h3>
+        <p>Experienced in designing and maintaining complex databases.</p>
+      </div>
+      <div class="skill-item">
+        <i class="fas fa-server"></i>
+        <h3>DevOps</h3>
+        <p>Skilled in automating and optimizing infrastructure and deployment.</p>
+      </div>
+      <div class="skill-item">
+        <i class="fas fa-cloud"></i>
+        <h3>Cloud Computing</h3>
+        <p>Proficient in leveraging cloud platforms to build scalable solutions.</p>
+      </div>
+      <div class="skill-item">
+        <i class="fas fa-cog"></i>
+        <h3>Problem-Solving</h3>
+        <p>Adept at tackling complex challenges and finding creative solutions.</p>
+      </div>
+      <div class="skill-item">
+        <i class="fas fa-rocket"></i>
+        <h3>Continuous Learning</h3>
+        <p>Committed to staying up-to-date with the latest technologies and trends.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact-section">
+    <h2>Get in Touch</h2>
+    <div class="contact-form">
+      <input type="text" placeholder="Name" required>
+      <input type="email" placeholder="Email" required>
+      <textarea placeholder="Message" rows="5" required></textarea>
+      <button type="submit">Send</button>
+    </div>
+  </section>
+
+  <script src="https://kit.fontawesome.com/your-font-awesome-kit.js" crossorigin="anonymous"></script>
+</body>
+</html>'<!-- Visit: https://github.com/Ishanoshada/portflair -->
+<!-- Visit: https://github.com/Ishanoshada/portflair -->

@@ -1,0 +1,473 @@
+<!-- Portfolio created by Ishan -->
+<!-- Check out my work at: https://github.com/Ishanoshada/portflair -->
+<!-- 2024/10/9 -->
+<!-- Portfolio created by Ishan -->
+'<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Develop a Matte-Black Portfolio</title>
+  <style>
+    /* Global Styles */
+    body {
+      font-family: 'Montserrat', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #1a1a1a;
+      color: #f2f2f2;
+    }
+
+    /* Navigation */
+    .navbar {
+      background-color: #2b2b2b;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    .navbar-brand {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: #f2f2f2;
+      text-decoration: none;
+    }
+
+    .navbar-nav {
+      display: flex;
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .navbar-nav li {
+      margin-left: 2rem;
+    }
+
+    .navbar-nav li a {
+      color: #f2f2f2;
+      text-decoration: none;
+      font-size: 1rem;
+      transition: color 0.3s ease;
+    }
+
+    .navbar-nav li a:hover {
+      color: #a0a0a0;
+    }
+
+    /* Portfolio Showcase */
+    .portfolio-showcase {
+      padding: 4rem 2rem;
+    }
+
+    .portfolio-showcase h2 {
+      font-size: 2.5rem;
+      font-weight: bold;
+      text-align: center;
+      margin-bottom: 3rem;
+      color: #f2f2f2;
+      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    .portfolio-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-gap: 2rem;
+    }
+
+    .portfolio-card {
+      background-color: #2b2b2b;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+
+    .portfolio-card:hover {
+      transform: scale(1.05);
+    }
+
+    .portfolio-card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      transition: filter 0.3s ease;
+    }
+
+    .portfolio-card:hover img {
+      filter: brightness(0.8);
+    }
+
+    .portfolio-card .content {
+      padding: 1.5rem;
+    }
+
+    .portfolio-card h3 {
+      font-size: 1.25rem;
+      font-weight: bold;
+      margin-bottom: 0.5rem;
+      color: #f2f2f2;
+    }
+
+    .portfolio-card p {
+      font-size: 0.9rem;
+      color: #a0a0a0;
+      margin-bottom: 0;
+    }
+
+    /* About Section */
+    .about-section {
+      background-color: #2b2b2b;
+      padding: 4rem 2rem;
+      display: flex;
+      align-items: center;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .about-image {
+      flex: 0 0 300px;
+      margin-right: 3rem;
+    }
+
+    .about-image img {
+      width: 100%;
+      height: auto;
+      border-radius: 50%;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .about-content {
+      flex: 1;
+    }
+
+    .about-content h2 {
+      font-size: 2.5rem;
+      font-weight: bold;
+      margin-bottom: 1.5rem;
+      color: #f2f2f2;
+      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    .about-content p {
+      font-size: 1rem;
+      line-height: 1.6;
+      color: #a0a0a0;
+      margin-bottom: 2rem;
+    }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      grid-gap: 1.5rem;
+    }
+
+    .skill-item {
+      background-color: #1a1a1a;
+      border-radius: 8px;
+      padding: 1.5rem;
+      text-align: center;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease;
+    }
+
+    .skill-item:hover {
+      transform: translateY(-5px);
+    }
+
+    .skill-item i {
+      font-size: 2rem;
+      color: #a0a0a0;
+      margin-bottom: 1rem;
+    }
+
+    .skill-item h4 {
+      font-size: 1.1rem;
+      font-weight: bold;
+      color: #f2f2f2;
+      margin-bottom: 0.5rem;
+    }
+
+    .skill-item p {
+      font-size: 0.9rem;
+      color: #a0a0a0;
+      margin-bottom: 0;
+    }
+
+    /* Contact Form */
+    .contact-section {
+      padding: 4rem 2rem;
+      text-align: center;
+    }
+
+    .contact-section h2 {
+      font-size: 2.5rem;
+      font-weight: bold;
+      margin-bottom: 2rem;
+      color: #f2f2f2;
+      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    .contact-form {
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .contact-form .form-group {
+      margin-bottom: 1.5rem;
+    }
+
+    .contact-form label {
+      display: block;
+      font-size: 1rem;
+      font-weight: bold;
+      color: #a0a0a0;
+      margin-bottom: 0.5rem;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+      width: 100%;
+      padding: 1rem;
+      border: none;
+      border-radius: 8px;
+      background-color: #2b2b2b;
+      color: #f2f2f2;
+      font-size: 1rem;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      transition: box-shadow 0.3s ease;
+    }
+
+    .contact-form input:focus,
+    .contact-form textarea:focus {
+      outline: none;
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    }
+
+    .contact-form textarea {
+      resize: vertical;
+      min-height: 150px;
+    }
+
+    .contact-form button {
+      display: inline-block;
+      background-color: #a0a0a0;
+      color: #1a1a1a;
+      font-size: 1rem;
+      font-weight: bold;
+      padding: 1rem 2rem;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .contact-form button:hover {
+      background-color: #c0c0c0;
+    }
+
+    /* Footer */
+    .footer {
+      background-color: #2b2b2b;
+      padding: 2rem;
+      text-align: center;
+      box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .footer p {
+      font-size: 0.9rem;
+      color: #a0a0a0;
+      margin-bottom: 0;
+    }
+
+    /* Responsive Styles */
+    @media (max-width: 991px) {
+      .portfolio-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .about-section {
+        flex-direction: column;
+      }
+
+      .about-image {
+        margin-right: 0;
+        margin-bottom: 2rem;
+      }
+
+      .skills-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    @media (max-width: 767px) {
+      .navbar {
+        padding: 1rem;
+      }
+
+      .navbar-brand {
+        font-size: 1.25rem;
+      }
+
+      .navbar-nav li {
+        margin-left: 1.5rem;
+      }
+
+      .portfolio-showcase {
+        padding: 3rem 1rem;
+      }
+
+      .portfolio-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .about-section {
+        padding: 3rem 1rem;
+      }
+
+      .about-image {
+        flex: 0 0 200px;
+      }
+
+      .skills-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .contact-section {
+        padding: 3rem 1rem;
+      }
+
+      .contact-form {
+        max-width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation -->
+  <nav class="navbar">
+    <a href="#" class="navbar-brand">Develop</a>
+    <ul class="navbar-nav">
+      <li><a href="#">Home</a></li>
+      <li><a href="#">Portfolio</a></li>
+      <li><a href="#">About</a></li>
+      <li><a href="#">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- Portfolio Showcase -->
+  <section class="portfolio-showcase">
+    <h2>My Portfolio</h2>
+    <div class="portfolio-grid">
+      <div class="portfolio-card">
+        <img src="https://dummyimage.com/600x400/ccc/000&text=Project+1" alt="Project 1">
+        <div class="content">
+          <h3>Project 1</h3>
+          <p>Brief description of the project.</p>
+        </div>
+      </div>
+      <div class="portfolio-card">
+        <img src="https://dummyimage.com/600x400/ccc/000&text=Project+2" alt="Project 2">
+        <div class="content">
+          <h3>Project 2</h3>
+          <p>Brief description of the project.</p>
+        </div>
+      </div>
+      <div class="portfolio-card">
+        <img src="https://dummyimage.com/600x400/ccc/000&text=Project+3" alt="Project 3">
+        <div class="content">
+          <h3>Project 3</h3>
+          <p>Brief description of the project.</p>
+        </div>
+      </div>
+      <div class="portfolio-card">
+        <img src="https://dummyimage.com/600x400/ccc/000&text=Project+4" alt="Project 4">
+        <div class="content">
+          <h3>Project 4</h3>
+          <p>Brief description of the project.</p>
+        </div>
+      </div>
+      <div class="portfolio-card">
+        <img src="https://dummyimage.com/600x400/ccc/000&text=Project+5" alt="Project 5">
+        <div class="content">
+          <h3>Project 5</h3>
+          <p>Brief description of the project.</p>
+        </div>
+      </div>
+      <div class="portfolio-card">
+        <img src="https://dummyimage.com/600x400/ccc/000&text=Project+6" alt="Project 6">
+        <div class="content">
+          <h3>Project 6</h3>
+          <p>Brief description of the project.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section class="about-section">
+    <div class="about-image">
+      <img src="https://dummyimage.com/300x300/ccc/000&text=Designer+Headshot" alt="Designer Headshot">
+    </div>
+    <div class="about-content">
+      <h2>About Me</h2>
+      <p>Hi, I'm a passionate designer with a keen eye for detail and a love for creating stunning, professional-looking portfolios. I specialize in developing matte-black portfolios with flat, dark tones and minimal bright accents, using understated animations and subtle shadows to achieve a smooth, polished look.</p>
+      <div class="skills-grid">
+        <div class="skill-item">
+          <i class="fas fa-palette"></i>
+          <h4>Graphic Design</h4>
+          <p>Expertise in Adobe Creative Suite</p>
+        </div>
+        <div class="skill-item">
+          <i class="fas fa-code"></i>
+          <h4>Web Development</h4>
+          <p>Proficient in HTML, CSS, and JavaScript</code</p>
+        </div>
+        <div class="skill-item">
+          <i class="fas fa-mobile-alt"></i>
+          <h4>Responsive Design</h4>
+          <p>Designs that adapt to any device</p>
+        </div>
+        <div class="skill-item">
+          <i class="fas fa-magic"></i>
+          <h4>Animation & Interactivity</h4>
+          <p>Seamless animations and smooth interactions</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Form -->
+  <section class="contact-section">
+    <h2>Get in Touch</h2>
+    <div class="contact-form">
+      <form>
+        <div class="form-group">
+          <label for="name">Name</label>
+          <input type="text" id="name" placeholder="Enter your name" required>
+        </div>
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" id="email" placeholder="Enter your email" required>
+        </div>
+        <div class="form-group">
+          <label for="message">Message</label>
+          <textarea id="message" placeholder="Enter your message" required></textarea>
+        </div>
+        <button type="submit">Send Message</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <p>&copy; 2024 Develop. All rights reserved.</p>
+  </footer>
+
+  <!-- Font Awesome Icons -->
+  <script src="https://kit.fontawesome.com/your-font-awesome-kit.js" crossorigin="anonymous"></script>
+</body>
+</html>'<!-- Visit: https://github.com/Ishanoshada/portflair -->
+<!-- Visit: https://github.com/Ishanoshada/portflair -->

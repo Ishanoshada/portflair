@@ -1,0 +1,365 @@
+<!-- Portfolio created by Ishan -->
+<!-- Check out my work at: https://github.com/Ishanoshada/portflair -->
+<!-- 2024/10/9 -->
+<!-- Portfolio created by Ishan -->
+'<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Black Hole Portfolio</title>
+  <style>
+    /* Global Styles */
+    body {
+      font-family: 'Orbitron', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #000814;
+      color: #fff;
+    }
+
+    /* Navigation Bar */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px;
+      background-color: rgba(0, 8, 20, 0.8);
+      backdrop-filter: blur(10px);
+    }
+
+    nav ul {
+      list-style-type: none;
+      display: flex;
+      margin: 0;
+      padding: 0;
+    }
+
+    nav li {
+      margin-right: 20px;
+    }
+
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      font-size: 18px;
+      font-weight: bold;
+      text-shadow: 0 0 20px #00b7ff, 0 0 40px #00b7ff, 0 0 80px #00b7ff;
+      transition: text-shadow 0.3s ease-in-out;
+    }
+
+    nav a:hover {
+      text-shadow: 0 0 40px #00b7ff, 0 0 60px #00b7ff, 0 0 100px #00b7ff;
+    }
+
+    /* Project Galaxy */
+    #project-galaxy {
+      padding: 80px 40px;
+      background: linear-gradient(to bottom, #000814, #001233, #000814);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-gap: 40px;
+    }
+
+    .project-item {
+      position: relative;
+      cursor: pointer;
+      overflow: hidden;
+      border-radius: 10px;
+      box-shadow: 0 0 20px rgba(0, 183, 255, 0.5);
+      transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    }
+
+    .project-item:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 40px rgba(0, 183, 255, 0.8);
+    }
+
+    .project-item img {
+      width: 100%;
+      height: auto;
+      display: block;
+      filter: grayscale(0.5) brightness(0.7) contrast(1.2);
+      transition: filter 0.3s ease-in-out;
+    }
+
+    .project-item:hover img {
+      filter: grayscale(0) brightness(1) contrast(1);
+    }
+
+    .project-details {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 8, 20, 0.8);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      opacity: 0;
+      transition: opacity 0.3s ease-in-out;
+    }
+
+    .project-item:hover .project-details {
+      opacity: 1;
+    }
+
+    .project-details h3 {
+      font-size: 24px;
+      margin-bottom: 10px;
+      text-shadow: 0 0 20px #00b7ff, 0 0 40px #00b7ff, 0 0 80px #00b7ff;
+    }
+
+    .project-details p {
+      font-size: 16px;
+      text-align: center;
+      max-width: 80%;
+      text-shadow: 0 0 10px #00b7ff, 0 0 20px #00b7ff, 0 0 40px #00b7ff;
+    }
+
+    /* Skill Galaxy */
+    #skill-galaxy {
+      padding: 80px 40px;
+      background: radial-gradient(ellipse at center, #001233, #000814);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .skill-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      grid-gap: 40px;
+    }
+
+    .skill-item {
+      position: relative;
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      border-radius: 10px;
+      background-color: rgba(0, 8, 20, 0.8);
+      box-shadow: 0 0 20px rgba(0, 183, 255, 0.5);
+      transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    }
+
+    .skill-item:hover {
+      transform: scale(1.1);
+      box-shadow: 0 0 40px rgba(0, 183, 255, 0.8);
+    }
+
+    .skill-item img {
+      width: 80px;
+      height: 80px;
+      margin-bottom: 10px;
+      filter: drop-shadow(0 0 10px #00b7ff) brightness(1.2);
+      transition: filter 0.3s ease-in-out;
+    }
+
+    .skill-item:hover img {
+      filter: drop-shadow(0 0 20px #00b7ff) brightness(1.5);
+    }
+
+    .skill-item h3 {
+      font-size: 18px;
+      margin-bottom: 5px;
+      text-shadow: 0 0 10px #00b7ff, 0 0 20px #00b7ff, 0 0 40px #00b7ff;
+    }
+
+    .skill-item p {
+      font-size: 14px;
+      text-align: center;
+      text-shadow: 0 0 5px #00b7ff, 0 0 10px #00b7ff, 0 0 20px #00b7ff;
+    }
+
+    /* Neon Contact Form */
+    #contact-form {
+      padding: 80px 40px;
+      background: radial-gradient(circle, #001233, #000814);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .form-container {
+      max-width: 600px;
+      margin: 0 auto;
+      background-color: rgba(0, 8, 20, 0.8);
+      padding: 40px;
+      border-radius: 10px;
+      box-shadow: 0 0 40px rgba(0, 183, 255, 0.5);
+    }
+
+    .form-container h2 {
+      font-size: 32px;
+      text-align: center;
+      margin-bottom: 30px;
+      text-shadow: 0 0 20px #00b7ff, 0 0 40px #00b7ff, 0 0 80px #00b7ff;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    .form-group label {
+      display: block;
+      font-size: 16px;
+      margin-bottom: 5px;
+      text-shadow: 0 0 10px #00b7ff, 0 0 20px #00b7ff, 0 0 40px #00b7ff;
+    }
+
+    .form-group input,
+    .form-group textarea {
+      width: 100%;
+      padding: 10px;
+      font-size: 16px;
+      border: none;
+      border-radius: 5px;
+      background-color: rgba(0, 183, 255, 0.1);
+      color: #fff;
+      outline: none;
+      box-shadow: 0 0 10px rgba(0, 183, 255, 0.3);
+      transition: box-shadow 0.3s ease-in-out;
+    }
+
+    .form-group input:focus,
+    .form-group textarea:focus {
+      box-shadow: 0 0 20px rgba(0, 183, 255, 0.5);
+    }
+
+    .form-group textarea {
+      resize: vertical;
+    }
+
+    .form-group button {
+      display: block;
+      width: 100%;
+      padding: 10px;
+      font-size: 18px;
+      font-weight: bold;
+      background-color: #00b7ff;
+      color: #000814;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    }
+
+    .form-group button:hover {
+      background-color: #0096c7;
+      color: #fff;
+      box-shadow: 0 0 20px rgba(0, 183, 255, 0.5);
+    }
+
+    .form-group button:focus {
+      outline: none;
+      box-shadow: 0 0 20px rgba(0, 183, 255, 0.8);
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="#" class="logo">Black Hole Portfolio</a>
+    <ul>
+      <li><a href="#project-galaxy">Projects</a></li>
+      <li><a href="#skill-galaxy">Skills</a></li>
+      <li><a href="#contact-form">Contact</a></li>
+    </ul>
+  </nav>
+
+  <section id="project-galaxy">
+    <h2>Project Galaxy</h2>
+    <div class="project-grid">
+      <div class="project-item">
+        <img src="https://dummyimage.com/600x400/ccc/000&text=Project+1" alt="Project 1">
+        <div class="project-details">
+          <h3>Project 1</h3>
+          <p>This is a description of the first project in the portfolio.</p>
+        </div>
+      </div>
+      <div class="project-item">
+        <img src="https://dummyimage.com/600x400/ccc/000&text=Project+2" alt="Project 2">
+        <div class="project-details">
+          <h3>Project 2</h3>
+          <p>This is a description of the second project in the portfolio.</p>
+        </div>
+      </div>
+      <div class="project-item">
+        <img src="https://dummyimage.com/600x400/ccc/000&text=Project+3" alt="Project 3">
+        <div class="project-details">
+          <h3>Project 3</h3>
+          <p>This is a description of the third project in the portfolio.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="skill-galaxy">
+    <h2>Skill Galaxy</h2>
+    <div class="skill-grid">
+      <div class="skill-item">
+        <img src="https://dummyimage.com/80x80/ccc/000&text=Node.js" alt="Node.js">
+        <h3>Node.js</h3>
+        <p>Proficient in building scalable and performant server-side applications.</p>
+      </div>
+      <div class="skill-item">
+        <img src="https://dummyimage.com/80x80/ccc/000&text=React" alt="React">
+        <h3>React</h3>
+        <p>Experienced in building dynamic and responsive user interfaces.</p>
+      </div>
+      <div class="skill-item">
+        <img src="https://dummyimage.com/80x80/ccc/000&text=MongoDB" alt="MongoDB">
+        <h3>MongoDB</h3>
+        <p>Skilled in designing and implementing NoSQL database solutions.</p>
+      </div>
+      <div class="skill-item">
+        <img src="https://dummyimage.com/80x80/ccc/000&text=AWS" alt="AWS">
+        <h3>AWS</h3>
+        <p>Proficient in cloud infrastructure and deployment using AWS services.</p>
+      </div>
+      <div class="skill-item">
+        <img src="https://dummyimage.com/80x80/ccc/000&text=Python" alt="Python">
+        <h3>Python</h3>
+        <p>Experienced in developing efficient and scalable applications using Python.</p>
+      </div>
+      <div class="skill-item">
+        <img src="https://dummyimage.com/80x80/ccc/000&text=Docker" alt="Docker">
+        <h3>Docker</h3>
+        <p>Skilled in containerizing and deploying applications using Docker.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact-form">
+    <div class="form-container">
+      <h2>Get in Touch</h2>
+      <form>
+        <div class="form-group">
+          <label for="name">Name</label>
+          <input type="text" id="name" name="name" placeholder="Enter your name" required>
+        </div>
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" placeholder="Enter your email" required>
+        </div>
+        <div class="form-group">
+          <label for="message">Message</label>
+          <textarea id="message" name="message" placeholder="Enter your message" required></textarea>
+        </div>
+        <div class="form-group">
+          <button type="submit">Send Message</button>
+        </div>
+      </form>
+    </div>
+  </section>
+</body>
+</html>'<!-- Visit: https://github.com/Ishanoshada/portflair -->
+<!-- Visit: https://github.com/Ishanoshada/portflair -->

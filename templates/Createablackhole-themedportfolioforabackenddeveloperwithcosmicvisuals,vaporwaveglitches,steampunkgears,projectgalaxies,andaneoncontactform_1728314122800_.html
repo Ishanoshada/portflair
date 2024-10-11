@@ -1,0 +1,592 @@
+<!-- Portfolio created by Ishan -->
+<!-- Check out my work at: https://github.com/Ishanoshada/portflair -->
+<!-- 2024/10/9 -->
+<!-- Portfolio created by Ishan -->
+'<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Black Hole Portfolio</title>
+  <style>
+    /* Reset styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    /* Global styles */
+    body {
+      font-family: 'Oswald', sans-serif;
+      background-color: #0C0C0C;
+      color: #FFFFFF;
+      overflow-x: hidden;
+    }
+
+    /* Navigation styles */
+    .nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.5rem 3rem;
+      background-color: rgba(12, 12, 12, 0.8);
+      backdrop-filter: blur(10px);
+      position: relative;
+      z-index: 100;
+    }
+
+    .nav-logo {
+      font-size: 1.8rem;
+      font-weight: bold;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: #FFFFFF;
+      text-decoration: none;
+    }
+
+    .nav-menu {
+      display: flex;
+      list-style-type: none;
+    }
+
+    .nav-menu li {
+      margin-left: 2rem;
+    }
+
+    .nav-menu a {
+      font-size: 1.1rem;
+      font-weight: 500;
+      color: #FFFFFF;
+      text-decoration: none;
+      position: relative;
+      padding-bottom: 0.5rem;
+    }
+
+    .nav-menu a::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background-color: #9B59B6;
+      transition: width 0.3s ease-in-out;
+    }
+
+    .nav-menu a:hover::after {
+      width: 100%;
+    }
+
+    /* Project Galaxies section */
+    .project-galaxies {
+      position: relative;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+    }
+
+    .project-galaxies::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(ellipse at center, rgba(12, 12, 12, 0.8) 0%, rgba(12, 12, 12, 1) 100%);
+      z-index: 1;
+    }
+
+    .project-galaxy {
+      position: absolute;
+      width: 200px;
+      height: 200px;
+      background-color: rgba(255, 255, 255, 0.1);
+      border-radius: 50%;
+      box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+      animation: galaxy-pulse 3s infinite ease-in-out;
+      cursor: pointer;
+    }
+
+    @keyframes galaxy-pulse {
+      0% {
+        transform: scale(1);
+        opacity: 0.8;
+      }
+      50% {
+        transform: scale(1.1);
+        opacity: 1;
+      }
+      100% {
+        transform: scale(1);
+        opacity: 0.8;
+      }
+    }
+
+    .project-galaxy:hover {
+      box-shadow: 0 0 40px rgba(255, 255, 255, 0.4);
+    }
+
+    .project-modal {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(12, 12, 12, 0.9);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 200;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
+    }
+
+    .project-modal.active {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .project-modal-content {
+      background-color: #1C1C1C;
+      padding: 3rem;
+      border-radius: 8px;
+      box-shadow: 0 0 40px rgba(255, 255, 255, 0.2);
+      max-width: 800px;
+      width: 90%;
+      position: relative;
+    }
+
+    .project-modal-close {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      font-size: 1.5rem;
+      color: #FFFFFF;
+      cursor: pointer;
+    }
+
+    /* Vaporwave Glitch Gallery */
+    .vaporwave-gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      grid-gap: 2rem;
+      padding: 4rem 3rem;
+      background-image: linear-gradient(to bottom right, #9B59B6, #8E44AD);
+      background-size: 400% 400%;
+      animation: vaporwave-gradient 15s ease infinite;
+    }
+
+    @keyframes vaporwave-gradient {
+      0% {
+        background-position: 0% 50%;
+      }
+      50% {
+        background-position: 100% 50%;
+      }
+      100% {
+        background-position: 0% 50%;
+      }
+    }
+
+    .vaporwave-tile {
+      position: relative;
+      background-color: #1C1C1C;
+      border-radius: 8px;
+      box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+      overflow: hidden;
+      cursor: pointer;
+      transition: transform 0.3s ease-in-out;
+    }
+
+    .vaporwave-tile:hover {
+      transform: scale(1.05);
+    }
+
+    .vaporwave-tile::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: linear-gradient(to right, #9B59B6, #8E44AD);
+      background-size: 200% 200%;
+      animation: vaporwave-glitch 5s ease infinite;
+      opacity: 0.3;
+    }
+
+    @keyframes vaporwave-glitch {
+      0% {
+        background-position: 0% 50%;
+      }
+      50% {
+        background-position: 100% 50%;
+      }
+      100% {
+        background-position: 0% 50%;
+      }
+    }
+
+    .vaporwave-tile-content {
+      position: relative;
+      z-index: 1;
+      padding: 2rem;
+      text-align: center;
+    }
+
+    .vaporwave-tile-content h3 {
+      font-size: 1.2rem;
+      font-weight: bold;
+      color: #FFFFFF;
+      margin-bottom: 0.5rem;
+    }
+
+    .vaporwave-tile-content p {
+      font-size: 0.9rem;
+      color: #CCCCCC;
+    }
+
+    /* Steampunk Contact Form */
+    .steampunk-contact {
+      padding: 4rem 3rem;
+      background-image: url('https://dummyimage.com/1200x800/333/fff.png&text=Steampunk+Gears');
+      background-size: cover;
+      background-position: center;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .steampunk-form {
+      background-color: #1C1C1C;
+      padding: 3rem;
+      border-radius: 8px;
+      box-shadow: 0 0 40px rgba(255, 255, 255, 0.2);
+      max-width: 600px;
+      width: 90%;
+      position: relative;
+    }
+
+    .steampunk-form::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: linear-gradient(to right, #9B59B6, #8E44AD);
+      background-size: 200% 200%;
+      animation: steampunk-glow 5s ease infinite;
+      opacity: 0.3;
+      border-radius: 8px;
+    }
+
+    @keyframes steampunk-glow {
+      0% {
+        background-position: 0% 50%;
+      }
+      50% {
+        background-position: 100% 50%;
+      }
+      100% {
+        background-position: 0% 50%;
+      }
+    }
+
+    .steampunk-form h2 {
+      font-size: 1.8rem;
+      font-weight: bold;
+      color: #FFFFFF;
+      margin-bottom: 2rem;
+      text-align: center;
+    }
+
+    .steampunk-form-group {
+      margin-bottom: 1.5rem;
+      position: relative;
+    }
+
+    .steampunk-form-group label {
+      font-size: 0.9rem;
+      color: #CCCCCC;
+      position: absolute;
+      top: 50%;
+      left: 1rem;
+      transform: translateY(-50%);
+      transition: all 0.3s ease-in-out;
+    }
+
+    .steampunk-form-group input,
+    .steampunk-form-group textarea {
+      width: 100%;
+      padding: 1rem 1.5rem;
+      font-size: 1rem;
+      color: #FFFFFF;
+      background-color: #333333;
+      border: none;
+      border-radius: 4px;
+      outline: none;
+      transition: all 0.3s ease-in-out;
+    }
+
+    .steampunk-form-group input:focus,
+    .steampunk-form-group textarea:focus {
+      box-shadow: 0 0 10px rgba(155, 89, 182, 0.5);
+    }
+
+    .steampunk-form-group input:focus + label,
+    .steampunk-form-group textarea:focus + label,
+    .steampunk-form-group input:not(:placeholder-shown) + label,
+    .steampunk-form-group textarea:not(:placeholder-shown) + label {
+      top: 0;
+      font-size: 0.8rem;
+      color: #9B59B6;
+    }
+
+    .steampunk-form-group textarea {
+      resize: vertical;
+      min-height: 150px;
+    }
+
+    .steampunk-form-submit {
+      display: block;
+      width: 100%;
+      padding: 1rem;
+      font-size: 1.1rem;
+      font-weight: bold;
+      color: #FFFFFF;
+      background-color: #9B59B6;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background-color 0.3s ease-in-out;
+    }
+
+    .steampunk-form-submit:hover {
+      background-color: #8E44AD;
+    }
+  </style>
+</head>
+<body>
+  <nav class="nav">
+    <a href="#" class="nav-logo">Black Hole</a>
+    <ul class="nav-menu">
+      <li><a href="#">Home</a></li>
+      <li><a href="#">Projects</a></li>
+      <li><a href="#">About</a></li>
+      <li><a href="#">Contact</a></li>
+    </ul>
+  </nav>
+
+  <section class="project-galaxies">
+    <div class="project-galaxy" style="top: 20%; left: 15%;"></div>
+    <div class="project-galaxy" style="top: 35%; left: 45%;"></div>
+    <div class="project-galaxy" style="top: 60%; left: 70%;"></div>
+    <div class="project-galaxy" style="top: 75%; left: 30%;"></div>
+    <div class="project-modal">
+      <div class="project-modal-content">
+        <span class="project-modal-close">&times;</span>
+        <h2>Project Details</h2>
+        <p>This is where the project details will be displayed, including a brief description, technologies used, and a link to the live site or GitHub repository.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="vaporwave-gallery">
+    <div class="vaporwave-tile">
+      <div class="vaporwave-tile-content">
+        <h3>Project 1</h3>
+        <p>This is a description of the first project.</p>
+      </div>
+    </div>
+    <div class="vaporwave-tile">
+      <div class="vaporwave-tile-content">
+        <h3>Project 2</h3>
+        <p>This is a description of the second project.</p>
+      </div>
+    </div>
+    <div class="vaporwave-tile">
+      <div class="vaporwave-tile-content">
+        <h3>Project 3</h3>
+        <p>This is a description of the third project.</p>
+      </div>
+    </div>
+    <div class="vaporwave-tile">
+      <div class="vaporwave-tile-content">
+        <h3>Project 4</h3>
+        <p>This is a description of the fourth project.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="steampunk-contact">
+    <div class="steampunk-form">
+      <h2>Get in Touch</h2>
+      <form>
+        <div class="steampunk-form-group">
+          <input type="text" id="name" placeholder=" " required>
+          <label for="name">Name</label>
+        </div>
+        <div class="steampunk-form-group">
+          <input type="email" id="email" placeholder=" " required>
+          <label for="email">Email</label>
+        </div>
+        <div class="steampunk-form-group">
+          <textarea id="message" placeholder=" " required></textarea>
+          <label for="message">Message</label>
+        </div>
+        <button type="submit" class="steampunk-form-submit">Submit</button>
+      </form>
+    </div>
+  </section>
+
+  <script>
+    // Project Galaxy Modal
+    const projectGalaxies = document.querySelectorAll('.project-galaxy');
+    const projectModal = document.querySelector('.project-modal');
+    const projectModalClose = document.querySelector('.project-modal-close');
+
+    projectGalaxies.forEach(galaxy => {
+      galaxy.addEventListener('click', () => {
+        projectModal.classList.add('active');
+      });
+    });
+
+    projectModalClose.addEventListener('click', () => {
+      projectModal.classList.remove('active');
+    });
+
+    // Vaporwave Tile Hover
+    const vaporwaveTiles = document.querySelectorAll('.vaporwave-tile');
+
+    vaporwaveTiles.forEach(tile => {
+      tile.addEventListener('mouseenter', () => {
+        tile.style.transform = 'scale(1.05)';
+      });
+      tile.addEventListener('mouseleave', () => {
+        tile.style.transform = 'scale(1)';
+      });
+    });
+  </script><section class="project-showcase">
+    <h2>Featured Projects</h2>
+    <div class="project-grid">
+      <div class="project-card">
+        <div class="project-thumbnail">
+          <img src="https://dummyimage.com/600x400/333/fff.png&text=Project+1" alt="Project 1">
+        </div>
+        <div class="project-info">
+          <h3>Project 1</h3>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+          <a href="#" class="project-link">Learn More</a>
+        </div>
+      </div>
+      <div class="project-card">
+        <div class="project-thumbnail">
+          <img src="https://dummyimage.com/600x400/333/fff.png&text=Project+2" alt="Project 2">
+        </div>
+        <div class="project-info">
+          <h3>Project 2</h3>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+          <a href="#" class="project-link">Learn More</a>
+        </div>
+      </div>
+      <div class="project-card">
+        <div class="project-thumbnail">
+          <img src="https://dummyimage.com/600x400/333/fff.png&text=Project+3" alt="Project 3">
+        </div>
+        <div class="project-info">
+          <h3>Project 3</h3>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+          <a href="#" class="project-link">Learn More</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="about-section">
+    <div class="about-content">
+      <h2>About Me</h2>
+      <p>Hi, I'm a backend developer with a passion for creating robust and efficient applications. I have a deep understanding of various programming languages and frameworks, and I'm always eager to learn new technologies to stay ahead of the curve.</p>
+      <p>My approach to development is both analytical and creative, as I strive to find innovative solutions to complex problems. I take pride in my attention to detail and my ability to write clean, maintainable code that scales well.</p>
+      <a href="#" class="about-link">Learn More</a>
+    </div>
+    <div class="about-image">
+      <img src="https://dummyimage.com/600x400/333/fff.png&text=About+Me" alt="About Me">
+    </div>
+  </section>
+
+  <section class="skills-section">
+    <h2>My Skills</h2>
+    <div class="skills-grid">
+      <div class="skill-card">
+        <div class="skill-icon">
+          <i class="fas fa-code"></i>
+        </div>
+        <h3>Programming Languages</h3>
+        <p>Python, JavaScript, Ruby, Java, C++</p>
+      </div>
+      <div class="skill-card">
+        <div class="skill-icon">
+          <i class="fas fa-database"></i>
+        </div>
+        <h3>Databases</h3>
+        <p>MySQL, PostgreSQL, MongoDB, Redis</p>
+      </div>
+      <div class="skill-card">
+        <div class="skill-icon">
+          <i class="fas fa-cloud"></i>
+        </div>
+        <h3>Cloud Technologies</h3>
+        <p>AWS, Google Cloud, Azure, Heroku</p>
+      </div>
+      <div class="skill-card">
+        <div class="skill-icon">
+          <i class="fas fa-cogs"></i>
+        </div>
+        <h3>Frameworks & Libraries</h3>
+        <p>Django, Flask, Express.js, React, Angular</p>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-content">
+      <div class="footer-section">
+        <h3>Contact</h3>
+        <ul>
+          <li><i class="fas fa-envelope"></i> hello@blackholedev.com</li>
+          <li><i class="fas fa-phone"></i> +1 (555) 123-4567</li>
+          <li><i class="fas fa-map-marker-alt"></i> 123 Cosmic Drive, Galaxy, Milky Way</li>
+        </ul>
+      </div>
+      <div class="footer-section">
+        <h3>Follow Me</h3>
+        <ul class="social-links">
+          <li><a href="#"><i class="fab fa-github"></i></a></li>
+          <li><a href="#"><i class="fab fa-linkedin"></i></a></li>
+          <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+          <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+        </ul>
+      </div>
+      <div class="footer-section">
+        <h3>Newsletter</h3>
+        <form class="newsletter-form">
+          <input type="email" placeholder="Enter your email" required>
+          <button type="submit" class="newsletter-submit">Subscribe</button>
+        </form>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2024 Black Hole Portfolio. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- Font Awesome -->
+  <script src="https://kit.fontawesome.com/your-font-awesome-kit.js" crossorigin="anonymous"></script>
+</body>
+</html>'<!-- Visit: https://github.com/Ishanoshada/portflair -->
+<!-- Visit: https://github.com/Ishanoshada/portflair -->

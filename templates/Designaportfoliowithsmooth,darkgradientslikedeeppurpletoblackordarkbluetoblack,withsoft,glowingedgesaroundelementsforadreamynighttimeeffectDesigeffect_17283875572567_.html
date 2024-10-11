@@ -1,0 +1,393 @@
+<!-- Portfolio created by Ishan -->
+<!-- Check out my work at: https://github.com/Ishanoshada/portflair -->
+<!-- 2024/10/9 -->
+<!-- Portfolio created by Ishan -->
+'<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Design a Portfolio</title>
+  <style>
+    /* Global Styles */
+    body {
+      font-family: 'Montserrat', sans-serif;
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(to bottom, #330066, #000000);
+      color: #ffffff;
+    }
+
+    /* Navigation */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 40px;
+      background-color: rgba(0, 0, 0, 0.3);
+      backdrop-filter: blur(10px);
+    }
+
+    nav a {
+      color: #ffffff;
+      text-decoration: none;
+      font-size: 18px;
+      font-weight: 500;
+      margin-right: 30px;
+      transition: color 0.3s ease;
+    }
+
+    nav a:hover {
+      color: #9b59b6;
+    }
+
+    /* Portfolio Showcase */
+    .portfolio-showcase {
+      padding: 80px 40px;
+    }
+
+    .portfolio-showcase h1 {
+      font-size: 48px;
+      font-weight: 700;
+      margin-bottom: 40px;
+      text-align: center;
+      text-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+    }
+
+    .portfolio-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-gap: 40px;
+    }
+
+    .portfolio-item {
+      background-color: rgba(255, 255, 255, 0.1);
+      border-radius: 10px;
+      box-shadow: 0 0 30px rgba(255, 255, 255, 0.1);
+      overflow: hidden;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .portfolio-item:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 40px rgba(255, 255, 255, 0.2);
+    }
+
+    .portfolio-item img {
+      width: 100%;
+      height: 300px;
+      object-fit: cover;
+      filter: brightness(0.8) contrast(1.2);
+      transition: filter 0.3s ease;
+    }
+
+    .portfolio-item:hover img {
+      filter: brightness(1) contrast(1);
+    }
+
+    .portfolio-item h3 {
+      font-size: 24px;
+      font-weight: 600;
+      margin: 20px;
+      text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+    }
+
+    .portfolio-item p {
+      font-size: 16px;
+      margin: 0 20px 20px;
+      opacity: 0.8;
+    }
+
+    /* About the Designer */
+    .about-designer {
+      display: flex;
+      align-items: center;
+      padding: 80px 40px;
+      background: linear-gradient(to right, #330066, #000000);
+    }
+
+    .designer-image {
+      flex: 0 0 300px;
+      margin-right: 60px;
+      border-radius: 50%;
+      overflow: hidden;
+      box-shadow: 0 0 40px rgba(255, 255, 255, 0.2);
+    }
+
+    .designer-image img {
+      width: 100%;
+      height: auto;
+      filter: brightness(0.8) contrast(1.2);
+      transition: filter 0.3s ease;
+    }
+
+    .designer-image:hover img {
+      filter: brightness(1) contrast(1);
+    }
+
+    .designer-info h2 {
+      font-size: 36px;
+      font-weight: 700;
+      margin-bottom: 20px;
+      text-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+    }
+
+    .designer-info p {
+      font-size: 18px;
+      line-height: 1.6;
+      margin-bottom: 30px;
+      opacity: 0.8;
+    }
+
+    .designer-info a {
+      display: inline-block;
+      background-color: #9b59b6;
+      color: #ffffff;
+      text-decoration: none;
+      font-size: 16px;
+      font-weight: 500;
+      padding: 12px 24px;
+      border-radius: 30px;
+      box-shadow: 0 0 20px rgba(155, 89, 182, 0.5);
+      transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .designer-info a:hover {
+      background-color: #8e44ad;
+      box-shadow: 0 0 30px rgba(155, 89, 182, 0.7);
+    }
+
+    /* Contact and Inquiry Form */
+    .contact-form {
+      padding: 80px 40px;
+      background: linear-gradient(to right, #000000, #330066);
+    }
+
+    .contact-form h2 {
+      font-size: 36px;
+      font-weight: 700;
+      margin-bottom: 40px;
+      text-align: center;
+      text-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+    }
+
+    .contact-form form {
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .contact-form .form-group {
+      margin-bottom: 30px;
+    }
+
+    .contact-form label {
+      display: block;
+      font-size: 18px;
+      font-weight: 500;
+      margin-bottom: 10px;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+      width: 100%;
+      padding: 16px 20px;
+      font-size: 16px;
+      border: none;
+      border-radius: 30px;
+      background-color: rgba(255, 255, 255, 0.1);
+      color: #ffffff;
+      outline: none;
+      box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+      transition: box-shadow 0.3s ease;
+    }
+
+    .contact-form input:focus,
+    .contact-form textarea:focus {
+      box-shadow: 0 0 30px rgba(255, 255, 255, 0.2);
+    }
+
+    .contact-form textarea {
+      resize: vertical;
+      min-height: 150px;
+    }
+
+    .contact-form button {
+      display: block;
+      width: 100%;
+      padding: 16px 0;
+      font-size: 18px;
+      font-weight: 600;
+      color: #ffffff;
+      background-color: #9b59b6;
+      border: none;
+      border-radius: 30px;
+      cursor: pointer;
+      box-shadow: 0 0 20px rgba(155, 89, 182, 0.5);
+      transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .contact-form button:hover {
+      background-color: #8e44ad;
+      box-shadow: 0 0 30px rgba(155, 89, 182, 0.7);
+    }
+
+    /* Responsive Styles */
+    @media (max-width: 1024px) {
+      .portfolio-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .about-designer {
+        flex-direction: column;
+        padding: 60px 40px;
+      }
+
+      .designer-image {
+        margin-right: 0;
+        margin-bottom: 40px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      nav {
+        padding: 16px 20px;
+      }
+
+      nav a {
+        font-size: 16px;
+        margin-right: 20px;
+      }
+
+      .portfolio-showcase {
+        padding: 60px 20px;
+      }
+
+      .portfolio-showcase h1 {
+        font-size: 36px;
+        margin-bottom: 30px;
+      }
+
+      .portfolio-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .portfolio-item img {
+        height: 200px;
+      }
+
+      .about-designer {
+        padding: 50px 20px;
+      }
+
+      .designer-image {
+        flex: 0 0 200px;
+      }
+
+      .designer-info h2 {
+        font-size: 30px;
+        margin-bottom: 16px;
+      }
+
+      .designer-info p {
+        font-size: 16px;
+        margin-bottom: 24px;
+      }
+
+      .contact-form {
+        padding: 60px 20px;
+      }
+
+      .contact-form h2 {
+        font-size: 30px;
+        margin-bottom: 30px;
+      }
+
+      .contact-form input,
+      .contact-form textarea {
+        padding: 12px 16px;
+        font-size: 14px;
+      }
+
+      .contact-form button {
+        font-size: 16px;
+        padding: 12px 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="#">Home</a>
+    <a href="#">Portfolio</a>
+    <a href="#">About</a>
+    <a href="#">Contact</a>
+  </nav>
+
+  <div class="portfolio-showcase">
+    <h1>Explore My Portfolio</h1>
+    <div class="portfolio-grid">
+      <div class="portfolio-item">
+        <img src="https://dummyimage.com/600x400/ccc/000&text=Project+1" alt="Project 1">
+        <h3>Project 1</h3>
+        <p>Description of Project 1</p>
+      </div>
+      <div class="portfolio-item">
+        <img src="https://dummyimage.com/600x400/ccc/000&text=Project+2" alt="Project 2">
+        <h3>Project 2</h3>
+        <p>Description of Project 2</p>
+      </div>
+      <div class="portfolio-item">
+        <img src="https://dummyimage.com/600x400/ccc/000&text=Project+3" alt="Project 3">
+        <h3>Project 3</h3>
+        <p>Description of Project 3</p>
+      </div>
+      <div class="portfolio-item">
+        <img src="https://dummyimage.com/600x400/ccc/000&text=Project+4" alt="Project 4">
+        <h3>Project 4</h3>
+        <p>Description of Project 4</p>
+      </div>
+      <div class="portfolio-item">
+        <img src="https://dummyimage.com/600x400/ccc/000&text=Project+5" alt="Project 5">
+        <h3>Project 5</h3>
+        <p>Description of Project 5</p>
+      </div>
+      <div class="portfolio-item">
+        <img src="https://dummyimage.com/600x400/ccc/000&text=Project+6" alt="Project 6">
+        <h3>Project 6</h3>
+        <p>Description of Project 6</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="about-designer">
+    <div class="designer-image">
+      <img src="https://dummyimage.com/300x300/ccc/000&text=Designer" alt="Designer">
+    </div>
+    <div class="designer-info">
+      <h2>About the Designer</h2>
+      <p>Hi, I'm a passionate designer with a deep love for creating visually stunning and captivating portfolios. My work is inspired by the beauty of the night, with smooth, dark gradients and soft, glowing edges that evoke a dreamy, atmospheric feel. I believe in crafting experiences that not only showcase my skills but also leave a lasting impression on the viewer.</p>
+      <a href="#">Get in Touch</a>
+    </div>
+  </div>
+
+  <div class="contact-form">
+    <h2>Contact and Inquiry Form</h2>
+    <form>
+      <div class="form-group">
+        <label for="name">Name</label>
+        <input type="text" id="name" name="name" placeholder="Enter your name" required>
+      </div>
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" placeholder="Enter your email" required>
+      </div>
+      <div class="form-group">
+        <label for="message">Message</label>
+        <textarea id="message" name="message" placeholder="Enter your message" required></textarea>
+      </div>
+      <button type="submit">Submit</button>
+    </form>
+  </div>
+</body>
+</html>'<!-- Visit: https://github.com/Ishanoshada/portflair -->
+<!-- Visit: https://github.com/Ishanoshada/portflair -->

@@ -1,0 +1,497 @@
+<!-- Portfolio created by Ishan -->
+<!-- Check out my work at: https://github.com/Ishanoshada/portflair -->
+<!-- 2024/10/9 -->
+<!-- Portfolio created by Ishan -->
+'<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Black Hole Portfolio</title>
+    <style>
+        /* General Styles */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Roboto', sans-serif;
+            background-color: #1c1c1c;
+            color: #fff;
+        }
+
+        /* Navigation */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #0f0f0f;
+            padding: 1rem 2rem;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .navbar-brand {
+            font-size: 1.5rem;
+            font-weight: bold;
+            text-decoration: none;
+            color: #fff;
+        }
+
+        .navbar-nav {
+            display: flex;
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .nav-item {
+            margin-left: 1.5rem;
+        }
+
+        .nav-link {
+            text-decoration: none;
+            color: #fff;
+            font-size: 1rem;
+            transition: color 0.3s ease;
+        }
+
+        .nav-link:hover {
+            color: #8b8b8b;
+        }
+
+        /* Portfolio Section */
+        .portfolio-section {
+            padding: 4rem 2rem;
+            background-image: linear-gradient(to bottom, #1c1c1c, #151515);
+            background-size: cover;
+            background-position: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .portfolio-section::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url("https://dummyimage.com/1200x500/ccc/000&text=Cosmic+Visuals");
+            background-size: cover;
+            background-position: center;
+            opacity: 0.1;
+            z-index: -1;
+        }
+
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-gap: 2rem;
+        }
+
+        .portfolio-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .portfolio-item:hover {
+            transform: scale(1.05);
+        }
+
+        .portfolio-item img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .portfolio-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.6);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .portfolio-item:hover .portfolio-overlay {
+            opacity: 1;
+        }
+
+        .portfolio-overlay h3 {
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+            color: #fff;
+            text-align: center;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .portfolio-overlay p {
+            font-size: 1rem;
+            margin-bottom: 1rem;
+            color: #fff;
+            text-align: center;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .portfolio-overlay a {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            background-color: #2196f3;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 4px;
+            transition: background-color 0.3s ease;
+        }
+
+        .portfolio-overlay a:hover {
+            background-color: #1976d2;
+        }
+
+        /* About Section */
+        .about-section {
+            padding: 4rem 2rem;
+            background-image: linear-gradient(to bottom, #151515, #0f0f0f);
+            background-size: cover;
+            background-position: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .about-section::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url("https://dummyimage.com/1200x500/ccc/000&text=Vaporwave+Glitches");
+            background-size: cover;
+            background-position: center;
+            opacity: 0.1;
+            z-index: -1;
+        }
+
+        .about-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .about-image {
+            flex: 0 0 300px;
+            border-radius: 50%;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .about-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .about-text {
+            flex: 1;
+            margin-left: 3rem;
+        }
+
+        .about-text h2 {
+            font-size: 2rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+            color: #fff;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .about-text p {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            color: #b8b8b8;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .about-text a {
+            display: inline-block;
+            margin-top: 1.5rem;
+            padding: 0.75rem 1.5rem;
+            background-color: #2196f3;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 4px;
+            transition: background-color 0.3s ease;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .about-text a:hover {
+            background-color: #1976d2;
+        }
+
+        /* Contact Section */
+        .contact-section {
+            padding: 4rem 2rem;
+            background-image: linear-gradient(to bottom, #0f0f0f, #070707);
+            background-size: cover;
+            background-position: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .contact-section::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url("https://dummyimage.com/1200x500/ccc/000&text=Steampunk+Gears");
+            background-size: cover;
+            background-position: center;
+            opacity: 0.1;
+            z-index: -1;
+        }
+
+        .contact-form {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .contact-form h2 {
+            font-size: 2rem;
+            font-weight: bold;
+            margin-bottom: 1.5rem;
+            color: #fff;
+            text-align: center;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .contact-form .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-form label {
+            display: block;
+            font-size: 1.1rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+            color: #fff;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 0.75rem 1rem;
+            font-size: 1rem;
+            border: none;
+            border-radius: 4px;
+            background-color: rgba(255, 255, 255, 0.1);
+            color: #fff;
+            transition: background-color 0.3s ease;
+        }
+
+        .contact-form input:focus,
+        .contact-form textarea:focus {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .contact-form button {
+            display: block;
+            width: 100%;
+            padding: 0.75rem 1rem;
+            font-size: 1.1rem;
+            font-weight: bold;
+            background-color: #2196f3;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .contact-form button:hover {
+            background-color: #1976d2;
+        }
+
+        /* Footer */
+        .footer {
+            background-color: #0f0f0f;
+            padding: 1rem 2rem;
+            text-align: center;
+            color: #8b8b8b;
+            font-size: 0.9rem;
+        }
+
+        .footer a {
+            color: #2196f3;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer a:hover {
+            color: #1976d2;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .navbar {
+                padding: 1rem;
+            }
+
+            .portfolio-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .about-content {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .about-image {
+                margin-bottom: 2rem;
+            }
+
+            .about-text {
+                margin-left: 0;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .portfolio-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-form {
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <a href="#" class="navbar-brand">Black Hole Portfolio</a>
+            <ul class="navbar-nav">
+                <li class="nav-item"><a href="#" class="nav-link">Home</a></li>
+                <li class="nav-item"><a href="#" class="nav-link">Portfolio</a></li>
+                <li class="nav-item"><a href="#" class="nav-link">About</a></li>
+                <li class="nav-item"><a href="#" class="nav-link">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Portfolio Section -->
+        <section class="portfolio-section">
+            <div class="portfolio-grid">
+                <div class="portfolio-item">
+                    <img src="https://dummyimage.com/400x300/ccc/000&text=Project+Galaxy+1" alt="Project 1">
+                    <div class="portfolio-overlay">
+                        <h3>Project Galaxy 1</h3>
+                        <p>A cosmic-inspired backend project with vaporwave glitches and steampunk elements.</p>
+                        <a href="#">View Project</a>
+                    </div>
+                </div>
+                <div class="portfolio-item">
+                    <img src="https://dummyimage.com/400x300/ccc/000&text=Project+Galaxy+2" alt="Project 2">
+                    <div class="portfolio-overlay">
+                        <h3>Project Galaxy 2</h3>
+                        <p>A cosmic-inspired backend project with vaporwave glitches and steampunk elements.</p>
+                        <a href="#">View Project</a>
+                    </div>
+                </div>
+                <div class="portfolio-item">
+                    <img src="https://dummyimage.com/400x300/ccc/000&text=Project+Galaxy+3" alt="Project 3">
+                    <div class="portfolio-overlay">
+                        <h3>Project Galaxy 3</h3>
+                        <p>A cosmic-inspired backend project with vaporwave glitches and steampunk elements.</p>
+                        <a href="#">View Project</a>
+                    </div>
+                </div>
+                <div class="portfolio-item">
+                    <img src="https://dummyimage.com/400x300/ccc/000&text=Project+Galaxy+4" alt="Project 4">
+                    <div class="portfolio-overlay">
+                        <h3>Project Galaxy 4</h3>
+                        <p>A cosmic-inspired backend project with vaporwave glitches and steampunk elements.</p>
+                        <a href="#">View Project</a>
+                    </div>
+                </div>
+                <div class="portfolio-item">
+                    <img src="https://dummyimage.com/400x300/ccc/000&text=Project+Galaxy+5" alt="Project 5">
+                    <div class="portfolio-overlay">
+                        <h3>Project Galaxy 5</h3>
+                        <p>A cosmic-inspired backend project with vaporwave glitches and steampunk elements.</p>
+                        <a href="#">View Project</a>
+                    </div>
+                </div>
+                <div class="portfolio-item">
+                    <img src="https://dummyimage.com/400x300/ccc/000&text=Project+Galaxy+6" alt="Project 6">
+                    <div class="portfolio-overlay">
+                        <h3>Project Galaxy 6</h3>
+                        <p>A cosmic-inspired backend project with vaporwave glitches and steampunk elements.</p>
+                        <a href="#">View Project</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section class="about-section">
+            <div class="about-content">
+                <div class="about-image">
+                    <img src="https://dummyimage.com/300x300/ccc/000&text=Profile+Image" alt="Profile Image">
+                </div>
+                <div class="about-text">
+                    <h2>About the Backend Developer</h2>
+                    <p>Welcome to the cosmic world of our backend developer! Specializing in creating mind-bending, vaporwave-infused projects, this developer has a passion for blending the realms of technology and art. Withe-infused projects, this developer has a passion for blending the realms of technology and art. With a deep understanding of backend systems and a flair for the unconventional, they've crafted a portfolio that is truly out of this world.
+
+Guided by the principles of steampunk and inspired by the infinite mysteries of the universe, this developer weaves together intricate lines of code, creating projects that are not only functionally sound but also visually captivating. From pulsating neon interfaces to cosmic-themed dashboards, their work blurs the line between the digital and the celestial.
+
+Dive into the developer's mind by exploring their portfolio, where you'll find a galaxy of innovative solutions. Each project is a testament to their ability to push the boundaries of what's possible, seamlessly integrating cutting-edge technologies with a touch of the otherworldly.
+
+Whether you're in search of a backend wizard to bring your cosmic vision to life or simply curious to witness the fusion of technology and art, this developer's portfolio is a must-see. Prepare to be transported to a realm where the boundaries of reality and imagination converge.
+
+</div>
+</div>
+</section>
+
+<!-- Contact Section -->
+<section class="contact-section">
+<div class="contact-form">
+<h2>Get in Touch</h2>
+<form>
+<div class="form-group">
+<label for="name">Name</label>
+<input type="text" id="name" name="name" placeholder="Enter your name" required>
+</div>
+<div class="form-group">
+<label for="email">Email</label>
+<input type="email" id="email" name="email" placeholder="Enter your email" required>
+</div>
+<div class="form-group">
+<label for="message">Message</label>
+<textarea id="message" name="message" placeholder="Enter your message" rows="5" required></textarea>
+</div>
+<button type="submit">Submit</button>
+</form>
+</div>
+</section>
+
+<footer class="footer">
+<p>&copy; 2024 Black Hole Portfolio. All rights reserved. Designed by <a href="#">Your Name</a>.</p>
+</footer>
+</body>
+</html>'<!-- Visit: https://github.com/Ishanoshada/portflair -->
+<!-- Visit: https://github.com/Ishanoshada/portflair -->

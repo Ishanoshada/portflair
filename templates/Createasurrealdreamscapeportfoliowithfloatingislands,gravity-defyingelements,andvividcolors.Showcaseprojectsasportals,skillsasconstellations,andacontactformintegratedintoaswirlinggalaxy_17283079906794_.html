@@ -1,0 +1,417 @@
+<!-- Portfolio created by Ishan -->
+<!-- Check out my work at: https://github.com/Ishanoshada/portflair -->
+<!-- 2024/10/9 -->
+<!-- Portfolio created by Ishan -->
+'<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Surreal Dreamscape Portfolio</title>
+    <style>
+        /* Reset some default styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Body styles */
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #1a1a1a;
+            color: #fff;
+            overflow-x: hidden;
+        }
+
+        /* Navbar styles */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 40px;
+            background-color: rgba(26, 26, 26, 0.8);
+            backdrop-filter: blur(10px);
+            position: relative;
+            z-index: 1;
+        }
+
+        .navbar-brand {
+            font-size: 24px;
+            font-weight: bold;
+            color: #fff;
+            text-decoration: none;
+        }
+
+        .navbar-nav {
+            display: flex;
+            list-style-type: none;
+        }
+
+        .navbar-nav li {
+            margin-left: 20px;
+        }
+
+        .navbar-nav li a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 16px;
+            transition: color 0.3s ease;
+        }
+
+        .navbar-nav li a:hover {
+            color: #8b5cf6;
+        }
+
+        /* Project Showcase styles */
+        .project-showcase {
+            position: relative;
+            height: 100vh;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .project-islands {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 0;
+        }
+
+        .project-island {
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            background-image: linear-gradient(45deg, #8b5cf6, #4338ca);
+            border-radius: 50%;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+            transition: transform 0.5s ease, box-shadow 0.5s ease;
+            cursor: pointer;
+        }
+
+        .project-island:hover {
+            transform: scale(1.1);
+            box-shadow: 0 30px 70px rgba(0, 0, 0, 0.7);
+        }
+
+        .project-portal {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 80%;
+            height: 80%;
+            background-color: rgba(26, 26, 26, 0.8);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 40px;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.5s ease, visibility 0.5s ease;
+        }
+
+        .project-portal.show {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .project-portal h2 {
+            font-size: 32px;
+            margin-bottom: 20px;
+        }
+
+        .project-portal p {
+            font-size: 16px;
+            line-height: 1.6;
+        }
+
+        /* Skills Showcase styles */
+        .skills-showcase {
+            position: relative;
+            height: 100vh;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .skills-constellations {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 0;
+        }
+
+        .skills-constellation {
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            background-image: linear-gradient(45deg, #4338ca, #8b5cf6);
+            border-radius: 50%;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+            transition: transform 0.5s ease, box-shadow 0.5s ease;
+            cursor: pointer;
+        }
+
+        .skills-constellation:hover {
+            transform: scale(1.1);
+            box-shadow: 0 30px 70px rgba(0, 0, 0, 0.7);
+        }
+
+        .skills-detail {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 80%;
+            height: 80%;
+            background-color: rgba(26, 26, 26, 0.8);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 40px;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.5s ease, visibility 0.5s ease;
+        }
+
+        .skills-detail.show {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .skills-detail h2 {
+            font-size: 32px;
+            margin-bottom: 20px;
+        }
+
+        .skills-detail ul {
+            list-style-type: none;
+            font-size: 16px;
+            line-height: 1.6;
+        }
+
+        /* Contact Form styles */
+        .contact-form {
+            position: relative;
+            height: 100vh;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .contact-galaxy {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-image: url('https://dummyimage.com/1200x500/8b5cf6/000&text=Galaxy');
+            background-size: cover;
+            background-position: center;
+            z-index: 0;
+        }
+
+        .contact-form-container {
+            position: relative;
+            width: 80%;
+            max-width: 600px;
+            background-color: rgba(26, 26, 26, 0.8);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 40px;
+            z-index: 1;
+        }
+
+        .contact-form-container h2 {
+            font-size: 32px;
+            margin-bottom: 20px;
+        }
+
+        .contact-form-container form {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-gap: 20px;
+        }
+
+        .contact-form-container input,
+        .contact-form-container textarea {
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border: none;
+            border-radius: 5px;
+            color: #fff;
+            transition: background-color 0.3s ease;
+        }
+
+        .contact-form-container input:focus,
+        .contact-form-container textarea:focus {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .contact-form-container button {
+            grid-column: 1 / 3;
+            background-image: linear-gradient(45deg, #8b5cf6, #4338ca);
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .contact-form-container button:hover {
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <a href="#" class="navbar-brand">Surreal Dreamscape</a>
+            <ul class="navbar-nav">
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Projects</a></li>
+                <li><a href="#">Skills</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="project-showcase">
+            <div class="project-islands">
+                <div class="project-island" data-project-id="1"></div>
+                <div class="project-island" data-project-id="2"></div>
+                <div class="project-island" data-project-id="3"></div>
+                <div class="project-island" data-project-id="4"></div>
+                <div class="project-island" data-project-id="5"></div>
+            </div>
+            <div class="project-portal" data-project-id="1">
+                <h2>Project 1</h2>
+                <p>This is the description for Project 1, showcasing its unique features and visuals.</p>
+            </div>
+            <div class="project-portal" data-project-id="2">
+                <h2>Project 2</h2>
+                <p>This is the description for Project 2, highlighting its innovative design and functionality.</p>
+            </div>
+            <div class="project-portal" data-project-id="3">
+                <h2>Project 3</h2>
+                <p>This is the description for Project 3, demonstrating its dreamlike and captivating elements.</p>
+            </div>
+            <div class="project-portal" data-project-id="4">
+                <h2>Project 4</h2>
+                <p>This is the description for Project 4, showcasing its surreal and gravity-defying visuals.</p>
+            </div>
+            <div class="project-portal" data-project-id="5">
+                <h2>Project 5</h2>
+                <p>This is the description for Project 5, highlighting its vibrant and otherworldly design.</p>
+            </div>
+        </section>
+
+        <section class="skills-showcase">
+            <div class="skills-constellations">
+                <div class="skills-constellation" data-skill-id="1"></div>
+                <div class="skills-constellation" data-skill-id="2"></div>
+                <div class="skills-constellation" data-skill-id="3"></div>
+                <div class="skills-constellation" data-skill-id="4"></div>
+                <div class="skills-constellation" data-skill-id="5"></div>
+            </div>
+            <div class="skills-detail" data-skill-id="1">
+                <h2>Web Design</h2>
+                <ul>
+                    <li>Responsive design</li>
+                    <li>UI/UX optimization</li>
+                    <li>Interactive elements</li>
+                    <li>Smooth animations</li>
+                </ul>
+            </div>
+            <div class="skills-detail" data-skill-id="2">
+                <h2>Front-end Development</h2>
+                <ul>
+                    <li>HTML/CSS coding</li>
+                    <li>JavaScript implementation</li>
+                    <li>React.js expertise</li>
+                    <li>Performance optimization</li>
+                </ul>
+            </div>
+            <div class="skills-detail" data-skill-id="3">
+                <h2>Backend Engineering</h2>
+                <ul>
+                    <li>Node.js proficiency</li>
+                    <li>Database management</li>
+                    <li>API development</li>
+                    <li>Scalable architecture</li>
+                </ul>
+            </div>
+            <div class="skills-detail" data-skill-id="4">
+                <h2>Motion Design</h2>
+                <ul>
+                    <li>2D/3D animation</li>
+                    <li>Cinematic visuals</li>
+                    <li>Particle effects</li>
+                    <li>Seamless transitions</li>
+                </ul>
+            </div>
+            <div class="skills-detail" data-skill-id="5">
+                <h2>Creative Ideation</h2>
+                <ul>
+                    <li>Conceptual thinking</li>
+                    <li>Innovative problem-solving</li>
+                    <li>Trend analysis</li>
+                    <li>Collaborative mindset</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="contact-form">
+            <div class="contact-galaxy"></div>
+            <div class="contact-form-container">
+                <h2>Get in Touch</h2>
+                <form>
+                    <input type="text" placeholder="Name" required>
+                    <input type="email" placeholder="Email" required>
+                    <textarea placeholder="Message" rows="4" required></textarea>
+                    <button type="submit">Submit</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        // JavaScript code to handle project and skills showcase interactions
+        const projectIslands = document.querySelectorAll('.project-island');
+        const projectPortals = document.querySelectorAll('.project-portal');
+        const skillsConstellations = document.querySelectorAll('.skills-constellation');
+        const skillsDetails = document.querySelectorAll('.skills-detail');
+
+        projectIslands.forEach((island, index) => {
+            island.addEventListener('click', () => {
+                projectPortals.forEach(portal => {
+                    portal.classList.remove('show');
+                });
+                projectPortals[index].classList.add('show');
+            });
+        });
+
+        skillsConstellations.forEach((constellation, index) => {
+            constellation.addEventListener('click', () => {
+                skillsDetails.forEach(detail => {
+                    detail.classList.remove('show');
+                });
+                skillsDetails[index].classList.add('show');
+            });
+        });
+    </script>
+</body>
+</html>'<!-- Visit: https://github.com/Ishanoshada/portflair -->
+<!-- Visit: https://github.com/Ishanoshada/portflair -->

@@ -1,0 +1,412 @@
+<!-- Portfolio created by Ishan -->
+<!-- Check out my work at: https://github.com/Ishanoshada/portflair -->
+<!-- 2024/10/9 -->
+<!-- Portfolio created by Ishan -->
+'<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Black Hole Portfolio</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
+
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Orbitron', sans-serif;
+      background-color: #000;
+      color: #fff;
+      overflow-x: hidden;
+    }
+
+    /* Navbar */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: rgba(0, 0, 0, 0.5);
+      padding: 1rem 2rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      font-size: 1.2rem;
+      padding: 0.5rem 1rem;
+      transition: color 0.3s ease;
+    }
+
+    nav a:hover {
+      color: #9b59b6;
+    }
+
+    /* Project Galaxy */
+    #project-galaxy {
+      position: relative;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    #project-galaxy::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(ellipse at center, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 100%);
+      z-index: 0;
+    }
+
+    #project-galaxy::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url(https://dummyimage.com/1200x500/ccc/000&text=Cosmic+Background) no-repeat center center;
+      background-size: cover;
+      animation: vaporwave-glitch 10s infinite linear;
+      z-index: -1;
+    }
+
+    .project-thumbnail {
+      position: absolute;
+      width: 150px;
+      height: 150px;
+      background-color: rgba(255, 255, 255, 0.1);
+      border-radius: 50%;
+      box-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 2rem;
+      font-weight: bold;
+      color: #fff;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      animation: project-float 20s linear infinite;
+    }
+
+    .project-thumbnail:hover {
+      transform: scale(1.2);
+      box-shadow: 0 0 40px rgba(255, 255, 255, 0.8);
+    }
+
+    .project-details {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: rgba(0, 0, 0, 0.8);
+      padding: 2rem;
+      border-radius: 1rem;
+      text-align: center;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.3s ease;
+    }
+
+    .project-thumbnail:hover + .project-details {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    /* Skill Nebula */
+    #skill-nebula {
+      position: relative;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    #skill-nebula::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(ellipse at center, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 100%);
+      z-index: 0;
+    }
+
+    #skill-nebula::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url(https://dummyimage.com/1200x500/ccc/000&text=Nebula+Background) no-repeat center center;
+      background-size: cover;
+      animation: vaporwave-glitch 10s infinite linear;
+      z-index: -1;
+    }
+
+    .skill-gear {
+      position: absolute;
+      width: 100px;
+      height: 100px;
+      background-color: rgba(255, 255, 255, 0.1);
+      border-radius: 50%;
+      box-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: #fff;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      animation: skill-rotate 10s linear infinite;
+    }
+
+    .skill-gear:hover {
+      transform: scale(1.2);
+      box-shadow: 0 0 40px rgba(255, 255, 255, 0.8);
+    }
+
+    .skill-details {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: rgba(0, 0, 0, 0.8);
+      padding: 2rem;
+      border-radius: 1rem;
+      text-align: center;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.3s ease;
+    }
+
+    .skill-gear:hover + .skill-details {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    /* Neon Contact Form */
+    #neon-contact {
+      position: relative;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    #neon-contact::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(ellipse at center, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 100%);
+      z-index: 0;
+    }
+
+    #neon-contact::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url(https://dummyimage.com/1200x500/ccc/000&text=Neon+Background) no-repeat center center;
+      background-size: cover;
+      animation: vaporwave-glitch 10s infinite linear;
+      z-index: -1;
+    }
+
+    .neon-form {
+      background-color: rgba(0, 0, 0, 0.8);
+      padding: 3rem;
+      border-radius: 1rem;
+      box-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+      text-align: center;
+    }
+
+    .neon-form h2 {
+      font-size: 2.5rem;
+      margin-bottom: 2rem;
+      color: #9b59b6;
+      text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+    }
+
+    .neon-form input, .neon-form textarea {
+      display: block;
+      width: 100%;
+      margin-bottom: 1.5rem;
+      padding: 1rem;
+      font-size: 1.2rem;
+      background-color: rgba(255, 255, 255, 0.1);
+      border: none;
+      border-radius: 0.5rem;
+      color: #fff;
+      transition: all 0.3s ease;
+    }
+
+    .neon-form input:focus, .neon-form textarea:focus {
+      outline: none;
+      box-shadow: 0 0 20px rgba(255, 255, 255, 0.8);
+    }
+
+    .neon-form button {
+      display: block;
+      width: 100%;
+      padding: 1rem;
+      font-size: 1.2rem;
+      background-color: #9b59b6;
+      border: none;
+      border-radius: 0.5rem;
+      color: #fff;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .neon-form button:hover {
+      background-color: #8e44ad;
+      box-shadow: 0 0 20px rgba(155, 89, 182, 0.8);
+    }
+
+    /* Animations */
+    @keyframes vaporwave-glitch {
+      0% {
+        background-position: 0% 0%;
+      }
+      50% {
+        background-position: 100% 100%;
+      }
+      100% {
+        background-position: 0% 0%;
+      }
+    }
+
+    @keyframes project-float {
+      0% {
+        transform: translateX(-50%) translateY(-50%);
+      }
+      50% {
+        transform: translateX(50%) translateY(50%);
+      }
+      100% {
+        transform: translateX(-50%) translateY(-50%);
+      }
+    }
+
+    @keyframes skill-rotate {
+      0% {
+        transform: rotate(0deg);
+      }
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+
+    /* Responsive Styles */
+    @media (max-width: 768px) {
+      nav {
+        padding: 0.5rem 1rem;
+      }
+
+      nav a {
+        font-size: 1rem;
+        padding: 0.25rem 0.5rem;
+      }
+
+      .project-thumbnail, .skill-gear {
+        width: 80px;
+        height: 80px;
+        font-size: 1.5rem;
+      }
+
+      .project-details, .skill-details {
+        padding: 1.5rem;
+      }
+
+      .neon-form {
+        padding: 2rem;
+      }
+
+      .neon-form h2 {
+        font-size: 2rem;
+        margin-bottom: 1.5rem;
+      }
+
+      .neon-form input, .neon-form textarea, .neon-form button {
+        font-size: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="#">Home</a>
+    <a href="#">Projects</a>
+    <a href="#">Skills</a>
+    <a href="#">Contact</a>
+  </nav>
+
+  <section id="project-galaxy">
+    <div class="project-thumbnail" style="left: 20%; top: 30%;">P1</div>
+    <div class="project-details">
+      <h3>Project 1</h3>
+      <p>This is a brief description of Project 1.</p>
+      <p>Technologies used: Node.js, MongoDB, React</p>
+      <a href="#" class="project-link">View Project</a>
+    </div>
+    <div class="project-thumbnail" style="left: 50%; top: 60%;">P2</div>
+    <div class="project-details">
+      <h3>Project 2</h3>
+      <p>This is a brief description of Project 2.</p>
+      <p>Technologies used: Python, Django, Angular</p>
+      <a href="#" class="project-link">View Project</a>
+    </div>
+    <div class="project-thumbnail" style="left: 80%; top: 40%;">P3</div>
+    <div class="project-details">
+      <h3>Project 3</h3>
+      <p>This is a brief description of Project 3.</p>
+      <p>Technologies used: Ruby on Rails, PostgreSQL, Vue.js</p>
+      <a href="#" class="project-link">View Project</a>
+    </div>
+  </section>
+
+  <section id="skill-nebula">
+    <div class="skill-gear" style="left: 30%; top: 20%;">JS</div>
+    <div class="skill-details">
+      <h3>JavaScript</h3>
+      <p>Proficiency: Advanced</p>
+      <p>Experience: 5 years</p>
+    </div>
+    <div class="skill-gear" style="left: 60%; top: 50%;">Node</div>
+    <div class="skill-details">
+      <h3>Node.js</h3>
+      <p>Proficiency: Expert</p>
+      <p>Experience: 4 years</p>
+    </div>
+    <div class="skill-gear" style="left: 80%; top: 30%;">MongoDB</div>
+    <div class="skill-details">
+      <h3>MongoDB</h3>
+      <p>Proficiency: Intermediate</p>
+      <p>Experience: 3 years</p>
+    </div>
+  </section>
+
+  <section id="neon-contact">
+    <div class="neon-form">
+      <h2>Get in Touch</h2>
+      <form>
+        <input type="text" placeholder="Name" />
+        <input type="email" placeholder="Email" />
+        <textarea placeholder="Message"></textarea>
+        <button type="submit">Submit</button>
+      </form>
+    </div>
+  </section>
+</body>
+</html>'<!-- Visit: https://github.com/Ishanoshada/portflair -->
+<!-- Visit: https://github.com/Ishanoshada/portflair -->

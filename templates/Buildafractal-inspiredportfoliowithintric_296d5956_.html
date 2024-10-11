@@ -1,0 +1,358 @@
+<!-- Portfolio created by Ishan -->
+<!-- Check out my work at: https://github.com/Ishanoshada/portflair -->
+<!-- 2024/10/9 -->
+<!-- Portfolio created by Ishan -->
+<!-- Portfolio created by Ishan -->
+'<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fractal-Inspired Portfolio</title>
+  <style>
+    /* General Styles */
+    body {
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f0f0f0;
+      color: #333;
+    }
+
+    /* Navigation Bar */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: #fff;
+      padding: 1rem 2rem;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    nav a {
+      color: #333;
+      text-decoration: none;
+      font-size: 1.1rem;
+      margin-right: 1.5rem;
+      transition: color 0.3s ease;
+    }
+
+    nav a:hover {
+      color: #0077b6;
+    }
+
+    /* Interactive Fractal Exploration Section */
+    #fractal-exploration {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 80vh;
+      background: linear-gradient(to bottom, #a3d8ff, #cce5ff);
+      position: relative;
+      overflow: hidden;
+    }
+
+    #fractal-canvas {
+      width: 80%;
+      height: 80%;
+      background-image: url('https://dummyimage.com/1200x500/ccc/000&text=Fractal+Visualization');
+      background-size: cover;
+      background-position: center;
+      border-radius: 2rem;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      position: relative;
+      z-index: 1;
+      transition: transform 0.5s ease;
+    }
+
+    #fractal-canvas:hover {
+      transform: scale(1.05);
+    }
+
+    #fractal-canvas:before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(to bottom, rgba(163, 216, 255, 0.8), rgba(204, 229, 255, 0.8));
+      border-radius: 2rem;
+      z-index: -1;
+    }
+
+    /* Project Showcase Section */
+    #project-showcase {
+      padding: 4rem 2rem;
+      background-color: #fff;
+    }
+
+    .project-item {
+      display: flex;
+      align-items: center;
+      margin-bottom: 3rem;
+    }
+
+    .project-image {
+      flex: 0 0 40%;
+      max-width: 40%;
+      height: auto;
+      border-radius: 1rem;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      background-image: url('https://dummyimage.com/600x400/ccc/000&text=Project+Image');
+      background-size: cover;
+      background-position: center;
+      transition: transform 0.5s ease;
+    }
+
+    .project-image:hover {
+      transform: scale(1.05);
+    }
+
+    .project-info {
+      flex: 1;
+      margin-left: 2rem;
+    }
+
+    .project-info h3 {
+      font-size: 1.8rem;
+      margin-bottom: 1rem;
+    }
+
+    .project-info p {
+      font-size: 1.1rem;
+      line-height: 1.6;
+      margin-bottom: 1.5rem;
+    }
+
+    .project-link {
+      display: inline-block;
+      background-color: #0077b6;
+      color: #fff;
+      text-decoration: none;
+      padding: 0.8rem 1.5rem;
+      border-radius: 0.5rem;
+      font-size: 1.1rem;
+      transition: background-color 0.3s ease;
+    }
+
+    .project-link:hover {
+      background-color: #005a87;
+    }
+
+    /* Skills and Experience Section */
+    #skills-experience {
+      padding: 4rem 2rem;
+      background-color: #f0f0f0;
+    }
+
+    .skill-item {
+      display: flex;
+      align-items: center;
+      margin-bottom: 2rem;
+    }
+
+    .skill-icon {
+      flex: 0 0 60px;
+      width: 60px;
+      height: 60px;
+      background-color: #0077b6;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: #fff;
+      font-size: 1.8rem;
+      margin-right: 1.5rem;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .skill-info h4 {
+      font-size: 1.4rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .skill-info p {
+      font-size: 1.1rem;
+      line-height: 1.6;
+      margin-bottom: 0;
+    }
+
+    .skill-progress {
+      flex: 1;
+      height: 1rem;
+      background-color: #ddd;
+      border-radius: 0.5rem;
+      overflow: hidden;
+      margin-left: 1.5rem;
+    }
+
+    .skill-progress-bar {
+      height: 100%;
+      background-color: #0077b6;
+      transition: width 0.5s ease;
+    }
+
+    /* Footer */
+    footer {
+      background-color: #333;
+      color: #fff;
+      padding: 2rem;
+      text-align: center;
+      font-size: 1rem;
+    }
+
+    footer a {
+      color: #fff;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    footer a:hover {
+      color: #a3d8ff;
+    }
+
+    /* Responsive Styles */
+    @media (max-width: 768px) {
+      nav {
+        padding: 1rem;
+      }
+
+      nav a {
+        font-size: 1rem;
+        margin-right: 1rem;
+      }
+
+      #fractal-exploration {
+        height: 60vh;
+      }
+
+      #fractal-canvas {
+        width: 90%;
+        height: 90%;
+      }
+
+      .project-item {
+        flex-direction: column;
+        margin-bottom: 2rem;
+      }
+
+      .project-image {
+        flex: 0 0 auto;
+        max-width: 100%;
+        height: auto;
+        margin-bottom: 1.5rem;
+      }
+
+      .project-info {
+        margin-left: 0;
+        text-align: center;
+      }
+
+      .skill-item {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .skill-icon {
+        margin-right: 0;
+        margin-bottom: 1rem;
+      }
+
+      .skill-progress {
+        margin-left: 0;
+        margin-top: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation Bar -->
+  <nav>
+    <a href="#">Home</a>
+    <a href="#">Projects</a>
+    <a href="#">Skills</a>
+    <a href="#">Contact</a>
+  </nav>
+
+  <!-- Interactive Fractal Exploration Section -->
+  <section id="fractal-exploration">
+    <div id="fractal-canvas"></div>
+  </section>
+
+  <!-- Project Showcase Section -->
+  <section id="project-showcase">
+    <h2>Featured Projects</h2>
+    <div class="project-item">
+      <div class="project-image"></div>
+      <div class="project-info">
+        <h3>Project 1</h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, nisl eget ultricies tincidunt, nisl nisl aliquam nisl, eget aliquam nisl nisl eget nisl.</p>
+        <a href="#" class="project-link">Learn More</a>
+      </div>
+    </div>
+    <div class="project-item">
+      <div class="project-image"></div>
+      <div class="project-info">
+        <h3>Project 2</h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, nisl eget ultricies tincidunt, nisl nisl aliquam nisl, eget aliquam nisl nisl eget nisl.</p>
+        <a href="#" class="project-link">Learn More</a>
+      </div>
+    </div>
+    <div class="project-item">
+      <div class="project-image"></div>
+      <div class="project-info">
+        <h3>Project 3</h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, nisl eget ultricies tincidunt, nisl nisl aliquam nisl, eget aliquam nisl nisl eget nisl.</p>
+        <a href="#" class="project-link">Learn More</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills and Experience Section -->
+  <section id="skills-experience">
+    <h2>Skills and Experience</h2>
+    <div class="skill-item">
+      <div class="skill-icon"><i class="fas fa-code"></i></div>
+      <div class="skill-info">
+        <h4>Web Development</h4>
+        <p>Proficient in HTML, CSS, JavaScript, and various web frameworks.</p>
+      </div>
+      <div class="skill-progress">
+        <div class="skill-progress-bar" style="width: 90%;"></div>
+      </div>
+    </div>
+    <div class="skill-item">
+      <div class="skill-icon"><i class="fas fa-paint-brush"></i></div>
+      <div class="skill-info">
+        <h4>UI/UX Design</h4>
+        <p>Experienced in creating intuitive and visually appealing user interfaces.</p>
+      </div>
+      <div class="skill-progress">
+        <div class="skill-progress-bar" style="width: 85%;"></div>
+      </div>
+    </div>
+    <div class="skill-item">
+      <div class="skill-icon"><i class="fas fa-database"></i></div>
+      <div class="skill-info">
+        <h4>Database Management</h4>
+        <p>Skilled in designing and implementing efficient database solutions.</p>
+      </div>
+      <div class="skill-progress">
+        <div class="skill-progress-bar" style="width: 80%;"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2024 Fractal-Inspired Portfolio. All rights reserved.</p>
+    <p>Designed and developed by <a href="#">Your Name</a></p>
+  </footer>
+
+  <!-- Font Awesome Icons -->
+  <script src="https://kit.fontawesome.com/your-font-awesome-kit.js" crossorigin="anonymous"></script>
+</body>
+</html>'<!-- Visit: https://github.com/Ishanoshada/portflair -->
+<!-- Visit: https://github.com/Ishanoshada/portflair -->
+<!-- Visit: https://github.com/Ishanoshada/portflair -->

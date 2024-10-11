@@ -1,0 +1,365 @@
+<!-- Portfolio created by Ishan -->
+<!-- Check out my work at: https://github.com/Ishanoshada/portflair -->
+<!-- 2024/10/9 -->
+<!-- Portfolio created by Ishan -->
+'<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Design a Sleek, All-Black Portfolio</title>
+  <style>
+    /* Global Styles */
+    body {
+      font-family: 'Montserrat', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #121212;
+      color: #f2f2f2;
+    }
+
+    /* Navbar Styles */
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: #121212;
+      padding: 1.5rem 2rem;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    .navbar-brand {
+      font-size: 1.5rem;
+      font-weight: 700;
+      text-decoration: none;
+      color: #f2f2f2;
+      transition: color 0.3s ease;
+    }
+
+    .navbar-brand:hover {
+      color: #9e9e9e;
+    }
+
+    .navbar-nav {
+      display: flex;
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .navbar-nav li {
+      margin-left: 1.5rem;
+    }
+
+    .navbar-nav a {
+      text-decoration: none;
+      color: #f2f2f2;
+      font-weight: 500;
+      transition: color 0.3s ease;
+    }
+
+    .navbar-nav a:hover {
+      color: #9e9e9e;
+    }
+
+    /* Hero Section Styles */
+    .hero {
+      height: 80vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      background-image: linear-gradient(to bottom, rgba(18, 18, 18, 0.7), rgba(18, 18, 18, 0.7)), url("https://dummyimage.com/1920x1080/000000/ffffff.jpg&text=Hero+Image");
+      background-size: cover;
+      background-position: center;
+      text-align: center;
+      padding: 0 2rem;
+    }
+
+    .hero-title {
+      font-size: 4rem;
+      font-weight: 800;
+      margin-bottom: 1rem;
+      text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    }
+
+    .hero-subtitle {
+      font-size: 1.5rem;
+      font-weight: 500;
+      margin-bottom: 2rem;
+      text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    }
+
+    .hero-cta {
+      display: inline-block;
+      background-color: #9e9e9e;
+      color: #121212;
+      font-size: 1.2rem;
+      font-weight: 600;
+      padding: 1rem 2rem;
+      border-radius: 4px;
+      text-decoration: none;
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+    .hero-cta:hover {
+      background-color: #757575;
+      color: #f2f2f2;
+    }
+
+    /* Portfolio Section Styles */
+    .portfolio {
+      padding: 4rem 2rem;
+    }
+
+    .portfolio-title {
+      font-size: 2.5rem;
+      font-weight: 800;
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+
+    .portfolio-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      grid-gap: 2rem;
+    }
+
+    .portfolio-item {
+      position: relative;
+      overflow: hidden;
+      border-radius: 4px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease;
+    }
+
+    .portfolio-item:hover {
+      transform: translateY(-5px);
+    }
+
+    .portfolio-item img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      transition: filter 0.3s ease;
+    }
+
+    .portfolio-item:hover img {
+      filter: brightness(0.8);
+    }
+
+    .portfolio-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(18, 18, 18, 0.8);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .portfolio-item:hover .portfolio-overlay {
+      opacity: 1;
+    }
+
+    .portfolio-overlay h3 {
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+
+    .portfolio-overlay p {
+      font-size: 1rem;
+      font-weight: 500;
+      margin-bottom: 1rem;
+    }
+
+    .portfolio-overlay a {
+      display: inline-block;
+      background-color: #9e9e9e;
+      color: #121212;
+      font-size: 1rem;
+      font-weight: 600;
+      padding: 0.75rem 1.5rem;
+      border-radius: 4px;
+      text-decoration: none;
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+    .portfolio-overlay a:hover {
+      background-color: #757575;
+      color: #f2f2f2;
+    }
+
+    /* About Section Styles */
+    .about {
+      background-color: #1c1c1c;
+      padding: 4rem 2rem;
+    }
+
+    .about-content {
+      display: flex;
+      align-items: center;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .about-image {
+      flex: 0 0 300px;
+      margin-right: 3rem;
+    }
+
+    .about-image img {
+      width: 100%;
+      height: auto;
+      border-radius: 50%;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .about-text {
+      flex: 1;
+    }
+
+    .about-title {
+      font-size: 2.5rem;
+      font-weight: 800;
+      margin-bottom: 1rem;
+    }
+
+    .about-description {
+      font-size: 1.2rem;
+      font-weight: 500;
+      line-height: 1.6;
+      margin-bottom: 2rem;
+    }
+
+    .about-cta {
+      display: inline-block;
+      background-color: #9e9e9e;
+      color: #121212;
+      font-size: 1.2rem;
+      font-weight: 600;
+      padding: 1rem 2rem;
+      border-radius: 4px;
+      text-decoration: none;
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+    .about-cta:hover {
+      background-color: #757575;
+      color: #f2f2f2;
+    }
+
+    /* Responsive Styles */
+    @media (max-width: 768px) {
+      .hero {
+        height: 60vh;
+      }
+
+      .hero-title {
+        font-size: 3rem;
+      }
+
+      .hero-subtitle {
+        font-size: 1.2rem;
+      }
+
+      .about-content {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .about-image {
+        margin-right: 0;
+        margin-bottom: 2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav class="navbar">
+      <a href="#" class="navbar-brand">Design Portfolio</a>
+      <ul class="navbar-nav">
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Portfolio</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <h1 class="hero-title">Crafting Elegant Designs</h1>
+      <p class="hero-subtitle">Explore my sleek, all-black portfolio.</p>
+      <a href="#" class="hero-cta">View Portfolio</a>
+    </section>
+
+    <section class="portfolio">
+      <h2 class="portfolio-title">My Featured Projects</h2>
+      <div class="portfolio-grid">
+        <div class="portfolio-item">
+          <img src="https://dummyimage.com/600x400/000000/ffffff.jpg&text=Project+1" alt="Project 1">
+          <div class="portfolio-overlay">
+            <h3>Project 1</h3>
+            <p>A sleek, minimalist design project.</p>
+            <a href="#">View Case Study</a>
+          </div>
+        </div>
+        <div class="portfolio-item">
+          <img src="https://dummyimage.com/600x400/000000/ffffff.jpg&text=Project+2" alt="Project 2">
+          <div class="portfolio-overlay">
+            <h3>Project 2</h3>
+            <p>A clean, elegant branding solution.</p>
+            <a href="#">View Case Study</a>
+          </div>
+        </div>
+        <div class="portfolio-item">
+          <img src="https://dummyimage.com/600x400/000000/ffffff.jpg&text=Project+3" alt="Project 3">
+          <div class="portfolio-overlay">
+            <h3>Project 3</h3>
+            <p>An innovative UI/UX design.</p>
+            <a href="#">View Case Study</a>
+          </div>
+        </div>
+        <div class="portfolio-item">
+          <img src="https://dummyimage.com/600x400/000000/ffffff.jpg&text=Project+4" alt="Project 4">
+          <div class="portfolio-overlay">
+            <h3>Project 4</h3>
+            <p>A modern, responsive website design.</p>
+            <a href="#">View Case Study</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="about">
+      <div class="about-content">
+        <div class="about-image">
+          <img src="https://dummyimage.com/300x300/000000/ffffff.jpg&text=Designer+Photo" alt="Designer Photo">
+        </div>
+        <div class="about-text">
+          <h2 class="about-title">About Me</h2>
+          <p class="about-description">
+            Hi, I'm John Doe, a passionate designer with a keen eye for creating sleek, all-black portfolios using shades of dark grays and blacks. I strive to craft clean, elegant designs that evoke a sense of sophistication and timelessness.
+          </p>
+          <a href="#" class="about-cta">Hire Me</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer">
+      <p>&copy; 2024 Design Portfolio. All rights reserved.</p>
+    </div>
+  </footer>
+</body>
+</html>'<!-- Visit: https://github.com/Ishanoshada/portflair -->
+<!-- Visit: https://github.com/Ishanoshada/portflair -->

@@ -1,0 +1,365 @@
+<!-- Portfolio created by Ishan -->
+<!-- Check out my work at: https://github.com/Ishanoshada/portflair -->
+<!-- 2024/10/9 -->
+<!-- Portfolio created by Ishan -->
+'<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Space-Themed Developer Portfolio</title>
+  <style>
+    /* Global Styles */
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Montserrat', sans-serif;
+      background-color: #0f0f0f;
+      color: #fff;
+      overflow-x: hidden;
+    }
+
+    /* Navigation */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 40px;
+      background-color: rgba(15, 15, 15, 0.8);
+      backdrop-filter: blur(10px);
+      position: relative;
+      z-index: 100;
+    }
+
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      font-size: 18px;
+      font-weight: 500;
+      margin: 0 20px;
+      position: relative;
+      transition: color 0.3s ease;
+    }
+
+    nav a:after {
+      content: "";
+      position: absolute;
+      width: 0;
+      height: 2px;
+      background-color: #b388ff;
+      bottom: -5px;
+      left: 0;
+      transition: width 0.3s ease;
+    }
+
+    nav a:hover {
+      color: #b388ff;
+    }
+
+    nav a:hover:after {
+      width: 100%;
+    }
+
+    /* Interactive Code Snippet Galaxy */
+    .code-galaxy {
+      position: relative;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    .code-galaxy::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(ellipse at center, rgba(15, 15, 15, 0.8) 0%, rgba(15, 15, 15, 1) 100%);
+      z-index: 1;
+    }
+
+    .code-snippet {
+      position: absolute;
+      width: 100px;
+      height: 100px;
+      background-color: #b388ff;
+      border-radius: 50%;
+      box-shadow: 0 0 20px 5px #b388ff;
+      animation: code-snippet-glow 2s ease-in-out infinite;
+      cursor: pointer;
+      z-index: 10;
+    }
+
+    @keyframes code-snippet-glow {
+      0% {
+        box-shadow: 0 0 20px 5px #b388ff;
+      }
+      50% {
+        box-shadow: 0 0 40px 10px #b388ff;
+      }
+      100% {
+        box-shadow: 0 0 20px 5px #b388ff;
+      }
+    }
+
+    .constellation {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background-image: url('https://dummyimage.com/1920x1080/ccc/000&text=Constellation');
+      background-size: cover;
+      background-position: center;
+      animation: constellation-move 60s linear infinite;
+      z-index: 0;
+    }
+
+    @keyframes constellation-move {
+      0% {
+        background-position: 0 0;
+      }
+      100% {
+        background-position: 100% 100%;
+      }
+    }
+
+    /* Project Showcase */
+    .project-showcase {
+      padding: 80px 40px;
+      background-color: #0f0f0f;
+    }
+
+    .project-card {
+      display: flex;
+      align-items: center;
+      background-color: #1f1f1f;
+      border-radius: 10px;
+      box-shadow: 0 0 20px 5px rgba(179, 136, 255, 0.2);
+      margin-bottom: 40px;
+      overflow: hidden;
+      transition: transform 0.3s ease;
+    }
+
+    .project-card:hover {
+      transform: translateY(-10px);
+    }
+
+    .project-card-image {
+      flex: 0 0 40%;
+      height: 300px;
+      background-image: url('https://dummyimage.com/600x400/ccc/000&text=Project+Image');
+      background-size: cover;
+      background-position: center;
+    }
+
+    .project-card-content {
+      flex: 1 1 60%;
+      padding: 40px;
+    }
+
+    .project-card-title {
+      font-size: 24px;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+
+    .project-card-description {
+      font-size: 16px;
+      line-height: 1.6;
+      margin-bottom: 20px;
+    }
+
+    .project-card-technologies {
+      font-size: 14px;
+      color: #b388ff;
+      font-weight: 500;
+    }
+
+    /* About Me and Contact */
+    .about-contact {
+      display: flex;
+      background-color: #0f0f0f;
+      padding: 80px 40px;
+    }
+
+    .about-me {
+      flex: 1 1 50%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+
+    .about-me-image {
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      background-image: url('https://dummyimage.com/400x400/ccc/000&text=About+Me');
+      background-size: cover;
+      background-position: center;
+      margin-bottom: 20px;
+      box-shadow: 0 0 20px 5px rgba(179, 136, 255, 0.2);
+    }
+
+    .about-me-content {
+      max-width: 400px;
+      font-size: 16px;
+      line-height: 1.6;
+    }
+
+    .contact-form {
+      flex: 1 1 50%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .contact-form-input {
+      width: 100%;
+      max-width: 400px;
+      padding: 10px 20px;
+      margin-bottom: 20px;
+      background-color: #1f1f1f;
+      border: none;
+      border-radius: 5px;
+      color: #fff;
+      font-size: 16px;
+      transition: box-shadow 0.3s ease;
+    }
+
+    .contact-form-input:focus {
+      outline: none;
+      box-shadow: 0 0 10px 2px rgba(179, 136, 255, 0.5);
+    }
+
+    .contact-form-submit {
+      width: 100%;
+      max-width: 400px;
+      padding: 10px 20px;
+      background-color: #b388ff;
+      border: none;
+      border-radius: 5px;
+      color: #fff;
+      font-size: 16px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .contact-form-submit:hover {
+      background-color: #9055ff;
+    }
+
+    /* Responsive Styles */
+    @media (max-width: 768px) {
+      nav {
+        padding: 10px 20px;
+      }
+
+      nav a {
+        font-size: 16px;
+        margin: 0 10px;
+      }
+
+      .project-showcase,
+      .about-contact {
+        padding: 60px 20px;
+      }
+
+      .project-card {
+        flex-direction: column;
+      }
+
+      .project-card-image {
+        flex: 0 0 200px;
+        height: 200px;
+      }
+
+      .project-card-content {
+        padding: 20px;
+      }
+
+      .about-me-image {
+        width: 150px;
+        height: 150px;
+      }
+
+      .about-me-content {
+        font-size: 14px;
+      }
+
+      .contact-form-input,
+      .contact-form-submit {
+        max-width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="#">Home</a>
+    <a href="#">Projects</a>
+    <a href="#">About</a>
+    <a href="#">Contact</a>
+  </nav>
+
+  <div class="code-galaxy">
+    <div class="code-snippet" style="top: 20%; left: 30%;" onclick="showCodeSnippet()"></div>
+    <div class="code-snippet" style="top: 60%; left: 70%;" onclick="showCodeSnippet()"></div>
+    <div class="code-snippet" style="top: 80%; left: 10%;" onclick="showCodeSnippet()"></div>
+    <div class="constellation"></div>
+  </div>
+
+  <div class="project-showcase">
+    <div class="project-card">
+      <div class="project-card-image"></div>
+      <div class="project-card-content">
+        <h3 class="project-card-title">Project 1</h3>
+        <p class="project-card-description">A space-themed web application that allows users to explore and interact with a galaxy of code snippets.</p>
+        <p class="project-card-technologies">Technologies: HTML, CSS, JavaScript, React</p>
+      </div>
+    </div>
+    <div class="project-card">
+      <div class="project-card-image"></div>
+      <div class="project-card-content">
+        <h3 class="project-card-title">Project 2</h3>
+        <p class="project-card-description">A data visualization tool that displays coding statistics and metrics in an immersive, galaxy-inspired interface.</p>
+        <p class="project-card-technologies">Technologies: HTML, CSS, JavaScript, D3.js</p>
+      </div>
+    </div>
+    <div class="project-card">
+      <div class="project-card-image"></div>
+      <div class="project-card-content">
+        <h3 class="project-card-title">Project 3</h3>
+        <p class="project-card-description">A space-themed educational platform that teaches coding concepts through interactive lessons and simulations.</p>
+        <p class="project-card-technologies">Technologies: HTML, CSS, JavaScript, React, Three.js</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="about-contact">
+    <div class="about-me">
+      <div class="about-me-image"></div>
+      <div class="about-me-content">
+        <h2>About Me</h2>
+        <p>I'm a passionate space-themed developer with a love for creating immersive and visually stunning web applications. With a strong background in front-end development, I specialize in crafting user experiences that blend cutting-edge technologies with a captivating aesthetic inspired by the depths of space.</p>
+      </div>
+    </div>
+    <div class="contact-form">
+      <input type="text" class="contact-form-input" placeholder="Name" />
+      <input type="email" class="contact-form-input" placeholder="Email" />
+      <textarea class="contact-form-input" rows="5" placeholder="Message"></textarea>
+      <button class="contact-form-submit">Send Message</button>
+    </div>
+  </div>
+
+  <script>
+    function showCodeSnippet() {
+      // Code to display the code snippet in a modal or overlay
+      console.log("Showing code snippet");
+    }
+  </script>
+</body>
+</html>'<!-- Visit: https://github.com/Ishanoshada/portflair -->
+<!-- Visit: https://github.com/Ishanoshada/portflair -->

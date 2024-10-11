@@ -1,0 +1,423 @@
+<!-- Portfolio created by Ishan -->
+<!-- Check out my work at: https://github.com/Ishanoshada/portflair -->
+<!-- 2024/10/9 -->
+<!-- Portfolio created by Ishan -->
+<!-- Portfolio created by Ishan -->
+'<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fractal Animation Portfolio</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #0c0c0c;
+      color: #ffffff;
+      overflow-x: hidden;
+    }
+
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.5rem 4rem;
+      background-color: #1a1a1a;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    .navbar-brand {
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: #ff00ff;
+      text-decoration: none;
+    }
+
+    .navbar-nav {
+      display: flex;
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .navbar-nav li {
+      margin-left: 2rem;
+    }
+
+    .navbar-nav li a {
+      color: #ffffff;
+      text-decoration: none;
+      font-size: 1.1rem;
+      font-weight: 500;
+      transition: color 0.3s ease;
+    }
+
+    .navbar-nav li a:hover {
+      color: #00ff00;
+    }
+
+    .hero {
+      position: relative;
+      height: 80vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+    }
+
+    .fractal-canvas {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+    }
+
+    .hero-content {
+      text-align: center;
+      max-width: 800px;
+      padding: 2rem;
+    }
+
+    .hero-title {
+      font-size: 4rem;
+      font-weight: 700;
+      background: linear-gradient(to right, #ff00ff, #00ffff, #00ff00);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 1rem;
+    }
+
+    .hero-description {
+      font-size: 1.6rem;
+      margin-bottom: 2rem;
+    }
+
+    .btn {
+      display: inline-block;
+      background-color: #ff00ff;
+      color: #ffffff;
+      text-decoration: none;
+      padding: 1rem 2rem;
+      border-radius: 50px;
+      font-size: 1.2rem;
+      font-weight: 600;
+      transition: background-color 0.3s ease;
+    }
+
+    .btn:hover {
+      background-color: #00ffff;
+    }
+
+    .project-showcase {
+      padding: 4rem 2rem;
+    }
+
+    .project-showcase-title {
+      font-size: 2.5rem;
+      font-weight: 700;
+      text-align: center;
+      margin-bottom: 3rem;
+      background: linear-gradient(to right, #ff00ff, #00ffff, #00ff00);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      grid-gap: 2rem;
+    }
+
+    .project-card {
+      background-color: #1a1a1a;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease;
+    }
+
+    .project-card:hover {
+      transform: translateY(-10px);
+    }
+
+    .project-thumbnail {
+      width: 100%;
+      height: 200px;
+      background-image: url('https://dummyimage.com/600x400/ccc/000&text=Project+Thumbnail');
+      background-size: cover;
+      background-position: center;
+    }
+
+    .project-details {
+      padding: 1.5rem;
+    }
+
+    .project-title {
+      font-size: 1.4rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+    }
+
+    .project-description {
+      font-size: 1rem;
+      color: #cccccc;
+      margin-bottom: 1rem;
+    }
+
+    .project-tags {
+      display: flex;
+      flex-wrap: wrap;
+      font-size: 0.9rem;
+      color: #999999;
+    }
+
+    .project-tags span {
+      margin-right: 0.5rem;
+      background-color: #333333;
+      padding: 0.2rem 0.6rem;
+      border-radius: 20px;
+    }
+
+    .about-section {
+      background-color: #1a1a1a;
+      padding: 4rem 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .about-content {
+      max-width: 800px;
+      text-align: center;
+    }
+
+    .about-image {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      background-image: url('https://dummyimage.com/300x300/ccc/000&text=Designer+Photo');
+      background-size: cover;
+      background-position: center;
+      margin-bottom: 2rem;
+    }
+
+    .about-title {
+      font-size: 2.5rem;
+      font-weight: 700;
+      background: linear-gradient(to right, #ff00ff, #00ffff, #00ff00);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 1rem;
+    }
+
+    .about-description {
+      font-size: 1.2rem;
+      color: #cccccc;
+      margin-bottom: 2rem;
+    }
+
+    .about-skills {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-bottom: 2rem;
+    }
+
+    .about-skills span {
+      background-color: #333333;
+      color: #cccccc;
+      padding: 0.5rem 1rem;
+      border-radius: 20px;
+      margin: 0.5rem;
+      font-size: 0.9rem;
+    }
+
+    .contact-btn {
+      display: inline-block;
+      background-color: #ff00ff;
+      color: #ffffff;
+      text-decoration: none;
+      padding: 1rem 2rem;
+      border-radius: 50px;
+      font-size: 1.2rem;
+      font-weight: 600;
+      transition: background-color 0.3s ease;
+    }
+
+    .contact-btn:hover {
+      background-color: #00ffff;
+    }
+
+    @media (max-width: 768px) {
+      .navbar {
+        padding: 1rem 2rem;
+      }
+
+      .navbar-brand {
+        font-size: 1.5rem;
+      }
+
+      .navbar-nav li {
+        margin-left: 1.5rem;
+      }
+
+      .navbar-nav li a {
+        font-size: 1rem;
+      }
+
+      .hero-title {
+        font-size: 3rem;
+      }
+
+      .hero-description {
+        font-size: 1.4rem;
+      }
+
+      .project-showcase-title {
+        font-size: 2rem;
+      }
+
+      .about-title {
+        font-size: 2rem;
+      }
+
+      .about-description {
+        font-size: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav class="navbar">
+      <a href="#" class="navbar-brand">Fractal Animation Portfolio</a>
+      <ul class="navbar-nav">
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Projects</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <canvas class="fractal-canvas"></canvas>
+      <div class="hero-content">
+        <h1 class="hero-title">Unleash Your Creativity</h1>
+        <p class="hero-description">Explore the mesmerizing world of dynamic fractal animations, showcasing my expertise in website design and development.</p>
+        <a href="#" class="btn">View Projects</a>
+      </div>
+    </section>
+
+    <section class="project-showcase">
+      <h2 class="project-showcase-title">My Coding Projects</h2>
+      <div class="project-grid">
+        <div class="project-card">
+          <div class="project-thumbnail"></div>
+          <div class="project-details">
+            <h3 class="project-title">Project 1</h3>
+            <p class="project-description">A dynamic fractal animation showcasing my coding skills and creativity.</p>
+            <div class="project-tags">
+              <span>HTML</span>
+              <span>CSS</span>
+              <span>JavaScript</span>
+            </div>
+          </div>
+        </div>
+        <div class="project-card">
+          <div class="project-thumbnail"></div>
+          <div class="project-details">
+            <h3 class="project-title">Project 2</h3>
+            <p class="project-description">An interactive web application featuring stunning fractal animations.</p>
+            <div class="project-tags">
+              <span>React</span>
+              <span>WebGL</span>
+              <span>Animation</span>
+            </div>
+          </div>
+        </div>
+        <div class="project-card">
+          <div class="project-thumbnail"></div>
+          <div class="project-details">
+            <h3 class="project-title">Project 3</h3>
+            <p class="project-description">A visually captivating website showcasing my expertise in fractal design.</p>
+            <div class="project-tags">
+              <span>Vue.js</span>
+              <span>SASS</span>
+              <span>Responsive</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="about-section">
+      <div class="about-content">
+        <div class="about-image"></div>
+        <h2 class="about-title">About the Designer</h2>
+        <p class="about-description">I'm a passionate website designer with a deep fascination for fractal animations. My expertise lies in crafting visually stunning and interactive experiences that showcase the intricate beauty of these dynamic patterns. From vibrant color palettes to captivating user interactions, I strive to push the boundaries of what's possible in the digital realm.</p>
+        <div class="about-skills">
+          <span>HTML</span>
+          <span>CSS</span>
+          <span>JavaScript</span>
+          <span>React</span>
+          <span>WebGL</span>
+          <span>Animation</span>
+          <span>Responsive Design</span>
+          <span>UI/UX</span>
+        </div>
+        <a href="#" class="contact-btn">Get in Touch</a>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    // Fractal animation canvas
+    const canvas = document.querySelector('.fractal-canvas');
+    const ctx = canvas.getContext('2d');
+
+    let width = window.innerWidth;
+    let height = window.innerHeight;
+    canvas.width = width;
+    canvas.height = height;
+
+    function drawFractal(x, y, size, depth) {
+      if (depth === 0) {
+        return;
+      }
+
+      const colors = ['#ff00ff', '#00ffff', '#00ff00'];
+      const randomColor = colors[Math.floor(Math.random() * colors.length)];
+
+      ctx.beginPath();
+      ctx.moveTo(x, y);
+      ctx.lineTo(x + size, y);
+      ctx.lineTo(x + size / 2, y - size * 0.866);
+      ctx.closePath();
+      ctx.fillStyle = randomColor;
+      ctx.fill();
+
+      drawFractal(x, y, size / 2, depth - 1);
+      drawFractal(x + size / 2, y - size * 0.866, size / 2, depth - 1);
+      drawFractal(x + size, y, size / 2, depth - 1);
+    }
+
+    function animate() {
+      ctx.clearRect(0, 0, width, height);
+      drawFractal(0, height, width, 6);
+      requestAnimationFrame(animate);
+    }
+
+    animate();
+  </script>
+</body>
+</html>'<!-- Visit: https://github.com/Ishanoshada/portflair -->
+<!-- Visit: https://github.com/Ishanoshada/portflair -->
+<!-- Visit: https://github.com/Ishanoshada/portflair -->

@@ -1,0 +1,450 @@
+<!-- Portfolio created by Ishan -->
+<!-- Check out my work at: https://github.com/Ishanoshada/portflair -->
+<!-- 2024/10/9 -->
+<!-- Portfolio created by Ishan -->
+'<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hacking, Developer, Portfolio, Blog, Story, Projects</title>
+  <style>
+    /* General Styles */
+    body {
+      font-family: 'Roboto', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #1c1c1c;
+      color: #f1f1f1;
+    }
+
+    a {
+      text-decoration: none;
+      color: #0077b6;
+    }
+
+    /* Navigation */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: #0f0f0f;
+      padding: 1rem 2rem;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    nav ul {
+      list-style-type: none;
+      display: flex;
+      gap: 2rem;
+    }
+
+    nav ul li a {
+      color: #f1f1f1;
+      font-size: 1.1rem;
+      font-weight: 500;
+      transition: color 0.3s ease;
+    }
+
+    nav ul li a:hover {
+      color: #0077b6;
+    }
+
+    /* Portfolio Section */
+    .portfolio-section {
+      padding: 4rem 2rem;
+    }
+
+    .portfolio-section h2 {
+      font-size: 2.5rem;
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+
+    .portfolio-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-gap: 3rem;
+    }
+
+    .portfolio-item {
+      position: relative;
+      overflow: hidden;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease;
+    }
+
+    .portfolio-item:hover {
+      transform: translateY(-10px);
+    }
+
+    .portfolio-item img {
+      width: 100%;
+      height: 250px;
+      object-fit: cover;
+      transition: opacity 0.3s ease;
+    }
+
+    .portfolio-item:hover img {
+      opacity: 0.5;
+    }
+
+    .portfolio-item .overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.7);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .portfolio-item:hover .overlay {
+      opacity: 1;
+    }
+
+    .portfolio-item .overlay h3 {
+      font-size: 1.8rem;
+      margin-bottom: 1rem;
+    }
+
+    .portfolio-item .overlay p {
+      font-size: 1.2rem;
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+
+    .portfolio-item .overlay a {
+      background-color: #0077b6;
+      color: #f1f1f1;
+      padding: 0.8rem 1.6rem;
+      border-radius: 4px;
+      font-size: 1.1rem;
+      transition: background-color 0.3s ease;
+    }
+
+    .portfolio-item .overlay a:hover {
+      background-color: #005b8f;
+    }
+
+    /* Blog Section */
+    .blog-section {
+      padding: 4rem 2rem;
+    }
+
+    .blog-section h2 {
+      font-size: 2.5rem;
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+
+    .blog-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      grid-gap: 3rem;
+    }
+
+    .blog-post {
+      background-color: #0f0f0f;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+      transition: transform 0.3s ease;
+    }
+
+    .blog-post:hover {
+      transform: translateY(-10px);
+    }
+
+    .blog-post img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+
+    .blog-post .content {
+      padding: 2rem;
+    }
+
+    .blog-post .content h3 {
+      font-size: 1.8rem;
+      margin-bottom: 1rem;
+    }
+
+    .blog-post .content p {
+      font-size: 1.2rem;
+      margin-bottom: 2rem;
+    }
+
+    .blog-post .content a {
+      background-color: #0077b6;
+      color: #f1f1f1;
+      padding: 0.8rem 1.6rem;
+      border-radius: 4px;
+      font-size: 1.1rem;
+      transition: background-color 0.3s ease;
+    }
+
+    .blog-post .content a:hover {
+      background-color: #005b8f;
+    }
+
+    /* Story Section */
+    .story-section {
+      padding: 4rem 2rem;
+    }
+
+    .story-section h2 {
+      font-size: 2.5rem;
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+
+    .story-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .story-item {
+      background-color: #0f0f0f;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      padding: 3rem;
+      width: 80%;
+      margin-bottom: 4rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .story-item:before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: linear-gradient(to right, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.2));
+      z-index: 1;
+    }
+
+    .story-item video {
+      width: 100%;
+      height: 400px;
+      object-fit: cover;
+      border-radius: 8px;
+      z-index: 0;
+    }
+
+    .story-item .content {
+      position: relative;
+      z-index: 2;
+    }
+
+    .story-item .content h3 {
+      font-size: 2rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .story-item .content p {
+      font-size: 1.4rem;
+      line-height: 1.6;
+      margin-bottom: 2rem;
+    }
+
+    .story-item .content a {
+      background-color: #0077b6;
+      color: #f1f1f1;
+      padding: 0.8rem 1.6rem;
+      border-radius: 4px;
+      font-size: 1.1rem;
+      transition: background-color 0.3s ease;
+    }
+
+    .story-item .content a:hover {
+      background-color: #005b8f;
+    }
+
+    /* Responsive Styles */
+    @media (max-width: 768px) {
+      .portfolio-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .blog-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .story-item {
+        width: 100%;
+      }
+
+      .story-item video {
+        height: 300px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .portfolio-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .blog-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .story-item video {
+        height: 250px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="logo">
+      <a href="#">Hacking & Developer</a>
+    </div>
+    <ul>
+      <li><a href="#">Portfolio</a></li>
+      <li><a href="#">Blog</a></li>
+      <li><a href="#">Story</a></li>
+      <li><a href="#">Projects</a></li>
+    </ul>
+  </nav>
+
+  <section class="portfolio-section">
+    <h2>Our Portfolio</h2>
+    <div class="portfolio-grid">
+      <div class="portfolio-item">
+        <img src="https://dummyimage.com/600x400/ccc/000&text=Project+1" alt="Project 1">
+        <div class="overlay">
+          <h3>Project 1</h3>
+          <p>Showcase your hacking or development skills with this project.</p>
+          <a href="#">View Project</a>
+        </div>
+      </div>
+      <div class="portfolio-item">
+        <img src="https://dummyimage.com/600x400/ccc/000&text=Project+2" alt="Project 2">
+        <div class="overlay">
+          <h3>Project 2</h3>
+          <p>Showcase your hacking or development skills with this project.</p>
+          <a href="#">View Project</a>
+        </div>
+      </div>
+      <div class="portfolio-item">
+        <img src="https://dummyimage.com/600x400/ccc/000&text=Project+3" alt="Project 3">
+        <div class="overlay">
+          <h3>Project 3</h3>
+          <p>Showcase your hacking or development skills with this project.</p>
+          <a href="#">View Project</a>
+        </div>
+      </div>
+      <div class="portfolio-item">
+        <img src="https://dummyimage.com/600x400/ccc/000&text=Project+4" alt="Project 4">
+        <div class="overlay">
+          <h3>Project 4</h3>
+          <p>Showcase your hacking or development skills with this project.</p>
+          <a href="#">View Project</a>
+        </div>
+      </div>
+      <div class="portfolio-item">
+        <img src="https://dummyimage.com/600x400/ccc/000&text=Project+5" alt="Project 5">
+        <div class="overlay">
+          <h3>Project 5</h3>
+          <p>Showcase your hacking or development skills with this project.</p>
+          <a href="#">View Project</a>
+        </div>
+      </div>
+      <div class="portfolio-item">
+        <img src="https://dummyimage.com/600x400/ccc/000&text=Project+6" alt="Project 6">
+        <div class="overlay">
+          <h3>Project 6</h3>
+          <p>Showcase your hacking or development skills with this project.</p>
+          <a href="#">View Project</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="blog-section">
+    <h2>Our Blog</h2>
+    <div class="blog-grid">
+      <div class="blog-post">
+        <img src="https://dummyimage.com/800x400/ccc/000&text=Blog+Post+1" alt="Blog Post 1">
+        <div class="content">
+          <h3>Blog Post 1</h3>
+          <p>Explore the latest trends and insights in the hacking and development world.</p>
+          <a href="#">Read More</a>
+        </div>
+      </div>
+      <div class="blog-post">
+        <img src="https://dummyimage.com/800x400/ccc/000&text=Blog+Post+2" alt="Blog Post 2">
+        <div class="content">
+          <h3>Blog Post 2</h3>
+          <p>Discover expert tips and tricks to enhance your hacking and development skills.</p>
+          <a href="#">Read More</a>
+        </div>
+      </div>
+      <div class="blog-post">
+        <img src="https://dummyimage.com/800x400/ccc/000&text=Blog+Post+3" alt="Blog Post 3">
+        <div class="content">
+          <h3>Blog Post 3</h3>
+          <p>Stay ahead of the curve with the latest news and updates in the industry.</p>
+          <a href="#">Read More</a>
+        </div>
+      </div>
+      <div class="blog-post">
+        <img src="https://dummyimage.com/800x400/ccc/000&text=Blog+Post+4" alt="Blog Post 4">
+        <div class="content">
+          <h3>Blog Post 4</h3>
+          <p>Dive into the world of hacking and development with our insightful articles.</p>
+          <a href="#">Read More</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="story-section">
+    <h2>Our Story</h2>
+    <div class="story-container">
+      <div class="story-item">
+        <video autoplay loop muted>
+          <source src="https://dummyimage.com/1920x1080/ccc/000&text=Story+Video+1" type="video/mp4">
+        </video>
+        <div class="content">
+          <h3>The Journey Begins</h3>
+          <p>Discover the origins of our passion for hacking and development, and how it all started.</p>
+          <a href="#">Learn More</a>
+        </div>
+      </div>
+      <div class="story-item">
+        <video autoplay loop muted>
+          <source src="https://dummyimage.com/1920x1080/ccc/000&text=Story+Video+2" type="video/mp4">
+        </video>
+        <div class="content">
+          <h3>Overcoming Challenges</h3>
+          <p>Explore the obstacles we faced and the lessons we learned along the way.</p>
+          <a href="#">Learn More</a>
+        </div>
+      </div>
+      <div class="story-item">
+        <video autoplay loop muted>
+          <source src="https://dummyimage.com/1920x1080/ccc/000&text=Story+Video+3" type="video/mp4">
+        </video>
+        <div class="content">
+          <h3>Embracing the Future</h3>
+          <p>Witness our vision for the future and how we continue to push the boundaries of hacking and development.</p>
+          <a href="#">Learn More</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</body>
+</html>'<!-- Visit: https://github.com/Ishanoshada/portflair -->
+<!-- Visit: https://github.com/Ishanoshada/portflair -->

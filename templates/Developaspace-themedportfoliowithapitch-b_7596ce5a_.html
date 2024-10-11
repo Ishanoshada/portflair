@@ -1,0 +1,399 @@
+<!-- Portfolio created by Ishan -->
+<!-- Check out my work at: https://github.com/Ishanoshada/portflair -->
+<!-- 2024/10/9 -->
+<!-- Portfolio created by Ishan -->
+'<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Develop a Space-Themed Portfolio</title>
+  <style>
+    /* Global Styles */
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Roboto', sans-serif;
+      background-color: #000000;
+      color: #ffffff;
+      overflow-x: hidden;
+    }
+
+    /* Navigation Bar */
+    nav {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 20px 0;
+      background-color: rgba(0, 0, 0, 0.7);
+      backdrop-filter: blur(10px);
+      position: relative;
+      z-index: 100;
+    }
+
+    nav a {
+      color: #ffffff;
+      text-decoration: none;
+      margin: 0 20px;
+      font-size: 18px;
+      font-weight: 500;
+      position: relative;
+      transition: color 0.3s ease;
+    }
+
+    nav a::after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 2px;
+      background-image: linear-gradient(to right, #9b59b6, #8e44ad);
+      bottom: -5px;
+      left: 50%;
+      transform: translateX(-50%);
+      transition: width 0.3s ease;
+    }
+
+    nav a:hover {
+      color: #9b59b6;
+    }
+
+    nav a:hover::after {
+      width: 100%;
+    }
+
+    /* Hero Section */
+    .hero {
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      background-image: url('https://dummyimage.com/1920x1080/000000/ffffff.jpg&text=Starry+Night');
+      background-size: cover;
+      background-position: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.7);
+      z-index: 1;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      max-width: 800px;
+      padding: 0 20px;
+    }
+
+    .hero-title {
+      font-size: 5rem;
+      font-weight: 700;
+      background-image: linear-gradient(to right, #9b59b6, #8e44ad);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: glowEffect 2s ease-in-out infinite;
+    }
+
+    @keyframes glowEffect {
+      0% {
+        text-shadow: 0 0 10px #9b59b6, 0 0 20px #8e44ad, 0 0 30px #9b59b6, 0 0 40px #8e44ad;
+      }
+      50% {
+        text-shadow: 0 0 20px #9b59b6, 0 0 30px #8e44ad, 0 0 40px #9b59b6, 0 0 50px #8e44ad;
+      }
+      100% {
+        text-shadow: 0 0 10px #9b59b6, 0 0 20px #8e44ad, 0 0 30px #9b59b6, 0 0 40px #8e44ad;
+      }
+    }
+
+    .hero-subtitle {
+      font-size: 2rem;
+      margin-top: 20px;
+      color: #b3b3b3;
+    }
+
+    .skill-highlights {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+      grid-gap: 20px;
+      margin-top: 40px;
+    }
+
+    .skill-highlight {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      cursor: pointer;
+    }
+
+    .skill-icon {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      background-image: linear-gradient(to right, #9b59b6, #8e44ad);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 24px;
+      color: #ffffff;
+      transition: transform 0.3s ease;
+    }
+
+    .skill-highlight:hover .skill-icon {
+      transform: scale(1.1);
+    }
+
+    .skill-name {
+      margin-top: 10px;
+      font-size: 16px;
+      color: #b3b3b3;
+    }
+
+    /* Portfolio Section */
+    .portfolio {
+      padding: 80px 0;
+      background-color: #0d0d0d;
+    }
+
+    .portfolio-title {
+      font-size: 3rem;
+      font-weight: 700;
+      text-align: center;
+      margin-bottom: 40px;
+      background-image: linear-gradient(to right, #9b59b6, #8e44ad);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      grid-gap: 40px;
+    }
+
+    .project-card {
+      background-color: #1a1a1a;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+
+    .project-card:hover {
+      transform: translateY(-10px);
+    }
+
+    .project-image {
+      height: 200px;
+      background-image: url('https://dummyimage.com/600x400/000000/ffffff.jpg&text=Project+Image');
+      background-size: cover;
+      background-position: center;
+    }
+
+    .project-content {
+      padding: 20px;
+    }
+
+    .project-title {
+      font-size: 1.5rem;
+      font-weight: 700;
+      background-image: linear-gradient(to right, #9b59b6, #8e44ad);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .project-description {
+      font-size: 1rem;
+      color: #b3b3b3;
+      margin-top: 10px;
+    }
+
+    /* Contact Section */
+    .contact {
+      padding: 80px 0;
+      background-image: url('https://dummyimage.com/1920x1080/000000/ffffff.jpg&text=Starry+Night+2');
+      background-size: cover;
+      background-position: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .contact::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.7);
+      z-index: 1;
+    }
+
+    .contact-content {
+      position: relative;
+      z-index: 2;
+      max-width: 600px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .contact-title {
+      font-size: 3rem;
+      font-weight: 700;
+      background-image: linear-gradient(to right, #9b59b6, #8e44ad);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 20px;
+    }
+
+    .contact-form {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-gap: 20px;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+      background-color: rgba(255, 255, 255, 0.1);
+      border: none;
+      padding: 15px;
+      font-size: 1rem;
+      color: #ffffff;
+      border-radius: 4px;
+      transition: background-color 0.3s ease;
+    }
+
+    .contact-form input:focus,
+    .contact-form textarea:focus {
+      background-color: rgba(255, 255, 255, 0.2);
+      outline: none;
+    }
+
+    .contact-form textarea {
+      grid-column: 1 / -1;
+      resize: vertical;
+    }
+
+    .contact-form button {
+      grid-column: 1 / -1;
+      background-image: linear-gradient(to right, #9b59b6, #8e44ad);
+      color: #ffffff;
+      border: none;
+      padding: 15px 30px;
+      font-size: 1rem;
+      font-weight: 700;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+
+    .contact-form button:hover {
+      transform: translateY(-5px);
+    }
+
+    /* Responsive Styles */
+    @media (max-width: 768px) {
+      .hero-title {
+        font-size: 3rem;
+      }
+
+      .hero-subtitle {
+        font-size: 1.5rem;
+      }
+
+      .portfolio-title {
+        font-size: 2.5rem;
+      }
+
+      .contact-title {
+        font-size: 2.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="#">Home</a>
+    <a href="#">Portfolio</a>
+    <a href="#">About</a>
+    <a href="#">Contact</a>
+  </nav>
+
+  <section class="hero">
+    <div class="hero-content">
+      <h1 class="hero-title">Develop a Space-Themed Portfolio</h1>
+      <p class="hero-subtitle">Explore the cosmos with my captivating projects</p>
+      <div class="skill-highlights">
+        <div class="skill-highlight">
+          <div class="skill-icon"><i class="fas fa-code"></i></div>
+          <div class="skill-name">Web Development</div>
+        </div>
+        <div class="skill-highlight">
+          <div class="skill-icon"><i class="fas fa-palette"></i></div>
+          <div class="skill-name">UI/UX Design</div>
+        </div>
+        <div class="skill-highlight">
+          <div class="skill-icon"><i class="fas fa-rocket"></i></div>
+          <div class="skill-name">Space Exploration</div>
+        </div>
+        <div class="skill-highlight">
+          <div class="skill-icon"><i class="fas fa-star"></i></div>
+          <div class="skill-name">Astrophotography</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="portfolio">
+    <h2 class="portfolio-title">My Portfolio</h2>
+    <div class="project-grid">
+      <div class="project-card">
+        <div class="project-image"></div>
+        <div class="project-content">
+          <h3 class="project-title">Space Exploration Website</h3>
+          <p class="project-description">A captivating website that showcases the wonders of space exploration.</p>
+        </div>
+      </div>
+      <div class="project-card">
+        <div class="project-image"></div>
+        <div class="project-content">
+          <h3 class="project-title">Cosmic Gradient UI Kit</h3>
+          <p class="project-description">A sleek and modern UI kit featuring stunning cosmic gradients.</p>
+        </div>
+      </div>
+      <div class="project-card">
+        <div class="project-image"></div>
+        <div class="project-content">
+          <h3 class="project-title">Astrophotography Gallery</h3>
+          <p class="project-description">A breathtaking gallery showcasing my best astrophotography work.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact">
+    <div class="contact-content">
+      <h2 class="contact-title">Get in Touch</h2>
+      <form class="contact-form">
+        <input type="text" placeholder="Name" />
+        <input type="email" placeholder="Email" />
+        <textarea placeholder="Message"></textarea>
+        <button type="submit">Submit</button>
+      </form>
+    </div>
+  </section>
+
+  <script src="https://kit.fontawesome.com/your-font-awesome-kit.js" crossorigin="anonymous"></script>
+</body>
+</html>'<!-- Visit: https://github.com/Ishanoshada/portflair -->
+<!-- Visit: https://github.com/Ishanoshada/portflair -->

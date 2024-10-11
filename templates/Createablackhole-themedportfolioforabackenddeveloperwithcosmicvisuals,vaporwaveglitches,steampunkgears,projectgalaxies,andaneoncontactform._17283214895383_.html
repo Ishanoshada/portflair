@@ -1,0 +1,469 @@
+<!-- Portfolio created by Ishan -->
+<!-- Check out my work at: https://github.com/Ishanoshada/portflair -->
+<!-- 2024/10/9 -->
+<!-- Portfolio created by Ishan -->
+'<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Black Hole Portfolio</title>
+  <style>
+    /* Global Styles */
+    body {
+      font-family: 'Roboto', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #000000;
+      color: #ffffff;
+      overflow-x: hidden;
+    }
+
+    /* Navigation Styles */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 40px;
+      background-color: rgba(0, 0, 0, 0.8);
+      backdrop-filter: blur(10px);
+      z-index: 1;
+      position: relative;
+    }
+
+    nav a {
+      color: #ffffff;
+      text-decoration: none;
+      font-size: 18px;
+      font-weight: 500;
+      padding: 10px 20px;
+      transition: color 0.3s ease-in-out, background-color 0.3s ease-in-out;
+    }
+
+    nav a:hover {
+      color: #7f00ff;
+      background-color: rgba(255, 255, 255, 0.1);
+    }
+
+    /* Project Galaxies Styles */
+    #project-galaxies {
+      padding: 100px 40px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    #project-galaxies::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: url("https://dummyimage.com/1920x1080/000/fff&text=Cosmic+Backdrop");
+      background-size: cover;
+      background-position: center;
+      filter: blur(50px);
+      z-index: -1;
+      animation: cosmic-backdrop 60s linear infinite;
+    }
+
+    @keyframes cosmic-backdrop {
+      0% {
+        transform: scale(1);
+      }
+      50% {
+        transform: scale(1.1);
+      }
+      100% {
+        transform: scale(1);
+      }
+    }
+
+    .project-galaxy {
+      display: flex;
+      align-items: center;
+      margin-bottom: 80px;
+      opacity: 0;
+      transform: translateY(50px);
+      animation: fade-in 0.8s ease-in-out forwards;
+    }
+
+    .project-galaxy:nth-child(even) {
+      flex-direction: row-reverse;
+    }
+
+    .project-galaxy-icon {
+      width: 200px;
+      height: 200px;
+      background-image: url("https://dummyimage.com/200x200/7f00ff/ffffff&text=Project+Icon");
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center;
+      position: relative;
+      z-index: 1;
+      transition: transform 0.5s ease-in-out;
+    }
+
+    .project-galaxy-icon::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: url("https://dummyimage.com/200x200/7f00ff/ffffff&text=Gears");
+      background-size: 50%;
+      background-repeat: no-repeat;
+      background-position: center;
+      transform: rotate(0deg);
+      transition: transform 0.5s ease-in-out;
+    }
+
+    .project-galaxy:hover .project-galaxy-icon {
+      transform: scale(1.1);
+    }
+
+    .project-galaxy:hover .project-galaxy-icon::before {
+      transform: rotate(360deg);
+    }
+
+    .project-galaxy-info {
+      flex-grow: 1;
+      margin-left: 40px;
+      margin-right: 40px;
+    }
+
+    .project-galaxy-info h3 {
+      font-size: 32px;
+      margin-bottom: 20px;
+      text-shadow: 0 0 20px #7f00ff;
+    }
+
+    .project-galaxy-info p {
+      font-size: 18px;
+      line-height: 1.5;
+      margin-bottom: 20px;
+    }
+
+    .project-galaxy-info a {
+      display: inline-block;
+      padding: 10px 20px;
+      background-color: #7f00ff;
+      color: #ffffff;
+      text-decoration: none;
+      border-radius: 5px;
+      font-size: 16px;
+      transition: background-color 0.3s ease-in-out;
+    }
+
+    .project-galaxy-info a:hover {
+      background-color: #9b39ff;
+    }
+
+    /* Vaporwave Glitch Gallery Styles */
+    #vaporwave-glitch-gallery {
+      padding: 100px 40px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    #vaporwave-glitch-gallery::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: linear-gradient(to right, #7f00ff, #00ffff);
+      background-size: 200% 200%;
+      animation: vaporwave-gradient 10s ease infinite;
+      z-index: -1;
+    }
+
+    @keyframes vaporwave-gradient {
+      0% {
+        background-position: 0% 50%;
+      }
+      50% {
+        background-position: 100% 50%;
+      }
+      100% {
+        background-position: 0% 50%;
+      }
+    }
+
+    .glitch-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      grid-gap: 40px;
+      opacity: 0;
+      transform: translateY(50px);
+      animation: fade-in 0.8s ease-in-out 0.2s forwards;
+    }
+
+    .glitch-item {
+      position: relative;
+      overflow: hidden;
+      border-radius: 10px;
+      box-shadow: 0 0 20px rgba(127, 0, 255, 0.5);
+      transition: transform 0.5s ease-in-out;
+    }
+
+    .glitch-item:hover {
+      transform: scale(1.05);
+    }
+
+    .glitch-item img {
+      width: 100%;
+      height: auto;
+      display: block;
+      filter: grayscale(1) contrast(2) brightness(0.8);
+      transition: filter 0.5s ease-in-out;
+    }
+
+    .glitch-item:hover img {
+      filter: none;
+    }
+
+    .glitch-item-info {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.7);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      opacity: 0;
+      transition: opacity 0.5s ease-in-out;
+    }
+
+    .glitch-item:hover .glitch-item-info {
+      opacity: 1;
+    }
+
+    .glitch-item-info h3 {
+      font-size: 24px;
+      margin-bottom: 10px;
+      text-shadow: 0 0 10px #7f00ff;
+    }
+
+    .glitch-item-info p {
+      font-size: 16px;
+      text-align: center;
+      max-width: 80%;
+      text-shadow: 0 0 10px #7f00ff;
+    }
+
+    /* Neon Contact Form Styles */
+    #neon-contact-form {
+      padding: 100px 40px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    #neon-contact-form::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: radial-gradient(circle, #7f00ff, #00ffff);
+      background-size: 200% 200%;
+      animation: neon-gradient 10s ease infinite;
+      z-index: -1;
+    }
+
+    @keyframes neon-gradient {
+      0% {
+        background-position: 0% 50%;
+      }
+      50% {
+        background-position: 100% 50%;
+      }
+      100% {
+        background-position: 0% 50%;
+      }
+    }
+
+    .neon-form {
+      max-width: 600px;
+      margin: 0 auto;
+      background-color: rgba(0, 0, 0, 0.8);
+      padding: 40px;
+      border-radius: 10px;
+      box-shadow: 0 0 20px rgba(127, 0, 255, 0.5);
+      opacity: 0;
+      transform: translateY(50px);
+      animation: fade-in 0.8s ease-in-out 0.4s forwards;
+    }
+
+    .neon-form h2 {
+      font-size: 32px;
+      margin-bottom: 20px;
+      text-align: center;
+      text-shadow: 0 0 10px #7f00ff;
+    }
+
+    .neon-form .form-group {
+      margin-bottom: 20px;
+    }
+
+    .neon-form label {
+      display: block;
+      font-size: 18px;
+      margin-bottom: 5px;
+      color: #7f00ff;
+      text-shadow: 0 0 10px #7f00ff;
+    }
+
+    .neon-form input,
+    .neon-form textarea {
+      width: 100%;
+      padding: 10px;
+      font-size: 16px;
+      border: 2px solid #7f00ff;
+      border-radius: 5px;
+      background-color: transparent;
+      color: #ffffff;
+      outline: none;
+      transition: border-color 0.3s ease-in-out;
+    }
+
+    .neon-form input:focus,
+    .neon-form textarea:focus {
+      border-color: #00ffff;
+    }
+
+    .neon-form button {
+      display: block;
+      width: 100%;
+      padding: 10px;
+      font-size: 18px;
+      background-color: #7f00ff;
+      color: #ffffff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease-in-out;
+    }
+
+    .neon-form button:hover {
+      background-color: #9b39ff;
+    }
+
+    /* Animations */
+    @keyframes fade-in {
+      0% {
+        opacity: 0;
+        transform: translateY(50px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="#">Home</a>
+    <a href="#">Projects</a>
+    <a href="#">Glitch Gallery</a>
+    <a href="#">Contact</a>
+  </nav>
+
+  <section id="project-galaxies">
+    <div class="project-galaxy">
+      <div class="project-galaxy-icon"></div>
+      <div class="project-galaxy-info">
+        <h3>Project Galaxy 1</h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ut risus in augue luctus venenatis.</p>
+        <a href="#">Learn More</a>
+      </div>
+    </div>
+
+    <div class="project-galaxy">
+      <div class="project-galaxy-icon"></div>
+      <div class="project-galaxy-info">
+        <h3>Project Galaxy 2</h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ut risus in augue luctus venenatis.</p>
+        <a href="#">Learn More</a>
+      </div>
+    </div>
+
+    <div class="project-galaxy">
+      <div class="project-galaxy-icon"></div>
+      <div class="project-galaxy-info">
+        <h3>Project Galaxy 3</h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ut risus in augue luctus venenatis.</p>
+        <a href="#">Learn More</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="vaporwave-glitch-gallery">
+    <div class="glitch-grid">
+      <div class="glitch-item">
+        <img src="https://dummyimage.com/300x300/7f00ff/ffffff&text=Glitch+Art+1" alt="Glitch Art 1">
+        <div class="glitch-item-info">
+          <h3>Glitch Art 1</h3>
+          <p>Explore the mesmerizing world of vaporwave-inspired glitch art.</p>
+        </div>
+      </div>
+
+      <div class="glitch-item">
+        <img src="https://dummyimage.com/300x300/00ffff/ffffff&text=Glitch+Art+2" alt="Glitch Art 2">
+        <div class="glitch-item-info">
+          <h3>Glitch Art 2</h3>
+          <p>Discover the unique blend of digital chaos and retro-futuristic aesthetics.</p>
+        </div>
+      </div>
+
+      <div class="glitch-item">
+        <img src="https://dummyimage.com/300x300/7f00ff/ffffff&text=Glitch+Art+3" alt="Glitch Art 3">
+        <div class="glitch-item-info">
+          <h3>Glitch Art 3</h3>
+          <p>Experience the cosmic undertones of these experimental visuals.</p>
+        </div>
+      </div>
+
+      <div class="glitch-item">
+        <img src="https://dummyimage.com/300x300/00ffff/ffffff&text=Glitch+Art+4" alt="Glitch Art 4">
+        <div class="glitch-item-info">
+          <h3>Glitch Art 4</h3>
+          <p>Immerse yourself in the pulsing neon accents and subtle flickering effects.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="neon-contact-form">
+    <div class="neon-form">
+      <h2>Get in Touch</h2>
+      <form>
+        <div class="form-group">
+          <label for="name">Name</label>
+          <input type="text" id="name" name="name" placeholder="Enter your name" required>
+        </div>
+
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" placeholder="Enter your email" required>
+        </div>
+
+        <div class="form-group">
+          <label for="message">Message</label>
+          <textarea id="message" name="message" rows="5" placeholder="Enter your message" required></textarea>
+        </div>
+
+        <button type="submit">Send Message</button>
+      </form>
+    </div>
+  </section>
+</body>
+</html>'<!-- Visit: https://github.com/Ishanoshada/portflair -->
+<!-- Visit: https://github.com/Ishanoshada/portflair -->

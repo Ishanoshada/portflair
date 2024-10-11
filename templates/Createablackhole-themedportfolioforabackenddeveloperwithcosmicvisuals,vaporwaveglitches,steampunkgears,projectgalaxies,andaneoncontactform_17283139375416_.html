@@ -1,0 +1,441 @@
+<!-- Portfolio created by Ishan -->
+<!-- Check out my work at: https://github.com/Ishanoshada/portflair -->
+<!-- 2024/10/9 -->
+<!-- Portfolio created by Ishan -->
+'<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Black Hole Portfolio</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
+
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Orbitron', sans-serif;
+      background-color: #0C0C0C;
+      color: #fff;
+      overflow-x: hidden;
+    }
+
+    /* Navigation */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 40px;
+      background-color: rgba(12, 12, 12, 0.8);
+      backdrop-filter: blur(10px);
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 999;
+    }
+
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      margin: 0 20px;
+      font-size: 18px;
+      font-weight: bold;
+      transition: color 0.3s ease-in-out;
+    }
+
+    nav a:hover {
+      color: #9B59B6;
+    }
+
+    /* Project Galaxies */
+    #project-galaxies {
+      padding: 100px 40px;
+      background: radial-gradient(ellipse at center, #0C0C0C 0%, #1C1C1C 100%);
+      position: relative;
+      overflow: hidden;
+    }
+
+    #project-galaxies h2 {
+      font-size: 36px;
+      text-align: center;
+      margin-bottom: 50px;
+      text-shadow: 0 0 20px #9B59B6, 0 0 40px #9B59B6, 0 0 80px #9B59B6;
+    }
+
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-gap: 40px;
+    }
+
+    .project-item {
+      position: relative;
+      overflow: hidden;
+      border-radius: 10px;
+      box-shadow: 0 0 20px rgba(155, 89, 182, 0.5);
+      transition: all 0.3s ease-in-out;
+    }
+
+    .project-item:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 40px rgba(155, 89, 182, 0.8);
+    }
+
+    .project-item img {
+      width: 100%;
+      height: 300px;
+      object-fit: cover;
+      filter: brightness(0.7) contrast(1.2) saturate(1.2);
+    }
+
+    .project-details {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+      opacity: 0;
+      transition: opacity 0.3s ease-in-out;
+    }
+
+    .project-item:hover .project-details {
+      opacity: 1;
+    }
+
+    .project-details h3 {
+      font-size: 24px;
+      margin-bottom: 10px;
+      text-shadow: 0 0 10px #9B59B6, 0 0 20px #9B59B6, 0 0 40px #9B59B6;
+    }
+
+    .project-details p {
+      font-size: 16px;
+      margin-bottom: 20px;
+      text-shadow: 0 0 10px #9B59B6, 0 0 20px #9B59B6, 0 0 40px #9B59B6;
+    }
+
+    .project-details a {
+      display: inline-block;
+      padding: 10px 20px;
+      background-color: #9B59B6;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 5px;
+      font-weight: bold;
+      transition: background-color 0.3s ease-in-out;
+    }
+
+    .project-details a:hover {
+      background-color: #8E44AD;
+    }
+
+    /* Neon Contact Form */
+    #contact {
+      padding: 100px 40px;
+      background: radial-gradient(ellipse at center, #0C0C0C 0%, #1C1C1C 100%);
+      position: relative;
+      overflow: hidden;
+    }
+
+    #contact h2 {
+      font-size: 36px;
+      text-align: center;
+      margin-bottom: 50px;
+      text-shadow: 0 0 20px #9B59B6, 0 0 40px #9B59B6, 0 0 80px #9B59B6;
+    }
+
+    .contact-form {
+      max-width: 600px;
+      margin: 0 auto;
+      background-color: rgba(12, 12, 12, 0.8);
+      padding: 40px;
+      border-radius: 10px;
+      box-shadow: 0 0 20px rgba(155, 89, 182, 0.5);
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+      width: 100%;
+      padding: 15px;
+      margin-bottom: 20px;
+      border: none;
+      border-radius: 5px;
+      background-color: #2C2C2C;
+      color: #fff;
+      font-family: 'Orbitron', sans-serif;
+      font-size: 16px;
+      transition: box-shadow 0.3s ease-in-out;
+    }
+
+    .contact-form input:focus,
+    .contact-form textarea:focus {
+      outline: none;
+      box-shadow: 0 0 10px rgba(155, 89, 182, 0.8);
+    }
+
+    .contact-form button {
+      display: block;
+      width: 100%;
+      padding: 15px;
+      background-color: #9B59B6;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      font-family: 'Orbitron', sans-serif;
+      font-size: 18px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background-color 0.3s ease-in-out;
+    }
+
+    .contact-form button:hover {
+      background-color: #8E44AD;
+    }
+
+    /* About Me */
+    #about {
+      padding: 100px 40px;
+      background: radial-gradient(ellipse at center, #0C0C0C 0%, #1C1C1C 100%);
+      position: relative;
+      overflow: hidden;
+    }
+
+    #about h2 {
+      font-size: 36px;
+      text-align: center;
+      margin-bottom: 50px;
+      text-shadow: 0 0 20px #9B59B6, 0 0 40px #9B59B6, 0 0 80px #9B59B6;
+    }
+
+    .about-content {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .about-image {
+      flex: 0 0 300px;
+      margin-right: 50px;
+      position: relative;
+      overflow: hidden;
+      border-radius: 50%;
+      box-shadow: 0 0 20px rgba(155, 89, 182, 0.5);
+    }
+
+    .about-image img {
+      width: 100%;
+      height: auto;
+      object-fit: cover;
+      filter: brightness(0.8) contrast(1.2) saturate(1.2);
+      animation: glitch 3s infinite linear;
+    }
+
+    @keyframes glitch {
+      0%, 100% {
+        transform: translate(0, 0);
+      }
+      20% {
+        transform: translate(-5px, 5px);
+      }
+      40% {
+        transform: translate(5px, -5px);
+      }
+      60% {
+        transform: translate(-5px, 0);
+      }
+      80% {
+        transform: translate(5px, 0);
+      }
+    }
+
+    .about-text {
+      flex: 1;
+      font-size: 18px;
+      line-height: 1.6;
+      text-shadow: 0 0 10px #9B59B6, 0 0 20px #9B59B6, 0 0 40px #9B59B6;
+    }
+
+    .about-text h3 {
+      font-size: 24px;
+      margin-bottom: 20px;
+    }
+
+    .about-text p {
+      margin-bottom: 20px;
+    }
+
+    .about-text a {
+      display: inline-block;
+      padding: 10px 20px;
+      background-color: #9B59B6;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 5px;
+      font-weight: bold;
+      transition: background-color 0.3s ease-in-out;
+    }
+
+    .about-text a:hover {
+      background-color: #8E44AD;
+    }
+
+    /* Responsive Styles */
+    @media (max-width: 991px) {
+      .project-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .about-content {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .about-image {
+        margin-right: 0;
+        margin-bottom: 30px;
+      }
+    }
+
+    @media (max-width: 767px) {
+      nav {
+        padding: 15px 20px;
+      }
+
+      nav a {
+        font-size: 16px;
+        margin: 0 10px;
+      }
+
+      #project-galaxies,
+      #contact,
+      #about {
+        padding: 80px 20px;
+      }
+
+      #project-galaxies h2,
+      #contact h2,
+      #about h2 {
+        font-size: 28px;
+        margin-bottom: 40px;
+      }
+
+      .project-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .project-item img {
+        height: 250px;
+      }
+
+      .contact-form {
+        padding: 30px;
+      }
+
+      .about-image {
+        flex-basis: 200px;
+      }
+
+      .about-text {
+        font-size: 16px;
+      }
+
+      .about-text h3 {
+        font-size: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="#">Home</a>
+    <a href="#project-galaxies">Projects</a>
+    <a href="#contact">Contact</a>
+    <a href="#about">About</a>
+  </nav>
+
+  <section id="project-galaxies">
+    <h2>Project Galaxies</h2>
+    <div class="project-grid">
+      <div class="project-item">
+        <img src="https://dummyimage.com/600x400/ccc/000&text=Project+1" alt="Project 1">
+        <div class="project-details">
+          <h3>Project 1</h3>
+          <p>Backend development, API integration</p>
+          <a href="#">Learn More</a>
+        </div>
+      </div>
+      <div class="project-item">
+        <img src="https://dummyimage.com/600x400/ccc/000&text=Project+2" alt="Project 2">
+        <div class="project-details">
+          <h3>Project 2</h3>
+          <p>Database management, system architecture</p>
+          <a href="#">Learn More</a>
+        </div>
+      </div>
+      <div class="project-item">
+        <img src="https://dummyimage.com/600x400/ccc/000&text=Project+3" alt="Project 3">
+        <div class="project-details">
+          <h3>Project 3</h3>
+          <p>Scalable backend solutions, real-time data processing</p>
+          <a href="#">Learn More</a>
+        </div>
+      </div>
+      <div class="project-item">
+        <img src="https://dummyimage.com/600x400/ccc/000&text=Project+4" alt="Project 4">
+        <div class="project-details">
+          <h3>Project 4</h3>
+          <p>Microservices architecture, cloud infrastructure</p>
+          <a href="#">Learn More</a>
+        </div>
+      </div>
+      <div class="project-item">
+        <img src="https://dummyimage.com/600x400/ccc/000&text=Project+5" alt="Project 5">
+        <div class="project-details">
+          <h3>Project 5</h3>
+          <p>Distributed systems, event-driven design</p>
+          <a href="#">Learn More</a>
+        </div>
+      </div>
+      <div class="project-item">
+        <img src="https://dummyimage.com/600x400/ccc/000&text=Project+6" alt="Project 6">
+        <div class="project-details">
+          <h3>Project 6</h3>
+          <p>High-performance backend applications, DevOps</p>
+          <a href="#">Learn More</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <h2>Get in Touch</h2>
+    <div class="contact-form">
+      <form>
+        <input type="text" placeholder="Name" required>
+        <input type="email" placeholder="Email" required>
+        <textarea placeholder="Message" required></textarea>
+        <button type="submit">Send Message</button>
+      </form>
+    </div>
+  </section>
+
+  <section id="about">
+    <h2>About Me</h2>
+    <div class="about-content">
+      <div class="about-image">
+        <img src="https://dummyimage.com/300x300/ccc/000&text=Backend+Developer" alt="Backend Developer">
+      </div>
+      <div class="about-text">
+        <h3>Cosmic Backend Developer</h3>
+        <p>As a backend developer with a passion for the cosmos, I thrive on creating powerful and scalable applications that power the digital universe. With a deep understanding of backend architecture, database management, and distributed systems, I navigate the complexities of modern software development like a cosmic explorer.</p>
+        <p>My expertise in technologies like Node.js, Python, and Golang allows me to craft efficient and reliable backend solutions that seamlessly integrate with the front-end, creating a harmonious balance between the visible and the unseen.</p>
+        <a href="#">Learn More</a>
+      </div>
+    </div>
+  </section>
+</body>
+</html>'<!-- Visit: https://github.com/Ishanoshada/portflair -->
+<!-- Visit: https://github.com/Ishanoshada/portflair -->

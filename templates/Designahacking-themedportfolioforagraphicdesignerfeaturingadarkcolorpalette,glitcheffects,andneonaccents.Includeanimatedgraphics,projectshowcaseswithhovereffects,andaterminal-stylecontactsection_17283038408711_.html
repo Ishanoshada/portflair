@@ -1,0 +1,444 @@
+<!-- Portfolio created by Ishan -->
+<!-- Check out my work at: https://github.com/Ishanoshada/portflair -->
+<!-- 2024/10/9 -->
+<!-- Portfolio created by Ishan -->
+'<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hacking-Themed Portfolio</title>
+  <style>
+    /* Global Styles */
+    @import url('https://fonts.googleapis.com/css2?family=Oxanium:wght@400;600;800&display=swap');
+
+    :root {
+      --primary-color: #00FF00;
+      --secondary-color: #FF00FF;
+      --background-color: #0a0a0a;
+      --text-color: #ffffff;
+    }
+
+    body {
+      font-family: 'Oxanium', monospace;
+      margin: 0;
+      padding: 0;
+      background-color: var(--background-color);
+      color: var(--text-color);
+    }
+
+    /* Navigation Bar */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 40px;
+      background-color: rgba(10, 10, 10, 0.7);
+      backdrop-filter: blur(10px);
+      border-bottom: 2px solid var(--primary-color);
+    }
+
+    nav a {
+      color: var(--text-color);
+      text-decoration: none;
+      font-size: 18px;
+      font-weight: 600;
+      position: relative;
+      transition: color 0.3s ease;
+    }
+
+    nav a:before {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 2px;
+      bottom: -5px;
+      left: 0;
+      background-color: var(--primary-color);
+      transition: width 0.3s ease;
+    }
+
+    nav a:hover {
+      color: var(--primary-color);
+    }
+
+    nav a:hover:before {
+      width: 100%;
+    }
+
+    /* Hero Section */
+    .hero {
+      height: 80vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-background {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: url('https://dummyimage.com/1920x1080/0a0a0a/00ff00&text=Hacking+Backdrop');
+      background-size: cover;
+      background-position: center;
+      filter: blur(5px);
+      z-index: -1;
+    }
+
+    .hero-content {
+      text-align: center;
+      z-index: 1;
+      animation: glitch 3s infinite;
+    }
+
+    .hero-content h1 {
+      font-size: 5rem;
+      font-weight: 800;
+      color: var(--primary-color);
+      text-shadow: 0 0 20px var(--primary-color);
+    }
+
+    .hero-content p {
+      font-size: 2rem;
+      font-weight: 600;
+      color: var(--secondary-color);
+      text-shadow: 0 0 10px var(--secondary-color);
+    }
+
+    .hero-cta {
+      margin-top: 40px;
+      padding: 15px 40px;
+      font-size: 18px;
+      font-weight: 600;
+      background-color: var(--primary-color);
+      color: var(--background-color);
+      border: none;
+      border-radius: 30px;
+      cursor: pointer;
+      box-shadow: 0 0 20px var(--primary-color);
+      transition: transform 0.3s ease;
+    }
+
+    .hero-cta:hover {
+      transform: translateY(-5px);
+    }
+
+    /* Project Showcase */
+    .project-showcase {
+      padding: 80px 40px;
+      text-align: center;
+    }
+
+    .project-showcase h2 {
+      font-size: 3rem;
+      font-weight: 800;
+      color: var(--primary-color);
+      text-shadow: 0 0 20px var(--primary-color);
+      margin-bottom: 40px;
+    }
+
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-gap: 40px;
+    }
+
+    .project-item {
+      position: relative;
+      overflow: hidden;
+      border-radius: 10px;
+      box-shadow: 0 0 20px rgba(0, 255, 0, 0.3);
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+
+    .project-item:hover {
+      transform: scale(1.05);
+    }
+
+    .project-item img {
+      width: 100%;
+      height: 300px;
+      object-fit: cover;
+      filter: grayscale(1);
+      transition: filter 0.3s ease;
+    }
+
+    .project-item:hover img {
+      filter: grayscale(0);
+    }
+
+    .project-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 255, 0, 0.3);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .project-item:hover .project-overlay {
+      opacity: 1;
+    }
+
+    .project-overlay h3 {
+      font-size: 2rem;
+      font-weight: 800;
+      color: var(--text-color);
+      text-shadow: 0 0 10px var(--secondary-color);
+      margin-bottom: 10px;
+    }
+
+    .project-overlay p {
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: var(--text-color);
+      text-shadow: 0 0 10px var(--secondary-color);
+    }
+
+    /* Terminal-Style Contact Section */
+    .contact {
+      padding: 80px 40px;
+      text-align: center;
+    }
+
+    .contact h2 {
+      font-size: 3rem;
+      font-weight: 800;
+      color: var(--primary-color);
+      text-shadow: 0 0 20px var(--primary-color);
+      margin-bottom: 40px;
+    }
+
+    .terminal-container {
+      max-width: 800px;
+      margin: 0 auto;
+      background-color: #0a0a0a;
+      border: 2px solid var(--primary-color);
+      border-radius: 10px;
+      padding: 40px;
+      text-align: left;
+      box-shadow: 0 0 20px rgba(0, 255, 0, 0.3);
+    }
+
+    .terminal-input {
+      display: flex;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+
+    .terminal-input span {
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: var(--primary-color);
+      margin-right: 10px;
+    }
+
+    .terminal-input input {
+      flex-grow: 1;
+      background-color: transparent;
+      border: none;
+      outline: none;
+      font-size: 1.2rem;
+      font-family: 'Oxanium', monospace;
+      color: var(--text-color);
+    }
+
+    .terminal-input button {
+      background-color: var(--primary-color);
+      color: var(--background-color);
+      border: none;
+      border-radius: 5px;
+      padding: 10px 20px;
+      font-size: 1.2rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+
+    .terminal-input button:hover {
+      transform: translateY(-5px);
+    }
+
+    .terminal-response {
+      font-size: 1.2rem;
+      font-weight: 400;
+      color: var(--text-color);
+      white-space: pre-wrap;
+      animation: type 0.5s steps(20) infinite;
+    }
+
+    @keyframes glitch {
+      0% {
+        transform: translateX(0);
+      }
+      20% {
+        transform: translateX(-10px);
+      }
+      40% {
+        transform: translateX(10px);
+      }
+      60% {
+        transform: translateX(-10px);
+      }
+      80% {
+        transform: translateX(10px);
+      }
+      100% {
+        transform: translateX(0);
+      }
+    }
+
+    @keyframes type {
+      from { width: 0; }
+      to { width: 100%; }
+    }
+
+    /* Responsive Styles */
+    @media (max-width: 768px) {
+      nav {
+        padding: 10px 20px;
+      }
+
+      nav a {
+        font-size: 16px;
+      }
+
+      .hero-content h1 {
+        font-size: 3rem;
+      }
+
+      .hero-content p {
+        font-size: 1.5rem;
+      }
+
+      .hero-cta {
+        padding: 10px 30px;
+        font-size: 16px;
+      }
+
+      .project-showcase {
+        padding: 40px 20px;
+      }
+
+      .project-showcase h2 {
+        font-size: 2rem;
+      }
+
+      .project-grid {
+        grid-template-columns: repeat(2, 1fr);
+        grid-gap: 20px;
+      }
+
+      .project-item img {
+        height: 200px;
+      }
+
+      .project-overlay h3 {
+        font-size: 1.5rem;
+      }
+
+      .project-overlay p {
+        font-size: 1rem;
+      }
+
+      .contact {
+        padding: 40px 20px;
+      }
+
+      .contact h2 {
+        font-size: 2rem;
+      }
+
+      .terminal-container {
+        padding: 20px;
+      }
+
+      .terminal-input span,
+      .terminal-input input,
+      .terminal-input button,
+      .terminal-response {
+        font-size: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="#">Home</a>
+    <a href="#">About</a>
+    <a href="#">Projects</a>
+    <a href="#">Contact</a>
+  </nav>
+
+  <div class="hero">
+    <div class="hero-background"></div>
+    <div class="hero-content">
+      <h1>Hack the Design</h1>
+      <p>Unleash your cyberpunk creativity</p>
+      <button class="hero-cta">Explore My Work</button>
+    </div>
+  </div>
+
+  <div class="project-showcase">
+    <h2>My Hacking-Inspired Projects</h2>
+    <div class="project-grid">
+      <div class="project-item">
+        <img src="https://dummyimage.com/600x400/0a0a0a/00ff00&text=Project+1" alt="Project 1">
+        <div class="project-overlay">
+          <h3>Project 1</h3>
+          <p>Cyberpunk-inspired UI design</p>
+        </div>
+      </div>
+      <div class="project-item">
+        <img src="https://dummyimage.com/600x400/0a0a0a/ff00ff&text=Project+2" alt="Project 2">
+        <div class="project-overlay">
+          <h3>Project 2</h3>
+          <p>Glitch art branding</p>
+        </div>
+      </div>
+      <div class="project-item">
+        <img src="https://dummyimage.com/600x400/0a0a0a/00ff00&text=Project+3" alt="Project 3">
+        <div class="project-overlay">
+          <h3>Project 3</h3>
+          <p>Neon-infused web design</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="contact">
+    <h2>Get in Touch</h2>
+    <div class="terminal-container">
+      <div class="terminal-input">
+        <span>$</span>
+        <input type="text" placeholder="Enter your name" />
+        <button>SEND</button>
+      </div>
+      <div class="terminal-response">
+        Hello, user! Please enter your message below:
+      </div>
+      <div class="terminal-input">
+        <span>$</span>
+        <input type="text" placeholder="Enter your message" />
+        <button>SEND</button>
+      </div>
+      <div class="terminal-response">
+        Thank you for your message! I'll get back to you as soon as possible.
+      </div>
+    </div>
+  </div>
+</body>
+</html>'<!-- Visit: https://github.com/Ishanoshada/portflair -->
+<!-- Visit: https://github.com/Ishanoshada/portflair -->

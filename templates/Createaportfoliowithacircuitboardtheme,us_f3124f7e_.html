@@ -1,0 +1,487 @@
+<!-- Portfolio created by Ishan -->
+<!-- Check out my work at: https://github.com/Ishanoshada/portflair -->
+<!-- 2024/10/9 -->
+<!-- Portfolio created by Ishan -->
+'<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Create a Portfolio</title>
+  <style>
+    /* Global Styles */
+    @import url('https://fonts.googleapis.com/css2?family=Syncopate:wght@400;700&display=swap');
+
+    body {
+      font-family: 'Syncopate', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #0A1128;
+      color: #fff;
+    }
+
+    /* Navbar Styles */
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: #1C2C4C;
+      padding: 20px 40px;
+    }
+
+    .navbar-brand {
+      font-size: 24px;
+      font-weight: bold;
+      text-decoration: none;
+      color: #7CB8FF;
+    }
+
+    .navbar-nav {
+      display: flex;
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .navbar-nav li {
+      margin-left: 20px;
+    }
+
+    .navbar-nav li a {
+      text-decoration: none;
+      color: #fff;
+      transition: color 0.3s ease;
+    }
+
+    .navbar-nav li a:hover {
+      color: #7CB8FF;
+    }
+
+    /* Skills Section Styles */
+    .skills-section {
+      padding: 80px 0;
+      background-color: #1C2C4C;
+      background-image: linear-gradient(to right, #1C2C4C, #0A1128);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .skills-section:before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: url("https://dummyimage.com/1200x500/ccc/000&text=Circuit+Board+Background");
+      background-size: cover;
+      background-position: center;
+      opacity: 0.2;
+      z-index: 0;
+    }
+
+    .skills-section h2 {
+      font-size: 36px;
+      font-weight: bold;
+      text-align: center;
+      margin-bottom: 40px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .skill-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      grid-gap: 40px;
+      justify-items: center;
+      position: relative;
+      z-index: 1;
+    }
+
+    .skill-node {
+      background-color: #7CB8FF;
+      border-radius: 50%;
+      width: 120px;
+      height: 120px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+      transition: all 0.3s ease;
+    }
+
+    .skill-node:before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: radial-gradient(circle, #7CB8FF, #1C2C4C);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .skill-node:hover {
+      transform: scale(1.1);
+    }
+
+    .skill-node:hover:before {
+      opacity: 0.8;
+    }
+
+    .skill-node h3 {
+      font-size: 18px;
+      font-weight: bold;
+      margin-top: 10px;
+      color: #0A1128;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* Projects Section Styles */
+    .projects-section {
+      padding: 80px 0;
+      background-color: #0A1128;
+      background-image: linear-gradient(to right, #0A1128, #1C2C4C);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .projects-section:before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: url("https://dummyimage.com/1200x500/ccc/000&text=Circuit+Board+Background");
+      background-size: cover;
+      background-position: center;
+      opacity: 0.2;
+      z-index: 0;
+    }
+
+    .projects-section h2 {
+      font-size: 36px;
+      font-weight: bold;
+      text-align: center;
+      margin-bottom: 40px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      grid-gap: 40px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .project-card {
+      background-color: #1C2C4C;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .project-card:hover {
+      transform: translateY(-10px);
+    }
+
+    .project-card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+
+    .project-card-content {
+      padding: 20px;
+    }
+
+    .project-card h3 {
+      font-size: 24px;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+
+    .project-card p {
+      font-size: 16px;
+      line-height: 1.5;
+    }
+
+    /* Contact Section Styles */
+    .contact-section {
+      padding: 80px 0;
+      background-color: #1C2C4C;
+      background-image: linear-gradient(to right, #1C2C4C, #0A1128);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .contact-section:before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: url("https://dummyimage.com/1200x500/ccc/000&text=Circuit+Board+Background");
+      background-size: cover;
+      background-position: center;
+      opacity: 0.2;
+      z-index: 0;
+    }
+
+    .contact-section h2 {
+      font-size: 36px;
+      font-weight: bold;
+      text-align: center;
+      margin-bottom: 40px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .contact-form {
+      max-width: 600px;
+      margin: 0 auto;
+      padding: 40px;
+      background-color: #0A1128;
+      border-radius: 10px;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+      position: relative;
+      z-index: 1;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    .form-group label {
+      display: block;
+      font-size: 16px;
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
+
+    .form-group input,
+    .form-group textarea {
+      width: 100%;
+      padding: 10px;
+      font-size: 16px;
+      border: none;
+      border-radius: 5px;
+      background-color: #7CB8FF;
+      color: #0A1128;
+      transition: background-color 0.3s ease;
+    }
+
+    .form-group input:focus,
+    .form-group textarea:focus {
+      background-color: #9AD0FF;
+    }
+
+    .form-group button {
+      display: block;
+      width: 100%;
+      padding: 10px;
+      font-size: 16px;
+      font-weight: bold;
+      background-color: #7CB8FF;
+      color: #0A1128;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .form-group button:hover {
+      background-color: #9AD0FF;
+    }
+
+    /* Responsive Styles */
+    @media (max-width: 768px) {
+      .navbar {
+        padding: 15px 20px;
+      }
+
+      .navbar-brand {
+        font-size: 20px;
+      }
+
+      .navbar-nav li {
+        margin-left: 15px;
+      }
+
+      .skills-section,
+      .projects-section,
+      .contact-section {
+        padding: 60px 20px;
+      }
+
+      .skills-section h2,
+      .projects-section h2,
+      .contact-section h2 {
+        font-size: 28px;
+      }
+
+      .skill-grid {
+        grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+        grid-gap: 30px;
+      }
+
+      .skill-node {
+        width: 100px;
+        height: 100px;
+      }
+
+      .skill-node h3 {
+        font-size: 16px;
+      }
+
+      .project-grid {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        grid-gap: 30px;
+      }
+
+      .project-card img {
+        height: 180px;
+      }
+
+      .project-card-content {
+        padding: 15px;
+      }
+
+      .project-card h3 {
+        font-size: 20px;
+      }
+
+      .project-card p {
+        font-size: 14px;
+      }
+
+      .contact-form {
+        padding: 30px;
+      }
+
+      .form-group label {
+        font-size: 14px;
+      }
+
+      .form-group input,
+      .form-group textarea,
+      .form-group button {
+        font-size: 14px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav class="navbar">
+      <a href="#" class="navbar-brand">Create a Portfolio</a>
+      <ul class="navbar-nav">
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Skills</a></li>
+        <li><a href="#">Projects</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="skills-section">
+      <h2>My Skills</h2>
+      <div class="skill-grid">
+        <div class="skill-node">
+          <i class="fas fa-code"></i>
+          <h3>HTML</h3>
+        </div>
+        <div class="skill-node">
+          <i class="fas fa-css3-alt"></i>
+          <h3>CSS</h3>
+        </div>
+        <div class="skill-node">
+          <i class="fab fa-js-square"></i>
+          <h3>JavaScript</h3>
+        </div>
+        <div class="skill-node">
+          <i class="fab fa-react"></i>
+          <h3>React</h3>
+        </div>
+        <div class="skill-node">
+          <i class="fab fa-node-js"></i>
+          <h3>Node.js</h3>
+        </div>
+        <div class="skill-node">
+          <i class="fas fa-database"></i>
+          <h3>MongoDB</h3>
+        </div>
+      </div>
+    </section>
+
+    <section class="projects-section">
+      <h2>My Projects</h2>
+      <div class="project-grid">
+        <div class="project-card">
+          <img src="https://dummyimage.com/300x200/ccc/000&text=Project+1" alt="Project 1">
+          <div class="project-card-content">
+            <h3>Project 1</h3>
+            <p>A responsive and interactive website with a circuit board theme, metallic textures, and electric blue colors.</p>
+          </div>
+        </div>
+        <div class="project-card">
+          <img src="https://dummyimage.com/300x200/ccc/000&text=Project+2" alt="Project 2">
+          <div class="project-card-content">
+            <h3>Project 2</h3>
+            <p>A web application that showcases my skills and portfolio in a visually stunning way.</p>
+          </div>
+        </div>
+        <div class="project-card">
+          <img src="https://dummyimage.com/300x200/ccc/000&text=Project+3" alt="Project 3">
+          <div class="project-card-content">
+            <h3>Project 3</h3>
+            <p>A dynamic and interactive contact form that complements the circuit board theme.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact-section">
+      <h2>Get in Touch</h2>
+      <div class="contact-form">
+        <form>
+          <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" id="name" placeholder="Enter your name" required>
+          </div>
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" placeholder="Enter your email" required>
+          </div>
+          <div class="form-group">
+            <label for="message">Message</label>
+            <textarea id="message" rows="5" placeholder="Enter your message" required></textarea>
+          </div>
+          <div class="form-group">
+            <button type="submit">Send Message</button>
+          </div>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-content">
+      <p>&copy; 2024 Create a Portfolio. All rights reserved.</p>
+    </div>
+  </footer>
+</body>
+</html>'<!-- Visit: https://github.com/Ishanoshada/portflair -->
+<!-- Visit: https://github.com/Ishanoshada/portflair -->

@@ -1,0 +1,345 @@
+<!-- Portfolio created by Ishan -->
+<!-- Check out my work at: https://github.com/Ishanoshada/portflair -->
+<!-- 2024/10/9 -->
+<!-- Portfolio created by Ishan -->
+'<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Develop Space-Themed Portfolio</title>
+  <style>
+    /* Global Styles */
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Exo', sans-serif;
+      background-color: #000;
+      color: #fff;
+      overflow-x: hidden;
+    }
+
+    /* Navbar Styles */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.5rem 2rem;
+      background-color: rgba(0, 0, 0, 0.7);
+      backdrop-filter: blur(10px);
+      position: fixed;
+      width: 100%;
+      z-index: 100;
+    }
+
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      font-size: 1.1rem;
+      font-weight: 500;
+      margin-right: 1.5rem;
+      transition: color 0.3s ease-in-out;
+    }
+
+    nav a:hover {
+      color: #8b5cf6;
+    }
+
+    /* Hero Section Styles */
+    .hero {
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      background-image: url('https://dummyimage.com/1200x500/000/fff&text=Starry+Sky+Background');
+      background-size: cover;
+      background-position: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(to bottom, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 1));
+      z-index: 1;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      max-width: 80%;
+    }
+
+    .hero-content h1 {
+      font-size: 4rem;
+      font-weight: 700;
+      background: linear-gradient(to right, #8b5cf6, #e879f9);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: glowText 2s ease-in-out infinite;
+    }
+
+    .hero-content p {
+      font-size: 1.8rem;
+      margin-top: 1rem;
+      animation: glowText 2s ease-in-out infinite;
+    }
+
+    .hero-content .cta {
+      display: inline-block;
+      background: linear-gradient(to right, #8b5cf6, #e879f9);
+      color: #fff;
+      font-size: 1.2rem;
+      font-weight: 500;
+      padding: 1rem 2rem;
+      border-radius: 2rem;
+      text-decoration: none;
+      margin-top: 2rem;
+      transition: transform 0.3s ease-in-out;
+      animation: glowButton 2s ease-in-out infinite;
+    }
+
+    .hero-content .cta:hover {
+      transform: translateY(-5px);
+    }
+
+    /* Skills Section Styles */
+    .skills {
+      padding: 6rem 2rem;
+      background-color: #111;
+      background-image: url('https://dummyimage.com/1200x500/111/fff&text=Starry+Sky+Background');
+      background-size: cover;
+      background-position: center;
+    }
+
+    .skills h2 {
+      font-size: 3rem;
+      font-weight: 700;
+      text-align: center;
+      background: linear-gradient(to right, #8b5cf6, #e879f9);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: glowText 2s ease-in-out infinite;
+    }
+
+    .skill-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      grid-gap: 3rem;
+      margin-top: 4rem;
+    }
+
+    .skill-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      padding: 2rem;
+      border-radius: 1rem;
+      background: linear-gradient(to right, #8b5cf6, #e879f9);
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease-in-out;
+    }
+
+    .skill-item:hover {
+      transform: translateY(-10px);
+    }
+
+    .skill-item h3 {
+      font-size: 1.8rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+    }
+
+    .skill-item p {
+      font-size: 1.2rem;
+      line-height: 1.5;
+    }
+
+    /* Projects Section Styles */
+    .projects {
+      padding: 6rem 2rem;
+      background-color: #000;
+      background-image: url('https://dummyimage.com/1200x500/000/fff&text=Starry+Sky+Background');
+      background-size: cover;
+      background-position: center;
+    }
+
+    .projects h2 {
+      font-size: 3rem;
+      font-weight: 700;
+      text-align: center;
+      background: linear-gradient(to right, #8b5cf6, #e879f9);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: glowText 2s ease-in-out infinite;
+    }
+
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      grid-gap: 3rem;
+      margin-top: 4rem;
+    }
+
+    .project-item {
+      position: relative;
+      border-radius: 1rem;
+      overflow: hidden;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      cursor: pointer;
+      transition: transform 0.3s ease-in-out;
+    }
+
+    .project-item:hover {
+      transform: translateY(-10px);
+    }
+
+    .project-item img {
+      width: 100%;
+      height: 300px;
+      object-fit: cover;
+      filter: blur(5px);
+      transition: filter 0.3s ease-in-out;
+    }
+
+    .project-item:hover img {
+      filter: blur(0);
+    }
+
+    .project-details {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(to bottom, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 1));
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      opacity: 0;
+      transition: opacity 0.3s ease-in-out;
+    }
+
+    .project-item:hover .project-details {
+      opacity: 1;
+    }
+
+    .project-details h3 {
+      font-size: 2rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+      background: linear-gradient(to right, #8b5cf6, #e879f9);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: glowText 2s ease-in-out infinite;
+    }
+
+    .project-details p {
+      font-size: 1.4rem;
+      line-height: 1.5;
+      text-align: center;
+      max-width: 80%;
+    }
+
+    /* Animations */
+    @keyframes glowText {
+      0% {
+        background-position: 0% 50%;
+      }
+      50% {
+        background-position: 100% 50%;
+      }
+      100% {
+        background-position: 0% 50%;
+      }
+    }
+
+    @keyframes glowButton {
+      0% {
+        box-shadow: 0 0 10px rgba(139, 92, 246, 0.5);
+      }
+      50% {
+        box-shadow: 0 0 20px rgba(232, 121, 249, 0.5);
+      }
+      100% {
+        box-shadow: 0 0 10px rgba(139, 92, 246, 0.5);
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="#">Home</a>
+    <a href="#">Skills</a>
+    <a href="#">Projects</a>
+    <a href="#">Contact</a>
+  </nav>
+
+  <div class="hero">
+    <div class="hero-content">
+      <h1>Develop a Space-Themed Portfolio</h1>
+      <p>Explore a cosmic, otherworldly design with glowing gradients and soft starry accents.</p>
+      <a href="#" class="cta">Explore Portfolio</a>
+    </div>
+  </div>
+
+  <div class="skills">
+    <h2>My Skills</h2>
+    <div class="skill-grid">
+      <div class="skill-item">
+        <h3>Graphic Design</h3>
+        <p>Crafting visually stunning designs that captivate the senses.</p>
+      </div>
+      <div class="skill-item">
+        <h3>Web Development</h3>
+        <p>Bringing ideas to life through clean, responsive code.</p>
+      </div>
+      <div class="skill-item">
+        <h3>3D Modeling</h3>
+        <p>Sculpting immersive, otherworldly environments and objects.</p>
+      </div>
+      <div class="skill-item">
+        <h3>Motion Graphics</h3>
+        <p>Animating captivating visual stories that mesmerize the viewer.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="projects">
+    <h2>My Projects</h2>
+    <div class="project-grid">
+      <div class="project-item">
+        <img src="https://dummyimage.com/600x400/000/fff&text=Project+1" alt="Project 1">
+        <div class="project-details">
+          <h3>Project 1</h3>
+          <p>Explore the captivating world of a space-themed website design.</p>
+        </div>
+      </div>
+      <div class="project-item">
+        <img src="https://dummyimage.com/600x400/000/fff&text=Project+2" alt="Project 2">
+        <div class="project-details">
+          <h3>Project 2</h3>
+          <p>Discover the depths of a cosmic-inspired 3D modeling project.</p>
+        </div>
+      </div>
+      <div class="project-item">
+        <img src="https://dummyimage.com/600x400/000/fff&text=Project+3" alt="Project 3">
+        <div class="project-details">
+          <h3>Project 3</h3>
+          <p>Experience the mesmerizing motion graphics of a space-themed animation.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>'<!-- Visit: https://github.com/Ishanoshada/portflair -->
+<!-- Visit: https://github.com/Ishanoshada/portflair -->

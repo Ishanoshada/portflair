@@ -1,0 +1,367 @@
+<!-- Portfolio created by Ishan -->
+<!-- Check out my work at: https://github.com/Ishanoshada/portflair -->
+<!-- 2024/10/9 -->
+<!-- Portfolio created by Ishan -->
+'<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Develop a Space-Themed Portfolio</title>
+  <style>
+    /* Global Styles */
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Montserrat', sans-serif;
+      background-color: #000000;
+      color: #ffffff;
+      overflow-x: hidden;
+    }
+
+    /* Navbar Styles */
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 40px;
+      background-color: rgba(0, 0, 0, 0.8);
+      backdrop-filter: blur(10px);
+      position: relative;
+      z-index: 2;
+    }
+
+    .navbar-brand {
+      font-size: 24px;
+      font-weight: bold;
+      text-transform: uppercase;
+      background: linear-gradient(to right, #7b4397, #dc2430);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .navbar-nav {
+      display: flex;
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .navbar-nav li {
+      margin-left: 20px;
+    }
+
+    .navbar-nav li a {
+      color: #ffffff;
+      text-decoration: none;
+      font-size: 16px;
+      position: relative;
+      padding-bottom: 5px;
+    }
+
+    .navbar-nav li a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 0;
+      height: 2px;
+      background: linear-gradient(to right, #7b4397, #dc2430);
+      transition: width 0.3s ease-in-out;
+    }
+
+    .navbar-nav li a:hover::after {
+      width: 100%;
+    }
+
+    /* Hero Section Styles */
+    .hero {
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-background {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: url('https://dummyimage.com/1920x1080/000000/ffffff.jpg&text=Starry+Night');
+      background-size: cover;
+      background-position: center;
+      filter: brightness(0.8);
+      z-index: -1;
+    }
+
+    .hero-content {
+      text-align: center;
+      z-index: 1;
+    }
+
+    .hero-title {
+      font-size: 72px;
+      font-weight: bold;
+      background: linear-gradient(to right, #7b4397, #dc2430);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: cosmic-glow 3s ease-in-out infinite;
+    }
+
+    .hero-description {
+      font-size: 24px;
+      margin-top: 20px;
+      background: linear-gradient(to right, #7b4397, #dc2430);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: cosmic-glow 3s ease-in-out infinite;
+    }
+
+    @keyframes cosmic-glow {
+      0% {
+        text-shadow: 0 0 10px rgba(123, 67, 151, 0.8), 0 0 20px rgba(220, 36, 48, 0.8);
+      }
+      50% {
+        text-shadow: 0 0 20px rgba(123, 67, 151, 0.8), 0 0 30px rgba(220, 36, 48, 0.8);
+      }
+      100% {
+        text-shadow: 0 0 10px rgba(123, 67, 151, 0.8), 0 0 20px rgba(220, 36, 48, 0.8);
+      }
+    }
+
+    /* Skills Section Styles */
+    .skills {
+      padding: 80px 40px;
+      background-color: #0d0d0d;
+      position: relative;
+      z-index: 1;
+    }
+
+    .skills-title {
+      font-size: 48px;
+      font-weight: bold;
+      text-align: center;
+      background: linear-gradient(to right, #7b4397, #dc2430);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 40px;
+    }
+
+    .skills-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      grid-gap: 40px;
+    }
+
+    .skill-card {
+      background: linear-gradient(to bottom right, #7b4397, #dc2430);
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 10px 20px rgba(123, 67, 151, 0.3), 0 6px 6px rgba(220, 36, 48, 0.3);
+      transition: transform 0.3s ease-in-out;
+    }
+
+    .skill-card:hover {
+      transform: scale(1.05);
+    }
+
+    .skill-icon {
+      font-size: 36px;
+      margin-bottom: 10px;
+      background: linear-gradient(to right, #7b4397, #dc2430);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .skill-name {
+      font-size: 24px;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+
+    .skill-description {
+      font-size: 16px;
+      line-height: 1.5;
+    }
+
+    /* Projects Section Styles */
+    .projects {
+      padding: 80px 40px;
+      background-color: #000000;
+      position: relative;
+      z-index: 1;
+    }
+
+    .projects-title {
+      font-size: 48px;
+      font-weight: bold;
+      text-align: center;
+      background: linear-gradient(to right, #7b4397, #dc2430);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 40px;
+    }
+
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      grid-gap: 40px;
+    }
+
+    .project-card {
+      position: relative;
+      overflow: hidden;
+      border-radius: 10px;
+      box-shadow: 0 10px 20px rgba(123, 67, 151, 0.3), 0 6px 6px rgba(220, 36, 48, 0.3);
+    }
+
+    .project-thumbnail {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      transition: transform 0.3s ease-in-out;
+    }
+
+    .project-card:hover .project-thumbnail {
+      transform: scale(1.1);
+    }
+
+    .project-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(to bottom, rgba(123, 67, 151, 0.8), rgba(220, 36, 48, 0.8));
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      opacity: 0;
+      transition: opacity 0.3s ease-in-out;
+    }
+
+    .project-card:hover .project-overlay {
+      opacity: 1;
+    }
+
+    .project-title {
+      font-size: 24px;
+      font-weight: bold;
+      margin-bottom: 10px;
+      background: linear-gradient(to right, #ffffff, #ffffff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .project-description {
+      font-size: 16px;
+      line-height: 1.5;
+      text-align: center;
+      background: linear-gradient(to right, #ffffff, #ffffff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    /* Footer Styles */
+    .footer {
+      background-color: #0d0d0d;
+      padding: 20px 0;
+      text-align: center;
+      font-size: 14px;
+      color: #ffffff;
+    }
+
+    .footer a {
+      color: #ffffff;
+      text-decoration: none;
+      transition: color 0.3s ease-in-out;
+    }
+
+    .footer a:hover {
+      color: #7b4397;
+    }
+  </style>
+</head>
+<body>
+  <nav class="navbar">
+    <a href="#" class="navbar-brand">Space Portfolio</a>
+    <ul class="navbar-nav">
+      <li><a href="#">Home</a></li>
+      <li><a href="#">Skills</a></li>
+      <li><a href="#">Projects</a></li>
+      <li><a href="#">Contact</a></li>
+    </ul>
+  </nav>
+
+  <section class="hero">
+    <div class="hero-background"></div>
+    <div class="hero-content">
+      <h1 class="hero-title">Explore the Cosmos</h1>
+      <p class="hero-description">Dive into my space-themed portfolio and discover the cosmic wonders within.</p>
+    </div>
+  </section>
+
+  <section class="skills">
+    <h2 class="skills-title">My Cosmic Skills</h2>
+    <div class="skills-container">
+      <div class="skill-card">
+        <div class="skill-icon">&#128640;</div>
+        <h3 class="skill-name">Web Design</h3>
+        <p class="skill-description">Crafting out-of-this-world websites that captivate and inspire.</p>
+      </div>
+      <div class="skill-card">
+        <div class="skill-icon">&#128640;</div>
+        <h3 class="skill-name">UI/UX Design</h3>
+        <p class="skill-description">Designing intuitive and visually stunning user experiences.</p>
+      </div>
+      <div class="skill-card">
+        <div class="skill-icon">&#128640;</div>
+        <h3 class="skill-name">Motion Graphics</h3>
+        <p class="skill-description">Bringing digital designs to life with captivating animations.</p>
+      </div>
+      <div class="skill-card">
+        <div class="skill-icon">&#128640;</div>
+        <h3 class="skill-name">Branding</h3>
+        <p class="skill-description">Crafting brand identities that shine brighter than the stars.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="projects">
+    <h2 class="projects-title">My Cosmic Projects</h2>
+    <div class="project-grid">
+      <div class="project-card">
+        <img src="https://dummyimage.com/600x400/000000/ffffff.jpg&text=Project+1" alt="Project 1" class="project-thumbnail">
+        <div class="project-overlay">
+          <h3 class="project-title">Project 1</h3>
+          <p class="project-description">Explore the depths of my first cosmic creation.</p>
+        </div>
+      </div>
+      <div class="project-card">
+        <img src="https://dummyimage.com/600x400/000000/ffffff.jpg&text=Project+2" alt="Project 2" class="project-thumbnail">
+        <div class="project-overlay">
+          <h3 class="project-title">Project 2</h3>
+          <p class="project-description">Discover the celestial wonders of my second project.</p>
+        </div>
+      </div>
+      <div class="project-card">
+        <img src="https://dummyimage.com/600x400/000000/ffffff.jpg&text=Project+3" alt="Project 3" class="project-thumbnail">
+        <div class="project-overlay">
+          <h3 class="project-title">Project 3</h3>
+          <p class="project-description">Immerse yourself in the galaxy of my third creation.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <p>&copy; 2024 Space Portfolio. All rights reserved. <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
+  </footer>
+</body>
+</html>'<!-- Visit: https://github.com/Ishanoshada/portflair -->
+<!-- Visit: https://github.com/Ishanoshada/portflair -->

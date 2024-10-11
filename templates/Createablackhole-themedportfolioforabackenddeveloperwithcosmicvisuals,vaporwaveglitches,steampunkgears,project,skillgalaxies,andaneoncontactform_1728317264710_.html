@@ -1,0 +1,482 @@
+<!-- Portfolio created by Ishan -->
+<!-- Check out my work at: https://github.com/Ishanoshada/portflair -->
+<!-- 2024/10/9 -->
+<!-- Portfolio created by Ishan -->
+'<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Black Hole Portfolio</title>
+    <style>
+        /* Global Styles */
+        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
+
+        body {
+            font-family: 'Orbitron', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(to bottom, #1E1E1E, #000000);
+            color: #FFFFFF;
+            overflow-x: hidden;
+        }
+
+        /* Navigation Menu */
+        .nav-menu {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 40px;
+            background-color: rgba(30, 30, 30, 0.8);
+            backdrop-filter: blur(10px);
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 100;
+        }
+
+        .nav-menu a {
+            color: #FFFFFF;
+            text-decoration: none;
+            font-size: 18px;
+            font-weight: 700;
+            padding: 10px 20px;
+            border-radius: 20px;
+            transition: background-color 0.3s ease-in-out;
+        }
+
+        .nav-menu a:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        /* Project Showcase Galaxy */
+        .project-showcase {
+            padding: 100px 40px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .project-showcase h2 {
+            font-size: 48px;
+            margin-bottom: 40px;
+            text-align: center;
+            text-shadow: 0 0 20px #00FFFF, 0 0 40px #00FFFF, 0 0 80px #00FFFF;
+        }
+
+        .project-galaxy {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-gap: 40px;
+            width: 100%;
+        }
+
+        .project-planet {
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            padding: 20px;
+            box-shadow: 0 0 20px rgba(0, 255, 255, 0.5);
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .project-planet:hover {
+            transform: scale(1.1);
+        }
+
+        .project-planet img {
+            width: 100%;
+            height: auto;
+            border-radius: 50%;
+        }
+
+        .project-details {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(30, 30, 30, 0.8);
+            backdrop-filter: blur(10px);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transition: opacity 0.3s ease-in-out;
+        }
+
+        .project-planet:hover .project-details {
+            opacity: 1;
+        }
+
+        .project-details h3 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            text-shadow: 0 0 10px #00FFFF;
+        }
+
+        .project-details p {
+            font-size: 16px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .project-details a {
+            color: #FFFFFF;
+            text-decoration: none;
+            font-size: 18px;
+            font-weight: 700;
+            padding: 10px 20px;
+            border-radius: 20px;
+            background-color: rgba(0, 255, 255, 0.2);
+            transition: background-color 0.3s ease-in-out;
+        }
+
+        .project-details a:hover {
+            background-color: rgba(0, 255, 255, 0.4);
+        }
+
+        /* Skill Constellation */
+        .skill-constellation {
+            padding: 100px 40px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .skill-constellation h2 {
+            font-size: 48px;
+            margin-bottom: 40px;
+            text-align: center;
+            text-shadow: 0 0 20px #FF00FF, 0 0 40px #FF00FF, 0 0 80px #FF00FF;
+        }
+
+        .skill-galaxy {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            grid-gap: 40px;
+            width: 100%;
+        }
+
+        .skill-planet {
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            padding: 20px;
+            box-shadow: 0 0 20px rgba(255, 0, 255, 0.5);
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+            transition: transform 0.3s ease-in-out;
+            animation: pulse 3s infinite;
+        }
+
+        .skill-planet:hover {
+            transform: scale(1.1);
+        }
+
+        .skill-planet img {
+            width: 100%;
+            height: auto;
+            border-radius: 50%;
+        }
+
+        .skill-details {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(30, 30, 30, 0.8);
+            backdrop-filter: blur(10px);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transition: opacity 0.3s ease-in-out;
+        }
+
+        .skill-planet:hover .skill-details {
+            opacity: 1;
+        }
+
+        .skill-details h3 {
+            font-size: 18px;
+            margin-bottom: 10px;
+            text-shadow: 0 0 10px #FF00FF;
+        }
+
+        .skill-details p {
+            font-size: 14px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.1);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        /* Neon Contact Form */
+        .neon-contact {
+            padding: 100px 40px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .neon-contact h2 {
+            font-size: 48px;
+            margin-bottom: 40px;
+            text-align: center;
+            text-shadow: 0 0 20px #00FF00, 0 0 40px #00FF00, 0 0 80px #00FF00;
+        }
+
+        .neon-form {
+            background-color: rgba(30, 30, 30, 0.8);
+            backdrop-filter: blur(10px);
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 0 20px rgba(0, 255, 0, 0.5);
+            width: 100%;
+            max-width: 600px;
+        }
+
+        .neon-form label {
+            display: block;
+            font-size: 18px;
+            margin-bottom: 10px;
+            text-shadow: 0 0 10px #00FF00;
+        }
+
+        .neon-form input,
+        .neon-form textarea {
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            border: none;
+            border-radius: 10px;
+            background-color: rgba(255, 255, 255, 0.1);
+            color: #FFFFFF;
+            margin-bottom: 20px;
+            transition: background-color 0.3s ease-in-out;
+        }
+
+        .neon-form input:focus,
+        .neon-form textarea:focus {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .neon-form button {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            font-size: 18px;
+            font-weight: 700;
+            border: none;
+            border-radius: 10px;
+            background-color: rgba(0, 255, 0, 0.2);
+            color: #FFFFFF;
+            cursor: pointer;
+            transition: background-color 0.3s ease-in-out;
+            animation: glow 2s infinite;
+        }
+
+        .neon-form button:hover {
+            background-color: rgba(0, 255, 0, 0.4);
+        }
+
+        @keyframes glow {
+            0% {
+                box-shadow: 0 0 10px rgba(0, 255, 0, 0.5);
+            }
+            50% {
+                box-shadow: 0 0 30px rgba(0, 255, 0, 0.8);
+            }
+            100% {
+                box-shadow: 0 0 10px rgba(0, 255, 0, 0.5);
+            }
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .nav-menu {
+                padding: 10px 20px;
+            }
+
+            .nav-menu a {
+                font-size: 16px;
+                padding: 8px 16px;
+            }
+
+            .project-showcase,
+            .skill-constellation,
+            .neon-contact {
+                padding: 80px 20px;
+            }
+
+            .project-showcase h2,
+            .skill-constellation h2,
+            .neon-contact h2 {
+                font-size: 36px;
+            }
+
+            .project-galaxy,
+            .skill-galaxy {
+                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            }
+
+            .project-planet,
+            .skill-planet {
+                padding: 16px;
+            }
+
+            .project-details h3,
+            .skill-details h3 {
+                font-size: 20px;
+            }
+
+            .project-details p,
+            .skill-details p {
+                font-size: 14px;
+            }
+
+            .neon-form {
+                padding: 30px;
+            }
+
+            .neon-form label {
+                font-size: 16px;
+            }
+
+            .neon-form input,
+            .neon-form textarea,
+            .neon-form button {
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="nav-menu">
+        <a href="#">Home</a>
+        <a href="#">Projects</a>
+        <a href="#">Skills</a>
+        <a href="#">Contact</a>
+    </nav>
+
+    <section class="project-showcase">
+        <h2>Project Showcase Galaxy</h2>
+        <div class="project-galaxy">
+            <div class="project-planet">
+                <img src="https://dummyimage.com/300x300/ccc/000&text=Project+1" alt="Project 1">
+                <div class="project-details">
+                    <h3>Project 1</h3>
+                    <p>A cosmic backend project with vaporwave glitches and steampunk gears.</p>
+                    <a href="#">Learn More</a>
+                </div>
+            </div>
+            <div class="project-planet">
+                <img src="https://dummyimage.com/300x300/ccc/000&text=Project+2" alt="Project 2">
+                <div class="project-details">
+                    <h3>Project 2</h3>
+                    <p>An interstellar backend system with a nebulous design.</p>
+                    <a href="#">Learn More</a>
+                </div>
+            </div>
+            <div class="project-planet">
+                <img src="https://dummyimage.com/300x300/ccc/000&text=Project+3" alt="Project 3">
+                <div class="project-details">
+                    <h3>Project 3</h3>
+                    <p>A black hole-themed backend application with a futuristic touch.</p>
+                    <a href="#">Learn More</a>
+                </div>
+            </div>
+            <div class="project-planet">
+                <img src="https://dummyimage.com/300x300/ccc/000&text=Project+4" alt="Project 4">
+                <div class="project-details">
+                    <h3>Project 4</h3>
+                    <p>A cosmic backend system with a vaporwave-inspired user interface.</p>
+                    <a href="#">Learn More</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="skill-constellation">
+        <h2>Skill Constellation</h2>
+        <div class="skill-galaxy">
+            <div class="skill-planet">
+                <img src="https://dummyimage.com/150x150/ccc/000&text=JavaScript" alt="JavaScript">
+                <div class="skill-details">
+                    <h3>JavaScript</h3>
+                    <p>Proficient in modern JavaScript and its frameworks.</p>
+                </div>
+            </div>
+            <div class="skill-planet">
+                <img src="https://dummyimage.com/150x150/ccc/000&text=Node.js" alt="Node.js">
+                <div class="skill-details">
+                    <h3>Node.js</h3>
+                    <p>Experienced in building scalable backend applications with Node.js.</p>
+                </div>
+            </div>
+            <div class="skill-planet">
+                <img src="https://dummyimage.com/150x150/ccc/000&text=MongoDB" alt="MongoDB">
+                <div class="skill-details">
+                    <h3>MongoDB</h3>
+                    <p>Proficient in designing and implementing NoSQL databases with MongoDB.</p>
+                </div>
+            </div>
+            <div class="skill-planet">
+                <img src="https://dummyimage.com/150x150/ccc/000&text=Python" alt="Python">
+                <div class="skill-details">
+                    <h3>Python</h3>
+                    <p>Skilled in using Python for data analysis, machine learning, and automation.</p>
+                </div>
+            </div>
+            <div class="skill-planet">
+                <img src="https://dummyimage.com/150x150/ccc/000&text=Docker" alt="Docker">
+                <div class="skill-details">
+                    <h3>Docker</h3>
+                    <p>Experienced in containerizing and deploying applications with Docker.</p>
+                </div>
+            </div>
+            <div class="skill-planet">
+                <img src="https://dummyimage.com/150x150/ccc/000&text=AWS" alt="AWS">
+                <div class="skill-details">
+                    <h3>AWS</h3>
+                <p>Proficient in leveraging AWS services for cloud-based infrastructure and deployment.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="neon-contact">
+        <h2>Neon Contact Form</h2>
+        <div class="neon-form">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" placeholder="Enter your name" required>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" placeholder="Enter your email" required>
+
+            <label for="message">Message:</label>
+            <textarea id="message" name="message" rows="5" placeholder="Enter your message" required></textarea>
+
+            <button type="submit">Send Message</button>
+        </div>
+    </section>
+</body>
+</html>'<!-- Visit: https://github.com/Ishanoshada/portflair -->
+<!-- Visit: https://github.com/Ishanoshada/portflair -->

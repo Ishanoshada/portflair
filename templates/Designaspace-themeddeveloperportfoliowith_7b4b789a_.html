@@ -1,0 +1,499 @@
+<!-- Portfolio created by Ishan -->
+<!-- Check out my work at: https://github.com/Ishanoshada/portflair -->
+<!-- 2024/10/9 -->
+<!-- Portfolio created by Ishan -->
+'<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Space-Themed Developer Portfolio</title>
+  <style>
+    /* Reset styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    /* Global styles */
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background-color: #0f0c29;
+      background-image: linear-gradient(to right, #0f0c29, #302b63, #24243e);
+      color: #fff;
+      overflow-x: hidden;
+    }
+
+    /* Navigation */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.5rem 2rem;
+      background-color: rgba(15, 12, 41, 0.8);
+      backdrop-filter: blur(10px);
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 999;
+    }
+
+    .nav-logo {
+      font-size: 1.8rem;
+      font-weight: bold;
+      color: #8c8ff5;
+      text-shadow: 0 0 10px rgba(140, 143, 245, 0.8);
+      animation: glow 2s ease-in-out infinite;
+    }
+
+    .nav-links {
+      display: flex;
+      list-style: none;
+    }
+
+    .nav-links li {
+      margin-left: 2rem;
+    }
+
+    .nav-links a {
+      color: #fff;
+      text-decoration: none;
+      font-size: 1.1rem;
+      transition: color 0.3s ease;
+    }
+
+    .nav-links a:hover {
+      color: #8c8ff5;
+    }
+
+    /* Hero Section */
+    .hero {
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      background-image: url("https://dummyimage.com/1920x1080/0f0c29/8c8ff5&text=Galaxy+Background");
+      background-size: cover;
+      background-position: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-content {
+      text-align: center;
+      z-index: 1;
+    }
+
+    .hero-title {
+      font-size: 4rem;
+      font-weight: bold;
+      color: #fff;
+      text-shadow: 0 0 20px rgba(140, 143, 245, 0.8);
+      animation: glow 3s ease-in-out infinite;
+    }
+
+    .hero-subtitle {
+      font-size: 2rem;
+      color: #8c8ff5;
+      margin-top: 1rem;
+      text-shadow: 0 0 10px rgba(140, 143, 245, 0.8);
+      animation: glow 2s ease-in-out infinite;
+    }
+
+    .hero-model {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 400px;
+      height: 400px;
+      background-image: url("https://dummyimage.com/400x400/8c8ff5/ffffff&text=3D+Model");
+      background-size: cover;
+      background-position: center;
+      border-radius: 50%;
+      box-shadow: 0 0 50px rgba(140, 143, 245, 0.8);
+      animation: rotate 20s linear infinite;
+    }
+
+    .hero-model:before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: url("https://dummyimage.com/400x400/8c8ff5/ffffff&text=Satellites");
+      background-size: 80%;
+      background-position: center;
+      background-repeat: no-repeat;
+      border-radius: 50%;
+      animation: rotate-reverse 10s linear infinite;
+    }
+
+    .hero-model:after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: url("https://dummyimage.com/400x400/8c8ff5/ffffff&text=Surface+Features");
+      background-size: 80%;
+      background-position: center;
+      background-repeat: no-repeat;
+      border-radius: 50%;
+      animation: rotate 15s linear infinite;
+    }
+
+    .hero-stars {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: url("https://dummyimage.com/1920x1080/0f0c29/8c8ff5&text=Animated+Stars");
+      background-size: cover;
+      background-position: center;
+      animation: twinkle 10s linear infinite;
+      z-index: 0;
+    }
+
+    /* Project Showcase Section */
+    .project-showcase {
+      padding: 6rem 2rem;
+      background-color: rgba(15, 12, 41, 0.8);
+      backdrop-filter: blur(10px);
+    }
+
+    .project-showcase-title {
+      font-size: 3rem;
+      font-weight: bold;
+      color: #8c8ff5;
+      text-align: center;
+      margin-bottom: 3rem;
+      text-shadow: 0 0 10px rgba(140, 143, 245, 0.8);
+      animation: glow 2s ease-in-out infinite;
+    }
+
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      grid-gap: 3rem;
+    }
+
+    .project-item {
+      background-color: rgba(140, 143, 245, 0.1);
+      border-radius: 1rem;
+      box-shadow: 0 0 20px rgba(140, 143, 245, 0.3);
+      overflow: hidden;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+
+    .project-item:hover {
+      transform: translateY(-10px);
+    }
+
+    .project-icon {
+      width: 100%;
+      height: 200px;
+      background-size: 80%;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-color: #302b63;
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .project-icon:before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: url("https://dummyimage.com/300x200/8c8ff5/ffffff&text=Animated+Icon");
+      background-size: 60%;
+      background-position: center;
+      background-repeat: no-repeat;
+      animation: pulse 2s ease-in-out infinite;
+    }
+
+    .project-details {
+      padding: 2rem;
+    }
+
+    .project-title {
+      font-size: 1.8rem;
+      font-weight: bold;
+      color: #8c8ff5;
+      margin-bottom: 1rem;
+      text-shadow: 0 0 10px rgba(140, 143, 245, 0.8);
+    }
+
+    .project-description {
+      font-size: 1.1rem;
+      color: #fff;
+      margin-bottom: 1.5rem;
+    }
+
+    .project-technologies {
+      font-size: 1rem;
+      color: #8c8ff5;
+      margin-bottom: 1.5rem;
+    }
+
+    .project-link {
+      display: inline-block;
+      background-color: #8c8ff5;
+      color: #fff;
+      padding: 0.8rem 1.5rem;
+      border-radius: 0.5rem;
+      text-decoration: none;
+      font-size: 1.1rem;
+      transition: background-color 0.3s ease;
+    }
+
+    .project-link:hover {
+      background-color: #6c6ee2;
+    }
+
+    /* Contact and Footer Section */
+    .contact-footer {
+      padding: 6rem 2rem;
+      background-image: linear-gradient(to right, #0f0c29, #302b63, #24243e);
+    }
+
+    .contact-form {
+      max-width: 800px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .contact-form-title {
+      font-size: 3rem;
+      font-weight: bold;
+      color: #8c8ff5;
+      margin-bottom: 2rem;
+      text-shadow: 0 0 10px rgba(140, 143, 245, 0.8);
+      animation: glow 2s ease-in-out infinite;
+    }
+
+    .contact-form-input {
+      display: block;
+      width: 100%;
+      padding: 1rem;
+      margin-bottom: 1.5rem;
+      background-color: rgba(140, 143, 245, 0.1);
+      border: none;
+      border-radius: 0.5rem;
+      color: #fff;
+      font-size: 1.1rem;
+      transition: background-color 0.3s ease;
+    }
+
+    .contact-form-input:focus {
+      background-color: rgba(140, 143, 245, 0.2);
+    }
+
+    .contact-form-submit {
+      display: inline-block;
+      background-color: #8c8ff5;
+      color: #fff;
+      padding: 1rem 2rem;
+      border: none;
+      border-radius: 0.5rem;
+      font-size: 1.1rem;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .contact-form-submit:hover {
+      background-color: #6c6ee2;
+    }
+
+    .footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 3rem;
+      font-size: 1rem;
+      color: #8c8ff5;
+    }
+
+    .footer-links a {
+      color: #8c8ff5;
+      text-decoration: none;
+      margin-left: 1rem;
+      transition: color 0.3s ease;
+    }
+
+    .footer-links a:hover {
+      color: #fff;
+    }
+
+    /* Animations */
+    @keyframes glow {
+      0%, 100% {
+        text-shadow: 0 0 10px rgba(140, 143, 245, 0.8);
+      }
+      50% {
+        text-shadow: 0 0 20px rgba(140, 143, 245, 0.8);
+      }
+    }
+
+    @keyframes rotate {
+      0% {
+        transform: rotate(0deg);
+      }
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+
+    @keyframes rotate-reverse {
+      0% {
+        transform: rotate(360deg);
+      }
+      100% {
+        transform: rotate(0deg);
+      }
+    }
+
+    @keyframes twinkle {
+      0% {
+        opacity: 0.8;
+      }
+      50% {
+        opacity: 1;
+      }
+      100% {
+        opacity: 0.8;
+      }
+    }
+
+    @keyframes pulse {
+      0%, 100% {
+        transform: scale(1);
+      }
+      50% {
+        transform: scale(1.1);
+      }
+    }
+
+    /* Responsive Styles */
+    @media (max-width: 768px) {
+      .hero-title {
+        font-size: 3rem;
+      }
+
+      .hero-subtitle {
+        font-size: 1.5rem;
+      }
+
+      .hero-model {
+        width: 300px;
+        height: 300px;
+      }
+
+      .project-showcase-title {
+        font-size: 2.5rem;
+      }
+
+      .project-title {
+        font-size: 1.5rem;
+      }
+
+      .project-description, .project-technologies, .project-link {
+        font-size: 1rem;
+      }
+
+      .contact-form-title {
+        font-size: 2.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation -->
+  <nav>
+    <div class="nav-logo">Space Portfolio</div>
+    <ul class="nav-links">
+      <li><a href="#">Home</a></li>
+      <li><a href="#">Projects</a></li>
+      <li><a href="#">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-content">
+      <h1 class="hero-title">Welcome to my Space-Themed Portfolio</h1>
+      <p class="hero-subtitle">Explore my galaxy of interactive code snippets</p>
+    </div>
+    <div class="hero-model"></div>
+    <div class="hero-stars"></div>
+  </section>
+
+  <!-- Project Showcase Section -->
+  <section class="project-showcase">
+    <h2 class="project-showcase-title">My Coding Projects</h2>
+    <div class="project-grid">
+      <div class="project-item">
+        <div class="project-icon"></div>
+        <div class="project-details">
+          <h3 class="project-title">Project 1</h3>
+          <p class="project-description">A brief description of the first project.</p>
+          <p class="project-technologies">Technologies used: HTML, CSS, JavaScript</p>
+          <a href="#" class="project-link">View Project</a>
+        </div>
+      </div>
+      <div class="project-item">
+        <div class="project-icon"></div>
+        <div class="project-details">
+          <h3 class="project-title">Project 2</h3>
+          <p class="project-description">A brief description of the second project.</p>
+          <p class="project-technologies">Technologies used: React, Node.js, MongoDB</p>
+          <a href="#" class="project-link">View Project</a>
+        </div>
+      </div>
+      <div class="project-item">
+        <div class="project-icon"></div>
+        <div class="project-details">
+          <h3 class="project-title">Project 3</h3>
+          <p class="project-description">A brief description of the third project.</p>
+          <p class="project-technologies">Technologies used: Python, Django, PostgreSQL</p>
+          <a href="#" class="project-link">View Project</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact and Footer Section -->
+  <section class="contact-footer">
+    <div class="contact-form">
+      <h2 class="contact-form-title">Get in Touch</h2>
+      <form>
+        <input type="text" class="contact-form-input" placeholder="Name" required>
+        <input type="email" class="contact-form-input" placeholder="Email" required>
+        <textarea class="contact-form-input" rows="5" placeholder="Message" required></textarea>
+        <button type="submit" class="contact-form-submit">Send Message</button>
+      </form>
+    </</div>
+    <div class="footer">
+      <div class="footer-links">
+        <a href="#">Resume</a>
+        <a href="#">LinkedIn</a>
+        <a href="#">GitHub</a>
+      </div>
+      <div>&copy; 2024 Space-Themed Portfolio. All rights reserved.</div>
+    </div>
+  </section>
+</body>
+</html>'<!-- Visit: https://github.com/Ishanoshada/portflair -->
+<!-- Visit: https://github.com/Ishanoshada/portflair -->

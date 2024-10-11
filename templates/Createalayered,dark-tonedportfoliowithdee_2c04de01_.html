@@ -1,0 +1,386 @@
+<!-- Portfolio created by Ishan -->
+<!-- Check out my work at: https://github.com/Ishanoshada/portflair -->
+<!-- 2024/10/9 -->
+<!-- Portfolio created by Ishan -->
+'<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Layered Dark Portfolio</title>
+  <style>
+    /* Global Styles */
+    body {
+      font-family: 'Montserrat', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #0f0f0f;
+      color: #f1f1f1;
+    }
+
+    /* Navigation */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 40px;
+      background-color: #0f0f0f;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    nav a {
+      color: #f1f1f1;
+      text-decoration: none;
+      font-size: 16px;
+      font-weight: 500;
+      margin-right: 30px;
+      transition: color 0.3s ease-in-out;
+    }
+
+    nav a:hover {
+      color: #8c8c8c;
+    }
+
+    /* Featured Projects Section */
+    .featured-projects {
+      padding: 80px 40px;
+      background-image: linear-gradient(to bottom, #0f0f0f, #1a1a1a);
+    }
+
+    .featured-projects h2 {
+      font-size: 36px;
+      font-weight: 700;
+      margin-bottom: 40px;
+      text-align: center;
+    }
+
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-gap: 40px;
+    }
+
+    .project-item {
+      position: relative;
+      overflow: hidden;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      cursor: pointer;
+    }
+
+    .project-item img {
+      width: 100%;
+      height: 300px;
+      object-fit: cover;
+      transition: opacity 0.3s ease-in-out;
+    }
+
+    .project-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.6);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      opacity: 0;
+      transition: opacity 0.3s ease-in-out;
+    }
+
+    .project-overlay h3 {
+      font-size: 24px;
+      font-weight: 600;
+      margin-bottom: 10px;
+    }
+
+    .project-overlay p {
+      font-size: 16px;
+      font-weight: 400;
+    }
+
+    .project-item:hover img {
+      opacity: 0.3;
+    }
+
+    .project-item:hover .project-overlay {
+      opacity: 1;
+    }
+
+    /* About Section */
+    .about {
+      padding: 80px 40px;
+      background-image: linear-gradient(to bottom, #1a1a1a, #2a2a2a);
+      display: flex;
+      align-items: center;
+    }
+
+    .about-content {
+      flex: 1;
+      margin-right: 40px;
+    }
+
+    .about-content h2 {
+      font-size: 36px;
+      font-weight: 700;
+      margin-bottom: 20px;
+    }
+
+    .about-content p {
+      font-size: 18px;
+      line-height: 1.5;
+      margin-bottom: 30px;
+    }
+
+    .about-portrait {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .about-portrait img {
+      width: 300px;
+      height: 300px;
+      border-radius: 50%;
+      object-fit: cover;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    .social-icons {
+      display: flex;
+      justify-content: center;
+      margin-top: 20px;
+    }
+
+    .social-icons a {
+      color: #f1f1f1;
+      font-size: 24px;
+      margin: 0 10px;
+      transition: color 0.3s ease-in-out;
+    }
+
+    .social-icons a:hover {
+      color: #8c8c8c;
+    }
+
+    /* Contact Section */
+    .contact {
+      padding: 80px 40px;
+      background-image: linear-gradient(to bottom, #2a2a2a, #3a3a3a);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .contact-form {
+      flex: 1;
+      margin-right: 40px;
+    }
+
+    .contact-form h2 {
+      font-size: 36px;
+      font-weight: 700;
+      margin-bottom: 30px;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+      display: block;
+      width: 100%;
+      padding: 12px 20px;
+      font-size: 16px;
+      font-family: 'Montserrat', sans-serif;
+      background-color: #3a3a3a;
+      border: none;
+      border-radius: 4px;
+      color: #f1f1f1;
+      margin-bottom: 20px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      transition: background-color 0.3s ease-in-out;
+    }
+
+    .contact-form input:focus,
+    .contact-form textarea:focus {
+      background-color: #4a4a4a;
+      outline: none;
+    }
+
+    .contact-form button {
+      display: block;
+      width: 100%;
+      padding: 12px 20px;
+      font-size: 16px;
+      font-family: 'Montserrat', sans-serif;
+      background-color: #8c8c8c;
+      border: none;
+      border-radius: 4px;
+      color: #0f0f0f;
+      cursor: pointer;
+      transition: background-color 0.3s ease-in-out;
+    }
+
+    .contact-form button:hover {
+      background-color: #a0a0a0;
+    }
+
+    .contact-info {
+      flex: 1;
+    }
+
+    .contact-info h2 {
+      font-size: 36px;
+      font-weight: 700;
+      margin-bottom: 30px;
+    }
+
+    .contact-info p {
+      font-size: 18px;
+      line-height: 1.5;
+      margin-bottom: 20px;
+    }
+
+    /* Responsive Styles */
+    @media (max-width: 991px) {
+      .project-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .about {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .about-content {
+        margin-right: 0;
+        margin-bottom: 40px;
+      }
+
+      .about-portrait img {
+        width: 200px;
+        height: 200px;
+      }
+
+      .contact {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .contact-form {
+        margin-right: 0;
+        margin-bottom: 40px;
+      }
+    }
+
+    @media (max-width: 767px) {
+      .project-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .about-portrait img {
+        width: 150px;
+        height: 150px;
+      }
+
+      .contact-info p {
+        font-size: 16px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="#">Home</a>
+    <a href="#">Featured</a>
+    <a href="#">About</a>
+    <a href="#">Contact</a>
+  </nav>
+
+  <section class="featured-projects">
+    <h2>Featured Projects</h2>
+    <div class="project-grid">
+      <div class="project-item">
+        <img src="https://dummyimage.com/600x400/000/fff&text=Project+1" alt="Project 1">
+        <div class="project-overlay">
+          <h3>Project 1</h3>
+          <p>A captivating and visually stunning project</p>
+        </div>
+      </div>
+      <div class="project-item">
+        <img src="https://dummyimage.com/600x400/000/fff&text=Project+2" alt="Project 2">
+        <div class="project-overlay">
+          <h3>Project 2</h3>
+          <p>A showcase of design excellence</p>
+        </div>
+      </div>
+      <div class="project-item">
+        <img src="https://dummyimage.com/600x400/000/fff&text=Project+3" alt="Project 3">
+        <div class="project-overlay">
+          <h3>Project 3</h3>
+          <p>A masterpiece of creativity and innovation</p>
+        </div>
+      </div>
+      <div class="project-item">
+        <img src="https://dummyimage.com/600x400/000/fff&text=Project+4" alt="Project 4">
+        <div class="project-overlay">
+          <h3>Project 4</h3>
+          <p>A visually captivating and impactful project</p>
+        </div>
+      </div>
+      <div class="project-item">
+        <img src="https://dummyimage.com/600x400/000/fff&text=Project+5" alt="Project 5">
+        <div class="project-overlay">
+          <h3>Project 5</h3>
+          <p>A true masterpiece in the world of design</p>
+        </div>
+      </div>
+      <div class="project-item">
+        <img src="https://dummyimage.com/600x400/000/fff&text=Project+6" alt="Project 6">
+        <div class="project-overlay">
+          <h3>Project 6</h3>
+          <p>A stunning and visually captivating project</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="about">
+    <div class="about-content">
+      <h2>About Me</h2>
+      <p>I am a passionate and dedicated designer, driven by a relentless pursuit of excellence. With a keen eye for detail and a deep understanding of design principles, I strive to create visually stunning and impactful work that captivates and inspires. My portfolio showcases a diverse range of projects, each one a testament to my commitment to innovation and craftsmanship.</p>
+    </div>
+    <div class="about-portrait">
+      <img src="https://dummyimage.com/300x300/000/fff&text=Designer+Portrait" alt="Designer Portrait">
+    </div>
+    <div class="social-icons">
+      <a href="#"><i class="fab fa-linkedin"></i></a>
+      <a href="#"><i class="fab fa-behance"></i></a>
+      <a href="#"><i class="fab fa-instagram"></i></a>
+    </div>
+  </section>
+
+  <section class="contact">
+    <div class="contact-form">
+      <h2>Get in Touch</h2>
+      <form>
+        <input type="text" placeholder="Name" required>
+        <input type="email" placeholder="Email" required>
+        <textarea placeholder="Message" rows="5" required></textarea>
+        <button type="submit">Submit</button>
+      </form>
+    </div>
+    <div class="contact-info">
+      <h2>Contact Information</h2>
+      <p>Email: info@example.com</p>
+      <p>Phone: +1 (123) 456-7890</p>
+      <p>Address: 123 Main Street, Anytown USA</p>
+    </div>
+  </section>
+
+  <!-- Font Awesome Icons -->
+  <script src="https://kit.fontawesome.com/your-font-awesome-kit.js" crossorigin="anonymous"></script>
+</body>
+</html>'<!-- Visit: https://github.com/Ishanoshada/portflair -->
+<!-- Visit: https://github.com/Ishanoshada/portflair -->

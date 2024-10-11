@@ -1,0 +1,415 @@
+<!-- Portfolio created by Ishan -->
+<!-- Check out my work at: https://github.com/Ishanoshada/portflair -->
+<!-- 2024/10/9 -->
+<!-- Portfolio created by Ishan -->
+'<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Black Hole Portfolio</title>
+    <style>
+        /* Global Styles */
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #0b0b0b;
+            color: #ffffff;
+            overflow-x: hidden;
+        }
+
+        /* Navigation */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            background-color: rgba(11, 11, 11, 0.8);
+            position: relative;
+            z-index: 100;
+        }
+
+        nav a {
+            color: #ffffff;
+            text-decoration: none;
+            font-size: 18px;
+            margin: 0 10px;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: #9b59b6;
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        .hero-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url(https://dummyimage.com/1920x1080/0b0b0b/ffffff.jpg&text=Black+Hole+Background);
+            background-size: cover;
+            background-position: center;
+            z-index: -1;
+            animation: cosmic-zoom 60s ease infinite;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, rgba(11, 11, 11, 0.8), rgba(11, 11, 11, 0.4));
+            z-index: -1;
+        }
+
+        .hero-content {
+            text-align: center;
+            z-index: 1;
+        }
+
+        .hero-content h1 {
+            font-size: 5rem;
+            margin-bottom: 20px;
+            text-shadow: 0 0 20px rgba(155, 89, 182, 0.8);
+        }
+
+        .hero-content p {
+            font-size: 2rem;
+            margin-bottom: 40px;
+            text-shadow: 0 0 10px rgba(155, 89, 182, 0.6);
+        }
+
+        .hero-cta {
+            display: inline-block;
+            background-color: #9b59b6;
+            color: #ffffff;
+            text-decoration: none;
+            padding: 15px 30px;
+            border-radius: 30px;
+            font-size: 18px;
+            transition: background-color 0.3s ease;
+        }
+
+        .hero-cta:hover {
+            background-color: #8e44ad;
+        }
+
+        /* Project Showcase */
+        .project-showcase {
+            padding: 80px 0;
+            background-color: #0b0b0b;
+        }
+
+        .project-showcase h2 {
+            text-align: center;
+            font-size: 3rem;
+            margin-bottom: 60px;
+            text-shadow: 0 0 20px rgba(155, 89, 182, 0.8);
+        }
+
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+        }
+
+        .project-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(155, 89, 182, 0.4);
+            transition: transform 0.3s ease;
+        }
+
+        .project-item:hover {
+            transform: scale(1.05);
+        }
+
+        .project-item img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            filter: brightness(0.7);
+            transition: filter 0.3s ease;
+        }
+
+        .project-item:hover img {
+            filter: brightness(1);
+        }
+
+        .project-info {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            color: #ffffff;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .project-item:hover .project-info {
+            opacity: 1;
+        }
+
+        .project-info h3 {
+            font-size: 2rem;
+            margin-bottom: 10px;
+            text-shadow: 0 0 10px rgba(155, 89, 182, 0.8);
+        }
+
+        .project-info p {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            text-shadow: 0 0 10px rgba(155, 89, 182, 0.6);
+        }
+
+        .project-link {
+            display: inline-block;
+            background-color: #9b59b6;
+            color: #ffffff;
+            text-decoration: none;
+            padding: 10px 20px;
+            border-radius: 20px;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+        }
+
+        .project-link:hover {
+            background-color: #8e44ad;
+        }
+
+        /* Contact Form */
+        .contact-form {
+            padding: 80px 0;
+            background-image: url(https://dummyimage.com/1920x1080/0b0b0b/ffffff.jpg&text=Cosmic+Background);
+            background-size: cover;
+            background-position: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .contact-form::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, rgba(11, 11, 11, 0.8), rgba(11, 11, 11, 0.4));
+            z-index: -1;
+        }
+
+        .contact-form h2 {
+            text-align: center;
+            font-size: 3rem;
+            margin-bottom: 60px;
+            text-shadow: 0 0 20px rgba(155, 89, 182, 0.8);
+        }
+
+        .contact-form form {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: rgba(11, 11, 11, 0.8);
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(155, 89, 182, 0.4);
+        }
+
+        .contact-form .form-group {
+            margin-bottom: 20px;
+        }
+
+        .contact-form label {
+            display: block;
+            font-size: 16px;
+            margin-bottom: 5px;
+            text-shadow: 0 0 10px rgba(155, 89, 182, 0.6);
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            background-color: #ffffff;
+            color: #0b0b0b;
+            box-shadow: 0 0 10px rgba(155, 89, 182, 0.4);
+            transition: box-shadow 0.3s ease;
+        }
+
+        .contact-form input:focus,
+        .contact-form textarea:focus {
+            outline: none;
+            box-shadow: 0 0 20px rgba(155, 89, 182, 0.8);
+        }
+
+        .contact-form button {
+            display: block;
+            margin: 0 auto;
+            background-color: #9b59b6;
+            color: #ffffff;
+            border: none;
+            padding: 15px 30px;
+            font-size: 18px;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .contact-form button:hover {
+            background-color: #8e44ad;
+        }
+
+        /* Animations */
+        @keyframes cosmic-zoom {
+            0% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.1);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .hero-content h1 {
+                font-size: 3rem;
+            }
+
+            .hero-content p {
+                font-size: 1.5rem;
+            }
+
+            .project-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero-content p {
+                font-size: 1.2rem;
+            }
+
+            .project-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="#">Home</a>
+        <a href="#">About</a>
+        <a href="#">Projects</a>
+        <a href="#">Contact</a>
+    </nav>
+
+    <div class="hero">
+        <div class="hero-bg"></div>
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <h1>Cosmic Portfolio</h1>
+            <p>Explore the Depths of a Backend Developer's Universe</p>
+            <a href="#" class="hero-cta">View Projects</a>
+        </div>
+    </div>
+
+    <div class="project-showcase">
+        <h2>Project Galaxies</h2>
+        <div class="project-grid">
+            <div class="project-item">
+                <img src="https://dummyimage.com/600x400/0b0b0b/9b59b6.jpg&text=Project+1" alt="Project 1">
+                <div class="project-info">
+                    <h3>Project 1</h3>
+                    <p>Cosmic Vaporwave Steampunk</p>
+                    <a href="#" class="project-link">View Project</a>
+                </div>
+            </div>
+            <div class="project-item">
+                <img src="https://dummyimage.com/600x400/0b0b0b/9b59b6.jpg&text=Project+2" alt="Project 2">
+                <div class="project-info">
+                    <h3>Project 2</h3>
+                    <p>Neon Glitch Gears</p>
+                    <a href="#" class="project-link">View Project</a>
+                </div>
+            </div>
+            <div class="project-item">
+                <img src="https://dummyimage.com/600x400/0b0b0b/9b59b6.jpg&text=Project+3" alt="Project 3">
+                <div class="project-info">
+                    <h3>Project 3</h3>
+                    <p>Interstellar Steampunk</p>
+                    <a href="#" class="project-link">View Project</a>
+                </div>
+            </div>
+            <div class="project-item">
+                <img src="https://dummyimage.com/600x400/0b0b0b/9b59b6.jpg&text=Project+4" alt="Project 4">
+                <div class="project-info">
+                    <h3>Project 4</h3>
+                    <p>Cosmic Vaporwave Gears</p>
+                    <a href="#" class="project-link">View Project</a>
+                </div>
+            </div>
+            <div class="project-item">
+                <img src="https://dummyimage.com/600x400/0b0b0b/9b59b6.jpg&text=Project+5" alt="Project 5">
+                <div class="project-info">
+                    <h3>Project 5</h3>
+                    <p>Neon Glitch Steampunk</p>
+                    <a href="#" class="project-link">View Project</a>
+                </div>
+            </div>
+            <div class="project-item">
+                <img src="https://dummyimage.com/600x400/0b0b0b/9b59b6.jpg&text=Project+6" alt="Project 6">
+                <div class="project-info">
+                    <h3>Project 6</h3>
+                    <p>Interstellar Vaporwave</p>
+                    <a href="#" class="project-link">View Project</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="contact-form">
+        <h2>Let's Connect</h2>
+        <form>
+            <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" id="name" placeholder="Enter your name" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" placeholder="Enter your email" required>
+            </div>
+            <div class="form-group">
+                <label for="message">Message</label>
+                <textarea id="message" rows="5" placeholder="Enter your message" required></textarea>
+            </div>
+            <button type="submit">Send Message</button>
+        </form>
+    </div>
+</body>
+</html>'<!-- Visit: https://github.com/Ishanoshada/portflair -->
+<!-- Visit: https://github.com/Ishanoshada/portflair -->

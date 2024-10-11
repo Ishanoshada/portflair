@@ -1,0 +1,490 @@
+<!-- Portfolio created by Ishan -->
+<!-- Check out my work at: https://github.com/Ishanoshada/portflair -->
+<!-- 2024/10/9 -->
+<!-- Portfolio created by Ishan -->
+'<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hacking Theme, Developer Theme, Portfolio, Blog, Story, Projects</title>
+  <style>
+    /* Reset Styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    /* Global Styles */
+    body {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 16px;
+      color: #333;
+      background-color: #f5f5f5;
+    }
+
+    a {
+      text-decoration: none;
+      color: #007bff;
+    }
+
+    ul {
+      list-style-type: none;
+    }
+
+    /* Navigation */
+    .nav-container {
+      background-color: #333;
+      padding: 1rem 2rem;
+    }
+
+    .nav-list {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .nav-list li {
+      margin: 0 1rem;
+    }
+
+    .nav-list a {
+      color: #fff;
+      font-weight: 600;
+      transition: color 0.3s ease;
+    }
+
+    .nav-list a:hover {
+      color: #007bff;
+    }
+
+    /* Portfolio Section */
+    .portfolio-section {
+      padding: 4rem 2rem;
+    }
+
+    .portfolio-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-gap: 2rem;
+    }
+
+    .portfolio-item {
+      position: relative;
+      overflow: hidden;
+      border-radius: 8px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease;
+    }
+
+    .portfolio-item:hover {
+      transform: translateY(-10px);
+    }
+
+    .portfolio-item img {
+      width: 100%;
+      height: 300px;
+      object-fit: cover;
+    }
+
+    .portfolio-item-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.6);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .portfolio-item:hover .portfolio-item-overlay {
+      opacity: 1;
+    }
+
+    .portfolio-item-overlay h3 {
+      color: #fff;
+      font-size: 1.5rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .portfolio-item-overlay p {
+      color: #fff;
+      font-size: 1rem;
+      text-align: center;
+    }
+
+    /* Blog Section */
+    .blog-section {
+      background-color: #333;
+      padding: 4rem 2rem;
+      color: #fff;
+    }
+
+    .blog-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-gap: 2rem;
+    }
+
+    .blog-item {
+      background-color: #444;
+      border-radius: 8px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+      transition: transform 0.3s ease;
+    }
+
+    .blog-item:hover {
+      transform: translateY(-10px);
+    }
+
+    .blog-item-image {
+      height: 200px;
+      overflow: hidden;
+    }
+
+    .blog-item-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.3s ease;
+    }
+
+    .blog-item:hover .blog-item-image img {
+      transform: scale(1.1);
+    }
+
+    .blog-item-content {
+      padding: 1.5rem;
+    }
+
+    .blog-item-content h3 {
+      font-size: 1.25rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .blog-item-content p {
+      font-size: 0.9rem;
+      margin-bottom: 1rem;
+    }
+
+    .blog-item-content a {
+      color: #007bff;
+      font-weight: 600;
+    }
+
+    /* Projects Section */
+    .projects-section {
+      padding: 4rem 2rem;
+    }
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      grid-gap: 3rem;
+    }
+
+    .project-item {
+      display: flex;
+      align-items: center;
+      background-color: #fff;
+      border-radius: 8px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+      transition: transform 0.3s ease;
+    }
+
+    .project-item:hover {
+      transform: translateY(-10px);
+    }
+
+    .project-item-image {
+      flex: 0 0 50%;
+      height: 300px;
+      overflow: hidden;
+    }
+
+    .project-item-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.3s ease;
+    }
+
+    .project-item:hover .project-item-image img {
+      transform: scale(1.1);
+    }
+
+    .project-item-content {
+      flex: 0 0 50%;
+      padding: 2rem;
+    }
+
+    .project-item-content h3 {
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .project-item-content p {
+      font-size: 0.9rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .project-item-content blockquote {
+      font-style: italic;
+      margin-bottom: 1rem;
+    }
+
+    .project-item-content a {
+      display: inline-block;
+      background-color: #007bff;
+      color: #fff;
+      padding: 0.75rem 1.5rem;
+      border-radius: 4px;
+      font-weight: 600;
+      transition: background-color 0.3s ease;
+    }
+
+    .project-item-content a:hover {
+      background-color: #0056b3;
+    }
+
+    /* Responsive Styles */
+    @media (max-width: 991px) {
+      .portfolio-grid,
+      .blog-grid,
+      .projects-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 767px) {
+      .portfolio-grid,
+      .blog-grid,
+      .projects-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .project-item {
+        flex-direction: column;
+      }
+
+      .project-item-image {
+        flex: 0 0 auto;
+        height: 200px;
+      }
+
+      .project-item-content {
+        flex: 0 0 auto;
+        padding: 1.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav class="nav-container">
+      <ul class="nav-list">
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Portfolio</a></li>
+        <li><a href="#">Blog</a></li>
+        <li><a href="#">Projects</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <!-- Portfolio Section -->
+    <section class="portfolio-section">
+      <h2 class="section-title">Portfolio</h2>
+      <div class="portfolio-grid">
+        <div class="portfolio-item">
+          <img src="https://dummyimage.com/600x400/ccc/000&text=Portfolio+Item+1" alt="Portfolio Item 1">
+          <div class="portfolio-item-overlay">
+            <h3>Hacking Project</h3>
+            <p>Developed a secure web application with advanced hacking techniques.</p>
+          </div>
+        </div>
+        <div class="portfolio-item">
+          <img src="https://dummyimage.com/600x400/ccc/000&text=Portfolio+Item+2" alt="Portfolio Item 2">
+          <div class="portfolio-item-overlay">
+            <h3>Developer Portfolio</h3>
+            <p>Showcased my skills as a full-stack developer with various projects.</p>
+          </div>
+        </div>
+        <div class="portfolio-item">
+          <img src="https://dummyimage.com/600x400/ccc/000&text=Portfolio+Item+3" alt="Portfolio Item 3">
+          <div class="portfolio-item-overlay">
+            <h3>Blog Design</h3>
+            <p>Designed a visually stunning and user-friendly blog platform.</p>
+          </div>
+        </div>
+        <div class="portfolio-item">
+          <img src="https://dummyimage.com/600x400/ccc/000&text=Portfolio+Item+4" alt="Portfolio Item 4">
+          <div class="portfolio-item-overlay">
+            <h3>Storytelling Website</h3>
+            <p>Created an engaging and immersive storytelling experience for clients.</p>
+          </div>
+        </div>
+        <div class="portfolio-item">
+          <img src="https://dummyimage.com/600x400/ccc/000&text=Portfolio+Item+5" alt="Portfolio Item 5">
+          <div class="portfolio-item-overlay">
+            <h3>Project Management</h3>
+            <p>Developed a project management platform with advanced features.</p>
+          </div>
+        </div>
+        <div class="portfolio-item">
+          <img src="https://dummyimage.com/600x400/ccc/000&text=Portfolio+Item+6" alt="Portfolio Item 6">
+          <div class="portfolio-item-overlay">
+            <h3>E-commerce Website</h3>
+            <p>Designed a visually appealing and user-friendly e-commerce platform.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Blog Section -->
+    <section class="blog-section">
+      <h2 class="section-title">Blog</h2>
+      <div class="blog-grid">
+        <div class="blog-item">
+          <div class="blog-item-image">
+            <img src="https://dummyimage.com/600x400/ccc/000&text=Blog+Post+1" alt="Blog Post 1">
+          </div>
+          <div class="blog-item-content">
+            <h3>Mastering Hacking Techniques</h3>
+            <p>Dive into the world of ethical hacking and learn how to protect your web applications from cyber threats.</p>
+            <a href="#">Read More &rarr;</a>
+          </div>
+        </div>
+        <div class="blog-item">
+          <div class="blog-item-image">
+            <img src="https://dummyimage.com/600x400/ccc/000&text=Blog+Post+2" alt="Blog Post 2">
+          </div>
+          <div class="blog-item-content">
+            <h3>Becoming a Successful Developer</h3>
+            <p>Discover the essential skills and strategies to thrive as a modern web developer in the ever-evolving tech landscape.</p>
+            <a href="#">Read More &rarr;</a>
+          </div>
+        </div>
+        <div class="blog-item">
+          <div class="blog-item-image">
+            <img src="https://dummyimage.com/600x400/ccc/000&text=Blog+Post+3" alt="Blog Post 3">
+          </div>
+          <div class="blog-item-content">
+            <h3>Crafting Captivating Portfolios</h3>
+            <p>Learn how to create a professional and visually stunning portfolio that showcases your expertise and impresses potential clients.</p>
+            <a href="#">Read More &rarr;</a>
+          </div>
+        </div>
+        <div class="blog-item">
+          <div class="blog-item-image">
+            <img src="https://dummyimage.com/600x400/ccc/000&text=Blog+Post+4" alt="Blog Post 4">
+          </div>
+          <div class="blog-item-content">
+            <h3>Storytelling in Web Design</h3>
+            <p>Discover how to craft captivating stories through your web designs and engage your audience on a deeper level.</p>
+            <a href="#">Read More &rarr;</a>
+          </div>
+        </div>
+        <div class="blog-item">
+          <div class="blog-item-image">
+            <img src="https://dummyimage.com/600x400/ccc/000&text=Blog+Post+5" alt="Blog Post 5">
+          </div>
+          <div class="blog-item-content">
+            <h3>Project Management Essentials</h3>
+            <p>Explore the best practices and strategies for effective project management to deliver your web projects on time and within budget.</p>
+            <a href="#">Read More &rarr;</a>
+          </div>
+        </div>
+        <div class="blog-item">
+          <div class="blog-item-image">
+            <img src="https://dummyimage.com/600x400/ccc/000&text=Blog+Post+6" alt="Blog Post 6">
+          </div>
+          <div class="blog-item-content">
+            <h3>E-commerce Design Trends</h3>
+            <p>Stay ahead of the curve and learn about the latest e-commerce design trends to create visually appealing and user-friendly online stores.</p>
+            <a href="#">Read More &rarr;</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section class="projects-section">
+      <h2 class="section-title">Projects</h2>
+      <div class="projects-grid">
+        <div class="project-item">
+          <div class="project-item-image">
+            <img src="https://dummyimage.com/600x400/ccc/000&text=Project+1" alt="Project 1">
+          </div>
+          <div class="project-item-content">
+            <h3>Secure Web Application</h3>
+            <p>Developed a highly secure web application using advanced hacking techniques to ensure maximum protection against cyber threats.</p>
+            <blockquote>"The team's expertise in hacking and security was truly impressive. They delivered a robust and reliable solution that has given us peace of mind."</blockquote>
+            <a href="#">View Case Study</a>
+          </div>
+        </div>
+        <div class="project-item">
+          <div class="project-item-image">
+            <img src="https://dummyimage.com/600x400/ccc/000&text=Project+2" alt="Project 2">
+          </div>
+          <div class="project-item-content">
+            <h3>Developer Portfolio Website</h3>
+            <p>Designed and developed a visually stunning and user-friendly portfolio website to showcase my skills and experience as a full-stack developer.</p>
+            <blockquote>"The portfolio website has been instrumental in helping me land new clients. The design and functionality are truly outstanding."</blockquote>
+            <a href</div>
+        </div>
+        <div class="project-item">
+          <div class="project-item-image">
+            <img src="https://dummyimage.com/600x400/ccc/000&text=Project+3" alt="Project 3">
+          </div>
+          <div class="project-item-content">
+            <h3>Storytelling Blog Platform</h3>
+            <p>Designed and developed a visually captivating and immersive blog platform that empowers users to share their stories in a unique and engaging way.</p>
+            <blockquote>"The storytelling blog platform has been a game-changer for our business. It has helped us connect with our audience on a deeper level and drive more engagement."</blockquote>
+            <a href="#">View Case Study</a>
+          </div>
+        </div>
+        <div class="project-item">
+          <div class="project-item-image">
+            <img src="https://dummyimage.com/600x400/ccc/000&text=Project+4" alt="Project 4">
+          </div>
+          <div class="project-item-content">
+            <h3>Project Management Tool</h3>
+            <p>Developed a comprehensive project management platform with advanced features to help teams collaborate more effectively, track progress, and deliver projects on time and within budget.</p>
+            <blockquote>"The project management tool has been a game-changer for our organization. It has streamlined our processes, improved team collaboration, and helped us deliver projects more efficiently."</blockquote>
+            <a href="#">View Case Study</a>
+          </div>
+        </div>
+        <div class="project-item">
+          <div class="project-item-image">
+            <img src="https://dummyimage.com/600x400/ccc/000&text=Project+5" alt="Project 5">
+          </div>
+          <div class="project-item-content">
+            <h3>E-commerce Website</h3>
+            <p>Designed and developed a visually appealing and user-friendly e-commerce platform that provides a seamless shopping experience for customers and drives increased sales for the business.</p>
+            <blockquote>"The e-commerce website has been a huge success for our business. The design and functionality have helped us increase our online sales and reach a wider customer base."</blockquote>
+            <a href="#">View Case Study</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-content">
+      <p>&copy; 2024 Hacking Theme, Developer Theme, Portfolio, Blog, Story, Projects. All rights reserved.</p>
+    </div>
+  </footer>
+</body>
+</html>'<!-- Visit: https://github.com/Ishanoshada/portflair -->
+<!-- Visit: https://github.com/Ishanoshada/portflair -->

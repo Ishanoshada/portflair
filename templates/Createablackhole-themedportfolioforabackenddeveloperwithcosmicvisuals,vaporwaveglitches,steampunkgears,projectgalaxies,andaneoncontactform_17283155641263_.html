@@ -1,0 +1,412 @@
+<!-- Portfolio created by Ishan -->
+<!-- Check out my work at: https://github.com/Ishanoshada/portflair -->
+<!-- 2024/10/9 -->
+<!-- Portfolio created by Ishan -->
+'<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cosmic Enigma - Backend Developer Portfolio</title>
+  <style>
+    /* General styles */
+    body {
+      font-family: 'Orbitron', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #0c0c0c;
+      color: #fff;
+      overflow-x: hidden;
+    }
+
+    /* Navigation */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 40px;
+      background-color: rgba(12, 12, 12, 0.8);
+      backdrop-filter: blur(10px);
+      position: relative;
+      z-index: 1;
+    }
+
+    nav ul {
+      list-style-type: none;
+      display: flex;
+      margin: 0;
+      padding: 0;
+    }
+
+    nav ul li {
+      margin-right: 30px;
+    }
+
+    nav ul li a {
+      color: #fff;
+      text-decoration: none;
+      font-size: 18px;
+      font-weight: 500;
+      position: relative;
+      padding-bottom: 5px;
+    }
+
+    nav ul li a::after {
+      content: "";
+      position: absolute;
+      width: 0;
+      height: 2px;
+      bottom: 0;
+      left: 0;
+      background-color: #9b59b6;
+      transition: width 0.3s ease-in-out;
+    }
+
+    nav ul li a:hover::after {
+      width: 100%;
+    }
+
+    /* Hero Section */
+    .hero {
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-bg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      background: url('https://dummyimage.com/1920x1080/0c0c0c/9b59b6.jpg&text=Black+Hole') no-repeat center center/cover;
+      animation: bgZoom 30s infinite linear;
+    }
+
+    @keyframes bgZoom {
+      0% {
+        transform: scale(1);
+      }
+      50% {
+        transform: scale(1.1);
+      }
+      100% {
+        transform: scale(1);
+      }
+    }
+
+    .hero-title {
+      font-size: 5rem;
+      font-weight: 800;
+      text-align: center;
+      text-shadow: 0 0 20px #9b59b6, 0 0 40px #9b59b6, 0 0 60px #9b59b6;
+      animation: glitch 3s infinite;
+    }
+
+    @keyframes glitch {
+      0% {
+        transform: translate(0);
+      }
+      20% {
+        transform: translate(-2px, 2px);
+      }
+      40% {
+        transform: translate(-2px, -2px);
+      }
+      60% {
+        transform: translate(2px, 2px);
+      }
+      80% {
+        transform: translate(2px, -2px);
+      }
+      100% {
+        transform: translate(0);
+      }
+    }
+
+    .hero-description {
+      font-size: 1.8rem;
+      text-align: center;
+      margin-top: 20px;
+      color: #9b59b6;
+      text-shadow: 0 0 10px #9b59b6;
+    }
+
+    .hero-btn {
+      margin-top: 40px;
+      padding: 15px 30px;
+      font-size: 1.2rem;
+      background-color: #9b59b6;
+      color: #fff;
+      border: none;
+      border-radius: 30px;
+      cursor: pointer;
+      box-shadow: 0 0 20px #9b59b6;
+      transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    }
+
+    .hero-btn:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 40px #9b59b6;
+    }
+
+    /* Project Showcase */
+    .project-showcase {
+      padding: 80px 40px;
+      background-color: #0c0c0c;
+      position: relative;
+      overflow-x: hidden;
+    }
+
+    .project-showcase-bg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      background: url('https://dummyimage.com/1920x1080/0c0c0c/9b59b6.jpg&text=Galaxy') no-repeat center center/cover;
+      animation: bgZoom 30s infinite linear;
+    }
+
+    .project-showcase-title {
+      font-size: 3rem;
+      text-align: center;
+      margin-bottom: 40px;
+      text-shadow: 0 0 10px #9b59b6;
+    }
+
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      grid-gap: 40px;
+    }
+
+    .project-item {
+      background-color: rgba(155, 89, 182, 0.1);
+      border-radius: 10px;
+      padding: 20px;
+      position: relative;
+      overflow: hidden;
+      cursor: pointer;
+      transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    }
+
+    .project-item:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 20px #9b59b6;
+    }
+
+    .project-item-bg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      background: url('https://dummyimage.com/600x400/0c0c0c/9b59b6.jpg&text=Steampunk+Gear') no-repeat center center/cover;
+      filter: blur(5px);
+      transform: scale(1.1);
+      transition: transform 0.3s ease-in-out;
+    }
+
+    .project-item:hover .project-item-bg {
+      transform: scale(1);
+    }
+
+    .project-item-title {
+      font-size: 1.8rem;
+      font-weight: 700;
+      margin-bottom: 10px;
+      text-shadow: 0 0 10px #9b59b6;
+    }
+
+    .project-item-description {
+      font-size: 1.2rem;
+      color: #9b59b6;
+      text-shadow: 0 0 5px #9b59b6;
+    }
+
+    .project-item-link {
+      display: block;
+      margin-top: 20px;
+      color: #9b59b6;
+      text-decoration: none;
+      font-size: 1.4rem;
+      position: relative;
+      padding-bottom: 5px;
+    }
+
+    .project-item-link::after {
+      content: "";
+      position: absolute;
+      width: 0;
+      height: 2px;
+      bottom: 0;
+      left: 0;
+      background-color: #9b59b6;
+      transition: width 0.3s ease-in-out;
+    }
+
+    .project-item-link:hover::after {
+      width: 100%;
+    }
+
+    /* Contact Form */
+    .contact-form {
+      padding: 80px 40px;
+      background-color: #0c0c0c;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .contact-form-bg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      background: url('https://dummyimage.com/1920x1080/0c0c0c/9b59b6.jpg&text=Vaporwave+Glitch') no-repeat center center/cover;
+      animation: bgZoom 30s infinite linear, glitch 3s infinite;
+    }
+
+    .contact-form-title {
+      font-size: 3rem;
+      text-align: center;
+      margin-bottom: 40px;
+      text-shadow: 0 0 10px #9b59b6;
+    }
+
+    .contact-form-container {
+      max-width: 600px;
+      margin: 0 auto;
+      background-color: rgba(155, 89, 182, 0.1);
+      border-radius: 10px;
+      padding: 40px;
+      box-shadow: 0 0 20px #9b59b6;
+    }
+
+    .contact-form-field {
+      margin-bottom: 20px;
+    }
+
+    .contact-form-field label {
+      display: block;
+      font-size: 1.4rem;
+      margin-bottom: 5px;
+      color: #9b59b6;
+      text-shadow: 0 0 5px #9b59b6;
+    }
+
+    .contact-form-field input,
+    .contact-form-field textarea {
+      width: 100%;
+      padding: 10px;
+      font-size: 1.2rem;
+      background-color: rgba(155, 89, 182, 0.2);
+      border: none;
+      border-radius: 5px;
+      color: #fff;
+      box-shadow: 0 0 10px #9b59b6;
+      transition: box-shadow 0.3s ease-in-out;
+    }
+
+    .contact-form-field input:focus,
+    .contact-form-field textarea:focus {
+      outline: none;
+      box-shadow: 0 0 20px #9b59b6;
+    }
+
+    .contact-form-submit {
+      display: block;
+      margin: 0 auto;
+      padding: 15px 30px;
+      font-size: 1.2rem;
+      background-color: #9b59b6;
+      color: #fff;
+      border: none;
+      border-radius: 30px;
+      cursor: pointer;
+      box-shadow: 0 0 20px #9b59b6;
+      transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    }
+
+    .contact-form-submit:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 40px #9b59b6;
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="#" class="logo">Cosmic Enigma</a>
+    <ul>
+      <li><a href="#">Home</a></li>
+      <li><a href="#">About</a></li>
+      <li><a href="#">Projects</a></li>
+      <li><a href="#">Contact</a></li>
+    </ul>
+  </nav>
+
+  <section class="hero">
+    <div class="hero-bg"></div>
+    <h1 class="hero-title">Cosmic Enigma</h1>
+    <p class="hero-description">Unveiling the mysteries of backend development</p>
+    <button class="hero-btn">Explore</button>
+  </section>
+
+  <section class="project-showcase">
+    <div class="project-showcase-bg"></div>
+    <h2 class="project-showcase-title">Project Showcase</h2>
+    <div class="project-grid">
+      <div class="project-item">
+        <div class="project-item-bg"></div>
+        <h3 class="project-item-title">Project 1</h3>
+        <p class="project-item-description">Explore the intricate workings of a cosmic backend project.</p>
+        <a href="#" class="project-item-link">View Project</a>
+      </div>
+      <div class="project-item">
+        <div class="project-item-bg"></div>
+        <h3 class="project-item-title">Project 2</h3>
+        <p class="project-item-description">Delve into the vaporwave-inspired backend wizardry.</p>
+        <a href="#" class="project-item-link">View Project</a>
+      </div>
+      <div class="project-item">
+        <div class="project-item-bg"></div>
+        <h3 class="project-item-title">Project 3</h3>
+        <p class="project-item-description">Unravel the steampunk-infused backend enigmas.</p>
+        <a href="#" class="project-item-link">View Project</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact-form">
+    <div class="contact-form-bg"></div>
+    <h2 class="contact-form-title">Get in Touch</h2>
+    <div class="contact-form-container">
+      <form action="#" method="post">
+        <div class="contact-form-field">
+          <label for="name">Name</label>
+          <input type="text" id="name" name="name" placeholder="Enter your name" required>
+        </div>
+        <div class="contact-form-field">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" placeholder="Enter your email" required>
+        </div>
+        <div class="contact-form-field">
+          <label for="message">Message</label>
+          <textarea id="message" name="message" rows="5" placeholder="Enter your message" required></textarea>
+        </div>
+        <button type="submit" class="contact-form-submit">Send Message</button>
+      </form>
+    </div>
+  </section>
+</body>
+</html>'<!-- Visit: https://github.com/Ishanoshada/portflair -->
+<!-- Visit: https://github.com/Ishanoshada/portflair -->

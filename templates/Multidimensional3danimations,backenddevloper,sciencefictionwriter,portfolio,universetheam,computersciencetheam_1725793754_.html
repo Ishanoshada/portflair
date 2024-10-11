@@ -1,0 +1,564 @@
+<!-- Portfolio created by Ishan -->
+<!-- Check out my work at: https://github.com/Ishanoshada/portflair -->
+<!-- 2024/10/9 -->
+<!-- Portfolio created by Ishan -->
+'<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multidimensional Portfolio: 3D Animations, Backend Dev, Sci-Fi</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Orbitron:wght@400;700&display=swap');
+
+        :root {
+            --bg-color: #030714;
+            --text-color: #e0e0ff;
+            --accent-color-1: #00ffff;
+            --accent-color-2: #ff00ff;
+            --accent-color-3: #ffff00;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Space Mono', monospace;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        header {
+            padding: 20px 0;
+            background: linear-gradient(to right, rgba(0,0,0,0.7), rgba(0,0,0,0.3));
+            backdrop-filter: blur(10px);
+            position: relative;
+            z-index: 1000;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--accent-color-1);
+            text-shadow: 0 0 10px var(--accent-color-1);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            color: var(--text-color);
+            text-decoration: none;
+            font-size: 18px;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--accent-color-2);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('https://dummyimage.com/1920x1080/000/fff&text=Universe+Background') no-repeat center center;
+            background-size: cover;
+            filter: brightness(0.3);
+            z-index: -1;
+        }
+
+        .hero-content {
+            text-align: center;
+            z-index: 1;
+        }
+
+        h1 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 4rem;
+            margin-bottom: 20px;
+            background: linear-gradient(45deg, var(--accent-color-1), var(--accent-color-2), var(--accent-color-3));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: glowingText 5s ease-in-out infinite;
+        }
+
+        @keyframes glowingText {
+            0%, 100% { filter: drop-shadow(0 0 10px var(--accent-color-1)); }
+            33% { filter: drop-shadow(0 0 10px var(--accent-color-2)); }
+            66% { filter: drop-shadow(0 0 10px var(--accent-color-3)); }
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin: 0 auto 30px;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 12px 24px;
+            background-color: transparent;
+            border: 2px solid var(--accent-color-1);
+            color: var(--accent-color-1);
+            text-decoration: none;
+            font-size: 18px;
+            font-weight: 700;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background-color: var(--accent-color-1);
+            transition: all 0.3s ease;
+            z-index: -1;
+        }
+
+        .cta-button:hover {
+            color: var(--bg-color);
+        }
+
+        .cta-button:hover::before {
+            left: 0;
+        }
+
+        .universe-explorer {
+            height: 100vh;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .galaxy {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: url('https://dummyimage.com/1920x1080/000/fff&text=3D+Galaxy') no-repeat center center;
+            background-size: cover;
+            transform: scale(1.1);
+            transition: transform 0.5s ease;
+        }
+
+        .celestial-object {
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .celestial-object:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 20px var(--accent-color-1);
+        }
+
+        .celestial-object::after {
+            content: attr(data-title);
+            position: absolute;
+            bottom: -30px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: rgba(0,0,0,0.8);
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 14px;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .celestial-object:hover::after {
+            opacity: 1;
+        }
+
+        .planet-1 { top: 20%; left: 30%; background: url('https://dummyimage.com/100x100/f00/fff&text=3D') no-repeat center center; background-size: cover; }
+        .planet-2 { top: 60%; left: 70%; background: url('https://dummyimage.com/100x100/0f0/fff&text=Backend') no-repeat center center; background-size: cover; }
+        .planet-3 { top: 40%; left: 50%; background: url('https://dummyimage.com/100x100/00f/fff&text=Sci-Fi') no-repeat center center; background-size: cover; }
+
+        .code-showcase {
+            padding: 100px 0;
+            background-color: #1E1E1E;
+        }
+
+        .code-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .code-block {
+            background-color: #2D2D2D;
+            border-radius: 10px;
+            padding: 20px;
+            font-family: 'Fira Code', monospace;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .code-block::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background-color: var(--accent-color-1);
+        }
+
+        .code-block h3 {
+            color: #D4D4D4;
+            margin-bottom: 15px;
+        }
+
+        .code-content {
+            max-height: 200px;
+            overflow-y: auto;
+        }
+
+        .code-line {
+            display: flex;
+            margin-bottom: 5px;
+        }
+
+        .line-number {
+            color: #858585;
+            margin-right: 10px;
+            user-select: none;
+        }
+
+        .code-text {
+            color: #D4D4D4;
+        }
+
+        .keyword { color: #569CD6; }
+        .string { color: #CE9178; }
+        .comment { color: #6A9955; }
+
+        .sci-fi-portfolio {
+            padding: 100px 0;
+            background: linear-gradient(45deg, #0A0A0A, #1A1A2E);
+        }
+
+        .timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .timeline::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            width: 2px;
+            background-color: var(--accent-color-2);
+            transform: translateX(-50%);
+        }
+
+        .timeline-item {
+            padding: 20px;
+            background-color: rgba(255,255,255,0.05);
+            border-radius: 10px;
+            position: relative;
+            width: calc(50% - 30px);
+            margin-bottom: 30px;
+        }
+
+        .timeline-item:nth-child(odd) {
+            left: 0;
+        }
+
+        .timeline-item:nth-child(even) {
+            left: 50%;
+        }
+
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            width: 20px;
+            height: 20px;
+            background-color: var(--accent-color-2);
+            border-radius: 50%;
+        }
+
+        .timeline-item:nth-child(odd)::after {
+            right: -40px;
+        }
+
+        .timeline-item:nth-child(even)::after {
+            left: -40px;
+        }
+
+        .timeline-content h3 {
+            color: var(--accent-color-2);
+            margin-bottom: 10px;
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            h1 {
+                font-size: 3rem;
+            }
+
+            .timeline::after {
+                left: 30px;
+            }
+
+            .timeline-item {
+                width: 100%;
+                left: 0 !important;
+                padding-left: 70px;
+            }
+
+            .timeline-item::after {
+                left: 20px !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">MultiVerse</div>
+                <div class="nav-links">
+                    <a href="#universe">Universe</a>
+                    <a href="#code">Code</a>
+                    <a href="#portfolio">Portfolio</a>
+                    <a href="#contact">Contact</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="hero-content">
+                <h1>Welcome to My Multidimensional Portfolio</h1>
+                <p>Explore the convergence of 3D animations, backend development, and science fiction storytelling in a cosmic journey through my digital universe.</p>
+                <a href="#universe" class="cta-button">Begin Exploration</a>
+            </div>
+        </section>
+
+        <section id="universe" class="universe-explorer">
+            <div class="galaxy"></div>
+            <div class="celestial-object planet-1" data-title="3D Animations"></div>
+            <div class="celestial-object planet-2" data-title="Backend Development"></div>
+            <div class="celestial-object planet-3" data-title="Sci-Fi Writing"></div>
+        </section>
+
+        <section id="code" class="code-showcase">
+            <div class="container">
+                <h2>Code Constellations</h2>
+                <div class="code-grid">
+                    <div class="code-block">
+                        <h3>3D Animation Shader</h3>
+                        <div class="code-content">
+                            <div class="code-line">
+                                <span class="line-number">1</span>
+                                <span class="code-text"><span class="keyword">void</span> main() {</span>
+                            </div>
+                            <div class="code-line">
+                                <span class="line-number">2</span>
+                                <span class="code-text">  <span class="keyword">vec4</span> texColor = texture2D(uTexture, vUv);</span>
+                            </div>
+                            <div class="code-line">
+                                <span class="line-number">3</span>
+                                <span class="code-text">  <span class="keyword">float</span> brightness = dot(texColor.rgb, <span class="keyword">vec3</span>(0.299, 0.587, 0.114));</span>
+                            </div>
+                            <div class="code-line">
+                                <span class="line-number">4</span>
+                                <span class="code-text">  gl_FragColor = <span class="keyword">vec4</span>(brightness, brightness, brightness, texColor.a);</span>
+                            </div>
+                            <div class="code-line">
+                                <span class="line-number">5</span>
+                                <span class="code-text">}</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="code-block">
+                        <h3>Backend API Endpoint</h3>
+                        <div class="code-content">
+                            <div class="code-line">
+                                <span class="line-number">1</span>
+                                <span class="code-text"><span class="keyword">app</span>.get(<span class="string">'/api/universe'</span>, <span class="keyword">async</span> (req, res) => {</span>
+                            </div>
+                            <div class="code-line">
+                                <span class="line-number">2</span>
+                                <span class="code-text">  <span class="keyword">try</span> {</span>
+                            </div>
+                            <div class="code-line">
+                                <span class="line-number">3</span>
+                                <span class="code-text">    <span class="keyword">const</span> galaxies = <span class="keyword">await</span> Universe.find();</span>
+                            </div>
+                            <div class="code-line">
+                                <span class="line-number">4</span>
+                                <span class="code-text">    res.json(galaxies);</span>
+                            </div>
+                            <div class="code-line">
+                                <span class="line-number">5</span>
+                                <span class="code-text">  } <span class="keyword">catch</span> (err) {</span>
+                            </div>
+                            <div class="code-line">
+                                <span class="line-number">6</span>
+                                <span class="code-text">    res.status(500).json({ error: 'Server error' });</span>
+                            </div>
+                            <div class="code-line">
+                                <span class="line-number">7</span>
+                                <span class="code-text">  }</span>
+                            </div>
+                            <div class="code-line">
+                                <span class="line-number">8</span>
+                                <span class="code-text">});</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="code-block">
+                        <h3>Sci-Fi Story Generator</h3>
+                        <div class="code-content">
+                            <div class="code-line">
+                                <span class="line-number">1</span>
+                                <span class="code-text"><span class="keyword">function</span> generateStory(character, setting, conflict) {</span>
+                            </div>
+                            <div class="code-line">
+                                <span class="line-number">2</span>
+                                <span class="code-text">  <span class="keyword">const</span> story = `In the ${setting}, ${character} faced ${conflict}.`;</span>
+                            </div>
+                            <div class="code-line">
+                                <span class="line-number">3</span>
+                                <span class="code-text">  <span class="keyword">return</span> story;</span>
+                            </div>
+                            <div class="code-line">
+                                <span class="line-number">4</span>
+                                <span class="code-text">}</span>
+                            </div>
+                            <div class="code-line">
+                                <span class="line-number">5</span>
+                                <span class="code-text"><span class="comment">// Generate a new sci-fi adventure</span></span>
+                            </div>
+                            <div class="code-line">
+                                <span class="line-number">6</span>
+                                <span class="code-text"><span class="keyword">const</span> newStory = generateStory(<span class="string">'Captain Nova'</span>, <span class="string">'neon-lit cybercity'</span>, <span class="string">'an AI uprising'</span>);</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="portfolio" class="sci-fi-portfolio">
+            <div class="container">
+                <h2>Cosmic Career Timeline</h2>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <h3>3D Animation Mastery</h3>
+                            <p>Crafted mind-bending visuals for interstellar blockbusters, pushing the boundaries of visual effects.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <h3>Backend Odyssey</h3>
+                            <p>Architected scalable systems powering virtual worlds and augmented reality experiences.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <h3>Sci-Fi Saga Publication</h3>
+                            <p>Released a critically acclaimed novel series exploring the ethical dilemmas of AI in deep space colonization.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer id="contact">
+        <div class="container">
+            <h2>Contact the Creator</h2>
+            <p>Ready to embark on a digital adventure? Let's connect and create something extraordinary.</p>
+            <a href="mailto:creator@multiverse.com" class="cta-button">Initiate Contact</a>
+        </div>
+    </footer>
+
+    <script>
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        const galaxy = document.querySelector('.galaxy');
+        const celestialObjects = document.querySelectorAll('.celestial-object');
+
+        document.addEventListener('mousemove', (e) => {
+            const x = e.clientX / window.innerWidth;
+            const y = e.clientY / window.innerHeight;
+            
+            galaxy.style.transform = `scale(1.1) translate(${x * 20}px, ${y * 20}px)`;
+            
+            celestialObjects.forEach(obj => {
+                const speed = Math.random() * 0.05 + 0.05;
+                obj.style.transform = `translate(${x * 50 * speed}px, ${y * 50 * speed}px)`;
+            });
+        });
+    </script>
+</body>
+</html>'<!-- Visit: https://github.com/Ishanoshada/portflair -->
+<!-- Visit: https://github.com/Ishanoshada/portflair -->

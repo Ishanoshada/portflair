@@ -1,0 +1,425 @@
+<!-- Portfolio created by Ishan -->
+<!-- Check out my work at: https://github.com/Ishanoshada/portflair -->
+<!-- 2024/10/9 -->
+<!-- Portfolio created by Ishan -->
+'<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dark Toned Portfolio</title>
+  <style>
+    /* Global Styles */
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Montserrat', sans-serif;
+      background-color: #1a1a1a;
+      color: #f2f2f2;
+    }
+
+    /* Navigation Bar */
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: #0d0d0d;
+      padding: 1.5rem 3rem;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    .navbar-brand {
+      font-size: 1.8rem;
+      font-weight: 700;
+      text-decoration: none;
+      color: #f2f2f2;
+      transition: color 0.3s ease;
+    }
+
+    .navbar-brand:hover {
+      color: #8c8c8c;
+    }
+
+    .navbar-nav {
+      display: flex;
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .nav-item {
+      margin-left: 2rem;
+    }
+
+    .nav-link {
+      font-size: 1.1rem;
+      font-weight: 500;
+      text-decoration: none;
+      color: #8c8c8c;
+      transition: color 0.3s ease;
+    }
+
+    .nav-link:hover {
+      color: #f2f2f2;
+    }
+
+    /* Featured Projects Section */
+    .featured-projects {
+      padding: 5rem 3rem;
+    }
+
+    .featured-projects-title {
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 3rem;
+      text-align: center;
+      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    }
+
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-gap: 3rem;
+    }
+
+    .project-card {
+      background-color: #0d0d0d;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .project-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+    }
+
+    .project-image {
+      width: 100%;
+      height: 300px;
+      object-fit: cover;
+      position: relative;
+    }
+
+    .project-image:before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(to bottom, rgba(26, 26, 26, 0.6), rgba(26, 26, 26, 0.2));
+      transition: opacity 0.3s ease;
+    }
+
+    .project-card:hover .project-image:before {
+      opacity: 0;
+    }
+
+    .project-details {
+      padding: 2rem;
+    }
+
+    .project-title {
+      font-size: 1.6rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    }
+
+    .project-description {
+      font-size: 1.1rem;
+      line-height: 1.6;
+      color: #8c8c8c;
+    }
+
+    /* About the Designer Section */
+    .about-designer {
+      display: flex;
+      align-items: center;
+      background-color: #0d0d0d;
+      padding: 5rem 3rem;
+    }
+
+    .designer-image {
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      object-fit: cover;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      margin-right: 3rem;
+    }
+
+    .designer-info {
+      flex-grow: 1;
+    }
+
+    .designer-name {
+      font-size: 2.2rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    }
+
+    .designer-title {
+      font-size: 1.4rem;
+      font-weight: 500;
+      color: #8c8c8c;
+      margin-bottom: 2rem;
+    }
+
+    .designer-skills {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      grid-gap: 1.5rem;
+    }
+
+    .skill-icon {
+      font-size: 2rem;
+      color: #8c8c8c;
+      transition: color 0.3s ease;
+    }
+
+    .skill-icon:hover {
+      color: #f2f2f2;
+    }
+
+    .skill-label {
+      font-size: 1.1rem;
+      font-weight: 500;
+      margin-top: 0.5rem;
+      color: #8c8c8c;
+    }
+
+    /* Testimonials Section */
+    .testimonials {
+      padding: 5rem 3rem;
+    }
+
+    .testimonials-title {
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 3rem;
+      text-align: center;
+      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    }
+
+    .testimonial-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      grid-gap: 3rem;
+    }
+
+    .testimonial-card {
+      background-color: #0d0d0d;
+      border-radius: 10px;
+      padding: 2rem;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .testimonial-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+    }
+
+    .testimonial-text {
+      font-size: 1.4rem;
+      font-style: italic;
+      line-height: 1.6;
+      margin-bottom: 1.5rem;
+      color: #8c8c8c;
+    }
+
+    .testimonial-author {
+      display: flex;
+      align-items: center;
+    }
+
+    .author-image {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-right: 1rem;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    }
+
+    .author-name {
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: #f2f2f2;
+    }
+
+    .author-title {
+      font-size: 1rem;
+      color: #8c8c8c;
+    }
+
+    /* Responsive Styles */
+    @media (max-width: 991px) {
+      .project-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .about-designer {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .designer-image {
+        margin-right: 0;
+        margin-bottom: 2rem;
+      }
+
+      .designer-skills {
+        grid-template-columns: repeat(3, 1fr);
+      }
+
+      .testimonial-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 767px) {
+      .navbar {
+        padding: 1rem 2rem;
+      }
+
+      .featured-projects,
+      .about-designer,
+      .testimonials {
+        padding: 3rem 2rem;
+      }
+
+      .project-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .designer-skills {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav class="navbar">
+      <a href="#" class="navbar-brand">Dark Toned Portfolio</a>
+      <ul class="navbar-nav">
+        <li class="nav-item"><a href="#" class="nav-link">Home</a></li>
+        <li class="nav-item"><a href="#" class="nav-link">About</a></li>
+        <li class="nav-item"><a href="#" class="nav-link">Projects</a></li>
+        <li class="nav-item"><a href="#" class="nav-link">Testimonials</a></li>
+        <li class="nav-item"><a href="#" class="nav-link">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <!-- Featured Projects Section -->
+    <section class="featured-projects">
+      <h2 class="featured-projects-title">Featured Projects</h2>
+      <div class="project-grid">
+        <div class="project-card">
+          <img src="https://dummyimage.com/600x400/000/fff&text=Project+1" alt="Project 1" class="project-image">
+          <div class="project-details">
+            <h3 class="project-title">Project 1</h3>
+            <p class="project-description">A dark, sophisticated website design with deep blacks, subtle shadow effects, and dark color gradients.</p>
+          </div>
+        </div>
+        <div class="project-card">
+          <img src="https://dummyimage.com/600x400/000/fff&text=Project+2" alt="Project 2" class="project-image">
+          <div class="project-details">
+            <h3 class="project-title">Project 2</h3>
+            <p class="project-description">A sleek and modern portfolio showcasing the designer's expertise in creating visually striking designs.</p>
+          </div>
+        </div>
+        <div class="project-card">
+          <img src="https://dummyimage.com/600x400/000/fff&text=Project+3" alt="Project 3" class="project-image">
+          <div class="project-details">
+            <h3 class="project-title">Project 3</h3>
+            <p class="project-description">A dark-themed landing page with a focus on delivering a premium, high-end user experience.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- About the Designer Section -->
+    <section class="about-designer">
+      <img src="https://dummyimage.com/200x200/000/fff&text=Designer" alt="Designer" class="designer-image">
+      <div class="designer-info">
+        <h2 class="designer-name">John Doe</h2>
+        <h3 class="designer-title">UI/UX Designer</h3>
+        <div class="designer-skills">
+          <div class="skill-item">
+            <i class="skill-icon">&#x1F4BB;</i>
+            <span class="skill-label">Web Design</span>
+          </div>
+          <div class="skill-item">
+            <i class="skill-icon">&#x1F4C8;</i>
+            <span class="skill-label">Branding</span>
+          </div>
+          <div class="skill-item">
+            <i class="skill-icon">&#x1F4C4;</i>
+            <span class="skill-label">Typography</span>
+          </div>
+          <div class="skill-item">
+            <i class="skill-icon">&#x1F4A1;</i>
+            <span class="skill-label">Innovation</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials">
+      <h2 class="testimonials-title">Testimonials</h2>
+      <div class="testimonial-grid">
+        <div class="testimonial-card">
+          <p class="testimonial-text">"John's design work is simply breathtaking. He creates unique, visually stunning portfolios that leave a lasting impression."</p>
+          <div class="testimonial-author">
+            <img src="https://dummyimage.com/50x50/000/fff&text=Client" alt="Client" class="author-image">
+            <div>
+              <h4 class="author-name">Jane Smith</h4>
+              <p class="author-title">CEO, Acme Corp.</p>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card">
+          <p class="testimonial-text">"Working with John was a true pleasure. His attention to detail and ability to capture the essence of our brand is unparalleled."</p>
+          <div class="testimonial-author">
+            <img src="https://dummyimage.com/50x50/000/fff&text=Client" alt="Client" class="author-image">
+            <div>
+              <h4 class="author-name">Michael Johnson</h4>
+              <p class="author-title">Marketing Director, XYZ Inc.</p>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card">
+          <p class="testimonial-text">"John's portfolio is a masterclass in design. The depth and sophistication of his work is truly inspiring."</p>
+          <div class="testimonial-author">
+            <img src="https://dummyimage.com/50x50/000/fff&text=Client" alt="Client" class="author-image">
+            <div>
+              <h4 class="author-name">Sarah Lee</h4>
+              <p class="author-title">Creative Director, Design Agency</p>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card">
+          <p class="testimonial-text">"John's portfolio is a true work of art. The use of dark tones, shadows, and gradients creates a level of depth and elegance that is unmatched."</p>
+          <div class="testimonial-author">
+            <img src="https://dummyimage.com/50x50/000/fff&text=Client" alt="Client" class="author-image">
+            <div>
+              <h4 class="author-name">David Kim</h4>
+              <p class="author-title">Art Director, Branding Firm</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+</body>
+</html>'<!-- Visit: https://github.com/Ishanoshada/portflair -->
+<!-- Visit: https://github.com/Ishanoshada/portflair -->

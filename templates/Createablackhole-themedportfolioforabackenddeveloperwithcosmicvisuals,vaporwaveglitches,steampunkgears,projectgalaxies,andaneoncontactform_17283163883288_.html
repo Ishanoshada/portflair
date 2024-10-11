@@ -1,0 +1,432 @@
+<!-- Portfolio created by Ishan -->
+<!-- Check out my work at: https://github.com/Ishanoshada/portflair -->
+<!-- 2024/10/9 -->
+<!-- Portfolio created by Ishan -->
+'<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Black Hole Portfolio</title>
+    <style>
+        /* Global Styles */
+        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
+        body {
+            font-family: 'Orbitron', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #0c0c0c;
+            color: #fff;
+            overflow-x: hidden;
+        }
+
+        /* Navigation */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 40px;
+            background-color: rgba(12, 12, 12, 0.8);
+            backdrop-filter: blur(10px);
+            position: relative;
+            z-index: 10;
+        }
+
+        .navbar a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 20px;
+            font-size: 18px;
+            font-weight: bold;
+            position: relative;
+            transition: color 0.3s ease;
+        }
+
+        .navbar a:before {
+            content: "";
+            position: absolute;
+            width: 0;
+            height: 3px;
+            bottom: -5px;
+            left: 0;
+            background-color: #9b59b6;
+            visibility: hidden;
+            transition: all 0.3s ease-in-out;
+        }
+
+        .navbar a:hover {
+            color: #9b59b6;
+        }
+
+        .navbar a:hover:before {
+            visibility: visible;
+            width: 100%;
+        }
+
+        /* Interactive Galaxy Showcase */
+        .galaxy-showcase {
+            position: relative;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        .galaxy-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(ellipse at center, #1b2735 0%, #090a0f 100%);
+            z-index: 1;
+        }
+
+        .galaxy {
+            position: absolute;
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            background-color: #9b59b6;
+            box-shadow: 0 0 20px 10px rgba(155, 89, 182, 0.5);
+            opacity: 0;
+            transform: scale(0.5);
+            transition: all 0.5s ease;
+            cursor: pointer;
+            z-index: 2;
+        }
+
+        .galaxy.active {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        .galaxy-info {
+            position: absolute;
+            background-color: rgba(12, 12, 12, 0.8);
+            backdrop-filter: blur(10px);
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.5s ease;
+            z-index: 3;
+        }
+
+        .galaxy-info.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .galaxy-info h3 {
+            margin-top: 0;
+            font-size: 24px;
+            color: #9b59b6;
+        }
+
+        .galaxy-info p {
+            margin-bottom: 10px;
+            font-size: 16px;
+        }
+
+        .galaxy-info a {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #9b59b6;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+        }
+
+        .galaxy-info a:hover {
+            background-color: #8e44ad;
+        }
+
+        /* Vaporwave Glitch Transition */
+        .vaporwave-glitch {
+            position: relative;
+            height: 50vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(to right, #a18cd1, #fbc2eb);
+            overflow: hidden;
+        }
+
+        .glitch-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('https://dummyimage.com/1200x500/ccc/000&text=Vaporwave+Glitch');
+            background-size: cover;
+            background-position: center;
+            opacity: 0.1;
+            animation: glitch 5s infinite;
+        }
+
+        @keyframes glitch {
+            0% {
+                transform: translateX(0);
+            }
+            20% {
+                transform: translateX(-20px);
+            }
+            40% {
+                transform: translateX(20px);
+            }
+            60% {
+                transform: translateX(-20px);
+            }
+            80% {
+                transform: translateX(20px);
+            }
+            100% {
+                transform: translateX(0);
+            }
+        }
+
+        .vaporwave-glitch-content {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+        }
+
+        .vaporwave-glitch-content h2 {
+            font-size: 48px;
+            color: #9b59b6;
+            text-shadow: 0 0 20px rgba(155, 89, 182, 0.5);
+            animation: glitch-text 5s infinite;
+        }
+
+        @keyframes glitch-text {
+            0% {
+                transform: translateX(0);
+            }
+            20% {
+                transform: translateX(-5px);
+            }
+            40% {
+                transform: translateX(5px);
+            }
+            60% {
+                transform: translateX(-5px);
+            }
+            80% {
+                transform: translateX(5px);
+            }
+            100% {
+                transform: translateX(0);
+            }
+        }
+
+        /* Neon Contact Form */
+        .neon-contact {
+            position: relative;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: radial-gradient(ellipse at center, #1b2735 0%, #090a0f 100%);
+        }
+
+        .neon-contact-form {
+            background-color: rgba(12, 12, 12, 0.8);
+            backdrop-filter: blur(10px);
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px 10px rgba(155, 89, 182, 0.5);
+            animation: neon-glow 2s ease-in-out infinite;
+        }
+
+        @keyframes neon-glow {
+            0% {
+                box-shadow: 0 0 20px 10px rgba(155, 89, 182, 0.5);
+            }
+            50% {
+                box-shadow: 0 0 40px 20px rgba(155, 89, 182, 0.5);
+            }
+            100% {
+                box-shadow: 0 0 20px 10px rgba(155, 89, 182, 0.5);
+            }
+        }
+
+        .neon-contact-form h2 {
+            text-align: center;
+            font-size: 36px;
+            color: #9b59b6;
+            margin-top: 0;
+        }
+
+        .neon-contact-form input,
+        .neon-contact-form textarea {
+            display: block;
+            width: 300px;
+            padding: 10px;
+            margin-bottom: 20px;
+            background-color: #0c0c0c;
+            border: none;
+            border-radius: 5px;
+            color: #fff;
+            font-size: 16px;
+            font-family: 'Orbitron', sans-serif;
+            box-shadow: 0 0 10px 5px rgba(155, 89, 182, 0.2);
+            transition: box-shadow 0.3s ease;
+        }
+
+        .neon-contact-form input:focus,
+        .neon-contact-form textarea:focus {
+            outline: none;
+            box-shadow: 0 0 20px 10px rgba(155, 89, 182, 0.5);
+        }
+
+        .neon-contact-form button {
+            display: block;
+            width: 300px;
+            padding: 10px;
+            background-color: #9b59b6;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            font-family: 'Orbitron', sans-serif;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .neon-contact-form button:hover {
+            background-color: #8e44ad;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .navbar {
+                padding: 10px 20px;
+            }
+
+            .navbar a {
+                font-size: 16px;
+                margin: 0 10px;
+            }
+
+            .galaxy {
+                width: 100px;
+                height: 100px;
+            }
+
+            .galaxy-info {
+                padding: 10px;
+            }
+
+            .galaxy-info h3 {
+                font-size: 20px;
+            }
+
+            .galaxy-info p {
+                font-size: 14px;
+            }
+
+            .galaxy-info a {
+                padding: 8px 16px;
+                font-size: 14px;
+            }
+
+            .vaporwave-glitch-content h2 {
+                font-size: 36px;
+            }
+
+            .neon-contact-form {
+                padding: 20px;
+            }
+
+            .neon-contact-form h2 {
+                font-size: 28px;
+            }
+
+            .neon-contact-form input,
+            .neon-contact-form textarea,
+            .neon-contact-form button {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <a href="#">Home</a>
+        <a href="#">About</a>
+        <a href="#">Projects</a>
+        <a href="#">Contact</a>
+    </nav>
+
+    <!-- Interactive Galaxy Showcase -->
+    <section class="galaxy-showcase">
+        <div class="galaxy-background"></div>
+        <div class="galaxy" style="left: 20%; top: 30%;" data-project-name="Project 1" data-project-description="This is the description for Project 1." data-project-link="#"></div>
+        <div class="galaxy" style="left: 50%; top: 20%;" data-project-name="Project 2" data-project-description="This is the description for Project 2." data-project-link="#"></div>
+        <div class="galaxy" style="right: 20%; top: 40%;" data-project-name="Project 3" data-project-description="This is the description for Project 3." data-project-link="#"></div>
+        <div class="galaxy-info">
+            <h3>Project Name</h3>
+            <p>Project description goes here.</p>
+            <a href="#">View Project</a>
+        </div>
+    </section>
+
+    <!-- Vaporwave Glitch Transition -->
+    <section class="vaporwave-glitch">
+        <div class="glitch-background"></div>
+        <div class="vaporwave-glitch-content">
+            <h2>Cosmic Visuals, Vaporwave Glitches, and Steampunk Gears</h2>
+            <p>Explore the backend developer's unique blend of cosmic, vaporwave, and steampunk elements.</p>
+        </div>
+    </section>
+
+    <!-- Neon Contact Form -->
+    <section class="neon-contact">
+        <div class="neon-contact-form">
+            <h2>Get in Touch</h2>
+            <form>
+                <input type="text" placeholder="Name" required>
+                <input type="email" placeholder="Email" required>
+                <textarea placeholder="Message" required></textarea>
+                <button type="submit">Send</button>
+            </form>
+        </div>
+    </section>
+
+    <script>
+        // Interactive Galaxy Showcase
+        const galaxies = document.querySelectorAll('.galaxy');
+        const galaxyInfo = document.querySelector('.galaxy-info');
+        const galaxyName = galaxyInfo.querySelector('h3');
+        const galaxyDescription = galaxyInfo.querySelector('p');
+        const galaxyLink = galaxyInfo.querySelector('a');
+
+        galaxies.forEach(galaxy => {
+            galaxy.addEventListener('click', () => {
+                galaxies.forEach(g => g.classList.remove('active'));
+                galaxy.classList.add('active');
+
+                galaxyName.textContent = galaxy.dataset.projectName;
+                galaxyDescription.textContent = galaxy.dataset.projectDescription;
+                galaxyLink.href = galaxy.dataset.projectLink;
+                galaxyInfo.classList.add('active');
+            });
+        });
+
+        window.addEventListener('click', (e) => {
+            if (!e.target.closest('.galaxy') && !e.target.closest('.galaxy-info')) {
+                galaxies.forEach(g => g.classList.remove('active'));
+                galaxyInfo.classList.remove('active');
+            }
+        });
+    </script>
+</body>
+</html>'<!-- Visit: https://github.com/Ishanoshada/portflair -->
+<!-- Visit: https://github.com/Ishanoshada/portflair -->

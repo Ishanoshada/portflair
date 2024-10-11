@@ -1,0 +1,454 @@
+<!-- Portfolio created by Ishan -->
+<!-- Check out my work at: https://github.com/Ishanoshada/portflair -->
+<!-- 2024/10/9 -->
+<!-- Portfolio created by Ishan -->
+'<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Design a full-page animated portfolio</title>
+  <style>
+    /* Global Styles */
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #0f0f0f;
+      color: #f2f2f2;
+      overflow-x: hidden;
+    }
+
+    /* Navigation Bar */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.5rem 2rem;
+      background-color: rgba(15, 15, 15, 0.8);
+      backdrop-filter: blur(10px);
+      position: fixed;
+      width: 100%;
+      z-index: 1000;
+      transition: all 0.3s ease-in-out;
+    }
+
+    nav .logo {
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: #fff;
+    }
+
+    nav ul {
+      display: flex;
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    nav ul li {
+      margin-left: 2rem;
+    }
+
+    nav ul li a {
+      text-decoration: none;
+      color: #f2f2f2;
+      font-size: 1.1rem;
+      font-weight: 500;
+      transition: color 0.3s ease-in-out;
+    }
+
+    nav ul li a:hover {
+      color: #ff6b6b;
+    }
+
+    /* Hero Section */
+    .hero {
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-bg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(45deg, #ff6b6b, #9b59b6, #2980b9);
+      background-size: 200% 200%;
+      animation: bgAnimation 10s ease infinite;
+      z-index: -1;
+    }
+
+    @keyframes bgAnimation {
+      0% {
+        background-position: 0% 50%;
+      }
+      50% {
+        background-position: 100% 50%;
+      }
+      100% {
+        background-position: 0% 50%;
+      }
+    }
+
+    .hero-content {
+      text-align: center;
+      max-width: 800px;
+      z-index: 1;
+    }
+
+    .hero-title {
+      font-size: 4rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      text-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+      animation: titleFade 2s ease-in-out infinite alternate;
+    }
+
+    @keyframes titleFade {
+      0% {
+        transform: translateY(-10px);
+        opacity: 0.8;
+      }
+      100% {
+        transform: translateY(10px);
+        opacity: 1;
+      }
+    }
+
+    .hero-description {
+      font-size: 1.6rem;
+      margin-bottom: 3rem;
+      text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+    }
+
+    .hero-cta {
+      display: inline-block;
+      background-color: #ff6b6b;
+      color: #fff;
+      text-decoration: none;
+      padding: 1rem 2rem;
+      border-radius: 30px;
+      font-size: 1.2rem;
+      font-weight: 600;
+      box-shadow: 0 0 20px rgba(255, 107, 107, 0.5);
+      transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    }
+
+    .hero-cta:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 0 30px rgba(255, 107, 107, 0.7);
+    }
+
+    /* Skills and Highlights Section */
+    .skills-highlights {
+      padding: 6rem 2rem;
+      background-color: #1a1a1a;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .skills-highlights-title {
+      font-size: 3rem;
+      font-weight: 700;
+      text-align: center;
+      margin-bottom: 4rem;
+      text-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
+    }
+
+    .skills-highlights-content {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 3rem;
+    }
+
+    .skill-highlight {
+      background-color: #222222;
+      padding: 2rem;
+      border-radius: 10px;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    }
+
+    .skill-highlight:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+    }
+
+    .skill-highlight::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(45deg, #ff6b6b, #9b59b6, #2980b9);
+      background-size: 200% 200%;
+      animation: brushstrokeAnimation 5s ease infinite;
+      z-index: -1;
+      opacity: 0.3;
+    }
+
+    @keyframes brushstrokeAnimation {
+      0% {
+        background-position: 0% 50%;
+      }
+      50% {
+        background-position: 100% 50%;
+      }
+      100% {
+        background-position: 0% 50%;
+      }
+    }
+
+    .skill-highlight-title {
+      font-size: 1.8rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+      text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+    }
+
+    .skill-highlight-description {
+      font-size: 1.1rem;
+      line-height: 1.6;
+      color: #ccc;
+    }
+
+    /* Contact Form Section */
+    .contact-form {
+      padding: 6rem 2rem;
+      background-color: #0f0f0f;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .contact-form-bg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(45deg, #ff6b6b, #9b59b6, #2980b9);
+      background-size: 200% 200%;
+      animation: bgAnimation 10s ease infinite;
+      opacity: 0.2;
+      z-index: -1;
+    }
+
+    .contact-form-title {
+      font-size: 3rem;
+      font-weight: 700;
+      text-align: center;
+      margin-bottom: 4rem;
+      text-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
+    }
+
+    .contact-form-content {
+      max-width: 600px;
+      margin: 0 auto;
+      background-color: #1a1a1a;
+      padding: 3rem;
+      border-radius: 10px;
+      box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+      position: relative;
+      overflow: hidden;
+      animation: formShift 10s ease infinite;
+    }
+
+    @keyframes formShift {
+      0% {
+        transform: translateX(-10px) rotate(-2deg);
+      }
+      50% {
+        transform: translateX(10px) rotate(2deg);
+      }
+      100% {
+        transform: translateX(-10px) rotate(-2deg);
+      }
+    }
+
+    .contact-form-group {
+      margin-bottom: 2rem;
+    }
+
+    .contact-form-label {
+      display: block;
+      font-size: 1.1rem;
+      font-weight: 500;
+      margin-bottom: 0.5rem;
+    }
+
+    .contact-form-input,
+    .contact-form-textarea {
+      width: 100%;
+      padding: 1rem;
+      font-size: 1rem;
+      font-family: 'Poppins', sans-serif;
+      background-color: #222222;
+      border: none;
+      border-radius: 5px;
+      color: #f2f2f2;
+      transition: box-shadow 0.3s ease-in-out;
+    }
+
+    .contact-form-input:focus,
+    .contact-form-textarea:focus {
+      outline: none;
+      box-shadow: 0 0 15px rgba(255, 107, 107, 0.5);
+    }
+
+    .contact-form-submit {
+      display: block;
+      width: 100%;
+      background-color: #ff6b6b;
+      color: #fff;
+      font-size: 1.2rem;
+      font-weight: 600;
+      padding: 1rem;
+      border: none;
+      border-radius: 30px;
+      cursor: pointer;
+      box-shadow: 0 0 20px rgba(255, 107, 107, 0.5);
+      transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    }
+
+    .contact-form-submit:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 0 30px rgba(255, 107, 107, 0.7);
+    }
+
+    /* Responsive Styles */
+    @media (max-width: 768px) {
+      nav {
+        padding: 1rem;
+      }
+
+      nav .logo {
+        font-size: 1.4rem;
+      }
+
+      nav ul li {
+        margin-left: 1.5rem;
+      }
+
+      nav ul li a {
+        font-size: 1rem;
+      }
+
+      .hero-title {
+        font-size: 3rem;
+      }
+
+      .hero-description {
+        font-size: 1.4rem;
+      }
+
+      .skills-highlights-title,
+      .contact-form-title {
+        font-size: 2.5rem;
+      }
+
+      .skill-highlight-title {
+        font-size: 1.6rem;
+      }
+
+      .skill-highlight-description {
+        font-size: 1rem;
+      }
+
+      .contact-form-content {
+        padding: 2rem;
+      }
+
+      .contact-form-label {
+        font-size: 1rem;
+      }
+
+      .contact-form-input,
+      .contact-form-textarea {
+        font-size: 0.9rem;
+      }
+
+      .contact-form-submit {
+        font-size: 1.1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="logo">Design Portfolio</div>
+    <ul>
+      <li><a href="#">Home</a></li>
+      <li><a href="#">About</a></li>
+      <li><a href="#">Projects</a></li>
+      <li><a href="#">Skills</a></li>
+      <li><a href="#">Contact</a></li>
+    </ul>
+  </nav>
+
+  <section class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-content">
+      <h1 class="hero-title">Unleash Your Creative Vision</h1>
+      <p class="hero-description">Discover our stunning 3D portfolio with floating shapes, rotating project cubes, and brushstroke animations.</p>
+      <a href="#" class="hero-cta">Explore Our Work</a>
+    </div>
+  </section>
+
+  <section class="skills-highlights">
+    <h2 class="skills-highlights-title">Our Expertise</h2>
+    <div class="skills-highlights-content">
+      <div class="skill-highlight">
+        <h3 class="skill-highlight-title">3D Modeling</h3>
+        <p class="skill-highlight-description">Bring your ideas to life with our advanced 3D modeling capabilities, creating stunning visuals that captivate your audience.</p>
+      </div>
+      <div class="skill-highlight">
+        <h3 class="skill-highlight-title">Motion Graphics</h3>
+        <p class="skill-highlight-description">Elevate your brand with dynamic, eye-catching motion graphics that tell your story and engage your viewers.</p>
+      </div>
+      <div class="skill-highlight">
+        <h3 class="skill-highlight-title">UI/UX Design</h3>
+        <p class="skill-highlight-description">Craft intuitive and visually appealing user interfaces that optimize the user experience and drive your digital success.</p>
+      </div>
+      <div class="skill-highlight">
+        <h3 class="skill-highlight-title">Branding</h3>
+        <p class="skill-highlight-description">Establish a strong and memorable brand identity that resonates with your target audience and sets you apart in the market.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact-form">
+    <div class="contact-form-bg"></div>
+    <h2 class="contact-form-title">Get in Touch</h2>
+    <div class="contact-form-content">
+      <form>
+        <div class="contact-form-group">
+          <label for="name" class="contact-form-label">Name</label>
+          <input type="text" id="name" name="name" class="contact-form-input" required>
+        </div>
+        <div class="contact-form-group">
+          <label for="email" class="contact-form-label">Email</label>
+          <input type="email" id="email" name="email" class="contact-form-input" required>
+        </div>
+        <div class="contact-form-group">
+          <label for="message" class="contact-form-label">Message</label>
+          <textarea id="message" name="message" class="contact-form-textarea" rows="5" required></textarea>
+        </div>
+        <button type="submit" class="contact-form-submit">Send Message</button>
+      </form>
+    </div>
+  </section>
+</body>
+</html>'<!-- Visit: https://github.com/Ishanoshada/portflair -->
+<!-- Visit: https://github.com/Ishanoshada/portflair -->

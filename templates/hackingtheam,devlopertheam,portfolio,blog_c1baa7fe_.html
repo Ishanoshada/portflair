@@ -1,0 +1,493 @@
+<!-- Portfolio created by Ishan -->
+<!-- Check out my work at: https://github.com/Ishanoshada/portflair -->
+<!-- 2024/10/9 -->
+<!-- Portfolio created by Ishan -->
+'<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hacking Theme | Developer Portfolio</title>
+    <style>
+        /* Global Styles */
+        body {
+            font-family: 'Montserrat', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #0A1428;
+            color: #fff;
+        }
+
+        a {
+            text-decoration: none;
+            color: #21E6C1;
+        }
+
+        /* Navigation */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #0A1428;
+            padding: 1.5rem 2rem;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .navbar-brand {
+            font-size: 1.8rem;
+            font-weight: 700;
+        }
+
+        .navbar-nav {
+            display: flex;
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .navbar-nav li {
+            margin-left: 1.5rem;
+        }
+
+        .navbar-nav li a {
+            font-size: 1.1rem;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .navbar-nav li a:hover {
+            color: #21E6C1;
+        }
+
+        /* Hero Section */
+        .hero {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 80vh;
+            background-image: linear-gradient(to right, #0A1428, #0E1D35, #0A1428);
+            text-align: center;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            padding: 0 2rem;
+        }
+
+        .hero-title {
+            font-size: 4rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .hero-subtitle {
+            font-size: 1.8rem;
+            font-weight: 500;
+            margin-bottom: 2rem;
+        }
+
+        .hero-cta {
+            display: inline-block;
+            background-color: #21E6C1;
+            color: #0A1428;
+            font-size: 1.2rem;
+            font-weight: 600;
+            padding: 1rem 2rem;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .hero-cta:hover {
+            background-color: #1AB696;
+        }
+
+        /* Portfolio Section */
+        .portfolio {
+            padding: 4rem 2rem;
+        }
+
+        .portfolio-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-gap: 2rem;
+        }
+
+        .portfolio-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 5px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .portfolio-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .portfolio-item img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .portfolio-item-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(10, 20, 40, 0.8);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .portfolio-item:hover .portfolio-item-overlay {
+            opacity: 1;
+        }
+
+        .portfolio-item-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .portfolio-item-description {
+            font-size: 1.1rem;
+            font-weight: 500;
+        }
+
+        /* Blog Section */
+        .blog {
+            padding: 4rem 2rem;
+            background-color: #0E1D35;
+        }
+
+        .blog-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-gap: 2rem;
+        }
+
+        .blog-item {
+            background-color: #0A1428;
+            border-radius: 5px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            transition: transform 0.3s ease;
+        }
+
+        .blog-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .blog-item img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .blog-item-content {
+            padding: 1.5rem;
+        }
+
+        .blog-item-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .blog-item-excerpt {
+            font-size: 1.1rem;
+            font-weight: 500;
+            color: #ccc;
+            margin-bottom: 1.5rem;
+        }
+
+        .blog-item-link {
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 4rem 2rem;
+        }
+
+        .contact-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .contact-form {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .contact-form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-form-label {
+            font-size: 1.1rem;
+            font-weight: 600;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .contact-form-input,
+        .contact-form-textarea {
+            width: 100%;
+            padding: 1rem;
+            font-size: 1.1rem;
+            font-family: 'Montserrat', sans-serif;
+            border: none;
+            border-radius: 5px;
+            background-color: #0E1D35;
+            color: #fff;
+            transition: box-shadow 0.3s ease;
+        }
+
+        .contact-form-input:focus,
+        .contact-form-textarea:focus {
+            outline: none;
+            box-shadow: 0 0 5px rgba(33, 230, 193, 0.5);
+        }
+
+        .contact-form-textarea {
+            height: 150px;
+        }
+
+        .contact-form-submit {
+            display: block;
+            width: 100%;
+            background-color: #21E6C1;
+            color: #0A1428;
+            font-size: 1.2rem;
+            font-weight: 600;
+            padding: 1rem;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .contact-form-submit:hover {
+            background-color: #1AB696;
+        }
+
+        /* Footer */
+        .footer {
+            background-color: #0A1428;
+            padding: 2rem;
+            text-align: center;
+            font-size: 1.1rem;
+            color: #ccc;
+        }
+
+        .footer a {
+            color: #21E6C1;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 991px) {
+            .navbar {
+                padding: 1rem 1.5rem;
+            }
+
+            .navbar-brand {
+                font-size: 1.5rem;
+            }
+
+            .navbar-nav li {
+                margin-left: 1rem;
+            }
+
+            .navbar-nav li a {
+                font-size: 1rem;
+            }
+
+            .hero {
+                height: 60vh;
+            }
+
+            .hero-title {
+                font-size: 3rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1.5rem;
+            }
+
+            .portfolio-grid,
+            .blog-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 767px) {
+            .hero-title {
+                font-size: 2.5rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1.3rem;
+            }
+
+            .portfolio-grid,
+            .blog-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <a href="#" class="navbar-brand">Hacking Themes</a>
+            <ul class="navbar-nav">
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Portfolio</a></li>
+                <li><a href="#">Blog</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="hero-content">
+                <h1 class="hero-title">Welcome to Hacking Themes</h1>
+                <p class="hero-subtitle">Explore our collection of cutting-edge website designs for developers and hackers.</p>
+                <a href="#" class="hero-cta">View Portfolio</a>
+            </div>
+        </section>
+
+        <section class="portfolio">
+            <h2 class="portfolio-title">Our Portfolio</h2>
+            <div class="portfolio-grid">
+                <div class="portfolio-item">
+                    <img src="https://dummyimage.com/600x400/ccc/000&text=Project+1" alt="Project 1">
+                    <div class="portfolio-item-overlay">
+                        <h3 class="portfolio-item-title">Project 1</h3>
+                        <p class="portfolio-item-description">A stunning website design for a hacking-themed project.</p>
+                    </div>
+                </div>
+                <div class="portfolio-item">
+                    <img src="https://dummyimage.com/600x400/ccc/000&text=Project+2" alt="Project 2">
+                    <div class="portfolio-item-overlay">
+                        <h3 class="portfolio-item-title">Project 2</h3>
+                        <p class="portfolio-item-description">A sleek and modern developer portfolio design.</p>
+                    </div>
+                </div>
+                <div class="portfolio-item">
+                    <img src="https://dummyimage.com/600x400/ccc/000&text=Project+3" alt="Project 3">
+                    <div class="portfolio-item-overlay">
+                        <h3 class="portfolio-item-title">Project 3</h3>
+                        <p class="portfolio-item-description">A visually stunning website for a hacking-themed blog.</p>
+                    </div>
+                </div>
+                <div class="portfolio-item">
+                    <img src="https://dummyimage.com/600x400/ccc/000&text=Project+4" alt="Project 4">
+                    <div class="portfolio-item-overlay">
+                        <h3 class="portfolio-item-title">Project 4</h3>
+                        <p class="portfolio-item-description">A captivating design for a hacking-themed story website.</p>
+                    </div>
+                </div>
+                <div class="portfolio-item">
+                    <img src="https://dummyimage.com/600x400/ccc/000&text=Project+5" alt="Project 5">
+                    <div class="portfolio-item-overlay">
+                        <h3 class="portfolio-item-title">Project 5</h3>
+                        <p class="portfolio-item-description">A dynamic and interactive website for a hacking-themed project.</p>
+                    </div>
+                </div>
+                <div class="portfolio-item">
+                    <img src="https://dummyimage.com/600x400/ccc/000&text=Project+6" alt="Project 6">
+                    <div class="portfolio-item-overlay">
+                        <h3 class="portfolio-item-title">Project 6</h3>
+                        <p class="portfolio-item-description">A visually captivating design for a developer's portfolio.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="blog">
+            <h2 class="blog-title">Our Blog</h2>
+            <div class="blog-grid">
+                <div class="blog-item">
+                    <img src="https://dummyimage.com/600x400/ccc/000&text=Blog+Post+1" alt="Blog Post 1">
+                    <div class="blog-item-content">
+                        <h3 class="blog-item-title">Exploring the Latest Hacking Trends</h3>
+                        <p class="blog-item-excerpt">Dive into the world of hacking and discover the latest techniques and tools that are shaping the industry.</p>
+                        <a href="#" class="blog-item-link">Read More</a>
+                    </div>
+                </div>
+                <div class="blog-item">
+                    <img src="https://dummyimage.com/600x400/ccc/000&text=Blog+Post+2" alt="Blog Post 2">
+                    <div class="blog-item-content">
+                        <h3 class="blog-item-title">Mastering the Art of Developer Portfolios</h3>
+                        <p class="blog-item-excerpt">Learn how to create a stunning and impactful developer portfolio that showcases your skills and projects.</p>
+                        <a href="#" class="blog-item-link">Read More</a>
+                    </div>
+                </div>
+                <div class="blog-item">
+                    <img src="https://dummyimage.com/600x400/ccc/000&text=Blog+Post+3" alt="Blog Post 3">
+                    <div class="blog-item-content">
+                        <h3 class="blog-item-title">Unleashing the Power of Hacking Stories</h3>
+                        <p class="blog-item-excerpt">Explore captivating stories from the world of hacking and learn how they can inspire and educate others.</p>
+                        <a href="#" class="blog-item-link">Read More</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="contact">
+            <h2 class="contact-title">Get in Touch</h2>
+            <form class="contact-form"><div class="contact-form-group">
+                    <label for="name" class="contact-form-label">Name</label>
+                    <input type="text" id="name" name="name" class="contact-form-input" placeholder="Enter your name" required>
+                </div>
+                <div class="contact-form-group">
+                    <label for="email" class="contact-form-label">Email</label>
+                    <input type="email" id="email" name="email" class="contact-form-input" placeholder="Enter your email" required>
+                </div>
+                <div class="contact-form-group">
+                    <label for="message" class="contact-form-label">Message</label>
+                    <textarea id="message" name="message" class="contact-form-textarea" placeholder="Enter your message" required></textarea>
+                </div>
+                <button type="submit" class="contact-form-submit">Send Message</button>
+            </form>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <p>&copy; 2024 Hacking Themes. All rights reserved. | Design by <a href="#">Your Name</a></p>
+    </footer>
+</body>
+</html>'<!-- Visit: https://github.com/Ishanoshada/portflair -->
+<!-- Visit: https://github.com/Ishanoshada/portflair -->

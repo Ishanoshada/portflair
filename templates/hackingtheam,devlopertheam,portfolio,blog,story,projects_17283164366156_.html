@@ -1,0 +1,383 @@
+<!-- Portfolio created by Ishan -->
+<!-- Check out my work at: https://github.com/Ishanoshada/portflair -->
+<!-- 2024/10/9 -->
+<!-- Portfolio created by Ishan -->
+'<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hacking & Developer Portfolio</title>
+  <style>
+    /* Global Styles */
+    body {
+      font-family: 'Montserrat', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #0f0f0f;
+      color: #f0f0f0;
+    }
+
+    /* Navigation Bar */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: #1a1a1a;
+      padding: 1rem 2rem;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    nav a {
+      color: #f0f0f0;
+      text-decoration: none;
+      font-size: 1.1rem;
+      font-weight: 500;
+      transition: color 0.3s ease;
+    }
+
+    nav a:hover {
+      color: #00ff00;
+    }
+
+    /* Project Showcase Section */
+    .project-showcase {
+      padding: 4rem 2rem;
+    }
+
+    .project-showcase h2 {
+      font-size: 2.5rem;
+      margin-bottom: 2rem;
+      text-align: center;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: #00ff00;
+    }
+
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-gap: 2rem;
+    }
+
+    .project-item {
+      position: relative;
+      overflow: hidden;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      transition: transform 0.3s ease;
+    }
+
+    .project-item:hover {
+      transform: translateY(-10px);
+    }
+
+    .project-item img {
+      width: 100%;
+      height: 250px;
+      object-fit: cover;
+    }
+
+    .project-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.7);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .project-item:hover .project-overlay {
+      opacity: 1;
+    }
+
+    .project-overlay h3 {
+      font-size: 1.8rem;
+      margin-bottom: 0.5rem;
+      color: #00ff00;
+    }
+
+    .project-overlay p {
+      font-size: 1.2rem;
+      margin-bottom: 1rem;
+      text-align: center;
+    }
+
+    .project-overlay .tech-stack {
+      font-size: 1rem;
+      color: #ccc;
+    }
+
+    /* Blog Section */
+    .blog-section {
+      padding: 4rem 2rem;
+      background-color: #1a1a1a;
+    }
+
+    .blog-section h2 {
+      font-size: 2.5rem;
+      margin-bottom: 2rem;
+      text-align: center;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: #00ff00;
+    }
+
+    .blog-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      grid-gap: 2rem;
+    }
+
+    .blog-item {
+      display: flex;
+      flex-direction: column;
+      background-color: #0f0f0f;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      overflow: hidden;
+      transition: transform 0.3s ease;
+    }
+
+    .blog-item:hover {
+      transform: translateY(-10px);
+    }
+
+    .blog-item img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+
+    .blog-content {
+      padding: 1.5rem;
+    }
+
+    .blog-content h3 {
+      font-size: 1.8rem;
+      margin-bottom: 1rem;
+      color: #00ff00;
+    }
+
+    .blog-content p {
+      font-size: 1.1rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .blog-content a {
+      color: #00ff00;
+      text-decoration: none;
+      font-size: 1.1rem;
+      font-weight: 500;
+      transition: color 0.3s ease;
+    }
+
+    .blog-content a:hover {
+      color: #f0f0f0;
+    }
+
+    /* About Me Section */
+    .about-me {
+      padding: 4rem 2rem;
+    }
+
+    .about-me h2 {
+      font-size: 2.5rem;
+      margin-bottom: 2rem;
+      text-align: center;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: #00ff00;
+    }
+
+    .about-me-container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 3rem;
+    }
+
+    .about-me-image {
+      flex: 0 0 300px;
+      margin-right: 3rem;
+    }
+
+    .about-me-image img {
+      width: 100%;
+      height: auto;
+      border-radius: 50%;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    .about-me-content {
+      flex: 1;
+    }
+
+    .about-me-content h3 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      color: #00ff00;
+    }
+
+    .about-me-content p {
+      font-size: 1.2rem;
+      line-height: 1.6;
+      margin-bottom: 2rem;
+    }
+
+    .about-me-content .skills {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .about-me-content .skills span {
+      background-color: #1a1a1a;
+      color: #f0f0f0;
+      padding: 0.5rem 1rem;
+      border-radius: 20px;
+      font-size: 1rem;
+      margin: 0.5rem;
+    }
+
+    /* Responsive Styles */
+    @media (max-width: 768px) {
+      .project-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .blog-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .about-me-container {
+        flex-direction: column;
+      }
+
+      .about-me-image {
+        margin-right: 0;
+        margin-bottom: 2rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .project-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .blog-content h3 {
+        font-size: 1.5rem;
+      }
+
+      .about-me-content h3 {
+        font-size: 1.8rem;
+      }
+
+      .about-me-content p {
+        font-size: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="#">Home</a>
+    <a href="#">Projects</a>
+    <a href="#">Blog</a>
+    <a href="#">About</a>
+  </nav>
+
+  <section class="project-showcase">
+    <h2>Project Showcase</h2>
+    <div class="project-grid">
+      <div class="project-item">
+        <img src="https://dummyimage.com/600x400/ccc/000&text=Project+1" alt="Project 1">
+        <div class="project-overlay">
+          <h3>Project 1</h3>
+          <p>A cutting-edge cybersecurity application that leverages the latest hacking techniques.</p>
+          <div class="tech-stack">
+            <span>JavaScript</span>
+            <span>Python</span>
+            <span>Penetration Testing</span>
+          </div>
+        </div>
+      </div>
+      <div class="project-item">
+        <img src="https://dummyimage.com/600x400/ccc/000&text=Project+2" alt="Project 2">
+        <div class="project-overlay">
+          <h3>Project 2</h3>
+          <p>A robust software development platform for building secure and scalable applications.</p>
+          <div class="tech-stack">
+            <span>React</span>
+            <span>Node.js</span>
+            <span>Docker</span>
+          </div>
+        </div>
+      </div>
+      <div class="project-item">
+        <img src="https://dummyimage.com/600x400/ccc/000&text=Project+3" alt="Project 3">
+        <div class="project-overlay">
+          <h3>Project 3</h3>
+          <p>A cutting-edge machine learning model for identifying and mitigating cyber threats.</p>
+          <div class="tech-stack">
+            <span>Python</span>
+            <span>TensorFlow</span>
+            <span>Cybersecurity</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="blog-section">
+    <h2>Blog</h2>
+    <div class="blog-grid">
+      <div class="blog-item">
+        <img src="https://dummyimage.com/600x400/ccc/000&text=Blog+Post+1" alt="Blog Post 1">
+        <div class="blog-content">
+          <h3>Mastering the Art of Ethical Hacking</h3>
+          <p>Explore the latest techniques and best practices for ethical hacking and cybersecurity.</p>
+          <a href="#">Read More</a>
+        </div>
+      </div>
+      <div class="blog-item">
+        <img src="https://dummyimage.com/600x400/ccc/000&text=Blog+Post+2" alt="Blog Post 2">
+        <div class="blog-content">
+          <h3>Building Secure and Scalable Web Applications</h3>
+          <p>Learn how to create robust and secure web applications using the latest technologies.</p>
+          <a href="#">Read More</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="about-me">
+    <h2>About Me</h2>
+    <div class="about-me-container">
+      <div class="about-me-image">
+        <img src="https://dummyimage.com/300x300/ccc/000&text=Your+Photo" alt="Your Photo">
+      </div>
+      <div class="about-me-content">
+        <h3>John Doe</h3>
+        <p>As a seasoned hacking and software development expert, I have dedicated my career to pushing the boundaries of what's possible in the digital world. With a deep understanding of the latest tools, techniques, and best practices, I strive to create innovative solutions that not only push the limits of technology but also prioritize security and user experience.</p>
+        <div class="skills">
+          <span>Python</span>
+          <span>JavaScript</span>
+          <span>React</span>
+          <span>Node.js</span>
+          <span>Ethical Hacking</span>
+          <span>Cybersecurity</span>
+          <span>Machine Learning</span>
+        </div>
+      </div>
+    </div>
+  </section>
+</body>
+</html>'<!-- Visit: https://github.com/Ishanoshada/portflair -->
+<!-- Visit: https://github.com/Ishanoshada/portflair -->

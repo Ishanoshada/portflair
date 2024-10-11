@@ -1,0 +1,395 @@
+<!-- Portfolio created by Ishan -->
+<!-- Check out my work at: https://github.com/Ishanoshada/portflair -->
+<!-- 2024/10/9 -->
+<!-- Portfolio created by Ishan -->
+'<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Black Hole Portfolio</title>
+  <style>
+    /* Global Styles */
+    @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
+
+    body {
+      font-family: 'Orbitron', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #0d0d0d;
+      color: #fff;
+      overflow-x: hidden;
+    }
+
+    /* Navigation Bar */
+    nav {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: rgba(13, 13, 13, 0.8);
+      padding: 1rem 0;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      margin: 0 1.5rem;
+      font-size: 1.1rem;
+      position: relative;
+      transition: color 0.3s ease-in-out;
+    }
+
+    nav a:after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 2px;
+      background-color: #8b00ff;
+      left: 50%;
+      transform: translateX(-50%);
+      bottom: -5px;
+      transition: width 0.3s ease-in-out;
+    }
+
+    nav a:hover {
+      color: #8b00ff;
+    }
+
+    nav a:hover:after {
+      width: 100%;
+    }
+
+    /* Project Galaxy Section */
+    #project-galaxy {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      background: radial-gradient(ellipse at center, #0d0d0d 0%, #000000 100%);
+      overflow: hidden;
+      position: relative;
+    }
+
+    #project-galaxy::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url(https://dummyimage.com/1200x500/8b00ff/ffffff.png&text=Black+Hole) no-repeat center center;
+      background-size: cover;
+      opacity: 0.1;
+      z-index: -1;
+    }
+
+    .project-planet {
+      position: absolute;
+      width: 150px;
+      height: 150px;
+      background-color: #8b00ff;
+      border-radius: 50%;
+      box-shadow: 0 0 20px rgba(139, 0, 255, 0.8);
+      animation: orbit 20s linear infinite;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+      transition: transform 0.3s ease-in-out;
+    }
+
+    .project-planet:hover {
+      transform: scale(1.2);
+    }
+
+    .project-planet::before {
+      content: '';
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      background: radial-gradient(circle, #8b00ff 0%, #5500a8 100%);
+      animation: glitch 2s infinite linear;
+    }
+
+    .project-info {
+      text-align: center;
+      color: #fff;
+      text-shadow: 0 0 10px rgba(139, 0, 255, 0.8);
+      font-size: 1.2rem;
+    }
+
+    /* Skill Nebula Section */
+    #skill-nebula {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      background: radial-gradient(ellipse at center, #0d0d0d 0%, #000000 100%);
+      overflow: hidden;
+      position: relative;
+    }
+
+    #skill-nebula::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url(https://dummyimage.com/1200x500/ff8b00/ffffff.png&text=Skill+Nebula) no-repeat center center;
+      background-size: cover;
+      opacity: 0.1;
+      z-index: -1;
+    }
+
+    .skill-sphere {
+      position: absolute;
+      width: 100px;
+      height: 100px;
+      background-color: #ff8b00;
+      border-radius: 50%;
+      box-shadow: 0 0 20px rgba(255, 139, 0, 0.8);
+      animation: float 10s linear infinite;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+      transition: transform 0.3s ease-in-out;
+    }
+
+    .skill-sphere:hover {
+      transform: scale(1.2);
+    }
+
+    .skill-sphere::before {
+      content: '';
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      background: radial-gradient(circle, #ff8b00 0%, #a85500 100%);
+      animation: glow 2s infinite linear;
+    }
+
+    .skill-info {
+      text-align: center;
+      color: #fff;
+      text-shadow: 0 0 10px rgba(255, 139, 0, 0.8);
+      font-size: 1.2rem;
+    }
+
+    /* Contact Form Section */
+    #contact-form {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      background: radial-gradient(ellipse at center, #0d0d0d 0%, #000000 100%);
+      overflow: hidden;
+      position: relative;
+    }
+
+    #contact-form::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url(https://dummyimage.com/1200x500/00ff8b/ffffff.png&text=Neon+Contact+Form) no-repeat center center;
+      background-size: cover;
+      opacity: 0.1;
+      z-index: -1;
+    }
+
+    .contact-form {
+      background-color: rgba(13, 13, 13, 0.8);
+      padding: 2rem;
+      border-radius: 10px;
+      box-shadow: 0 0 20px rgba(0, 255, 139, 0.8);
+      width: 400px;
+      max-width: 90%;
+    }
+
+    .contact-form h2 {
+      text-align: center;
+      color: #00ff8b;
+      text-shadow: 0 0 10px rgba(0, 255, 139, 0.8);
+      margin-bottom: 1.5rem;
+    }
+
+    .contact-form .form-group {
+      margin-bottom: 1.5rem;
+    }
+
+    .contact-form label {
+      display: block;
+      color: #00ff8b;
+      font-size: 1.1rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+      width: 100%;
+      padding: 0.8rem;
+      font-size: 1rem;
+      background-color: #0d0d0d;
+      border: 1px solid #00ff8b;
+      border-radius: 5px;
+      color: #fff;
+      transition: border-color 0.3s ease-in-out;
+    }
+
+    .contact-form input:focus,
+    .contact-form textarea:focus {
+      outline: none;
+      border-color: #8b00ff;
+    }
+
+    .contact-form button {
+      display: block;
+      width: 100%;
+      padding: 0.8rem;
+      font-size: 1.1rem;
+      background-color: #00ff8b;
+      color: #0d0d0d;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease-in-out;
+    }
+
+    .contact-form button:hover {
+      background-color: #00cc8b;
+    }
+
+    /* Animations */
+    @keyframes orbit {
+      0% {
+        transform: translate(-50%, -50%) rotate(0deg);
+      }
+      100% {
+        transform: translate(-50%, -50%) rotate(360deg);
+      }
+    }
+
+    @keyframes glitch {
+      0% {
+        background: radial-gradient(circle, #8b00ff 0%, #5500a8 100%);
+      }
+      50% {
+        background: radial-gradient(circle, #5500a8 0%, #8b00ff 100%);
+      }
+      100% {
+        background: radial-gradient(circle, #8b00ff 0%, #5500a8 100%);
+      }
+    }
+
+    @keyframes float {
+      0% {
+        transform: translate(-50%, -50%) rotate(0deg);
+      }
+      100% {
+        transform: translate(-50%, -50%) rotate(360deg);
+      }
+    }
+
+    @keyframes glow {
+      0% {
+        background: radial-gradient(circle, #ff8b00 0%, #a85500 100%);
+      }
+      50% {
+        background: radial-gradient(circle, #a85500 0%, #ff8b00 100%);
+      }
+      100% {
+        background: radial-gradient(circle, #ff8b00 0%, #a85500 100%);
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="#project-galaxy">Projects</a>
+    <a href="#skill-nebula">Skills</a>
+    <a href="#contact-form">Contact</a>
+  </nav>
+
+  <section id="project-galaxy">
+    <div class="project-planet" style="left: 20%; top: 30%;">
+      <div class="project-info">
+        <h3>Project 1</h3>
+        <p>Description of Project 1</p>
+        <a href="#">View Project</a>
+      </div>
+    </div>
+    <div class="project-planet" style="left: 50%; top: 20%;">
+      <div class="project-info">
+        <h3>Project 2</h3>
+        <p>Description of Project 2</p>
+        <a href="#">View Project</a>
+      </div>
+    </div>
+    <div class="project-planet" style="left: 80%; top: 40%;">
+      <div class="project-info">
+        <h3>Project 3</h3>
+        <p>Description of Project 3</p>
+        <a href="#">View Project</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="skill-nebula">
+    <div class="skill-sphere" style="left: 30%; top: 25%;">
+      <div class="skill-info">
+        <h3>JavaScript</h3>
+        <p>Proficiency: Advanced</p>
+        <p>Experience: 5 years</p>
+      </div>
+    </div>
+    <div class="skill-sphere" style="left: 60%; top: 35%;">
+      <div class="skill-info">
+        <h3>Node.js</h3>
+        <p>Proficiency: Intermediate</p>
+        <p>Experience: 3 years</p>
+      </div>
+    </div>
+    <div class="skill-sphere" style="left: 80%; top: 20%;">
+      <div class="skill-info">
+        <h3>MongoDB</h3>
+        <p>Proficiency: Expert</p>
+        <p>Experience: 4 years</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact-form">
+    <div class="contact-form">
+      <h2>Get in Touch</h2>
+      <form>
+        <div class="form-group">
+          <label for="name">Name:</label>
+          <input type="text" id="name" name="name" required>
+        </div>
+        <div class="form-group">
+          <label for="email">Email:</label>
+          <input type="email" id="email" name="email" required>
+        </div>
+        <div class="form-group">
+          <label for="message">Message:</label>
+          <textarea id="message" name="message" rows="5" required></textarea>
+        </div>
+        <button type="submit">Submit</button>
+      </form>
+    </div>
+  </section>
+</body>
+</html>'<!-- Visit: https://github.com/Ishanoshada/portflair -->
+<!-- Visit: https://github.com/Ishanoshada/portflair -->

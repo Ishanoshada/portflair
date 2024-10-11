@@ -1,0 +1,424 @@
+<!-- Portfolio created by Ishan -->
+<!-- Check out my work at: https://github.com/Ishanoshada/portflair -->
+<!-- 2024/10/9 -->
+<!-- Portfolio created by Ishan -->
+'<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Design Masterpiece</title>
+    <style>
+        /* Global Styles */
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #0f0f0f;
+            color: #ffffff;
+            overflow-x: hidden;
+        }
+
+        /* Navigation */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 40px;
+            background-color: rgba(15, 15, 15, 0.8);
+            backdrop-filter: blur(10px);
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+        }
+
+        nav a {
+            color: #ffffff;
+            text-decoration: none;
+            font-size: 18px;
+            font-weight: bold;
+            margin: 0 20px;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: #9b59b6;
+        }
+
+        /* Portfolio Section */
+        #portfolio {
+            padding-top: 100px;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .portfolio-container {
+            width: 80%;
+            height: 80%;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-gap: 40px;
+            perspective: 1000px;
+        }
+
+        .project-cube {
+            position: relative;
+            transform-style: preserve-3d;
+            transition: transform 0.5s ease;
+        }
+
+        .project-cube:hover {
+            transform: rotateY(180deg);
+        }
+
+        .project-cube .front,
+        .project-cube .back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            box-sizing: border-box;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .project-cube .front {
+            background-color: #9b59b6;
+            z-index: 2;
+        }
+
+        .project-cube .back {
+            background-color: #8e44ad;
+            transform: rotateY(180deg);
+            z-index: 1;
+        }
+
+        .project-cube h3 {
+            margin-top: 0;
+            font-size: 24px;
+        }
+
+        .project-cube p {
+            font-size: 16px;
+            text-align: center;
+        }
+
+        .floating-shape {
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            animation: float 10s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translate(0, 0);
+            }
+            50% {
+                transform: translate(50%, 50%);
+            }
+            100% {
+                transform: translate(0, 0);
+            }
+        }
+
+        /* Skills Section */
+        #skills {
+            padding: 100px 40px;
+            background-color: #1c1c1c;
+        }
+
+        .skills-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .skill-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 40px;
+        }
+
+        .skill-item .brushstroke {
+            width: 200px;
+            height: 100px;
+            background-image: url('https://dummyimage.com/200x100/ccc/000&text=Brushstroke');
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+            animation: brushstroke 2s ease-in-out infinite;
+        }
+
+        .skill-item h4 {
+            font-size: 20px;
+            margin-left: 20px;
+        }
+
+        @keyframes brushstroke {
+            0% {
+                transform: translateX(-10%);
+            }
+            50% {
+                transform: translateX(10%);
+            }
+            100% {
+                transform: translateX(-10%);
+            }
+        }
+
+        /* Contact Section */
+        #contact {
+            padding: 100px 40px;
+            background-image: url('https://dummyimage.com/1920x1080/0f0f0f/fff&text=Abstract+Background');
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+
+        .contact-container {
+            width: 50%;
+            margin: 0 auto;
+            background-color: rgba(15, 15, 15, 0.8);
+            backdrop-filter: blur(10px);
+            border-radius: 10px;
+            padding: 40px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            margin-bottom: 20px;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            background-color: rgba(255, 255, 255, 0.1);
+            color: #ffffff;
+            font-size: 16px;
+            transition: all 0.3s ease;
+        }
+
+        .contact-form input:focus,
+        .contact-form textarea:focus {
+            outline: none;
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .contact-form button {
+            background-color: #9b59b6;
+            color: #ffffff;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .contact-form button:hover {
+            background-color: #8e44ad;
+        }
+
+        .abstract-shape {
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            animation: shape-shift 10s ease-in-out infinite;
+        }
+
+        .abstract-shape:nth-child(1) {
+            top: 20%;
+            left: 10%;
+        }
+
+        .abstract-shape:nth-child(2) {
+            bottom: 10%;
+            right: 15%;
+        }
+
+        @keyframes shape-shift {
+            0% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.2);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            nav {
+                padding: 10px 20px;
+            }
+
+            nav a {
+                font-size: 16px;
+                margin: 0 10px;
+            }
+
+            .portfolio-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .skill-item .brushstroke {
+                width: 150px;
+                height: 75px;
+            }
+
+            .skill-item h4 {
+                font-size: 18px;
+            }
+
+            .contact-container {
+                width: 90%;
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="#">Home</a>
+        <a href="#">Portfolio</a>
+        <a href="#">Skills</a>
+        <a href="#">Contact</a>
+    </nav>
+
+    <section id="portfolio">
+        <div class="portfolio-container">
+            <div class="project-cube">
+                <div class="front">
+                    <h3>Project 1</h3>
+                    <p>Client: ABC Company</p>
+                    <p>Services: Web Design, Development</p>
+                </div>
+                <div class="back">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ut risus in augue luctus venenatis.</p>
+                </div>
+            </div>
+            <div class="project-cube">
+                <div class="front">
+                    <h3>Project 2</h3>
+                    <p>Client: XYZ Inc.</p>
+                    <p>Services: Branding, UI/UX Design</p>
+                </div>
+                <div class="back">
+                    <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.</p>
+                </div>
+            </div>
+            <div class="project-cube">
+                <div class="front">
+                    <h3>Project 3</h3>
+                    <p>Client: PQR Solutions</p>
+                    <p>Services: Motion Graphics, Animation</p>
+                </div>
+                <div class="back">
+                    <p>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur.</p>
+                </div>
+            </div>
+            <div class="project-cube">
+                <div class="front">
+                    <h3>Project 4</h3>
+                    <p>Client: LMN Studios</p>
+                    <p>Services: Illustration, Graphic Design</p>
+                </div>
+                <div class="back">
+                    <p>Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam.</p>
+                </div>
+            </div>
+            <div class="project-cube">
+                <div class="front">
+                    <h3>Project 5</h3>
+                    <p>Client: OPQ Agency</p>
+                    <p>Services: Photography, Retouching</p>
+                </div>
+                <div class="back">
+                    <p>Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit.</p>
+                </div>
+            </div>
+            <div class="project-cube">
+                <div class="front">
+                    <h3>Project 6</h3>
+                    <p>Client: STU Creative</p>
+                    <p>Services: 3D Modeling, Rendering</p>
+                </div>
+                <div class="back">
+                    <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.</p>
+                </div>
+            </div>
+        </div>
+        <div class="floating-shape"></div>
+        <div class="floating-shape"></div>
+        <div class="floating-shape"></div>
+    </section>
+
+    <section id="skills">
+        <div class="skills-container">
+            <div class="skill-item">
+                <div class="brushstroke"></div>
+                <h4>Web Design</h4>
+            </div>
+            <div class="skill-item">
+                <div class="brushstroke"></div>
+                <h4>UI/UX Design</h4>
+            </div>
+            <div class="skill-item">
+                <div class="brushstroke"></div>
+                <h4>Graphic Design</h4>
+            </div>
+            <div class="skill-item">
+                <div class="brushstroke"></div>
+                <h4>Motion Graphics</h4>
+            </div>
+            <div class="skill-item">
+                <div class="brushstroke"></div>
+                <h4>3D Modeling</h4>
+            </div>
+            <div class="skill-item">
+                <div class="brushstroke"></div>
+                <h4>Photography</h4>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <div class="contact-container">
+            <form class="contact-form">
+                <input type="text" placeholder="Name" required>
+                <input type="email" placeholder="Email" required>
+                <textarea placeholder="Message" rows="5" required></textarea>
+                <button type="submit">Submit</button>
+            </form>
+        </div>
+        <div class="abstract-shape"></div>
+        <div class="abstract-shape"></div>
+    </section>
+</body>
+</html>'<!-- Visit: https://github.com/Ishanoshada/portflair -->
+<!-- Visit: https://github.com/Ishanoshada/portflair -->

@@ -1,0 +1,333 @@
+<!-- Portfolio created by Ishan -->
+<!-- Check out my work at: https://github.com/Ishanoshada/portflair -->
+<!-- 2024/10/9 -->
+<!-- Portfolio created by Ishan -->
+'<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Design a Portfolio</title>
+  <style>
+    /* General Styles */
+    body {
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(to bottom, #7b1fa2, #000000);
+      color: #ffffff;
+    }
+
+    /* Navigation */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 40px;
+      background-color: rgba(0, 0, 0, 0.3);
+      backdrop-filter: blur(10px);
+    }
+
+    nav a {
+      color: #ffffff;
+      text-decoration: none;
+      font-size: 18px;
+      font-weight: 500;
+      padding: 10px 20px;
+      border-radius: 30px;
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+    nav a:hover {
+      background-color: rgba(255, 255, 255, 0.2);
+      color: #ffffff;
+    }
+
+    /* Hero Section */
+    .hero {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 80vh;
+      background: linear-gradient(to bottom, #7b1fa2, #000000);
+      overflow: hidden;
+    }
+
+    .hero-content {
+      text-align: center;
+      animation: fadeIn 1s ease-in-out;
+    }
+
+    .hero-content h1 {
+      font-size: 48px;
+      font-weight: 700;
+      margin-bottom: 20px;
+      text-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+    }
+
+    .hero-content p {
+      font-size: 24px;
+      margin-bottom: 40px;
+      text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+    }
+
+    .hero-content a {
+      display: inline-block;
+      background-color: #9b59b6;
+      color: #ffffff;
+      font-size: 18px;
+      font-weight: 500;
+      padding: 15px 30px;
+      border-radius: 30px;
+      text-decoration: none;
+      box-shadow: 0 0 20px rgba(155, 89, 182, 0.5);
+      transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .hero-content a:hover {
+      background-color: #8e44ad;
+      box-shadow: 0 0 30px rgba(155, 89, 182, 0.7);
+    }
+
+    /* Featured Projects Section */
+    .featured-projects {
+      padding: 80px 40px;
+      background: linear-gradient(to bottom, #000000, #1a1a1a);
+    }
+
+    .featured-projects h2 {
+      font-size: 36px;
+      font-weight: 700;
+      text-align: center;
+      margin-bottom: 40px;
+      text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+    }
+
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-gap: 40px;
+      animation: fadeIn 1s ease-in-out;
+    }
+
+    .project-item {
+      position: relative;
+      overflow: hidden;
+      border-radius: 10px;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+      transition: transform 0.3s ease;
+    }
+
+    .project-item:hover {
+      transform: scale(1.05);
+    }
+
+    .project-item img {
+      width: 100%;
+      height: 300px;
+      object-fit: cover;
+      filter: brightness(0.8);
+      transition: filter 0.3s ease;
+    }
+
+    .project-item:hover img {
+      filter: brightness(1);
+    }
+
+    .project-item .overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .project-item:hover .overlay {
+      opacity: 1;
+    }
+
+    .project-item .overlay h3 {
+      font-size: 24px;
+      font-weight: 600;
+      margin-bottom: 10px;
+      text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+    }
+
+    .project-item .overlay p {
+      font-size: 16px;
+      text-shadow: 0 0 5px rgba(255, 255, 255, 0.3);
+    }
+
+    /* About/Contact Section */
+    .about-contact {
+      padding: 80px 40px;
+      background: linear-gradient(to bottom, #1a1a1a, #000000);
+    }
+
+    .about-contact h2 {
+      font-size: 36px;
+      font-weight: 700;
+      text-align: center;
+      margin-bottom: 40px;
+      text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+    }
+
+    .about-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 60px;
+      animation: fadeIn 1s ease-in-out;
+    }
+
+    .about-content .about-text {
+      flex: 1;
+      margin-right: 40px;
+    }
+
+    .about-content .about-text h3 {
+      font-size: 24px;
+      font-weight: 600;
+      margin-bottom: 20px;
+      text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+    }
+
+    .about-content .about-text p {
+      font-size: 16px;
+      line-height: 1.6;
+      text-shadow: 0 0 5px rgba(255, 255, 255, 0.2);
+    }
+
+    .contact-form {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      animation: fadeIn 1s ease-in-out;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+      width: 100%;
+      max-width: 500px;
+      padding: 15px 20px;
+      margin-bottom: 20px;
+      background-color: rgba(255, 255, 255, 0.1);
+      border: none;
+      border-radius: 30px;
+      color: #ffffff;
+      font-size: 16px;
+      font-family: 'Poppins', sans-serif;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+      transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .contact-form input:focus,
+    .contact-form textarea:focus {
+      background-color: rgba(255, 255, 255, 0.2);
+      box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+      outline: none;
+    }
+
+    .contact-form button {
+      display: inline-block;
+      background-color: #9b59b6;
+      color: #ffffff;
+      font-size: 18px;
+      font-weight: 500;
+      padding: 15px 30px;
+      border: none;
+      border-radius: 30px;
+      text-decoration: none;
+      box-shadow: 0 0 20px rgba(155, 89, 182, 0.5);
+      transition: background-color 0.3s ease, box-shadow 0.3s ease;
+      cursor: pointer;
+    }
+
+    .contact-form button:hover {
+      background-color: #8e44ad;
+      box-shadow: 0 0 30px rgba(155, 89, 182, 0.7);
+    }
+
+    /* Animations */
+    @keyframes fadeIn {
+      0% {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="#">Home</a>
+    <a href="#">Portfolio</a>
+    <a href="#">About</a>
+    <a href="#">Contact</a>
+  </nav>
+
+  <div class="hero">
+    <div class="hero-content">
+      <h1>Design a Portfolio</h1>
+      <p>Showcasing your work with smooth, dark gradients and a dreamy nighttime effect.</p>
+      <a href="#">Explore My Portfolio</a>
+    </div>
+  </div>
+
+  <div class="featured-projects">
+    <h2>Featured Projects</h2>
+    <div class="project-grid">
+      <div class="project-item">
+        <img src="https://dummyimage.com/600x400/000/fff&text=Project+1" alt="Project 1">
+        <div class="overlay">
+          <h3>Project 1</h3>
+          <p>A dreamy, night-inspired design.</p>
+        </div>
+      </div>
+      <div class="project-item">
+        <img src="https://dummyimage.com/600x400/000/fff&text=Project+2" alt="Project 2">
+        <div class="overlay">
+          <h3>Project 2</h3>
+          <p>Smooth gradients and glowing edges.</p>
+        </div>
+      </div>
+      <div class="project-item">
+        <img src="https://dummyimage.com/600x400/000/fff&text=Project+3" alt="Project 3">
+        <div class="overlay">
+          <h3>Project 3</h3>
+          <p>A captivating, dreamlike portfolio.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="about-contact">
+    <h2>About & Contact</h2>
+    <div class="about-content">
+      <div class="about-text">
+        <h3>About the Designer</h3>
+        <p>I'm a passionate designer who specializes in creating visually stunning portfolios with a dreamy, nighttime aesthetic. My work is inspired by the beauty of smooth, dark gradients and soft, glowing edges that evoke a sense of wonder and imagination.</p>
+      </div>
+      <img src="https://dummyimage.com/300x300/000/fff&text=Designer+Photo" alt="Designer Photo" style="border-radius: 50%; box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);">
+    </div>
+    <div class="contact-form">
+      <input type="text" placeholder="Name" required>
+      <input type="email" placeholder="Email" required>
+      <textarea placeholder="Message" rows="5" required></textarea>
+      <button type="submit">Send Message</button>
+    </div>
+  </div>
+</body>
+</html>'<!-- Visit: https://github.com/Ishanoshada/portflair -->
+<!-- Visit: https://github.com/Ishanoshada/portflair -->

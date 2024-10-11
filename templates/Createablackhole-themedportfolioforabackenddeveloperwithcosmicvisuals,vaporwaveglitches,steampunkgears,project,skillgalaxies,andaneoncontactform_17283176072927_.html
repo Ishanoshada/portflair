@@ -1,0 +1,507 @@
+<!-- Portfolio created by Ishan -->
+<!-- Check out my work at: https://github.com/Ishanoshada/portflair -->
+<!-- 2024/10/9 -->
+<!-- Portfolio created by Ishan -->
+'<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Black Hole Portfolio</title>
+  <style>
+    /* Global Styles */
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Orbitron', sans-serif;
+      background: radial-gradient(ellipse at center, #0c0c0c 0%, #000000 100%);
+      color: #fff;
+      overflow-x: hidden;
+    }
+
+    /* Navbar Styles */
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.5rem 2rem;
+      background-color: rgba(0, 0, 0, 0.5);
+      backdrop-filter: blur(10px);
+      position: relative;
+      z-index: 100;
+    }
+
+    .navbar-logo {
+      font-size: 2rem;
+      font-weight: bold;
+      text-shadow: 0 0 20px #00ffff, 0 0 30px #00ffff, 0 0 40px #00ffff;
+      animation: glow 2s ease-in-out infinite;
+    }
+
+    .navbar-menu {
+      display: flex;
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .navbar-menu li {
+      margin-left: 2rem;
+    }
+
+    .navbar-menu li a {
+      color: #fff;
+      text-decoration: none;
+      font-size: 1.1rem;
+      transition: color 0.3s ease;
+    }
+
+    .navbar-menu li a:hover {
+      color: #00ffff;
+      text-shadow: 0 0 10px #00ffff;
+    }
+
+    /* Project Galaxy Styles */
+    .project-galaxy {
+      padding: 4rem 2rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .project-galaxy::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(ellipse at center, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0.2) 70%, rgba(0, 0, 0, 0) 100%);
+      z-index: -1;
+    }
+
+    .project-galaxy-title {
+      font-size: 3rem;
+      font-weight: bold;
+      text-shadow: 0 0 20px #00ffff, 0 0 30px #00ffff, 0 0 40px #00ffff;
+      animation: glow 2s ease-in-out infinite;
+      margin-bottom: 2rem;
+    }
+
+    .project-planets {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      grid-gap: 2rem;
+      width: 100%;
+      max-width: 1200px;
+    }
+
+    .project-planet {
+      background: radial-gradient(circle at center, #1b1b1b, #0c0c0c);
+      border-radius: 50%;
+      box-shadow: 0 0 20px rgba(0, 255, 255, 0.5), 0 0 40px rgba(0, 255, 255, 0.3), 0 0 80px rgba(0, 255, 255, 0.1);
+      position: relative;
+      overflow: hidden;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+
+    .project-planet:hover {
+      transform: scale(1.1);
+    }
+
+    .project-planet::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(circle at center, rgba(0, 255, 255, 0.2), rgba(0, 0, 0, 0));
+      filter: blur(50px);
+      animation: pulse 3s ease-in-out infinite;
+    }
+
+    .project-planet-details {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .project-planet:hover .project-planet-details {
+      opacity: 1;
+    }
+
+    .project-planet-details h3 {
+      font-size: 1.5rem;
+      margin-bottom: 0.5rem;
+      text-shadow: 0 0 10px #00ffff;
+    }
+
+    .project-planet-details p {
+      font-size: 1rem;
+      margin-bottom: 1rem;
+    }
+
+    .project-planet-details a {
+      color: #00ffff;
+      text-decoration: none;
+      font-size: 1.1rem;
+      text-shadow: 0 0 10px #00ffff;
+      transition: text-shadow 0.3s ease;
+    }
+
+    .project-planet-details a:hover {
+      text-shadow: 0 0 20px #00ffff;
+    }
+
+    /* Skill Nebula Styles */
+    .skill-nebula {
+      padding: 4rem 2rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .skill-nebula::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(ellipse at center, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0.2) 70%, rgba(0, 0, 0, 0) 100%);
+      z-index: -1;
+    }
+
+    .skill-nebula-title {
+      font-size: 3rem;
+      font-weight: bold;
+      text-shadow: 0 0 20px #00ffff, 0 0 30px #00ffff, 0 0 40px #00ffff;
+      animation: glow 2s ease-in-out infinite;
+      margin-bottom: 2rem;
+    }
+
+    .skill-clouds {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      width: 100%;
+      max-width: 1200px;
+    }
+
+    .skill-cloud {
+      background: radial-gradient(circle at center, #1b1b1b, #0c0c0c);
+      border-radius: 50%;
+      box-shadow: 0 0 20px rgba(0, 255, 255, 0.5), 0 0 40px rgba(0, 255, 255, 0.3), 0 0 80px rgba(0, 255, 255, 0.1);
+      position: relative;
+      overflow: hidden;
+      width: 150px;
+      height: 150px;
+      margin: 1rem;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+
+    .skill-cloud:hover {
+      transform: scale(1.1);
+    }
+
+    .skill-cloud::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(circle at center, rgba(0, 255, 255, 0.2), rgba(0, 0, 0, 0));
+      filter: blur(50px);
+      animation: pulse 3s ease-in-out infinite;
+    }
+
+    .skill-cloud-details {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .skill-cloud:hover .skill-cloud-details {
+      opacity: 1;
+    }
+
+    .skill-cloud-details h3 {
+      font-size: 1.2rem;
+      margin-bottom: 0.5rem;
+      text-shadow: 0 0 10px #00ffff;
+    }
+
+    .skill-cloud-details p {
+      font-size: 0.9rem;
+      margin-bottom: 0.5rem;
+    }
+
+    /* Contact Form Styles */
+    .contact-form {
+      padding: 4rem 2rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .contact-form::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(ellipse at center, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0.2) 70%, rgba(0, 0, 0, 0) 100%);
+      z-index: -1;
+    }
+
+    .contact-form-title {
+      font-size: 3rem;
+      font-weight: bold;
+      text-shadow: 0 0 20px #00ffff, 0 0 30px #00ffff, 0 0 40px #00ffff;
+      animation: glow 2s ease-in-out infinite;
+      margin-bottom: 2rem;
+    }
+
+    .contact-form-container {
+      background-color: rgba(0, 0, 0, 0.7);
+      backdrop-filter: blur(10px);
+      padding: 2rem;
+      border-radius: 10px;
+      box-shadow: 0 0 20px rgba(0, 255, 255, 0.5), 0 0 40px rgba(0, 255, 255, 0.3), 0 0 80px rgba(0, 255, 255, 0.1);
+      width: 100%;
+      max-width: 600px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .contact-form-container::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(circle at center, rgba(0, 255, 255, 0.1), rgba(0, 0, 0, 0));
+      filter: blur(50px);
+      animation: pulse 3s ease-in-out infinite;
+    }
+
+    .contact-form-container form {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .contact-form-container input,
+    .contact-form-container textarea {
+      width: 100%;
+      padding: 1rem;
+      margin-bottom: 1.5rem;
+      background-color: rgba(0, 0, 0, 0.5);
+      border: 2px solid #00ffff;
+      border-radius: 5px;
+      color: #fff;
+      font-size: 1.1rem;
+      font-family: 'Orbitron', sans-serif;
+      transition: border-color 0.3s ease;
+    }
+
+    .contact-form-container input:focus,
+    .contact-form-container textarea:focus {
+      outline: none;
+      border-color: #00ffff;
+      box-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+    }
+
+    .contact-form-container button {
+      padding: 1rem 2rem;
+      background-color: #00ffff;
+      border: none;
+      border-radius: 5px;
+      color: #000;
+      font-size: 1.2rem;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .contact-form-container button:hover {
+      background-color: #00d9d9;
+    }
+
+    /* Animations */
+    @keyframes glow {
+      0% {
+        text-shadow: 0 0 20px #00ffff, 0 0 30px #00ffff, 0 0 40px #00ffff;
+      }
+      50% {
+        text-shadow: 0 0 30px #00ffff, 0 0 40px #00ffff, 0 0 50px #00ffff;
+      }
+      100% {
+        text-shadow: 0 0 20px #00ffff, 0 0 30px #00ffff, 0 0 40px #00ffff;
+      }
+    }
+
+    @keyframes pulse {
+      0% {
+        transform: scale(1);
+        opacity: 0.5;
+      }
+      50% {
+        transform: scale(1.2);
+        opacity: 1;
+      }
+      100% {
+        transform: scale(1);
+        opacity: 0.5;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav class="navbar">
+      <div class="navbar-logo">Cosmic Portfolio</div>
+      <ul class="navbar-menu">
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Projects</a></li>
+        <li><a href="#">Skills</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <!-- Project Galaxy Section -->
+    <section class="project-galaxy">
+      <h2 class="project-galaxy-title">Project Galaxy</h2>
+      <div class="project-planets">
+        <div class="project-planet">
+          <div class="project-planet-details">
+            <h3>Project 1</h3>
+            <p>A cosmic web application</p>
+            <a href="#">View Project</a>
+          </div>
+        </div>
+        <div class="project-planet">
+          <div class="project-planet-details">
+            <h3>Project 2</h3>
+            <p>A stellar backend system</p>
+            <a href="#">View Project</a>
+          </div>
+        </div>
+        <div class="project-planet">
+          <div class="project-planet-details">
+            <h3>Project 3</h3>
+            <p>A galactic API</p>
+            <a href="#">View Project</a>
+          </div>
+        </div>
+        <div class="project-planet">
+          <div class="project-planet-details">
+            <h3>Project 4</h3>
+            <p>A nebula-inspired microservice</p>
+            <a href="#">View Project</a>
+          </div>
+        </div>
+        <div class="project-planet">
+          <div class="project-planet-details">
+            <h3>Project 5</h3>
+            <p>A cosmic data processing pipeline</p>
+            <a href="#">View Project</a>
+          </div>
+        </div>
+        <div class="project-planet">
+          <div class="project-planet-details">
+            <h3>Project 6</h3>
+            <p>A black hole-themed backend solution</p>
+            <a href="#">View Project</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Skill Nebula Section -->
+    <section class="skill-nebula">
+      <h2 class="skill-nebula-title">Skill Nebula</h2>
+      <div class="skill-clouds">
+        <div class="skill-cloud">
+          <div class="skill-cloud-details">
+            <h3>Python</h3>
+            <p>Expert level</p>
+            <p>5+ years experience</p>
+          </div>
+        </div>
+        <div class="skill-cloud">
+          <div class="skill-cloud-details">
+            <h3>Django</h3>
+            <p>Proficient</p>
+            <p>4+ years experience</p>
+          </div>
+        </div>
+        <div class="skill-cloud">
+          <div class="skill-cloud-details">
+            <h3>SQL</h3>
+            <p>Advanced</p>
+            <p>6+ years experience</p>
+          </div>
+        </div>
+        <div class="skill-cloud">
+          <div class="skill-cloud-details">
+            <h3>Docker</h3>
+            <p>Intermediate</p>
+            <p>3+ years experience</p>
+          </div>
+        </div>
+        <div class="skill-cloud">
+          <div class="skill-cloud-details">
+            <h3>Kubernetes</h3>
+            <p>Intermediate</p>
+            <p>2+ years experience</p>
+          </div>
+        </div>
+        <div class="skill-cloud">
+          <div class="skill-cloud-details">
+            <h3>AWS</h3>
+            <p>Proficient</p>
+            <p>4+ years experience</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Form Section -->
+    <section class="contact-form">
+      <h2 class="contact-form-title">Get in Touch</h2>
+      <div class="contact-form-container">
+        <form>
+          <input type="text" placeholder="Name" required>
+          <input type="email" placeholder="Email" required>
+          <textarea placeholder="Message" required></textarea>
+          <button type="submit">Send</button>
+        </form>
+      </div>
+    </section>
+  </main>
+</body>
+</html>'<!-- Visit: https://github.com/Ishanoshada/portflair -->
+<!-- Visit: https://github.com/Ishanoshada/portflair -->

@@ -1,0 +1,447 @@
+<!-- Portfolio created by Ishan -->
+<!-- Check out my work at: https://github.com/Ishanoshada/portflair -->
+<!-- 2024/10/9 -->
+<!-- Portfolio created by Ishan -->
+'<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Develop a matte-black portfolio</title>
+  <style>
+    /* Global Styles */
+    body {
+      font-family: 'Montserrat', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #111111;
+      color: #CCCCCC;
+    }
+
+    /* Navigation */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 40px;
+      background-color: #1A1A1A;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    .nav-logo {
+      font-size: 24px;
+      font-weight: bold;
+      color: #FFFFFF;
+    }
+
+    .nav-links {
+      display: flex;
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .nav-links li {
+      margin-left: 30px;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: #CCCCCC;
+      font-size: 16px;
+      transition: color 0.3s ease;
+    }
+
+    .nav-links a:hover {
+      color: #FFFFFF;
+    }
+
+    /* Hero Section */
+    .hero {
+      position: relative;
+      height: 600px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      background: url('https://dummyimage.com/1920x1080/111111/cccccc.jpg') no-repeat center center / cover;
+    }
+
+    .hero-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(17, 17, 17, 0.6);
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      text-align: center;
+    }
+
+    .hero-title {
+      font-size: 60px;
+      font-weight: bold;
+      margin-bottom: 20px;
+      animation: fadeIn 1s ease;
+    }
+
+    .hero-subtitle {
+      font-size: 30px;
+      margin-bottom: 40px;
+      animation: fadeIn 1.5s ease;
+    }
+
+    .hero-button {
+      display: inline-block;
+      background-color: #1A1A1A;
+      color: #EEEEEE;
+      font-size: 16px;
+      padding: 12px 30px;
+      border-radius: 4px;
+      text-decoration: none;
+      transition: background-color 0.3s ease;
+      animation: fadeIn 2s ease;
+    }
+
+    .hero-button:hover {
+      background-color: #333333;
+    }
+
+    @keyframes fadeIn {
+      0% {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* About Section */
+    .about {
+      padding: 80px 40px;
+      background-color: #1A1A1A;
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      grid-gap: 40px;
+    }
+
+    .about-content {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .about-title {
+      font-size: 40px;
+      font-weight: bold;
+      margin-bottom: 20px;
+      animation: fadeInUp 0.8s ease;
+    }
+
+    .about-text {
+      font-size: 18px;
+      line-height: 1.6;
+      margin-bottom: 40px;
+      animation: fadeInUp 1.2s ease;
+    }
+
+    .skill-bar {
+      width: 100%;
+      background-color: #333333;
+      border-radius: 4px;
+      margin-bottom: 20px;
+      animation: fadeInUp 1.6s ease;
+    }
+
+    .skill-progress {
+      height: 8px;
+      background-color: #666666;
+      border-radius: 4px;
+    }
+
+    .skill-label {
+      font-size: 14px;
+      margin-bottom: 4px;
+    }
+
+    @keyframes fadeInUp {
+      0% {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Portfolio Section */
+    .portfolio {
+      padding: 80px 40px;
+    }
+
+    .portfolio-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-gap: 40px;
+    }
+
+    .portfolio-item {
+      position: relative;
+      overflow: hidden;
+      border-radius: 4px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      animation: fadeIn 0.8s ease;
+    }
+
+    .portfolio-item img {
+      width: 100%;
+      height: 300px;
+      object-fit: cover;
+      transition: transform 0.3s ease;
+    }
+
+    .portfolio-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(26, 26, 26, 0.8);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .portfolio-overlay h3 {
+      font-size: 24px;
+      color: #FFFFFF;
+      margin-bottom: 10px;
+    }
+
+    .portfolio-overlay p {
+      font-size: 16px;
+      color: #CCCCCC;
+    }
+
+    .portfolio-item:hover .portfolio-overlay {
+      opacity: 1;
+    }
+
+    .portfolio-item:hover img {
+      transform: scale(1.1);
+    }
+
+    /* Footer */
+    footer {
+      background-color: #1A1A1A;
+      padding: 20px 0;
+      text-align: center;
+      font-size: 14px;
+      color: #CCCCCC;
+    }
+
+    /* Responsive Styles */
+    @media (max-width: 768px) {
+      .hero {
+        height: 500px;
+      }
+
+      .hero-title {
+        font-size: 40px;
+      }
+
+      .hero-subtitle {
+        font-size: 24px;
+      }
+
+      .about-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .portfolio-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 480px) {
+      nav {
+        padding: 15px 20px;
+      }
+
+      .nav-logo {
+        font-size: 20px;
+      }
+
+      .nav-links li {
+        margin-left: 20px;
+      }
+
+      .nav-links a {
+        font-size: 14px;
+      }
+
+      .hero {
+        height: 400px;
+      }
+
+      .hero-title {
+        font-size: 32px;
+      }
+
+      .hero-subtitle {
+        font-size: 20px;
+      }
+
+      .hero-button {
+        font-size: 14px;
+        padding: 10px 24px;
+      }
+
+      .about {
+        padding: 60px 20px;
+      }
+
+      .about-title {
+        font-size: 32px;
+      }
+
+      .about-text {
+        font-size: 16px;
+      }
+
+      .portfolio {
+        padding: 60px 20px;
+      }
+
+      .portfolio-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .portfolio-item img {
+        height: 200px;
+      }
+
+      .portfolio-overlay h3 {
+        font-size: 20px;
+      }
+
+      .portfolio-overlay p {
+        font-size: 14px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="nav-logo">Develop</div>
+    <ul class="nav-links">
+      <li><a href="#">Home</a></li>
+      <li><a href="#">About</a></li>
+      <li><a href="#">Portfolio</a></li>
+      <li><a href="#">Contact</a></li>
+    </ul>
+  </nav>
+
+  <div class="hero">
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <h1 class="hero-title">Develop a Matte-Black Portfolio</h1>
+      <p class="hero-subtitle">Crafting Stunning Designs with Flat Tones and Subtle Animations</p>
+      <a href="#" class="hero-button">Explore Portfolio</a>
+    </div>
+  </div>
+
+  <div class="about">
+    <div class="about-grid">
+      <div class="about-content">
+        <h2 class="about-title">About the Designer</h2>
+        <p class="about-text">I am a passionate web designer with a focus on creating sleek, professional portfolios. My expertise lies in developing matte-black designs with flat tones and minimal bright accents, utilizing understated animations and subtle shadows to achieve a smooth and polished look.</p>
+      </div>
+      <div class="about-content">
+        <h3 class="about-title">My Skills</h3>
+        <div class="skill-bar">
+          <div class="skill-progress" style="width: 90%;"></div>
+          <div class="skill-label">HTML/CSS</div>
+        </div>
+        <div class="skill-bar">
+          <div class="skill-progress" style="width: 85%;"></div>
+          <div class="skill-label">JavaScript</div>
+        </div>
+        <div class="skill-bar">
+          <div class="skill-progress" style="width: 92%;"></div>
+          <div class="skill-label">Responsive Design</div>
+        </div>
+        <div class="skill-bar">
+          <div class="skill-progress" style="width: 88%;"></div>
+          <div class="skill-label">UX/UI Design</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="portfolio">
+    <div class="portfolio-grid">
+      <div class="portfolio-item">
+        <img src="https://dummyimage.com/600x400/1a1a1a/cccccc.jpg" alt="Project 1">
+        <div class="portfolio-overlay">
+          <h3>Project 1</h3>
+          <p>Matte-Black Design</p>
+        </div>
+      </div>
+      <div class="portfolio-item">
+        <img src="https://dummyimage.com/600x400/1a1a1a/cccccc.jpg" alt="Project 2">
+        <div class="portfolio-overlay">
+          <h3>Project 2</h3>
+          <p>Flat Tones</p>
+        </div>
+      </div>
+      <div class="portfolio-item">
+        <img src="https://dummyimage.com/600x400/1a1a1a/cccccc.jpg" alt="Project 3">
+        <div class="portfolio-overlay">
+          <h3>Project 3</h3>
+          <p>Subtle Animations</p>
+        </div>
+      </div>
+      <div class="portfolio-item">
+        <img src="https://dummyimage.com/600x400/1a1a1a/cccccc.jpg" alt="Project 4">
+        <div class="portfolio-overlay">
+          <h3>Project 4</h3>
+          <p>Sophisticated Design</p>
+        </div>
+      </div>
+      <div class="portfolio-item">
+        <img src="https://dummyimage.com/600x400/1a1a1a/cccccc.jpg" alt="Project 5">
+        <div class="portfolio-overlay">
+          <h3>Project 5</h3>
+          <p>Minimal Bright Accents</p>
+        </div>
+      </div>
+      <div class="portfolio-item">
+        <img src="https://dummyimage.com/600x400/1a1a1a/cccccc.jpg" alt="Project 6">
+        <div class="portfolio-overlay">
+          <h3>Project 6</h3>
+          <p>Smooth Transitions</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <p>&copy; 2024 Develop. All rights reserved.</p>
+  </footer>
+</body>
+</html>'<!-- Visit: https://github.com/Ishanoshada/portflair -->
+<!-- Visit: https://github.com/Ishanoshada/portflair -->

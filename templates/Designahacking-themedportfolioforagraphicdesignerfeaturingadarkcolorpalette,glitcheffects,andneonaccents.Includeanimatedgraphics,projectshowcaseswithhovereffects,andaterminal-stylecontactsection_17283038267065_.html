@@ -1,0 +1,472 @@
+<!-- Portfolio created by Ishan -->
+<!-- Check out my work at: https://github.com/Ishanoshada/portflair -->
+<!-- 2024/10/9 -->
+<!-- Portfolio created by Ishan -->
+'<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hacking-Themed Portfolio</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
+
+    body {
+      font-family: 'Orbitron', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #0e0e0e;
+      color: #fff;
+      overflow-x: hidden;
+    }
+
+    /* Navigation */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 40px;
+      background-color: #0e0e0e;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      position: relative;
+      z-index: 100;
+    }
+
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      font-size: 18px;
+      margin: 0 20px;
+      position: relative;
+      transition: color 0.3s ease-in-out;
+    }
+
+    nav a::after {
+      content: "";
+      position: absolute;
+      width: 0;
+      height: 2px;
+      background-color: #00ff9c;
+      bottom: -5px;
+      left: 0;
+      transition: width 0.3s ease-in-out;
+    }
+
+    nav a:hover {
+      color: #00ff9c;
+    }
+
+    nav a:hover::after {
+      width: 100%;
+    }
+
+    /* Hero Section */
+    .hero {
+      height: 80vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: url("https://dummyimage.com/1200x500/0e0e0e/00ff9c.jpg&text=Hacking+Themed+Background");
+      background-size: cover;
+      background-position: center;
+      filter: blur(5px);
+      z-index: -1;
+    }
+
+    .hero-content {
+      text-align: center;
+      z-index: 1;
+    }
+
+    .hero-content h1 {
+      font-size: 48px;
+      margin-bottom: 20px;
+      text-shadow: 0 0 10px #00ff9c, 0 0 20px #00ff9c, 0 0 30px #00ff9c;
+      animation: glitch 2s infinite;
+    }
+
+    @keyframes glitch {
+      0% {
+        transform: translateX(0);
+      }
+      20% {
+        transform: translateX(-2px);
+      }
+      40% {
+        transform: translateX(2px);
+      }
+      60% {
+        transform: translateX(-2px);
+      }
+      80% {
+        transform: translateX(2px);
+      }
+      100% {
+        transform: translateX(0);
+      }
+    }
+
+    .hero-content p {
+      font-size: 24px;
+      margin-bottom: 40px;
+      color: #00ff9c;
+      text-shadow: 0 0 10px #00ff9c, 0 0 20px #00ff9c, 0 0 30px #00ff9c;
+    }
+
+    .cta-button {
+      display: inline-block;
+      padding: 15px 30px;
+      background-color: #00ff9c;
+      color: #0e0e0e;
+      font-size: 18px;
+      text-decoration: none;
+      border-radius: 5px;
+      box-shadow: 0 0 10px #00ff9c, 0 0 20px #00ff9c, 0 0 30px #00ff9c;
+      transition: transform 0.3s ease-in-out;
+    }
+
+    .cta-button:hover {
+      transform: scale(1.1);
+    }
+
+    /* Project Showcase */
+    .project-showcase {
+      padding: 80px 40px;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-gap: 40px;
+      background-color: #0e0e0e;
+    }
+
+    .project-item {
+      position: relative;
+      overflow: hidden;
+      border-radius: 5px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+      transition: transform 0.3s ease-in-out;
+    }
+
+    .project-item:hover {
+      transform: scale(1.05);
+    }
+
+    .project-item img {
+      width: 100%;
+      height: 300px;
+      object-fit: cover;
+      filter: grayscale(1) brightness(0.5);
+      transition: filter 0.3s ease-in-out;
+    }
+
+    .project-item:hover img {
+      filter: grayscale(0) brightness(1);
+    }
+
+    .project-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 255, 156, 0.7);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      opacity: 0;
+      transition: opacity 0.3s ease-in-out;
+    }
+
+    .project-item:hover .project-overlay {
+      opacity: 1;
+    }
+
+    .project-overlay h3 {
+      font-size: 24px;
+      margin-bottom: 10px;
+      color: #0e0e0e;
+      text-shadow: 0 0 10px #00ff9c, 0 0 20px #00ff9c, 0 0 30px #00ff9c;
+    }
+
+    .project-overlay p {
+      font-size: 16px;
+      margin-bottom: 20px;
+      color: #0e0e0e;
+      text-shadow: 0 0 10px #00ff9c, 0 0 20px #00ff9c, 0 0 30px #00ff9c;
+    }
+
+    .project-overlay a {
+      display: inline-block;
+      padding: 10px 20px;
+      background-color: #0e0e0e;
+      color: #00ff9c;
+      font-size: 16px;
+      text-decoration: none;
+      border-radius: 5px;
+      box-shadow: 0 0 10px #00ff9c, 0 0 20px #00ff9c, 0 0 30px #00ff9c;
+      transition: transform 0.3s ease-in-out;
+    }
+
+    .project-overlay a:hover {
+      transform: scale(1.1);
+    }
+
+    /* Terminal-Style Contact Section */
+    .contact {
+      padding: 80px 40px;
+      background-color: #0e0e0e;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .contact h2 {
+      font-size: 36px;
+      margin-bottom: 40px;
+      color: #00ff9c;
+      text-shadow: 0 0 10px #00ff9c, 0 0 20px #00ff9c, 0 0 30px #00ff9c;
+    }
+
+    .contact-form {
+      background-color: #1f1f1f;
+      padding: 40px;
+      border-radius: 5px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+      width: 100%;
+      max-width: 600px;
+      font-family: monospace;
+      color: #00ff9c;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .contact-form::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: linear-gradient(to bottom, #00ff9c, #1f1f1f);
+      opacity: 0.1;
+      z-index: -1;
+      animation: flicker 2s infinite;
+    }
+
+    @keyframes flicker {
+      0% {
+        opacity: 0.1;
+      }
+      50% {
+        opacity: 0.3;
+      }
+      100% {
+        opacity: 0.1;
+      }
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+      display: block;
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 20px;
+      background-color: transparent;
+      border: none;
+      border-bottom: 2px solid #00ff9c;
+      font-size: 16px;
+      color: #00ff9c;
+      font-family: monospace;
+      outline: none;
+      transition: border-color 0.3s ease-in-out;
+    }
+
+    .contact-form input:focus,
+    .contact-form textarea:focus {
+      border-color: #fff;
+    }
+
+    .contact-form button {
+      display: block;
+      width: 100%;
+      padding: 10px;
+      background-color: #00ff9c;
+      color: #0e0e0e;
+      font-size: 16px;
+      font-family: monospace;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      box-shadow: 0 0 10px #00ff9c, 0 0 20px #00ff9c, 0 0 30px #00ff9c;
+      transition: transform 0.3s ease-in-out;
+    }
+
+    .contact-form button:hover {
+      transform: scale(1.05);
+    }
+
+    @media (max-width: 768px) {
+      nav {
+        padding: 15px 20px;
+      }
+
+      nav a {
+        font-size: 16px;
+        margin: 0 10px;
+      }
+
+      .hero {
+        height: 60vh;
+      }
+
+      .hero-content h1 {
+        font-size: 36px;
+      }
+
+      .hero-content p {
+        font-size: 18px;
+      }
+
+      .cta-button {
+        padding: 10px 20px;
+        font-size: 16px;
+      }
+
+      .project-showcase {
+        padding: 40px 20px;
+        grid-template-columns: repeat(2, 1fr);
+        grid-gap: 20px;
+      }
+
+      .project-item img {
+        height: 200px;
+      }
+
+      .project-overlay h3 {
+        font-size: 18px;
+      }
+
+      .project-overlay p {
+        font-size: 14px;
+      }
+
+      .project-overlay a {
+        padding: 8px 16px;
+        font-size: 14px;
+      }
+
+      .contact {
+        padding: 40px 20px;
+      }
+
+      .contact h2 {
+        font-size: 28px;
+        margin-bottom: 30px;
+      }
+
+      .contact-form {
+        padding: 30px;
+      }
+
+      .contact-form input,
+      .contact-form textarea {
+        font-size: 14px;
+      }
+
+      .contact-form button {
+        font-size: 14px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="#">Home</a>
+    <a href="#">About</a>
+    <a href="#">Portfolio</a>
+    <a href="#">Contact</a>
+  </nav>
+
+  <section class="hero">
+    <div class="hero-content">
+      <h1>Unleash Your Hacking Potential</h1>
+      <p>Explore the digital landscape with our graphic designer's hacking-inspired portfolio.</p>
+      <a href="#" class="cta-button">View Portfolio</a>
+    </div>
+  </section>
+
+  <section class="project-showcase">
+    <div class="project-item">
+      <img src="https://dummyimage.com/600x400/0e0e0e/00ff9c.jpg&text=Project+1" alt="Project 1">
+      <div class="project-overlay">
+        <h3>Project 1</h3>
+        <p>Explore the depths of our hacking-inspired design.</p>
+        <a href="#">View Case Study</a>
+      </div>
+    </div>
+    <div class="project-item">
+      <img src="https://dummyimage.com/600x400/0e0e0e/00ff9c.jpg&text=Project+2" alt="Project 2">
+      <div class="project-overlay">
+        <h3>Project 2</h3>
+        <p>Dive into the world of our designer's creative hacking prowess.</p>
+        <a href="#">View Case Study</a>
+      </div>
+    </div>
+    <div class="project-item">
+      <img src="https://dummyimage.com/600x400/0e0e0e/00ff9c.jpg&text=Project+3" alt="Project 3">
+      <div class="project-overlay">
+        <h3>Project 3</h3>
+        <p>Experience the fusion of hacking and design in our portfolio.</p>
+        <a href="#">View Case Study</a>
+      </div>
+    </div>
+    <div class="project-item">
+      <img src="https://dummyimage.com/600x400/0e0e0e/00ff9c.jpg&text=Project+4" alt="Project 4">
+      <div class="project-overlay">
+        <h3>Project 4</h3>
+        <p>Delve into the mind of our hacking-inspired graphic designer.</p>
+        <a href="#">View Case Study</a>
+      </div>
+    </div>
+    <div class="project-item">
+      <img src="https://dummyimage.com/600x400/0e0e0e/00ff9c.jpg&text=Project+5" alt="Project 5">
+      <div class="project-overlay">
+        <h3>Project 5</h3>
+        <p>Uncover the digital artistry behind our hacking-themed designs.</p>
+        <a href="#">View Case Study</a>
+      </div>
+    </div>
+    <div class="project-item">
+      <img src="https://dummyimage.com/600x400/0e0e0e/00ff9c.jpg&text=Project+6" alt="Project 6">
+      <div class="project-overlay">
+        <h3>Project 6</h3>
+        <p>Explore the intersection of hacking and creativity in our portfolio.</p>
+        <a href="#">View Case Study</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact">
+    <h2>Get in Touch</h2>
+    <div class="contact-form">
+      <input type="text" placeholder="Name" required>
+      <input type="email" placeholder="Email" required>
+      <textarea placeholder="Message" required></textarea>
+      <button type="submit">Send</button>
+    </div>
+  </section>
+</body>
+</html>'<!-- Visit: https://github.com/Ishanoshada/portflair -->
+<!-- Visit: https://github.com/Ishanoshada/portflair -->

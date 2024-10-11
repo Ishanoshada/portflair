@@ -1,0 +1,386 @@
+<!-- Portfolio created by Ishan -->
+<!-- Check out my work at: https://github.com/Ishanoshada/portflair -->
+<!-- 2024/10/9 -->
+<!-- Portfolio created by Ishan -->
+'<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hacking and Developer Portfolio</title>
+  <style>
+    /* CSS Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    /* Global Styles */
+    body {
+      font-family: 'Roboto', sans-serif;
+      background-color: #141414;
+      color: #f1f1f1;
+    }
+
+    /* Navigation */
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: #1a1a1a;
+      padding: 1rem 2rem;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    .navbar-brand {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: #00c8ff;
+      text-decoration: none;
+    }
+
+    .navbar-nav {
+      display: flex;
+      list-style-type: none;
+    }
+
+    .navbar-nav li {
+      margin-left: 1.5rem;
+    }
+
+    .navbar-nav li a {
+      color: #f1f1f1;
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s ease;
+    }
+
+    .navbar-nav li a:hover {
+      color: #00c8ff;
+    }
+
+    /* Interactive Hacking/Developer Sandbox */
+    .sandbox {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 60vh;
+      background-image: linear-gradient(to right, #141414, #1a1a1a);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .sandbox:before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: url("https://dummyimage.com/1200x500/ccc/000&text=Futuristic+Cityscape");
+      background-size: cover;
+      background-position: center;
+      filter: blur(10px);
+      opacity: 0.5;
+      z-index: -1;
+    }
+
+    .terminal {
+      background-color: #171717;
+      border-radius: 8px;
+      padding: 2rem;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      width: 80%;
+      max-width: 800px;
+      font-family: 'Fira Code', monospace;
+      font-size: 1rem;
+      color: #00c8ff;
+      overflow-x: auto;
+      white-space: pre-wrap;
+      animation: terminal-appear 0.5s ease-in-out;
+    }
+
+    @keyframes terminal-appear {
+      0% {
+        transform: translateY(50px);
+        opacity: 0;
+      }
+      100% {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+
+    .terminal:before {
+      content: "user@domain:~$";
+      color: #00c8ff;
+      font-weight: bold;
+      margin-right: 0.5rem;
+    }
+
+    .terminal:after {
+      content: "_";
+      animation: blink 0.5s infinite;
+    }
+
+    @keyframes blink {
+      0% {
+        opacity: 1;
+      }
+      50% {
+        opacity: 0;
+      }
+      100% {
+        opacity: 1;
+      }
+    }
+
+    /* Portfolio/Project Showcase */
+    .portfolio {
+      padding: 4rem 2rem;
+    }
+
+    .portfolio-title {
+      font-size: 2rem;
+      font-weight: bold;
+      margin-bottom: 2rem;
+      text-align: center;
+      color: #00c8ff;
+      text-shadow: 0 0 10px rgba(0, 200, 255, 0.5);
+      animation: title-appear 0.7s ease-in-out;
+    }
+
+    @keyframes title-appear {
+      0% {
+        transform: translateY(50px);
+        opacity: 0;
+      }
+      100% {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      grid-gap: 2rem;
+    }
+
+    .project-card {
+      background-color: #1a1a1a;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      transition: transform 0.3s ease-in-out;
+    }
+
+    .project-card:hover {
+      transform: translateY(-10px);
+    }
+
+    .project-image {
+      height: 200px;
+      background-image: url("https://dummyimage.com/600x400/ccc/000&text=Project+Image");
+      background-size: cover;
+      background-position: center;
+    }
+
+    .project-content {
+      padding: 1.5rem;
+    }
+
+    .project-title {
+      font-size: 1.25rem;
+      font-weight: bold;
+      margin-bottom: 0.5rem;
+      color: #00c8ff;
+    }
+
+    .project-description {
+      font-size: 0.9rem;
+      color: #f1f1f1;
+    }
+
+    /* Storytelling and Blog */
+    .blog {
+      padding: 4rem 2rem;
+    }
+
+    .blog-title {
+      font-size: 2rem;
+      font-weight: bold;
+      margin-bottom: 2rem;
+      text-align: center;
+      color: #00c8ff;
+      text-shadow: 0 0 10px rgba(0, 200, 255, 0.5);
+      animation: title-appear 0.7s ease-in-out;
+    }
+
+    .blog-posts {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      grid-gap: 2rem;
+    }
+
+    .blog-post {
+      background-color: #1a1a1a;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      transition: transform 0.3s ease-in-out;
+    }
+
+    .blog-post:hover {
+      transform: translateY(-10px);
+    }
+
+    .blog-image {
+      height: 200px;
+      background-image: url("https://dummyimage.com/600x400/ccc/000&text=Blog+Image");
+      background-size: cover;
+      background-position: center;
+    }
+
+    .blog-content {
+      padding: 1.5rem;
+    }
+
+    .blog-title {
+      font-size: 1.25rem;
+      font-weight: bold;
+      margin-bottom: 0.5rem;
+      color: #00c8ff;
+    }
+
+    .blog-excerpt {
+      font-size: 0.9rem;
+      color: #f1f1f1;
+    }
+
+    /* Responsive Styles */
+    @media (max-width: 768px) {
+      .navbar {
+        padding: 1rem;
+      }
+
+      .navbar-brand {
+        font-size: 1.25rem;
+      }
+
+      .navbar-nav li {
+        margin-left: 1rem;
+      }
+
+      .sandbox {
+        height: 50vh;
+      }
+
+      .terminal {
+        width: 90%;
+        padding: 1.5rem;
+      }
+
+      .portfolio,
+      .blog {
+        padding: 3rem 1rem;
+      }
+
+      .project-grid,
+      .blog-posts {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav class="navbar">
+      <a href="#" class="navbar-brand">Hacking &amp; Developer Portfolio</a>
+      <ul class="navbar-nav">
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Portfolio</a></li>
+        <li><a href="#">Blog</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <!-- Interactive Hacking/Developer Sandbox -->
+    <section class="sandbox">
+      <div class="terminal">
+        user@domain:~$ whoami<br>
+        expert_hacker<br>
+        user@domain:~$ ls -la<br>
+        total 12<br>
+        drwxr-xr-x 3 user user 4096 Apr 23 15:12 .<br>
+        drwxr-xr-x 18 user user 4096 Apr 23 15:12 ..<br>
+        -rw-r--r-- 1 user user 8980 Apr 23 15:12 portfolio.html<br>
+        user@domain:~$ cd projects<br>
+        user@domain:~/projects$ ls<br>
+        hacking_simulator.py  web_scraper.py  
+      </div>
+    </section>
+
+    <!-- Portfolio/Project Showcase -->
+    <section class="portfolio">
+      <h2 class="portfolio-title">My Portfolio</h2>
+      <div class="project-grid">
+        <div class="project-card">
+          <div class="project-image"></div>
+          <div class="project-content">
+            <h3 class="project-title">Hacking Simulator</h3>
+            <p class="project-description">An interactive hacking simulation that allows users to practice their skills in a safe, virtual environment.</p>
+          </div>
+        </div>
+        <div class="project-card">
+          <div class="project-image"></div>
+          <div class="project-content">
+            <h3 class="project-title">Web Scraper</h3>
+            <p class="project-description">A powerful web scraping tool that can extract data from various websites, automating research and analysis tasks.</p>
+          </div>
+        </div>
+        <div class="project-card">
+          <div class="project-image"></div>
+          <div class="project-content">
+            <h3 class="project-title">Cybersecurity Dashboard</h3>
+            <p class="project-description">A comprehensive dashboard that provides real-time insights into network activity, security threats, and vulnerability management.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Storytelling and Blog -->
+    <section class="blog">
+      <h2 class="blog-title">From the Blog</h2>
+      <div class="blog-posts">
+        <div class="blog-post">
+          <div class="blog-image"></div>
+          <div class="blog-content">
+            <h3 class="blog-title">Exploring the Dark Web: Myths and Realities</h3>
+            <p class="blog-excerpt">Dive into the hidden corners of the internet and uncover the truth behind the myths surrounding the dark web.</p>
+          </div>
+        </div>
+        <div class="blog-post">
+          <div class="blog-image"></div>
+          <div class="blog-content">
+            <h3 class="blog-title">Ethical Hacking: A Guide to Becoming a White Hat</h3>
+            <p class="blog-excerpt">Learn the ins and outs of ethical hacking and how to use your skills to protect organizations from cyber threats.</p>
+          </div>
+        </div>
+        <div class="blog-post">
+          <div class="blog-image"></div>
+          <div class="blog-content">
+            <h3 class="blog-title">The Evolution of Programming Languages: Past, Present, and Future</h3>
+            <p class="blog-excerpt">Explore the fascinating history and the constantly evolving landscape of programming languages, shaping the future of software development.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+</body>
+</html>'<!-- Visit: https://github.com/Ishanoshada/portflair -->
+<!-- Visit: https://github.com/Ishanoshada/portflair -->

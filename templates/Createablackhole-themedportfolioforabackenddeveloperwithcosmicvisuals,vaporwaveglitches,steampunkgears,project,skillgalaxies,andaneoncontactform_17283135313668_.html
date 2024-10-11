@@ -1,0 +1,373 @@
+<!-- Portfolio created by Ishan -->
+<!-- Check out my work at: https://github.com/Ishanoshada/portflair -->
+<!-- 2024/10/9 -->
+<!-- Portfolio created by Ishan -->
+'<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Black Hole Portfolio</title>
+  <style>
+    /* Global Styles */
+    @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
+
+    body {
+      margin: 0;
+      font-family: 'Orbitron', sans-serif;
+      background-color: #0D0D0D;
+      color: #FFFFFF;
+      overflow-x: hidden;
+    }
+
+    /* Navigation */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.5rem 2rem;
+      background-color: rgba(13, 13, 13, 0.8);
+      backdrop-filter: blur(10px);
+      position: relative;
+      z-index: 100;
+    }
+
+    nav a {
+      color: #FFFFFF;
+      text-decoration: none;
+      font-size: 1.1rem;
+      font-weight: bold;
+      transition: color 0.3s ease;
+    }
+
+    nav a:hover {
+      color: #9B59B6;
+    }
+
+    /* Project Galaxies */
+    #project-galaxies {
+      padding: 4rem 2rem;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      grid-gap: 3rem;
+    }
+
+    .project-galaxy {
+      position: relative;
+      overflow: hidden;
+      border-radius: 1rem;
+      box-shadow: 0 0 50px rgba(155, 89, 182, 0.5);
+      transition: transform 0.5s ease;
+    }
+
+    .project-galaxy:hover {
+      transform: scale(1.05);
+    }
+
+    .project-galaxy img {
+      width: 100%;
+      height: 300px;
+      object-fit: cover;
+      filter: brightness(0.7) saturate(1.2) contrast(1.2);
+      transition: filter 0.5s ease;
+    }
+
+    .project-galaxy:hover img {
+      filter: brightness(1) saturate(1) contrast(1);
+    }
+
+    .project-details {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+      opacity: 0;
+      transition: opacity 0.5s ease;
+    }
+
+    .project-galaxy:hover .project-details {
+      opacity: 1;
+    }
+
+    .project-details h3 {
+      font-size: 1.8rem;
+      margin-bottom: 0.5rem;
+      text-shadow: 0 0 20px rgba(155, 89, 182, 0.8);
+    }
+
+    .project-details p {
+      font-size: 1.2rem;
+      margin-bottom: 1rem;
+      text-shadow: 0 0 15px rgba(155, 89, 182, 0.8);
+    }
+
+    /* Skill Nebulae */
+    #skill-nebulae {
+      padding: 4rem 2rem;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      grid-gap: 3rem;
+    }
+
+    .skill-nebula {
+      position: relative;
+      overflow: hidden;
+      border-radius: 1rem;
+      box-shadow: 0 0 50px rgba(155, 89, 182, 0.5);
+      transition: transform 0.5s ease;
+    }
+
+    .skill-nebula:hover {
+      transform: scale(1.05);
+    }
+
+    .skill-nebula img {
+      width: 100%;
+      height: 300px;
+      object-fit: cover;
+      filter: brightness(0.7) saturate(1.2) contrast(1.2);
+      transition: filter 0.5s ease;
+    }
+
+    .skill-nebula:hover img {
+      filter: brightness(1) saturate(1) contrast(1);
+    }
+
+    .skill-details {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+      opacity: 0;
+      transition: opacity 0.5s ease;
+    }
+
+    .skill-nebula:hover .skill-details {
+      opacity: 1;
+    }
+
+    .skill-details h3 {
+      font-size: 1.6rem;
+      margin-bottom: 0.5rem;
+      text-shadow: 0 0 20px rgba(155, 89, 182, 0.8);
+    }
+
+    .skill-details p {
+      font-size: 1.1rem;
+      margin-bottom: 1rem;
+      text-shadow: 0 0 15px rgba(155, 89, 182, 0.8);
+    }
+
+    /* Neon Contact Form */
+    #contact {
+      padding: 4rem 2rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 500px;
+      background-image: radial-gradient(ellipse at center, #3C1053, #0D0D0D);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .neon-frame {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: url('https://dummyimage.com/1200x500/ccc/000&text=Neon+Frame');
+      background-size: cover;
+      background-position: center;
+      opacity: 0.1;
+      z-index: 1;
+    }
+
+    .neon-contact-form {
+      position: relative;
+      z-index: 2;
+      background-color: rgba(13, 13, 13, 0.8);
+      backdrop-filter: blur(10px);
+      padding: 3rem;
+      border-radius: 1rem;
+      box-shadow: 0 0 50px rgba(155, 89, 182, 0.5);
+      width: 100%;
+      max-width: 500px;
+    }
+
+    .neon-contact-form h2 {
+      font-size: 2rem;
+      margin-bottom: 2rem;
+      text-align: center;
+      text-shadow: 0 0 20px #9B59B6;
+    }
+
+    .neon-contact-form input,
+    .neon-contact-form textarea {
+      width: 100%;
+      padding: 1rem;
+      margin-bottom: 1.5rem;
+      border: none;
+      border-radius: 0.5rem;
+      background-color: rgba(155, 89, 182, 0.2);
+      color: #FFFFFF;
+      font-size: 1.1rem;
+      font-family: 'Orbitron', sans-serif;
+      transition: box-shadow 0.3s ease;
+    }
+
+    .neon-contact-form input:focus,
+    .neon-contact-form textarea:focus {
+      outline: none;
+      box-shadow: 0 0 20px rgba(155, 89, 182, 0.8);
+    }
+
+    .neon-contact-form button {
+      display: block;
+      width: 100%;
+      padding: 1rem;
+      margin-top: 1.5rem;
+      background-color: #9B59B6;
+      color: #FFFFFF;
+      font-size: 1.2rem;
+      font-family: 'Orbitron', sans-serif;
+      border: none;
+      border-radius: 0.5rem;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .neon-contact-form button:hover {
+      background-color: #8E44AD;
+    }
+
+    /* Media Queries */
+    @media (max-width: 768px) {
+      nav {
+        padding: 1rem 1.5rem;
+      }
+
+      #project-galaxies,
+      #skill-nebulae,
+      #contact {
+        padding: 3rem 1.5rem;
+      }
+
+      .project-galaxy img,
+      .skill-nebula img {
+        height: 250px;
+      }
+
+      .project-details h3,
+      .skill-details h3 {
+        font-size: 1.6rem;
+      }
+
+      .project-details p,
+      .skill-details p {
+        font-size: 1rem;
+      }
+
+      .neon-contact-form {
+        padding: 2rem;
+      }
+
+      .neon-contact-form h2 {
+        font-size: 1.8rem;
+      }
+
+      .neon-contact-form input,
+      .neon-contact-form textarea,
+      .neon-contact-form button {
+        font-size: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="#">Home</a>
+    <a href="#">Projects</a>
+    <a href="#">Skills</a>
+    <a href="#">Contact</a>
+  </nav>
+
+  <section id="project-galaxies">
+    <div class="project-galaxy">
+      <img src="https://dummyimage.com/600x400/ccc/000&text=Project+1" alt="Project 1">
+      <div class="project-details">
+        <h3>Project 1</h3>
+        <p>Description of Project 1</p>
+      </div>
+    </div>
+    <div class="project-galaxy">
+      <img src="https://dummyimage.com/600x400/ccc/000&text=Project+2" alt="Project 2">
+      <div class="project-details">
+        <h3>Project 2</h3>
+        <p>Description of Project 2</p>
+      </div>
+    </div>
+    <div class="project-galaxy">
+      <img src="https://dummyimage.com/600x400/ccc/000&text=Project+3" alt="Project 3">
+      <div class="project-details">
+        <h3>Project 3</h3>
+        <p>Description of Project 3</p>
+      </div>
+    </div>
+    <div class="project-galaxy">
+      <img src="https://dummyimage.com/600x400/ccc/000&text=Project+4" alt="Project 4">
+      <div class="project-details">
+        <h3>Project 4</h3>
+        <p>Description of Project 4</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="skill-nebulae">
+    <div class="skill-nebula">
+      <img src="https://dummyimage.com/600x400/ccc/000&text=Skill+1" alt="Skill 1">
+      <div class="skill-details">
+        <h3>Skill 1</h3>
+        <p>Description of Skill 1</p>
+      </div>
+    </div>
+    <div class="skill-nebula">
+      <img src="https://dummyimage.com/600x400/ccc/000&text=Skill+2" alt="Skill 2">
+      <div class="skill-details">
+        <h3>Skill 2</h3>
+        <p>Description of Skill 2</p>
+      </div>
+    </div>
+    <div class="skill-nebula">
+      <img src="https://dummyimage.com/600x400/ccc/000&text=Skill+3" alt="Skill 3">
+      <div class="skill-details">
+        <h3>Skill 3</h3>
+        <p>Description of Skill 3</p>
+      </div>
+    </div>
+    <div class="skill-nebula">
+      <img src="https://dummyimage.com/600x400/ccc/000&text=Skill+4" alt="Skill 4">
+      <div class="skill-details">
+        <h3>Skill 4</h3>
+        <p>Description of Skill 4</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="neon-frame"></div>
+    <div class="neon-contact-form">
+      <h2>Get in Touch</h2>
+      <form>
+        <input type="text" placeholder="Name" required>
+        <input type="email" placeholder="Email" required>
+        <textarea placeholder="Message" rows="5" required></textarea>
+        <button type="submit">Submit</button>
+      </form>
+    </div>
+  </section>
+</body>
+</html>'<!-- Visit: https://github.com/Ishanoshada/portflair -->
+<!-- Visit: https://github.com/Ishanoshada/portflair -->

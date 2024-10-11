@@ -1,0 +1,399 @@
+<!-- Portfolio created by Ishan -->
+<!-- Check out my work at: https://github.com/Ishanoshada/portflair -->
+<!-- 2024/10/9 -->
+<!-- Portfolio created by Ishan -->
+'<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Build an Ultra-Modern Portfolio</title>
+  <style>
+    /* Global Styles */
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Montserrat', sans-serif;
+      background-color: #000;
+      color: #fff;
+    }
+
+    /* Navigation */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 40px;
+      background-color: #111;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 16px;
+      margin-right: 30px;
+      transition: color 0.3s ease;
+    }
+
+    nav a:hover {
+      color: #ccc;
+    }
+
+    /* Featured Projects Section */
+    .featured-projects {
+      padding: 80px 40px;
+    }
+
+    .featured-projects h2 {
+      font-size: 32px;
+      font-weight: 700;
+      margin-bottom: 40px;
+      text-align: center;
+    }
+
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-gap: 40px;
+    }
+
+    .project-card {
+      position: relative;
+      overflow: hidden;
+      border-radius: 8px;
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+      cursor: pointer;
+    }
+
+    .project-card img {
+      width: 100%;
+      height: 400px;
+      object-fit: cover;
+      transition: transform 0.3s ease;
+    }
+
+    .project-card:hover img {
+      transform: scale(1.1);
+    }
+
+    .project-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.6);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .project-card:hover .project-overlay {
+      opacity: 1;
+    }
+
+    .project-overlay h3 {
+      font-size: 24px;
+      font-weight: 600;
+      margin-bottom: 10px;
+    }
+
+    .project-overlay p {
+      font-size: 16px;
+      margin-bottom: 20px;
+    }
+
+    .project-overlay a {
+      display: inline-block;
+      padding: 10px 20px;
+      background-color: #fff;
+      color: #000;
+      text-decoration: none;
+      font-weight: 600;
+      border-radius: 4px;
+      transition: background-color 0.3s ease;
+    }
+
+    .project-overlay a:hover {
+      background-color: #ccc;
+    }
+
+    /* About Me Section */
+    .about-me {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 80px 40px;
+      background-color: #111;
+    }
+
+    .about-me-content {
+      display: flex;
+      align-items: center;
+      max-width: 1200px;
+    }
+
+    .about-me-image {
+      flex: 0 0 400px;
+      margin-right: 60px;
+    }
+
+    .about-me-image img {
+      width: 100%;
+      height: auto;
+      border-radius: 50%;
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    }
+
+    .about-me-text {
+      flex: 1;
+    }
+
+    .about-me-text h2 {
+      font-size: 32px;
+      font-weight: 700;
+      margin-bottom: 20px;
+    }
+
+    .about-me-text p {
+      font-size: 18px;
+      line-height: 1.6;
+      margin-bottom: 30px;
+    }
+
+    .about-me-text a {
+      display: inline-block;
+      padding: 12px 24px;
+      background-color: #fff;
+      color: #000;
+      text-decoration: none;
+      font-weight: 600;
+      border-radius: 4px;
+      transition: background-color 0.3s ease;
+    }
+
+    .about-me-text a:hover {
+      background-color: #ccc;
+    }
+
+    /* Process Section */
+    .process {
+      padding: 80px 40px;
+    }
+
+    .process h2 {
+      font-size: 32px;
+      font-weight: 700;
+      margin-bottom: 40px;
+      text-align: center;
+    }
+
+    .process-steps {
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      margin-bottom: 60px;
+    }
+
+    .process-step {
+      flex: 0 0 200px;
+      text-align: center;
+      margin: 0 40px;
+    }
+
+    .process-step img {
+      width: 80px;
+      height: 80px;
+      margin-bottom: 20px;
+    }
+
+    .process-step h3 {
+      font-size: 20px;
+      font-weight: 600;
+      margin-bottom: 10px;
+    }
+
+    .process-step p {
+      font-size: 16px;
+      line-height: 1.6;
+    }
+
+    .process-animation {
+      text-align: center;
+    }
+
+    .process-animation img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 8px;
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    }
+
+    /* Responsive Styles */
+    @media (max-width: 1024px) {
+      .project-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .about-me-content {
+        flex-direction: column;
+      }
+
+      .about-me-image {
+        margin-right: 0;
+        margin-bottom: 40px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      nav {
+        padding: 16px 20px;
+      }
+
+      nav a {
+        margin-right: 20px;
+      }
+
+      .featured-projects,
+      .about-me,
+      .process {
+        padding: 60px 20px;
+      }
+
+      .project-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .about-me-image {
+        flex: 0 0 300px;
+      }
+
+      .process-steps {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .process-step {
+        margin: 40px 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="#">Home</a>
+    <a href="#">Featured Projects</a>
+    <a href="#">About Me</a>
+    <a href="#">Process</a>
+    <a href="#">Contact</a>
+  </nav>
+
+  <section class="featured-projects">
+    <h2>Featured Projects</h2>
+    <div class="project-grid">
+      <div class="project-card">
+        <img src="https://dummyimage.com/600x400/000/fff&text=Project+1" alt="Project 1">
+        <div class="project-overlay">
+          <h3>Project 1</h3>
+          <p>A sleek and modern design for a corporate website.</p>
+          <a href="#">View Project</a>
+        </div>
+      </div>
+      <div class="project-card">
+        <img src="https://dummyimage.com/600x400/000/fff&text=Project+2" alt="Project 2">
+        <div class="project-overlay">
+          <h3>Project 2</h3>
+          <p>A minimalist portfolio website showcasing digital illustrations.</p>
+          <a href="#">View Project</a>
+        </div>
+      </div>
+      <div class="project-card">
+        <img src="https://dummyimage.com/600x400/000/fff&text=Project+3" alt="Project 3">
+        <div class="project-overlay">
+          <h3>Project 3</h3>
+          <p>A clean and modern user interface for a mobile app.</p>
+          <a href="#">View Project</a>
+        </div>
+      </div>
+      <div class="project-card">
+        <img src="https://dummyimage.com/600x400/000/fff&text=Project+4" alt="Project 4">
+        <div class="project-overlay">
+          <h3>Project 4</h3>
+          <p>A visually striking landing page for a creative agency.</p>
+          <a href="#">View Project</a>
+        </div>
+      </div>
+      <div class="project-card">
+        <img src="https://dummyimage.com/600x400/000/fff&text=Project+5" alt="Project 5">
+        <div class="project-overlay">
+          <h3>Project 5</h3>
+          <p>A responsive and intuitive e-commerce website design.</p>
+          <a href="#">View Project</a>
+        </div>
+      </div>
+      <div class="project-card">
+        <img src="https://dummyimage.com/600x400/000/fff&text=Project+6" alt="Project 6">
+        <div class="project-overlay">
+          <h3>Project 6</h3>
+          <p>A clean and modern dashboard interface for a SaaS platform.</p>
+          <a href="#">View Project</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="about-me">
+    <div class="about-me-content">
+      <div class="about-me-image">
+        <img src="https://dummyimage.com/400x400/000/fff&text=Portfolio+Owner" alt="Portfolio Owner">
+      </div>
+      <div class="about-me-text">
+        <h2>About Me</h2>
+        <p>Hi, I'm the portfolio owner, a passionate and experienced designer with a keen eye for detail and a love for creating visually stunning and functional designs. I specialize in crafting ultra-modern, all-black portfolios with sharp lines and muted tones, pushing the boundaries of contemporary web design.</p>
+        <p>With years of experience under my belt, I've honed my skills in a wide range of design disciplines, from branding and UI/UX design to motion graphics and 3D modeling. My work is characterized by a minimalist aesthetic, clean typography, and a focus on creating seamless user experiences.</p>
+        <a href="#">Let's Work Together</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="process">
+    <h2>My Design Process</h2>
+    <div class="process-steps">
+      <div class="process-step">
+        <img src="https://dummyimage.com/80x80/000/fff&text=1" alt="Step 1">
+        <h3>Discovery</h3>
+        <p>I dive deep into understanding your brand, target audience, and project goals to lay the foundation for a successful design solution.</p>
+      </div>
+      <div class="process-step">
+        <img src="https://dummyimage.com/80x80/000/fff&text=2" alt="Step 2">
+        <h3>Ideation</h3>
+        <p>I generate a range of creative concepts and ideas, carefully exploring different approaches to find the most effective and visually striking solutions.</p>
+      </div>
+      <div class="process-step">
+        <img src="https://dummyimage.com/80x80/000/fff&text=3" alt="Step 3">
+        <h3>Design</h3>
+        <p>I bring the selected concepts to life, meticulously crafting every detail to ensure a cohesive and polished design that meets your objectives.</p>
+      </div>
+      <div class="process-step">
+        <img src="https://dummyimage.com/80x80/000/fff&text=4" alt="Step 4">
+        <h3>Refinement</h3>
+        <p>I engage in an iterative process of feedback and refinement, collaborating closely with you to ensure the final design is nothing short of exceptional.</p>
+      </div>
+      <div class="process-step">
+        <img src="https://dummyimage.com/80x80/000/fff&text=5" alt="Step 5">
+        <h3>Delivery</h3>
+        <p>I deliver the final design assets, accompanied by comprehensive documentation and support, ensuring a seamless implementation and ongoing maintenance.</p>
+      </div>
+    </div>
+    <div class="process-animation">
+      <img src="https://dummyimage.com/800x400/000/fff&text=Design+Process+Animation" alt="Design Process Animation">
+    </div>
+  </section>
+</body>
+</html>'<!-- Visit: https://github.com/Ishanoshada/portflair -->
+<!-- Visit: https://github.com/Ishanoshada/portflair -->

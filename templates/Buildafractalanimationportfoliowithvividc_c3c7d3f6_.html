@@ -1,0 +1,470 @@
+<!-- Portfolio created by Ishan -->
+<!-- Check out my work at: https://github.com/Ishanoshada/portflair -->
+<!-- 2024/10/9 -->
+<!-- Portfolio created by Ishan -->
+<!-- Portfolio created by Ishan -->
+'<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fractal Animation Portfolio</title>
+  <style>
+    /* Global Styles */
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Poppins', sans-serif;
+      color: #fff;
+      background-color: #0e0e0e;
+      overflow-x: hidden;
+    }
+
+    /* Navigation */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 40px;
+      background-color: rgba(14, 14, 14, 0.8);
+      backdrop-filter: blur(10px);
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+    }
+
+    nav .logo {
+      font-size: 24px;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+    }
+
+    nav ul {
+      display: flex;
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    nav ul li {
+      margin-left: 30px;
+    }
+
+    nav ul li a {
+      color: #fff;
+      text-decoration: none;
+      font-size: 16px;
+      font-weight: 500;
+      transition: color 0.3s ease-in-out;
+    }
+
+    nav ul li a:hover {
+      color: #6AC6F6;
+    }
+
+    /* Hero Section */
+    .hero {
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      background: url(https://dummyimage.com/1920x1080/6AC6F6/000&text=Fractal+Animation+Portfolio) no-repeat center center fixed;
+      background-size: cover;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(to bottom, rgba(14, 14, 14, 0.8), rgba(14, 14, 14, 0.4));
+      z-index: 1;
+    }
+
+    .hero-content {
+      text-align: center;
+      z-index: 2;
+    }
+
+    .hero-content h1 {
+      font-size: 72px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 4px;
+      margin-bottom: 20px;
+      text-shadow: 0 0 20px rgba(106, 198, 246, 0.8);
+    }
+
+    .hero-content p {
+      font-size: 24px;
+      font-weight: 400;
+      margin-bottom: 40px;
+      text-shadow: 0 0 10px rgba(106, 198, 246, 0.6);
+    }
+
+    .hero-content .cta-button {
+      display: inline-block;
+      background-color: #6AC6F6;
+      color: #0e0e0e;
+      font-size: 18px;
+      font-weight: 600;
+      text-decoration: none;
+      padding: 16px 32px;
+      border-radius: 50px;
+      box-shadow: 0 0 20px rgba(106, 198, 246, 0.8);
+      transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    }
+
+    .hero-content .cta-button:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 0 30px rgba(106, 198, 246, 1);
+    }
+
+    /* Portfolio Showcase */
+    .portfolio-showcase {
+      padding: 80px 40px;
+      background-color: #0e0e0e;
+    }
+
+    .portfolio-showcase h2 {
+      font-size: 48px;
+      font-weight: 700;
+      text-align: center;
+      margin-bottom: 40px;
+      text-shadow: 0 0 20px rgba(106, 198, 246, 0.8);
+    }
+
+    .portfolio-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-gap: 40px;
+    }
+
+    .portfolio-item {
+      position: relative;
+      overflow: hidden;
+      border-radius: 10px;
+      box-shadow: 0 0 20px rgba(106, 198, 246, 0.4);
+      transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    }
+
+    .portfolio-item:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 0 30px rgba(106, 198, 246, 0.8);
+    }
+
+    .portfolio-item img {
+      width: 100%;
+      height: 300px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .portfolio-item .overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(to bottom, rgba(106, 198, 246, 0.6), rgba(14, 14, 14, 0.8));
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      opacity: 0;
+      transition: opacity 0.3s ease-in-out;
+    }
+
+    .portfolio-item:hover .overlay {
+      opacity: 1;
+    }
+
+    .portfolio-item .overlay h3 {
+      font-size: 24px;
+      font-weight: 600;
+      margin-bottom: 10px;
+      text-shadow: 0 0 10px rgba(14, 14, 14, 0.8);
+    }
+
+    .portfolio-item .overlay p {
+      font-size: 16px;
+      font-weight: 400;
+      margin-bottom: 20px;
+      text-shadow: 0 0 10px rgba(14, 14, 14, 0.8);
+    }
+
+    .portfolio-item .overlay a {
+      display: inline-block;
+      background-color: #6AC6F6;
+      color: #0e0e0e;
+      font-size: 16px;
+      font-weight: 600;
+      text-decoration: none;
+      padding: 12px 24px;
+      border-radius: 50px;
+      box-shadow: 0 0 20px rgba(106, 198, 246, 0.8);
+      transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    }
+
+    .portfolio-item .overlay a:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 0 30px rgba(106, 198, 246, 1);
+    }
+
+    /* About Section */
+    .about {
+      padding: 80px 40px;
+      background-color: #0e0e0e;
+      display: flex;
+      align-items: center;
+    }
+
+    .about-content {
+      flex: 1;
+      margin-right: 80px;
+    }
+
+    .about-content h2 {
+      font-size: 48px;
+      font-weight: 700;
+      margin-bottom: 20px;
+      text-shadow: 0 0 20px rgba(106, 198, 246, 0.8);
+    }
+
+    .about-content p {
+      font-size: 18px;
+      font-weight: 400;
+      line-height: 1.6;
+      margin-bottom: 40px;
+      text-shadow: 0 0 10px rgba(106, 198, 246, 0.6);
+    }
+
+    .about-content .cta-button {
+      display: inline-block;
+      background-color: #6AC6F6;
+      color: #0e0e0e;
+      font-size: 18px;
+      font-weight: 600;
+      text-decoration: none;
+      padding: 16px 32px;
+      border-radius: 50px;
+      box-shadow: 0 0 20px rgba(106, 198, 246, 0.8);
+      transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    }
+
+    .about-content .cta-button:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 0 30px rgba(106, 198, 246, 1);
+    }
+
+    .about-image {
+      flex: 1;
+      position: relative;
+      overflow: hidden;
+      border-radius: 10px;
+      box-shadow: 0 0 20px rgba(106, 198, 246, 0.4);
+    }
+
+    .about-image img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .about-image::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(to bottom, rgba(106, 198, 246, 0.6), rgba(14, 14, 14, 0.8));
+      opacity: 0;
+      transition: opacity 0.3s ease-in-out;
+    }
+
+    .about-image:hover::before {
+      opacity: 1;
+    }
+
+    /* Footer */
+    footer {
+      background-color: #0e0e0e;
+      padding: 20px 0;
+      text-align: center;
+      font-size: 14px;
+      color: #6AC6F6;
+    }
+
+    footer p {
+      margin: 0;
+    }
+
+    /* Responsive Styles */
+    @media (max-width: 1024px) {
+      .portfolio-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .about {
+        flex-direction: column;
+      }
+
+      .about-content {
+        margin-right: 0;
+        margin-bottom: 40px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      nav {
+        padding: 15px 20px;
+      }
+
+      nav .logo {
+        font-size: 20px;
+      }
+
+      nav ul li {
+        margin-left: 20px;
+      }
+
+      nav ul li a {
+        font-size: 14px;
+      }
+
+      .hero-content h1 {
+        font-size: 48px;
+      }
+
+      .hero-content p {
+        font-size: 18px;
+      }
+
+      .hero-content .cta-button {
+        font-size: 16px;
+        padding: 12px 24px;
+      }
+
+      .portfolio-showcase h2 {
+        font-size: 36px;
+      }
+
+      .portfolio-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .about-content h2 {
+        font-size: 36px;
+      }
+
+      .about-content p {
+        font-size: 16px;
+      }
+
+      .about-content .cta-button {
+        font-size: 16px;
+        padding: 12px 24px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="logo">Fractal Portfolio</div>
+    <ul>
+      <li><a href="#">Home</a></li>
+      <li><a href="#">Portfolio</a></li>
+      <li><a href="#">About</a></li>
+      <li><a href="#">Contact</a></li>
+    </ul>
+  </nav>
+
+  <section class="hero">
+    <div class="hero-content">
+      <h1>Unlock the Power of Fractals</h1>
+      <p>Explore a captivating world of dynamic, color-rich fractal animations.</p>
+      <a href="#" class="cta-button">View Portfolio</a>
+    </div>
+  </section>
+
+  <section class="portfolio-showcase">
+    <h2>My Fractal Creations</h2>
+    <div class="portfolio-grid">
+      <div class="portfolio-item">
+        <img src="https://dummyimage.com/600x400/6AC6F6/000&text=Project+1" alt="Project 1">
+        <div class="overlay">
+          <h3>Project 1</h3>
+          <p>Explore the intricate patterns of this fractal animation.</p>
+          <a href="#">View Project</a>
+        </div>
+      </div>
+      <div class="portfolio-item">
+        <img src="https://dummyimage.com/600x400/6AC6F6/000&text=Project+2" alt="Project 2">
+        <div class="overlay">
+          <h3>Project 2</h3>
+          <p>Discover the mesmerizing visuals of this fractal design.</p>
+          <a href="#">View Project</a>
+        </div>
+      </div>
+      <div class="portfolio-item">
+        <img src="https://dummyimage.com/600x400/6AC6F6/000&text=Project+3" alt="Project 3">
+        <div class="overlay">
+          <h3>Project 3</h3>
+          <p>Immerse yourself in the dynamic patterns of this fractal animation.</p>
+          <a href="#">View Project</a>
+        </div>
+      </div>
+      <div class="portfolio-item">
+        <img src="https://dummyimage.com/600x400/6AC6F6/000&text=Project+4" alt="Project 4">
+        <div class="overlay">
+          <h3>Project 4</h3>
+          <p>Discover the beauty of this intricate fractal design.</p>
+          <a href="#">View Project</a>
+        </div>
+      </div>
+      <div class="portfolio-item">
+        <img src="https://dummyimage.com/600x400/6AC6F6/000&text=Project+5" alt="Project 5">
+        <div class="overlay">
+          <h3>Project 5</h3>
+          <p>Explore the captivating colors and patterns of this fractal animation.</p>
+          <a href="#">View Project</a>
+        </div>
+      </div>
+      <div class="portfolio-item">
+        <img src="https://dummyimage.com/600x400/6AC6F6/000&text=Project+6" alt="Project 6">
+        <div class="overlay">
+          <h3>Project 6</h3>
+          <p>Dive into the mesmerizing world of this fractal design.</p>
+          <a href="#">View Project</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="about">
+    <div class="about-content">
+      <h2>About Me</h2>
+      <p>As an expert website designer, I am passionate about creating captivating and visually stunning fractal animations that showcase my coding skills and design expertise. With a deep understanding of the intricate patterns and mesmerizing colors found in fractals, I strive to bring these dynamic elements to life on the web, creating immersive experiences that inspire and captivate my audience.</p>
+      <a href="#" class="cta-button">Learn More</a>
+    </div>
+    <div class="about-image<div class="about-image">
+      <img src="https://dummyimage.com/600x400/6AC6F6/000&text=About+Me" alt="About Me">
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2024 Fractal Animation Portfolio. All rights reserved.</p>
+  </footer>
+</body>
+</html>'<!-- Visit: https://github.com/Ishanoshada/portflair -->
+<!-- Visit: https://github.com/Ishanoshada/portflair -->
+<!-- Visit: https://github.com/Ishanoshada/portflair -->

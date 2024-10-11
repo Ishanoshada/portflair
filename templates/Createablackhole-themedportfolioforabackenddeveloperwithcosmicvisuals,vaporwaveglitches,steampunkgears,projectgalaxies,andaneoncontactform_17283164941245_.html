@@ -1,0 +1,395 @@
+<!-- Portfolio created by Ishan -->
+<!-- Check out my work at: https://github.com/Ishanoshada/portflair -->
+<!-- 2024/10/9 -->
+<!-- Portfolio created by Ishan -->
+'<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Black Hole Portfolio</title>
+  <style>
+    /* Global Styles */
+    body {
+      font-family: 'Orbitron', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #000000;
+      color: #ffffff;
+      overflow-x: hidden;
+    }
+
+    /* Navigation */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 40px;
+      background-color: rgba(0, 0, 0, 0.7);
+      backdrop-filter: blur(10px);
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 999;
+    }
+
+    nav a {
+      color: #ffffff;
+      text-decoration: none;
+      font-size: 18px;
+      font-weight: bold;
+      padding: 10px 20px;
+      transition: color 0.3s ease;
+    }
+
+    nav a:hover {
+      color: #00ffff;
+    }
+
+    /* Project Galaxy Section */
+    #project-galaxy {
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    #project-galaxy::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(ellipse at center, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 1) 100%);
+      z-index: -1;
+    }
+
+    #project-galaxy::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: url('https://dummyimage.com/1200x500/222/fff&text=Cosmic+Background');
+      background-size: cover;
+      background-position: center;
+      opacity: 0.3;
+      z-index: -1;
+    }
+
+    .planet {
+      position: absolute;
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      background: linear-gradient(45deg, #ff00ff, #00ffff);
+      box-shadow: 0 0 50px rgba(255, 0, 255, 0.5), 0 0 100px rgba(0, 255, 255, 0.5);
+      animation: rotate 30s linear infinite;
+      cursor: pointer;
+    }
+
+    .planet-details {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .planet:hover .planet-details {
+      opacity: 1;
+    }
+
+    .planet-details h3 {
+      font-size: 24px;
+      margin-bottom: 10px;
+    }
+
+    .planet-details p {
+      font-size: 16px;
+      margin: 0;
+    }
+
+    /* Neon Contact Form */
+    #contact {
+      padding: 100px 0;
+      background: linear-gradient(to bottom, #1b1b1b, #000000);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .neon-form {
+      background-color: rgba(0, 0, 0, 0.7);
+      padding: 40px;
+      border-radius: 10px;
+      box-shadow: 0 0 50px rgba(0, 255, 255, 0.5);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .neon-form::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(to right, #00ffff, #ff00ff, #00ffff);
+      z-index: -1;
+      animation: neon-glow 5s ease-in-out infinite;
+    }
+
+    .neon-form input,
+    .neon-form textarea {
+      display: block;
+      width: 300px;
+      padding: 10px;
+      margin-bottom: 20px;
+      background-color: rgba(255, 255, 255, 0.1);
+      border: none;
+      border-radius: 5px;
+      color: #ffffff;
+      font-size: 16px;
+      font-family: 'Orbitron', sans-serif;
+      transition: background-color 0.3s ease;
+    }
+
+    .neon-form input:focus,
+    .neon-form textarea:focus {
+      background-color: rgba(255, 255, 255, 0.2);
+    }
+
+    .neon-form button {
+      display: block;
+      width: 200px;
+      padding: 10px 20px;
+      background-color: #00ffff;
+      color: #000000;
+      border: none;
+      border-radius: 5px;
+      font-size: 16px;
+      font-family: 'Orbitron', sans-serif;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .neon-form button:hover {
+      background-color: #ff00ff;
+    }
+
+    /* About Me Section */
+    #about-me {
+      padding: 100px 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .about-me-content {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      max-width: 1200px;
+      width: 100%;
+    }
+
+    .profile-picture {
+      width: 300px;
+      height: 300px;
+      border-radius: 50%;
+      background: radial-gradient(circle, #ff00ff, #00ffff);
+      box-shadow: 0 0 50px rgba(255, 0, 255, 0.5), 0 0 100px rgba(0, 255, 255, 0.5);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .profile-picture img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: grayscale(100%);
+      transition: filter 0.3s ease;
+    }
+
+    .profile-picture:hover img {
+      filter: grayscale(0%);
+    }
+
+    .profile-picture::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(45deg, #ff00ff, #00ffff);
+      opacity: 0.3;
+      animation: glow 5s ease-in-out infinite;
+    }
+
+    .about-me-info {
+      flex-grow: 1;
+      margin-left: 50px;
+    }
+
+    .about-me-info h2 {
+      font-size: 36px;
+      margin-bottom: 20px;
+    }
+
+    .about-me-info p {
+      font-size: 18px;
+      line-height: 1.5;
+      margin-bottom: 20px;
+    }
+
+    .about-me-info .stat-widget {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 20px;
+    }
+
+    .stat-widget .stat {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      background-color: rgba(255, 255, 255, 0.1);
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+      transition: background-color 0.3s ease;
+    }
+
+    .stat-widget .stat:hover {
+      background-color: rgba(255, 255, 255, 0.2);
+    }
+
+    .stat-widget .stat h3 {
+      font-size: 24px;
+      margin-bottom: 10px;
+    }
+
+    .stat-widget .stat p {
+      font-size: 16px;
+      margin: 0;
+    }
+
+    /* Animations */
+    @keyframes rotate {
+      0% {
+        transform: rotate(0deg);
+      }
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+
+    @keyframes neon-glow {
+      0% {
+        background-position: 0% 50%;
+      }
+      50% {
+        background-position: 100% 50%;
+      }
+      100% {
+        background-position: 0% 50%;
+      }
+    }
+
+    @keyframes glow {
+      0% {
+        opacity: 0.3;
+      }
+      50% {
+        opacity: 0.6;
+      }
+      100% {
+        opacity: 0.3;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="#">Home</a>
+    <a href="#project-galaxy">Projects</a>
+    <a href="#contact">Contact</a>
+    <a href="#about-me">About</a>
+  </nav>
+
+  <section id="project-galaxy">
+    <div class="planet" style="top: 20%; left: 10%;">
+      <div class="planet-details">
+        <h3>Project 1</h3>
+        <p>Cosmic Backend Development</p>
+      </div>
+    </div>
+    <div class="planet" style="top: 40%; left: 30%;">
+      <div class="planet-details">
+        <h3>Project 2</h3>
+        <p>Vaporwave API Integration</p>
+      </div>
+    </div>
+    <div class="planet" style="top: 60%; left: 50%;">
+      <div class="planet-details">
+        <h3>Project 3</h3>
+        <p>Steampunk Database Management</p>
+      </div>
+    </div>
+    <div class="planet" style="top: 80%; left: 70%;">
+      <div class="planet-details">
+        <h3>Project 4</h3>
+        <p>Galactic Server Deployment</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="neon-form">
+      <form>
+        <input type="text" placeholder="Name" required>
+        <input type="email" placeholder="Email" required>
+        <textarea placeholder="Message" required></textarea>
+        <button type="submit">Send</button>
+      </form>
+    </div>
+  </section>
+
+  <section id="about-me">
+    <div class="about-me-content">
+      <div class="profile-picture">
+        <img src="https://dummyimage.com/300x300/222/fff&text=Profile+Picture" alt="Profile Picture">
+      </div>
+      <div class="about-me-info">
+        <h2>About Me</h2>
+        <p>
+          I am a backend developer with a passion for creating cosmic, vaporwave-inspired, and steampunk-infused applications that push the boundaries of technology. My projects span a wide range of domains, from building scalable infrastructure to designing captivating data visualizations.
+        </p>
+        <div class="stat-widget">
+          <div class="stat">
+            <h3>10+</h3>
+            <p>Years of Experience</p>
+          </div>
+          <div class="stat">
+            <h3>100+</h3>
+            <p>Successful Projects</p>
+          </div>
+          <div class="stat">
+            <h3>98%</h3>
+            <p>Client Satisfaction</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</body>
+</html>'<!-- Visit: https://github.com/Ishanoshada/portflair -->
+<!-- Visit: https://github.com/Ishanoshada/portflair -->

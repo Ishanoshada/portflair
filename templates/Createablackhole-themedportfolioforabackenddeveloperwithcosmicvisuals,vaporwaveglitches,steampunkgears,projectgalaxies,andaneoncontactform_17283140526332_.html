@@ -1,0 +1,471 @@
+<!-- Portfolio created by Ishan -->
+<!-- Check out my work at: https://github.com/Ishanoshada/portflair -->
+<!-- 2024/10/9 -->
+<!-- Portfolio created by Ishan -->
+'<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Black Hole Portfolio</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
+
+    body {
+      margin: 0;
+      font-family: 'Orbitron', sans-serif;
+      background: radial-gradient(circle, #000000, #0d0d0d, #1a1a1a, #262626, #333333);
+      color: #f2f2f2;
+      overflow-x: hidden;
+    }
+
+    header {
+      padding: 20px;
+      background: linear-gradient(to right, #4b0082, #8b00ff);
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    nav {
+      display: flex;
+      justify-content: center;
+    }
+
+    nav a {
+      color: #f2f2f2;
+      text-decoration: none;
+      margin: 0 20px;
+      font-size: 18px;
+      position: relative;
+      transition: color 0.3s ease;
+    }
+
+    nav a:before {
+      content: "";
+      position: absolute;
+      width: 0;
+      height: 2px;
+      bottom: -5px;
+      left: 50%;
+      transform: translateX(-50%);
+      background-color: #f2f2f2;
+      transition: width 0.3s ease;
+    }
+
+    nav a:hover {
+      color: #8b00ff;
+    }
+
+    nav a:hover:before {
+      width: 100%;
+    }
+
+    .portfolio-section {
+      padding: 80px 0;
+      background: radial-gradient(circle, #1a1a1a, #262626, #333333, #404040, #4d4d4d);
+      overflow-x: hidden;
+    }
+
+    .portfolio-title {
+      text-align: center;
+      font-size: 36px;
+      margin-bottom: 40px;
+      text-shadow: 0 0 10px #8b00ff, 0 0 20px #8b00ff, 0 0 30px #8b00ff;
+      animation: glitch 2s infinite;
+    }
+
+    @keyframes glitch {
+      0% {
+        text-shadow: 0 0 10px #8b00ff, 0 0 20px #8b00ff, 0 0 30px #8b00ff;
+      }
+      50% {
+        text-shadow: 0 0 20px #4b0082, 0 0 30px #4b0082, 0 0 40px #4b0082;
+      }
+      100% {
+        text-shadow: 0 0 10px #8b00ff, 0 0 20px #8b00ff, 0 0 30px #8b00ff;
+      }
+    }
+
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-gap: 40px;
+      perspective: 1000px;
+    }
+
+    .project-galaxy {
+      background: radial-gradient(circle, #1a1a1a, #262626, #333333, #404040, #4d4d4d);
+      border-radius: 10px;
+      box-shadow: 0 0 20px rgba(139, 0, 255, 0.3);
+      overflow: hidden;
+      position: relative;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+
+    .project-galaxy:before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(circle, #8b00ff, #4b0082, #1a1a1a);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .project-galaxy:hover {
+      transform: scale(1.05);
+    }
+
+    .project-galaxy:hover:before {
+      opacity: 0.5;
+    }
+
+    .project-thumbnail {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      filter: grayscale(1) contrast(1.2);
+      transition: filter 0.3s ease;
+    }
+
+    .project-galaxy:hover .project-thumbnail {
+      filter: none;
+    }
+
+    .project-details {
+      padding: 20px;
+      text-align: center;
+    }
+
+    .project-title {
+      font-size: 24px;
+      margin-bottom: 10px;
+      text-shadow: 0 0 10px #8b00ff, 0 0 20px #8b00ff, 0 0 30px #8b00ff;
+      animation: glitch 2s infinite;
+    }
+
+    .project-description {
+      font-size: 16px;
+      margin-bottom: 20px;
+    }
+
+    .project-technologies {
+      font-size: 14px;
+      color: #b3b3b3;
+    }
+
+    .about-section {
+      padding: 80px 0;
+      background: radial-gradient(circle, #262626, #333333, #404040, #4d4d4d, #5a5a5a);
+      position: relative;
+      overflow-x: hidden;
+    }
+
+    .about-title {
+      text-align: center;
+      font-size: 36px;
+      margin-bottom: 40px;
+      text-shadow: 0 0 10px #8b00ff, 0 0 20px #8b00ff, 0 0 30px #8b00ff;
+      animation: glitch 2s infinite;
+    }
+
+    .about-content {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      z-index: 1;
+    }
+
+    .about-intro {
+      flex: 0 0 40%;
+      padding-right: 40px;
+      text-align: right;
+    }
+
+    .about-intro h2 {
+      font-size: 24px;
+      margin-bottom: 20px;
+      text-shadow: 0 0 10px #8b00ff, 0 0 20px #8b00ff, 0 0 30px #8b00ff;
+      animation: glitch 2s infinite;
+    }
+
+    .about-intro p {
+      font-size: 16px;
+      line-height: 1.6;
+    }
+
+    .about-skills {
+      flex: 0 0 60%;
+      padding-left: 40px;
+    }
+
+    .skill-item {
+      display: flex;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+
+    .skill-item i {
+      font-size: 24px;
+      margin-right: 10px;
+      color: #8b00ff;
+      text-shadow: 0 0 10px #8b00ff, 0 0 20px #8b00ff, 0 0 30px #8b00ff;
+      animation: glitch 2s infinite;
+    }
+
+    .skill-item h3 {
+      font-size: 18px;
+      margin-bottom: 5px;
+      text-shadow: 0 0 10px #8b00ff, 0 0 20px #8b00ff, 0 0 30px #8b00ff;
+      animation: glitch 2s infinite;
+    }
+
+    .skill-item p {
+      font-size: 14px;
+      color: #b3b3b3;
+    }
+
+    .contact-section {
+      padding: 80px 0;
+      background: linear-gradient(to right, #4b0082, #8b00ff);
+      position: relative;
+      overflow-x: hidden;
+    }
+
+    .contact-title {
+      text-align: center;
+      font-size: 36px;
+      margin-bottom: 40px;
+      text-shadow: 0 0 10px #f2f2f2, 0 0 20px #f2f2f2, 0 0 30px #f2f2f2;
+      animation: glitch 2s infinite;
+    }
+
+    .contact-form {
+      max-width: 600px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      position: relative;
+      z-index: 1;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+      width: 100%;
+      padding: 12px 20px;
+      margin-bottom: 20px;
+      border: none;
+      border-radius: 4px;
+      background-color: #f2f2f2;
+      font-size: 16px;
+      font-family: 'Orbitron', sans-serif;
+      color: #333;
+      box-shadow: 0 0 20px rgba(139, 0, 255, 0.3);
+      transition: box-shadow 0.3s ease;
+    }
+
+    .contact-form input:focus,
+    .contact-form textarea:focus {
+      box-shadow: 0 0 40px rgba(139, 0, 255, 0.5);
+    }
+
+    .contact-form button {
+      padding: 12px 30px;
+      background-color: #8b00ff;
+      color: #f2f2f2;
+      border: none;
+      border-radius: 4px;
+      font-size: 16px;
+      font-family: 'Orbitron', sans-serif;
+      cursor: pointer;
+      box-shadow: 0 0 20px rgba(139, 0, 255, 0.3);
+      transition: box-shadow 0.3s ease;
+    }
+
+    .contact-form button:hover {
+      box-shadow: 0 0 40px rgba(139, 0, 255, 0.5);
+    }
+
+    .black-hole {
+      position: absolute;
+      width: 300px;
+      height: 300px;
+      border-radius: 50%;
+      background: radial-gradient(circle, #1a1a1a, #0d0d0d, #000000);
+      box-shadow: 0 0 50px rgba(0, 0, 0, 0.5), 0 0 100px rgba(0, 0, 0, 0.5), 0 0 150px rgba(0, 0, 0, 0.5);
+      animation: blackHoleExpand 10s ease-in-out infinite;
+    }
+
+    @keyframes blackHoleExpand {
+      0% {
+        transform: scale(1);
+      }
+      50% {
+        transform: scale(1.1);
+      }
+      100% {
+        transform: scale(1);
+      }
+    }
+
+    .black-hole-1 {
+      top: -100px;
+      left: -100px;
+    }
+
+    .black-hole-2 {
+      bottom: -100px;
+      right: -100px;
+    }
+
+    @media (max-width: 768px) {
+      .project-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .about-content {
+        flex-direction: column;
+      }
+
+      .about-intro {
+        flex: 0 0 auto;
+        padding-right: 0;
+        text-align: center;
+        margin-bottom: 40px;
+      }
+
+      .about-skills {
+        flex: 0 0 auto;
+        padding-left: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav>
+      <a href="#">Home</a>
+      <a href="#">Portfolio</a>
+      <a href="#">About</a>
+      <a href="#">Contact</a>
+    </nav>
+  </header>
+
+  <section class="portfolio-section">
+    <h2 class="portfolio-title">My Projects</h2>
+    <div class="project-grid">
+      <div class="project-galaxy">
+        <img src="https://dummyimage.com/400x300/ccc/000&text=Project+Galaxy+1" alt="Project Galaxy 1" class="project-thumbnail">
+        <div class="project-details">
+          <h3 class="project-title">Project Galaxy 1</h3>
+          <p class="project-description">A cosmic, vaporwave-inspired project with steampunk gears and glitches.</p>
+          <p class="project-technologies">Technologies: JavaScript, React, ThreeJS</p>
+        </div>
+      </div>
+      <div class="project-galaxy">
+        <img src="https://dummyimage.com/400x300/ccc/000&text=Project+Galaxy+2" alt="Project Galaxy 2" class="project-thumbnail">
+        <div class="project-details">
+          <h3 class="project-title">Project Galaxy 2</h3>
+          <p class="project-description">A futuristic backend application with a neon-infused contact form.</p>
+          <p class="project-technologies">Technologies: Node.js, Express, MongoDB</p>
+        </div>
+      </div>
+      <div class="project-galaxy">
+        <img src="https://dummyimage.com/400x300/ccc/000&text=Project+Galaxy+3" alt="Project Galaxy 3" class="project-thumbnail">
+        <div class="project-details">
+          <h3 class="project-title">Project Galaxy 3</h3>
+          <p class="project-description">A cosmic data visualization tool with vaporwave-inspired glitches.</p>
+          <p class="project-technologies">Technologies: Python, D3.js, Plotly</p>
+        </div>
+      </div>
+      <div class="project-galaxy">
+        <img src="https://dummyimage.com/400x300/ccc/000&text=Project+Galaxy+4" alt="Project Galaxy 4" class="project-thumbnail">
+        <div class="project-details">
+          <h3 class="project-title">Project Galaxy 4</h3>
+          <p class="project-description">A backend API with a steampunk-infused dashboard and cosmic visuals.</p>
+          <p class="project-technologies">Technologies: Ruby on Rails, PostgreSQL, React</p>
+        </div>
+      </div>
+      <div class="project-galaxy">
+        <img src="https://dummyimage.com/400x300/ccc/000&text=Project+Galaxy+5" alt="Project Galaxy 5" class="project-thumbnail">
+        <div class="project-details">
+          <h3 class="project-title">Project Galaxy 5</h3>
+          <p class="project-description">A cosmic task management tool with vaporwave-inspired UI elements.</p>
+          <p class="project-technologies">Technologies: PHP, Laravel, Vue.js</p>
+        </div>
+      </div>
+      <div class="project-galaxy">
+        <img src="https://dummyimage.com/400x300/ccc/000&text=Project+Galaxy+6" alt="Project Galaxy 6" class="project-thumbnail">
+        <div class="project-details">
+          <h3 class="project-title">Project Galaxy 6</h3>
+          <p class="project-description">A backend service with a neon-infused contact form and steampunk gears.</p>
+          <p class="project-technologies">Technologies: Go, Gin, Mongodb</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="about-section">
+    <h<section class="about-section">
+    <h2 class="about-title">About Me</h2>
+    <div class="about-content">
+      <div class="about-intro">
+        <h2>Hi, I'm John Doe</h2>
+        <p>As a backend developer with a passion for cosmic visuals, vaporwave glitches, and steampunk aesthetics, I've crafted a portfolio that reflects my unique approach to problem-solving and design. My projects range from futuristic data visualization tools to neon-infused contact forms, all with a touch of cosmic wonder and retro-futuristic charm.</p>
+      </div>
+      <div class="about-skills">
+        <div class="skill-item">
+          <i class="fas fa-code"></i>
+          <div>
+            <h3>Backend Development</h3>
+            <p>Proficient in languages like Node.js, Ruby on Rails, and Go, I bring a robust set of backend skills to the table.</p>
+          </div>
+        </div>
+        <div class="skill-item">
+          <i class="fas fa-database"></i>
+          <div>
+            <h3>Database Management</h3>
+            <p>Experienced in working with various databases, including MongoDB, PostgreSQL, and MySQL, to ensure data-driven solutions.</p>
+          </div>
+        </div>
+        <div class="skill-item">
+          <i class="fas fa-rocket"></i>
+          <div>
+            <h3>Cosmic Visuals</h3>
+            <p>With a keen eye for design and a love for all things cosmic, I blend vaporwave glitches, steampunk gears, and futuristic elements to create visually stunning interfaces.</p>
+          </div>
+        </div>
+        <div class="skill-item">
+          <i class="fas fa-magic"></i>
+          <div>
+            <h3>Experimental Creativity</h3>
+            <p>I thrive on pushing the boundaries of traditional web development, exploring new technologies and techniques to craft unique and captivating experiences.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="black-hole black-hole-1"></div>
+    <div class="black-hole black-hole-2"></div>
+  </section>
+
+  <section class="contact-section">
+    <h2 class="contact-title">Get in Touch</h2>
+    <form class="contact-form">
+      <input type="text" placeholder="Name" />
+      <input type="email" placeholder="Email" />
+      <textarea placeholder="Message"></textarea>
+      <button type="submit">Send</button>
+    </form>
+    <div class="black-hole black-hole-1"></div>
+    <div class="black-hole black-hole-2"></div>
+  </section>
+</body>
+</html>'<!-- Visit: https://github.com/Ishanoshada/portflair -->
+<!-- Visit: https://github.com/Ishanoshada/portflair -->

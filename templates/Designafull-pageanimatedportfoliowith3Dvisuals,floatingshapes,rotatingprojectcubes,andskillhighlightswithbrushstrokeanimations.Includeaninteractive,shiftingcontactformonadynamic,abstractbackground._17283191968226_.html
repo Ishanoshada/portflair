@@ -1,0 +1,421 @@
+<!-- Portfolio created by Ishan -->
+<!-- Check out my work at: https://github.com/Ishanoshada/portflair -->
+<!-- 2024/10/9 -->
+<!-- Portfolio created by Ishan -->
+'<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Design a full-page animated portfolio</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #0e0e0e;
+      color: #fff;
+      overflow-x: hidden;
+    }
+
+    /* Navigation Bar */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 40px;
+      background-color: rgba(14, 14, 14, 0.8);
+      backdrop-filter: blur(10px);
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+    }
+
+    nav .logo {
+      font-size: 24px;
+      font-weight: 700;
+      color: #fff;
+      text-decoration: none;
+    }
+
+    nav ul {
+      display: flex;
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    nav ul li {
+      margin-left: 30px;
+    }
+
+    nav ul li a {
+      color: #fff;
+      text-decoration: none;
+      font-size: 16px;
+      font-weight: 500;
+      transition: color 0.3s ease;
+    }
+
+    nav ul li a:hover {
+      color: #5b5b5b;
+    }
+
+    /* Interactive Project Showcase */
+    .project-showcase {
+      padding: 100px 40px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background-image: linear-gradient(to bottom, #0e0e0e, #1a1a1a);
+    }
+
+    .project-showcase h2 {
+      font-size: 36px;
+      font-weight: 700;
+      margin-bottom: 40px;
+    }
+
+    .project-cubes {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      grid-gap: 40px;
+      width: 100%;
+    }
+
+    .project-cube {
+      position: relative;
+      width: 100%;
+      height: 300px;
+      background-color: #1a1a1a;
+      border-radius: 10px;
+      overflow: hidden;
+      cursor: pointer;
+      transition: transform 0.5s ease;
+    }
+
+    .project-cube:hover {
+      transform: translateY(-10px);
+    }
+
+    .project-cube img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: opacity 0.5s ease;
+    }
+
+    .project-cube:hover img {
+      opacity: 0.7;
+    }
+
+    .project-cube .project-info {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(26, 26, 26, 0.8);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      transition: opacity 0.5s ease;
+    }
+
+    .project-cube:hover .project-info {
+      opacity: 1;
+    }
+
+    .project-cube .project-info h3 {
+      font-size: 24px;
+      font-weight: 600;
+      margin-bottom: 10px;
+    }
+
+    .project-cube .project-info p {
+      font-size: 16px;
+      font-weight: 400;
+      text-align: center;
+      max-width: 80%;
+    }
+
+    /* Skill Highlights with Brushstroke Animations */
+    .skill-highlights {
+      padding: 100px 40px;
+      background-image: linear-gradient(to bottom, #1a1a1a, #242424);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .skill-highlights h2 {
+      font-size: 36px;
+      font-weight: 700;
+      margin-bottom: 40px;
+    }
+
+    .brushstroke-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      grid-gap: 40px;
+      width: 100%;
+    }
+
+    .brushstroke {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .brushstroke canvas {
+      width: 150px;
+      height: 150px;
+      margin-bottom: 20px;
+    }
+
+    .brushstroke h3 {
+      font-size: 18px;
+      font-weight: 600;
+      margin-bottom: 10px;
+    }
+
+    .brushstroke p {
+      font-size: 14px;
+      font-weight: 400;
+      text-align: center;
+    }
+
+    /* Dynamic Contact Form */
+    .contact-form {
+      padding: 100px 40px;
+      background-image: linear-gradient(to bottom, #242424, #2f2f2f);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .contact-form h2 {
+      font-size: 36px;
+      font-weight: 700;
+      margin-bottom: 40px;
+    }
+
+    .contact-form-container {
+      width: 100%;
+      max-width: 600px;
+      background-color: rgba(47, 47, 47, 0.8);
+      padding: 40px;
+      border-radius: 10px;
+      box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
+      position: relative;
+      z-index: 1;
+    }
+
+    .contact-form-container .input-field {
+      margin-bottom: 20px;
+    }
+
+    .contact-form-container input,
+    .contact-form-container textarea {
+      width: 100%;
+      padding: 10px 20px;
+      font-size: 16px;
+      font-family: 'Poppins', sans-serif;
+      border: none;
+      border-radius: 5px;
+      background-color: #3f3f3f;
+      color: #fff;
+      transition: background-color 0.3s ease;
+    }
+
+    .contact-form-container input:focus,
+    .contact-form-container textarea:focus {
+      outline: none;
+      background-color: #4f4f4f;
+    }
+
+    .contact-form-container textarea {
+      height: 120px;
+      resize: none;
+    }
+
+    .contact-form-container button {
+      width: 100%;
+      padding: 10px 20px;
+      font-size: 16px;
+      font-family: 'Poppins', sans-serif;
+      border: none;
+      border-radius: 5px;
+      background-color: #5b5b5b;
+      color: #fff;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .contact-form-container button:hover {
+      background-color: #6b6b6b;
+    }
+
+    .contact-form-background {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: url('https://dummyimage.com/1200x500/2f2f2f/000&text=Dynamic+Background');
+      background-size: cover;
+      background-position: center;
+      z-index: 0;
+      animation: backgroundAnimation 20s ease infinite;
+    }
+
+    @keyframes backgroundAnimation {
+      0% {
+        transform: scale(1);
+      }
+      50% {
+        transform: scale(1.1);
+      }
+      100% {
+        transform: scale(1);
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="#" class="logo">Design Portfolio</a>
+    <ul>
+      <li><a href="#">Home</a></li>
+      <li><a href="#">Projects</a></li>
+      <li><a href="#">Skills</a></li>
+      <li><a href="#">Contact</a></li>
+    </ul>
+  </nav>
+
+  <section class="project-showcase">
+    <h2>Interactive Project Showcase</h2>
+    <div class="project-cubes">
+      <div class="project-cube">
+        <img src="https://dummyimage.com/300x300/ccc/000&text=Project+1" alt="Project 1">
+        <div class="project-info">
+          <h3>Project 1</h3>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+        </div>
+      </div>
+      <div class="project-cube">
+        <img src="https://dummyimage.com/300x300/ccc/000&text=Project+2" alt="Project 2">
+        <div class="project-info">
+          <h3>Project 2</h3>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+        </div>
+      </div>
+      <div class="project-cube">
+        <img src="https://dummyimage.com/300x300/ccc/000&text=Project+3" alt="Project 3">
+        <div class="project-info">
+          <h3>Project 3</h3>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+        </div>
+      </div>
+      <div class="project-cube">
+        <img src="https://dummyimage.com/300x300/ccc/000&text=Project+4" alt="Project 4">
+        <div class="project-info">
+          <h3>Project 4</h3>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="skill-highlights">
+    <h2>Skill Highlights with Brushstroke Animations</h2>
+    <div class="brushstroke-container">
+      <div class="brushstroke">
+        <canvas id="brushstroke1"></canvas>
+        <h3>Graphic Design</h3>
+        <p>Expertly crafted visuals that captivate and inspire.</p>
+      </div>
+      <div class="brushstroke">
+        <canvas id="brushstroke2"></canvas>
+        <h3>Web Development</h3>
+        <p>Building responsive, pixel-perfect websites.</p>
+      </div>
+      <div class="brushstroke">
+        <canvas id="brushstroke3"></canvas>
+        <h3>Motion Graphics</h3>
+        <p>Bringing ideas to life through dynamic animations.</p>
+      </div>
+      <div class="brushstroke">
+        <canvas id="brushstroke4"></canvas>
+        <h3>Branding</h3>
+        <p>Crafting memorable brand identities.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact-form">
+    <h2>Get in Touch</h2>
+    <div class="contact-form-container">
+      <form>
+        <div class="input-field">
+          <input type="text" placeholder="Name" required>
+        </div>
+        <div class="input-field">
+          <input type="email" placeholder="Email" required>
+        </div>
+        <div class="input-field">
+          <textarea placeholder="Message" required></textarea>
+        </div>
+        <button type="submit">Submit</button>
+      </form>
+    </div>
+    <div class="contact-form-background"></div>
+  </section>
+
+  <script>
+    // Brushstroke Animations
+    function drawBrushstroke(canvasId, color) {
+      const canvas = document.getElementById(canvasId);
+      const ctx = canvas.getContext('2d');
+      const width = canvas.width;
+      const height = canvas.height;
+
+      ctx.clearRect(0, 0, width, height);
+      ctx.beginPath();
+      ctx.moveTo(Math.random() * width, Math.random() * height);
+
+      for (let i = 0; i < 50; i++) {
+        ctx.lineTo(
+          Math.random() * width,
+          Math.random() * height
+        );
+      }
+
+      ctx.strokeStyle = color;
+      ctx.lineWidth = 4;
+      ctx.stroke();
+      requestAnimationFrame(() => drawBrushstroke(canvasId, color));
+    }
+
+    drawBrushstroke('brushstroke1', '#5b5b5b');
+    drawBrushstroke('brushstroke2', '#6b6b6b');
+    drawBrushstroke('brushstroke3', '#7b7b7b');
+    drawBrushstroke('brushstroke4', '#8b8b8b');
+  </script>
+</body>
+</html>'<!-- Visit: https://github.com/Ishanoshada/portflair -->
+<!-- Visit: https://github.com/Ishanoshada/portflair -->

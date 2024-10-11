@@ -1,0 +1,469 @@
+<!-- Portfolio created by Ishan -->
+<!-- Check out my work at: https://github.com/Ishanoshada/portflair -->
+<!-- 2024/10/9 -->
+<!-- Portfolio created by Ishan -->
+'<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dark-Mode Portfolio</title>
+    <style>
+        /* Global Styles */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Montserrat', sans-serif;
+            background-color: #1a1a1a;
+            color: #f2f2f2;
+            overflow-x: hidden;
+        }
+
+        /* Navigation Bar */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: rgba(26, 26, 26, 0.8);
+            padding: 1.5rem 3rem;
+            position: relative;
+            z-index: 100;
+        }
+
+        .navbar-brand {
+            font-size: 2rem;
+            font-weight: 700;
+            text-decoration: none;
+            color: #f2f2f2;
+            transition: color 0.3s ease;
+        }
+
+        .navbar-brand:hover {
+            color: #8d8d8d;
+        }
+
+        .navbar-nav {
+            display: flex;
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .nav-item {
+            margin-left: 2rem;
+        }
+
+        .nav-link {
+            font-size: 1.1rem;
+            font-weight: 500;
+            text-decoration: none;
+            color: #f2f2f2;
+            transition: color 0.3s ease;
+        }
+
+        .nav-link:hover {
+            color: #8d8d8d;
+        }
+
+        /* Interactive Showcase Section */
+        .showcase {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-gap: 2rem;
+            padding: 5rem 3rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .showcase-item {
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 0.5rem;
+            box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .showcase-item:hover {
+            transform: translateY(-0.5rem);
+            box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2);
+        }
+
+        .showcase-item img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            opacity: 0.8;
+            transition: opacity 0.3s ease;
+        }
+
+        .showcase-item:hover img {
+            opacity: 1;
+        }
+
+        .showcase-item-details {
+            padding: 1.5rem;
+            background-color: rgba(26, 26, 26, 0.8);
+            backdrop-filter: blur(10px);
+            transition: background-color 0.3s ease;
+        }
+
+        .showcase-item:hover .showcase-item-details {
+            background-color: rgba(26, 26, 26, 0.9);
+        }
+
+        .showcase-item-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .showcase-item-description {
+            font-size: 1rem;
+            color: #d8d8d8;
+            margin-bottom: 1rem;
+        }
+
+        .showcase-item-links {
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        .showcase-item-links a {
+            font-size: 1.1rem;
+            font-weight: 500;
+            text-decoration: none;
+            color: #f2f2f2;
+            margin-left: 1rem;
+            transition: color 0.3s ease;
+        }
+
+        .showcase-item-links a:hover {
+            color: #8d8d8d;
+        }
+
+        /* About Me Section */
+        .about {
+            display: flex;
+            align-items: center;
+            background-color: rgba(26, 26, 26, 0.8);
+            padding: 5rem 3rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .about-image {
+            flex: 0 0 300px;
+            margin-right: 3rem;
+            border-radius: 50%;
+            box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            position: relative;
+        }
+
+        .about-image::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            z-index: 1;
+        }
+
+        .about-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.8;
+            transition: opacity 0.3s ease;
+        }
+
+        .about-image:hover img {
+            opacity: 1;
+        }
+
+        .about-content {
+            flex: 1;
+        }
+
+        .about-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+        }
+
+        .about-description {
+            font-size: 1.1rem;
+            color: #d8d8d8;
+            margin-bottom: 2rem;
+        }
+
+        .about-skills {
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .about-skill {
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 0.5rem;
+            padding: 0.5rem 1rem;
+            margin-right: 1rem;
+            margin-bottom: 1rem;
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: #f2f2f2;
+        }
+
+        /* Contact Section */
+        .contact {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: rgba(26, 26, 26, 0.8);
+            padding: 5rem 3rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .contact-form {
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 0.5rem;
+            box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+            padding: 2rem;
+            width: 100%;
+            max-width: 600px;
+        }
+
+        .contact-form-title {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-form-label {
+            display: block;
+            font-size: 1.1rem;
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+        }
+
+        .contact-form-input,
+        .contact-form-textarea {
+            width: 100%;
+            padding: 0.75rem 1rem;
+            font-size: 1rem;
+            font-family: 'Montserrat', sans-serif;
+            background-color: rgba(255, 255, 255, 0.1);
+            border: none;
+            border-radius: 0.25rem;
+            color: #f2f2f2;
+            transition: background-color 0.3s ease;
+        }
+
+        .contact-form-input:focus,
+        .contact-form-textarea:focus {
+            background-color: rgba(255, 255, 255, 0.2);
+            outline: none;
+        }
+
+        .contact-form-textarea {
+            resize: vertical;
+            min-height: 150px;
+        }
+
+        .contact-form-submit {
+            display: block;
+            width: 100%;
+            padding: 0.75rem 1.5rem;
+            font-size: 1.1rem;
+            font-weight: 500;
+            font-family: 'Montserrat', sans-serif;
+            background-color: #8d8d8d;
+            color: #1a1a1a;
+            border: none;
+            border-radius: 0.25rem;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .contact-form-submit:hover {
+            background-color: #a3a3a3;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 1024px) {
+            .showcase {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .about {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .about-image {
+                margin-right: 0;
+                margin-bottom: 2rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .navbar {
+                padding: 1rem 2rem;
+            }
+
+            .showcase,
+            .about,
+            .contact {
+                padding: 3rem 2rem;
+            }
+
+            .showcase {
+                grid-template-columns: 1fr;
+            }
+
+            .about-title {
+                font-size: 2rem;
+            }
+
+            .contact-form-title {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="navbar">
+        <a href="#" class="navbar-brand">Dark-Mode Portfolio</a>
+        <nav>
+            <ul class="navbar-nav">
+                <li class="nav-item"><a href="#" class="nav-link">Home</a></li>
+                <li class="nav-item"><a href="#" class="nav-link">Portfolio</a></li>
+                <li class="nav-item"><a href="#" class="nav-link">About</a></li>
+                <li class="nav-item"><a href="#" class="nav-link">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="showcase">
+        <div class="showcase-item">
+            <img src="https://dummyimage.com/600x400/ccc/000&text=Project+1" alt="Project 1">
+            <div class="showcase-item-details">
+                <h3 class="showcase-item-title">Project 1</h3>
+                <p class="showcase-item-description">This is a description of Project 1, showcasing the designer's work.</p>
+                <div class="showcase-item-links">
+                    <a href="#">View Project</a>
+                    <a href="#">Learn More</a>
+                </div>
+            </div>
+        </div>
+        <div class="showcase-item">
+            <img src="https://dummyimage.com/600x400/ccc/000&text=Project+2" alt="Project 2">
+            <div class="showcase-item-details">
+                <h3 class="showcase-item-title">Project 2</h3>
+                <p class="showcase-item-description">This is a description of Project 2, showcasing the designer's work.</p>
+                <div class="showcase-item-links">
+                    <a href="#">View Project</a>
+                    <a href="#">Learn More</a>
+                </div>
+            </div>
+        </div>
+        <div class="showcase-item">
+            <img src="https://dummyimage.com/600x400/ccc/000&text=Project+3" alt="Project 3">
+            <div class="showcase-item-details">
+                <h3 class="showcase-item-title">Project 3</h3>
+                <p class="showcase-item-description">This is a description of Project 3, showcasing the designer's work.</p>
+                <div class="showcase-item-links">
+                    <a href="#">View Project</a>
+                    <a href="#">Learn More</a>
+                </div>
+            </div>
+        </div>
+        <div class="showcase-item">
+            <img src="https://dummyimage.com/600x400/ccc/000&text=Project+4" alt="Project 4">
+            <div class="showcase-item-details">
+                <h3 class="showcase-item-title">Project 4</h3>
+                <p class="showcase-item-description">This is a description of Project 4, showcasing the designer's work.</p>
+                <div class="showcase-item-links">
+                    <a href="#">View Project</a>
+                    <a href="#">Learn More</a>
+                </div>
+            </div>
+        </div>
+        <div class="showcase-item">
+            <img src="https://dummyimage.com/600x400/ccc/000&text=Project+5" alt="Project 5">
+            <div class="showcase-item-details">
+                <h3 class="showcase-item-title">Project 5</h3>
+                <p class="showcase-item-description">This is a description of Project 5, showcasing the designer's work.</p>
+                <div class="showcase-item-links">
+                    <a href="#">View Project</a>
+                    <a href="#">Learn More</a>
+                </div>
+            </div>
+        </div>
+        <div class="showcase-item">
+            <img src="https://dummyimage.com/600x400/ccc/000&text=Project+6" alt="Project 6">
+            <div class="showcase-item-details">
+                <h3 class="showcase-item-title">Project 6</h3>
+                <p class="showcase-item-description">This is a description of Project 6, showcasing the designer's work.</p>
+                <div class="showcase-item-links">
+                    <a href="#">View Project</a>
+                    <a href="#">Learn More</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="about">
+        <div class="about-image">
+            <img src="https://dummyimage.com/300x300/ccc/000&text=Designer" alt="Designer">
+        </div>
+        <div class="about-content">
+            <h2 class="about-title">About Me</h2>
+            <p class="about-description">
+                Hello! I'm a passionate designer with a love for creating visually stunning and interactive portfolios.
+                I specialize in crafting dark-mode designs with glass-like, semi-transparent elements that float over
+                a moody, atmospheric background. My work is focused on combining cutting-edge web technologies with
+                a keen eye for design to deliver an immersive and captivating user experience.
+            </p>
+            <div class="about-skills">
+                <div class="about-skill">Web Design</div>
+                <div class="about-skill">UI/UX Design</div>
+                <div class="about-skill">Interactive Experiences</div>
+                <div class="about-skill">Branding</div>
+                <div class="about-skill">Responsive Design</div>
+                <div class="about-skill">Animations</div>
+            </div>
+        </div>
+    </section>
+
+    <section class="contact">
+        <div class="contact-form">
+            <h2 class="contact-form-title">Get in Touch</h2>
+            <form>
+                <div class="contact-form-group">
+                    <label for="form-name" class="contact-form-label">Name</label>
+                    <input type="text" id="form-name" name="name" class="contact-form-input" required>
+                </div>
+                <div class="contact-form-group">
+                    <label for="form-email" class="contact-form-label">Email</label>
+                    <input type="email" id="form-email" name="email" class="contact-form-input" required>
+                </div>
+                <div class="contact-form-group">
+                    <label for="form-message" class="contact-form-label">Message</label>
+                    <textarea id="form-message" name="message" class="contact-form-textarea" required></textarea>
+                </div>
+                <button type="submit" class="contact-form-submit">Send</button>
+            </form>
+        </div>
+    </section>
+</body>
+</html>'<!-- Visit: https://github.com/Ishanoshada/portflair -->
+<!-- Visit: https://github.com/Ishanoshada/portflair -->

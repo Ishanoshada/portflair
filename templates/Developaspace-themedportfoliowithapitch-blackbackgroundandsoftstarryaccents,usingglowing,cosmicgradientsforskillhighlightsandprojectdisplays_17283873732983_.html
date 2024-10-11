@@ -1,0 +1,449 @@
+<!-- Portfolio created by Ishan -->
+<!-- Check out my work at: https://github.com/Ishanoshada/portflair -->
+<!-- 2024/10/9 -->
+<!-- Portfolio created by Ishan -->
+'<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Develop a Space-Themed Portfolio</title>
+    <style>
+        /* Global Styles */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Montserrat', sans-serif;
+            background-color: #000000;
+            color: #ffffff;
+            overflow-x: hidden;
+        }
+
+        /* Navbar Styles */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 40px;
+            background-color: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(10px);
+        }
+
+        .navbar-brand {
+            font-size: 24px;
+            font-weight: 700;
+            background: linear-gradient(to right, #7c21ff, #ff00d4);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .navbar-nav {
+            display: flex;
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .navbar-nav li {
+            margin-left: 20px;
+        }
+
+        .navbar-nav li a {
+            text-decoration: none;
+            color: #ffffff;
+            font-size: 16px;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .navbar-nav li a:hover {
+            color: #7c21ff;
+        }
+
+        /* Hero Section Styles */
+        .hero-section {
+            height: 80vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(to bottom, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(https://dummyimage.com/1200x500/ccc/000&text=Space+Background);
+            background-size: cover;
+            background-position: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-content {
+            text-align: center;
+            z-index: 1;
+        }
+
+        .hero-content h1 {
+            font-size: 48px;
+            font-weight: 700;
+            background: linear-gradient(to right, #7c21ff, #ff00d4);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: glowEffect 2s ease-in-out infinite;
+        }
+
+        .hero-content p {
+            font-size: 24px;
+            margin-top: 10px;
+            animation: glowEffect 2s ease-in-out infinite;
+        }
+
+        .hero-content button {
+            margin-top: 30px;
+            padding: 12px 30px;
+            font-size: 16px;
+            font-weight: 500;
+            background: linear-gradient(to right, #7c21ff, #ff00d4);
+            color: #ffffff;
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .hero-content button:hover {
+            transform: scale(1.05);
+        }
+
+        /* Skills Section Styles */
+        .skills-section {
+            padding: 80px 40px;
+            background-color: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(10px);
+        }
+
+        .skills-section h2 {
+            font-size: 36px;
+            font-weight: 700;
+            text-align: center;
+            background: linear-gradient(to right, #7c21ff, #ff00d4);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 40px;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            grid-gap: 30px;
+        }
+
+        .skill-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            cursor: pointer;
+        }
+
+        .skill-item .skill-icon {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(to right, #7c21ff, #ff00d4);
+            box-shadow: 0 0 20px rgba(124, 33, 255, 0.5);
+            transition: transform 0.3s ease;
+        }
+
+        .skill-item .skill-icon i {
+            font-size: 32px;
+            color: #ffffff;
+        }
+
+        .skill-item:hover .skill-icon {
+            transform: scale(1.1);
+        }
+
+        .skill-item .skill-name {
+            margin-top: 10px;
+            font-size: 14px;
+            font-weight: 500;
+            background: linear-gradient(to right, #7c21ff, #ff00d4);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* Projects Section Styles */
+        .projects-section {
+            padding: 80px 40px;
+            background-color: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(10px);
+        }
+
+        .projects-section h2 {
+            font-size: 36px;
+            font-weight: 700;
+            text-align: center;
+            background: linear-gradient(to right, #7c21ff, #ff00d4);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 40px;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-gap: 30px;
+        }
+
+        .project-card {
+            background-color: #111111;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 0 20px rgba(124, 33, 255, 0.3);
+            transition: transform 0.3s ease;
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .project-card .project-image {
+            height: 200px;
+            background: linear-gradient(to right, #7c21ff, #ff00d4);
+            background-size: cover;
+            background-position: center;
+        }
+
+        .project-card .project-content {
+            padding: 20px;
+        }
+
+        .project-card .project-content h3 {
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 10px;
+            background: linear-gradient(to right, #7c21ff, #ff00d4);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .project-card .project-content p {
+            font-size: 14px;
+            color: #cccccc;
+            margin-bottom: 20px;
+        }
+
+        .project-card .project-content .project-tech {
+            font-size: 12px;
+            color: #aaaaaa;
+            margin-bottom: 10px;
+        }
+
+        .projects-section button {
+            display: block;
+            margin: 40px auto 0;
+            padding: 12px 30px;
+            font-size: 16px;
+            font-weight: 500;
+            background: linear-gradient(to right, #7c21ff, #ff00d4);
+            color: #ffffff;
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .projects-section button:hover {
+            transform: scale(1.05);
+        }
+
+        /* Animation Keyframes */
+        @keyframes glowEffect {
+            0% {
+                text-shadow: 0 0 10px rgba(124, 33, 255, 0.5);
+            }
+            50% {
+                text-shadow: 0 0 20px rgba(255, 0, 212, 0.5);
+            }
+            100% {
+                text-shadow: 0 0 10px rgba(124, 33, 255, 0.5);
+            }
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .navbar {
+                padding: 15px 20px;
+            }
+
+            .navbar-brand {
+                font-size: 20px;
+            }
+
+            .navbar-nav li {
+                margin-left: 15px;
+            }
+
+            .navbar-nav li a {
+                font-size: 14px;
+            }
+
+            .hero-section {
+                height: 70vh;
+            }
+
+            .hero-content h1 {
+                font-size: 36px;
+            }
+
+            .hero-content p {
+                font-size: 18px;
+            }
+
+            .skills-section,
+            .projects-section {
+                padding: 60px 20px;
+            }
+
+            .skills-section h2,
+            .projects-section h2 {
+                font-size: 28px;
+            }
+
+            .skills-grid {
+                grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+                grid-gap: 20px;
+            }
+
+            .skill-item .skill-icon {
+                width: 60px;
+                height: 60px;
+            }
+
+            .skill-item .skill-icon i {
+                font-size: 24px;
+            }
+
+            .project-card .project-image {
+                height: 150px;
+            }
+
+            .project-card .project-content h3 {
+                font-size: 16px;
+            }
+
+            .project-card .project-content p {
+                font-size: 12px;
+            }
+
+            .project-card .project-content .project-tech {
+                font-size: 10px;
+            }
+
+            .projects-section button {
+                font-size: 14px;
+                padding: 10px 25px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <a href="#" class="navbar-brand">Develop</a>
+            <ul class="navbar-nav">
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Skills</a></li>
+                <li><a href="#">Projects</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero-section">
+            <div class="hero-content">
+                <h1>Welcome to My Space-Themed Portfolio</h1>
+                <p>Explore my cosmic creations and stellar skills.</p>
+                <button>View Portfolio</button>
+            </div>
+        </section>
+
+        <section class="skills-section">
+            <h2>My Skills</h2>
+            <div class="skills-grid">
+                <div class="skill-item">
+                    <div class="skill-icon">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <div class="skill-name">Web Development</div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-icon">
+                        <i class="fas fa-palette"></i>
+                    </div>
+                    <div class="skill-name">UI/UX Design</div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-icon">
+                        <i class="fas fa-rocket"></i>
+                    </div>
+                    <div class="skill-name">Graphic Design</div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <div class="skill-name">Data Visualization</div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-icon">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <div class="skill-name">Mobile Development</div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-icon">
+                        <i class="fas fa-cloud"></i>
+                    </div>
+                    <div class="skill-name">Cloud Computing</div>
+                </div>
+            </div>
+        </section>
+
+        <section class="projects-section">
+            <h2>My Projects</h2>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-image" style="background-image: url(https://dummyimage.com/600x400/ccc/000&text=Project+1)"></div>
+                    <div class="project-content">
+                        <h3>Stellar Space Explorer</h3>
+                        <p>An interactive web application that allows users to explore the cosmos.</p>
+                        <div class="project-tech">React | Three.js | WebGL</div>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-image" style="background-image: url(https://dummyimage.com/600x400/ccc/000&text=Project+2)"></div>
+                    <div class="project-content">
+                        <h3>Galactic Visualizer</h3>
+                        <p>A data visualization tool that showcases the mysteries of the universe.</p>
+                        <div class="project-tech">D3.js | Python | Django</div>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-image" style="background-image: url(https://dummyimage.com/600x400/ccc/000&text=Project+3)"></div>
+                    <div class="project-content">
+                        <h3>Nebula Creations</h3>
+                        <p>A unique brand identity and website design for a space-themed creative agency.</p>
+                        <div class="project-tech">Branding | Web Design | Adobe Creative Suite</div>
+                    </div>
+                </div>
+            </div>
+            <button>Explore Portfolio</button>
+        </section>
+    </main>
+
+    <script src="https://kit.fontawesome.com/your-font-awesome-kit.js" crossorigin="anonymous"></script>
+</body>
+</html>'<!-- Visit: https://github.com/Ishanoshada/portflair -->
+<!-- Visit: https://github.com/Ishanoshada/portflair -->

@@ -1,0 +1,748 @@
+<!-- Portfolio created by Ishan -->
+<!-- Check out my work at: https://github.com/Ishanoshada/portflair -->
+<!-- 2024/10/9 -->
+<!-- Portfolio created by Ishan -->
+'<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Black Hole Portfolio</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
+
+    body {
+      font-family: 'Orbitron', sans-serif;
+      background-color: #1a1a1a;
+      color: #fff;
+      margin: 0;
+      padding: 0;
+      overflow-x: hidden;
+    }
+
+    /* Navigation */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 40px;
+      background-color: rgba(26, 26, 26, 0.8);
+      backdrop-filter: blur(10px);
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+    }
+
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      font-size: 18px;
+      padding: 10px 20px;
+      transition: color 0.3s ease-in-out;
+    }
+
+    nav a:hover {
+      color: #9b59b6;
+    }
+
+    /* Hero Section */
+    .hero {
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      background-image: url('https://dummyimage.com/1920x1080/0d0d0d/ffffff&text=Cosmic+Background');
+      background-size: cover;
+      background-position: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(ellipse at center, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.8) 100%);
+      z-index: 1;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      animation: glitch 2s infinite;
+    }
+
+    .hero-title {
+      font-size: 6rem;
+      margin-bottom: 20px;
+      text-shadow: 0 0 20px #9b59b6, 0 0 40px #9b59b6, 0 0 80px #9b59b6;
+    }
+
+    .hero-subtitle {
+      font-size: 2rem;
+      margin-bottom: 40px;
+      text-shadow: 0 0 10px #9b59b6, 0 0 20px #9b59b6, 0 0 40px #9b59b6;
+    }
+
+    .cta-button {
+      display: inline-block;
+      background-color: #9b59b6;
+      color: #fff;
+      font-size: 18px;
+      padding: 12px 30px;
+      border-radius: 30px;
+      text-decoration: none;
+      transition: background-color 0.3s ease-in-out;
+    }
+
+    .cta-button:hover {
+      background-color: #8e44ad;
+    }
+
+    /* Portfolio Section */
+    .portfolio {
+      padding: 80px 40px;
+      background-color: #1a1a1a;
+      overflow-x: hidden;
+    }
+
+    .portfolio-title {
+      font-size: 3rem;
+      text-align: center;
+      margin-bottom: 60px;
+      text-shadow: 0 0 10px #9b59b6, 0 0 20px #9b59b6, 0 0 40px #9b59b6;
+    }
+
+    .portfolio-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-gap: 40px;
+    }
+
+    .portfolio-item {
+      position: relative;
+      overflow: hidden;
+      border-radius: 50%;
+      box-shadow: 0 0 20px rgba(155, 89, 182, 0.5);
+      transition: transform 0.3s ease-in-out;
+    }
+
+    .portfolio-item:hover {
+      transform: scale(1.1);
+    }
+
+    .portfolio-item::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(ellipse at center, rgba(155, 89, 182, 0.3) 0%, rgba(0, 0, 0, 0.8) 100%);
+      z-index: 1;
+      opacity: 0;
+      transition: opacity 0.3s ease-in-out;
+    }
+
+    .portfolio-item:hover::before {
+      opacity: 1;
+    }
+
+    .portfolio-item img {
+      width: 100%;
+      height: auto;
+      display: block;
+      filter: grayscale(100%) contrast(80%) brightness(80%);
+      transition: filter 0.3s ease-in-out;
+    }
+
+    .portfolio-item:hover img {
+      filter: none;
+    }
+
+    .portfolio-details {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+      z-index: 2;
+      opacity: 0;
+      transition: opacity 0.3s ease-in-out;
+    }
+
+    .portfolio-item:hover .portfolio-details {
+      opacity: 1;
+    }
+
+    .portfolio-details h3 {
+      font-size: 1.8rem;
+      margin-bottom: 10px;
+      text-shadow: 0 0 10px #9b59b6, 0 0 20px #9b59b6, 0 0 40px #9b59b6;
+    }
+
+    .portfolio-details p {
+      font-size: 1.2rem;
+      margin-bottom: 20px;
+      text-shadow: 0 0 5px #9b59b6, 0 0 10px #9b59b6, 0 0 20px #9b59b6;
+    }
+
+    .portfolio-details a {
+      display: inline-block;
+      background-color: #9b59b6;
+      color: #fff;
+      font-size: 14px;
+      padding: 8px 20px;
+      border-radius: 20px;
+      text-decoration: none;
+      transition: background-color 0.3s ease-in-out;
+    }
+
+    .portfolio-details a:hover {
+      background-color: #8e44ad;
+    }
+
+    /* About Section */
+    .about {
+      padding: 80px 40px;
+      background-color: #1a1a1a;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .about-image {
+      flex: 0 0 40%;
+      position: relative;
+      overflow: hidden;
+      border-radius: 50%;
+      box-shadow: 0 0 20px rgba(155, 89, 182, 0.5);
+    }
+
+    .about-image img {
+      width: 100%;
+      height: auto;
+      display: block;
+      filter: grayscale(100%) contrast(80%) brightness(80%);
+      transition: filter 0.3s ease-in-out;
+    }
+
+    .about-image:hover img {
+      filter: none;
+    }
+
+    .about-image::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(ellipse at center, rgba(155, 89, 182, 0.3) 0%, rgba(0, 0, 0, 0.8) 100%);
+      z-index: 1;
+      opacity: 0;
+      transition: opacity 0.3s ease-in-out;
+    }
+
+    .about-image:hover::before {
+      opacity: 1;
+    }
+
+    .about-content {
+      flex: 0 0 55%;
+    }
+
+    .about-title {
+      font-size: 3rem;
+      margin-bottom: 30px;
+      text-shadow: 0 0 10px #9b59b6, 0 0 20px #9b59b6, 0 0 40px #9b59b6;
+    }
+
+    .about-text {
+      font-size: 1.2rem;
+      line-height: 1.6;
+      margin-bottom: 40px;
+      text-shadow: 0 0 5px #9b59b6, 0 0 10px #9b59b6, 0 0 20px #9b59b6;
+    }
+
+    .about-skills {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-gap: 20px;
+    }
+
+    .about-skill {
+      background-color: #9b59b6;
+      color: #fff;
+      padding: 10px 20px;
+      border-radius: 20px;
+      font-size: 14px;
+      text-align: center;
+      box-shadow: 0 0 10px rgba(155, 89, 182, 0.5);
+      transition: transform 0.3s ease-in-out;
+    }
+
+    .about-skill:hover {
+      transform: scale(1.1);
+    }
+
+    /* Contact Section */
+    .contact {
+      padding: 80px 40px;
+      background-image: url('https://dummyimage.com/1920x1080/0d0d0d/ffffff&text=Cosmic+Background+2');
+      background-size: cover;
+      background-position: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .contact::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(ellipse at center, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.8) 100%);
+      z-index: 1;
+    }
+
+    .contact-title {
+      font-size: 3rem;
+      text-align: center;
+      margin-bottom: 60px;
+      position: relative;
+      z-index: 2;
+      text-shadow: 0 0 10px #9b59b6, 0 0 20px #9b59b6, 0 0 40px #9b59b6;
+    }
+
+    .contact-form {
+      max-width: 600px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 2;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+      display: block;
+      width: 100%;
+      padding: 12px 20px;
+      margin-bottom: 20px;
+      border: none;
+      border-radius: 30px;
+      background-color: rgba(155, 89, 182, 0.8);
+      color: #fff;
+      font-size: 16px;
+      font-family: 'Orbitron', sans-serif;
+      transition: background-color 0.3s ease-in-out;
+    }
+
+    .contact-form input:focus,
+    .contact-form textarea:focus {
+      outline: none;
+      background-color: rgba(155, 89, 182, 0.9);
+    }
+
+    .contact-form textarea {
+      height: 150px;
+    }
+
+    .contact-form button {
+      display: block;
+      width: 100%;
+      background-color: #9b59b6;
+      color: #fff;
+      font-size: 18px;
+      padding: 12px 30px;
+      border: none;
+      border-radius: 30px;
+      font-family: 'Orbitron', sans-serif;
+      cursor: pointer;
+      transition: background-color 0.3s ease-in-out;
+    }
+
+    .contact-form button:hover {
+      background-color: #8e44ad;
+    }
+
+    /* Animations */
+    @keyframes glitch {
+      0% {
+        text-shadow: 0 0 20px #9b59b6, 0 0 40px #9b59b6, 0 0 80px #9b59b6;
+      }
+      20% {
+        text-shadow: 0 0 20px #8e44ad, 0 0 40px #8e44ad, 0 0 80px #8e44ad;
+      }
+      40% {
+        text-shadow: 0 0 20px #6c3483, 0 0 40px #6c3483, 0 0 80px #6c3483;
+      }
+      60% {
+        text-shadow: 0 0 20px #9b59b6, 0 0 40px #9b59b6, 0 0 80px #9b59b6;
+      }
+      80% {
+        text-shadow: 0 0 20px #8e44ad, 0 0 40px #8e44ad, 0 0 80px #8e44ad;
+      }
+      100% {
+        text-shadow: 0 0 20px #9b59b6, 0 0 40px #9b59b6, 0 0 80px #9b59b6;
+      }
+    }
+
+    /* Responsive Styles */
+    @media (max-width: 1024px) {
+      .portfolio-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .about {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .about-image {
+        margin-bottom: 40px;
+      }
+
+      .about-skills {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 768px) {
+      .hero-title {
+        font-size: 4rem;
+      }
+
+      .hero-subtitle {
+        font-size: 1.6rem;
+      }
+
+      .portfolio-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .about-title {
+        font-size: 2.5rem;
+      }
+
+      .contact-title {
+        font-size: 2.5rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      nav {
+        padding: 10px 20px;
+      }
+
+      nav a {
+        font-size: 16px;
+        padding: 8px 12px;
+      }
+
+      .hero-title {
+        font-size: 3rem;
+      }
+
+      .hero-subtitle {
+        font-size: 1.4rem;
+      }
+
+      .cta-button {
+        font-size: 16px;
+        padding: 10px 24px;
+      }
+
+      .portfolio-title {
+        font-size: 2.5rem;
+      }
+
+      .about-title {
+        font-size: 2rem;
+      }
+
+      .about-text {
+        font-size: 1rem;
+      }
+
+      .about-skills {
+        grid-template-columns: 1fr;
+      }
+
+      .contact-title {
+        font-size: 2rem;
+      }
+
+      .contact-form input}
+
+.contact-form textarea {
+  display: block;
+  width: 100%;
+  padding: 12px 20px;
+  margin-bottom: 20px;
+  border: none;
+  border-radius: 30px;
+  background-color: rgba(155, 89, 182, 0.8);
+  color: #fff;
+  font-size: 16px;
+  font-family: 'Orbitron', sans-serif;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  outline: none;
+  background-color: rgba(155, 89, 182, 0.9);
+}
+
+.contact-form textarea {
+  height: 150px;
+}
+
+.contact-form button {
+  display: block;
+  width: 100%;
+  background-color: #9b59b6;
+  color: #fff;
+  font-size: 18px;
+  padding: 12px 30px;
+  border: none;
+  border-radius: 30px;
+  font-family: 'Orbitron', sans-serif;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.contact-form button:hover {
+  background-color: #8e44ad;
+}
+
+/* Animations */
+@keyframes glitch {
+  0% {
+    text-shadow: 0 0 20px #9b59b6, 0 0 40px #9b59b6, 0 0 80px #9b59b6;
+  }
+  20% {
+    text-shadow: 0 0 20px #8e44ad, 0 0 40px #8e44ad, 0 0 80px #8e44ad;
+  }
+  40% {
+    text-shadow: 0 0 20px #6c3483, 0 0 40px #6c3483, 0 0 80px #6c3483;
+  }
+  60% {
+    text-shadow: 0 0 20px #9b59b6, 0 0 40px #9b59b6, 0 0 80px #9b59b6;
+  }
+  80% {
+    text-shadow: 0 0 20px #8e44ad, 0 0 40px #8e44ad, 0 0 80px #8e44ad;
+  }
+  100% {
+    text-shadow: 0 0 20px #9b59b6, 0 0 40px #9b59b6, 0 0 80px #9b59b6;
+  }
+}
+
+/* Responsive Styles */
+@media (max-width: 1024px) {
+  .portfolio-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .about {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .about-image {
+    margin-bottom: 40px;
+  }
+
+  .about-skills {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-title {
+    font-size: 4rem;
+  }
+
+  .hero-subtitle {
+    font-size: 1.6rem;
+  }
+
+  .portfolio-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .about-title {
+    font-size: 2.5rem;
+  }
+
+  .contact-title {
+    font-size: 2.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  nav {
+    padding: 10px 20px;
+  }
+
+  nav a {
+    font-size: 16px;
+    padding: 8px 12px;
+  }
+
+  .hero-title {
+    font-size: 3rem;
+  }
+
+  .hero-subtitle {
+    font-size: 1.4rem;
+  }
+
+  .cta-button {
+    font-size: 16px;
+    padding: 10px 24px;
+  }
+
+  .portfolio-title {
+    font-size: 2.5rem;
+  }
+
+  .about-title {
+    font-size: 2rem;
+  }
+
+  .about-text {
+    font-size: 1rem;
+  }
+
+  .about-skills {
+    grid-template-columns: 1fr;
+  }
+
+  .contact-title {
+    font-size: 2rem;
+  }
+
+  .contact-form input,
+  .contact-form textarea {
+    font-size: 14px;
+    padding: 10px 16px;
+  }
+
+  .contact-form button {
+    font-size: 16px;
+    padding: 10px 24px;
+  }
+}
+</style>
+</head>
+<body>
+  <nav>
+    <a href="#">Home</a>
+    <a href="#">Portfolio</a>
+    <a href="#">About</a>
+    <a href="#">Contact</a>
+  </nav>
+
+  <section class="hero">
+    <div class="hero-content">
+      <h1 class="hero-title">Welcome to the Black Hole</h1>
+      <p class="hero-subtitle">Explore the cosmic portfolio of a backend developer</p>
+      <a href="#" class="cta-button">View Portfolio</a>
+    </div>
+  </section>
+
+  <section class="portfolio">
+    <h2 class="portfolio-title">Portfolio</h2>
+    <div class="portfolio-grid">
+      <div class="portfolio-item">
+        <img src="https://dummyimage.com/600x400/0d0d0d/ffffff&text=Project+1" alt="Project 1">
+        <div class="portfolio-details">
+          <h3>Project 1</h3>
+          <p>Backend Development</p>
+          <a href="#">Learn More</a>
+        </div>
+      </div>
+      <div class="portfolio-item">
+        <img src="https://dummyimage.com/600x400/0d0d0d/ffffff&text=Project+2" alt="Project 2">
+        <div class="portfolio-details">
+          <h3>Project 2</h3>
+          <p>Server-side Optimization</p>
+          <a href="#">Learn More</a>
+        </div>
+      </div>
+      <div class="portfolio-item">
+        <img src="https://dummyimage.com/600x400/0d0d0d/ffffff&text=Project+3" alt="Project 3">
+        <div class="portfolio-details">
+          <h3>Project 3</h3>
+          <p>Scalable Infrastructure</p>
+          <a href="#">Learn More</a>
+        </div>
+      </div>
+      <div class="portfolio-item">
+        <img src="https://dummyimage.com/600x400/0d0d0d/ffffff&text=Project+4" alt="Project 4">
+        <div class="portfolio-details">
+          <h3>Project 4</h3>
+          <p>API Development</p>
+          <a href="#">Learn More</a>
+        </div>
+      </div>
+      <div class="portfolio-item">
+        <img src="https://dummyimage.com/600x400/0d0d0d/ffffff&text=Project+5" alt="Project 5">
+        <div class="portfolio-details">
+          <h3>Project 5</h3>
+          <p>Distributed Systems</p>
+          <a href="#">Learn More</a>
+        </div>
+      </div>
+      <div class="portfolio-item">
+        <img src="https://dummyimage.com/600x400/0d0d0d/ffffff&text=Project+6" alt="Project 6">
+        <div class="portfolio-details">
+          <h3>Project 6</h3>
+          <p>Microservices Architecture</p>
+          <a href="#">Learn More</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="about">
+    <div class="about-image">
+      <img src="https://dummyimage.com/600x600/0d0d0d/ffffff&text=Developer+Portrait" alt="Developer Portrait">
+    </div>
+    <div class="about-content">
+      <h2 class="about-title">About the Developer</h2>
+      <p class="about-text">
+        Welcome to the cosmic world of our backend developer, where the boundaries between technology and the universe blur. With a deep passion for problem-solving and a penchant for creating scalable, high-performing systems, our developer has harnessed the power of the black hole to elevate their craft.
+      </p>
+      <div class="about-skills">
+        <div class="about-skill">Node.js</div>
+        <div class="about-skill">Express</div>
+        <div class="about-skill">MongoDB</div>
+        <div class="about-skill">Redis</div>
+        <div class="about-skill">Docker</div>
+        <div class="about-skill">Kubernetes</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact">
+    <h2 class="contact-title">Get in Touch</h2>
+    <form class="contact-form">
+      <input type="text" placeholder="Name" required>
+      <input type="email" placeholder="Email" required>
+      <textarea placeholder="Message" required></textarea>
+      <button type="submit">Submit</button>
+    </form>
+  </section>
+</body>
+</html>'<!-- Visit: https://github.com/Ishanoshada/portflair -->
+<!-- Visit: https://github.com/Ishanoshada/portflair -->

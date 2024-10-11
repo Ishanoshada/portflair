@@ -1,0 +1,407 @@
+<!-- Portfolio created by Ishan -->
+<!-- Check out my work at: https://github.com/Ishanoshada/portflair -->
+<!-- 2024/10/9 -->
+<!-- Portfolio created by Ishan -->
+'<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Black Hole Themed Portfolio</title>
+  <style>
+    /* Global Styles */
+    @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
+    body {
+      font-family: 'Orbitron', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #0d0d0d;
+      color: #f0f0f0;
+    }
+
+    /* Navigation Bar */
+    nav {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 20px 0;
+      background-color: rgba(13, 13, 13, 0.8);
+      backdrop-filter: blur(10px);
+      position: relative;
+      z-index: 1;
+    }
+    nav a {
+      color: #f0f0f0;
+      text-decoration: none;
+      margin: 0 20px;
+      font-size: 18px;
+      font-weight: 700;
+      text-transform: uppercase;
+      position: relative;
+      transition: color 0.3s ease-in-out;
+    }
+    nav a:before {
+      content: "";
+      position: absolute;
+      width: 0;
+      height: 3px;
+      bottom: -5px;
+      left: 0;
+      background-color: #9b59b6;
+      visibility: hidden;
+      transition: all 0.3s ease-in-out;
+    }
+    nav a:hover {
+      color: #9b59b6;
+    }
+    nav a:hover:before {
+      visibility: visible;
+      width: 100%;
+    }
+
+    /* About Section */
+    #about {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 100px 0;
+      background-image: linear-gradient(to bottom, #0d0d0d, #1a1a1a);
+      position: relative;
+      overflow: hidden;
+    }
+    #about:before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: url("https://dummyimage.com/1200x500/ccc/000&text=Cosmic+Visuals");
+      background-size: cover;
+      background-position: center;
+      opacity: 0.1;
+      animation: cosmic-glitch 10s infinite linear;
+    }
+    #about-content {
+      max-width: 800px;
+      text-align: center;
+      position: relative;
+      z-index: 1;
+    }
+    #about-content h1 {
+      font-size: 48px;
+      margin-bottom: 20px;
+      text-shadow: 0 0 20px #9b59b6, 0 0 40px #9b59b6, 0 0 80px #9b59b6;
+      animation: neon-glow 2s infinite;
+    }
+    #about-content p {
+      font-size: 18px;
+      line-height: 1.6;
+      margin-bottom: 40px;
+    }
+    #profile-picture {
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      background-image: url("https://dummyimage.com/400x400/ccc/000&text=Backend+Developer");
+      background-size: cover;
+      background-position: center;
+      box-shadow: 0 0 20px #9b59b6, 0 0 40px #9b59b6, 0 0 80px #9b59b6;
+      animation: cosmic-glitch 10s infinite linear;
+    }
+
+    /* Project Galaxies Section */
+    #project-galaxies {
+      padding: 100px 0;
+      background-image: linear-gradient(to bottom, #1a1a1a, #0d0d0d);
+      position: relative;
+      overflow: hidden;
+    }
+    #project-galaxies:before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: url("https://dummyimage.com/1200x500/ccc/000&text=Project+Galaxies");
+      background-size: cover;
+      background-position: center;
+      opacity: 0.1;
+      animation: cosmic-glitch 10s infinite linear;
+    }
+    #project-galaxies-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-gap: 40px;
+    }
+    .project-galaxy {
+      background-color: rgba(255, 255, 255, 0.05);
+      border-radius: 50%;
+      width: 200px;
+      height: 200px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+      cursor: pointer;
+      transition: transform 0.3s ease-in-out;
+    }
+    .project-galaxy:hover {
+      transform: scale(1.1);
+    }
+    .project-galaxy:before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: url("https://dummyimage.com/200x200/ccc/000&text=Project+1");
+      background-size: cover;
+      background-position: center;
+      opacity: 0.5;
+      transition: opacity 0.3s ease-in-out;
+    }
+    .project-galaxy:hover:before {
+      opacity: 0.8;
+    }
+    .project-galaxy h3 {
+      font-size: 24px;
+      margin-bottom: 10px;
+      text-shadow: 0 0 10px #9b59b6, 0 0 20px #9b59b6, 0 0 40px #9b59b6;
+      animation: neon-glow 2s infinite;
+    }
+    .project-galaxy p {
+      font-size: 16px;
+      margin-top: 10px;
+      opacity: 0.7;
+    }
+
+    /* Contact Section */
+    #contact {
+      padding: 100px 0;
+      background-image: linear-gradient(to bottom, #0d0d0d, #1a1a1a);
+      position: relative;
+      overflow: hidden;
+    }
+    #contact:before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: url("https://dummyimage.com/1200x500/ccc/000&text=Neon+Contact+Form");
+      background-size: cover;
+      background-position: center;
+      opacity: 0.1;
+      animation: cosmic-glitch 10s infinite linear;
+    }
+    #contact-content {
+      max-width: 800px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    #contact-form {
+      background-color: rgba(255, 255, 255, 0.05);
+      padding: 40px;
+      border-radius: 10px;
+      box-shadow: 0 0 20px rgba(155, 89, 182, 0.5);
+      width: 100%;
+      max-width: 500px;
+    }
+    #contact-form h2 {
+      font-size: 32px;
+      margin-bottom: 20px;
+      text-shadow: 0 0 10px #9b59b6, 0 0 20px #9b59b6, 0 0 40px #9b59b6;
+      animation: neon-glow 2s infinite;
+    }
+    #contact-form input,
+    #contact-form textarea {
+      display: block;
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 20px;
+      background-color: rgba(255, 255, 255, 0.1);
+      border: none;
+      border-radius: 5px;
+      color: #f0f0f0;
+      font-family: 'Orbitron', sans-serif;
+      font-size: 16px;
+      transition: box-shadow 0.3s ease-in-out;
+    }
+    #contact-form input:focus,
+    #contact-form textarea:focus {
+      outline: none;
+      box-shadow: 0 0 20px rgba(155, 89, 182, 0.5);
+    }
+    #contact-form button {
+      display: block;
+      width: 100%;
+      padding: 10px;
+      background-color: #9b59b6;
+      border: none;
+      border-radius: 5px;
+      color: #f0f0f0;
+      font-family: 'Orbitron', sans-serif;
+      font-size: 16px;
+      font-weight: 700;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: background-color 0.3s ease-in-out;
+    }
+    #contact-form button:hover {
+      background-color: #8e44ad;
+    }
+
+    /* Animations */
+    @keyframes cosmic-glitch {
+      0% {
+        background-position: 0 0;
+      }
+      50% {
+        background-position: 100% 100%;
+      }
+      100% {
+        background-position: 0 0;
+      }
+    }
+    @keyframes neon-glow {
+      0% {
+        text-shadow: 0 0 10px #9b59b6, 0 0 20px #9b59b6, 0 0 40px #9b59b6;
+      }
+      50% {
+        text-shadow: 0 0 20px #9b59b6, 0 0 40px #9b59b6, 0 0 80px #9b59b6;
+      }
+      100% {
+        text-shadow: 0 0 10px #9b59b6, 0 0 20px #9b59b6, 0 0 40px #9b59b6;
+      }
+    }
+
+    /* Responsive Styles */
+    @media (max-width: 768px) {
+      nav {
+        padding: 10px 0;
+      }
+      nav a {
+        font-size: 16px;
+        margin: 0 10px;
+      }
+      #about, #project-galaxies, #contact {
+        padding: 60px 0;
+      }
+      #about-content h1 {
+        font-size: 36px;
+      }
+      #about-content p {
+        font-size: 16px;
+      }
+      #profile-picture {
+        width: 150px;
+        height: 150px;
+      }
+      #project-galaxies-content {
+        grid-template-columns: repeat(2, 1fr);
+        grid-gap: 30px;
+      }
+      .project-galaxy {
+        width: 150px;
+        height: 150px;
+      }
+      .project-galaxy h3 {
+        font-size: 20px;
+      }
+      .project-galaxy p {
+        font-size: 14px;
+      }
+      #contact-form {
+        padding: 30px;
+      }
+      #contact-form h2 {
+        font-size: 28px;
+      }
+      #contact-form input,
+      #contact-form textarea {
+        font-size: 14px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="#">Home</a>
+    <a href="#">About</a>
+    <a href="#">Projects</a>
+    <a href="#">Contact</a>
+  </nav>
+
+  <section id="about">
+    <div id="about-content">
+      <h1>Welcome to the Black Hole</h1>
+      <div id="profile-picture"></div>
+      <p>I'm a backend developer with a passion for creating cosmic-inspired software that pushes the boundaries of what's possible. My work is a fusion of vaporwave glitches, steampunk gears, and neon-soaked interfaces, all designed to immerse you in a truly unique experience.</p>
+    </div>
+  </section>
+
+  <section id="project-galaxies">
+    <div id="project-galaxies-content">
+      <div class="project-galaxy">
+        <div class="project-galaxy-overlay"></div>
+        <h3>Project 1</h3>
+        <p>Cosmic Chaos</p>
+      </div>
+      <div class="project-galaxy">
+        <div class="project-galaxy-overlay"></div>
+        <h3>Project 2</h3>
+        <p>Vaporwave Odyssey</p>
+      </div>
+      <div class="project-galaxy">
+        <div class="project-galaxy-overlay"></div>
+        <h3>Project 3</h3>
+        <p>Steampunk Singularity</p>
+      </div>
+      <div class="project-galaxy">
+        <div class="project-galaxy-overlay"></div>
+        <h3>Project 4</h3>
+        <p>Neon Nebula</p>
+      </div>
+      <div class="project-galaxy">
+        <div class="project-galaxy-overlay"></div>
+        <h3>Project 5</h3>
+        <p>Cosmic Convergence</p>
+      </div>
+      <div class="project-galaxy">
+        <div class="project-galaxy-overlay"></div>
+        <h3>Project 6</h3>
+        <p>Vaporwave Vortex</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div id="contact-content">
+      <div id="contact-form">
+        <h2>Get in Touch</h2>
+        <form>
+          <input type="text" placeholder="Name" required>
+          <input type="email" placeholder="Email" required>
+          <textarea placeholder="Message" required></textarea>
+          <button type="submit">Submit</button>
+        </form>
+      </div>
+    </div>
+  </section>
+</body>
+</html>'<!-- Visit: https://github.com/Ishanoshada/portflair -->
+<!-- Visit: https://github.com/Ishanoshada/portflair -->

@@ -1,0 +1,455 @@
+<!-- Portfolio created by Ishan -->
+<!-- Check out my work at: https://github.com/Ishanoshada/portflair -->
+<!-- 2024/10/9 -->
+<!-- Portfolio created by Ishan -->
+'<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Design a Sleek, Modern Editor Portfolio</title>
+  <style>
+    /* Global Styles */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background: linear-gradient(to right, #6b5b95, #373b44);
+      color: #fff;
+    }
+
+    /* Navigation Styles */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 40px;
+      background-color: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+    }
+
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      font-size: 18px;
+      font-weight: 500;
+      transition: color 0.3s ease;
+    }
+
+    nav a:hover {
+      color: #8e44ad;
+    }
+
+    /* Hero Section Styles */
+    .hero {
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(to right, #6b5b95, #373b44);
+      z-index: -1;
+      animation: heroGradient 10s ease infinite;
+    }
+
+    @keyframes heroGradient {
+      0% {
+        background-position: 0% 50%;
+      }
+      50% {
+        background-position: 100% 50%;
+      }
+      100% {
+        background-position: 0% 50%;
+      }
+    }
+
+    .hero-content {
+      text-align: center;
+      max-width: 800px;
+      padding: 0 20px;
+    }
+
+    .hero-content h1 {
+      font-size: 48px;
+      font-weight: 700;
+      margin-bottom: 20px;
+      opacity: 0;
+      transform: translateY(50px);
+      animation: fadeInUp 1s ease forwards;
+    }
+
+    .hero-content p {
+      font-size: 24px;
+      margin-bottom: 40px;
+      opacity: 0;
+      transform: translateY(50px);
+      animation: fadeInUp 1s ease 0.5s forwards;
+    }
+
+    .hero-content .btn {
+      display: inline-block;
+      background-color: #8e44ad;
+      color: #fff;
+      text-decoration: none;
+      padding: 16px 32px;
+      border-radius: 8px;
+      font-size: 18px;
+      font-weight: 500;
+      transition: background-color 0.3s ease;
+      opacity: 0;
+      transform: translateY(50px);
+      animation: fadeInUp 1s ease 1s forwards;
+    }
+
+    .hero-content .btn:hover {
+      background-color: #6b5b95;
+    }
+
+    @keyframes fadeInUp {
+      0% {
+        opacity: 0;
+        transform: translateY(50px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Project Showcase Styles */
+    .project-showcase {
+      padding: 80px 40px;
+      background-color: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+    }
+
+    .project-showcase h2 {
+      font-size: 36px;
+      font-weight: 700;
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-gap: 40px;
+    }
+
+    .project-item {
+      position: relative;
+      overflow: hidden;
+      border-radius: 8px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease;
+    }
+
+    .project-item:hover {
+      transform: translateY(-10px);
+    }
+
+    .project-item img {
+      width: 100%;
+      height: 300px;
+      object-fit: cover;
+      transition: filter 0.3s ease;
+    }
+
+    .project-item:hover img {
+      filter: brightness(0.8);
+    }
+
+    .project-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(to bottom, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.7));
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .project-item:hover .project-overlay {
+      opacity: 1;
+    }
+
+    .project-overlay h3 {
+      font-size: 24px;
+      font-weight: 600;
+      margin-bottom: 10px;
+    }
+
+    .project-overlay p {
+      font-size: 16px;
+      margin-bottom: 20px;
+    }
+
+    .project-overlay .btn {
+      display: inline-block;
+      background-color: #8e44ad;
+      color: #fff;
+      text-decoration: none;
+      padding: 12px 24px;
+      border-radius: 6px;
+      font-size: 16px;
+      font-weight: 500;
+      transition: background-color 0.3s ease;
+    }
+
+    .project-overlay .btn:hover {
+      background-color: #6b5b95;
+    }
+
+    /* About Section Styles */
+    .about {
+      display: flex;
+      align-items: center;
+      padding: 80px 40px;
+      background-color: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+    }
+
+    .about-image {
+      flex: 0 0 40%;
+      margin-right: 40px;
+    }
+
+    .about-image img {
+      width: 100%;
+      height: auto;
+      border-radius: 8px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      opacity: 0;
+      transform: translateX(-50px);
+      animation: fadeInLeft 1s ease forwards;
+    }
+
+    .about-content {
+      flex: 1;
+    }
+
+    .about-content h2 {
+      font-size: 36px;
+      font-weight: 700;
+      margin-bottom: 20px;
+      opacity: 0;
+      transform: translateX(50px);
+      animation: fadeInRight 1s ease forwards;
+    }
+
+    .about-content p {
+      font-size: 18px;
+      line-height: 1.6;
+      margin-bottom: 40px;
+      opacity: 0;
+      transform: translateX(50px);
+      animation: fadeInRight 1s ease 0.5s forwards;
+    }
+
+    .about-skills {
+      display: flex;
+      flex-wrap: wrap;
+      opacity: 0;
+      transform: translateX(50px);
+      animation: fadeInRight 1s ease 1s forwards;
+    }
+
+    .about-skills .skill {
+      display: flex;
+      align-items: center;
+      margin-right: 20px;
+      margin-bottom: 20px;
+    }
+
+    .about-skills .skill i {
+      font-size: 24px;
+      margin-right: 10px;
+      color: #8e44ad;
+    }
+
+    .about-skills .skill span {
+      font-size: 16px;
+      font-weight: 500;
+    }
+
+    @keyframes fadeInLeft {
+      0% {
+        opacity: 0;
+        transform: translateX(-50px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+
+    @keyframes fadeInRight {
+      0% {
+        opacity: 0;
+        transform: translateX(50px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+
+    /* Responsive Styles */
+    @media (max-width: 991px) {
+      .project-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .about {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .about-image {
+        flex: 0 0 auto;
+        margin-right: 0;
+        margin-bottom: 40px;
+      }
+
+      .about-skills {
+        justify-content: center;
+      }
+    }
+
+    @media (max-width: 767px) {
+      nav {
+        padding: 16px 20px;
+      }
+
+      nav a {
+        font-size: 16px;
+      }
+
+      .hero-content h1 {
+        font-size: 36px;
+      }
+
+      .hero-content p {
+        font-size: 18px;
+      }
+
+      .project-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .about {
+        padding: 60px 20px;
+      }
+
+      .about-content h2 {
+        font-size: 30px;
+      }
+
+      .about-content p {
+        font-size: 16px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="#">Home</a>
+    <a href="#">Projects</a>
+    <a href="#">About</a>
+    <a href="#">Contact</a>
+  </nav>
+
+  <section class="hero">
+    <div class="hero-content">
+      <h1>Unleash Your Creative Vision</h1>
+      <p>Discover the captivating portfolio of our talented editor, showcasing their exceptional skills and versatile expertise.</p>
+      <a href="#" class="btn">View Work</a>
+    </div>
+  </section>
+
+  <section class="project-showcase">
+    <h2>Featured Projects</h2>
+    <div class="project-grid">
+      <div class="project-item">
+        <img src="https://dummyimage.com/600x400/ccc/000&text=Project+1" alt="Project 1">
+        <div class="project-overlay">
+          <h3>Project 1</h3>
+          <p>A captivating editorial piece that showcases our editor's attention to detail and creative flair.</p>
+          <a href="#" class="btn">View Project</a>
+        </div>
+      </div>
+      <div class="project-item">
+        <img src="https://dummyimage.com/600x400/ccc/000&text=Project+2" alt="Project 2">
+        <div class="project-overlay">
+          <h3>Project 2</h3>
+          <p>A visually striking campaign that highlights our editor's ability to elevate any brand or concept.</p>
+          <a href="#" class="btn">View Project</a>
+        </div>
+      </div>
+      <div class="project-item">
+        <img src="https://dummyimage.com/600x400/ccc/000&text=Project+3" alt="Project 3">
+        <div class="project-overlay">
+          <h3>Project 3</h3>
+          <p>A sophisticated and impactful editorial that showcases our editor's versatility and expertise.</p>
+          <a href="#" class="btn">View Project</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="about">
+    <div class="about-image">
+      <img src="https://dummyimage.com/400x500/ccc/000&text=Editor+Portrait" alt="Editor Portrait">
+    </div>
+    <div class="about-content">
+      <h2>About the Editor</h2>
+      <p>With a keen eye for detail and a passion for storytelling, our editor has carved a reputation for crafting impactful and visually captivating content. From editorial pieces to brand campaigns, they possess a unique ability to transform the ordinary into the extraordinary, seamlessly blending creativity and technical expertise.</p>
+      <div class="about-skills">
+        <div class="skill">
+          <i class="fas fa-palette"></i>
+          <span>Creative Direction</span>
+        </div>
+        <div class="skill">
+          <i class="fas fa-video"></i>
+          <span>Video Editing</span>
+        </div>
+        <div class="skill">
+          <i class="fas fa-image"></i>
+          <span>Photo Editing</span>
+        </div>
+        <div class="skill">
+          <i class="fas fa-lightbulb"></i>
+          <span>Conceptual Thinking</span>
+        </div>
+      </div>
+    </div>
+  </section>
+</body>
+</html>'<!-- Visit: https://github.com/Ishanoshada/portflair -->
+<!-- Visit: https://github.com/Ishanoshada/portflair -->

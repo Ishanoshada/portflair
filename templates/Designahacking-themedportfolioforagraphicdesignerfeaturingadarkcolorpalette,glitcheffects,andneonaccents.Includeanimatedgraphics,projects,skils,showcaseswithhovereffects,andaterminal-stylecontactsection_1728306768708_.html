@@ -1,0 +1,464 @@
+<!-- Portfolio created by Ishan -->
+<!-- Check out my work at: https://github.com/Ishanoshada/portflair -->
+<!-- 2024/10/9 -->
+<!-- Portfolio created by Ishan -->
+'<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hacking-Themed Portfolio</title>
+    <style>
+        /* Global Styles */
+        body {
+            font-family: 'Courier New', monospace;
+            background-color: #0f0f0f;
+            color: #00ff00;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+        }
+
+        /* Navbar Styles */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #0f0f0f;
+            padding: 1rem 2rem;
+            border-bottom: 2px solid #00ff00;
+        }
+
+        .navbar-brand {
+            font-size: 2rem;
+            font-weight: bold;
+            text-decoration: none;
+            color: #00ff00;
+            text-shadow: 0 0 10px #00ff00, 0 0 20px #00ff00, 0 0 30px #00ff00, 0 0 40px #00ff00;
+            animation: glitch 2s infinite;
+        }
+
+        .navbar-nav {
+            display: flex;
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .navbar-nav li {
+            margin-left: 2rem;
+        }
+
+        .navbar-nav li a {
+            color: #00ff00;
+            text-decoration: none;
+            font-size: 1.2rem;
+            transition: color 0.3s ease-in-out;
+        }
+
+        .navbar-nav li a:hover {
+            color: #ff00ff;
+            text-shadow: 0 0 10px #ff00ff, 0 0 20px #ff00ff, 0 0 30px #ff00ff, 0 0 40px #ff00ff;
+        }
+
+        /* Projects Section Styles */
+        .projects-section {
+            padding: 3rem 2rem;
+        }
+
+        .projects-section h2 {
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 3rem;
+            text-shadow: 0 0 10px #00ff00, 0 0 20px #00ff00, 0 0 30px #00ff00, 0 0 40px #00ff00;
+            animation: glitch 2s infinite;
+        }
+
+        .project-card {
+            background-color: #0f0f0f;
+            border: 2px solid #00ff00;
+            border-radius: 10px;
+            overflow: hidden;
+            margin-bottom: 2rem;
+            position: relative;
+            box-shadow: 0 0 20px rgba(0, 255, 0, 0.5);
+        }
+
+        .project-card:hover .project-image {
+            transform: scale(1.1);
+            filter: blur(2px);
+        }
+
+        .project-card:hover .project-overlay {
+            opacity: 1;
+        }
+
+        .project-image {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            transition: transform 0.3s ease-in-out, filter 0.3s ease-in-out;
+        }
+
+        .project-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 255, 0, 0.5);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transition: opacity 0.3s ease-in-out;
+        }
+
+        .project-title {
+            font-size: 2rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+            text-shadow: 0 0 10px #00ff00, 0 0 20px #00ff00, 0 0 30px #00ff00, 0 0 40px #00ff00;
+            animation: glitch 2s infinite;
+        }
+
+        .project-description {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .view-project-btn {
+            background-color: #0f0f0f;
+            color: #00ff00;
+            border: 2px solid #00ff00;
+            border-radius: 5px;
+            padding: 0.5rem 1rem;
+            font-size: 1.2rem;
+            text-decoration: none;
+            transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+        }
+
+        .view-project-btn:hover {
+            background-color: #00ff00;
+            color: #0f0f0f;
+            text-shadow: 0 0 10px #0f0f0f, 0 0 20px #0f0f0f, 0 0 30px #0f0f0f, 0 0 40px #0f0f0f;
+        }
+
+        /* Skills Section Styles */
+        .skills-section {
+            padding: 3rem 2rem;
+        }
+
+        .skills-section h2 {
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 3rem;
+            text-shadow: 0 0 10px #00ff00, 0 0 20px #00ff00, 0 0 30px #00ff00, 0 0 40px #00ff00;
+            animation: glitch 2s infinite;
+        }
+
+        .skills-container {
+            display: flex;
+            flex-direction: column;
+            background-color: #0f0f0f;
+            border: 2px solid #00ff00;
+            border-radius: 10px;
+            padding: 2rem;
+            box-shadow: 0 0 20px rgba(0, 255, 0, 0.5);
+        }
+
+        .skill-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+            animation: blink 1s infinite;
+        }
+
+        .skill-item:before {
+            content: ">";
+            color: #00ff00;
+            margin-right: 1rem;
+        }
+
+        .skill-item span {
+            flex-grow: 1;
+        }
+
+        /* Contact Section Styles */
+        .contact-section {
+            padding: 3rem 2rem;
+        }
+
+        .contact-section h2 {
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 3rem;
+            text-shadow: 0 0 10px #00ff00, 0 0 20px #00ff00, 0 0 30px #00ff00, 0 0 40px #00ff00;
+            animation: glitch 2s infinite;
+        }
+
+        .terminal-container {
+            background-color: #0f0f0f;
+            border: 2px solid #00ff00;
+            border-radius: 10px;
+            padding: 2rem;
+            box-shadow: 0 0 20px rgba(0, 255, 0, 0.5);
+            font-size: 1.2rem;
+            line-height: 1.5;
+            overflow-y: auto;
+            max-height: 400px;
+        }
+
+        .terminal-container:before {
+            content: "$ ";
+            color: #00ff00;
+            font-weight: bold;
+        }
+
+        .terminal-container p {
+            margin: 0;
+            animation: blink 1s infinite;
+        }
+
+        .terminal-container a {
+            color: #ff00ff;
+            text-decoration: none;
+            transition: color 0.3s ease-in-out;
+        }
+
+        .terminal-container a:hover {
+            color: #00ff00;
+            text-shadow: 0 0 10px #00ff00, 0 0 20px #00ff00, 0 0 30px #00ff00, 0 0 40px #00ff00;
+        }
+
+        .contact-form {
+            margin-top: 2rem;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            background-color: #0f0f0f;
+            color: #00ff00;
+            border: 2px solid #00ff00;
+            border-radius: 5px;
+            padding: 0.5rem 1rem;
+            font-size: 1.2rem;
+            font-family: 'Courier New', monospace;
+            margin-bottom: 1rem;
+            transition: box-shadow 0.3s ease-in-out;
+        }
+
+        .contact-form input:focus,
+        .contact-form textarea:focus {
+            outline: none;
+            box-shadow: 0 0 10px rgba(0, 255, 0, 0.5);
+        }
+
+        .contact-form button {
+            background-color: #0f0f0f;
+            color: #00ff00;
+            border: 2px solid #00ff00;
+            border-radius: 5px;
+            padding: 0.5rem 1rem;
+            font-size: 1.2rem;
+            font-family: 'Courier New', monospace;
+            cursor: pointer;
+            transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+        }
+
+        .contact-form button:hover {
+            background-color: #00ff00;
+            color: #0f0f0f;
+            text-shadow: 0 0 10px #0f0f0f, 0 0 20px #0f0f0f, 0 0 30px #0f0f0f, 0 0 40px #0f0f0f;
+        }
+
+        /* Animations */
+        @keyframes glitch {
+            0% {
+                text-shadow: 0 0 10px #00ff00, 0 0 20px #00ff00, 0 0 30px #00ff00, 0 0 40px #00ff00;
+            }
+            20% {
+                text-shadow: 0 0 10px #ff00ff, 0 0 20px #ff00ff, 0 0 30px #ff00ff, 0 0 40px #ff00ff;
+            }
+            40% {
+                text-shadow: 0 0 10px #00ff00, 0 0 20px #00ff00, 0 0 30px #00ff00, 0 0 40px #00ff00;
+            }
+            60% {
+                text-shadow: 0 0 10px #ff00ff, 0 0 20px #ff00ff, 0 0 30px #ff00ff, 0 0 40px #ff00ff;
+            }
+            80% {
+                text-shadow: 0 0 10px #00ff00, 0 0 20px #00ff00, 0 0 30px #00ff00, 0 0 40px #00ff00;
+            }
+            100% {
+                text-shadow: 0 0 10px #ff00ff, 0 0 20px #ff00ff, 0 0 30px #ff00ff, 0 0 40px #ff00ff;
+            }
+        }
+
+        @keyframes blink {
+            0% {
+                opacity: 1;
+            }
+            50% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .navbar {
+                padding: 1rem;
+            }
+
+            .navbar-brand {
+                font-size: 1.5rem;
+            }
+
+            .navbar-nav li {
+                margin-left: 1rem;
+            }
+
+            .navbar-nav li a {
+                font-size: 1rem;
+            }
+
+            .projects-section,
+            .skills-section,
+            .contact-section {
+                padding: 2rem 1rem;
+            }
+
+            .project-image {
+                height: 200px;
+            }
+
+            .project-title {
+                font-size: 1.5rem;
+            }
+
+            .project-description {
+                font-size: 1rem;
+            }
+
+            .skills-container {
+                padding: 1.5rem;
+            }
+
+            .skill-item {
+                font-size: 1.2rem;
+            }
+
+            .terminal-container {
+                font-size: 1rem;
+            }
+
+            .contact-form input,
+            .contact-form textarea,
+            .contact-form button {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <a href="#" class="navbar-brand">Hacking-Themed Portfolio</a>
+            <ul class="navbar-nav">
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Projects</a></li>
+                <li><a href="#">Skills</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Projects Section -->
+        <section class="projects-section">
+            <h2>Featured Projects</h2>
+            <div class="project-card">
+                <img src="https://dummyimage.com/1200x500/ccc/000&text=Project+1" alt="Project 1" class="project-image">
+                <div class="project-overlay">
+                    <h3 class="project-title">Project 1</h3>
+                    <p class="project-description">A hacking-themed cybersecurity project with glitch effects and neon accents.</p>
+                    <a href="#" class="view-project-btn">View Project</a>
+                </div>
+            </div>
+            <div class="project-card">
+                <img src="https://dummyimage.com/1200x500/ccc/000&text=Project+2" alt="Project 2" class="project-image">
+                <div class="project-overlay">
+                    <h3 class="project-title">Project 2</h3>
+                    <p class="project-description">A technology-focused design with a dark color palette and neon accents.</p>
+                    <a href="#" class="view-project-btn">View Project</a>
+                </div>
+            </div>
+            <div class="project-card">
+                <img src="https://dummyimage.com/1200x500/ccc/000&text=Project+3" alt="Project 3" class="project-image">
+                <div class="project-overlay">
+                    <h3 class="project-title">Project 3</h3>
+                    <p class="project-description">A cyberpunk-inspired design featuring glitch effects and animated graphics.</p>
+                    <a href="#" class="view-project-btn">View Project</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section class="skills-section">
+            <h2>My Skills</h2>
+            <div class="skills-container">
+                <div class="skill-item">
+                    <span>Graphic Design</span>
+                </div>
+                <div class="skill-item">
+                    <span>Web Development</span>
+                </div>
+                <div class="skill-item">
+                    <span>Illustration</span>
+                </div>
+                <div class="skill-item">
+                    <span>Motion Graphics</span>
+                </div>
+                <div class="skill-item">
+                    <span>Cybersecurity</span>
+                </div>
+                <div class="skill-item">
+                    <span>3D Modeling</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section class="contact-section">
+            <h2>Get in Touch</h2>
+            <div class="terminal-container">
+                <p>Welcome to my hacking-themed portfolio! Feel free to explore my work and get in touch.</p>
+                <p>Available commands:</p>
+                <p>> help</p>
+                <p>> contact</p>
+                <p>> email</p>
+                <p>> phone</p>
+                <p>> social</p>
+                <form class="contact-form">
+                    <input type="text" placeholder="Name" required>
+                    <input type="email" placeholder="Email" required>
+                    <textarea placeholder="Message" rows="5" required></textarea>
+                    <button type="submit">Submit</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <!-- Add any additional footer content here -->
+    </footer>
+</body>
+</html>'<!-- Visit: https://github.com/Ishanoshada/portflair -->
+<!-- Visit: https://github.com/Ishanoshada/portflair -->

@@ -1,0 +1,544 @@
+<!-- Portfolio created by Ishan -->
+<!-- Check out my work at: https://github.com/Ishanoshada/portflair -->
+<!-- 2024/10/9 -->
+<!-- Portfolio created by Ishan -->
+'<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Design a Hacking-Themed Portfolio</title>
+    <style>
+        /* General Styles */
+        @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap');
+
+        body {
+            font-family: 'Press Start 2P', monospace;
+            background-color: #0c0c0c;
+            color: #ffffff;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+        }
+
+        /* Navigation Bar */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 40px;
+            background-color: #0c0c0c;
+            border-bottom: 2px solid #4dff00;
+        }
+
+        .navbar-brand {
+            font-size: 24px;
+            font-weight: bold;
+            color: #4dff00;
+            text-decoration: none;
+            text-shadow: 0 0 10px #4dff00;
+            animation: glitch 2s infinite;
+        }
+
+        .navbar-nav {
+            display: flex;
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .navbar-nav li {
+            margin-left: 20px;
+        }
+
+        .navbar-nav li a {
+            color: #ffffff;
+            text-decoration: none;
+            font-size: 16px;
+            padding: 10px;
+            border-radius: 5px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .navbar-nav li a:hover {
+            background-color: #4dff00;
+            color: #0c0c0c;
+            text-shadow: 0 0 10px #4dff00;
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            height: 80vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            overflow: hidden;
+        }
+
+        .hero-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to right, #0c0c0c, #1f1f1f);
+            z-index: -1;
+            animation: glitch-bg 5s infinite;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            padding: 0 20px;
+        }
+
+        .hero-title {
+            font-size: 50px;
+            font-weight: bold;
+            color: #4dff00;
+            text-shadow: 0 0 20px #4dff00;
+            animation: glitch-text 2s infinite;
+        }
+
+        .hero-subtitle {
+            font-size: 24px;
+            color: #ffffff;
+            margin-top: 20px;
+            animation: glitch-text 3s infinite;
+        }
+
+        .hero-cta {
+            margin-top: 40px;
+            display: inline-block;
+            padding: 15px 30px;
+            background-color: #4dff00;
+            color: #0c0c0c;
+            font-size: 18px;
+            font-weight: bold;
+            text-decoration: none;
+            border-radius: 5px;
+            box-shadow: 0 0 20px #4dff00;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .hero-cta:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 40px #4dff00;
+        }
+
+        /* Project Showcase */
+        .project-showcase {
+            padding: 80px 40px;
+            background-color: #1f1f1f;
+        }
+
+        .project-showcase-title {
+            font-size: 36px;
+            font-weight: bold;
+            color: #4dff00;
+            text-align: center;
+            margin-bottom: 40px;
+            text-shadow: 0 0 10px #4dff00;
+        }
+
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-gap: 40px;
+        }
+
+        .project-thumbnail {
+            position: relative;
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(77, 255, 0, 0.3);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .project-thumbnail:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 40px rgba(77, 255, 0, 0.5);
+        }
+
+        .project-thumbnail img {
+            width: 100%;
+            height: auto;
+            display: block;
+            filter: grayscale(100%) contrast(120%) brightness(80%);
+            transition: filter 0.3s;
+        }
+
+        .project-thumbnail:hover img {
+            filter: none;
+        }
+
+        .project-info {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .project-thumbnail:hover .project-info {
+            opacity: 1;
+        }
+
+        .project-title {
+            font-size: 24px;
+            font-weight: bold;
+            color: #4dff00;
+            text-shadow: 0 0 10px #4dff00;
+            margin-bottom: 10px;
+        }
+
+        .project-description {
+            font-size: 16px;
+            color: #ffffff;
+            text-shadow: 0 0 5px #ffffff;
+        }
+
+        /* Terminal-Style Contact Section */
+        .contact-section {
+            padding: 80px 40px;
+            background-color: #0c0c0c;
+            position: relative;
+        }
+
+        .contact-section::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: linear-gradient(to right, #0c0c0c, #1f1f1f);
+            background-size: 200% 200%;
+            animation: glitch-bg 10s ease infinite;
+            z-index: -1;
+        }
+
+        .contact-title {
+            font-size: 36px;
+            font-weight: bold;
+            color: #4dff00;
+            text-align: center;
+            margin-bottom: 40px;
+            text-shadow: 0 0 10px #4dff00;
+        }
+
+        .contact-form {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: #1f1f1f;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(77, 255, 0, 0.3);
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            display: block;
+            width: 100%;
+            padding: 15px 20px;
+            margin-bottom: 20px;
+            background-color: #0c0c0c;
+            color: #ffffff;
+            font-family: 'VT323', monospace;
+            font-size: 18px;
+            border: none;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(77, 255, 0, 0.3);
+            outline: none;
+            animation: cursor-blink 0.8s infinite;
+        }
+
+        .contact-form textarea {
+            height: 150px;
+        }
+
+        .contact-form button {
+            display: block;
+            width: 100%;
+            padding: 15px 20px;
+            background-color: #4dff00;
+            color: #0c0c0c;
+            font-family: 'Press Start 2P', monospace;
+            font-size: 18px;
+            font-weight: bold;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            box-shadow: 0 0 20px #4dff00;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .contact-form button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 40px #4dff00;
+        }
+
+        .contact-info {
+            text-align: center;
+            margin-top: 40px;
+            font-size: 18px;
+            color: #ffffff;
+            text-shadow: 0 0 5px #ffffff;
+        }
+
+        .contact-info a {
+            color: #4dff00;
+            text-decoration: none;
+            transition: color 0.3s, text-shadow 0.3s;
+        }
+
+        .contact-info a:hover {
+            color: #ffffff;
+            text-shadow: 0 0 10px #4dff00;
+        }
+
+        /* Animations */
+        @keyframes glitch {
+            0% {
+                text-shadow: 0 0 10px #4dff00;
+            }
+            50% {
+                text-shadow: 0 0 20px #4dff00;
+            }
+            100% {
+                text-shadow: 0 0 10px #4dff00;
+            }
+        }
+
+        @keyframes glitch-bg {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        @keyframes glitch-text {
+            0% {
+                transform: translateX(0);
+            }
+            10% {
+                transform: translateX(-2px);
+            }
+            20% {
+                transform: translateX(2px);
+            }
+            30% {
+                transform: translateX(-2px);
+            }
+            40% {
+                transform: translateX(2px);
+            }
+            50% {
+                transform: translateX(-2px);
+            }
+            60% {
+                transform: translateX(2px);
+            }
+            70% {
+                transform: translateX(-2px);
+            }
+            80% {
+                transform: translateX(2px);
+            }
+            90% {
+                transform: translateX(-2px);
+            }
+            100% {
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes cursor-blink {
+            0% {
+                opacity: 1;
+            }
+            50% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .navbar {
+                padding: 15px 20px;
+            }
+
+            .navbar-brand {
+                font-size: 20px;
+            }
+
+            .navbar-nav li {
+                margin-left: 10px;
+            }
+
+            .navbar-nav li a {
+                font-size: 14px;
+            }
+
+            .hero {
+                height: 60vh;
+            }
+
+            .hero-title {
+                font-size: 36px;
+            }
+
+            .hero-subtitle {
+                font-size: 18px;
+            }
+
+            .hero-cta {
+                font-size: 16px;
+                padding: 10px 20px;
+            }
+
+            .project-showcase {
+                padding: 60px 20px;
+            }
+
+            .project-showcase-title {
+                font-size: 30px;
+            }
+
+            .project-grid {
+                grid-template-columns: repeat(2, 1fr);
+                grid-gap: 20px;
+            }
+
+            .project-title {
+                font-size: 20px;
+            }
+
+            .project-description {
+                font-size: 14px;
+            }
+
+            .contact-section {
+                padding: 60px 20px;
+            }
+
+            .contact-title {
+                font-size: 30px;
+            }
+
+            .contact-form {
+                padding: 30px;
+            }
+
+            .contact-form input,
+            .contact-form textarea {
+                font-size: 16px;
+            }
+
+            .contact-info {
+                font-size: 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <a href="#" class="navbar-brand">Hacked Portfolio</a>
+        <ul class="navbar-nav">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Projects</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- Hero Section -->
+    <div class="hero">
+        <div class="hero-bg"></div>
+        <div class="hero-content">
+            <h1 class="hero-title">Unleash Your Hacking Prowess</h1>
+            <p class="hero-subtitle">Explore the dark world of design and uncover your true potential.</p>
+            <a href="#" class="hero-cta">Dive Into My Portfolio</a>
+        </div>
+    </div>
+
+    <!-- Project Showcase -->
+    <section class="project-showcase">
+        <h2 class="project-showcase-title">Hacked Masterpieces</h2>
+        <div class="project-grid">
+            <div class="project-thumbnail">
+                <img src="https://dummyimage.com/600x400/000/4dff00.jpg&text=Project+1" alt="Project 1">
+                <div class="project-info">
+                    <h3 class="project-title">Project 1</h3>
+                    <p class="project-description">Explore the depths of digital distortion.</p>
+                </div>
+            </div>
+            <div class="project-thumbnail">
+                <img src="https://dummyimage.com/600x400/000/4dff00.jpg&text=Project+2" alt="Project 2">
+                <div class="project-info">
+                    <h3 class="project-title">Project 2</h3>
+                    <p class="project-description">Glitched, hacked, and ready to shock.</p>
+                </div>
+            </div>
+            <div class="project-thumbnail">
+                <img src="https://dummyimage.com/600x400/000/4dff00.jpg&text=Project+3" alt="Project 3">
+                <div class="project-info">
+                    <h3 class="project-title">Project 3</h3>
+                    <p class="project-description">Dive into the cyberpunk realm of design.</p>
+                </div>
+            </div>
+            <div class="project-thumbnail">
+                <img src="https://dummyimage.com/600x400/000/4dff00.jpg&text=Project+4" alt="Project 4">
+                <div class="project-info">
+                    <h3 class="project-title">Project 4</h3>
+                    <p class="project-description">Corrupted pixels, neon dreams.</p>
+                </div>
+            </div>
+            <div class="project-thumbnail">
+                <img src="https://dummyimage.com/600x400/000/4<div class="project-thumbnail">
+                <img src="https://dummyimage.com/600x400/000/4dff00.jpg&text=Project+5" alt="Project 5">
+                <div class="project-info">
+                    <h3 class="project-title">Project 5</h3>
+                    <p class="project-description">Shattered pixels, unified design.</p>
+                </div>
+            </div>
+            <div class="project-thumbnail">
+                <img src="https://dummyimage.com/600x400/000/4dff00.jpg&text=Project+6" alt="Project 6">
+                <div class="project-info">
+                    <h3 class="project-title">Project 6</h3>
+                    <p class="project-description">Hacking the boundaries of creativity.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Terminal-Style Contact Section -->
+    <section class="contact-section">
+        <h2 class="contact-title">Hack Into My Mind</h2>
+        <div class="contact-form">
+            <input type="text" placeholder="Enter your name" />
+            <input type="email" placeholder="Enter your email" />
+            <textarea placeholder="Enter your message"></textarea>
+            <button type="submit">Send Message</button>
+        </div>
+        <div class="contact-info">
+            <p>For more information, you can reach me at:</p>
+            <a href="mailto:designer@hackedportfolio.com">designer@hackedportfolio.com</a>
+        </div>
+    </section>
+</body>
+</html>'<!-- Visit: https://github.com/Ishanoshada/portflair -->
+<!-- Visit: https://github.com/Ishanoshada/portflair -->

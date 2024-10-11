@@ -1,0 +1,562 @@
+<!-- Portfolio created by Ishan -->
+<!-- Check out my work at: https://github.com/Ishanoshada/portflair -->
+<!-- 2024/10/9 -->
+<!-- Portfolio created by Ishan -->
+'<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Black Hole Portfolio</title>
+  <style>
+    /* Resets and Global Styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Montserrat', sans-serif;
+    }
+
+    body {
+      background-color: #0f0f0f;
+      color: #fff;
+      overflow-x: hidden;
+    }
+
+    /* Navbar Styles */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.5rem 3rem;
+      background-color: rgba(15, 15, 15, 0.7);
+      backdrop-filter: blur(10px);
+      position: fixed;
+      width: 100%;
+      z-index: 100;
+    }
+
+    nav .logo {
+      font-size: 1.8rem;
+      font-weight: 700;
+      background: linear-gradient(to right, #8b00ff, #00ffff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    nav ul {
+      display: flex;
+      list-style-type: none;
+    }
+
+    nav ul li {
+      margin-left: 2rem;
+    }
+
+    nav ul li a {
+      color: #fff;
+      text-decoration: none;
+      font-size: 1.1rem;
+      position: relative;
+      padding-bottom: 0.5rem;
+    }
+
+    nav ul li a::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: linear-gradient(to right, #8b00ff, #00ffff);
+      transition: width 0.3s ease-in-out;
+    }
+
+    nav ul li a:hover::after {
+      width: 100%;
+    }
+
+    /* Project Galaxies Styles */
+    #project-galaxies {
+      padding: 8rem 3rem;
+      background: radial-gradient(
+        ellipse at center,
+        rgba(0, 0, 0, 0.7) 0%,
+        rgba(0, 0, 0, 0.9) 100%
+      );
+      position: relative;
+      overflow: hidden;
+    }
+
+    #project-galaxies::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url("https://dummyimage.com/1920x1080/000/fff&text=Black+Hole") no-repeat center center;
+      background-size: cover;
+      opacity: 0.2;
+      z-index: -1;
+    }
+
+    #project-galaxies h2 {
+      font-size: 3rem;
+      margin-bottom: 3rem;
+      background: linear-gradient(to right, #8b00ff, #00ffff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-gap: 3rem;
+    }
+
+    .project-item {
+      position: relative;
+      overflow: hidden;
+      border-radius: 1rem;
+      box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+      cursor: pointer;
+    }
+
+    .project-item img {
+      width: 100%;
+      height: 300px;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+
+    .project-item:hover img {
+      transform: scale(1.1);
+    }
+
+    .project-details {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(to bottom, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.8));
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      opacity: 0;
+      transition: opacity 0.5s ease;
+    }
+
+    .project-item:hover .project-details {
+      opacity: 1;
+    }
+
+    .project-details h3 {
+      font-size: 1.8rem;
+      margin-bottom: 1rem;
+      text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    }
+
+    .project-details p {
+      font-size: 1.1rem;
+      margin-bottom: 2rem;
+      text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    }
+
+    .project-details a {
+      display: inline-block;
+      padding: 0.8rem 1.5rem;
+      background: linear-gradient(to right, #8b00ff, #00ffff);
+      color: #fff;
+      text-decoration: none;
+      border-radius: 2rem;
+      font-size: 1.1rem;
+      box-shadow: 0 0 20px rgba(139, 0, 255, 0.5);
+      transition: transform 0.3s ease;
+    }
+
+    .project-details a:hover {
+      transform: translateY(-5px);
+    }
+
+    /* Skills and Expertise Styles */
+    #skills-expertise {
+      padding: 8rem 3rem;
+      background: radial-gradient(
+        ellipse at center,
+        rgba(0, 0, 0, 0.8) 0%,
+        rgba(0, 0, 0, 0.9) 100%
+      );
+      position: relative;
+      overflow: hidden;
+    }
+
+    #skills-expertise::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url("https://dummyimage.com/1920x1080/000/fff&text=Cosmic+Web") no-repeat center center;
+      background-size: cover;
+      opacity: 0.2;
+      z-index: -1;
+    }
+
+    #skills-expertise h2 {
+      font-size: 3rem;
+      margin-bottom: 3rem;
+      background: linear-gradient(to right, #8b00ff, #00ffff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      grid-gap: 3rem;
+    }
+
+    .skill-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      position: relative;
+      cursor: pointer;
+    }
+
+    .skill-item img {
+      width: 80px;
+      height: 80px;
+      object-fit: contain;
+      filter: drop-shadow(0 0 10px rgba(139, 0, 255, 0.5));
+      transition: transform 0.3s ease;
+    }
+
+    .skill-item:hover img {
+      transform: scale(1.1);
+    }
+
+    .skill-item h3 {
+      font-size: 1.3rem;
+      margin-top: 1rem;
+      background: linear-gradient(to right, #8b00ff, #00ffff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .skill-details {
+      position: absolute;
+      top: 120%;
+      left: 50%;
+      transform: translateX(-50%);
+      background-color: rgba(15, 15, 15, 0.9);
+      padding: 2rem;
+      border-radius: 1rem;
+      width: 300px;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.3s ease;
+      z-index: 10;
+    }
+
+    .skill-item:hover .skill-details {
+      opacity: 1;
+      visibility: visible;
+      top: 110%;
+    }
+
+    .skill-details h4 {
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+      background: linear-gradient(to right, #8b00ff, #00ffff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .skill-details p {
+      font-size: 1.1rem;
+      color: #ccc;
+      line-height: 1.5;
+    }
+
+    /* Contact Form Styles */
+    #contact {
+      padding: 8rem 3rem;
+      background: radial-gradient(
+        ellipse at center,
+        rgba(0, 0, 0, 0.8) 0%,
+        rgba(0, 0, 0, 0.9) 100%
+      );
+      position: relative;
+      overflow: hidden;
+    }
+
+    #contact::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url("https://dummyimage.com/1920x1080/000/fff&text=Cosmic+Nebula") no-repeat center center;
+      background-size: cover;
+      opacity: 0.2;
+      z-index: -1;
+    }
+
+    #contact h2 {
+      font-size: 3rem;
+      margin-bottom: 3rem;
+      background: linear-gradient(to right, #8b00ff, #00ffff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .contact-form {
+      max-width: 600px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-gap: 2rem;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+      background-color: rgba(15, 15, 15, 0.7);
+      border: none;
+      padding: 1.2rem 1.5rem;
+      font-size: 1.1rem;
+      color: #fff;
+      border-radius: 1rem;
+      outline: none;
+      transition: box-shadow 0.3s ease;
+    }
+
+    .contact-form input:focus,
+    .contact-form textarea:focus {
+      box-shadow: 0 0 20px rgba(139, 0, 255, 0.5);
+    }
+
+    .contact-form textarea {
+      grid-column: 1 / -1;
+      resize: vertical;
+    }
+
+    .contact-form button {
+      grid-column: 1 / -1;
+      background: linear-gradient(to right, #8b00ff, #00ffff);
+      color: #fff;
+      border: none;
+      padding: 1.2rem 2rem;
+      font-size: 1.1rem;
+      border-radius: 2rem;
+      cursor: pointer;
+      box-shadow: 0 0 20px rgba(139, 0, 255, 0.5);
+      transition: transform 0.3s ease;
+    }
+
+    .contact-form button:hover {
+      transform: translateY(-5px);
+    }
+
+    /* Footer Styles */
+    footer {
+      background-color: #0f0f0f;
+      padding: 2rem 3rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 1.1rem;
+      color: #ccc;
+    }
+
+    footer a {
+      color: #8b00ff;
+      text-decoration: none;
+      margin-left: 0.5rem;
+      transition: color 0.3s ease;
+    }
+
+    footer a:hover {
+      color: #00ffff;
+    }
+
+    /* Responsive Styles */
+    @media (max-width: 1024px) {
+      .project-grid,
+      .skills-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .contact-form {
+        grid-template-columns: 1fr;
+      }
+
+      .contact-form textarea {
+        grid-column: auto;
+      }
+    }
+
+    @media (max-width: 768px) {
+      nav {
+        padding: 1rem 2rem;
+      }
+
+      nav .logo {
+        font-size: 1.5rem;
+      }
+
+      nav ul li {
+        margin-left: 1.5rem;
+      }
+
+      nav ul li a {
+        font-size: 1rem;
+      }
+
+      #project-galaxies,
+      #skills-expertise,
+      #contact {
+        padding: 6rem 2rem;
+      }
+
+      #project-galaxies h2,
+      #skills-expertise h2,
+      #contact h2 {
+        font-size: 2.5rem;
+        margin-bottom: 2rem;
+      }
+
+      .project-grid,
+      .skills-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .project-item img {
+        height: 250px;
+      }
+
+      .skill-item img {
+        width: 60px;
+        height: 60px;
+      }
+
+      .skill-details {
+        width: 250px;
+      }
+
+      .contact-form input,
+      .contact-form textarea,
+      .contact-form button {
+        font-size: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="logo">Black Hole</div>
+    <ul>
+      <li><a href="#">Home</a></li>
+      <li><a href="#">Projects</a></li>
+      <li><a href="#">Skills</a></li>
+      <li><a href="#">Contact</a></li>
+    </ul>
+  </nav>
+
+  <section id="project-galaxies">
+    <h2>Project Galaxies</h2>
+    <div class="project-grid">
+      <div class="project-item">
+        <img src="https://dummyimage.com/600x400/000/fff&text=Project+1" alt="Project 1">
+        <div class="project-details">
+          <h3>Project 1</h3>
+          <p>A cosmic-themed backend project with vaporwave glitches and steampunk gears.</p>
+          <a href="#">View Project</a>
+        </div>
+      </div>
+      <div class="project-item">
+        <img src="https://dummyimage.com/600x400/000/fff&text=Project+2" alt="Project 2">
+        <div class="project-details">
+          <h3>Project 2</h3>
+          <p>A data-driven application with a mesmerizing black hole visualization.</p>
+          <a href="#">View Project</a>
+        </div>
+      </div>
+      <div class="project-item">
+        <img src="https://dummyimage.com/600x400/000/fff&text=Project+3" alt="Project 3">
+        <div class="project-details">
+          <h3>Project 3</h3>
+          <p>A serverless function that interacts with a cosmic database.</p>
+          <a href="#">View Project</a></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="skills-expertise">
+    <h2>Skills and Expertise</h2>
+    <div class="skills-grid">
+      <div class="skill-item">
+        <img src="https://dummyimage.com/100x100/000/fff&text=Node.js" alt="Node.js">
+        <h3>Node.js</h3>
+        <div class="skill-details">
+          <h4>Node.js</h4>
+          <p>Proficient in building scalable and efficient backend applications using Node.js and its ecosystem.</p>
+        </div>
+      </div>
+      <div class="skill-item">
+        <img src="https://dummyimage.com/100x100/000/fff&text=MongoDB" alt="MongoDB">
+        <h3>MongoDB</h3>
+        <div class="skill-details">
+          <h4>MongoDB</h4>
+          <p>Experienced in designing and implementing NoSQL databases, including MongoDB, for data-intensive applications.</p>
+        </div>
+      </div>
+      <div class="skill-item">
+        <img src="https://dummyimage.com/100x100/000/fff&text=AWS" alt="AWS">
+        <h3>AWS</h3>
+        <div class="skill-details">
+          <h4>AWS</h4>
+          <p>Proficient in leveraging AWS services, such as Lambda, DynamoDB, and API Gateway, for building scalable and serverless applications.</p>
+        </div>
+      </div>
+      <div class="skill-item">
+        <img src="https://dummyimage.com/100x100/000/fff&text=Docker" alt="Docker">
+        <h3>Docker</h3>
+        <div class="skill-details">
+          <h4>Docker</h4>
+          <p>Experienced in containerizing applications using Docker, enabling consistent deployment and scaling across different environments.</p>
+        </div>
+      </div>
+      <div class="skill-item">
+        <img src="https://dummyimage.com/100x100/000/fff&text=Typescript" alt="Typescript">
+        <h3>Typescript</h3>
+        <div class="skill-details">
+          <h4>Typescript</h4>
+          <p>Proficient in writing robust and maintainable code using Typescript, providing static typing and improved developer experience.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <h2>Get in Touch</h2>
+    <div class="contact-form">
+      <input type="text" placeholder="Name" required>
+      <input type="email" placeholder="Email" required>
+      <textarea placeholder="Message" required></textarea>
+      <button type="submit">Submit</button>
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2024 Black Hole. All rights reserved. Designed by <a href="#">Your Name</a>.</p>
+  </footer>
+</body>
+</html>'<!-- Visit: https://github.com/Ishanoshada/portflair -->
+<!-- Visit: https://github.com/Ishanoshada/portflair -->

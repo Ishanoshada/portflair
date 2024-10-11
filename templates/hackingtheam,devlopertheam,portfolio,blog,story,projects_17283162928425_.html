@@ -1,0 +1,449 @@
+<!-- Portfolio created by Ishan -->
+<!-- Check out my work at: https://github.com/Ishanoshada/portflair -->
+<!-- 2024/10/9 -->
+<!-- Portfolio created by Ishan -->
+'<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hacking | Developer | Portfolio</title>
+  <style>
+    /* Global Styles */
+    @import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;700&display=swap');
+
+    body {
+      font-family: 'Fira Code', monospace;
+      margin: 0;
+      padding: 0;
+      background-color: #1a1a1a;
+      color: #f0f0f0;
+    }
+
+    /* Navigation */
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.5rem 2rem;
+      background-color: #1a1a1a;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      position: relative;
+      z-index: 100;
+    }
+
+    .navbar-logo {
+      font-size: 1.8rem;
+      font-weight: bold;
+      color: #00c8ff;
+      text-decoration: none;
+    }
+
+    .navbar-menu {
+      display: flex;
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .navbar-menu li {
+      margin-left: 1.5rem;
+    }
+
+    .navbar-menu li a {
+      color: #f0f0f0;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    .navbar-menu li a:hover {
+      color: #00c8ff;
+    }
+
+    /* Portfolio Section */
+    .portfolio-section {
+      padding: 4rem 2rem;
+      background-color: #1a1a1a;
+    }
+
+    .portfolio-title {
+      font-size: 2.5rem;
+      font-weight: bold;
+      margin-bottom: 2rem;
+      text-align: center;
+      color: #00c8ff;
+    }
+
+    .portfolio-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-gap: 2rem;
+    }
+
+    .portfolio-item {
+      position: relative;
+      overflow: hidden;
+      border-radius: 8px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease;
+    }
+
+    .portfolio-item:hover {
+      transform: scale(1.05);
+    }
+
+    .portfolio-item img {
+      width: 100%;
+      height: 300px;
+      object-fit: cover;
+      transition: opacity 0.3s ease;
+    }
+
+    .portfolio-item:hover img {
+      opacity: 0.7;
+    }
+
+    .portfolio-item-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 200, 255, 0.7);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .portfolio-item:hover .portfolio-item-overlay {
+      opacity: 1;
+    }
+
+    .portfolio-item-title {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: #1a1a1a;
+      margin-bottom: 0.5rem;
+    }
+
+    .portfolio-item-description {
+      font-size: 1rem;
+      color: #1a1a1a;
+      text-align: center;
+    }
+
+    /* Blog Section */
+    .blog-section {
+      padding: 4rem 2rem;
+      background-color: #1a1a1a;
+    }
+
+    .blog-title {
+      font-size: 2.5rem;
+      font-weight: bold;
+      margin-bottom: 2rem;
+      text-align: center;
+      color: #00c8ff;
+    }
+
+    .blog-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-gap: 2rem;
+    }
+
+    .blog-post {
+      background-color: #2a2a2a;
+      border-radius: 8px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+      transition: transform 0.3s ease;
+    }
+
+    .blog-post:hover {
+      transform: translateY(-10px);
+    }
+
+    .blog-post-image {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+
+    .blog-post-content {
+      padding: 1.5rem;
+    }
+
+    .blog-post-title {
+      font-size: 1.5rem;
+      font-weight: bold;
+      margin-bottom: 0.5rem;
+      color: #f0f0f0;
+    }
+
+    .blog-post-excerpt {
+      font-size: 1rem;
+      color: #c0c0c0;
+      margin-bottom: 1rem;
+    }
+
+    .blog-post-author {
+      font-size: 0.9rem;
+      color: #00c8ff;
+    }
+
+    /* About/Contact Section */
+    .about-contact-section {
+      display: flex;
+      background-color: #1a1a1a;
+    }
+
+    .about-section {
+      flex: 1;
+      padding: 4rem 2rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .about-image {
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-bottom: 2rem;
+    }
+
+    .about-title {
+      font-size: 2rem;
+      font-weight: bold;
+      margin-bottom: 1rem;
+      color: #00c8ff;
+    }
+
+    .about-description {
+      font-size: 1.1rem;
+      text-align: center;
+      color: #f0f0f0;
+    }
+
+    .contact-section {
+      flex: 1;
+      padding: 4rem 2rem;
+      background-color: #2a2a2a;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .contact-title {
+      font-size: 2rem;
+      font-weight: bold;
+      margin-bottom: 1.5rem;
+      color: #00c8ff;
+    }
+
+    .contact-form {
+      width: 80%;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+      width: 100%;
+      padding: 1rem;
+      margin-bottom: 1.5rem;
+      border: none;
+      border-radius: 4px;
+      background-color: #3a3a3a;
+      color: #f0f0f0;
+      font-family: 'Fira Code', monospace;
+      font-size: 1rem;
+    }
+
+    .contact-form textarea {
+      height: 150px;
+    }
+
+    .contact-form button {
+      width: 100%;
+      padding: 1rem;
+      background-color: #00c8ff;
+      border: none;
+      border-radius: 4px;
+      color: #1a1a1a;
+      font-family: 'Fira Code', monospace;
+      font-size: 1.1rem;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .contact-form button:hover {
+      background-color: #00a8d9;
+    }
+
+    /* Responsive Styles */
+    @media (max-width: 768px) {
+      .portfolio-grid,
+      .blog-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .about-contact-section {
+        flex-direction: column;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .portfolio-grid,
+      .blog-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .contact-form {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation -->
+  <nav class="navbar">
+    <a href="#" class="navbar-logo">Hacking | Developer | Portfolio</a>
+    <ul class="navbar-menu">
+      <li><a href="#">Home</a></li>
+      <li><a href="#">Portfolio</a></li>
+      <li><a href="#">Blog</a></li>
+      <li><a href="#">About</a></li>
+      <li><a href="#">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- Portfolio Section -->
+  <section class="portfolio-section">
+    <h2 class="portfolio-title">Portfolio</h2>
+    <div class="portfolio-grid">
+      <div class="portfolio-item">
+        <img src="https://dummyimage.com/600x400/333/fff&text=Project+1" alt="Project 1">
+        <div class="portfolio-item-overlay">
+          <h3 class="portfolio-item-title">Project 1</h3>
+          <p class="portfolio-item-description">A web development project showcasing my skills.</p>
+        </div>
+      </div>
+      <div class="portfolio-item">
+        <img src="https://dummyimage.com/600x400/333/fff&text=Project+2" alt="Project 2">
+        <div class="portfolio-item-overlay">
+          <h3 class="portfolio-item-title">Project 2</h3>
+          <p class="portfolio-item-description">A cybersecurity project demonstrating my expertise.</p>
+        </div>
+      </div>
+      <div class="portfolio-item">
+        <img src="https://dummyimage.com/600x400/333/fff&text=Project+3" alt="Project 3">
+        <div class="portfolio-item-overlay">
+          <h3 class="portfolio-item-title">Project 3</h3>
+          <p class="portfolio-item-description">A mobile app development project highlighting my skills.</p>
+        </div>
+      </div>
+      <div class="portfolio-item">
+        <img src="https://dummyimage.com/600x400/333/fff&text=Project+4" alt="Project 4">
+        <div class="portfolio-item-overlay">
+          <h3 class="portfolio-item-title">Project 4</h3>
+          <p class="portfolio-item-description">A data visualization project showcasing my analytical skills.</p>
+        </div>
+      </div>
+      <div class="portfolio-item">
+        <img src="https://dummyimage.com/600x400/333/fff&text=Project+5" alt="Project 5">
+        <div class="portfolio-item-overlay">
+          <h3 class="portfolio-item-title">Project 5</h3>
+          <p class="portfolio-item-description">A machine learning project demonstrating my expertise.</p>
+        </div>
+      </div>
+      <div class="portfolio-item">
+        <img src="https://dummyimage.com/600x400/333/fff&text=Project+6" alt="Project 6">
+        <div class="portfolio-item-overlay">
+          <h3 class="portfolio-item-title">Project 6</h3>
+          <p class="portfolio-item-description">A blockchain project showcasing my knowledge in the field.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Blog Section -->
+  <section class="blog-section">
+    <h2 class="blog-title">Blog</h2>
+    <div class="blog-grid">
+      <div class="blog-post">
+        <img src="https://dummyimage.com/600x400/333/fff&text=Blog+Post+1" alt="Blog Post 1" class="blog-post-image">
+        <div class="blog-post-content">
+          <h3 class="blog-post-title">Mastering Web Development in 2024</h3>
+          <p class="blog-post-excerpt">Explore the latest trends and technologies shaping the future of web development.</p>
+          <p class="blog-post-author">By John Doe</p>
+        </div>
+      </div>
+      <div class="blog-post">
+        <img src="https://dummyimage.com/600x400/333/fff&text=Blog+Post+2" alt="Blog Post 2" class="blog-post-image">
+        <div class="blog-post-content">
+          <h3 class="blog-post-title">Cybersecurity Essentials for Developers</h3>
+          <p class="blog-post-excerpt">Learn how to integrate robust security measures into your software projects.</p>
+          <p class="blog-post-author">By Jane Smith</p>
+        </div>
+      </div>
+      <div class="blog-post">
+        <img src="https://dummyimage.com/600x400/333/fff&text=Blog+Post+3" alt="Blog Post 3" class="blog-post-image">
+        <div class="blog-post-content">
+          <h3 class="blog-post-title">Unlocking the Power of Artificial Intelligence</h3>
+          <p class="blog-post-excerpt">Discover how AI and machine learning can transform your development projects.</p>
+          <p class="blog-post-author">By Michael Johnson</p>
+        </div>
+      </div>
+      <div class="blog-post">
+        <img src="https://dummyimage.com/600x400/333/fff&text=Blog+Post+4" alt="Blog Post 4" class="blog-post-image">
+        <div class="blog-post-content">
+          <h3 class="blog-post-title">Blockchain for Developers: A Practical Guide</h3>
+          <p class="blog-post-excerpt">Explore the fundamentals of blockchain technology and its applications in software development.</p>
+          <p class="blog-post-author">By Sarah Lee</p>
+        </div>
+      </div>
+      <div class="blog-post">
+        <img src="https://dummyimage.com/600x400/333/fff&text=Blog+Post+5" alt="Blog Post 5" class="blog-post-image">
+        <div class="blog-post-content">
+          <h3 class="blog-post-title">The Future of Mobile App Development</h3>
+          <p class="blog-post-excerpt">Stay ahead of the curve with the latest trends and best practices in mobile app development.</p>
+          <p class="blog-post-author">By Tom Wilson</p>
+        </div>
+      </div>
+      <div class="blog-post">
+        <img src="https://dummyimage.com/600x400/333/fff&text=Blog+Post+6" alt="Blog Post 6" class="blog-post-image">
+        <div class="blog-post-content">
+          <h3 class="blog-post-title">Data Visualization for Developers</h3>
+          <p class="blog-post-excerpt">Discover how to create compelling and insight</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About/Contact Section -->
+  <section class="about-contact-section">
+    <div class="about-section">
+      <img src="https://dummyimage.com/200x200/333/fff&text=John+Doe" alt="John Doe" class="about-image">
+      <h2 class="about-title">About Me</h2>
+      <p class="about-description">I'm a seasoned web developer and cybersecurity expert with a passion for creating innovative and secure software solutions. With years of experience in the industry, I've honed my skills in various technologies and frameworks, constantly staying ahead of the curve. Let's collaborate on your next project!</p>
+    </div>
+    <div class="contact-section">
+      <h2 class="contact-title">Get in Touch</h2>
+      <form class="contact-form">
+        <input type="text" placeholder="Name" required>
+        <input type="email" placeholder="Email" required>
+        <textarea placeholder="Message" required></textarea>
+        <button type="submit">Submit</button>
+      </form>
+    </div>
+  </section>
+</body>
+</html>'<!-- Visit: https://github.com/Ishanoshada/portflair -->
+<!-- Visit: https://github.com/Ishanoshada/portflair -->

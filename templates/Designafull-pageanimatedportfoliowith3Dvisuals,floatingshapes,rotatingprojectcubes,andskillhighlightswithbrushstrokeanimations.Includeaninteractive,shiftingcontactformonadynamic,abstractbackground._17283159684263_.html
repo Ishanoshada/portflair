@@ -1,0 +1,419 @@
+<!-- Portfolio created by Ishan -->
+<!-- Check out my work at: https://github.com/Ishanoshada/portflair -->
+<!-- 2024/10/9 -->
+<!-- Portfolio created by Ishan -->
+'<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Animated Portfolio</title>
+  <style>
+    /* Global Styles */
+    body {
+      font-family: 'Montserrat', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #080808;
+      color: #f1f1f1;
+    }
+
+    /* Navigation */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 40px;
+      background-color: rgba(8, 8, 8, 0.8);
+      backdrop-filter: blur(10px);
+    }
+
+    nav ul {
+      list-style-type: none;
+      display: flex;
+      margin: 0;
+      padding: 0;
+    }
+
+    nav ul li {
+      margin-left: 30px;
+    }
+
+    nav ul li a {
+      color: #f1f1f1;
+      text-decoration: none;
+      font-size: 16px;
+      font-weight: 500;
+      transition: color 0.3s ease;
+    }
+
+    nav ul li a:hover {
+      color: #00b8d4;
+    }
+
+    /* Interactive Portfolio Section */
+    .portfolio-section {
+      position: relative;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+    }
+
+    .portfolio-background {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, #1e2127, #121212);
+      z-index: -1;
+      animation: backgroundAnimation 30s ease infinite;
+    }
+
+    .portfolio-cube {
+      position: relative;
+      width: 300px;
+      height: 300px;
+      transform-style: preserve-3d;
+      transform-origin: center center;
+      animation: cubeRotation 20s linear infinite;
+    }
+
+    .portfolio-cube .face {
+      position: absolute;
+      width: 300px;
+      height: 300px;
+      opacity: 0.8;
+      transition: all 0.5s ease;
+    }
+
+    .portfolio-cube .face:hover {
+      opacity: 1;
+      transform: scale(1.1);
+    }
+
+    .portfolio-cube .front {
+      background-image: url('https://dummyimage.com/600x400/ccc/000&text=Project+1');
+      background-size: cover;
+      background-position: center;
+      transform: translateZ(150px);
+    }
+
+    .portfolio-cube .back {
+      background-image: url('https://dummyimage.com/600x400/ccc/000&text=Project+2');
+      background-size: cover;
+      background-position: center;
+      transform: rotateY(180deg) translateZ(150px);
+    }
+
+    .portfolio-cube .right {
+      background-image: url('https://dummyimage.com/600x400/ccc/000&text=Project+3');
+      background-size: cover;
+      background-position: center;
+      transform: rotateY(90deg) translateZ(150px);
+    }
+
+    .portfolio-cube .left {
+      background-image: url('https://dummyimage.com/600x400/ccc/000&text=Project+4');
+      background-size: cover;
+      background-position: center;
+      transform: rotateY(-90deg) translateZ(150px);
+    }
+
+    .portfolio-cube .top {
+      background-image: url('https://dummyimage.com/600x400/ccc/000&text=Project+5');
+      background-size: cover;
+      background-position: center;
+      transform: rotateX(90deg) translateZ(150px);
+    }
+
+    .portfolio-cube .bottom {
+      background-image: url('https://dummyimage.com/600x400/ccc/000&text=Project+6');
+      background-size: cover;
+      background-position: center;
+      transform: rotateX(-90deg) translateZ(150px);
+    }
+
+    /* Skills and Expertise Section */
+    .skills-section {
+      padding: 80px 40px;
+      background: linear-gradient(to right, #121212, #1e2127);
+    }
+
+    .skills-section h2 {
+      font-size: 36px;
+      font-weight: 600;
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .skill-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      grid-gap: 40px;
+    }
+
+    .skill-card {
+      background-color: rgba(255, 255, 255, 0.05);
+      padding: 30px;
+      border-radius: 8px;
+      text-align: center;
+      opacity: 0;
+      transform: translateY(50px);
+      animation: skillCardAnimation 0.8s ease-in-out forwards;
+    }
+
+    .skill-card:nth-child(1) {
+      animation-delay: 0.2s;
+    }
+
+    .skill-card:nth-child(2) {
+      animation-delay: 0.4s;
+    }
+
+    .skill-card:nth-child(3) {
+      animation-delay: 0.6s;
+    }
+
+    .skill-card:nth-child(4) {
+      animation-delay: 0.8s;
+    }
+
+    .skill-card i {
+      font-size: 48px;
+      margin-bottom: 20px;
+      background: linear-gradient(to right, #00b8d4, #0077b6);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .skill-card h3 {
+      font-size: 20px;
+      font-weight: 600;
+      margin-bottom: 10px;
+    }
+
+    .skill-card p {
+      font-size: 14px;
+      color: #b3b3b3;
+      line-height: 1.6;
+    }
+
+    /* Interactive Contact Form */
+    .contact-section {
+      position: relative;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+    }
+
+    .contact-background {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, #121212, #1e2127);
+      z-index: -1;
+      animation: backgroundAnimation 30s ease infinite;
+    }
+
+    .contact-form {
+      background-color: rgba(255, 255, 255, 0.05);
+      padding: 40px;
+      border-radius: 8px;
+      width: 400px;
+      opacity: 0;
+      transform: translateY(50px);
+      animation: formAnimation 0.8s ease-in-out forwards;
+    }
+
+    .contact-form h2 {
+      font-size: 24px;
+      font-weight: 600;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .form-field {
+      margin-bottom: 20px;
+    }
+
+    .form-field label {
+      display: block;
+      font-size: 14px;
+      font-weight: 500;
+      margin-bottom: 5px;
+    }
+
+    .form-field input,
+    .form-field textarea {
+      width: 100%;
+      padding: 10px;
+      font-size: 16px;
+      border: none;
+      border-radius: 4px;
+      background-color: rgba(255, 255, 255, 0.1);
+      color: #f1f1f1;
+      transition: background-color 0.3s ease;
+    }
+
+    .form-field input:focus,
+    .form-field textarea:focus {
+      background-color: rgba(255, 255, 255, 0.2);
+      outline: none;
+    }
+
+    .form-field textarea {
+      resize: vertical;
+      min-height: 100px;
+    }
+
+    .contact-form button {
+      display: block;
+      width: 100%;
+      padding: 12px;
+      font-size: 16px;
+      font-weight: 600;
+      color: #f1f1f1;
+      background-color: #00b8d4;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .contact-form button:hover {
+      background-color: #0077b6;
+    }
+
+    /* Animations */
+    @keyframes backgroundAnimation {
+      0% {
+        background-position: 0% 50%;
+      }
+      50% {
+        background-position: 100% 50%;
+      }
+      100% {
+        background-position: 0% 50%;
+      }
+    }
+
+    @keyframes cubeRotation {
+      0% {
+        transform: rotateX(0deg) rotateY(0deg);
+      }
+      100% {
+        transform: rotateX(360deg) rotateY(360deg);
+      }
+    }
+
+    @keyframes skillCardAnimation {
+      0% {
+        opacity: 0;
+        transform: translateY(50px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes formAnimation {
+      0% {
+        opacity: 0;
+        transform: translateY(50px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="logo">
+      <a href="#">Animated Portfolio</a>
+    </div>
+    <ul>
+      <li><a href="#">Home</a></li>
+      <li><a href="#">Portfolio</a></li>
+      <li><a href="#">Skills</a></li>
+      <li><a href="#">Contact</a></li>
+    </ul>
+  </nav>
+
+  <div class="portfolio-section">
+    <div class="portfolio-background"></div>
+    <div class="portfolio-cube">
+      <div class="face front"></div>
+      <div class="face back"></div>
+      <div class="face right"></div>
+      <div class="face left"></div>
+      <div class="face top"></div>
+      <div class="face bottom"></div>
+    </div>
+  </div>
+
+  <div class="skills-section">
+    <h2>Skills and Expertise</h2>
+    <div class="skill-cards">
+      <div class="skill-card">
+        <i class="fa fa-code"></i>
+        <h3>Web Development</h3>
+        <p>Expertise in HTML, CSS, JavaScript, and various web frameworks and libraries.</p>
+      </div>
+      <div class="skill-card">
+        <i class="fa fa-paint-brush"></i>
+        <h3>UI/UX Design</h3>
+        <p>Proficient in designing visually appealing and user-friendly interfaces.</p>
+      </div>
+      <div class="skill-card">
+        <i class="fa fa-database"></i>
+        <h3>Database Management</h3>
+        <p>Experience in managing and integrating databases into web applications.</p>
+      </div>
+      <div class="skill-card">
+        <i class="fa fa-mobile"></i>
+        <h3>Responsive Design</h3>
+        <p>Ability to create websites and web applications that adapt seamlessly to various devices.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="contact-section">
+    <div class="contact-background"></div>
+    <div class="contact-form">
+      <h2>Get in Touch</h2>
+      <form>
+        <div class="form-field">
+          <label for="name">Name</label>
+          <input type="text" id="name" name="name" required>
+        </div>
+        <div class="form-field">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" required>
+        </div>
+        <div class="form-field">
+          <label for="message">Message</label>
+          <textarea id="message" name="message" required></textarea>
+        </div>
+        <div class="form-field">
+          <label for="attachment">Attachment</label>
+          <input type="file" id="attachment" name="attachment">
+        </div>
+        <button type="submit">Send Message</button>
+      </form>
+    </div>
+  </div>
+
+  <script src="https://kit.fontawesome.com/your-font-awesome-kit.js" crossorigin="anonymous"></script>
+</body>
+</html>'<!-- Visit: https://github.com/Ishanoshada/portflair -->
+<!-- Visit: https://github.com/Ishanoshada/portflair -->

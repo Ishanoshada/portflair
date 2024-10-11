@@ -1,0 +1,330 @@
+<!-- Portfolio created by Ishan -->
+<!-- Check out my work at: https://github.com/Ishanoshada/portflair -->
+<!-- 2024/10/9 -->
+<!-- Portfolio created by Ishan -->
+'<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Layered Portfolio</title>
+  <style>
+    /* Global Styles */
+    body {
+      font-family: 'Montserrat', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #0f0f0f;
+      color: #f2f2f2;
+    }
+
+    /* Navigation */
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 40px;
+      background-color: rgba(15, 15, 15, 0.8);
+      backdrop-filter: blur(10px);
+    }
+
+    .navbar-brand {
+      font-size: 24px;
+      font-weight: bold;
+      text-decoration: none;
+      color: #f2f2f2;
+      transition: color 0.3s ease;
+    }
+
+    .navbar-brand:hover {
+      color: #8c8c8c;
+    }
+
+    .navbar-nav {
+      display: flex;
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .navbar-nav li {
+      margin-left: 20px;
+    }
+
+    .navbar-nav li a {
+      text-decoration: none;
+      color: #f2f2f2;
+      font-size: 16px;
+      transition: color 0.3s ease;
+    }
+
+    .navbar-nav li a:hover {
+      color: #8c8c8c;
+    }
+
+    /* Hero Section */
+    .hero {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 80vh;
+      background-image: linear-gradient(to bottom, #0f0f0f, #1a1a1a);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-title {
+      font-size: 60px;
+      font-weight: bold;
+      text-align: center;
+      text-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+      animation: fadeIn 1s ease-in-out;
+    }
+
+    .hero-description {
+      font-size: 24px;
+      text-align: center;
+      margin-top: 20px;
+      text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+      animation: fadeIn 1.5s ease-in-out;
+    }
+
+    .hero-background {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: url("https://dummyimage.com/1920x1080/0f0f0f/000&text=Layered+Portfolio");
+      background-size: cover;
+      background-position: center;
+      filter: blur(5px);
+      z-index: -1;
+      animation: zoomIn 10s ease-in-out infinite alternate;
+    }
+
+    /* Featured Projects Section */
+    .featured-projects {
+      padding: 80px 40px;
+      background-color: #1a1a1a;
+    }
+
+    .featured-projects-title {
+      font-size: 36px;
+      font-weight: bold;
+      text-align: center;
+      margin-bottom: 40px;
+      text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+      animation: fadeIn 1s ease-in-out;
+    }
+
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      grid-gap: 40px;
+    }
+
+    .project-card {
+      position: relative;
+      overflow: hidden;
+      border-radius: 8px;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+      transition: transform 0.3s ease-in-out;
+    }
+
+    .project-card:hover {
+      transform: scale(1.05);
+    }
+
+    .project-image {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      filter: brightness(0.7) saturate(0.8);
+      transition: filter 0.3s ease-in-out;
+    }
+
+    .project-card:hover .project-image {
+      filter: brightness(1) saturate(1);
+    }
+
+    .project-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.6);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      opacity: 0;
+      transition: opacity 0.3s ease-in-out;
+    }
+
+    .project-card:hover .project-overlay {
+      opacity: 1;
+    }
+
+    .project-title {
+      font-size: 24px;
+      font-weight: bold;
+      color: #f2f2f2;
+      text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    }
+
+    .project-description {
+      font-size: 16px;
+      color: #f2f2f2;
+      text-align: center;
+      margin-top: 10px;
+      text-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+    }
+
+    /* About Section */
+    .about {
+      display: flex;
+      align-items: center;
+      padding: 80px 40px;
+      background-image: linear-gradient(to bottom, #1a1a1a, #0f0f0f);
+    }
+
+    .about-image {
+      flex: 0 0 300px;
+      border-radius: 50%;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+      filter: grayscale(0.5) brightness(0.8);
+      transition: filter 0.3s ease-in-out;
+      animation: fadeIn 1s ease-in-out;
+    }
+
+    .about-image:hover {
+      filter: grayscale(0) brightness(1);
+    }
+
+    .about-content {
+      flex: 1;
+      margin-left: 60px;
+      animation: fadeIn 1.5s ease-in-out;
+    }
+
+    .about-title {
+      font-size: 36px;
+      font-weight: bold;
+      margin-bottom: 20px;
+      text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    }
+
+    .about-description {
+      font-size: 18px;
+      line-height: 1.6;
+      text-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+    }
+
+    .about-description span {
+      font-weight: bold;
+      color: #8c8c8c;
+      position: relative;
+      cursor: pointer;
+    }
+
+    .about-description span::after {
+      content: "";
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background-color: #8c8c8c;
+      opacity: 0;
+      transition: opacity 0.3s ease-in-out;
+    }
+
+    .about-description span:hover::after {
+      opacity: 1;
+    }
+
+    /* Animations */
+    @keyframes fadeIn {
+      0% {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes zoomIn {
+      0% {
+        transform: scale(1);
+      }
+      100% {
+        transform: scale(1.1);
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav class="navbar">
+      <a href="#" class="navbar-brand">Layered Portfolio</a>
+      <ul class="navbar-nav">
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Portfolio</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-background"></div>
+      <h1 class="hero-title">Explore the Depths of My Portfolio</h1>
+      <p class="hero-description">Dive into a world of layered design, dark tones, and sophisticated visuals.</p>
+    </section>
+
+    <section class="featured-projects">
+      <h2 class="featured-projects-title">Featured Projects</h2>
+      <div class="project-grid">
+        <div class="project-card">
+          <img src="https://dummyimage.com/600x400/1a1a1a/f2f2f2&text=Project+1" alt="Project 1" class="project-image">
+          <div class="project-overlay">
+            <h3 class="project-title">Project 1</h3>
+            <p class="project-description">A layered, dark-toned design showcasing depth and sophistication.</p>
+          </div>
+        </div>
+        <div class="project-card">
+          <img src="https://dummyimage.com/600x400/1a1a1a/f2f2f2&text=Project+2" alt="Project 2" class="project-image">
+          <div class="project-overlay">
+            <h3 class="project-title">Project 2</h3>
+            <p class="project-description">Exploring the depths of shadow effects and color gradients.</p>
+          </div>
+        </div>
+        <div class="project-card">
+          <img src="https://dummyimage.com/600x400/1a1a1a/f2f2f2&text=Project+3" alt="Project 3" class="project-image">
+          <div class="project-overlay">
+            <h3 class="project-title">Project 3</h3>
+            <p class="project-description">A sophisticated portfolio design with a focus on depth and interactivity.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="about">
+      <img src="https://dummyimage.com/300x300/1a1a1a/f2f2f2&text=Designer" alt="Designer" class="about-image">
+      <div class="about-content">
+        <h2 class="about-title">About the Designer</h2>
+        <p class="about-description">
+          I am a passionate designer with a deep appreciation for layered, dark-toned aesthetics. My portfolio showcases my expertise in crafting visually stunning designs that blend depth, sophistication, and interactivity. From strategic use of <span>shadow effects</span> to the implementation of <span>dark color gradients</span>, I strive to create an immersive and captivating user experience.
+        </p>
+      </div>
+    </section>
+  </main>
+</body>
+</html>'<!-- Visit: https://github.com/Ishanoshada/portflair -->
+<!-- Visit: https://github.com/Ishanoshada/portflair -->

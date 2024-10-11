@@ -1,0 +1,407 @@
+<!-- Portfolio created by Ishan -->
+<!-- Check out my work at: https://github.com/Ishanoshada/portflair -->
+<!-- 2024/10/9 -->
+<!-- Portfolio created by Ishan -->
+'<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hacking Thrive | Developer Portfolio</title>
+    <style>
+        /* Global Styles */
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap');
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+        }
+
+        /* Navigation */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #333;
+            color: #fff;
+            padding: 20px 40px;
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: 500;
+            margin-right: 20px;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: #00bfff;
+        }
+
+        /* Hero Section */
+        .hero {
+            background-image: url('https://dummyimage.com/1920x1080/333/fff&text=Hacking+Thrive');
+            background-size: cover;
+            background-position: center;
+            height: 600px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: #fff;
+            text-align: center;
+            padding: 0 20px;
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            font-size: 24px;
+            margin-bottom: 40px;
+        }
+
+        .cta-button {
+            background-color: #00bfff;
+            color: #fff;
+            padding: 15px 30px;
+            border-radius: 30px;
+            font-size: 18px;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+        }
+
+        .cta-button:hover {
+            background-color: #0099cc;
+        }
+
+        /* Portfolio Section */
+        .portfolio {
+            padding: 80px 40px;
+        }
+
+        .portfolio h2 {
+            text-align: center;
+            font-size: 36px;
+            margin-bottom: 40px;
+        }
+
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-gap: 40px;
+        }
+
+        .portfolio-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .portfolio-item:hover {
+            transform: scale(1.05);
+        }
+
+        .portfolio-item img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+        }
+
+        .portfolio-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 191, 255, 0.8);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .portfolio-item:hover .portfolio-overlay {
+            opacity: 1;
+        }
+
+        .portfolio-overlay h3 {
+            color: #fff;
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        .portfolio-overlay p {
+            color: #fff;
+            font-size: 16px;
+        }
+
+        /* Blog Section */
+        .blog {
+            padding: 80px 40px;
+            background-color: #333;
+            color: #fff;
+        }
+
+        .blog h2 {
+            text-align: center;
+            font-size: 36px;
+            margin-bottom: 40px;
+        }
+
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-gap: 40px;
+        }
+
+        .blog-post {
+            background-color: #fff;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .blog-post:hover {
+            transform: translateY(-10px);
+        }
+
+        .blog-post img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .blog-content {
+            padding: 20px;
+        }
+
+        .blog-content h3 {
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+
+        .blog-content p {
+            font-size: 16px;
+            color: #666;
+            margin-bottom: 20px;
+        }
+
+        .read-more {
+            display: inline-block;
+            background-color: #00bfff;
+            color: #fff;
+            padding: 10px 20px;
+            border-radius: 20px;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+        }
+
+        .read-more:hover {
+            background-color: #0099cc;
+        }
+
+        /* Projects Section */
+        .projects {
+            padding: 80px 40px;
+        }
+
+        .projects h2 {
+            text-align: center;
+            font-size: 36px;
+            margin-bottom: 40px;
+        }
+
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            grid-gap: 40px;
+        }
+
+        .project-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        .project-item img {
+            width: 100%;
+            max-height: 400px;
+            object-fit: cover;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .project-item h3 {
+            font-size: 24px;
+            margin-top: 20px;
+        }
+
+        .project-item p {
+            font-size: 16px;
+            color: #666;
+            margin-bottom: 20px;
+        }
+
+        .project-details {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 20px;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 1024px) {
+            .portfolio-grid,
+            .blog-grid,
+            .project-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .portfolio-grid,
+            .blog-grid,
+            .project-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero h1 {
+                font-size: 36px;
+            }
+
+            .hero p {
+                font-size: 18px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="#">Home</a>
+        <a href="#">Portfolio</a>
+        <a href="#">Blog</a>
+        <a href="#">Projects</a>
+        <a href="#">Contact</a>
+    </nav>
+
+    <div class="hero">
+        <h1>Hacking Thrive</h1>
+        <p>Explore the world of web development and cybersecurity.</p>
+        <a href="#" class="cta-button">Get Started</a>
+    </div>
+
+    <div class="portfolio">
+        <h2>Portfolio</h2>
+        <div class="portfolio-grid">
+            <div class="portfolio-item">
+                <img src="https://dummyimage.com/600x400/333/fff&text=Project+1" alt="Project 1">
+                <div class="portfolio-overlay">
+                    <h3>Project 1</h3>
+                    <p>Description of Project 1</p>
+                </div>
+            </div>
+            <div class="portfolio-item">
+                <img src="https://dummyimage.com/600x400/333/fff&text=Project+2" alt="Project 2">
+                <div class="portfolio-overlay">
+                    <h3>Project 2</h3>
+                    <p>Description of Project 2</p>
+                </div>
+            </div>
+            <div class="portfolio-item">
+                <img src="https://dummyimage.com/600x400/333/fff&text=Project+3" alt="Project 3">
+                <div class="portfolio-overlay">
+                    <h3>Project 3</h3>
+                    <p>Description of Project 3</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="blog">
+        <h2>Blog</h2>
+        <div class="blog-grid">
+            <div class="blog-post">
+                <img src="https://dummyimage.com/600x400/333/fff&text=Blog+Post+1" alt="Blog Post 1">
+                <div class="blog-content">
+                    <h3>Blog Post 1</h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ac ipsum vel augue vestibulum eleifend.</p>
+                    <a href="#" class="read-more">Read More</a>
+                </div>
+            </div>
+            <div class="blog-post">
+                <img src="https://dummyimage.com/600x400/333/fff&text=Blog+Post+2" alt="Blog Post 2">
+                <div class="blog-content">
+                    <h3>Blog Post 2</h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ac ipsum vel augue vestibulum eleifend.</p>
+                    <a href="#" class="read-more">Read More</a>
+                </div>
+            </div>
+            <div class="blog-post">
+                <img src="https://dummyimage.com/600x400/333/fff&text=Blog+Post+3" alt="Blog Post 3">
+                <div class="blog-content">
+                    <h3>Blog Post 3</h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ac ipsum vel augue vestibulum eleifend.</p>
+                    <a href="#" class="read-more">Read More</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="projects">
+        <h2>Projects</h2>
+        <div class="project-grid">
+            <div class="project-item">
+                <img src="https://dummyimage.com/800x600/333/fff&text=Project+1" alt="Project 1">
+                <h3>Project 1</h3>
+                <p>Description of Project 1</p>
+                <div class="project-details">
+                    <span>Client: ABC Company</span>
+                    <span>Duration: 3 months</span>
+                </div>
+            </div>
+            <div class="project-item">
+                <img src="https://dummyimage.com/800x600/333/fff&text=Project+2" alt="Project 2">
+                <h3>Project 2</h3>
+                <p>Description of Project 2</p>
+                <div class="project-details">
+                    <span>Client: XYZ Corporation</span>
+                    <span>Duration: 6 months</span>
+                </div>
+            </div>
+            <div class="project-item">
+                <img src="https://dummyimage.com/800x600/333/fff&text=Project+3" alt="Project 3">
+                <h3>Project 3</h3>
+                <p>Description of Project 3</p>
+                <div class="project-details">
+                    <span>Client: PQR Agency</span>
+                    <span>Duration: 4 months</span>
+                </div>
+            </div>
+            <div class="project-item">
+                <img src="https://dummyimage.com/800x600/333/fff&text=Project+4" alt="Project 4">
+                <h3>Project 4</h3>
+                <p>Description of Project 4</p>
+                <div class="project-details">
+                    <span>Client: LMN Solutions</span>
+                    <span>Duration: 2 months</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>'<!-- Visit: https://github.com/Ishanoshada/portflair -->
+<!-- Visit: https://github.com/Ishanoshada/portflair -->

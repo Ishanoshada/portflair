@@ -1,0 +1,365 @@
+<!-- Portfolio created by Ishan -->
+<!-- Check out my work at: https://github.com/Ishanoshada/portflair -->
+<!-- 2024/10/9 -->
+<!-- Portfolio created by Ishan -->
+'<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fractal-Inspired Portfolio</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f0f0f0;
+    }
+
+    header {
+      background-color: #0077b6;
+      color: #fff;
+      padding: 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-size: 24px;
+      font-weight: 700;
+    }
+
+    nav ul {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+    }
+
+    nav li {
+      margin-left: 20px;
+    }
+
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: 600;
+      transition: color 0.3s ease;
+    }
+
+    nav a:hover {
+      color: #e6e6e6;
+    }
+
+    .hero {
+      background-image: url('https://dummyimage.com/1200x500/ccc/000&text=Fractal+Inspired+Portfolio');
+      background-size: cover;
+      background-position: center;
+      height: 500px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      color: #fff;
+      text-align: center;
+      padding: 0 20px;
+    }
+
+    .hero h1 {
+      font-size: 48px;
+      margin-bottom: 20px;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    }
+
+    .hero p {
+      font-size: 24px;
+      margin-bottom: 40px;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    }
+
+    .cta-button {
+      background-color: #0077b6;
+      color: #fff;
+      padding: 12px 30px;
+      border-radius: 30px;
+      text-decoration: none;
+      font-size: 18px;
+      font-weight: 600;
+      transition: background-color 0.3s ease;
+    }
+
+    .cta-button:hover {
+      background-color: #005a8e;
+    }
+
+    .fractal-display {
+      background-color: #fff;
+      padding: 40px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .fractal-container {
+      width: 100%;
+      max-width: 800px;
+      height: 500px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .fractal-background {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: url('https://dummyimage.com/1200x500/ccc/000&text=Fractal+Background');
+      background-size: cover;
+      background-position: center;
+      opacity: 0.2;
+      z-index: 0;
+    }
+
+    .project-showcase {
+      background-color: #f0f0f0;
+      padding: 40px;
+    }
+
+    .project-showcase h2 {
+      text-align: center;
+      margin-bottom: 40px;
+      font-size: 36px;
+    }
+
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-gap: 40px;
+    }
+
+    .project-card {
+      background-color: #fff;
+      border-radius: 10px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+      transition: transform 0.3s ease;
+    }
+
+    .project-card:hover {
+      transform: translateY(-10px);
+    }
+
+    .project-card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+
+    .project-card-content {
+      padding: 20px;
+    }
+
+    .project-card-content h3 {
+      margin-top: 0;
+      font-size: 24px;
+    }
+
+    .project-card-content p {
+      margin-bottom: 20px;
+    }
+
+    .project-card-content a {
+      color: #0077b6;
+      text-decoration: none;
+      font-weight: 600;
+      transition: color 0.3s ease;
+    }
+
+    .project-card-content a:hover {
+      color: #005a8e;
+    }
+
+    .skills-visualization {
+      background-color: #0077b6;
+      color: #fff;
+      padding: 40px;
+      text-align: center;
+    }
+
+    .skills-visualization h2 {
+      font-size: 36px;
+      margin-bottom: 40px;
+    }
+
+    .skills-container {
+      position: relative;
+      width: 100%;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .skills-container canvas {
+      width: 100%;
+      height: 500px;
+    }
+
+    .skills-tooltip {
+      position: absolute;
+      background-color: #fff;
+      color: #333;
+      padding: 10px;
+      border-radius: 5px;
+      font-size: 14px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      pointer-events: none;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .skills-tooltip.active {
+      opacity: 1;
+    }
+
+    footer {
+      background-color: #0077b6;
+      color: #fff;
+      padding: 20px;
+      text-align: center;
+    }
+
+    footer p {
+      margin: 0;
+    }
+
+    @media (max-width: 768px) {
+      header {
+        padding: 10px 20px;
+      }
+
+      .logo {
+        font-size: 20px;
+      }
+
+      nav li {
+        margin-left: 10px;
+      }
+
+      .hero {
+        height: 400px;
+      }
+
+      .hero h1 {
+        font-size: 36px;
+      }
+
+      .hero p {
+        font-size: 18px;
+      }
+
+      .cta-button {
+        font-size: 16px;
+      }
+
+      .fractal-display,
+      .project-showcase,
+      .skills-visualization {
+        padding: 30px;
+      }
+
+      .project-grid {
+        grid-template-columns: repeat(2, 1fr);
+        grid-gap: 30px;
+      }
+
+      .skills-container canvas {
+        height: 400px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">Fractal Portfolio</div>
+    <nav>
+      <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Projects</a></li>
+        <li><a href="#">Skills</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <h1>Unlock the Fractals of Your Creativity</h1>
+      <p>Explore an intricate, recursive portfolio that grows with your projects and skills.</p>
+      <a href="#" class="cta-button">Dive into the Fractals</a>
+    </section>
+
+    <section class="fractal-display">
+      <div class="fractal-container">
+        <div class="fractal-background"></div>
+        <!-- Interactive fractal display goes here -->
+      </div>
+    </section>
+
+    <section class="project-showcase">
+      <h2>Featured Projects</h2>
+      <div class="project-grid">
+        <div class="project-card">
+          <img src="https://dummyimage.com/400x200/ccc/000&text=Project+1" alt="Project 1">
+          <div class="project-card-content">
+            <h3>Project 1</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            <a href="#">Learn More</a>
+          </div>
+        </div>
+        <div class="project-card">
+          <img src="https://dummyimage.com/400x200/ccc/000&text=Project+2" alt="Project 2">
+          <div class="project-card-content">
+            <h3>Project 2</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            <a href="#">Learn More</a>
+          </div>
+        </div>
+        <div class="project-card">
+          <img src="https://dummyimage.com/400x200/ccc/000&text=Project+3" alt="Project 3">
+          <div class="project-card-content">
+            <h3>Project 3</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            <a href="#">Learn More</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="skills-visualization">
+      <h2>Explore My Skills</h2>
+      <div class="skills-container">
+        <canvas id="skillsCanvas"></canvas>
+        <div class="skills-tooltip">
+          <h4>Skill Name</h4>
+          <p>Skill description goes here.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2024 Fractal Portfolio. All rights reserved.</p>
+  </footer>
+
+  <script>
+    // Interactive fractal display and skills visualization code goes here
+  </script>
+</body>
+</html>'<!-- Visit: https://github.com/Ishanoshada/portflair -->
+<!-- Visit: https://github.com/Ishanoshada/portflair -->

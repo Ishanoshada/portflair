@@ -1,0 +1,410 @@
+<!-- Portfolio created by Ishan -->
+<!-- Check out my work at: https://github.com/Ishanoshada/portflair -->
+<!-- 2024/10/9 -->
+<!-- Portfolio created by Ishan -->
+'<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Backend Developer Portfolio</title>
+  <style>
+    /* Normalize CSS */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Orbitron', sans-serif;
+      background: radial-gradient(ellipse at center, #0c0c0c, #000000);
+      color: #fff;
+      overflow-x: hidden;
+    }
+
+    /* Navigation Bar */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.5rem 2rem;
+      background-color: rgba(0, 0, 0, 0.5);
+      backdrop-filter: blur(10px);
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+    }
+
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      font-size: 1.2rem;
+      margin: 0 1rem;
+      position: relative;
+      transition: color 0.3s ease-in-out;
+    }
+
+    nav a:after {
+      content: "";
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background-color: #9b59b6;
+      transition: width 0.3s ease-in-out;
+    }
+
+    nav a:hover {
+      color: #9b59b6;
+    }
+
+    nav a:hover:after {
+      width: 100%;
+    }
+
+    /* Project Galaxies Section */
+    #project-galaxies {
+      padding: 6rem 2rem;
+      position: relative;
+      z-index: 10;
+    }
+
+    #project-galaxies h2 {
+      font-size: 3rem;
+      margin-bottom: 3rem;
+      text-align: center;
+      text-shadow: 0 0 20px #9b59b6, 0 0 30px #9b59b6, 0 0 40px #9b59b6;
+    }
+
+    .galaxy-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      grid-gap: 3rem;
+    }
+
+    .project-planet {
+      background-color: rgba(0, 0, 0, 0.5);
+      border-radius: 50%;
+      padding: 2rem;
+      position: relative;
+      overflow: hidden;
+      cursor: pointer;
+      transition: transform 0.3s ease-in-out;
+    }
+
+    .project-planet:hover {
+      transform: scale(1.1);
+    }
+
+    .project-planet:before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(circle, #9b59b6, #2980b9, #16a085);
+      opacity: 0.3;
+      z-index: -1;
+      filter: blur(50px);
+    }
+
+    .project-planet h3 {
+      font-size: 1.8rem;
+      margin-bottom: 1rem;
+      text-shadow: 0 0 10px #9b59b6, 0 0 20px #9b59b6, 0 0 30px #9b59b6;
+    }
+
+    .project-planet p {
+      font-size: 1.2rem;
+      margin-bottom: 1rem;
+    }
+
+    .project-planet a {
+      display: inline-block;
+      padding: 0.5rem 1rem;
+      background-color: #9b59b6;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 5px;
+      font-size: 1rem;
+      transition: background-color 0.3s ease-in-out;
+    }
+
+    .project-planet a:hover {
+      background-color: #8e44ad;
+    }
+
+    /* About the Developer Section */
+    #about-developer {
+      padding: 6rem 2rem;
+      position: relative;
+      z-index: 10;
+    }
+
+    #about-developer h2 {
+      font-size: 3rem;
+      margin-bottom: 3rem;
+      text-align: center;
+      text-shadow: 0 0 20px #9b59b6, 0 0 30px #9b59b6, 0 0 40px #9b59b6;
+    }
+
+    .developer-profile {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: rgba(0, 0, 0, 0.5);
+      padding: 3rem;
+      border-radius: 10px;
+      box-shadow: 0 0 20px rgba(155, 89, 182, 0.5);
+    }
+
+    .developer-profile img {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      margin-right: 2rem;
+      box-shadow: 0 0 20px #9b59b6;
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0% {
+        box-shadow: 0 0 20px #9b59b6;
+      }
+      50% {
+        box-shadow: 0 0 40px #9b59b6;
+      }
+      100% {
+        box-shadow: 0 0 20px #9b59b6;
+      }
+    }
+
+    .developer-profile h3 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      text-shadow: 0 0 10px #9b59b6, 0 0 20px #9b59b6, 0 0 30px #9b59b6;
+    }
+
+    .developer-profile p {
+      font-size: 1.2rem;
+      line-height: 1.5;
+    }
+
+    /* Contact Form Section */
+    #contact-form {
+      padding: 6rem 2rem;
+      position: relative;
+      z-index: 10;
+    }
+
+    #contact-form h2 {
+      font-size: 3rem;
+      margin-bottom: 3rem;
+      text-align: center;
+      text-shadow: 0 0 20px #9b59b6, 0 0 30px #9b59b6, 0 0 40px #9b59b6;
+    }
+
+    .contact-form-container {
+      background-color: rgba(0, 0, 0, 0.5);
+      padding: 3rem;
+      border-radius: 10px;
+      box-shadow: 0 0 20px rgba(155, 89, 182, 0.5);
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .contact-form-container form {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-gap: 2rem;
+    }
+
+    .contact-form-container label {
+      font-size: 1.2rem;
+      margin-bottom: 0.5rem;
+      display: block;
+    }
+
+    .contact-form-container input,
+    .contact-form-container textarea {
+      width: 100%;
+      padding: 1rem;
+      font-size: 1rem;
+      background-color: rgba(0, 0, 0, 0.5);
+      border: none;
+      border-radius: 5px;
+      color: #fff;
+      transition: box-shadow 0.3s ease-in-out;
+    }
+
+    .contact-form-container input:focus,
+    .contact-form-container textarea:focus {
+      outline: none;
+      box-shadow: 0 0 20px rgba(155, 89, 182, 0.5);
+    }
+
+    .contact-form-container textarea {
+      grid-column: 1 / -1;
+      height: 150px;
+    }
+
+    .contact-form-container button {
+      grid-column: 1 / -1;
+      background-color: #9b59b6;
+      color: #fff;
+      padding: 1rem 2rem;
+      font-size: 1.2rem;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease-in-out;
+    }
+
+    .contact-form-container button:hover {
+      background-color: #8e44ad;
+    }
+
+    /* Responsive Styles */
+    @media (max-width: 768px) {
+      nav {
+        padding: 1rem;
+      }
+
+      nav a {
+        font-size: 1rem;
+        margin: 0 0.5rem;
+      }
+
+      #project-galaxies,
+      #about-developer,
+      #contact-form {
+        padding: 4rem 1rem;
+      }
+
+      #project-galaxies h2,
+      #about-developer h2,
+      #contact-form h2 {
+        font-size: 2.5rem;
+      }
+
+      .galaxy-container {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      }
+
+      .project-planet h3 {
+        font-size: 1.5rem;
+      }
+
+      .project-planet p {
+        font-size: 1rem;
+      }
+
+      .developer-profile {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .developer-profile img {
+        margin-right: 0;
+        margin-bottom: 1rem;
+      }
+
+      .developer-profile h3 {
+        font-size: 1.8rem;
+      }
+
+      .developer-profile p {
+        font-size: 1rem;
+      }
+
+      .contact-form-container {
+        padding: 2rem;
+      }
+
+      .contact-form-container form {
+        grid-template-columns: 1fr;
+      }
+
+      .contact-form-container textarea {
+        grid-column: auto;
+      }
+
+      .contact-form-container button {
+        grid-column: auto;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="#">Home</a>
+    <a href="#">Projects</a>
+    <a href="#">About</a>
+    <a href="#">Contact</a>
+  </nav>
+
+  <section id="project-galaxies">
+    <h2>Project Galaxies</h2>
+    <div class="galaxy-container">
+      <div class="project-planet">
+        <h3>Cosmic Chaos</h3>
+        <p>A dynamic web application that simulates the chaotic movements of celestial bodies.</p>
+        <a href="#">View Project</a>
+      </div>
+      <div class="project-planet">
+        <h3>Vaporwave Vortex</h3>
+        <p>An interactive data visualization tool with a retro-futuristic aesthetic.</p>
+        <a href="#">View Project</a>
+      </div>
+      <div class="project-planet">
+        <h3>Steampunk Singularity</h.3>
+        <p>A backend-driven web service that processes complex algorithms in a cosmic setting.</p>
+        <a href="#">View Project</a>
+      </div>
+      <div class="project-planet">
+        <h3>Nebula Nexus</h3>
+        <p>A responsive web application that showcases the developer's expertise in full-stack development.</p>
+        <a href="#">View Project</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="about-developer">
+    <h2>About the Developer</h2>
+    <div class="developer-profile">
+      <img src="https://dummyimage.com/300x300/9b59b6/fff&text=Developer" alt="Developer Profile Picture">
+      <div>
+        <h3>John Doe</h3>
+        <p>Passionate backend developer with a deep fascination for the cosmos. Specializing in building scalable and efficient web applications, John combines his technical expertise with a visionary approach to create unique and captivating digital experiences.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact-form">
+    <h2>Get in Touch</h2>
+    <div class="contact-form-container">
+      <form>
+        <div>
+          <label for="name">Name</label>
+          <input type="text" id="name" name="name" required>
+        </div>
+        <div>
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" required>
+        </div>
+        <div>
+          <label for="message">Message</label>
+          <textarea id="message" name="message" required></textarea>
+        </div>
+        <button type="submit">Send Message</button>
+      </form>
+    </div>
+  </section>
+</body>
+</html>'<!-- Visit: https://github.com/Ishanoshada/portflair -->
+<!-- Visit: https://github.com/Ishanoshada/portflair -->

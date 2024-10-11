@@ -1,0 +1,407 @@
+<!-- Portfolio created by Ishan -->
+<!-- Check out my work at: https://github.com/Ishanoshada/portflair -->
+<!-- 2024/10/9 -->
+<!-- Portfolio created by Ishan -->
+'<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Develop a Space-Themed Portfolio</title>
+  <style>
+    /* Global Styles */
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Montserrat', sans-serif;
+      background-color: #000;
+      color: #fff;
+      overflow-x: hidden;
+    }
+
+    /* Navbar Styles */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 40px;
+      background-color: rgba(0, 0, 0, 0.5);
+      backdrop-filter: blur(10px);
+    }
+
+    nav .logo {
+      font-size: 24px;
+      font-weight: bold;
+      background: linear-gradient(to right, #9b59b6, #8e44ad);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    nav ul {
+      list-style-type: none;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 0;
+      padding: 0;
+    }
+
+    nav ul li {
+      margin-left: 30px;
+    }
+
+    nav ul li a {
+      color: #fff;
+      text-decoration: none;
+      font-size: 16px;
+      position: relative;
+      padding-bottom: 5px;
+    }
+
+    nav ul li a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 0;
+      height: 2px;
+      background: linear-gradient(to right, #9b59b6, #8e44ad);
+      transition: width 0.3s ease-in-out;
+    }
+
+    nav ul li a:hover::after {
+      width: 100%;
+    }
+
+    /* About Me Section Styles */
+    .about-me {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 80vh;
+      background: linear-gradient(to bottom, #000, #120a8f);
+      background-size: cover;
+      background-position: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .about-me::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url('https://dummyimage.com/1200x500/ccc/000&text=Starry+Background') no-repeat center center;
+      background-size: cover;
+      opacity: 0.3;
+      z-index: -1;
+    }
+
+    .about-me .profile-picture {
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      background: linear-gradient(to right, #9b59b6, #8e44ad);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+      animation: gradient-pulse 5s ease-in-out infinite;
+    }
+
+    .about-me .profile-picture img {
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+
+    .about-me .name {
+      font-size: 48px;
+      font-weight: bold;
+      background: linear-gradient(to right, #9b59b6, #8e44ad);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-top: 30px;
+      animation: gradient-pulse 5s ease-in-out infinite;
+    }
+
+    .about-me .description {
+      font-size: 18px;
+      max-width: 600px;
+      text-align: center;
+      margin-top: 20px;
+      line-height: 1.5;
+      animation: fade-in 1s ease-in-out;
+    }
+
+    /* Skills Section Styles */
+    .skills {
+      padding: 80px 40px;
+      background: linear-gradient(to bottom, #120a8f, #000);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .skills h2 {
+      font-size: 36px;
+      font-weight: bold;
+      margin-bottom: 40px;
+      background: linear-gradient(to right, #9b59b6, #8e44ad);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: gradient-pulse 5s ease-in-out infinite;
+    }
+
+    .skills-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      grid-gap: 40px;
+      width: 100%;
+      max-width: 1200px;
+    }
+
+    .skill-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      animation: fade-in 1s ease-in-out;
+    }
+
+    .skill-item .icon {
+      width: 80px;
+      height: 80px;
+      background: linear-gradient(to right, #9b59b6, #8e44ad);
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-bottom: 20px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .skill-item .icon i {
+      font-size: 40px;
+      color: #fff;
+      z-index: 1;
+    }
+
+    .skill-item .icon::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(to right, #9b59b6, #8e44ad);
+      border-radius: 50%;
+      opacity: 0;
+      transform: scale(0.8);
+      transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+    }
+
+    .skill-item:hover .icon::before {
+      opacity: 1;
+      transform: scale(1);
+    }
+
+    .skill-item h3 {
+      font-size: 18px;
+      font-weight: bold;
+      margin-top: 10px;
+      background: linear-gradient(to right, #9b59b6, #8e44ad);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    /* Projects Section Styles */
+    .projects {
+      padding: 80px 40px;
+      background: linear-gradient(to bottom, #000, #120a8f);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .projects h2 {
+      font-size: 36px;
+      font-weight: bold;
+      margin-bottom: 40px;
+      background: linear-gradient(to right, #9b59b6, #8e44ad);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: gradient-pulse 5s ease-in-out infinite;
+    }
+
+    .projects-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      grid-gap: 40px;
+      width: 100%;
+      max-width: 1200px;
+    }
+
+    .project-item {
+      position: relative;
+      overflow: hidden;
+      border-radius: 10px;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+      animation: fade-in 1s ease-in-out;
+    }
+
+    .project-item img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      transition: transform 0.3s ease-in-out;
+    }
+
+    .project-item .overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(to right, #9b59b6, #8e44ad);
+      opacity: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      color: #fff;
+      padding: 20px;
+      box-sizing: border-box;
+      transition: opacity 0.3s ease-in-out;
+    }
+
+    .project-item:hover img {
+      transform: scale(1.1);
+    }
+
+    .project-item:hover .overlay {
+      opacity: 0.9;
+    }
+
+    .project-item h3 {
+      font-size: 24px;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+
+    .project-item p {
+      font-size: 16px;
+      line-height: 1.5;
+      text-align: center;
+    }
+
+    /* Animations */
+    @keyframes gradient-pulse {
+      0% {
+        background-position: 0% 50%;
+      }
+      50% {
+        background-position: 100% 50%;
+      }
+      100% {
+        background-position: 0% 50%;
+      }
+    }
+
+    @keyframes fade-in {
+      0% {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="logo">Develop</div>
+    <ul>
+      <li><a href="#">Home</a></li>
+      <li><a href="#">About</a></li>
+      <li><a href="#">Skills</a></li>
+      <li><a href="#">Projects</a></li>
+      <li><a href="#">Contact</a></li>
+    </ul>
+  </nav>
+
+  <section class="about-me">
+    <div class="profile-picture">
+      <img src="https://dummyimage.com/360x360/ccc/000&text=Your+Photo" alt="Profile Picture">
+    </div>
+    <h1 class="name">John Doe</h1>
+    <p class="description">I am a passionate web developer and designer, specializing in creating visually stunning and interactive websites. With a deep fascination for the cosmos and a keen eye for detail, I strive to bring a unique, space-themed aesthetic to my work.</p>
+  </section>
+
+  <section class="skills">
+    <h2>My Skills</h2>
+    <div class="skills-container">
+      <div class="skill-item">
+        <div class="icon">
+          <i class="fas fa-code"></i>
+        </div>
+        <h3>Web Development</h3>
+      </div>
+      <div class="skill-item">
+        <div class="icon">
+          <i class="fas fa-paint-brush"></i>
+        </div>
+        <h3>UI/UX Design</h3>
+      </div>
+      <div class="skill-item">
+        <div class="icon">
+          <i class="fas fa-mobile-alt"></i>
+        </div>
+        <h3>Responsive Design</h3>
+      </div>
+      <div class="skill-item">
+        <div class="icon">
+          <i class="fas fa-rocket"></i>
+        </div>
+        <h3>Space Aesthetics</h3>
+      </div>
+    </div>
+  </section>
+
+  <section class="projects">
+    <h2>My Projects</h2>
+    <div class="projects-container">
+      <div class="project-item">
+        <img src="https://dummyimage.com/600x400/ccc/000&text=Project+1" alt="Project 1">
+        <div class="overlay">
+          <h3>Project 1</h3>
+          <p>A visually stunning, space-themed website that showcases my expertise in web development and design.</p>
+        </div>
+      </div>
+      <div class="project-item">
+        <img src="https://dummyimage.com/600x400/ccc/000&text=Project+2" alt="Project 2">
+        <div class="overlay">
+          <h3>Project 2</h3>
+          <p>An interactive and responsive portfolio website that highlights my skills and creative abilities.</p>
+        </div>
+      </div>
+      <div class="project-item">
+        <img src="https://dummyimage.com/600x400/ccc/000&text=Project+3" alt="Project 3">
+        <div class="overlay">
+          <h3>Project 3</h3>
+          <p>A cosmic-themed web application that showcases my expertise in both front-end and back-end development.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script src="https://kit.fontawesome.com/your-font-awesome-kit.js" crossorigin="anonymous"></script>
+</body>
+</html>'<!-- Visit: https://github.com/Ishanoshada/portflair -->
+<!-- Visit: https://github.com/Ishanoshada/portflair -->

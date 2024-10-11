@@ -1,0 +1,654 @@
+<!-- Portfolio created by Ishan -->
+<!-- Check out my work at: https://github.com/Ishanoshada/portflair -->
+<!-- 2024/10/9 -->
+<!-- Portfolio created by Ishan -->
+'<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multidimensional Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Roboto:wght@300;400;700&family=Source+Code+Pro:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --space-dark: #000308;
+            --space-light: #001F3F;
+            --accent-cyan: #00FFFF;
+            --accent-green: #00FF00;
+            --text-light: #FFFFFF;
+            --text-dark: #1A1A1A;
+            --code-bg: #1E1E1E;
+            --code-highlight: #007ACC;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            background: var(--space-dark);
+            color: var(--text-light);
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        nav {
+            background: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(10px);
+            padding: 20px 0;
+        }
+
+        nav ul {
+            display: flex;
+            justify-content: center;
+            list-style-type: none;
+        }
+
+        nav ul li {
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            color: var(--text-light);
+            text-decoration: none;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 18px;
+            transition: color 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            color: var(--accent-cyan);
+        }
+
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('https://dummyimage.com/1920x1080/000308/ffffff&text=Space+Background') no-repeat center center;
+            background-size: cover;
+            animation: pulse 10s infinite alternate;
+        }
+
+        @keyframes pulse {
+            0% { opacity: 0.6; }
+            100% { opacity: 1; }
+        }
+
+        .hero-content {
+            text-align: center;
+            z-index: 1;
+        }
+
+        .hero h1 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 4rem;
+            margin-bottom: 20px;
+            text-shadow: 0 0 10px var(--accent-cyan);
+        }
+
+        .hero p {
+            font-size: 1.5rem;
+            max-width: 600px;
+            margin: 0 auto 30px;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 12px 30px;
+            background: linear-gradient(45deg, var(--accent-cyan), var(--accent-green));
+            color: var(--text-dark);
+            text-decoration: none;
+            font-family: 'Orbitron', sans-serif;
+            font-weight: 700;
+            border-radius: 30px;
+            transition: all 0.3s ease;
+        }
+
+        .cta-button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 20px var(--accent-cyan);
+        }
+
+        .universe-showcase {
+            padding: 100px 0;
+            position: relative;
+        }
+
+        .universe-container {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            height: 500px;
+        }
+
+        .planet {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            background-size: cover;
+            position: relative;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .planet::before {
+            content: '';
+            position: absolute;
+            top: -10px;
+            left: -10px;
+            right: -10px;
+            bottom: -10px;
+            border-radius: 50%;
+            background: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.4) 0%, rgba(255,255,255,0) 70%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .planet:hover::before {
+            opacity: 1;
+        }
+
+        .planet:hover {
+            transform: scale(1.1);
+        }
+
+        .planet1 { background-image: url('https://dummyimage.com/200x200/ff0000/ffffff&text=Planet+1'); }
+        .planet2 { background-image: url('https://dummyimage.com/200x200/00ff00/ffffff&text=Planet+2'); }
+        .planet3 { background-image: url('https://dummyimage.com/200x200/0000ff/ffffff&text=Planet+3'); }
+
+        .planet-info {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: rgba(26, 26, 26, 0.8);
+            padding: 20px;
+            border-radius: 10px;
+            display: none;
+            max-width: 300px;
+        }
+
+        .planet-info h3 {
+            margin-bottom: 10px;
+        }
+
+        .portfolio {
+            background: var(--code-bg);
+            padding: 100px 0;
+        }
+
+        .portfolio h2 {
+            text-align: center;
+            font-family: 'Source Code Pro', monospace;
+            margin-bottom: 50px;
+            font-size: 2.5rem;
+        }
+
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .project-card {
+            background: var(--space-light);
+            border-radius: 10px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .project-header {
+            background: var(--code-highlight);
+            padding: 10px;
+            font-family: 'Source Code Pro', monospace;
+        }
+
+        .project-content {
+            padding: 20px;
+        }
+
+        .project-content pre {
+            background: var(--text-dark);
+            padding: 10px;
+            border-radius: 5px;
+            font-size: 0.9rem;
+            overflow-x: auto;
+        }
+
+        .story-generator {
+            padding: 100px 0;
+            background: linear-gradient(45deg, var(--space-dark), var(--space-light));
+        }
+
+        .generator-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .hologram {
+            width: 400px;
+            height: 400px;
+            background: rgba(230, 255, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hologram::before {
+            content: '';
+            position: absolute;
+            width: 150%;
+            height: 150%;
+            background: conic-gradient(
+                from 0deg,
+                transparent 0deg 340deg,
+                var(--accent-cyan) 340deg 360deg
+            );
+            animation: rotate 10s linear infinite;
+        }
+
+        @keyframes rotate {
+            100% { transform: rotate(360deg); }
+        }
+
+        .hologram-content {
+            width: 90%;
+            height: 90%;
+            background: var(--space-dark);
+            border-radius: 50%;
+            z-index: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.5rem;
+            text-align: center;
+        }
+
+        .controls {
+            flex: 1;
+            margin-left: 50px;
+        }
+
+        .control-group {
+            margin-bottom: 20px;
+        }
+
+        .control-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-family: 'Orbitron', sans-serif;
+        }
+
+        .control-group select,
+        .control-group input[type="range"] {
+            width: 100%;
+            padding: 10px;
+            background: var(--space-light);
+            border: none;
+            border-radius: 5px;
+            color: var(--text-light);
+            font-family: 'Source Code Pro', monospace;
+        }
+
+        .generate-btn {
+            display: block;
+            width: 100%;
+            padding: 15px;
+            background: var(--accent-green);
+            color: var(--text-dark);
+            border: none;
+            border-radius: 5px;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .generate-btn:hover {
+            background: var(--accent-cyan);
+            transform: scale(1.05);
+        }
+
+        .story-output {
+            margin-top: 30px;
+            background: var(--text-dark);
+            padding: 20px;
+            border-radius: 5px;
+            font-family: 'Source Code Pro', monospace;
+            color: var(--accent-green);
+            height: 200px;
+            overflow-y: auto;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 3rem;
+            }
+
+            .universe-container {
+                flex-direction: column;
+                height: auto;
+            }
+
+            .planet {
+                margin-bottom: 30px;
+            }
+
+            .generator-container {
+                flex-direction: column;
+            }
+
+            .hologram {
+                width: 300px;
+                height: 300px;
+                margin-bottom: 30px;
+            }
+
+            .controls {
+                margin-left: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#universe">Universe</a></li>
+            <li><a href="#portfolio">Portfolio</a></li>
+            <li><a href="#generator">Story Generator</a></li>
+        </ul>
+    </nav>
+
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>Multidimensional Portfolio</h1>
+            <p>Explore the intersection of 3D animations, backend development, and science fiction writing.</p>
+            <a href="#universe" class="cta-button">Begin Your Journey</a>
+        </div>
+    </section>
+
+    <section id="universe" class="universe-showcase">
+        <div class="container">
+            <div class="universe-container">
+                <div class="planet planet1"></div>
+                <div class="planet planet2"></div>
+                <div class="planet planet3"></div>
+            </div>
+        </div>
+    </section>
+
+    <section id="portfolio" class="portfolio">
+        <div class="container">
+            <h2>// Code Portfolio</h2>
+            <div class="project-grid">
+                <div class="project-card">
+                    <div class="project-header">3D Particle System</div>
+                    <div class="project-content">
+                        <pre><code>
+function createParticle(x, y, z) {
+    return {
+        position: new Vector3(x, y, z),
+        velocity: new Vector3(
+            Math.random() - 0.5,
+            Math.random() - 0.5,
+            Math.random() - 0.5
+        ).normalize()
+    };
+}
+                        </code></pre>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-header">AI Story Generator</div>
+                    <div class="project-content">
+                        <pre><code>
+class StoryGenerator:
+    def __init__(self, model):
+        self.model = model
+
+    def generate(self, prompt):
+        return self.model.predict(prompt)
+                        </code></pre>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-header">Quantum Encryption</div>
+                    <div class="project-content">
+                        <pre><code>
+def quantum_key_distribution():
+    alice_basis = random_basis()
+    alice_qubits = prepare_qubits(alice_basis)
+    bob_basis = random_basis()
+    bob_measurements = measure_qubits(
+        alice_qubits, bob_basis
+    )
+    return reconcile_keys(
+        alice_basis, bob_basis, bob_measurements
+    )
+                        </code></pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="generator" class="story-generator">
+        <div class="container">
+            <div class="generator-container">
+                <div class="hologram">
+                    <div class="hologram-content">
+                        Your story awaits...
+                    </div>
+                </div>
+                <div class="controls">
+                    <div class="control-group">
+                        <label for="setting">Setting</label>
+                        <select id="setting">
+                            <option>Space Station</option>
+                            <option>Alien Planet</option>
+                            <option>Cyberpunk City</option>
+                        </select>
+                    </div>
+                    <div class="control-group">
+                        <label for="character">Character Type</label>
+                        <select id="character">
+                            <option>Human Explorer</option>
+                            <option>AI Entity</option>
+                            <option>Alien Species</option>
+                        </select>
+                    </div>
+                    <div class="control-group">
+                        <label for="conflict">Conflict Intensity</label>
+                        <input type="range" id="conflict" min="1" max="10" value="5">
+                    </div>
+                    <button class="generate-btn">Generate Story</button>
+                    <div class="story-output">
+                        Your generated story will appear here...
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });});
+        });
+
+        const planets = document.querySelectorAll('.planet');
+        planets.forEach(planet => {
+            planet.addEventListener('click', () => {
+                const info = planet.querySelector('.planet-info');
+                if (info) {
+                    info.style.display = info.style.display === 'none' ? 'block' : 'none';
+                } else {
+                    const newInfo = document.createElement('div');
+                    newInfo.className = 'planet-info';
+                    newInfo.innerHTML = `<h3>${planet.classList[1]}</h3><p>Discover the mysteries of this unique world.</p>`;
+                    planet.appendChild(newInfo);
+                }
+            });
+        });
+
+        const generateBtn = document.querySelector('.generate-btn');
+        const storyOutput = document.querySelector('.story-output');
+        const hologramContent = document.querySelector('.hologram-content');
+
+        generateBtn.addEventListener('click', () => {
+            const setting = document.getElementById('setting').value;
+            const character = document.getElementById('character').value;
+            const conflict = document.getElementById('conflict').value;
+
+            const story = generateStory(setting, character, conflict);
+            typeWriter(storyOutput, story);
+            updateHologram(setting);
+        });
+
+        function generateStory(setting, character, conflict) {
+            const stories = [
+                `In the depths of ${setting}, a ${character} faced an unprecedented challenge. With conflict levels at ${conflict}, the fate of the universe hung in the balance.`,
+                `${character} never expected to find themselves in ${setting}, yet here they were, confronting a crisis of level ${conflict}.`,
+                `The ${setting} trembled as ${character} stepped forward, ready to face a threat of magnitude ${conflict}.`
+            ];
+            return stories[Math.floor(Math.random() * stories.length)];
+        }
+
+        function typeWriter(element, text) {
+            element.innerHTML = '';
+            let i = 0;
+            const speed = 50;
+
+            function type() {
+                if (i < text.length) {
+                    element.innerHTML += text.charAt(i);
+                    i++;
+                    setTimeout(type, speed);
+                }
+            }
+
+            type();
+        }
+
+        function updateHologram(setting) {
+            const images = {
+                'Space Station': 'https://dummyimage.com/400x400/000000/ffffff&text=Space+Station',
+                'Alien Planet': 'https://dummyimage.com/400x400/000000/ffffff&text=Alien+Planet',
+                'Cyberpunk City': 'https://dummyimage.com/400x400/000000/ffffff&text=Cyberpunk+City'
+            };
+
+            hologramContent.style.backgroundImage = `url('${images[setting]}')`;
+            hologramContent.style.backgroundSize = 'cover';
+            hologramContent.style.color = 'transparent';
+        }
+
+        // Particle effect
+        const canvas = document.createElement('canvas');
+        document.body.appendChild(canvas);
+        canvas.style.position = 'fixed';
+        canvas.style.top = '0';
+        canvas.style.left = '0';
+        canvas.style.width = '100%';
+        canvas.style.height = '100%';
+        canvas.style.pointerEvents = 'none';
+        canvas.style.zIndex = '-1';
+
+        const ctx = canvas.getContext('2d');
+        let particlesArray;
+
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+
+        class Particle {
+            constructor(x, y) {
+                this.x = x;
+                this.y = y;
+                this.size = Math.random() * 5 + 1;
+                this.speedX = Math.random() * 3 - 1.5;
+                this.speedY = Math.random() * 3 - 1.5;
+            }
+            update() {
+                this.x += this.speedX;
+                this.y += this.speedY;
+                if (this.size > 0.2) this.size -= 0.1;
+            }
+            draw() {
+                ctx.fillStyle = 'rgba(0, 255, 255, 0.8)';
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                ctx.fill();
+            }
+        }
+
+        function init() {
+            particlesArray = [];
+            for (let i = 0; i < 100; i++) {
+                let x = Math.random() * canvas.width;
+                let y = Math.random() * canvas.height;
+                particlesArray.push(new Particle(x, y));
+            }
+        }
+
+        function handleParticles() {
+            for (let i = 0; i < particlesArray.length; i++) {
+                particlesArray[i].update();
+                particlesArray[i].draw();
+                if (particlesArray[i].size <= 0.2) {
+                    particlesArray.splice(i, 1);
+                    i--;
+                }
+            }
+        }
+
+        function animate() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            handleParticles();
+            requestAnimationFrame(animate);
+        }
+
+        init();
+        animate();
+
+        window.addEventListener('resize', () => {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+            init();
+        });
+    </script>
+</body>
+</html>'<!-- Visit: https://github.com/Ishanoshada/portflair -->
+<!-- Visit: https://github.com/Ishanoshada/portflair -->

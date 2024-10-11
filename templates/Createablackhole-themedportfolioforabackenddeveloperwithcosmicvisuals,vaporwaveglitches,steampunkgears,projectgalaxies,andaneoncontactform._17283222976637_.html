@@ -1,0 +1,452 @@
+<!-- Portfolio created by Ishan -->
+<!-- Check out my work at: https://github.com/Ishanoshada/portflair -->
+<!-- 2024/10/9 -->
+<!-- Portfolio created by Ishan -->
+'<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Black Hole Portfolio</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
+
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Orbitron', sans-serif;
+      background: radial-gradient(ellipse at center, #0c0032 0%, #000000 100%);
+      color: #fff;
+      overflow-x: hidden;
+    }
+
+    /* Navigation */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 40px;
+      background-color: rgba(0, 0, 0, 0.5);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      font-size: 18px;
+      margin: 0 20px;
+      position: relative;
+      transition: color 0.3s ease;
+    }
+
+    nav a:after {
+      content: "";
+      position: absolute;
+      width: 0;
+      height: 2px;
+      background-color: #9b59b6;
+      bottom: -5px;
+      left: 0;
+      transition: width 0.3s ease;
+    }
+
+    nav a:hover {
+      color: #9b59b6;
+    }
+
+    nav a:hover:after {
+      width: 100%;
+    }
+
+    /* Project Galaxies */
+    #project-galaxies {
+      padding: 80px 40px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .galaxy {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      max-width: 1200px;
+      margin: 40px 0;
+      position: relative;
+      opacity: 0.8;
+      transition: transform 0.5s ease, opacity 0.5s ease;
+    }
+
+    .galaxy:hover {
+      transform: scale(1.05);
+      opacity: 1;
+    }
+
+    .galaxy-info {
+      background-color: rgba(0, 0, 0, 0.7);
+      padding: 20px;
+      width: 50%;
+      text-align: left;
+      z-index: 1;
+    }
+
+    .galaxy-info h3 {
+      font-size: 24px;
+      margin-bottom: 10px;
+    }
+
+    .galaxy-info p {
+      font-size: 16px;
+      line-height: 1.5;
+    }
+
+    .galaxy-info a {
+      color: #9b59b6;
+      text-decoration: none;
+      font-size: 16px;
+      margin-top: 10px;
+      display: inline-block;
+      position: relative;
+      transition: color 0.3s ease;
+    }
+
+    .galaxy-info a:after {
+      content: "";
+      position: absolute;
+      width: 0;
+      height: 2px;
+      background-color: #9b59b6;
+      bottom: -5px;
+      left: 0;
+      transition: width 0.3s ease;
+    }
+
+    .galaxy-info a:hover {
+      color: #fff;
+    }
+
+    .galaxy-info a:hover:after {
+      width: 100%;
+    }
+
+    .galaxy-image {
+      width: 50%;
+      height: 300px;
+      background-size: cover;
+      background-position: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .galaxy-image:before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, rgba(0, 0, 0, 0.8) 100%);
+      z-index: 1;
+    }
+
+    .galaxy-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transform: scale(1.1);
+      transition: transform 0.5s ease;
+    }
+
+    .galaxy:hover .galaxy-image img {
+      transform: scale(1);
+    }
+
+    /* Steampunk Gears */
+    #steampunk-gears {
+      padding: 80px 40px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .gear-container {
+      width: 100%;
+      max-width: 1200px;
+      height: 500px;
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .gear {
+      position: absolute;
+      width: 200px;
+      height: 200px;
+      background-image: url('https://dummyimage.com/200x200/8b4513/fff.png&text=Gear');
+      background-size: contain;
+      background-repeat: no-repeat;
+      animation: gear-rotation 10s linear infinite;
+    }
+
+    .gear:nth-child(1) {
+      top: 50px;
+      left: 100px;
+      animation-direction: reverse;
+    }
+
+    .gear:nth-child(2) {
+      top: 200px;
+      right: 100px;
+    }
+
+    .gear:nth-child(3) {
+      bottom: 50px;
+      left: 300px;
+      animation-direction: reverse;
+    }
+
+    .skill-icon {
+      position: absolute;
+      width: 80px;
+      height: 80px;
+      background-size: contain;
+      background-repeat: no-repeat;
+      transition: transform 0.3s ease, opacity 0.3s ease;
+    }
+
+    .skill-icon:hover {
+      transform: scale(1.2);
+      opacity: 1;
+    }
+
+    .skill-icon:nth-child(4) {
+      top: 150px;
+      left: 300px;
+      background-image: url('https://dummyimage.com/80x80/adff2f/000.png&text=JS');
+    }
+
+    .skill-icon:nth-child(5) {
+      top: 350px;
+      right: 200px;
+      background-image: url('https://dummyimage.com/80x80/00bfff/000.png&text=Node');
+    }
+
+    .skill-icon:nth-child(6) {
+      bottom: 100px;
+      left: 500px;
+      background-image: url('https://dummyimage.com/80x80/ffa500/000.png&text=Python');
+    }
+
+    @keyframes gear-rotation {
+      0% {
+        transform: rotate(0deg);
+      }
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+
+    /* Neon Contact Form */
+    #neon-contact {
+      padding: 80px 40px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      background: linear-gradient(to bottom, #0c0032, #000000);
+    }
+
+    .neon-form {
+      width: 100%;
+      max-width: 600px;
+      background-color: rgba(0, 0, 0, 0.7);
+      padding: 40px;
+      border-radius: 10px;
+      box-shadow: 0 0 20px rgba(155, 89, 182, 0.5);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .neon-form:before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(45deg, #9b59b6, #8e44ad, #9b59b6);
+      z-index: -1;
+      animation: neon-glow 2s ease-in-out infinite;
+    }
+
+    .neon-form input,
+    .neon-form textarea {
+      display: block;
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 20px;
+      background-color: transparent;
+      border: 2px solid #9b59b6;
+      border-radius: 5px;
+      color: #fff;
+      font-size: 16px;
+      font-family: 'Orbitron', sans-serif;
+      transition: border-color 0.3s ease;
+    }
+
+    .neon-form input:focus,
+    .neon-form textarea:focus {
+      outline: none;
+      border-color: #fff;
+    }
+
+    .neon-form button {
+      display: block;
+      width: 100%;
+      padding: 10px;
+      background-color: #9b59b6;
+      border: none;
+      border-radius: 5px;
+      color: #fff;
+      font-size: 18px;
+      font-family: 'Orbitron', sans-serif;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .neon-form button:hover {
+      background-color: #8e44ad;
+    }
+
+    @keyframes neon-glow {
+      0% {
+        box-shadow: 0 0 10px rgba(155, 89, 182, 0.5);
+      }
+      50% {
+        box-shadow: 0 0 20px rgba(155, 89, 182, 0.8);
+      }
+      100% {
+        box-shadow: 0 0 10px rgba(155, 89, 182, 0.5);
+      }
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      nav {
+        padding: 10px 20px;
+      }
+
+      nav a {
+        font-size: 16px;
+        margin: 0 10px;
+      }
+
+      #project-galaxies,
+      #steampunk-gears,
+      #neon-contact {
+        padding: 40px 20px;
+      }
+
+      .galaxy {
+        flex-direction: column;
+      }
+
+      .galaxy-info,
+      .galaxy-image {
+        width: 100%;
+      }
+
+      .gear-container {
+        height: 400px;
+      }
+
+      .gear {
+        width: 150px;
+        height: 150px;
+      }
+
+      .skill-icon {
+        width: 60px;
+        height: 60px;
+      }
+
+      .neon-form {
+        padding: 30px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="#">Home</a>
+    <a href="#">Projects</a>
+    <a href="#">Skills</a>
+    <a href="#">Contact</a>
+  </nav>
+
+  <section id="project-galaxies">
+    <h2>Project Galaxies</h2>
+    <div class="galaxy">
+      <div class="galaxy-info">
+        <h3>Project Galaxy 1</h3>
+        <p>A cosmic-inspired web application that utilizes cutting-edge technologies to create an immersive user experience. Developed using a range of tools, including React, Node.js, and MongoDB.</p>
+        <a href="#">Learn More</a>
+      </div>
+      <div class="galaxy-image" style="background-image: url('https://dummyimage.com/600x400/8b4513/fff.png&text=Project+Galaxy+1');">
+        <img src="https://dummyimage.com/600x400/8b4513/fff.png&text=Project+Galaxy+1" alt="Project Galaxy 1">
+      </div>
+    </div>
+    <div class="galaxy">
+      <div class="galaxy-image" style="background-image: url('https://dummyimage.com/600x400/8b4513/fff.png&text=Project+Galaxy+2');">
+        <img src="https://dummyimage.com/600x400/8b4513/fff.png&text=Project+Galaxy+2" alt="Project Galaxy 2">
+      </div>
+      <div class="galaxy-info">
+        <h3>Project Galaxy 2</h3>
+        <p>A visually stunning web application that combines the allure of vaporwave aesthetics with the power of modern backend technologies. Developed using a mix of Python, Django, and React.</p>
+        <a href="#">Learn More</a>
+      </div>
+    </div>
+    <div class="galaxy">
+      <div class="galaxy-info">
+        <h3>Project Galaxy 3</h3>
+        <p>A sleek and sophisticated web application that showcases the developer's expertise in creating robust and scalable backend systems. Developed using Node.js, Express, and MongoDB.</p>
+        <a href="#">Learn More</a>
+      </div>
+      <div class="galaxy-image" style="background-image: url('https://dummyimage.com/600x400/8b4513/fff.png&text=Project+Galaxy+3');">
+        <img src="https://dummyimage.com/600x400/8b4513/fff.png&text=Project+Galaxy+3" alt="Project Galaxy 3">
+      </div>
+    </div>
+  </section>
+
+  <section id="steampunk-gears">
+    <h2>Steampunk Gears</h2>
+    <div class="gear-container">
+      <div class="gear"></div>
+      <div class="gear"></div>
+      <div class="gear"></div>
+      <div class="skill-icon"></div>
+      <div class="skill-icon"></div>
+      <div class="skill-icon"></div>
+    </div>
+    <p>Explore the intricate workings of the developer's technical expertise, showcased through a mesmerizing steampunk-inspired gear mechanism.</p>
+  </section>
+
+  <section id="neon-contact">
+    <h2>Neon Contact</h2>
+    <div class="neon-form">
+      <form>
+        <input type="text" placeholder="Name" required>
+        <input type="email" placeholder="Email" required>
+        <textarea placeholder="Message" rows="5" required></textarea>
+        <button type="submit">Submit</button>
+      </form>
+    </div>
+  </section>
+</body>
+</html>'<!-- Visit: https://github.com/Ishanoshada/portflair -->
+<!-- Visit: https://github.com/Ishanoshada/portflair -->

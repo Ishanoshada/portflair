@@ -1,0 +1,381 @@
+<!-- Portfolio created by Ishan -->
+<!-- Check out my work at: https://github.com/Ishanoshada/portflair -->
+<!-- 2024/10/9 -->
+<!-- Portfolio created by Ishan -->
+'<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Black Hole Portfolio</title>
+  <style>
+    /* Global Styles */
+    @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
+    body {
+      font-family: 'Orbitron', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #000;
+      color: #fff;
+    }
+
+    /* Navigation Bar */
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: rgba(0, 0, 0, 0.7);
+      padding: 20px 40px;
+    }
+    .navbar-brand {
+      font-size: 24px;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: #9b59b6;
+      text-shadow: 0 0 20px #9b59b6, 0 0 40px #9b59b6, 0 0 60px #9b59b6;
+      animation: pulse 3s infinite;
+    }
+    .navbar-nav {
+      display: flex;
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+    }
+    .navbar-nav li {
+      margin-left: 30px;
+    }
+    .navbar-nav li a {
+      text-decoration: none;
+      color: #fff;
+      font-size: 16px;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      transition: color 0.3s ease-in-out;
+    }
+    .navbar-nav li a:hover {
+      color: #9b59b6;
+      text-shadow: 0 0 20px #9b59b6, 0 0 40px #9b59b6, 0 0 60px #9b59b6;
+    }
+
+    /* Project Galaxy */
+    .project-galaxy {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      padding: 80px 0;
+      background: linear-gradient(to bottom, #000, #1f1f1f);
+    }
+    .project-card {
+      position: relative;
+      width: 300px;
+      height: 300px;
+      margin: 20px;
+      overflow: hidden;
+      border-radius: 10px;
+      box-shadow: 0 0 20px rgba(155, 89, 182, 0.5);
+      transition: transform 0.3s ease-in-out;
+    }
+    .project-card:hover {
+      transform: scale(1.1);
+    }
+    .project-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: brightness(0.7) hue-rotate(20deg) saturate(1.2);
+      transition: filter 0.3s ease-in-out;
+    }
+    .project-card:hover img {
+      filter: brightness(1) hue-rotate(0deg) saturate(1);
+    }
+    .project-info {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      background-color: rgba(0, 0, 0, 0.7);
+      opacity: 0;
+      transition: opacity 0.3s ease-in-out;
+    }
+    .project-card:hover .project-info {
+      opacity: 1;
+    }
+    .project-info h3 {
+      font-size: 24px;
+      font-weight: bold;
+      margin-bottom: 10px;
+      text-shadow: 0 0 20px #9b59b6, 0 0 40px #9b59b6, 0 0 60px #9b59b6;
+    }
+    .project-info p {
+      font-size: 16px;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+    .project-info a {
+      display: inline-block;
+      padding: 10px 20px;
+      background-color: #9b59b6;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 5px;
+      font-size: 14px;
+      font-weight: bold;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      transition: background-color 0.3s ease-in-out;
+    }
+    .project-info a:hover {
+      background-color: #8e44ad;
+    }
+
+    /* Skills Nebula */
+    .skills-nebula {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      padding: 80px 0;
+      background: radial-gradient(ellipse at center, #1f1f1f, #000);
+    }
+    .skill-icon {
+      position: relative;
+      width: 100px;
+      height: 100px;
+      margin: 20px;
+      background-color: rgba(155, 89, 182, 0.3);
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      box-shadow: 0 0 20px rgba(155, 89, 182, 0.5);
+      overflow: hidden;
+      transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    }
+    .skill-icon:hover {
+      transform: scale(1.2);
+      box-shadow: 0 0 40px rgba(155, 89, 182, 0.8);
+    }
+    .skill-icon img {
+      width: 50px;
+      height: 50px;
+      filter: brightness(1.2) hue-rotate(20deg) saturate(1.5);
+      animation: pulse 3s infinite;
+    }
+    .skill-icon .skill-name {
+      position: absolute;
+      bottom: -30px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 14px;
+      font-weight: bold;
+      color: #fff;
+      text-shadow: 0 0 10px #9b59b6, 0 0 20px #9b59b6, 0 0 30px #9b59b6;
+      opacity: 0;
+      transition: bottom 0.3s ease-in-out, opacity 0.3s ease-in-out;
+    }
+    .skill-icon:hover .skill-name {
+      bottom: 20px;
+      opacity: 1;
+    }
+
+    /* Neon Contact Form */
+    .neon-contact-form {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 80px 0;
+      background-color: #1f1f1f;
+      background-image: radial-gradient(circle, #9b59b6, #8e44ad);
+      background-size: 200% 200%;
+      animation: gradientAnimation 10s ease infinite;
+    }
+    .neon-contact-form-container {
+      width: 400px;
+      padding: 40px;
+      background-color: rgba(0, 0, 0, 0.7);
+      border-radius: 10px;
+      box-shadow: 0 0 20px rgba(155, 89, 182, 0.5);
+    }
+    .neon-contact-form h2 {
+      font-size: 24px;
+      font-weight: bold;
+      margin-bottom: 20px;
+      text-align: center;
+      text-shadow: 0 0 20px #9b59b6, 0 0 40px #9b59b6, 0 0 60px #9b59b6;
+    }
+    .neon-contact-form .form-group {
+      margin-bottom: 20px;
+    }
+    .neon-contact-form label {
+      display: block;
+      font-size: 16px;
+      font-weight: bold;
+      margin-bottom: 5px;
+      color: #9b59b6;
+      text-shadow: 0 0 10px #9b59b6, 0 0 20px #9b59b6, 0 0 30px #9b59b6;
+    }
+    .neon-contact-form input,
+    .neon-contact-form textarea {
+      width: 100%;
+      padding: 10px;
+      font-size: 16px;
+      border: none;
+      border-radius: 5px;
+      background-color: rgba(155, 89, 182, 0.2);
+      color: #fff;
+      transition: box-shadow 0.3s ease-in-out;
+    }
+    .neon-contact-form input:focus,
+    .neon-contact-form textarea:focus {
+      outline: none;
+      box-shadow: 0 0 20px rgba(155, 89, 182, 0.5);
+    }
+    .neon-contact-form button {
+      display: block;
+      width: 100%;
+      padding: 10px;
+      font-size: 16px;
+      font-weight: bold;
+      text-transform: uppercase;
+      background-color: #9b59b6;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease-in-out;
+    }
+    .neon-contact-form button:hover {
+      background-color: #8e44ad;
+    }
+
+    /* Animations */
+    @keyframes pulse {
+      0% {
+        transform: scale(1);
+      }
+      50% {
+        transform: scale(1.1);
+      }
+      100% {
+        transform: scale(1);
+      }
+    }
+
+    @keyframes gradientAnimation {
+      0% {
+        background-position: 0% 50%;
+      }
+      50% {
+        background-position: 100% 50%;
+      }
+      100% {
+        background-position: 0% 50%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav class="navbar">
+      <div class="navbar-brand">
+        Black Hole Portfolio
+      </div>
+      <ul class="navbar-nav">
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Projects</a></li>
+        <li><a href="#">Skills</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <!-- Project Galaxy -->
+    <section class="project-galaxy">
+      <div class="project-card">
+        <img src="https://dummyimage.com/600x400/1f1f1f/9b59b6.jpg&text=Project+1" alt="Project 1">
+        <div class="project-info">
+          <h3>Project 1</h3>
+          <p>A cosmic-themed web application with vaporwave glitches and steampunk gears.</p>
+          <a href="#">View Project</a>
+        </div>
+      </div>
+      <div class="project-card">
+        <img src="https://dummyimage.com/600x400/1f1f1f/9b59b6.jpg&text=Project+2" alt="Project 2">
+        <div class="project-info">
+          <h3>Project 2</h3>
+          <p>A data visualization tool with a black hole-inspired interface.</p>
+          <a href="#">View Project</a>
+        </div>
+      </div>
+      <div class="project-card">
+        <img src="https://dummyimage.com/600x400/1f1f1f/9b59b6.jpg&text=Project+3" alt="Project 3">
+        <div class="project-info">
+          <h3>Project 3</h3>
+          <p>A serverless backend API with a cosmic-themed deployment process.</p>
+          <a href="#">View Project</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Skills Nebula -->
+    <section class="skills-nebula">
+      <div class="skill-icon">
+        <img src="https://dummyimage.com/100x100/9b59b6/fff.jpg&text=Node.js" alt="Node.js">
+        <div class="skill-name">Node.js</div>
+      </div>
+      <div class="skill-icon">
+        <img src="https://dummyimage.com/100x100/9b59b6/fff.jpg&text=Python" alt="Python">
+        <div class="skill-name">Python</div>
+      </div>
+      <div class="skill-icon">
+        <img src="https://dummyimage.com/100x100/9b59b6/fff.jpg&text=MongoDB" alt="MongoDB">
+        <div class="skill-name">MongoDB</div>
+      </div>
+      <div class="skill-icon">
+        <img src="https://dummyimage.com/100x100/9b59b6/fff.jpg&text=AWS" alt="AWS">
+        <div class="skill-name">AWS</div>
+      </div>
+      <div class="skill-icon">
+        <img src="https://dummyimage.com/100x100/9b59b6/fff.jpg&text=Docker" alt="Docker">
+        <div class="skill-name">Docker</div>
+      </div>
+      <div class="skill-icon">
+        <img src="https://dummyimage.com/100x100/9b59b6/fff.jpg&text=Kubernetes" alt="Kubernetes">
+        <div class="skill-name">Kubernetes</div>
+      </div>
+    </section>
+
+    <!-- Neon Contact Form -->
+    <section class="neon-contact-form">
+      <div class="neon-contact-form-container">
+        <h2>Get in Touch</h2>
+        <form>
+          <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" placeholder="Enter your name" required>
+          </div>
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" placeholder="Enter your email" required>
+          </div>
+          <div class="form-group">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" placeholder="Enter your message" rows="5" required></textarea>
+          </div>
+          <button type="submit">Send Message</button>
+        </form>
+      </div>
+    </section>
+  </main>
+</body>
+</html>'<!-- Visit: https://github.com/Ishanoshada/portflair -->
+<!-- Visit: https://github.com/Ishanoshada/portflair -->

@@ -1,0 +1,408 @@
+<!-- Portfolio created by Ishan -->
+<!-- Check out my work at: https://github.com/Ishanoshada/portflair -->
+<!-- 2024/10/9 -->
+<!-- Portfolio created by Ishan -->
+'<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Create a Portfolio</title>
+  <style>
+    /* Reset some default styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    /* Body styles */
+    body {
+      font-family: 'Roboto', sans-serif;
+      background-color: #000;
+      color: #fff;
+      overflow-x: hidden;
+    }
+
+    /* Navigation styles */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.5rem 2rem;
+      background-color: rgba(0, 0, 0, 0.7);
+      backdrop-filter: blur(10px);
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 100;
+    }
+
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      font-size: 1.1rem;
+      font-weight: 500;
+      padding: 0.5rem 1rem;
+      transition: color 0.3s ease;
+    }
+
+    nav a:hover {
+      color: #00ffff;
+    }
+
+    /* Project Showcase styles */
+    .project-showcase {
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .project-showcase::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(to right, #8b00ff, #00ffff);
+      opacity: 0.2;
+      z-index: -1;
+    }
+
+    .project-loop {
+      width: 80%;
+      height: 80%;
+      border-radius: 50%;
+      position: relative;
+      animation: projectLoop 30s linear infinite;
+    }
+
+    @keyframes projectLoop {
+      0% {
+        transform: rotate(0deg);
+      }
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+
+    .project-item {
+      position: absolute;
+      width: 200px;
+      height: 200px;
+      background-color: rgba(0, 0, 0, 0.7);
+      border-radius: 10px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 1.5rem;
+      transition: all 0.3s ease;
+      cursor: pointer;
+    }
+
+    .project-item:hover {
+      transform: scale(1.1);
+      box-shadow: 0 0 20px rgba(0, 255, 255, 0.5),
+                  0 0 40px rgba(139, 0, 255, 0.5);
+    }
+
+    .project-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 10px;
+    }
+
+    .project-item h3 {
+      margin-top: 1rem;
+      font-size: 1.2rem;
+      font-weight: 600;
+      text-align: center;
+    }
+
+    .project-item p {
+      margin-top: 0.5rem;
+      font-size: 0.9rem;
+      text-align: center;
+    }
+
+    /* Skills and Expertise styles */
+    .skills-expertise {
+      padding: 6rem 2rem;
+      background-color: #0f0f0f;
+      position: relative;
+    }
+
+    .skills-expertise::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(to right, #8b00ff, #00ffff);
+      opacity: 0.1;
+      z-index: -1;
+    }
+
+    .skills-loop {
+      width: 80%;
+      height: 80%;
+      border-radius: 50%;
+      position: relative;
+      animation: skillsLoop 30s linear infinite;
+    }
+
+    @keyframes skillsLoop {
+      0% {
+        transform: rotate(0deg);
+      }
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+
+    .skill-item {
+      position: absolute;
+      width: 150px;
+      height: 150px;
+      background-color: rgba(0, 0, 0, 0.7);
+      border-radius: 10px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 1rem;
+      transition: all 0.3s ease;
+      cursor: pointer;
+    }
+
+    .skill-item:hover {
+      transform: scale(1.1);
+      box-shadow: 0 0 20px rgba(0, 255, 255, 0.5),
+                  0 0 40px rgba(139, 0, 255, 0.5);
+    }
+
+    .skill-item img {
+      width: 50px;
+      height: 50px;
+      object-fit: contain;
+    }
+
+    .skill-item h4 {
+      margin-top: 1rem;
+      font-size: 1rem;
+      font-weight: 600;
+      text-align: center;
+    }
+
+    .skill-item p {
+      margin-top: 0.5rem;
+      font-size: 0.8rem;
+      text-align: center;
+    }
+
+    /* Contact and Hire Me styles */
+    .contact-hire {
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .contact-hire::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(to right, #8b00ff, #00ffff);
+      opacity: 0.2;
+      z-index: -1;
+    }
+
+    .contact-form-container {
+      width: 50%;
+      padding: 3rem;
+      background-color: rgba(0, 0, 0, 0.7);
+      border-radius: 20px;
+      box-shadow: 0 0 20px rgba(0, 255, 255, 0.5),
+                  0 0 40px rgba(139, 0, 255, 0.5);
+      animation: fadeIn 1s ease;
+    }
+
+    @keyframes fadeIn {
+      0% {
+        opacity: 0;
+        transform: translateY(50px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .contact-form-container h2 {
+      font-size: 2rem;
+      font-weight: 700;
+      margin-bottom: 2rem;
+      text-align: center;
+    }
+
+    .contact-form {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+      margin-bottom: 1.5rem;
+      padding: 1rem;
+      border: none;
+      border-radius: 10px;
+      background-color: #1f1f1f;
+      color: #fff;
+      font-size: 1rem;
+      transition: box-shadow 0.3s ease;
+    }
+
+    .contact-form input:focus,
+    .contact-form textarea:focus {
+      outline: none;
+      box-shadow: 0 0 20px rgba(0, 255, 255, 0.5),
+                  0 0 40px rgba(139, 0, 255, 0.5);
+    }
+
+    .contact-form button {
+      padding: 1rem 2rem;
+      background-color: #00ffff;
+      color: #000;
+      border: none;
+      border-radius: 10px;
+      font-size: 1.1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .contact-form button:hover {
+      background-color: #8b00ff;
+      color: #fff;
+    }
+
+    /* Responsive styles */
+    @media (max-width: 768px) {
+      nav {
+        padding: 1rem;
+      }
+
+      nav a {
+        font-size: 1rem;
+      }
+
+      .project-showcase,
+      .contact-hire {
+        height: auto;
+        padding: 6rem 1rem;
+      }
+
+      .project-loop,
+      .skills-loop {
+        width: 100%;
+        height: 100%;
+      }
+
+      .project-item,
+      .skill-item {
+        width: 150px;
+        height: 150px;
+      }
+
+      .contact-form-container {
+        width: 100%;
+        padding: 2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="#">Home</a>
+    <a href="#">Projects</a>
+    <a href="#">Skills</a>
+    <a href="#">Contact</a>
+  </nav>
+
+  <section class="project-showcase">
+    <div class="project-loop">
+      <div class="project-item">
+        <img src="https://dummyimage.com/400x400/ccc/000&text=Project+1" alt="Project 1">
+        <h3>Project 1</h3>
+        <p>A description of the first project.</p>
+      </div>
+      <div class="project-item">
+        <img src="https://dummyimage.com/400x400/ccc/000&text=Project+2" alt="Project 2">
+        <h3>Project 2</h3>
+        <p>A description of the second project.</p>
+      </div>
+      <div class="project-item">
+        <img src="https://dummyimage.com/400x400/ccc/000&text=Project+3" alt="Project 3">
+        <h3>Project 3</h3>
+        <p>A description of the third project.</p>
+      </div>
+      <div class="project-item">
+        <img src="https://dummyimage.com/400x400/ccc/000&text=Project+4" alt="Project 4">
+        <h3>Project 4</h3>
+        <p>A description of the fourth project.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="skills-expertise">
+    <div class="skills-loop">
+      <div class="skill-item">
+        <img src="https://dummyimage.com/100x100/ccc/000&text=HTML" alt="HTML">
+        <h4>HTML</h4>
+        <p>Expertise in HTML5 and semantic markup.</p>
+      </div>
+      <div class="skill-item">
+        <img src="https://dummyimage.com/100x100/ccc/000&text=CSS" alt="CSS">
+        <h4>CSS</h4>
+        <p>Proficient in modern CSS and responsive design.</p>
+      </div>
+      <div class="skill-item">
+        <img src="https://dummyimage.com/100x100/ccc/000&text=JavaScript" alt="JavaScript">
+        <h4>JavaScript</h4>
+        <p>Experienced in vanilla JavaScript and popular frameworks.</p>
+      </div>
+      <div class="skill-item">
+        <img src="https://dummyimage.com/100x100/ccc/000&text=React" alt="React">
+        <h4>React</h4>
+        <p>Skilled in building dynamic and efficient web applications with React.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact-hire">
+    <div class="contact-form-container">
+      <h2>Get in Touch</h2>
+      <form class="contact-form">
+        <input type="text" placeholder="Name" required>
+        <input type="email" placeholder="Email" required>
+        <textarea placeholder="Message" rows="5" required></textarea>
+        <button type="submit">Send Message</button>
+      </form>
+    </div>
+  </section>
+</body>
+</html>'<!-- Visit: https://github.com/Ishanoshada/portflair -->
+<!-- Visit: https://github.com/Ishanoshada/portflair -->

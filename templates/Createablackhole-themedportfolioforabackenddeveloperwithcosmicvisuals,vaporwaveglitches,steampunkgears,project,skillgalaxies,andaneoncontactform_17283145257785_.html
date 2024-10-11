@@ -1,0 +1,506 @@
+<!-- Portfolio created by Ishan -->
+<!-- Check out my work at: https://github.com/Ishanoshada/portflair -->
+<!-- 2024/10/9 -->
+<!-- Portfolio created by Ishan -->
+'<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Black Hole Portfolio</title>
+  <style>
+    /* Global Styles */
+    @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
+
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Orbitron', sans-serif;
+      background-color: #000;
+      color: #fff;
+      overflow-x: hidden;
+    }
+
+    /* Navbar Styles */
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 40px;
+      background-color: rgba(0, 0, 0, 0.8);
+      backdrop-filter: blur(10px);
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 100;
+    }
+
+    .navbar-brand {
+      font-size: 24px;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: #9b59b6;
+      text-shadow: 0 0 10px #9b59b6, 0 0 20px #9b59b6, 0 0 30px #9b59b6;
+      animation: neon-glow 2s ease-in-out infinite;
+    }
+
+    .navbar-nav {
+      display: flex;
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .navbar-nav li {
+      margin-left: 20px;
+    }
+
+    .navbar-nav a {
+      color: #fff;
+      text-decoration: none;
+      font-size: 16px;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      transition: color 0.3s ease-in-out;
+    }
+
+    .navbar-nav a:hover {
+      color: #9b59b6;
+      text-shadow: 0 0 10px #9b59b6, 0 0 20px #9b59b6, 0 0 30px #9b59b6;
+    }
+
+    /* Project Galaxies Section Styles */
+    .project-galaxies {
+      padding: 100px 40px;
+      background-color: #000;
+      background-image: radial-gradient(circle at center, #0b0b0b, #000);
+      overflow: hidden;
+    }
+
+    .project-galaxy {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      grid-gap: 40px;
+      margin-top: 40px;
+    }
+
+    .project-item {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background-color: rgba(155, 89, 182, 0.1);
+      border-radius: 8px;
+      box-shadow: 0 0 20px rgba(155, 89, 182, 0.3);
+      padding: 20px;
+      cursor: pointer;
+      transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    }
+
+    .project-item:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 40px rgba(155, 89, 182, 0.5);
+    }
+
+    .project-item img {
+      width: 80px;
+      height: 80px;
+      object-fit: contain;
+      filter: drop-shadow(0 0 10px rgba(155, 89, 182, 0.5));
+      animation: rotate 10s linear infinite;
+    }
+
+    .project-item h3 {
+      margin-top: 20px;
+      font-size: 18px;
+      font-weight: bold;
+      color: #9b59b6;
+      text-shadow: 0 0 10px #9b59b6, 0 0 20px #9b59b6, 0 0 30px #9b59b6;
+    }
+
+    .project-item p {
+      margin-top: 10px;
+      font-size: 14px;
+      color: #fff;
+      text-align: center;
+    }
+
+    /* Skill Galaxies Section Styles */
+    .skill-galaxies {
+      padding: 100px 40px;
+      background-color: #000;
+      background-image: radial-gradient(circle at center, #0b0b0b, #000);
+      overflow: hidden;
+    }
+
+    .skill-galaxy {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      grid-gap: 40px;
+      margin-top: 40px;
+    }
+
+    .skill-item {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background-color: rgba(155, 89, 182, 0.1);
+      border-radius: 8px;
+      box-shadow: 0 0 20px rgba(155, 89, 182, 0.3);
+      padding: 20px;
+      cursor: pointer;
+      transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    }
+
+    .skill-item:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 40px rgba(155, 89, 182, 0.5);
+    }
+
+    .skill-item img {
+      width: 60px;
+      height: 60px;
+      object-fit: contain;
+      filter: drop-shadow(0 0 10px rgba(155, 89, 182, 0.5));
+      animation: rotate 8s linear infinite;
+    }
+
+    .skill-item h3 {
+      margin-top: 20px;
+      font-size: 16px;
+      font-weight: bold;
+      color: #9b59b6;
+      text-shadow: 0 0 10px #9b59b6, 0 0 20px #9b59b6, 0 0 30px #9b59b6;
+    }
+
+    .skill-item p {
+      margin-top: 10px;
+      font-size: 14px;
+      color: #fff;
+      text-align: center;
+    }
+
+    /* Contact Form Section Styles */
+    .contact-form {
+      padding: 100px 40px;
+      background-color: #000;
+      background-image: radial-gradient(circle at center, #0b0b0b, #000);
+      overflow: hidden;
+    }
+
+    .form-container {
+      max-width: 600px;
+      margin: 0 auto;
+      background-color: rgba(155, 89, 182, 0.1);
+      border-radius: 8px;
+      box-shadow: 0 0 20px rgba(155, 89, 182, 0.3);
+      padding: 40px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .form-container::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: linear-gradient(to right, #9b59b6, #8e44ad, #9b59b6);
+      opacity: 0.1;
+      z-index: -1;
+      animation: neon-glow 3s ease-in-out infinite;
+    }
+
+    .form-container h2 {
+      font-size: 24px;
+      font-weight: bold;
+      color: #9b59b6;
+      text-shadow: 0 0 10px #9b59b6, 0 0 20px #9b59b6, 0 0 30px #9b59b6;
+      margin-bottom: 20px;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    .form-group label {
+      display: block;
+      font-size: 16px;
+      font-weight: bold;
+      color: #9b59b6;
+      margin-bottom: 5px;
+    }
+
+    .form-group input,
+    .form-group textarea {
+      width: 100%;
+      padding: 10px;
+      font-size: 16px;
+      font-family: 'Orbitron', sans-serif;
+      background-color: rgba(155, 89, 182, 0.1);
+      border: none;
+      border-radius: 4px;
+      color: #fff;
+      box-shadow: 0 0 10px rgba(155, 89, 182, 0.3);
+      transition: box-shadow 0.3s ease-in-out;
+    }
+
+    .form-group input:focus,
+    .form-group textarea:focus {
+      outline: none;
+      box-shadow: 0 0 20px rgba(155, 89, 182, 0.5);
+    }
+
+    .form-group textarea {
+      resize: vertical;
+    }
+
+    .form-group button {
+      display: block;
+      width: 100%;
+      padding: 10px;
+      font-size: 18px;
+      font-weight: bold;
+      font-family: 'Orbitron', sans-serif;
+      background-image: linear-gradient(to right, #9b59b6, #8e44ad, #9b59b6);
+      border: none;
+      border-radius: 4px;
+      color: #fff;
+      cursor: pointer;
+      box-shadow: 0 0 10px rgba(155, 89, 182, 0.5);
+      transition: box-shadow 0.3s ease-in-out;
+    }
+
+    .form-group button:hover {
+      box-shadow: 0 0 20px rgba(155, 89, 182, 0.8);
+    }
+
+    /* Animations */
+    @keyframes neon-glow {
+      0% {
+        text-shadow: 0 0 10px #9b59b6, 0 0 20px #9b59b6, 0 0 30px #9b59b6;
+      }
+      50% {
+        text-shadow: 0 0 20px #9b59b6, 0 0 30px #9b59b6, 0 0 40px #9b59b6;
+      }
+      100% {
+        text-shadow: 0 0 10px #9b59b6, 0 0 20px #9b59b6, 0 0 30px #9b59b6;
+      }
+    }
+
+    @keyframes rotate {
+      0% {
+        transform: rotate(0deg);
+      }
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+
+    /* Media Queries for Responsive Design */
+    @media (max-width: 768px) {
+      .navbar {
+        padding: 10px 20px;
+      }
+
+      .navbar-brand {
+        font-size: 20px;
+      }
+
+      .navbar-nav a {
+        font-size: 14px;
+      }
+
+      .project-galaxies,
+      .skill-galaxies,
+      .contact-form {
+        padding: 80px 20px;
+      }
+
+      .project-galaxy {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .skill-galaxy {
+        grid-template-columns: repeat(3, 1fr);
+      }
+
+      .form-container {
+        padding: 30px;
+      }
+
+      .form-container h2 {
+        font-size: 20px;
+      }
+
+      .form-group label {
+        font-size: 14px;
+      }
+
+      .form-group input,
+      .form-group textarea {
+        font-size: 14px;
+      }
+
+      .form-group button {
+        font-size: 16px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav class="navbar">
+      <a href="#" class="navbar-brand">Black Hole Portfolio</a>
+      <ul class="navbar-nav">
+        <li><a href="#project-galaxies">Projects</a></li>
+        <li><a href="#skill-galaxies">Skills</a></li>
+        <li><a href="#contact-form">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <!-- Project Galaxies Section -->
+    <section class="project-galaxies" id="project-galaxies">
+      <h2>Project Galaxies</h2>
+      <div class="project-galaxy">
+        <div class="project-item">
+          <img src="https://dummyimage.com/80x80/9b59b6/fff&text=P1" alt="Project 1">
+          <h3>Project 1</h3>
+          <p>Description of Project 1</p>
+        </div>
+        <div class="project-item">
+          <img src="https://dummyimage.com/80x80/9b59b6/fff&text=P2" alt="Project 2">
+          <h3>Project 2</h3>
+          <p>Description of Project 2</p>
+        </div>
+        <div class="project-item">
+          <img src="https://dummyimage.com/80x80/9b59b6/fff&text=P3" alt="Project 3">
+          <h3>Project 3</h3>
+          <p>Description of Project 3</p>
+        </div>
+        <div class="project-item">
+          <img src="https://dummyimage.com/80x80/9b59b6/fff&text=P4" alt="Project 4">
+          <h3>Project 4</h3>
+          <p>Description of Project 4</p>
+        </div>
+        <div class="project-item">
+          <img src="https://dummyimage.com/80x80/9b59b6/fff&text=P5" alt="Project 5">
+          <h3>Project 5</h3>
+          <p>Description of Project 5</p>
+        </div>
+        <div class="project-item">
+          <img src="https://dummyimage.com/80x80/9b59b6/fff&text=P6" alt="Project 6">
+          <h3>Project 6</h3>
+          <p>Description of Project 6</p>
+        </div>
+        <div class="project-item">
+          <img src="https://dummyimage.com/80x80/9b59b6/fff&text=P7" alt="Project 7">
+          <h3>Project 7</h3>
+          <p>Description of Project 7</p>
+        </div>
+        <div class="project-item">
+          <img src="https://dummyimage.com/80x80/9b59b6/fff&text=P8" alt="Project 8">
+          <h3>Project 8</h3>
+          <p>Description of Project 8</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Skill Galaxies Section -->
+    <section class="skill-galaxies" id="skill-galaxies">
+      <h2>Skill Galaxies</h2>
+      <div class="skill-galaxy">
+        <div class="skill-item">
+          <img src="https://dummyimage.com/60x60/8e44ad/fff&text=S1" alt="Skill 1">
+          <h3>Skill 1</h3><p>Description of Skill 1</p>
+        </div>
+        <div class="skill-item">
+          <img src="https://dummyimage.com/60x60/8e44ad/fff&text=S2" alt="Skill 2">
+          <h3>Skill 2</h3>
+          <p>Description of Skill 2</p>
+        </div>
+        <div class="skill-item">
+          <img src="https://dummyimage.com/60x60/8e44ad/fff&text=S3" alt="Skill 3">
+          <h3>Skill 3</h3>
+          <p>Description of Skill 3</p>
+        </div>
+        <div class="skill-item">
+          <img src="https://dummyimage.com/60x60/8e44ad/fff&text=S4" alt="Skill 4">
+          <h3>Skill 4</h3>
+          <p>Description of Skill 4</p>
+        </div>
+        <div class="skill-item">
+          <img src="https://dummyimage.com/60x60/8e44ad/fff&text=S5" alt="Skill 5">
+          <h3>Skill 5</h3>
+          <p>Description of Skill 5</p>
+        </div>
+        <div class="skill-item">
+          <img src="https://dummyimage.com/60x60/8e44ad/fff&text=S6" alt="Skill 6">
+          <h3>Skill 6</h3>
+          <p>Description of Skill 6</p>
+        </div>
+        <div class="skill-item">
+          <img src="https://dummyimage.com/60x60/8e44ad/fff&text=S7" alt="Skill 7">
+          <h3>Skill 7</h3>
+          <p>Description of Skill 7</p>
+        </div>
+        <div class="skill-item">
+          <img src="https://dummyimage.com/60x60/8e44ad/fff&text=S8" alt="Skill 8">
+          <h3>Skill 8</h3>
+          <p>Description of Skill 8</p>
+        </div>
+        <div class="skill-item">
+          <img src="https://dummyimage.com/60x60/8e44ad/fff&text=S9" alt="Skill 9">
+          <h3>Skill 9</h3>
+          <p>Description of Skill 9</p>
+        </div>
+        <div class="skill-item">
+          <img src="https://dummyimage.com/60x60/8e44ad/fff&text=S10" alt="Skill 10">
+          <h3>Skill 10</h3>
+          <p>Description of Skill 10</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Form Section -->
+    <section class="contact-form" id="contact-form">
+      <div class="form-container">
+        <h2>Get in Touch</h2>
+        <form>
+          <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" placeholder="Enter your name" required>
+          </div>
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" placeholder="Enter your email" required>
+          </div>
+          <div class="form-group">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" placeholder="Enter your message" required></textarea>
+          </div>
+          <div class="form-group">
+            <button type="submit">Send Message</button>
+          </div>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-content">
+      <p>&copy; 2024 Black Hole Portfolio. All rights reserved.</p>
+    </div>
+  </footer>
+</body>
+</html>'<!-- Visit: https://github.com/Ishanoshada/portflair -->
+<!-- Visit: https://github.com/Ishanoshada/portflair -->

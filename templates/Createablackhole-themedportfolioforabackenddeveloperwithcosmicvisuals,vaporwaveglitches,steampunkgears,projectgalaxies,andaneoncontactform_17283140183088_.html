@@ -1,0 +1,468 @@
+<!-- Portfolio created by Ishan -->
+<!-- Check out my work at: https://github.com/Ishanoshada/portflair -->
+<!-- 2024/10/9 -->
+<!-- Portfolio created by Ishan -->
+'<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cosmic Abyss - Backend Developer Portfolio</title>
+    <style>
+        /* Global Styles */
+        @import url('https://fonts.googleapis.com/css2?family=Audiowide&family=Orbitron:wght@400;700&display=swap');
+
+        body {
+            font-family: 'Orbitron', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #000;
+            color: #fff;
+            overflow-x: hidden;
+        }
+
+        /* Navigation Bar */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 40px;
+            background-color: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(10px);
+            position: relative;
+            z-index: 100;
+        }
+
+        .navbar-brand {
+            font-family: 'Audiowide', cursive;
+            font-size: 24px;
+            color: #00ffff;
+            text-shadow: 0 0 20px #00ffff, 0 0 40px #00ffff, 0 0 80px #00ffff;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .navbar-brand:hover {
+            transform: scale(1.1);
+        }
+
+        .navbar-nav {
+            display: flex;
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .nav-item {
+            margin-left: 20px;
+        }
+
+        .nav-link {
+            color: #ccc;
+            text-decoration: none;
+            font-size: 16px;
+            transition: color 0.3s ease-in-out;
+        }
+
+        .nav-link:hover {
+            color: #00ffff;
+            text-shadow: 0 0 10px #00ffff;
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        .hero-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(ellipse at center, #000, #000 70%, #000 100%);
+            z-index: -1;
+        }
+
+        .hero-bg::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url(https://dummyimage.com/1920x1080/000/00ffff.jpg&text=Black+Hole+Animation) no-repeat center center;
+            background-size: cover;
+            animation: blackHoleAnimation 60s linear infinite;
+            z-index: -1;
+        }
+
+        @keyframes blackHoleAnimation {
+            0% {
+                transform: scale(1) rotate(0deg);
+            }
+            100% {
+                transform: scale(1.2) rotate(360deg);
+            }
+        }
+
+        .hero-title {
+            font-family: 'Audiowide', cursive;
+            font-size: 4rem;
+            color: #00ffff;
+            text-shadow: 0 0 20px #00ffff, 0 0 40px #00ffff, 0 0 80px #00ffff;
+            animation: glitch 2s infinite linear;
+        }
+
+        @keyframes glitch {
+            0% {
+                text-shadow: 0 0 20px #00ffff, 0 0 40px #00ffff, 0 0 80px #00ffff;
+            }
+            20% {
+                text-shadow: -2px -2px 0 #00ffff, 2px 2px 0 #00ffff;
+            }
+            40% {
+                text-shadow: 2px -2px 0 #00ffff, -2px 2px 0 #00ffff;
+            }
+            60% {
+                text-shadow: -2px 2px 0 #00ffff, 2px -2px 0 #00ffff;
+            }
+            80% {
+                text-shadow: 2px 2px 0 #00ffff, -2px -2px 0 #00ffff;
+            }
+            100% {
+                text-shadow: 0 0 20px #00ffff, 0 0 40px #00ffff, 0 0 80px #00ffff;
+            }
+        }
+
+        .hero-subtitle {
+            font-size: 1.5rem;
+            color: #ccc;
+            margin-top: 20px;
+            animation: pulsate 2s infinite linear;
+        }
+
+        @keyframes pulsate {
+            0% {
+                opacity: 1;
+            }
+            50% {
+                opacity: 0.5;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+
+        .hero-button {
+            margin-top: 40px;
+            padding: 15px 30px;
+            background-color: #00ffff;
+            color: #000;
+            font-size: 16px;
+            font-weight: bold;
+            border: none;
+            border-radius: 30px;
+            box-shadow: 0 0 20px #00ffff, 0 0 40px #00ffff, 0 0 80px #00ffff;
+            cursor: pointer;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .hero-button:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 30px #00ffff, 0 0 60px #00ffff, 0 0 90px #00ffff;
+        }
+
+        /* Project Showcase */
+        .project-showcase {
+            padding: 80px 40px;
+            background: radial-gradient(ellipse at center, #000, #000 70%, #000 100%);
+        }
+
+        .project-showcase-title {
+            font-family: 'Audiowide', cursive;
+            font-size: 2.5rem;
+            color: #00ffff;
+            text-shadow: 0 0 20px #00ffff, 0 0 40px #00ffff, 0 0 80px #00ffff;
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-gap: 40px;
+        }
+
+        .project-thumbnail {
+            position: relative;
+            width: 100%;
+            height: 0;
+            padding-bottom: 100%;
+            background: url(https://dummyimage.com/400x400/00ffff/000.jpg&text=Project+Thumbnail) no-repeat center center;
+            background-size: cover;
+            border-radius: 50%;
+            overflow: hidden;
+            cursor: pointer;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .project-thumbnail:hover {
+            transform: scale(1.1);
+        }
+
+        .project-details {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 255, 255, 0.8);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transition: opacity 0.3s ease-in-out;
+        }
+
+        .project-thumbnail:hover .project-details {
+            opacity: 1;
+        }
+
+        .project-title {
+            font-size: 1.5rem;
+            color: #000;
+            text-shadow: 0 0 10px #000;
+            margin-bottom: 10px;
+        }
+
+        .project-description {
+            font-size: 1rem;
+            color: #000;
+            text-shadow: 0 0 5px #000;
+            text-align: center;
+        }
+
+        .project-link {
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #000;
+            color: #00ffff;
+            font-size: 14px;
+            border-radius: 20px;
+            text-decoration: none;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .project-link:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 10px #00ffff;
+        }
+
+        /* Contact Form */
+        .contact-form {
+            padding: 80px 40px;
+            background: radial-gradient(ellipse at center, #000, #000 70%, #000 100%);
+            background-image: url(https://dummyimage.com/1920x1080/000/00ffff.jpg&text=Steampunk+Gears+Animation);
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .contact-form::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(10px);
+            z-index: -1;
+        }
+
+        .contact-form-title {
+            font-family: 'Audiowide', cursive;
+            font-size: 2.5rem;
+            color: #00ffff;
+            text-shadow: 0 0 20px #00ffff, 0 0 40px #00ffff, 0 0 80px #00ffff;
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .contact-form-container {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: rgba(0, 255, 255, 0.1);
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px #00ffff, 0 0 40px #00ffff, 0 0 80px #00ffff;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-label {
+            display: block;
+            font-size: 16px;
+            color: #00ffff;
+            margin-bottom: 5px;
+            text-shadow: 0 0 10px #00ffff;
+        }
+
+        .form-input,
+        .form-textarea {
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            background-color: rgba(0, 255, 255, 0.2);
+            color: #fff;
+            transition: box-shadow 0.3s ease-in-out;
+        }
+
+        .form-input:focus,
+        .form-textarea:focus {
+            outline: none;
+            box-shadow: 0 0 10px #00ffff, 0 0 20px #00ffff, 0 0 30px #00ffff;
+        }
+
+        .form-textarea {
+            height: 120px;
+            resize: vertical;
+        }
+
+        .form-submit {
+            display: block;
+            width: 100%;
+            padding: 15px 30px;
+            font-size: 16px;
+            font-weight: bold;
+            background-color: #00ffff;
+            color: #000;
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+            box-shadow: 0 0 20px #00ffff, 0 0 40px #00ffff, 0 0 80px #00ffff;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .form-submit:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 30px #00ffff, 0 0 60px #00ffff, 0 0 90px #00ffff;
+        }
+
+        /* Footer */
+        .footer {
+            padding: 20px 40px;
+            background-color: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(10px);
+            text-align: center;
+            color: #ccc;
+            font-size: 14px;
+        }
+
+        .footer-text {
+            margin: 0;
+        }
+
+        .footer-text a {
+            color: #00ffff;
+            text-decoration: none;
+            transition: color 0.3s ease-in-out;
+        }
+
+        .footer-text a:hover {
+            color: #fff;
+            text-shadow: 0 0 10px #00ffff;
+        }
+    </style>
+</head>
+<body>
+    <header class="navbar">
+        <a href="#" class="navbar-brand">Cosmic Abyss</a>
+        <nav>
+            <ul class="navbar-nav">
+                <li class="nav-item"><a href="#" class="nav-link">Home</a></li>
+                <li class="nav-item"><a href="#" class="nav-link">About</a></li>
+                <li class="nav-item"><a href="#" class="nav-link">Portfolio</a></li>
+                <li class="nav-item"><a href="#" class="nav-link">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="hero-bg"></div>
+            <h1 class="hero-title">Dive into the Cosmic Abyss</h1>
+            <p class="hero-subtitle">Explore the portfolio of a visionary backend developer</p>
+            <button class="hero-button">View Portfolio</button>
+        </section>
+
+        <section class="project-showcase">
+            <h2 class="project-showcase-title">Featured Projects</h2>
+            <div class="project-grid">
+                <div class="project-thumbnail">
+                    <div class="project-details">
+                        <h3 class="project-title">Project 1</h3>
+                        <p class="project-description">Explore the mysteries of the cosmos in this innovative backend project.</p>
+                        <a href="#" class="project-link">Learn More</a>
+                    </div>
+                </div>
+                <div class="project-thumbnail">
+                    <div class="project-details">
+                        <h3 class="project-title">Project 2</h3>
+                        <p class="project-description">Dive into the vaporwave-inspired world of this backend masterpiece.</p>
+                        <a href="#" class="project-link">Learn More</a>
+                    </div>
+                </div>
+                <div class="project-thumbnail">
+                    <div class="project-details">
+                        <h3 class="project-title">Project 3</h3>
+                        <p class="project-description">Unravel the mysteries of the universe with this cutting-edge backend solution.</p>
+                        <a href="#" class="project-link">Learn More</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="contact-form">
+            <h2 class="contact-form-title">Get in Touch</h2>
+            <div class="contact-form-container">
+                <form action="#" method="post">
+                    <div class="form-group">
+                        <label for="name" class="form-label">Name</label>
+                        <input type="text" id="name" name="name" class="form-input" placeholder="Enter your name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email" class="form-label">Email</label>
+                        <input type="email" id="email" name="email" class="form-input" placeholder="Enter your email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message" class="form-label">Message</label>
+                        <textarea id="message" name="message" class="form-textarea" placeholder="Enter your message" required></textarea>
+                    </div>
+                    <button type="submit" class="form-submit">Send Message</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <p class="footer-text">
+            &copy; 2024 Cosmic Abyss. Designed by <a href="#">Your Name</a>.
+        </p>
+    </footer>
+</body>
+</html>'<!-- Visit: https://github.com/Ishanoshada/portflair -->
+<!-- Visit: https://github.com/Ishanoshada/portflair -->

@@ -1,0 +1,499 @@
+<!-- Portfolio created by Ishan -->
+<!-- Check out my work at: https://github.com/Ishanoshada/portflair -->
+<!-- 2024/10/9 -->
+<!-- Portfolio created by Ishan -->
+'<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Black Hole Portfolio</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&display=swap');
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Orbitron', sans-serif;
+            background: linear-gradient(to bottom, #1e0036, #000000);
+            color: #fff;
+            overflow-x: hidden;
+        }
+
+        /* Navigation */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 40px;
+            background-color: rgba(30, 0, 54, 0.8);
+            backdrop-filter: blur(10px);
+            position: relative;
+            z-index: 100;
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 1.2rem;
+            padding: 10px 20px;
+            border-radius: 20px;
+            transition: background-color 0.3s ease;
+        }
+
+        nav a:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        /* Project Galaxies */
+        #project-galaxies {
+            padding: 100px 40px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        #project-galaxies::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(ellipse at center, rgba(255, 255, 255, 0.1) 0%, rgba(30, 0, 54, 0.8) 70%, #000000 100%);
+            z-index: -1;
+            animation: galaxy-bg 60s linear infinite;
+        }
+
+        .project-galaxy {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 80px;
+            position: relative;
+            opacity: 0;
+            transform: translateY(50px);
+            animation: fade-in 0.8s ease-out forwards;
+        }
+
+        .project-galaxy:nth-child(even) {
+            animation-delay: 0.3s;
+        }
+
+        .project-galaxy h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            text-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+        }
+
+        .project-galaxy-image {
+            width: 400px;
+            height: 300px;
+            background-image: url('https://dummyimage.com/1200x500/ccc/000&text=Project+Galaxy');
+            background-size: cover;
+            background-position: center;
+            border-radius: 20px;
+            box-shadow: 0 0 30px rgba(255, 255, 255, 0.3);
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.5s ease;
+        }
+
+        .project-galaxy-image::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.2) 0%, rgba(30, 0, 54, 0.8) 70%, #000000 100%);
+            z-index: 1;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+
+        .project-galaxy-image:hover {
+            transform: scale(1.05);
+        }
+
+        .project-galaxy-image:hover::before {
+            opacity: 1;
+        }
+
+        .project-galaxy-image::after {
+            content: "";
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 80px;
+            height: 80px;
+            background-image: url('https://dummyimage.com/80x80/ccc/000&text=+');
+            background-size: contain;
+            background-repeat: no-repeat;
+            animation: rotate 10s linear infinite;
+            z-index: 2;
+        }
+
+        .project-galaxy-details {
+            margin-top: 20px;
+            text-align: center;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fade-in 0.5s ease-out 0.5s forwards;
+        }
+
+        .project-galaxy-details p {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+        }
+
+        .project-galaxy-details a {
+            display: inline-block;
+            color: #fff;
+            text-decoration: none;
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: 10px 20px;
+            border-radius: 20px;
+            font-size: 1.1rem;
+            transition: background-color 0.3s ease;
+        }
+
+        .project-galaxy-details a:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+
+        /* About the Developer */
+        #about-developer {
+            padding: 100px 40px;
+            position: relative;
+        }
+
+        #about-developer::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(ellipse at center, rgba(255, 255, 255, 0.1) 0%, rgba(30, 0, 54, 0.8) 70%, #000000 100%);
+            z-index: -1;
+            animation: galaxy-bg 60s linear infinite;
+        }
+
+        .developer-profile {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            opacity: 0;
+            transform: translateY(50px);
+            animation: fade-in 0.8s ease-out forwards;
+        }
+
+        .developer-profile-image {
+            width: 300px;
+            height: 300px;
+            background-image: url('https://dummyimage.com/300x300/ccc/000&text=Developer+Profile');
+            background-size: cover;
+            background-position: center;
+            border-radius: 50%;
+            box-shadow: 0 0 30px rgba(255, 255, 255, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .developer-profile-image::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.2) 0%, rgba(30, 0, 54, 0.8) 70%, #000000 100%);
+            z-index: 1;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+
+        .developer-profile-image:hover::before {
+            opacity: 1;
+        }
+
+        .developer-profile-info {
+            flex: 1;
+            margin-left: 50px;
+            text-align: left;
+            opacity: 0;
+            transform: translateX(50px);
+            animation: fade-in 0.8s ease-out 0.3s forwards;
+        }
+
+        .developer-profile-info h2 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            text-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+        }
+
+        .developer-profile-info p {
+            font-size: 1.2rem;
+            line-height: 1.6;
+            margin-bottom: 30px;
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+        }
+
+        .developer-profile-info a {
+            display: inline-block;
+            color: #fff;
+            text-decoration: none;
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: 10px 20px;
+            border-radius: 20px;
+            font-size: 1.1rem;
+            transition: background-color 0.3s ease;
+        }
+
+        .developer-profile-info a:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+
+        /* Neon Contact Form */
+        #neon-contact {
+            padding: 100px 40px;
+            position: relative;
+        }
+
+        #neon-contact::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(ellipse at center, rgba(255, 255, 255, 0.1) 0%, rgba(30, 0, 54, 0.8) 70%, #000000 100%);
+            z-index: -1;
+            animation: galaxy-bg 60s linear infinite;
+        }
+
+        .neon-contact-form {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: rgba(30, 0, 54, 0.8);
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 0 30px rgba(255, 255, 255, 0.3);
+            opacity: 0;
+            transform: translateY(50px);
+            animation: fade-in 0.8s ease-out forwards;
+        }
+
+        .neon-contact-form h2 {
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 30px;
+            text-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+        }
+
+        .neon-contact-form .form-group {
+            margin-bottom: 20px;
+        }
+
+        .neon-contact-form label {
+            display: block;
+            font-size: 1.2rem;
+            margin-bottom: 5px;
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+        }
+
+        .neon-contact-form input,
+        .neon-contact-form textarea {
+            width: 100%;
+            padding: 10px 20px;
+            font-size: 1.1rem;
+            border: none;
+            border-radius: 20px;
+            background-color: rgba(255, 255, 255, 0.1);
+            color: #fff;
+            outline: none;
+            transition: box-shadow 0.3s ease;
+        }
+
+        .neon-contact-form input:focus,
+        .neon-contact-form textarea:focus {
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+        }
+
+        .neon-contact-form textarea {
+            resize: vertical;
+            min-height: 150px;
+        }
+
+        .neon-contact-form button {
+            display: block;
+            width: 100%;
+            padding: 10px 20px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            border: none;
+            border-radius: 20px;
+            background-color: rgba(255, 255, 255, 0.1);
+            color: #fff;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .neon-contact-form button:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+
+        /* Animations */
+        @keyframes galaxy-bg {
+            0% {
+                background-position: 0% 0%;
+            }
+            100% {
+                background-position: 100% 100%;
+            }
+        }
+
+        @keyframes fade-in {
+            0% {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes rotate {
+            0% {
+                transform: translate(-50%, -50%) rotate(0deg);
+            }
+            100% {
+                transform: translate(-50%, -50%) rotate(360deg);
+            }
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            nav {
+                padding: 15px 20px;
+            }
+
+            nav a {
+                font-size: 1rem;
+                padding: 8px 16px;
+            }
+
+            #project-galaxies,
+            #about-developer,
+            #neon-contact {
+                padding: 80px 20px;
+            }
+
+            .project-galaxy-image {
+                width: 300px;
+                height: 225px;
+            }
+
+            .developer-profile {
+                flex-direction: column;
+            }
+
+            .developer-profile-image {
+                width: 200px;
+                height: 200px;
+            }
+
+            .developer-profile-info {
+                margin-left: 0;
+                margin-top: 30px;
+                text-align: center;
+            }
+
+            .developer-profile-info h2 {
+                font-size: 2.5rem;
+            }
+
+            .neon-contact-form {
+                padding: 30px;
+            }
+
+            .neon-contact-form h2 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="#">Home</a>
+        <a href="#">Projects</a>
+        <a href="#">About</a>
+        <a href="#">Contact</a>
+    </nav>
+
+    <section id="project-galaxies">
+        <div class="project-galaxy">
+            <h2>Project Galaxy 1</h2>
+            <div class="project-galaxy-image"></div>
+            <div class="project-galaxy-details">
+                <p>Technologies: JavaScript, React, Node.js</p>
+                <a href="#">View Project</a>
+            </div>
+        </div>
+        <div class="project-galaxy">
+            <h2>Project Galaxy 2</h2>
+            <div class="project-galaxy-image"></div>
+            <div class="project-galaxy-details">
+                <p>Technologies: Python, Django, PostgreSQL</p>
+                <a href="#">View Project</a>
+            </div>
+        </div>
+        <div class="project-galaxy">
+            <h2>Project Galaxy 3</h2>
+            <div class="project-galaxy-image"></div>
+            <div class="project-galaxy-details">
+                <p>Technologies: Ruby on Rails, MongoDB</p>
+                <a href="#">View Project</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="about-developer">
+        <div class="developer-profile">
+            <div class="developer-profile-image"></div>
+            <div class="developer-profile-info">
+                <h2>About the Developer</h2>
+                <p>Greetings, fellow cosmic explorer! I'm a backend developer with a passion for creating stellar applications that transcend the boundaries of the ordinary. My code is as intricate and mesmerizing as the swirling vortex of a black hole, blending the dynamic forces of vaporwave glitches, steameunk-inspired gears, and cosmic visuals to craft extraordinary digital experiences. 
+
+Explore my project galaxies to witness the culmination of my expertise, where each unique creation is a testament to my unwavering commitment to pushing the boundaries of what's possible. And when you're ready to embark on your own cosmic journey, don't hesitate to reach out through the neon-infused contact form â let's collaborate and bring your ideas to life in a way that will leave you and your clients in awe.
+
+</div>
+        </div>
+    </section>
+
+    <section id="neon-contact">
+        <div class="neon-contact-form">
+            <h2>Neon Contact Form</h2>
+            <form>
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" id="name" placeholder="Enter your name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" placeholder="Enter your email" required>
+                </div>
+                <div class="form-group">
+                    <label for="message">Message</label>
+                    <textarea id="message" placeholder="Enter your message" required></textarea>
+                </div>
+                <button type="submit">Send Message</button>
+            </form>
+        </div>
+    </section>
+</body>
+</html>'<!-- Visit: https://github.com/Ishanoshada/portflair -->
+<!-- Visit: https://github.com/Ishanoshada/portflair -->

@@ -1,0 +1,496 @@
+<!-- Portfolio created by Ishan -->
+<!-- Check out my work at: https://github.com/Ishanoshada/portflair -->
+<!-- 2024/10/9 -->
+<!-- Portfolio created by Ishan -->
+'<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Black Hole Portfolio</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
+
+        body {
+            margin: 0;
+            font-family: 'Orbitron', sans-serif;
+            background-color: #000;
+            color: #fff;
+            overflow-x: hidden;
+        }
+
+        /* Navigation */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: rgba(0, 0, 0, 0.5);
+            padding: 1rem 2rem;
+            backdrop-filter: blur(10px);
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 1.2rem;
+            padding: 0.5rem 1rem;
+            border-radius: 0.5rem;
+            transition: background-color 0.3s ease;
+        }
+
+        nav a:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background-image: url('https://dummyimage.com/1920x1080/000/fff&text=Cosmic+Void');
+            background-size: cover;
+            background-position: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0.8) 100%);
+            z-index: 1;
+        }
+
+        .hero h1 {
+            font-size: 5rem;
+            text-align: center;
+            text-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+            z-index: 2;
+            animation: glitch 2s infinite;
+        }
+
+        @keyframes glitch {
+            0% {
+                transform: translate(0);
+            }
+            20% {
+                transform: translate(-2px, 2px);
+            }
+            40% {
+                transform: translate(-2px, -2px);
+            }
+            60% {
+                transform: translate(2px, 2px);
+            }
+            80% {
+                transform: translate(2px, -2px);
+            }
+            100% {
+                transform: translate(0);
+            }
+        }
+
+        /* Portfolio Section */
+        .portfolio {
+            padding: 4rem 2rem;
+            background-color: #0c0c0c;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .portfolio h2 {
+            font-size: 3rem;
+            text-align: center;
+            margin-bottom: 3rem;
+            text-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+        }
+
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-gap: 2rem;
+        }
+
+        .project {
+            position: relative;
+            overflow: hidden;
+            border-radius: 1rem;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .project:hover {
+            transform: scale(1.05);
+        }
+
+        .project img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            filter: brightness(0.7) contrast(1.2);
+            transition: filter 0.3s ease;
+        }
+
+        .project:hover img {
+            filter: brightness(1) contrast(1);
+        }
+
+        .project-info {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .project:hover .project-info {
+            opacity: 1;
+        }
+
+        .project-info h3 {
+            font-size: 2rem;
+            text-align: center;
+            margin-bottom: 1rem;
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+        }
+
+        .project-info p {
+            font-size: 1.2rem;
+            text-align: center;
+            margin-bottom: 2rem;
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+        }
+
+        .project-info a {
+            color: #fff;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            border: 2px solid #fff;
+            border-radius: 0.5rem;
+            transition: background-color 0.3s ease;
+        }
+
+        .project-info a:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        /* Skills Section */
+        .skills {
+            padding: 4rem 2rem;
+            background-color: #0c0c0c;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .skills h2 {
+            font-size: 3rem;
+            text-align: center;
+            margin-bottom: 3rem;
+            text-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+        }
+
+        .skill-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-gap: 2rem;
+        }
+
+        .skill {
+            position: relative;
+            overflow: hidden;
+            border-radius: 1rem;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .skill:hover {
+            transform: scale(1.05);
+        }
+
+        .skill img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            filter: brightness(0.7) contrast(1.2);
+            transition: filter 0.3s ease;
+        }
+
+        .skill:hover img {
+            filter: brightness(1) contrast(1);
+        }
+
+        .skill-info {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .skill:hover .skill-info {
+            opacity: 1;
+        }
+
+        .skill-info h3 {
+            font-size: 1.8rem;
+            text-align: center;
+            margin-bottom: 1rem;
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+        }
+
+        .skill-info p {
+            font-size: 1.2rem;
+            text-align: center;
+            margin-bottom: 2rem;
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 4rem 2rem;
+            background-image: url('https://dummyimage.com/1920x1080/000/fff&text=Cosmic+Nebula');
+            background-size: cover;
+            background-position: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .contact::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0.8) 100%);
+            z-index: 1;
+        }
+
+        .contact h2 {
+            font-size: 3rem;
+            text-align: center;
+            margin-bottom: 3rem;
+            text-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+            z-index: 2;
+        }
+
+        .contact-form {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: rgba(0, 0, 0, 0.8);
+            padding: 2rem;
+            border-radius: 1rem;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+            z-index: 2;
+        }
+
+        .contact-form label {
+            display: block;
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 0.5rem;
+            font-size: 1.2rem;
+            border: none;
+            border-radius: 0.5rem;
+            background-color: rgba(255, 255, 255, 0.1);
+            color: #fff;
+            margin-bottom: 1rem;
+            transition: background-color 0.3s ease;
+        }
+
+        .contact-form input:focus,
+        .contact-form textarea:focus {
+            background-color: rgba(255, 255, 255, 0.2);
+            outline: none;
+        }
+
+        .contact-form button {
+            display: block;
+            width: 100%;
+            padding: 0.5rem;
+            font-size: 1.2rem;
+            background-color: #7b1fa2;
+            color: #fff;
+            border: none;
+            border-radius: 0.5rem;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .contact-form button:hover {
+            background-color: #9c27b0;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 3rem;
+            }
+
+            .project-grid,
+            .skill-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="#">Home</a>
+        <a href="#">Portfolio</a>
+        <a href="#">Skills</a>
+        <a href="#">Contact</a>
+    </nav>
+
+    <div class="hero">
+        <h1>Welcome to the Black Hole</h1>
+    </div>
+
+    <div class="portfolio">
+        <h2>My Projects</h2>
+        <div class="project-grid">
+            <div class="project">
+                <img src="https://dummyimage.com/600x400/000/fff&text=Project+1" alt="Project 1">
+                <div class="project-info">
+                    <h3>Project 1</h3>
+                    <p>Description of Project 1</p>
+                    <a href="#">Learn More</a>
+                </div>
+            </div>
+            <div class="project">
+                <img src="https://dummyimage.com/600x400/000/fff&text=Project+2" alt="Project 2">
+                <div class="project-info">
+                    <h3>Project 2</h3>
+                    <p>Description of Project 2</p>
+                    <a href="#">Learn More</a>
+                </div>
+            </div>
+            <div class="project">
+                <img src="https://dummyimage.com/600x400/000/fff&text=Project+3" alt="Project 3">
+                <div class="project-info">
+                    <h3>Project 3</h3>
+                    <p>Description of Project 3</p>
+                    <a href="#">Learn More</a>
+                </div>
+            </div>
+            <div class="project">
+                <img src="https://dummyimage.com/600x400/000/fff&text=Project+4" alt="Project 4">
+                <div class="project-info">
+                    <h3>Project 4</h3>
+                    <p>Description of Project 4</p>
+                    <a href="#">Learn More</a>
+                </div>
+            </div>
+            <div class="project">
+                <img src="https://dummyimage.com/600x400/000/fff&text=Project+5" alt="Project 5">
+                <div class="project-info">
+                    <h3>Project 5</h3>
+                    <p>Description of Project 5</p>
+                    <a href="#">Learn More</a>
+                </div>
+            </div>
+            <div class="project">
+                <img src="https://dummyimage.com/600x400/000/fff&text=Project+6" alt="Project 6">
+                <div class="project-info">
+                    <h3>Project 6</h3>
+                    <p>Description of Project 6</p>
+                    <a href="#">Learn More</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="skills">
+        <h2>My Skills</h2>
+        <div class="skill-grid">
+            <div class="skill">
+                <img src="https://dummyimage.com/400x300/000/fff&text=Skill+1" alt="Skill 1">
+                <div class="skill-info">
+                    <h3>Skill 1</h3>
+                    <p>Description of Skill 1</p>
+                </div>
+            </div>
+            <div class="skill">
+                <img src="https://dummyimage.com/400x300/000/fff&text=Skill+2" alt="Skill 2">
+                <div class="skill-info">
+                    <h3>Skill 2</h3>
+                    <p>Description of Skill 2</p>
+                </div>
+            </div>
+            <div class="skill">
+                <img src="https://dummyimage.com/400x300/000/fff&text=Skill+3" alt="Skill 3">
+                <div class="skill-info">
+                    <h3>Skill 3</h3>
+                    <p>Description of Skill 3</p>
+                </div>
+            </div>
+            <div class="skill">
+                <img src="https://dummyimage.com/400x300/000/fff&text=Skill+4" alt="Skill 4">
+                <div class="skill-info">
+                    <h3>Skill 4</h3>
+                    <p>Description of Skill 4</p>
+                </div>
+            </div>
+            <div class="skill">
+                <img src="https://dummyimage.com/400x300/000/fff&text=Skill+5" alt="Skill<div class="skill-info">
+                    <h3>Skill 5</h3>
+                    <p>Description of Skill 5</p>
+                </div>
+            </div>
+            <div class="skill">
+                <img src="https://dummyimage.com/400x300/000/fff&text=Skill+6" alt="Skill 6">
+                <div class="skill-info">
+                    <h3>Skill 6</h3>
+                    <p>Description of Skill 6</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="contact">
+        <h2>Get in Touch</h2>
+        <div class="contact-form">
+            <form>
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+
+                <label for="message">Message:</label>
+                <textarea id="message" name="message" required></textarea>
+
+                <button type="submit">Send</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>'<!-- Visit: https://github.com/Ishanoshada/portflair -->
+<!-- Visit: https://github.com/Ishanoshada/portflair -->

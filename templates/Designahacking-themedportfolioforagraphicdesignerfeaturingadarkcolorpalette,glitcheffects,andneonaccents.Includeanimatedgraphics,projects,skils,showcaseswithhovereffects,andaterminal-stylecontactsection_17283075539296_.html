@@ -1,0 +1,458 @@
+<!-- Portfolio created by Ishan -->
+<!-- Check out my work at: https://github.com/Ishanoshada/portflair -->
+<!-- 2024/10/9 -->
+<!-- Portfolio created by Ishan -->
+'<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hacking-Themed Portfolio</title>
+  <style>
+    /* Global Styles */
+    body {
+      font-family: 'Courier New', monospace;
+      background-color: #1a1a1a;
+      color: #00ff00;
+      margin: 0;
+      padding: 0;
+    }
+
+    /* Navigation Bar */
+    nav {
+      background-color: #0d0d0d;
+      padding: 1rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    nav a {
+      color: #00ff00;
+      text-decoration: none;
+      margin: 0 1rem;
+      font-size: 1.1rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    nav a:before {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background-color: #00ff00;
+      transform: translateX(-100%);
+      transition: transform 0.3s ease-in-out;
+    }
+
+    nav a:hover:before {
+      transform: translateX(0);
+    }
+
+    /* Projects Section */
+    #projects {
+      padding: 4rem 2rem;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      grid-gap: 2rem;
+    }
+
+    .project-card {
+      background-color: #0d0d0d;
+      border-radius: 8px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+      position: relative;
+      cursor: pointer;
+    }
+
+    .project-card:before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(to right, #00ff00, #ff00ff);
+      opacity: 0;
+      transition: opacity 0.3s ease-in-out;
+    }
+
+    .project-card:hover:before {
+      opacity: 0.2;
+    }
+
+    .project-card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      transition: transform 0.3s ease-in-out;
+    }
+
+    .project-card:hover img {
+      transform: scale(1.1);
+    }
+
+    .project-info {
+      padding: 1.5rem;
+    }
+
+    .project-info h3 {
+      margin-top: 0;
+      font-size: 1.4rem;
+      text-shadow: 0 0 10px #00ff00, 0 0 20px #ff00ff;
+    }
+
+    .project-info p {
+      margin-bottom: 1.5rem;
+      font-size: 1.1rem;
+    }
+
+    .project-info a {
+      display: inline-block;
+      background-color: #00ff00;
+      color: #1a1a1a;
+      padding: 0.8rem 1.5rem;
+      border-radius: 4px;
+      text-decoration: none;
+      font-size: 1.1rem;
+      transition: background-color 0.3s ease-in-out;
+    }
+
+    .project-info a:hover {
+      background-color: #ff00ff;
+    }
+
+    /* Skills and Showcases Section */
+    #skills-showcases {
+      padding: 4rem 2rem;
+      background-color: #0d0d0d;
+      position: relative;
+      overflow: hidden;
+    }
+
+    #skills-showcases:before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(to right, #00ff00, #ff00ff);
+      opacity: 0.1;
+      z-index: 0;
+    }
+
+    .skills-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      grid-gap: 2rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    .skill-item {
+      background-color: #1a1a1a;
+      border-radius: 8px;
+      padding: 2rem;
+      text-align: center;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .skill-item:before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(to right, #00ff00, #ff00ff);
+      opacity: 0;
+      transition: opacity 0.3s ease-in-out;
+    }
+
+    .skill-item:hover:before {
+      opacity: 0.2;
+    }
+
+    .skill-item i {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+      text-shadow: 0 0 10px #00ff00, 0 0 20px #ff00ff;
+    }
+
+    .skill-item h3 {
+      margin-top: 0;
+      font-size: 1.4rem;
+      text-shadow: 0 0 10px #00ff00, 0 0 20px #ff00ff;
+    }
+
+    .skill-item p {
+      margin-bottom: 0;
+      font-size: 1.1rem;
+    }
+
+    .showcases-container {
+      display: flex;
+      justify-content: center;
+      margin-top: 4rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    .showcase-item {
+      width: 400px;
+      height: 300px;
+      background-color: #1a1a1a;
+      border-radius: 8px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+      margin: 0 1rem;
+      position: relative;
+      cursor: pointer;
+    }
+
+    .showcase-item:before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(to right, #00ff00, #ff00ff);
+      opacity: 0;
+      transition: opacity 0.3s ease-in-out;
+    }
+
+    .showcase-item:hover:before {
+      opacity: 0.2;
+    }
+
+    .showcase-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.3s ease-in-out;
+    }
+
+    .showcase-item:hover img {
+      transform: scale(1.1);
+    }
+
+    .showcase-info {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      background-color: rgba(26, 26, 26, 0.8);
+      padding: 1rem;
+      color: #00ff00;
+      transition: transform 0.3s ease-in-out;
+    }
+
+    .showcase-item:hover .showcase-info {
+      transform: translateY(0);
+    }
+
+    .showcase-info h3 {
+      margin-top: 0;
+      font-size: 1.2rem;
+      text-shadow: 0 0 10px #00ff00, 0 0 20px #ff00ff;
+    }
+
+    .showcase-info p {
+      margin-bottom: 0;
+      font-size: 1rem;
+    }
+
+    /* Terminal-Style Contact Section */
+    #contact {
+      padding: 4rem 2rem;
+      background-color: #0d0d0d;
+      position: relative;
+      overflow: hidden;
+    }
+
+    #contact:before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(to right, #00ff00, #ff00ff);
+      opacity: 0.1;
+      z-index: 0;
+    }
+
+    .terminal-container {
+      position: relative;
+      z-index: 1;
+      background-color: #1a1a1a;
+      border-radius: 8px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      padding: 2rem;
+      font-size: 1.1rem;
+      line-height: 1.5;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .terminal-container:before {
+      content: '$ ';
+      color: #00ff00;
+      margin-right: 0.5rem;
+    }
+
+    .terminal-container input,
+    .terminal-container button {
+      background-color: transparent;
+      border: none;
+      outline: none;
+      color: #00ff00;
+      font-family: 'Courier New', monospace;
+      font-size: 1.1rem;
+    }
+
+    .terminal-container input {
+      width: 80%;
+      border-bottom: 2px solid #00ff00;
+      padding-bottom: 0.5rem;
+      margin-right: 1rem;
+    }
+
+    .terminal-container button {
+      background-color: #00ff00;
+      color: #1a1a1a;
+      padding: 0.5rem 1rem;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background-color 0.3s ease-in-out;
+    }
+
+    .terminal-container button:hover {
+      background-color: #ff00ff;
+    }
+
+    .terminal-container p {
+      margin-top: 2rem;
+      animation: typewriter 4s steps(20) infinite;
+    }
+
+    @keyframes typewriter {
+      from { width: 0; }
+      to { width: 100%; }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="#">Home</a>
+    <a href="#">Projects</a>
+    <a href="#">Skills</a>
+    <a href="#">Showcases</a>
+    <a href="#">Contact</a>
+  </nav>
+
+  <section id="projects">
+    <div class="project-card">
+      <img src="https://dummyimage.com/600x400/ccc/000&text=Project+1" alt="Project 1">
+      <div class="project-info">
+        <h3>Project 1</h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+        <a href="#">View Project</a>
+      </div>
+    </div>
+    <div class="project-card">
+      <img src="https://dummyimage.com/600x400/ccc/000&text=Project+2" alt="Project 2">
+      <div class="project-info">
+        <h3>Project 2</h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+        <a href="#">View Project</a>
+      </div>
+    </div>
+    <div class="project-card">
+      <img src="https://dummyimage.com/600x400/ccc/000&text=Project+3" alt="Project 3">
+      <div class="project-info">
+        <h3>Project 3</h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+        <a href="#">View Project</a>
+      </div>
+    </div>
+    <div class="project-card">
+      <img src="https://dummyimage.com/600x400/ccc/000&text=Project+4" alt="Project 4">
+      <div class="project-info">
+        <h3>Project 4</h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+        <a href="#">View Project</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="skills-showcases">
+    <div class="skills-container">
+      <div class="skill-item">
+        <i class="fas fa-code"></i>
+        <h3>Coding</h3>
+        <p>Proficient in various programming languages.</p>
+      </div>
+      <div class="skill-item">
+        <i class="fas fa-brush"></i>
+        <h3>Design</h3>
+        <p>Expertise in graphic design and UI/UX.</p>
+      </div>
+      <div class="skill-item">
+        <i class="fas fa-network-wired"></i>
+        <h3>Networking</h3>
+        <p>Understanding of network architecture and security.</p>
+      </div>
+      <div class="skill-item">
+        <i class="fas fa-terminal"></i>
+        <h3>Hacking</h3>
+        <p>Proficient in ethical hacking and penetration testing.</p>
+      </div>
+    </div>
+
+    <div class="showcases-container">
+      <div class="showcase-item">
+        <img src="https://dummyimage.com/400x300/ccc/000&text=Showcase+1" alt="Showcase 1">
+        <div class="showcase-info">
+          <h3>Showcase 1</h3>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+        </div>
+      </div>
+      <div class="showcase-item">
+        <img src="https://dummyimage.com/400x300/ccc/000&text=Showcase+2" alt="Showcase 2">
+        <div class="showcase-info">
+          <h3>Showcase 2</h3>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+        </div>
+      </div>
+      <div class="showcase-item">
+        <img src="https://dummyimage.com/400x300/ccc/000&text=Showcase+3" alt="Showcase 3">
+        <div class="showcase-info">
+          <h3>Showcase 3</h3>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="terminal-container">
+      <input type="text" placeholder="Type your message here..." />
+      <button>Send</button>
+      <p>Welcome to the Hacking-Themed Portfolio! Feel free to reach out and let's collaborate on your next project.</p>
+    </div>
+  </section>
+
+  <script src="https://kit.fontawesome.com/your-font-awesome-kit.js" crossorigin="anonymous"></script>
+</body>
+</html>'<!-- Visit: https://github.com/Ishanoshada/portflair -->
+<!-- Visit: https://github.com/Ishanoshada/portflair -->

@@ -1,0 +1,502 @@
+<!-- Portfolio created by Ishan -->
+<!-- Check out my work at: https://github.com/Ishanoshada/portflair -->
+<!-- 2024/10/9 -->
+<!-- Portfolio created by Ishan -->
+'<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Abstract Portfolio</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #0d0d0d;
+      color: #fff;
+      overflow-x: hidden;
+    }
+
+    /* Navigation */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 40px;
+      background-color: rgba(13, 13, 13, 0.8);
+      backdrop-filter: blur(10px);
+      position: relative;
+      z-index: 100;
+    }
+
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: 700;
+      margin: 0 20px;
+      position: relative;
+      transition: color 0.3s ease;
+    }
+
+    nav a:before {
+      content: "";
+      position: absolute;
+      width: 0;
+      height: 2px;
+      bottom: -5px;
+      left: 0;
+      background-color: #ff00ff;
+      transition: width 0.3s ease;
+    }
+
+    nav a:hover {
+      color: #ff00ff;
+    }
+
+    nav a:hover:before {
+      width: 100%;
+    }
+
+    /* Hero Section */
+    .hero {
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-bg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(45deg, #ff00ff, #00ffff);
+      z-index: -1;
+      animation: heroAnimationBg 10s ease infinite;
+    }
+
+    .hero-shapes {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .hero-shape {
+      width: 300px;
+      height: 300px;
+      background-color: rgba(255, 255, 255, 0.1);
+      border-radius: 50%;
+      position: absolute;
+      animation: heroAnimationShapes 10s ease infinite;
+    }
+
+    .hero-shape:nth-child(1) {
+      left: 10%;
+      top: 20%;
+      animation-delay: 2s;
+    }
+
+    .hero-shape:nth-child(2) {
+      right: 10%;
+      top: 30%;
+      animation-delay: 4s;
+    }
+
+    .hero-shape:nth-child(3) {
+      left: 20%;
+      bottom: 20%;
+      animation-delay: 6s;
+    }
+
+    .hero-shape:nth-child(4) {
+      right: 20%;
+      bottom: 30%;
+      animation-delay: 8s;
+    }
+
+    .hero-content {
+      text-align: center;
+      z-index: 1;
+    }
+
+    .hero-title {
+      font-size: 4rem;
+      font-weight: 700;
+      margin-bottom: 20px;
+      background: linear-gradient(to right, #ff00ff, #00ffff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: heroAnimationTitle 5s ease infinite;
+    }
+
+    .hero-description {
+      font-size: 1.5rem;
+      margin-bottom: 40px;
+      color: #ddd;
+    }
+
+    .hero-cta {
+      display: inline-block;
+      padding: 15px 30px;
+      background-color: #ff00ff;
+      color: #fff;
+      text-decoration: none;
+      font-weight: 700;
+      border-radius: 30px;
+      transition: background-color 0.3s ease;
+    }
+
+    .hero-cta:hover {
+      background-color: #00ffff;
+    }
+
+    /* Project Showcase */
+    .project-showcase {
+      padding: 80px 40px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      grid-gap: 40px;
+    }
+
+    .project-item {
+      background-color: #1a1a1a;
+      border-radius: 10px;
+      overflow: hidden;
+      position: relative;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+
+    .project-item:hover {
+      transform: scale(1.05);
+    }
+
+    .project-image {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      filter: brightness(0.8);
+      transition: filter 0.3s ease;
+    }
+
+    .project-item:hover .project-image {
+      filter: brightness(1);
+    }
+
+    .project-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(255, 0, 255, 0.7);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .project-item:hover .project-overlay {
+      opacity: 1;
+    }
+
+    .project-title {
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-bottom: 10px;
+      color: #fff;
+    }
+
+    .project-description {
+      font-size: 1rem;
+      color: #ddd;
+      text-align: center;
+      padding: 0 20px;
+    }
+
+    /* Interactive Exploration */
+    .interactive-exploration {
+      padding: 80px 40px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .interactive-title {
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 40px;
+      background: linear-gradient(to right, #ff00ff, #00ffff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .interactive-canvas {
+      width: 100%;
+      max-width: 800px;
+      height: 500px;
+      background-color: #1a1a1a;
+      border-radius: 10px;
+      box-shadow: 0 0 20px rgba(255, 0, 255, 0.5);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .interactive-canvas canvas {
+      width: 100%;
+      height: 100%;
+      display: block;
+    }
+
+    .interactive-instructions {
+      font-size: 1rem;
+      color: #ddd;
+      margin-top: 20px;
+      text-align: center;
+    }
+
+    /* Animations */
+    @keyframes heroAnimationBg {
+      0% {
+        background-position: 0% 50%;
+      }
+      50% {
+        background-position: 100% 50%;
+      }
+      100% {
+        background-position: 0% 50%;
+      }
+    }
+
+    @keyframes heroAnimationShapes {
+      0% {
+        transform: scale(1) rotate(0deg);
+      }
+      50% {
+        transform: scale(1.2) rotate(180deg);
+      }
+      100% {
+        transform: scale(1) rotate(360deg);
+      }
+    }
+
+    @keyframes heroAnimationTitle {
+      0% {
+        background-position: 0% 50%;
+      }
+      50% {
+        background-position: 100% 50%;
+      }
+      100% {
+        background-position: 0% 50%;
+      }
+    }
+
+    /* Responsive Styles */
+    @media (max-width: 768px) {
+      .hero-title {
+        font-size: 3rem;
+      }
+
+      .hero-description {
+        font-size: 1.2rem;
+      }
+
+      .project-title {
+        font-size: 1.2rem;
+      }
+
+      .project-description {
+        font-size: 0.9rem;
+      }
+
+      .interactive-title {
+        font-size: 2rem;
+      }
+
+      .interactive-canvas {
+        height: 400px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="#">Home</a>
+    <a href="#">Portfolio</a>
+    <a href="#">About</a>
+    <a href="#">Contact</a>
+  </nav>
+
+  <div class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-shapes">
+      <div class="hero-shape"></div>
+      <div class="hero-shape"></div>
+      <div class="hero-shape"></div>
+      <div class="hero-shape"></div>
+    </div>
+    <div class="hero-content">
+      <h1 class="hero-title">Create a Mind-Bending Portfolio</h1>
+      <p class="hero-description">Explore our abstract and interactive portfolio designs.</p>
+      <a href="#" class="hero-cta">View Portfolio</a>
+    </div>
+  </div>
+
+  <div class="project-showcase">
+    <div class="project-item">
+      <img src="https://dummyimage.com/600x400/ccc/000&text=Project+1" alt="Project 1" class="project-image">
+      <div class="project-overlay">
+        <h3 class="project-title">Project 1</h3>
+        <p class="project-description">Discover the warping and twisting visuals of this abstract project.</p>
+      </div>
+    </div>
+    <div class="project-item">
+      <img src="https://dummyimage.com/600x400/ccc/000&text=Project+2" alt="Project 2" class="project-image">
+      <div class="project-overlay">
+        <h3 class="project-title">Project 2</h3>
+        <p class="project-description">Immerse yourself in the kaleidoscopic visuals of this stunning design.</p>
+      </div>
+    </div>
+    <div class="project-item">
+      <img src="https://dummyimage.com/600x400/ccc/000&text=Project+3" alt="Project 3" class="project-image">
+      <div class="project-overlay">
+        <h3 class="project-title">Project 3</h3>
+        <p class="project-description">Explore the dynamic 3D shapes and neon grids of this captivating project.</p>
+      </div>
+    </div>
+    <div class="project-item">
+      <img src="https://dummyimage.com/600x400/ccc/000&text=Project+4" alt="Project 4" class="project-image">
+      <div class="project-overlay">
+        <h3 class="project-title">Project 4</h3>
+        <p class="project-description">Dive into the mesmerizing world of this abstract and interactive design.</p>
+      </div>
+    </div>
+    <div class="project-item">
+      <img src="https://dummyimage.com/600x400/ccc/000&text=Project+5" alt="Project 5" class="project-image">
+      <div class="project-overlay">
+        <h3 class="project-title">Project 5</h3>
+        <p class="project-description">Experience the captivating visuals and interactive elements of this portfolio piece.</p>
+      </div>
+    </div>
+    <div class="project-item">
+      <img src="https://dummyimage.com/600x400/ccc/000&text=Project+6" alt="Project 6" class="project-image">
+      <div class="project-overlay">
+        <h3 class="project-title">Project 6</h3>
+        <p class="project-description">Discover the unique blend of 3D shapes, neon grids, and kaleidoscopic visuals.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="interactive-exploration">
+    <h2 class="interactive-title">Explore the Abstract</h2>
+    <div class="interactive-canvas">
+      <canvas id="interactive-canvas"></canvas>
+    </div>
+    <p class="interactive-instructions">Use your mouse or touch the canvas to interact with the dynamic 3D shapes.</p>
+  </div>
+
+  <script>
+    // Interactive canvas functionality
+    const canvas = document.getElementById('interactive-canvas');
+    const ctx = canvas.getContext('2d');
+    let shapes = [];
+    let animationFrame;
+
+    function initializeShapes() {
+      const numShapes = 50;
+      for (let i = 0; i < numShapes; i++) {
+        const x = Math.random() * canvas.width;
+        const y = Math.random() * canvas.height;
+        const radius = Math.random() * 50 + 10;
+        const color = `hsl(${Math.random() * 360}, 100%, 50%)`;
+        const shape = { x, y, radius, color, rotation: Math.random() * 2 * Math.PI };
+        shapes.push(shape);
+      }
+    }
+
+    function updateShapes(mouseX, mouseY) {
+      shapes.forEach((shape) => {
+        const distance = Math.sqrt((shape.x - mouseX) ** 2 + (shape.y - mouseY) ** 2);
+        const maxDistance = 200;
+        if (distance < maxDistance) {
+          shape.radius = Math.max(10, shape.radius - (maxDistance - distance) / 20);
+          shape.rotation += (maxDistance - distance) / 1000;
+        } else {
+          shape.radius = Math.min(50, shape.radius + (distance - maxDistance) / 20);
+          shape.rotation -= (distance - maxDistance) / 1000;
+        }
+      });
+    }
+
+    function drawShapes() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      shapes.forEach((shape) => {
+        ctx.beginPath();
+        ctx.arc(shape.x, shape.y, shape.radius, 0, 2 * Math.PI);
+        ctx.fillStyle = shape.color;
+        ctx.fill();
+        ctx.save();
+        ctx.translate(shape.x, shape.y);
+        ctx.rotate(shape.rotation);
+        ctx.beginPath();
+        ctx.moveTo(-shape.radius / 2, 0);
+        ctx.lineTo(shape.radius / 2, 0);
+        ctx.strokeStyle = '#fff';
+        ctx.lineWidth = 2;
+        ctx.stroke();
+        ctx.restore();
+      });
+      animationFrame = requestAnimationFrame(drawShapes);
+    }
+
+    canvas.addEventListener('mousemove', (event) => {
+      const rect = canvas.getBoundingClientRect();
+      const mouseX = event.clientX - rect.left;
+      const mouseY = event.clientY - rect.top;
+      updateShapes(mouseX, mouseY);
+    });
+
+    canvas.addEventListener('touchmove', (event) => {
+      const rect = canvas.getBoundingClientRect();
+      const mouseX = eventconst mouseY = event.touches[0].clientY - rect.top;
+      updateShapes(mouseX, mouseY);
+    });
+
+    canvas.addEventListener('mouseleave', () => {
+      updateShapes(-1, -1);
+    });
+
+    canvas.addEventListener('touchend', () => {
+      updateShapes(-1, -1);
+    });
+
+    function resizeCanvas() {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+      initializeShapes();
+      drawShapes();
+    }
+
+    window.addEventListener('resize', resizeCanvas);
+
+    resizeCanvas();
+  </script>
+</body>
+</html>'<!-- Visit: https://github.com/Ishanoshada/portflair -->
+<!-- Visit: https://github.com/Ishanoshada/portflair -->

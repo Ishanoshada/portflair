@@ -1,0 +1,442 @@
+<!-- Portfolio created by Ishan -->
+<!-- Check out my work at: https://github.com/Ishanoshada/portflair -->
+<!-- 2024/10/9 -->
+<!-- Portfolio created by Ishan -->
+'<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Black Hole Portfolio</title>
+  <style>
+    /* General Styles */
+    body {
+      font-family: 'Roboto', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #0f0f0f;
+      color: #fff;
+      overflow-x: hidden;
+    }
+
+    /* Navigation */
+    nav {
+      display: flex;
+      justify-content: center;
+      padding: 1.5rem 0;
+      background-color: rgba(15, 15, 15, 0.8);
+      backdrop-filter: blur(10px);
+    }
+
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      font-size: 1.1rem;
+      margin: 0 1.5rem;
+      position: relative;
+      transition: color 0.3s ease;
+    }
+
+    nav a:after {
+      content: "";
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background-color: #9b59b6;
+      transition: width 0.3s ease;
+    }
+
+    nav a:hover {
+      color: #9b59b6;
+    }
+
+    nav a:hover:after {
+      width: 100%;
+    }
+
+    /* Interactive Project Galaxy */
+    #project-galaxy {
+      position: relative;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+    }
+
+    #project-galaxy::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(ellipse at center, rgba(15, 15, 15, 0.8) 0%, rgba(15, 15, 15, 1) 100%);
+      z-index: -1;
+    }
+
+    #project-galaxy::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: url("https://dummyimage.com/1200x500/0f0f0f/9b59b6.jpg&text=Black+Hole");
+      background-size: cover;
+      background-position: center;
+      filter: blur(50px);
+      z-index: -2;
+    }
+
+    .project-planet {
+      position: absolute;
+      width: 100px;
+      height: 100px;
+      background-color: #9b59b6;
+      border-radius: 50%;
+      box-shadow: 0 0 20px rgba(155, 89, 182, 0.8);
+      animation: glitch 2s infinite linear;
+      cursor: pointer;
+    }
+
+    .project-planet-details {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: rgba(15, 15, 15, 0.8);
+      backdrop-filter: blur(10px);
+      padding: 2rem;
+      border-radius: 10px;
+      text-align: center;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.3s ease, visibility 0.3s ease;
+    }
+
+    .project-planet-details h3 {
+      color: #9b59b6;
+      font-size: 1.5rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .project-planet-details p {
+      font-size: 1rem;
+      margin-bottom: 1rem;
+    }
+
+    .project-planet-details img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 5px;
+      box-shadow: 0 0 20px rgba(155, 89, 182, 0.8);
+    }
+
+    .project-planet:hover .project-planet-details {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    @keyframes glitch {
+      0% {
+        transform: scale(1);
+      }
+      20% {
+        transform: scale(1.1) rotate(5deg);
+      }
+      40% {
+        transform: scale(0.9) rotate(-5deg);
+      }
+      60% {
+        transform: scale(1.05) rotate(3deg);
+      }
+      80% {
+        transform: scale(0.95) rotate(-3deg);
+      }
+      100% {
+        transform: scale(1);
+      }
+    }
+
+    /* Cosmic Skills and Experience */
+    #cosmic-skills {
+      padding: 4rem 0;
+      background-color: #0f0f0f;
+      position: relative;
+      overflow: hidden;
+    }
+
+    #cosmic-skills::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: url("https://dummyimage.com/1920x1080/0f0f0f/9b59b6.jpg&text=Cosmic+Landscape");
+      background-size: cover;
+      background-position: center;
+      filter: blur(50px);
+      z-index: -1;
+    }
+
+    .skill-item {
+      position: relative;
+      display: inline-block;
+      font-size: 1.2rem;
+      padding: 1rem 2rem;
+      margin: 1rem;
+      background-color: rgba(155, 89, 182, 0.2);
+      border-radius: 5px;
+      box-shadow: 0 0 20px rgba(155, 89, 182, 0.5);
+      animation: float 5s ease-in-out infinite;
+    }
+
+    .skill-item:before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(155, 89, 182, 0.1);
+      border-radius: 5px;
+      z-index: -1;
+      animation: pulse 2s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(-20px);
+      }
+      100% {
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes pulse {
+      0% {
+        transform: scale(1);
+        opacity: 0.5;
+      }
+      50% {
+        transform: scale(1.2);
+        opacity: 1;
+      }
+      100% {
+        transform: scale(1);
+        opacity: 0.5;
+      }
+    }
+
+    /* Neon Contact Form */
+    #contact {
+      padding: 4rem 0;
+      background-image: linear-gradient(to bottom, #0f0f0f, #1a1a1a);
+      position: relative;
+      overflow: hidden;
+    }
+
+    #contact::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: url("https://dummyimage.com/1920x1080/1a1a1a/9b59b6.jpg&text=Neon+Landscape");
+      background-size: cover;
+      background-position: center;
+      filter: blur(50px);
+      z-index: -1;
+    }
+
+    .neon-form {
+      max-width: 500px;
+      margin: 0 auto;
+      padding: 2rem;
+      background-color: rgba(26, 26, 26, 0.8);
+      backdrop-filter: blur(10px);
+      border-radius: 10px;
+      box-shadow: 0 0 20px rgba(155, 89, 182, 0.8);
+    }
+
+    .neon-form h2 {
+      text-align: center;
+      font-size: 2rem;
+      margin-bottom: 2rem;
+      color: #9b59b6;
+      text-shadow: 0 0 10px rgba(155, 89, 182, 0.8);
+    }
+
+    .neon-form .form-group {
+      margin-bottom: 1.5rem;
+    }
+
+    .neon-form label {
+      display: block;
+      font-size: 1.1rem;
+      margin-bottom: 0.5rem;
+      color: #9b59b6;
+      text-shadow: 0 0 5px rgba(155, 89, 182, 0.8);
+    }
+
+    .neon-form input,
+    .neon-form textarea {
+      width: 100%;
+      padding: 0.8rem 1rem;
+      font-size: 1rem;
+      border: none;
+      border-radius: 5px;
+      background-color: rgba(155, 89, 182, 0.1);
+      color: #fff;
+      box-shadow: 0 0 10px rgba(155, 89, 182, 0.5);
+      transition: box-shadow 0.3s ease;
+    }
+
+    .neon-form input:focus,
+    .neon-form textarea:focus {
+      outline: none;
+      box-shadow: 0 0 20px rgba(155, 89, 182, 0.8);
+    }
+
+    .neon-form button {
+      display: block;
+      width: 100%;
+      padding: 0.8rem 1rem;
+      font-size: 1.1rem;
+      background-color: #9b59b6;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      box-shadow: 0 0 10px rgba(155, 89, 182, 0.8);
+      transition: box-shadow 0.3s ease;
+    }
+
+    .neon-form button:hover {
+      box-shadow: 0 0 20px rgba(155, 89, 182, 0.8);
+    }
+
+    /* Media Queries */
+    @media (max-width: 768px) {
+      nav a {
+        font-size: 1rem;
+        margin: 0 1rem;
+      }
+
+      .project-planet {
+        width: 80px;
+        height: 80px;
+      }
+
+      .skill-item {
+        font-size: 1rem;
+        padding: 0.8rem 1.5rem;
+        margin: 0.8rem;
+      }
+
+      .neon-form {
+        max-width: 90%;
+        padding: 1.5rem;
+      }
+
+      .neon-form h2 {
+        font-size: 1.8rem;
+      }
+
+      .neon-form label {
+        font-size: 1rem;
+      }
+
+      .neon-form input,
+      .neon-form textarea {
+        padding: 0.6rem 0.8rem;
+        font-size: 0.9rem;
+      }
+
+      .neon -form button {
+        font-size: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="#">Home</a>
+    <a href="#">Projects</a>
+    <a href="#">Skills</a>
+    <a href="#">Contact</a>
+  </nav>
+
+  <section id="project-galaxy">
+    <div class="project-planet" style="top: 20%; left: 15%;">
+      <div class="project-planet-details">
+        <h3>Project 1</h3>
+        <p>Description of Project 1</p>
+        <img src="https://dummyimage.com/600x400/9b59b6/fff.jpg&text=Project+1" alt="Project 1">
+      </div>
+    </div>
+    <div class="project-planet" style="top: 40%; left: 30%;">
+      <div class="project-planet-details">
+        <h3>Project 2</h3>
+        <p>Description of Project 2</p>
+        <img src="https://dummyimage.com/600x400/9b59b6/fff.jpg&text=Project+2" alt="Project 2">
+      </div>
+    </div>
+    <div class="project-planet" style="top: 60%; left: 50%;">
+      <div class="project-planet-details">
+        <h3>Project 3</h3>
+        <p>Description of Project 3</p>
+        <img src="https://dummyimage.com/600x400/9b59b6/fff.jpg&text=Project+3" alt="Project 3">
+      </div>
+    </div>
+    <div class="project-planet" style="top: 80%; left: 70%;">
+      <div class="project-planet-details">
+        <h3>Project 4</h3>
+        <p>Description of Project 4</p>
+        <img src="https://dummyimage.com/600x400/9b59b6/fff.jpg&text=Project+4" alt="Project 4">
+      </div>
+    </div>
+  </section>
+
+  <section id="cosmic-skills">
+    <div class="skill-item">Backend Development</div>
+    <div class="skill-item">Database Management</div>
+    <div class="skill-item">Cloud Infrastructure</div>
+    <div class="skill-item">API Design</div>
+    <div class="skill-item">DevOps Automation</div>
+    <div class="skill-item">Microservices Architecture</div>
+    <div class="skill-item">Serverless Computing</div>
+    <div class="skill-item">Scalable Systems</div>
+  </section>
+
+  <section id="contact">
+    <div class="neon-form">
+      <h2>Get in Touch</h2>
+      <form>
+        <div class="form-group">
+          <label for="name">Name</label>
+          <input type="text" id="name" name="name" placeholder="Enter your name" required>
+        </div>
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" placeholder="Enter your email" required>
+        </div>
+        <div class="form-group">
+          <label for="message">Message</label>
+          <textarea id="message" name="message" rows="5" placeholder="Enter your message" required></textarea>
+        </div>
+        <button type="submit">Send Message</button>
+      </form>
+    </div>
+  </section>
+</body>
+</html>'<!-- Visit: https://github.com/Ishanoshada/portflair -->
+<!-- Visit: https://github.com/Ishanoshada/portflair -->

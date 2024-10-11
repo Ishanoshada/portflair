@@ -1,0 +1,409 @@
+<!-- Portfolio created by Ishan -->
+<!-- Check out my work at: https://github.com/Ishanoshada/portflair -->
+<!-- 2024/10/9 -->
+<!-- Portfolio created by Ishan -->
+'<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Black Hole Portfolio</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Orbitron', sans-serif;
+            background: radial-gradient(ellipse at center, #0c0c0c 0%, #000000 100%);
+            color: #fff;
+            overflow-x: hidden;
+        }
+
+        /* Navigation */
+        nav {
+            display: flex;
+            justify-content: center;
+            padding: 20px 0;
+            position: relative;
+            z-index: 1;
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 20px;
+            font-size: 1.2rem;
+            position: relative;
+            transition: all 0.3s ease-in-out;
+        }
+
+        nav a::after {
+            content: "";
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: #9b59b6;
+            transition: all 0.3s ease-in-out;
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        /* Project Showcase */
+        .project-showcase {
+            padding: 50px 0;
+            position: relative;
+            z-index: 1;
+        }
+
+        .project-showcase h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 50px;
+            text-shadow: 0 0 20px #9b59b6, 0 0 30px #9b59b6, 0 0 40px #9b59b6;
+        }
+
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-gap: 40px;
+            justify-items: center;
+        }
+
+        .project-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(155, 89, 182, 0.5);
+            transition: all 0.3s ease-in-out;
+        }
+
+        .project-item:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 40px rgba(155, 89, 182, 0.8);
+        }
+
+        .project-item img {
+            width: 100%;
+            height: auto;
+            display: block;
+            filter: blur(2px);
+            transition: all 0.3s ease-in-out;
+        }
+
+        .project-item:hover img {
+            filter: blur(0);
+        }
+
+        .project-details {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            opacity: 0;
+            transition: all 0.3s ease-in-out;
+        }
+
+        .project-item:hover .project-details {
+            opacity: 1;
+        }
+
+        .project-details h3 {
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+            text-shadow: 0 0 10px #9b59b6, 0 0 20px #9b59b6;
+        }
+
+        .project-details p {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            text-shadow: 0 0 10px #9b59b6, 0 0 20px #9b59b6;
+        }
+
+        .project-details a {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #9b59b6;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 1.2rem;
+            transition: all 0.3s ease-in-out;
+        }
+
+        .project-details a:hover {
+            background-color: #8e44ad;
+            transform: translateY(-3px);
+        }
+
+        /* Skill Galaxy */
+        .skill-galaxy {
+            padding: 50px 0;
+            position: relative;
+            z-index: 1;
+        }
+
+        .skill-galaxy h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 50px;
+            text-shadow: 0 0 20px #9b59b6, 0 0 30px #9b59b6, 0 0 40px #9b59b6;
+        }
+
+        .skill-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            grid-gap: 40px;
+            justify-items: center;
+        }
+
+        .skill-item {
+            position: relative;
+            width: 150px;
+            height: 150px;
+            background-color: rgba(155, 89, 182, 0.2);
+            border-radius: 50%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            transition: all 0.3s ease-in-out;
+            cursor: pointer;
+        }
+
+        .skill-item:hover {
+            transform: scale(1.1);
+            background-color: rgba(155, 89, 182, 0.4);
+            box-shadow: 0 0 20px rgba(155, 89, 182, 0.8);
+        }
+
+        .skill-item i {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            color: #fff;
+            text-shadow: 0 0 10px #9b59b6, 0 0 20px #9b59b6;
+        }
+
+        .skill-item h3 {
+            font-size: 1.2rem;
+            margin-bottom: 5px;
+            color: #fff;
+            text-shadow: 0 0 10px #9b59b6, 0 0 20px #9b59b6;
+        }
+
+        .skill-item p {
+            font-size: 1rem;
+            color: #fff;
+            text-shadow: 0 0 10px #9b59b6, 0 0 20px #9b59b6;
+        }
+
+        /* Vaporwave Contact Form */
+        .vaporwave-contact {
+            padding: 50px 0;
+            position: relative;
+            z-index: 1;
+            background: linear-gradient(45deg, #b53cad, #764ba2, #667eea);
+            background-size: 400% 400%;
+            animation: vaporwaveGradient 10s ease infinite;
+        }
+
+        @keyframes vaporwaveGradient {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        .vaporwave-contact h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 50px;
+            text-shadow: 0 0 20px #ffffff, 0 0 30px #ffffff, 0 0 40px #ffffff;
+        }
+
+        .vaporwave-form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            animation: glitch 1s infinite;
+        }
+
+        @keyframes glitch {
+            0% {
+                transform: translate(0);
+            }
+            20% {
+                transform: translate(-2px, 2px);
+            }
+            40% {
+                transform: translate(-2px, -2px);
+            }
+            60% {
+                transform: translate(2px, 2px);
+            }
+            80% {
+                transform: translate(2px, -2px);
+            }
+            100% {
+                transform: translate(0);
+            }
+        }
+
+        .vaporwave-form input,
+        .vaporwave-form textarea {
+            width: 300px;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: none;
+            border-radius: 5px;
+            background-color: rgba(255, 255, 255, 0.2);
+            color: #fff;
+            font-size: 1.2rem;
+            font-family: 'Orbitron', sans-serif;
+            transition: all 0.3s ease-in-out;
+        }
+
+        .vaporwave-form input:focus,
+        .vaporwave-form textarea:focus {
+            outline: none;
+            background-color: rgba(255, 255, 255, 0.4);
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.8);
+        }
+
+        .vaporwave-form input::placeholder,
+        .vaporwave-form textarea::placeholder {
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        .vaporwave-form button {
+            padding: 10px 20px;
+            background-color: #9b59b6;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.2rem;
+            font-family: 'Orbitron', sans-serif;
+            cursor: pointer;
+            transition: all 0.3s ease-in-out;
+            position: relative;
+            z-index: 1;
+        }
+
+        .vaporwave-form button:before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(255, 255, 255, 0.2);
+            z-index: -1;
+            opacity: 0;
+            transition: all 0.3s ease-in-out;
+        }
+
+        .vaporwave-form button:hover {
+            background-color: #8e44ad;
+            transform: translateY(-3px);
+        }
+
+        .vaporwave-form button:hover:before {
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <a href="#">Home</a>
+        <a href="#">Projects</a>
+        <a href="#">Skills</a>
+        <a href="#">Contact</a>
+    </nav>
+
+    <!-- Project Showcase -->
+    <section class="project-showcase">
+        <h2>Project Showcase</h2>
+        <div class="project-grid">
+            <div class="project-item">
+                <img src="https://dummyimage.com/600x400/ccc/000&text=Project+1" alt="Project 1">
+                <div class="project-details">
+                    <h3>Project 1</h3>
+                    <p>A brief description of the project.</p>
+                    <a href="#">View Project</a>
+                </div>
+            </div>
+            <div class="project-item">
+                <img src="https://dummyimage.com/600x400/ccc/000&text=Project+2" alt="Project 2">
+                <div class="project-details">
+                    <h3>Project 2</h3>
+                    <p>A brief description of the project.</p>
+                    <a href="#">View Project</a>
+                </div>
+            </div>
+            <div class="project-item">
+                <img src="https://dummyimage.com/600x400/ccc/000&text=Project+3" alt="Project 3">
+                <div class="project-details">
+                    <h3>Project 3</h3>
+                    <p>A brief description of the project.</p>
+                    <a href="#">View Project</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skill Galaxy -->
+    <section class="skill-galaxy">
+        <h2>Skill Galaxy</h2>
+        <div class="skill-grid">
+            <div class="skill-item">
+                <i class="fas fa-code"></i>
+                <h3>JavaScript</h3>
+                <p>Expert</p>
+            </div>
+            <div class="skill-item">
+                <i class="fab fa-react"></i>
+                <h3>React.js</h3>
+                <p>Proficient</p>
+            </div>
+            <div class="skill-item">
+                <i class="fab fa-node-js"></i>
+                <h3>Node.js</h3>
+                <p>Expert</p>
+            </div>
+            <div class="skill-item">
+                <i class="fas fa-database"></i>
+                <h3>MongoDB</h3>
+                <p>Proficient</p>
+            </div>
+            <div class="skill-item">
+                <i class="fas fa-server"></i>
+                <h3>Express.js</h3>
+                <p>Expert</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Vaporwave Contact Form -->
+    <section class="vaporwave-contact">
+        <h2>Vaporwave Contact</h2>
+        <form class="vaporwave-form">
+            <input type="text" placeholder="Name" required>
+            <input type="email" placeholder="Email" required>
+            <textarea placeholder="Message" required></textarea>
+            <button type="submit">Submit</button>
+        </form>
+    </section>
+</body>
+</html>'<!-- Visit: https://github.com/Ishanoshada/portflair -->
+<!-- Visit: https://github.com/Ishanoshada/portflair -->

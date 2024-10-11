@@ -1,0 +1,486 @@
+<!-- Portfolio created by Ishan -->
+<!-- Check out my work at: https://github.com/Ishanoshada/portflair -->
+<!-- 2024/10/9 -->
+<!-- Portfolio created by Ishan -->
+'<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hacker's Playground - Graphic Design Portfolio</title>
+  <style>
+    /* Global Styles */
+    @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
+
+    body {
+      font-family: 'Orbitron', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #0c0c0c;
+      color: #fff;
+      overflow-x: hidden;
+    }
+
+    /* Navigation Bar */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 40px;
+      background-color: #0c0c0c;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      position: relative;
+      z-index: 100;
+    }
+
+    nav ul {
+      display: flex;
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    nav ul li {
+      margin-right: 30px;
+    }
+
+    nav ul li a {
+      color: #fff;
+      text-decoration: none;
+      font-size: 16px;
+      font-weight: 700;
+      text-transform: uppercase;
+      position: relative;
+      transition: color 0.3s ease;
+    }
+
+    nav ul li a::after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 2px;
+      background-color: #6eff3e;
+      bottom: -5px;
+      left: 0;
+      transition: width 0.3s ease;
+    }
+
+    nav ul li a:hover {
+      color: #6eff3e;
+    }
+
+    nav ul li a:hover::after {
+      width: 100%;
+    }
+
+    /* Hero Section */
+    .hero {
+      position: relative;
+      height: 80vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: url('https://dummyimage.com/1920x1080/0c0c0c/6eff3e.jpg&text=Hacker%27s+Playground');
+      background-size: cover;
+      background-position: center;
+      filter: brightness(0.6) contrast(1.2) saturate(1.2);
+      z-index: -1;
+    }
+
+    .hero-content {
+      text-align: center;
+      max-width: 800px;
+      padding: 0 20px;
+    }
+
+    .hero-title {
+      font-size: 4rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      margin-bottom: 20px;
+      animation: glitch 1s infinite;
+    }
+
+    .hero-subtitle {
+      font-size: 1.8rem;
+      font-weight: 400;
+      margin-bottom: 40px;
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes glitch {
+      0% {
+        transform: translateX(0);
+        color: #6eff3e;
+        text-shadow: 2px 2px 0 #ff00c1, -2px -2px 0 #00ffff;
+      }
+      20% {
+        transform: translateX(-10px);
+      }
+      40% {
+        transform: translateX(10px);
+      }
+      60% {
+        transform: translateX(-10px);
+      }
+      80% {
+        transform: translateX(10px);
+      }
+      100% {
+        transform: translateX(0);
+        color: #ff00c1;
+        text-shadow: 2px 2px 0 #00ffff, -2px -2px 0 #6eff3e;
+      }
+    }
+
+    @keyframes pulse {
+      0% {
+        transform: scale(1);
+        color: #6eff3e;
+      }
+      50% {
+        transform: scale(1.05);
+        color: #ff00c1;
+      }
+      100% {
+        transform: scale(1);
+        color: #6eff3e;
+      }
+    }
+
+    /* Project Showcase Section */
+    .project-showcase {
+      padding: 80px 40px;
+      background-color: #0c0c0c;
+    }
+
+    .project-title {
+      font-size: 2.5rem;
+      font-weight: 700;
+      text-align: center;
+      margin-bottom: 50px;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .project-title::before {
+      content: '';
+      position: absolute;
+      width: 100%;
+      height: 2px;
+      background-color: #6eff3e;
+      bottom: 0;
+      left: 0;
+      transform: translateX(-100%);
+      animation: underline-slide 2s ease infinite;
+    }
+
+    @keyframes underline-slide {
+      0% {
+        transform: translateX(-100%);
+      }
+      100% {
+        transform: translateX(100%);
+      }
+    }
+
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-gap: 40px;
+    }
+
+    .project-item {
+      position: relative;
+      overflow: hidden;
+      border-radius: 10px;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+      cursor: pointer;
+    }
+
+    .project-item img {
+      width: 100%;
+      height: 300px;
+      object-fit: cover;
+      transition: transform 0.3s ease;
+    }
+
+    .project-item:hover img {
+      transform: scale(1.1);
+    }
+
+    .project-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.7);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .project-item:hover .project-overlay {
+      opacity: 1;
+    }
+
+    .project-name {
+      font-size: 1.8rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      margin-bottom: 10px;
+      color: #6eff3e;
+      text-shadow: 0 0 10px #6eff3e, 0 0 20px #6eff3e, 0 0 30px #6eff3e;
+    }
+
+    .project-description {
+      font-size: 1.2rem;
+      text-align: center;
+      margin-bottom: 20px;
+      color: #fff;
+    }
+
+    .project-link {
+      display: inline-block;
+      padding: 10px 20px;
+      background-color: #6eff3e;
+      color: #0c0c0c;
+      font-size: 1.2rem;
+      font-weight: 700;
+      text-decoration: none;
+      border-radius: 5px;
+      transition: background-color 0.3s ease;
+    }
+
+    .project-link:hover {
+      background-color: #ff00c1;
+    }
+
+    /* Contact Section */
+    .contact {
+      padding: 80px 40px;
+      background-color: #0c0c0c;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .contact::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: url('https://dummyimage.com/1920x1080/0c0c0c/6eff3e.jpg&text=Terminal+Access');
+      background-size: cover;
+      background-position: center;
+      filter: brightness(0.5) contrast(1.2) saturate(1.2);
+      z-index: -1;
+    }
+
+    .contact-title {
+      font-size: 2.5rem;
+      font-weight: 700;
+      text-align: center;
+      margin-bottom: 50px;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .contact-title::before {
+      content: '';
+      position: absolute;
+      width: 100%;
+      height: 2px;
+      background-color: #6eff3e;
+      bottom: 0;
+      left: 0;
+      transform: translateX(-100%);
+      animation: underline-slide 2s ease infinite;
+    }
+
+    .contact-form {
+      max-width: 600px;
+      margin: 0 auto;
+      background-color: rgba(12, 12, 12, 0.8);
+      padding: 40px;
+      border-radius: 10px;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+      width: 100%;
+      padding: 15px;
+      font-size: 1.2rem;
+      font-family: 'Orbitron', sans-serif;
+      background-color: transparent;
+      border: 2px solid #6eff3e;
+      border-radius: 5px;
+      color: #fff;
+      margin-bottom: 20px;
+      transition: border-color 0.3s ease;
+    }
+
+    .contact-form input:focus,
+    .contact-form textarea:focus {
+      outline: none;
+      border-color: #ff00c1;
+    }
+
+    .contact-form input::placeholder,
+    .contact-form textarea::placeholder {
+      color: #ccc;
+    }
+
+    .contact-form button {
+      display: block;
+      width: 100%;
+      padding: 15px;
+      font-size: 1.2rem;
+      font-family: 'Orbitron', sans-serif;
+      background-color: #6eff3e;
+      color: #0c0c0c;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .contact-form button:hover {
+      background-color: #ff00c1;
+    }
+
+    /* Footer */
+    footer {
+      background-color: #0c0c0c;
+      padding: 20px 0;
+      text-align: center;
+      font-size: 14px;
+      color: #ccc;
+    }
+
+    footer a {
+      color: #6eff3e;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    footer a:hover {
+      color: #ff00c1;
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="logo">
+      <a href="#" class="nav-link">Hacker's Playground</a>
+    </div>
+    <ul>
+      <li><a href="#" class="nav-link">Home</a></li>
+      <li><a href="#" class="nav-link">Portfolio</a></li>
+      <li><a href="#" class="nav-link">Services</a></li>
+      <li><a href="#" class="nav-link">Contact</a></li>
+    </ul>
+  </nav>
+
+  <section class="hero">
+    <div class="hero-content">
+      <h1 class="hero-title">Unleash Your Digital Potential</h1>
+      <p class="hero-subtitle">Mastering the art of hacking-inspired graphic design</p>
+    </div>
+  </section>
+
+  <section class="project-showcase">
+    <h2 class="project-title">Explore My Portfolio</h2>
+    <div class="project-grid">
+      <div class="project-item">
+        <img src="https://dummyimage.com/600x400/0c0c0c/6eff3e.jpg&text=Project+1" alt="Project 1">
+        <div class="project-overlay">
+          <h3 class="project-name">Project 1</h3>
+          <p class="project-description">Explore the depths of this hacking-inspired design</p>
+          <a href="#" class="project-link">View Project</a>
+        </div>
+      </div>
+      <div class="project-item">
+        <img src="https://dummyimage.com/600x400/0c0c0c/ff00c1.jpg&text=Project+2" alt="Project 2">
+        <div class="project-overlay">
+          <h3 class="project-name">Project 2</h3>
+          <p class="project-description">Delve into the cyberpunk-inspired visuals</p>
+          <a href="#" class="project-link">View Project</a>
+        </div>
+      </div>
+      <div class="project-item">
+        <img src="https://dummyimage.com/600x400/0c0c0c/00ffff.jpg&text=Project+3" alt="Project 3">
+        <div class="project-overlay">
+          <h3 class="project-name">Project 3</h3>
+          <p class="project-description">Discover the fusion of technology and art</p>
+          <a href="#" class="project-link">View Project</a>
+        </div>
+      </div>
+      <div class="project-item">
+        <img src="https://dummyimage.com/600x400/0c0c0c/6eff3e.jpg&text=Project+4" alt="Project 4">
+        <div class="project-overlay">
+          <h3 class="project-name">Project 4</h3>
+          <p class="project-description">Immerse yourself in the world of digital subversion</p>
+          <a href="#" class="project-link">View Project</a>
+        </div>
+      </div>
+      <div class="project-item">
+        <img src="https://dummyimage.com/600x400/0c0c0c/ff00c1.jpg&text=Project+5" alt="Project 5">
+        <div class="project-overlay">
+          <h3 class="project-name">Project 5</h3>
+          <p class="project-description">Witness the convergence of chaos and order</p>
+          <a href="#" class="project-link">View Project</a>
+        </div>
+      </div>
+      <div class="project-item">
+        <img src="https://dummyimage.com/600x400/0c0c0c/00ffff.jpg&text=Project+6" alt="Project 6">
+        <div class="project-overlay">
+          <h3 class="project-name">Project 6</h3>
+          <p class="project-description">Explore the boundaries of digital expression</p>
+          <a href="#" class="project-link">View Project</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="<section class="contact">
+    <h2 class="contact-title">Get in Touch</h2>
+    <div class="contact-form">
+      <form>
+        <input type="text" placeholder="Name" required>
+        <input type="email" placeholder="Email" required>
+        <textarea rows="5" placeholder="Message" required></textarea>
+        <button type="submit">Submit</button>
+      </form>
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2024 Hacker's Playground. All rights reserved. Designed by <a href="#">Your Name</a>.</p>
+  </footer>
+</body>
+</html>'<!-- Visit: https://github.com/Ishanoshada/portflair -->
+<!-- Visit: https://github.com/Ishanoshada/portflair -->

@@ -1,0 +1,434 @@
+<!-- Portfolio created by Ishan -->
+<!-- Check out my work at: https://github.com/Ishanoshada/portflair -->
+<!-- 2024/10/9 -->
+<!-- Portfolio created by Ishan -->
+'<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Black Hole Portfolio</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Rajdhani:wght@400;600&display=swap');
+
+    body {
+      margin: 0;
+      font-family: 'Rajdhani', sans-serif;
+      background-color: #0b0b0b;
+      color: #f0f0f0;
+    }
+
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.5rem 2rem;
+      background-color: rgba(11, 11, 11, 0.8);
+      backdrop-filter: blur(10px);
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 100;
+    }
+
+    .navbar-brand {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: #4dffd4;
+      text-shadow: 0 0 20px #4dffd4, 0 0 40px #4dffd4, 0 0 80px #4dffd4;
+      animation: pulsate 3s ease-in-out infinite;
+    }
+
+    .navbar-nav {
+      display: flex;
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .navbar-nav li {
+      margin-left: 2rem;
+    }
+
+    .navbar-nav li a {
+      color: #f0f0f0;
+      text-decoration: none;
+      font-size: 1.1rem;
+      font-weight: 600;
+      position: relative;
+      padding-bottom: 0.25rem;
+    }
+
+    .navbar-nav li a::after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 2px;
+      background-color: #4dffd4;
+      bottom: 0;
+      left: 0;
+      transition: width 0.3s ease-in-out;
+    }
+
+    .navbar-nav li a:hover::after {
+      width: 100%;
+    }
+
+    .hero {
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-bg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: url('https://dummyimage.com/1920x1080/0b0b0b/4dffd4.jpg&text=Black+Hole');
+      background-size: cover;
+      background-position: center;
+      filter: blur(5px);
+      z-index: -1;
+      animation: vaporwave-glitch 10s ease-in-out infinite;
+    }
+
+    .hero-content {
+      text-align: center;
+      z-index: 1;
+    }
+
+    .hero-title {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 5rem;
+      font-weight: 700;
+      color: #f0f0f0;
+      text-shadow: 0 0 20px #4dffd4, 0 0 40px #4dffd4, 0 0 80px #4dffd4;
+      animation: pulsate 3s ease-in-out infinite;
+    }
+
+    .hero-subtitle {
+      font-size: 2rem;
+      font-weight: 600;
+      color: #a0a0a0;
+      margin-top: 1rem;
+    }
+
+    .project-section {
+      padding: 5rem 2rem;
+      background-color: #0b0b0b;
+    }
+
+    .section-title {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 3rem;
+      font-weight: 700;
+      color: #4dffd4;
+      text-shadow: 0 0 20px #4dffd4, 0 0 40px #4dffd4, 0 0 80px #4dffd4;
+      text-align: center;
+      margin-bottom: 3rem;
+      animation: pulsate 3s ease-in-out infinite;
+    }
+
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      grid-gap: 2rem;
+    }
+
+    .project-card {
+      background-color: #1b1b1b;
+      border-radius: 10px;
+      box-shadow: 0 0 20px rgba(77, 255, 212, 0.2);
+      overflow: hidden;
+      transition: transform 0.3s ease-in-out;
+      position: relative;
+    }
+
+    .project-card:hover {
+      transform: scale(1.05);
+    }
+
+    .project-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: url('https://dummyimage.com/600x400/4dffd4/1b1b1b.jpg&text=Galaxy');
+      background-size: cover;
+      background-position: center;
+      filter: blur(10px);
+      z-index: -1;
+      animation: vaporwave-glitch 10s ease-in-out infinite;
+    }
+
+    .project-content {
+      padding: 2rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    .project-title {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: #4dffd4;
+      text-shadow: 0 0 10px #4dffd4, 0 0 20px #4dffd4;
+      margin-bottom: 1rem;
+    }
+
+    .project-description {
+      font-size: 1.1rem;
+      color: #a0a0a0;
+      margin-bottom: 1.5rem;
+    }
+
+    .project-technologies,
+    .project-awards {
+      font-size: 0.9rem;
+      color: #a0a0a0;
+      margin-bottom: 0.5rem;
+    }
+
+    .contact-section {
+      padding: 5rem 2rem;
+      background-color: #0b0b0b;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .contact-form {
+      background-color: #1b1b1b;
+      border-radius: 10px;
+      box-shadow: 0 0 20px rgba(77, 255, 212, 0.2);
+      padding: 3rem;
+      width: 100%;
+      max-width: 600px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .contact-form::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: url('https://dummyimage.com/1200x800/4dffd4/1b1b1b.jpg&text=Neon+Grid');
+      background-size: cover;
+      background-position: center;
+      filter: blur(10px);
+      z-index: -1;
+      animation: vaporwave-glitch 10s ease-in-out infinite;
+    }
+
+    .form-title {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: #4dffd4;
+      text-shadow: 0 0 10px #4dffd4, 0 0 20px #4dffd4;
+      text-align: center;
+      margin-bottom: 2rem;
+      animation: pulsate 3s ease-in-out infinite;
+    }
+
+    .form-group {
+      margin-bottom: 1.5rem;
+    }
+
+    .form-label {
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: #f0f0f0;
+      display: block;
+      margin-bottom: 0.5rem;
+    }
+
+    .form-input {
+      width: 100%;
+      padding: 1rem;
+      font-size: 1.1rem;
+      font-family: 'Rajdhani', sans-serif;
+      background-color: #2b2b2b;
+      border: none;
+      border-radius: 5px;
+      color: #f0f0f0;
+      outline: none;
+      transition: box-shadow 0.3s ease-in-out;
+    }
+
+    .form-input:focus {
+      box-shadow: 0 0 10px rgba(77, 255, 212, 0.5);
+    }
+
+    .form-textarea {
+      resize: vertical;
+      min-height: 150px;
+    }
+
+    .form-submit {
+      display: block;
+      width: 100%;
+      padding: 1rem;
+      font-size: 1.1rem;
+      font-family: 'Rajdhani', sans-serif;
+      background-color: #4dffd4;
+      border: none;
+      border-radius: 5px;
+      color: #0b0b0b;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out;
+    }
+
+    .form-submit:hover {
+      background-color: #3fbfb0;
+      transform: scale(1.05);
+    }
+
+    @keyframes pulsate {
+      0% {
+        text-shadow: 0 0 20px #4dffd4, 0 0 40px #4dffd4, 0 0 80px #4dffd4;
+      }
+      50% {
+        text-shadow: 0 0 10px #4dffd4, 0 0 20px #4dffd4, 0 0 40px #4dffd4;
+      }
+      100% {
+        text-shadow: 0 0 20px #4dffd4, 0 0 40px #4dffd4, 0 0 80px #4dffd4;
+      }
+    }
+
+    @keyframes vaporwave-glitch {
+      0% {
+        filter: blur(5px) hue-rotate(0deg);
+      }
+      25% {
+        filter: blur(10px) hue-rotate(90deg);
+      }
+      50% {
+        filter: blur(5px) hue-rotate(180deg);
+      }
+      75% {
+        filter: blur(10px) hue-rotate(270deg);
+      }
+      100% {
+        filter: blur(5px) hue-rotate(360deg);
+      }
+    }
+
+    @media (max-width: 768px) {
+      .hero-title {
+        font-size: 3.5rem;
+      }
+
+      .hero-subtitle {
+        font-size: 1.6rem;
+      }
+
+      .section-title {
+        font-size: 2.5rem;
+      }
+
+      .project-title {
+        font-size: 1.6rem;
+      }
+
+      .project-description {
+        font-size: 1rem;
+      }
+
+      .form-title {
+        font-size: 2rem;
+      }
+
+      .form-label,
+      .form-input,
+      .form-submit {
+        font-size: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="navbar">
+    <a href="#" class="navbar-brand">Black Hole Portfolio</a>
+    <nav>
+      <ul class="navbar-nav">
+        <li><a href="#hero">Home</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="hero" id="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-content">
+      <h1 class="hero-title">John Doe</h1>
+      <h2 class="hero-subtitle">Backend Developer</h2>
+    </div>
+  </section>
+
+  <section class="project-section" id="projects">
+    <h2 class="section-title">My Projects</h2>
+    <div class="project-grid">
+      <div class="project-card">
+        <div class="project-content">
+          <h3 class="project-title">Cosmic Odyssey</h3>
+          <p class="project-description">A backend-powered application that explores the depths of the universe, harnessing the power of black holes and cosmic phenomena.</p>
+          <p class="project-technologies">Technologies: Node.js, MongoDB, GraphQL</p>
+          <p class="project-awards">Awards: Best Backend Project, Hackathon 2024</p>
+        </div>
+      </div>
+      <div class="project-card">
+        <div class="project-content">
+          <h3 class="project-title">Vaporwave Vortex</h3>
+          <p class="project-description">An API-driven platform that generates mesmerizing vaporwave-themed visuals, blending retro aesthetics with cutting-edge backend technologies.</p>
+          <p class="project-technologies">Technologies: Express.js, Redis, WebSockets</p>
+          <p class="project-awards">Awards: Innovative Backend Design, Webdev Awards 2022</p>
+        </div>
+      </div>
+      <div class="project-card">
+        <div class="project-content">
+          <h3 class="project-title">Steampunk Singularity</h3>
+          <p class="project-description">A backend-driven platform that merges the mechanical precision of steampunk with the cosmic mysteries of black holes, creating a unique user experience.</p>
+          <p class="project-technologies">Technologies: Fastify, PostgreSQL, Socket.IO</p>
+          <p class="project-awards">Awards: Exceptional Backend Integration, Hackathon 2021</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact-section" id="contact">
+    <form class="contact-form">
+      <h2 class="form-title">Get in Touch</h2>
+      <div class="form-group">
+        <label for="name" class="form-label">Name</label>
+        <input type="text" id="name" name="name" class="form-input" required>
+      </div>
+      <div class="form-group">
+        <label for="email" class="form-label">Email</label>
+        <input type="email" id="email" name="email" class="form-input" required>
+      </div>
+      <div class="form-group">
+        <label for="message" class="form-label">Message</label>
+        <textarea id="message" name="message" class="form-input form-textarea" required></textarea>
+      </div>
+      <button type="submit" class="form-submit">Send Message</button>
+    </form>
+  </section>
+</body>
+</html>'<!-- Visit: https://github.com/Ishanoshada/portflair -->
+<!-- Visit: https://github.com/Ishanoshada/portflair -->

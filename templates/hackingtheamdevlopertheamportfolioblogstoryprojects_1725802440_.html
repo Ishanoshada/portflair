@@ -1,0 +1,620 @@
+<!-- Portfolio created by Ishan -->
+<!-- Check out my work at: https://github.com/Ishanoshada/portflair -->
+<!-- 2024/10/9 -->
+<!-- Portfolio created by Ishan -->
+'<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CyberNexus | Hacking-Themed Developer Portfolio</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@400;700&family=Roboto:wght@300;400;700&display=swap');
+
+        :root {
+            --neon-green: #00FF41;
+            --neon-pink: #FF00FF;
+            --neon-blue: #0077BE;
+            --dark-bg: #0A0A0A;
+            --light-bg: #1A1A1A;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: var(--dark-bg);
+            color: #FFFFFF;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        nav {
+            background-color: rgba(26, 26, 26, 0.8);
+            backdrop-filter: blur(10px);
+            padding: 20px 0;
+            position: relative;
+            z-index: 1000;
+        }
+
+        nav ul {
+            display: flex;
+            justify-content: center;
+            list-style-type: none;
+        }
+
+        nav ul li {
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            color: var(--neon-green);
+            text-decoration: none;
+            font-family: 'Source Code Pro', monospace;
+            font-size: 18px;
+            position: relative;
+            padding: 5px 0;
+            transition: color 0.3s ease;
+        }
+
+        nav ul li a::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: var(--neon-pink);
+            visibility: hidden;
+            transform: scaleX(0);
+            transition: all 0.3s ease-in-out;
+        }
+
+        nav ul li a:hover {
+            color: var(--neon-pink);
+        }
+
+        nav ul li a:hover::before {
+            visibility: visible;
+            transform: scaleX(1);
+        }
+
+        header {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header-content {
+            text-align: center;
+            z-index: 2;
+        }
+
+        h1 {
+            font-size: 4rem;
+            margin-bottom: 20px;
+            font-family: 'Source Code Pro', monospace;
+            color: var(--neon-green);
+            text-shadow: 0 0 10px var(--neon-green);
+            animation: glitch 5s infinite alternate;
+        }
+
+        .subtitle {
+            font-size: 1.5rem;
+            margin-bottom: 30px;
+            color: var(--neon-pink);
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 12px 24px;
+            background-color: transparent;
+            color: var(--neon-blue);
+            border: 2px solid var(--neon-blue);
+            text-decoration: none;
+            font-family: 'Source Code Pro', monospace;
+            font-size: 18px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(
+                120deg,
+                transparent,
+                rgba(0, 119, 190, 0.4),
+                transparent
+            );
+            transition: all 0.5s;
+        }
+
+        .cta-button:hover::before {
+            left: 100%;
+        }
+
+        .cta-button:hover {
+            background-color: var(--neon-blue);
+            color: #FFFFFF;
+            box-shadow: 0 0 20px var(--neon-blue);
+        }
+
+        .matrix-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+                        url('https://dummyimage.com/1200x800/000000/00ff00&text=01');
+            background-size: cover;
+            opacity: 0.2;
+            z-index: 1;
+        }
+
+        #projects {
+            padding: 80px 0;
+            background-color: var(--light-bg);
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .project-tile {
+            background-color: rgba(26, 26, 26, 0.8);
+            border: 1px solid var(--neon-green);
+            border-radius: 10px;
+            padding: 20px;
+            text-align: center;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .project-tile::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: conic-gradient(
+                transparent,
+                var(--neon-green),
+                transparent 30%
+            );
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .project-tile:hover::before {
+            opacity: 1;
+            animation: rotate 4s linear infinite;
+        }
+
+        @keyframes rotate {
+            100% {
+                transform: rotate(1turn);
+            }
+        }
+
+        .project-content {
+            position: relative;
+            z-index: 1;
+            background-color: var(--light-bg);
+            border-radius: 8px;
+            padding: 20px;
+        }
+
+        .project-icon {
+            font-size: 40px;
+            margin-bottom: 15px;
+            color: var(--neon-pink);
+        }
+
+        .project-title {
+            font-size: 24px;
+            margin-bottom: 10px;
+            color: var(--neon-green);
+        }
+
+        .project-description {
+            font-size: 16px;
+            margin-bottom: 20px;
+            color: #CCCCCC;
+        }
+
+        .project-tech {
+            font-size: 14px;
+            color: var(--neon-blue);
+            margin-bottom: 15px;
+        }
+
+        .view-project {
+            display: inline-block;
+            padding: 8px 16px;
+            background-color: transparent;
+            color: var(--neon-pink);
+            border: 1px solid var(--neon-pink);
+            text-decoration: none;
+            font-family: 'Source Code Pro', monospace;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        .view-project:hover {
+            background-color: var(--neon-pink);
+            color: #FFFFFF;
+        }
+
+        #blog {
+            padding: 80px 0;
+            background-color: var(--dark-bg);
+        }
+
+        .blog-posts {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .blog-post {
+            background-color: rgba(0, 0, 0, 0.8);
+            border-radius: 10px;
+            padding: 20px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .blog-post::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            background: linear-gradient(45deg, var(--neon-blue), var(--neon-pink));
+            z-index: -1;
+            filter: blur(10px);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .blog-post:hover::before {
+            opacity: 1;
+        }
+
+        .blog-title {
+            font-family: 'Source Code Pro', monospace;
+            font-size: 20px;
+            margin-bottom: 10px;
+            color: var(--neon-green);
+        }
+
+        .blog-meta {
+            font-size: 14px;
+            color: #888;
+            margin-bottom: 15px;
+        }
+
+        .blog-excerpt {
+            font-size: 16px;
+            color: #CCCCCC;
+            margin-bottom: 20px;
+        }
+
+        .read-more {
+            display: inline-block;
+            padding: 8px 16px;
+            background-color: transparent;
+            color: var(--neon-blue);
+            border: 1px solid var(--neon-blue);
+            text-decoration: none;
+            font-family: 'Source Code Pro', monospace;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        .read-more:hover {
+            background-color: var(--neon-blue);
+            color: #FFFFFF;
+        }
+
+        #skills {
+            padding: 80px 0;
+            background-color: var(--light-bg);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .skills-container {
+            position: relative;
+            height: 600px;
+        }
+
+        .skill-node {
+            position: absolute;
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            color: #FFFFFF;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .skill-node::before {
+            content: '';
+            position: absolute;
+            top: -5px;
+            left: -5px;
+            right: -5px;
+            bottom: -5px;
+            border-radius: 50%;
+            background: linear-gradient(45deg, var(--neon-blue), var(--neon-pink));
+            z-index: -1;
+            opacity: 0.5;
+            filter: blur(8px);
+            transition: all 0.3s ease;
+        }
+
+        .skill-node:hover::before {
+            filter: blur(12px);
+            opacity: 1;
+        }
+
+        .skill-connection {
+            position: absolute;
+            background-color: rgba(255, 255, 255, 0.2);
+            height: 2px;
+            transform-origin: left center;
+        }
+
+        @keyframes glitch {
+            0% {
+                text-shadow: 0.05em 0 0 var(--neon-pink), -0.05em -0.025em 0 var(--neon-blue),
+                            -0.025em 0.05em 0 var(--neon-green);
+            }
+            14% {
+                text-shadow: 0.05em 0 0 var(--neon-pink), -0.05em -0.025em 0 var(--neon-blue),
+                            -0.025em 0.05em 0 var(--neon-green);
+            }
+            15% {
+                text-shadow: -0.05em -0.025em 0 var(--neon-pink), 0.025em 0.025em 0 var(--neon-blue),
+                            -0.05em -0.05em 0 var(--neon-green);
+            }
+            49% {
+                text-shadow: -0.05em -0.025em 0 var(--neon-pink), 0.025em 0.025em 0 var(--neon-blue),
+                            -0.05em -0.05em 0 var(--neon-green);
+            }
+            50% {
+                text-shadow: 0.025em 0.05em 0 var(--neon-pink), 0.05em 0 0 var(--neon-blue),
+                            0 -0.05em 0 var(--neon-green);
+            }
+            99% {
+                text-shadow: 0.025em 0.05em 0 var(--neon-pink), 0.05em 0 0 var(--neon-blue),
+                            0 -0.05em 0 var(--neon-green);
+            }
+            100% {
+                text-shadow: -0.025em 0 0 var(--neon-pink), -0.025em -0.025em 0 var(--neon-blue),
+                            -0.025em -0.05em 0 var(--neon-green);
+            }
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 3rem;
+            }
+
+            .subtitle {
+                font-size: 1.2rem;
+            }
+
+            .projects-grid, .blog-posts {
+                grid-template-columns: 1fr;
+            }
+
+            .skill-node {
+                width: 60px;
+                height: 60px;
+                font-size: 18px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#blog">Blog</a></li>
+            <li><a href="#skills">Skills</a></li>
+        </ul>
+    </nav>
+
+    <header id="home">
+        <div class="matrix-bg"></div>
+        <div class="header-content">
+            <h1>CyberNexus</h1>
+            <p class="subtitle">Exploring the Digital Frontier</p>
+            <a href="#projects" class="cta-button">Enter the Matrix</a>
+        </div>
+    </header>
+
+    <section id="projects">
+        <div class="container">
+            <h2>Featured Projects</h2>
+            <div class="projects-grid">
+                <div class="project-tile">
+                    <div class="project-content">
+                        <div class="project-icon">ð</div>
+                        <h3 class="project-title">SecureNet</h3>
+                        <p class="project-description">Advanced network security system with AI-driven threat detection.</p>
+                        <p class="project-tech">Python, TensorFlow, Wireshark</p>
+                        <a href="#" class="view-project">View Project</a>
+                    </div>
+                </div>
+                <div class="project-tile">
+                    <div class="project-content">
+                        <div class="project-icon">ð</div>
+                        <h3 class="project-title">WebCrawler X</h3>
+                        <p class="project-description">High-performance web crawler with advanced data extraction capabilities.</p><p class="project-tech">Rust, Tokio, PostgreSQL</p>
+                        <a href="#" class="view-project">View Project</a>
+                    </div>
+                </div>
+                <div class="project-tile">
+                    <div class="project-content">
+                        <div class="project-icon">ð</div>
+                        <h3 class="project-title">CryptoAnalyzer</h3>
+                        <p class="project-description">Real-time cryptocurrency market analysis tool with predictive modeling.</p>
+                        <p class="project-tech">JavaScript, React, Node.js, MongoDB</p>
+                        <a href="#" class="view-project">View Project</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="blog">
+        <div class="container">
+            <h2>Latest Insights</h2>
+            <div class="blog-posts">
+                <div class="blog-post">
+                    <h3 class="blog-title">The Future of Quantum Cryptography</h3>
+                    <p class="blog-meta">Posted on May 15, 2024 | 10 min read</p>
+                    <p class="blog-excerpt">Exploring the potential of quantum cryptography in securing future communication networks.</p>
+                    <a href="#" class="read-more">Read More</a>
+                </div>
+                <div class="blog-post">
+                    <h3 class="blog-title">Ethical Hacking: Securing the Digital Realm</h3>
+                    <p class="blog-meta">Posted on April 28, 2024 | 8 min read</p>
+                    <p class="blog-excerpt">Discussing the importance of ethical hacking in identifying and mitigating cybersecurity threats.</p>
+                    <a href="#" class="read-more">Read More</a>
+                </div>
+                <div class="blog-post">
+                    <h3 class="blog-title">AI in Cybersecurity: Friend or Foe?</h3>
+                    <p class="blog-meta">Posted on April 10, 2024 | 12 min read</p>
+                    <p class="blog-excerpt">Analyzing the dual role of AI in both enhancing and challenging cybersecurity measures.</p>
+                    <a href="#" class="read-more">Read More</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="skills">
+        <div class="container">
+            <h2>Skill Network</h2>
+            <div class="skills-container">
+                <!-- Skill nodes and connections will be dynamically added here -->
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Dynamic skill network generation
+        const skills = [
+            { name: 'ð¡ï¸', x: 50, y: 50, level: 'expert' },
+            { name: 'ð·ï¸', x: 70, y: 30, level: 'advanced' },
+            { name: 'ð', x: 30, y: 70, level: 'expert' },
+            { name: 'ð»', x: 80, y: 60, level: 'intermediate' },
+            { name: 'ð', x: 20, y: 40, level: 'advanced' }
+        ];
+
+        const skillsContainer = document.querySelector('.skills-container');
+
+        skills.forEach(skill => {
+            const node = document.createElement('div');
+            node.className = 'skill-node';
+            node.style.left = `${skill.x}%`;
+            node.style.top = `${skill.y}%`;
+            node.style.backgroundColor = skill.level === 'expert' ? 'var(--neon-pink)' :
+                                         skill.level === 'advanced' ? 'var(--neon-blue)' :
+                                         'var(--neon-green)';
+            node.innerText = skill.name;
+            skillsContainer.appendChild(node);
+        });
+
+        // Create connections between skills
+        for (let i = 0; i < skills.length; i++) {
+            for (let j = i + 1; j < skills.length; j++) {
+                const connection = document.createElement('div');
+                connection.className = 'skill-connection';
+                const x1 = skills[i].x;
+                const y1 = skills[i].y;
+                const x2 = skills[j].x;
+                const y2 = skills[j].y;
+                const length = Math.sqrt(Math.pow(x2 - x1, 2) + Math.pow(y2 - y1, 2));
+                const angle = Math.atan2(y2 - y1, x2 - x1) * 180 / Math.PI;
+
+                connection.style.width = `${length}%`;
+                connection.style.left = `${x1}%`;
+                connection.style.top = `${y1}%`;
+                connection.style.transform = `rotate(${angle}deg)`;
+
+                skillsContainer.appendChild(connection);
+            }
+        }
+
+        // Glitch effect for project tiles
+        const projectTiles = document.querySelectorAll('.project-tile');
+        projectTiles.forEach(tile => {
+            tile.addEventListener('mouseover', () => {
+                tile.style.transform = 'scale(1.05) skew(2deg, 2deg)';
+                setTimeout(() => {
+                    tile.style.transform = 'scale(1.05) skew(-2deg, -2deg)';
+                }, 100);
+                setTimeout(() => {
+                    tile.style.transform = 'scale(1.05)';
+                }, 200);
+            });
+            tile.addEventListener('mouseout', () => {
+                tile.style.transform = 'scale(1)';
+            });
+        });
+
+        // Decrypt animation for blog posts
+        const blogPosts = document.querySelectorAll('.blog-post');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, { threshold: 0.1 });
+
+        blogPosts.forEach(post => {
+            post.style.opacity = '0';
+            post.style.transform = 'translateY(20px)';
+            post.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+            observer.observe(post);
+        });
+    </script>
+</body>
+</html>'<!-- Visit: https://github.com/Ishanoshada/portflair -->
+<!-- Visit: https://github.com/Ishanoshada/portflair -->

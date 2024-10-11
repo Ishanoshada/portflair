@@ -1,0 +1,366 @@
+<!-- Portfolio created by Ishan -->
+<!-- Check out my work at: https://github.com/Ishanoshada/portflair -->
+<!-- 2024/10/9 -->
+<!-- Portfolio created by Ishan -->
+<!-- Portfolio created by Ishan -->
+'<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Build a Highly Modern Portfolio</title>
+  <style>
+    /* Global Styles */
+    body {
+      font-family: 'Montserrat', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #1c1c1c;
+      color: #f2f2f2;
+      overflow-x: hidden;
+    }
+
+    /* Navigation */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.5rem 2rem;
+      background-color: #1c1c1c;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    .nav-logo {
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: #f2f2f2;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    .nav-logo:hover {
+      color: #00c2cb;
+    }
+
+    .nav-menu {
+      display: flex;
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .nav-menu li {
+      margin-left: 2rem;
+    }
+
+    .nav-menu a {
+      color: #f2f2f2;
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s ease;
+    }
+
+    .nav-menu a:hover {
+      color: #00c2cb;
+    }
+
+    /* Project Showcase */
+    .project-showcase {
+      padding: 4rem 2rem;
+    }
+
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-gap: 2rem;
+    }
+
+    .project-item {
+      position: relative;
+      overflow: hidden;
+      border-radius: 8px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+
+    .project-item:hover {
+      transform: scale(1.05);
+    }
+
+    .project-item img {
+      width: 100%;
+      height: 300px;
+      object-fit: cover;
+      transition: filter 0.3s ease;
+    }
+
+    .project-item:hover img {
+      filter: brightness(0.8);
+    }
+
+    .project-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.6);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .project-item:hover .project-overlay {
+      opacity: 1;
+    }
+
+    .project-title {
+      font-size: 1.8rem;
+      font-weight: 600;
+      color: #f2f2f2;
+      margin-bottom: 0.5rem;
+    }
+
+    .project-description {
+      font-size: 1.2rem;
+      color: #f2f2f2;
+      text-align: center;
+    }
+
+    /* About Me */
+    .about-me {
+      padding: 4rem 2rem;
+      display: flex;
+      align-items: center;
+    }
+
+    .about-content {
+      flex: 1;
+      max-width: 600px;
+    }
+
+    .about-image {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      margin-left: 2rem;
+    }
+
+    .about-image img {
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      object-fit: cover;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      animation: profilePicRotate 10s linear infinite;
+    }
+
+    @keyframes profilePicRotate {
+      0% {
+        transform: rotate(0deg);
+      }
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+
+    .about-title {
+      font-size: 2.4rem;
+      font-weight: 700;
+      color: #00c2cb;
+      margin-bottom: 1rem;
+    }
+
+    .about-text {
+      font-size: 1.2rem;
+      line-height: 1.6;
+      color: #f2f2f2;
+    }
+
+    /* Contact Form */
+    .contact-form {
+      padding: 4rem 2rem;
+      display: flex;
+      justify-content: center;
+    }
+
+    .form-container {
+      background-color: #2c2c2c;
+      padding: 3rem;
+      border-radius: 8px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      max-width: 500px;
+      width: 100%;
+    }
+
+    .form-title {
+      font-size: 2rem;
+      font-weight: 700;
+      color: #00c2cb;
+      margin-bottom: 2rem;
+    }
+
+    .form-group {
+      margin-bottom: 1.5rem;
+    }
+
+    .form-label {
+      font-size: 1.2rem;
+      font-weight: 500;
+      color: #f2f2f2;
+      display: block;
+      margin-bottom: 0.5rem;
+    }
+
+    .form-input {
+      width: 100%;
+      padding: 0.8rem 1rem;
+      font-size: 1rem;
+      font-family: 'Montserrat', sans-serif;
+      background-color: #1c1c1c;
+      border: none;
+      border-bottom: 2px solid #00c2cb;
+      color: #f2f2f2;
+      transition: border-color 0.3s ease;
+    }
+
+    .form-input:focus {
+      outline: none;
+      border-color: #00e6f1;
+    }
+
+    .form-button {
+      display: block;
+      width: 100%;
+      padding: 1rem;
+      font-size: 1.2rem;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 600;
+      color: #f2f2f2;
+      background-color: #00c2cb;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .form-button:hover {
+      background-color: #00e6f1;
+    }
+
+    /* Footer */
+    footer {
+      background-color: #1c1c1c;
+      padding: 1.5rem 2rem;
+      text-align: center;
+      color: #f2f2f2;
+      font-size: 0.9rem;
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="#" class="nav-logo">Modern Portfolio</a>
+    <ul class="nav-menu">
+      <li><a href="#">Home</a></li>
+      <li><a href="#">Projects</a></li>
+      <li><a href="#">About</a></li>
+      <li><a href="#">Contact</a></li>
+    </ul>
+  </nav>
+
+  <section class="project-showcase">
+    <h2 class="section-title">My Recent Work</h2>
+    <div class="project-grid">
+      <div class="project-item">
+        <img src="https://dummyimage.com/600x400/000/fff&text=Project+1" alt="Project 1">
+        <div class="project-overlay">
+          <h3 class="project-title">Project 1</h3>
+          <p class="project-description">A modern web design project</p>
+        </div>
+      </div>
+      <div class="project-item">
+        <img src="https://dummyimage.com/600x400/000/fff&text=Project+2" alt="Project 2">
+        <div class="project-overlay">
+          <h3 class="project-title">Project 2</h3>
+          <p class="project-description">A sleek mobile app design</p>
+        </div>
+      </div>
+      <div class="project-item">
+        <img src="https://dummyimage.com/600x400/000/fff&text=Project+3" alt="Project 3">
+        <div class="project-overlay">
+          <h3 class="project-title">Project 3</h3>
+          <p class="project-description">A minimalist branding project</p>
+        </div>
+      </div>
+      <div class="project-item">
+        <img src="https://dummyimage.com/600x400/000/fff&text=Project+4" alt="Project 4">
+        <div class="project-overlay">
+          <h3 class="project-title">Project 4</h3>
+          <p class="project-description">An interactive UI design</p>
+        </div>
+      </div>
+      <div class="project-item">
+        <img src="https://dummyimage.com/600x400/000/fff&text=Project+5" alt="Project 5">
+        <div class="project-overlay">
+          <h3 class="project-title">Project 5</h3>
+          <p class="project-description">A responsive web application</p>
+        </div>
+      </div>
+      <div class="project-item">
+        <img src="https://dummyimage.com/600x400/000/fff&text=Project+6" alt="Project 6">
+        <div class="project-overlay">
+          <h3 class="project-title">Project 6</h3>
+          <p class="project-description">A data visualization dashboard</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="about-me">
+    <div class="about-content">
+      <h2 class="about-title">About Me</h2>
+      <p class="about-text">
+        I'm a highly skilled and experienced web designer, passionate about creating modern, visually stunning, and interactive portfolios. My expertise lies in crafting clean, minimalist designs, with a focus on razor-sharp lines, ultra-smooth animations, and dark, muted tones accented by bright, minimalist icons and text.
+      </p>
+      <p class="about-text">
+        Throughout my career, I've honed my skills in user experience (UX) and user interface (UI) design, ensuring that every project I work on not only looks exceptional but also provides a seamless and intuitive interaction for the user. I'm constantly staying up-to-date with the latest design trends and technologies, always striving to push the boundaries of what's possible.
+      </p>
+    </div>
+    <div class="about-image">
+      <img src="https://dummyimage.com/200x200/000/fff&text=Designer" alt="Designer Profile Picture">
+    </div>
+  </section>
+
+  <section class="contact-form">
+    <div class="form-container">
+      <h2 class="form-title">Get in Touch</h2>
+      <form>
+        <div class="form-group">
+          <label for="name" class="form-label">Name</label>
+          <input type="text" id="name" name="name" class="form-input" required>
+        </div>
+        <div class="form-group">
+          <label for="email" class="form-label">Email</label>
+          <input type="email" id="email" name="email" class="form-input" required>
+        </div>
+        <div class="form-group">
+          <label for="message" class="form-label">Message</label>
+          <textarea id="message" name="message" class="form-input" rows="5" required></textarea>
+        </div>
+        <button type="submit" class="form-button">Send Message</button>
+      </form>
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2024 Modern Portfolio. All rights reserved.</p>
+  </footer>
+</body>
+</html>'<!-- Visit: https://github.com/Ishanoshada/portflair -->
+<!-- Visit: https://github.com/Ishanoshada/portflair -->
+<!-- Visit: https://github.com/Ishanoshada/portflair -->

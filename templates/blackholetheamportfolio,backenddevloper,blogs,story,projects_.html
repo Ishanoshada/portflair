@@ -1,0 +1,366 @@
+<!-- Portfolio created by Ishan -->
+<!-- Check out my work at: https://github.com/Ishanoshada/portflair -->
+<!-- 2024/10/9 -->
+<!-- Portfolio created by Ishan -->
+<!-- Portfolio created by Ishan -->
+'<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cosmic Code Portfolio | Backend Developer Extraordinaire</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Space+Mono&display=swap');
+
+        :root {
+            --space-black: #0a0a0a;
+            --deep-purple: #1a002a;
+            --cosmic-blue: #0066cc;
+            --star-white: #ffffff;
+            --nebula-pink: #ff69b4;
+            --meteor-orange: #ff6600;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Space Mono', monospace;
+            background: var(--space-black);
+            color: var(--star-white);
+            overflow-x: hidden;
+        }
+
+        .cosmic-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        nav {
+            background: rgba(10, 10, 10, 0.8);
+            backdrop-filter: blur(10px);
+            padding: 20px 0;
+            position: relative;
+            z-index: 1000;
+        }
+
+        nav ul {
+            display: flex;
+            justify-content: center;
+            list-style-type: none;
+        }
+
+        nav ul li {
+            margin: 0 20px;
+        }
+
+        nav ul li a {
+            color: var(--star-white);
+            text-decoration: none;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 18px;
+            transition: all 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            color: var(--nebula-pink);
+            text-shadow: 0 0 10px var(--nebula-pink);
+        }
+
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at center, transparent 0%, var(--space-black) 100%),
+                url("https://dummyimage.com/1920x1080/000000/ffffff&text=CosmosBG");
+            background-size: cover;
+            opacity: 0.6;
+            animation: pulsate 10s infinite alternate;
+        }
+
+        @keyframes pulsate {
+            0% { opacity: 0.6; }
+            100% { opacity: 0.8; }
+        }
+
+        .hero-content {
+            text-align: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        h1 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 4rem;
+            margin-bottom: 20px;
+            text-shadow: 0 0 20px var(--cosmic-blue);
+        }
+
+        .typewriter {
+            overflow: hidden;
+            border-right: .15em solid var(--nebula-pink);
+            white-space: nowrap;
+            margin: 0 auto;
+            letter-spacing: .15em;
+            animation: typing 3.5s steps(40, end), blink-caret .75s step-end infinite;
+        }
+
+        @keyframes typing {
+            from { width: 0 }
+            to { width: 100% }
+        }
+
+        @keyframes blink-caret {
+            from, to { border-color: transparent }
+            50% { border-color: var(--nebula-pink); }
+        }
+
+        .projects {
+            padding: 100px 0;
+            position: relative;
+        }
+
+        .galaxy {
+            position: relative;
+            width: 100%;
+            height: 600px;
+            perspective: 1000px;
+        }
+
+        .blackhole {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 100px;
+            height: 100px;
+            background: radial-gradient(circle at center, var(--deep-purple) 0%, transparent 70%);
+            border-radius: 50%;
+            box-shadow: 0 0 50px var(--cosmic-blue);
+            animation: rotate 20s linear infinite;
+        }
+
+        @keyframes rotate {
+            0% { transform: translate(-50%, -50%) rotate(0deg); }
+            100% { transform: translate(-50%, -50%) rotate(360deg); }
+        }
+
+        .project {
+            position: absolute;
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background: var(--cosmic-blue);
+            box-shadow: 0 0 20px var(--cosmic-blue);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .project:nth-child(1) { top: 20%; left: 20%; }
+        .project:nth-child(2) { top: 70%; left: 30%; }
+        .project:nth-child(3) { top: 40%; left: 70%; }
+
+        .project:hover {
+            transform: scale(1.2);
+            box-shadow: 0 0 30px var(--nebula-pink);
+        }
+
+        .project-info {
+            position: absolute;
+            background: rgba(26, 0, 42, 0.9);
+            padding: 20px;
+            border-radius: 10px;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            pointer-events: none;
+        }
+
+        .project:hover .project-info {
+            opacity: 1;
+        }
+
+        .blogs {
+            padding: 100px 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .wormhole {
+            position: relative;
+            height: 400px;
+            background: linear-gradient(to right, var(--deep-purple), var(--cosmic-blue));
+            transform: perspective(1000px) rotateX(60deg);
+            overflow-y: scroll;
+            scrollbar-width: none;
+        }
+
+        .wormhole::-webkit-scrollbar {
+            display: none;
+        }
+
+        .blog-post {
+            background: rgba(255, 255, 255, 0.1);
+            margin: 20px;
+            padding: 20px;
+            border-radius: 10px;
+            backdrop-filter: blur(5px);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .blog-post:hover {
+            transform: scale(1.05);
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        .skills {
+            padding: 100px 0;
+            position: relative;
+        }
+
+        .star-system {
+            position: relative;
+            width: 100%;
+            height: 600px;
+        }
+
+        .skill-star {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background: var(--star-white);
+            border-radius: 50%;
+            box-shadow: 0 0 20px var(--star-white);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .skill-star:hover {
+            transform: scale(1.5);
+            box-shadow: 0 0 30px var(--nebula-pink);
+        }
+
+        .skill-info {
+            position: absolute;
+            background: rgba(26, 0, 42, 0.9);
+            padding: 10px;
+            border-radius: 5px;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            pointer-events: none;
+        }
+
+        .skill-star:hover .skill-info {
+            opacity: 1;
+        }
+
+        @media (max-width: 768px) {
+            h1 { font-size: 2.5rem; }
+            .galaxy, .wormhole, .star-system { height: 400px; }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#blogs">Blogs</a></li>
+            <li><a href="#skills">Skills</a></li>
+        </ul>
+    </nav>
+
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>Cosmic Code Portfolio</h1>
+            <p class="typewriter">Backend Developer | Code Astronaut | Data Voyager</p>
+        </div>
+    </section>
+
+    <section id="projects" class="projects">
+        <div class="cosmic-container">
+            <h2>Celestial Projects</h2>
+            <div class="galaxy">
+                <div class="blackhole"></div>
+                <div class="project">
+                    <div class="project-info">
+                        <h3>Quantum Database</h3>
+                        <p>A revolutionary database system using quantum principles</p>
+                    </div>
+                </div>
+                <div class="project">
+                    <div class="project-info">
+                        <h3>Nebula Network</h3>
+                        <p>Distributed computing across the cosmos</p>
+                    </div>
+                </div>
+                <div class="project">
+                    <div class="project-info">
+                        <h3>Stargate API</h3>
+                        <p>Intergalactic data transfer protocol</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="blogs" class="blogs">
+        <div class="cosmic-container">
+            <h2>Wormhole Chronicles</h2>
+            <div class="wormhole">
+                <div class="blog-post">
+                    <h3>The Future of Quantum Computing in Backend Development</h3>
+                    <p>Exploring the potential of qubits in database management...</p>
+                </div>
+                <div class="blog-post">
+                    <h3>Navigating the Dark Matter of Big Data</h3>
+                    <p>Strategies for handling massive, unseen datasets...</p>
+                </div>
+                <div class="blog-post">
+                    <h3>Event Horizons: The Ultimate in Asynchronous Programming</h3>
+                    <p>Pushing the boundaries of non-blocking operations...</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="skills" class="skills">
+        <div class="cosmic-container">
+            <h2>Constellation of Expertise</h2>
+            <div class="star-system">
+                <div class="skill-star" style="top: 30%; left: 20%;">
+                    <div class="skill-info">Python: Galactic Serpent</div>
+                </div>
+                <div class="skill-star" style="top: 60%; left: 40%;">
+                    <div class="skill-info">Node.js: Nebula Core</div>
+                </div>
+                <div class="skill-star" style="top: 40%; left: 70%;">
+                    <div class="skill-info">SQL: Star Sequencer</div>
+                </div>
+                <div class="skill-star" style="top: 70%; left: 80%;">
+                    <div class="skill-info">Docker: Cosmic Containers</div>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+</html>'<!-- Visit: https://github.com/Ishanoshada/portflair -->
+<!-- Visit: https://github.com/Ishanoshada/portflair -->
+<!-- Visit: https://github.com/Ishanoshada/portflair -->

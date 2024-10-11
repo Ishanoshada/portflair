@@ -1,0 +1,356 @@
+<!-- Portfolio created by Ishan -->
+<!-- Check out my work at: https://github.com/Ishanoshada/portflair -->
+<!-- 2024/10/9 -->
+<!-- Portfolio created by Ishan -->
+'<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hacking-Themed Portfolio</title>
+  <style>
+    /* Global Styles */
+    body {
+      font-family: 'Menlo', monospace;
+      background-color: #0f0f0f;
+      color: #fff;
+      margin: 0;
+      padding: 0;
+      overflow-x: hidden;
+    }
+
+    a {
+      color: #00ff00;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    a:hover {
+      color: #fff;
+    }
+
+    /* Navigation */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: #0f0f0f;
+      padding: 1rem 2rem;
+      border-bottom: 1px solid #00ff00;
+    }
+
+    nav ul {
+      list-style-type: none;
+      display: flex;
+      gap: 2rem;
+      margin: 0;
+      padding: 0;
+    }
+
+    nav li a {
+      font-size: 1.1rem;
+      position: relative;
+    }
+
+    nav li a::after {
+      content: "";
+      position: absolute;
+      width: 0;
+      height: 2px;
+      background-color: #00ff00;
+      bottom: -4px;
+      left: 0;
+      transition: width 0.3s ease;
+    }
+
+    nav li a:hover::after {
+      width: 100%;
+    }
+
+    /* Interactive Projects Showcase */
+    .projects {
+      padding: 4rem 2rem;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+    }
+
+    .project-card {
+      position: relative;
+      overflow: hidden;
+      border-radius: 8px;
+      box-shadow: 0 0 20px rgba(0, 255, 0, 0.3);
+      cursor: pointer;
+    }
+
+    .project-card:hover .project-overlay {
+      transform: translateY(0);
+    }
+
+    .project-thumbnail {
+      width: 100%;
+      height: 300px;
+      object-fit: cover;
+      filter: brightness(0.8);
+      transition: filter 0.3s ease;
+    }
+
+    .project-card:hover .project-thumbnail {
+      filter: brightness(1);
+      transform: scale(1.1);
+    }
+
+    .project-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.8);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      color: #fff;
+      padding: 2rem;
+      transform: translateY(100%);
+      transition: transform 0.3s ease;
+    }
+
+    .project-overlay h3 {
+      font-size: 1.8rem;
+      margin-bottom: 1rem;
+      text-align: center;
+    }
+
+    .project-overlay p {
+      font-size: 1.2rem;
+      margin-bottom: 2rem;
+      text-align: center;
+    }
+
+    .project-overlay a {
+      font-size: 1.2rem;
+      padding: 0.8rem 1.6rem;
+      background-color: #00ff00;
+      color: #0f0f0f;
+      border-radius: 4px;
+      transition: background-color 0.3s ease;
+    }
+
+    .project-overlay a:hover {
+      background-color: #0f0f0f;
+      color: #00ff00;
+    }
+
+    /* Skills and Expertise Showcase */
+    .skills {
+      padding: 4rem 2rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      background-color: #0f0f0f;
+      border-top: 1px solid #00ff00;
+      border-bottom: 1px solid #00ff00;
+    }
+
+    .skills-terminal {
+      background-color: #1c1c1c;
+      border: 1px solid #00ff00;
+      border-radius: 8px;
+      padding: 2rem;
+      width: 80%;
+      max-width: 800px;
+      font-size: 1.2rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .skills-terminal::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: linear-gradient(to right, #00ff00, #ff00ff, #00ffff);
+      background-size: 200% 200%;
+      animation: glitch 5s ease infinite;
+      opacity: 0.1;
+      z-index: 1;
+    }
+
+    .skills-terminal pre {
+      margin: 0;
+      padding: 0;
+      font-family: 'Menlo', monospace;
+      white-space: pre-wrap;
+      word-wrap: break-word;
+      position: relative;
+      z-index: 2;
+    }
+
+    @keyframes glitch {
+      0% {
+        background-position: 0% 50%;
+      }
+      50% {
+        background-position: 100% 50%;
+      }
+      100% {
+        background-position: 0% 50%;
+      }
+    }
+
+    /* Contact and Hire Me Section */
+    .contact {
+      padding: 4rem 2rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      background-color: #0f0f0f;
+    }
+
+    .contact-terminal {
+      background-color: #1c1c1c;
+      border: 1px solid #00ff00;
+      border-radius: 8px;
+      padding: 2rem;
+      width: 80%;
+      max-width: 600px;
+      font-size: 1.2rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .contact-terminal::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: linear-gradient(to right, #00ff00, #ff00ff, #00ffff);
+      background-size: 200% 200%;
+      animation: glitch 5s ease infinite;
+      opacity: 0.1;
+      z-index: 1;
+    }
+
+    .contact-terminal form {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      position: relative;
+      z-index: 2;
+    }
+
+    .contact-terminal input,
+    .contact-terminal textarea {
+      background-color: transparent;
+      border: 1px solid #00ff00;
+      border-radius: 4px;
+      color: #fff;
+      font-family: 'Menlo', monospace;
+      font-size: 1.2rem;
+      padding: 0.8rem 1.2rem;
+      transition: border-color 0.3s ease;
+    }
+
+    .contact-terminal input:focus,
+    .contact-terminal textarea:focus {
+      outline: none;
+      border-color: #fff;
+    }
+
+    .contact-terminal button {
+      background-color: #00ff00;
+      border: none;
+      border-radius: 4px;
+      color: #0f0f0f;
+      cursor: pointer;
+      font-family: 'Menlo', monospace;
+      font-size: 1.2rem;
+      padding: 0.8rem 1.6rem;
+      transition: background-color 0.3s ease;
+    }
+
+    .contact-terminal button:hover {
+      background-color: #0f0f0f;
+      color: #00ff00;
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="logo">
+      <a href="#">Hacking-Themed Portfolio</a>
+    </div>
+    <ul>
+      <li><a href="#">Home</a></li>
+      <li><a href="#">Projects</a></li>
+      <li><a href="#">Skills</a></li>
+      <li><a href="#">Contact</a></li>
+    </ul>
+  </nav>
+
+  <section class="projects">
+    <div class="project-card">
+      <img class="project-thumbnail" src="https://dummyimage.com/600x400/000/00ff00&text=Project+1" alt="Project 1">
+      <div class="project-overlay">
+        <h3>Project 1</h3>
+        <p>A hacking-inspired design project with glitch effects and neon accents.</p>
+        <a href="#">View Project</a>
+      </div>
+    </div>
+    <div class="project-card">
+      <img class="project-thumbnail" src="https://dummyimage.com/600x400/000/00ff00&text=Project+2" alt="Project 2">
+      <div class="project-overlay">
+        <h3>Project 2</h3>
+        <p>A dark and futuristic UI design with interactive elements.</p>
+        <a href="#">View Project</a>
+      </div>
+    </div>
+    <div class="project-card">
+      <img class="project-thumbnail" src="https://dummyimage.com/600x400/000/00ff00&text=Project+3" alt="Project 3">
+      <div class="project-overlay">
+        <h3>Project 3</h3>
+        <p>A portfolio showcase with a unique hacking-themed approach.</p>
+        <a href="#">View Project</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="skills">
+    <div class="skills-terminal">
+      <pre>
+        <span style="color: #00ff00;">$ </span>list_skills
+        > Graphic Design
+        > UI/UX Design
+        > Motion Graphics
+        > 3D Modeling
+        > Branding
+        > Illustration
+        <span style="color: #00ff00;">$ </span>show_expertise
+        > 5+ years of experience in the industry
+        > Award-winning designer with multiple accolades
+        > Proficient in Adobe Creative Cloud suite
+        > Strong understanding of coding principles
+        > Passionate about hacking-inspired aesthetics
+      </pre>
+    </div>
+  </section>
+
+  <section class="contact">
+    <div class="contact-terminal">
+      <form>
+        <input type="text" placeholder="Name" required>
+        <input type="email" placeholder="Email" required>
+        <textarea placeholder="Message" rows="5" required></textarea>
+        <button type="submit">Hire Me</button>
+      </form>
+    </div>
+  </section>
+</body>
+</html>'<!-- Visit: https://github.com/Ishanoshada/portflair -->
+<!-- Visit: https://github.com/Ishanoshada/portflair -->

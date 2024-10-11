@@ -1,0 +1,425 @@
+<!-- Portfolio created by Ishan -->
+<!-- Check out my work at: https://github.com/Ishanoshada/portflair -->
+<!-- 2024/10/9 -->
+<!-- Portfolio created by Ishan -->
+'<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hacking Realm - Developer's Portfolio</title>
+  <style>
+    /* General Styles */
+    body {
+      font-family: 'Montserrat', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #1f1f1f;
+      color: #fff;
+    }
+
+    /* Navigation Bar */
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: #121212;
+      padding: 1.5rem 2rem;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    .navbar-brand {
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: #00c6ff;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    .navbar-brand:hover {
+      color: #00a2d3;
+    }
+
+    .navbar-nav {
+      display: flex;
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .nav-item {
+      margin-left: 1.5rem;
+    }
+
+    .nav-link {
+      color: #fff;
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s ease;
+    }
+
+    .nav-link:hover {
+      color: #00c6ff;
+    }
+
+    /* Hero Section */
+    .hero {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 80vh;
+      background-image: linear-gradient(to right, #121212, #1f1f1f);
+      background-size: cover;
+      background-position: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-content {
+      text-align: center;
+      z-index: 1;
+    }
+
+    .hero-title {
+      font-size: 3.5rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+      animation: glitch 1s infinite;
+    }
+
+    @keyframes glitch {
+      0% {
+        text-shadow: 2px 2px 3px #00c6ff, -2px -2px 3px #00c6ff;
+      }
+      25% {
+        text-shadow: -2px 2px 3px #00c6ff, 2px -2px 3px #00c6ff;
+      }
+      50% {
+        text-shadow: 2px -2px 3px #00c6ff, -2px 2px 3px #00c6ff;
+      }
+      75% {
+        text-shadow: -2px -2px 3px #00c6ff, 2px 2px 3px #00c6ff;
+      }
+      100% {
+        text-shadow: 2px 2px 3px #00c6ff, -2px -2px 3px #00c6ff;
+      }
+    }
+
+    .hero-subtitle {
+      font-size: 1.8rem;
+      margin-bottom: 2rem;
+      text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    }
+
+    .hero-cta {
+      display: inline-block;
+      background-color: #00c6ff;
+      color: #121212;
+      padding: 1rem 2rem;
+      font-size: 1.2rem;
+      font-weight: 600;
+      text-decoration: none;
+      border-radius: 0.5rem;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .hero-cta:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    .hero-bg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: url('https://dummyimage.com/1200x500/ccc/000&text=Hacking+Realm');
+      background-size: cover;
+      background-position: center;
+      opacity: 0.2;
+      z-index: 0;
+    }
+
+    /* Portfolio Section */
+    .portfolio {
+      padding: 4rem 2rem;
+      background-color: #121212;
+    }
+
+    .portfolio-title {
+      font-size: 2.5rem;
+      font-weight: 700;
+      text-align: center;
+      margin-bottom: 3rem;
+      text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    }
+
+    .portfolio-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-gap: 2rem;
+    }
+
+    .portfolio-item {
+      position: relative;
+      overflow: hidden;
+      border-radius: 0.5rem;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .portfolio-item:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+    }
+
+    .portfolio-item img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+
+    .portfolio-item-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 198, 255, 0.8);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .portfolio-item:hover .portfolio-item-overlay {
+      opacity: 1;
+    }
+
+    .portfolio-item-title {
+      font-size: 1.5rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+      color: #121212;
+      text-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+    }
+
+    .portfolio-item-description {
+      font-size: 1.2rem;
+      color: #121212;
+      text-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+    }
+
+    /* Testimonials Section */
+    .testimonials {
+      padding: 4rem 2rem;
+      background-color: #1f1f1f;
+    }
+
+    .testimonials-title {
+      font-size: 2.5rem;
+      font-weight: 700;
+      text-align: center;
+      margin-bottom: 3rem;
+      text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    }
+
+    .testimonials-carousel {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow-x: auto;
+      scrollbar-width: thin;
+      scrollbar-color: #00c6ff #121212;
+    }
+
+    .testimonials-carousel::-webkit-scrollbar {
+      height: 8px;
+    }
+
+    .testimonials-carousel::-webkit-scrollbar-track {
+      background-color: #121212;
+    }
+
+    .testimonials-carousel::-webkit-scrollbar-thumb {
+      background-color: #00c6ff;
+      border-radius: 4px;
+    }
+
+    .testimonial-card {
+      flex: 0 0 auto;
+      width: 300px;
+      background-color: #121212;
+      border-radius: 0.5rem;
+      padding: 2rem;
+      margin: 0 1rem;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .testimonial-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+    }
+
+    .testimonial-avatar {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      margin-bottom: 1rem;
+      background-image: url('https://dummyimage.com/60x60/ccc/000&text=+');
+      background-size: cover;
+      background-position: center;
+    }
+
+    .testimonial-name {
+      font-size: 1.2rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+    }
+
+    .testimonial-job {
+      font-size: 1rem;
+      color: #00c6ff;
+      margin-bottom: 1rem;
+    }
+
+    .testimonial-quote {
+      font-size: 1.2rem;
+      line-height: 1.5;
+    }
+
+    /* Footer */
+    .footer {
+      background-color: #121212;
+      padding: 2rem;
+      text-align: center;
+      font-size: 1rem;
+      color: #777;
+    }
+
+    .footer-text {
+      margin: 0;
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation Bar -->
+  <nav class="navbar">
+    <a href="#" class="navbar-brand">Hacking Realm</a>
+    <ul class="navbar-nav">
+      <li class="nav-item"><a href="#" class="nav-link">Home</a></li>
+      <li class="nav-item"><a href="#" class="nav-link">Portfolio</a></li>
+      <li class="nav-item"><a href="#" class="nav-link">Blog</a></li>
+      <li class="nav-item"><a href="#" class="nav-link">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- Hero Section -->
+  <div class="hero">
+    <div class="hero-content">
+      <h1 class="hero-title">Welcome to Hacking Realm</h1>
+      <p class="hero-subtitle">Unleash your digital potential with our expert hacking and development services.</p>
+      <a href="#" class="hero-cta">Explore Our Portfolio</a>
+    </div>
+    <div class="hero-bg"></div>
+  </div>
+
+  <!-- Portfolio Section -->
+  <section class="portfolio">
+    <h2 class="portfolio-title">Our Portfolio</h2>
+    <div class="portfolio-grid">
+      <div class="portfolio-item">
+        <img src="https://dummyimage.com/400x200/ccc/000&text=Project+1" alt="Project 1">
+        <div class="portfolio-item-overlay">
+          <h3 class="portfolio-item-title">Hacking Project 1</h3>
+          <p class="portfolio-item-description">Innovative hacking solution for enhanced security.</p>
+        </div>
+      </div>
+      <div class="portfolio-item">
+        <img src="https://dummyimage.com/400x200/ccc/000&text=Project+2" alt="Project 2">
+        <div class="portfolio-item-overlay">
+          <h3 class="portfolio-item-title">Web Development Project</h3>
+          <p class="portfolio-item-description">Cutting-edge web application with robust functionalities.</p>
+        </div>
+      </div>
+      <div class="portfolio-item">
+        <img src="https://dummyimage.com/400x200/ccc/000&text=Project+3" alt="Project 3">
+        <div class="portfolio-item-overlay">
+          <h3 class="portfolio-item-title">Cybersecurity Solution</h3>
+          <p class="portfolio-item-description">Comprehensive security measures to protect your digital assets.</p>
+        </div>
+      </div>
+      <div class="portfolio-item">
+        <img src="https://dummyimage.com/400x200/ccc/000&text=Project+4" alt="Project 4">
+        <div class="portfolio-item-overlay">
+          <h3 class="portfolio-item-title">Software Engineering Project</h3>
+          <p class="portfolio-item-description">Innovative software solutions tailored to your needs.</p>
+        </div>
+      </div>
+      <div class="portfolio-item">
+        <img src="https://dummyimage.com/400x200/ccc/000&text=Project+5" alt="Project 5">
+        <div class="portfolio-item-overlay">
+          <h3 class="portfolio-item-title">Ethical Hacking Engagement</h3>
+          <p class="portfolio-item-description">Proactive security assessments to strengthen your defenses.</p>
+        </div>
+      </div>
+      <div class="portfolio-item">
+        <img src="https://dummyimage.com/400x200/ccc/000&text=Project+6" alt="Project 6">
+        <div class="portfolio-item-overlay">
+          <h3 class="portfolio-item-title">Data Analytics Solution</h3>
+          <p class="portfolio-item-description">Transformative insights to drive informed decision-making.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials Section -->
+  <section class="testimonials">
+    <h2 class="testimonials-title">What Our Clients Say</h2>
+    <div class="testimonials-carousel">
+      <div class="testimonial-card">
+        <div class="testimonial-avatar"></div>
+        <h3 class="testimonial-name">John Doe</h3>
+        <p class="testimonial-job">CEO, Acme Inc.</p>
+        <p class="testimonial-quote">"The team at Hacking Realm exceeded my expectations. Their expertise and dedication were instrumental in the success of our project."</p>
+      </div>
+      <div class="testimonial-card">
+        <div class="testimonial-avatar"></div>
+        <h3 class="testimonial-name">Jane Smith</h3>
+        <p class="testimonial-job">CTO, XYZ Corporation</p>
+        <p class="testimonial-quote">"Hacking Realm's innovative solutions have transformed our cybersecurity posture. I highly recommend their services to any organization."</p>
+      </div>
+      <div class="testimonial-card">
+        <div class="testimonial-avatar"></div>
+        <h3 class="testimonial-name">Michael Johnson</h3>
+        <p class="testimonial-job">Head of IT, Globex Enterprises</p>
+        <p class="testimonial-quote">"The team at Hacking Realm are true professionals. Their attention to detail and problem-solving skills are unparalleled."</p>
+      </div>
+      <div class="testimonial-card">
+        <div class="testimonial-avatar"></div>
+        <h3 class="testimonial-name">Emily Williams</h3>
+        <p class="testimonial-job">Lead Developer, Acme Software</p>
+        <p class="testimonial-quote">"Hacking Realm's developers are exceptional. They delivered a cutting-edge web application that"Hacking Realm's developers are exceptional. They delivered a cutting-edge web application that has transformed our business. I'm truly impressed with their expertise and dedication."
+      </div>
+      <div class="testimonial-card">
+        <div class="testimonial-avatar"></div>
+        <h3 class="testimonial-name">David Lee</h3>
+        <p class="testimonial-job">Chief Security Officer, Globex Enterprises</p>
+        <p class="testimonial-quote">"The Hacking Realm team's ethical hacking services have been instrumental in strengthening our cybersecurity posture. I highly recommend their services."</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <p class="footer-text">&copy; 2024 Hacking Realm. All rights reserved.</p>
+  </footer>
+</body>
+</html>'<!-- Visit: https://github.com/Ishanoshada/portflair -->
+<!-- Visit: https://github.com/Ishanoshada/portflair -->

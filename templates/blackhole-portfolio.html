@@ -1,0 +1,361 @@
+<!-- Portfolio created by Ishan -->
+<!-- Check out my work at: https://github.com/Ishanoshada/portflair -->
+<!-- 2024/10/9 -->
+<!-- Portfolio created by Ishan -->
+<!-- Portfolio created by Ishan -->
+<html lang="en"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nebula Node | Hacker, Backend Dev, Sci-Fi Writer</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Orbitron:wght@400;700&display=swap');
+
+        :root {
+            --bg-color: #050714;
+            --text-color: #e0e0e0;
+            --accent-blue: #007bff;
+            --accent-green: #00ff00;
+            --accent-purple: #8a2be2;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Space Mono', monospace;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            overflow-x: hidden;
+        }
+
+        .starfield {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        header {
+            padding: 2rem;
+            background: rgba(5, 7, 20, 0.8);
+            backdrop-filter: blur(10px);
+        }
+
+        nav ul {
+            display: flex;
+            justify-content: space-around;
+            list-style-type: none;
+        }
+
+        nav a {
+            color: var(--text-color);
+            text-decoration: none;
+            font-size: 1.2rem;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: var(--accent-blue);
+        }
+
+        main {
+            padding: 2rem;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Orbitron', sans-serif;
+            margin-bottom: 1rem;
+        }
+
+        .projects {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .project {
+            position: relative;
+            aspect-ratio: 1;
+            border-radius: 50%;
+            overflow: hidden;
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .project::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0) 70%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .project:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 20px rgba(255,255,255,0.2);
+        }
+
+        .project:hover::before {
+            opacity: 1;
+        }
+
+        .project.backend { background-color: var(--accent-blue); }
+        .project.hacking { background-color: var(--accent-green); }
+        .project.writing { background-color: var(--accent-purple); }
+
+        .project-content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .project:hover .project-content {
+            opacity: 1;
+        }
+
+        .skills {
+            position: relative;
+            height: 80vh;
+            margin: 4rem 0;
+            overflow: hidden;
+        }
+
+        .black-hole {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 200px;
+            height: 200px;
+            background: radial-gradient(circle, #000 30%, transparent 70%);
+            border-radius: 50%;
+            box-shadow: 0 0 50px rgba(255,255,255,0.1);
+        }
+
+        .skill-orbit {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 50%;
+            animation: rotate 20s linear infinite;
+        }
+
+        @keyframes rotate {
+            from { transform: translate(-50%, -50%) rotate(0deg); }
+            to { transform: translate(-50%, -50%) rotate(360deg); }
+        }
+
+        .skill {
+            position: absolute;
+            padding: 0.5rem 1rem;
+            background: rgba(0,0,0,0.7);
+            border-radius: 20px;
+            font-size: 0.8rem;
+            white-space: nowrap;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        .skill:hover {
+            background: rgba(255,255,255,0.1);
+        }
+
+        .contact {
+            background: rgba(0,0,0,0.5);
+            border-radius: 10px;
+            padding: 2rem;
+            margin-top: 4rem;
+        }
+
+        .terminal {
+            background: #0f0f0f;
+            border-radius: 5px;
+            padding: 1rem;
+            font-family: 'Space Mono', monospace;
+            line-height: 1.6;
+            overflow: hidden;
+        }
+
+        .terminal::before {
+            content: '$ ';
+            color: var(--accent-green);
+        }
+
+        .cursor {
+            display: inline-block;
+            width: 10px;
+            height: 20px;
+            background: var(--accent-green);
+            animation: blink 0.7s infinite;
+        }
+
+        @keyframes blink {
+            0%, 100% { opacity: 0; }
+            50% { opacity: 1; }
+        }
+
+        @media (max-width: 768px) {
+            .projects {
+                grid-template-columns: 1fr;
+            }
+
+            .skills {
+                height: 60vh;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="starfield" id="starfield"><div style="position: absolute; left: 47.3953%; top: 45.7225%; width: 0.0755649px; height: 0.0755649px; background-color: rgb(255, 255, 255); border-radius: 50%; opacity: 0.805451;"></div><div style="position: absolute; left: 71.2629%; top: 10.8102%; width: 0.175776px; height: 0.175776px; background-color: rgb(255, 255, 255); border-radius: 50%; opacity: 0.153312;"></div><div style="position: absolute; left: 60.4347%; top: 38.9651%; width: 1.80193px; height: 1.80193px; background-color: rgb(255, 255, 255); border-radius: 50%; opacity: 0.174068;"></div><div style="position: absolute; left: 18.8488%; top: 72.6724%; width: 0.0375991px; height: 0.0375991px; background-color: rgb(255, 255, 255); border-radius: 50%; opacity: 0.938852;"></div><div style="position: absolute; left: 8.53039%; top: 42.868%; width: 1.91167px; height: 1.91167px; background-color: rgb(255, 255, 255); border-radius: 50%; opacity: 0.895389;"></div><div style="position: absolute; left: 21.0216%; top: 97.0887%; width: 1.06764px; height: 1.06764px; background-color: rgb(255, 255, 255); border-radius: 50%; opacity: 0.607847;"></div><div style="position: absolute; left: 45.6581%; top: 74.9496%; width: 0.526363px; height: 0.526363px; background-color: rgb(255, 255, 255); border-radius: 50%; opacity: 0.536433;"></div><div style="position: absolute; left: 11.792%; top: 23.2444%; width: 1.09013px; height: 1.09013px; background-color: rgb(255, 255, 255); border-radius: 50%; opacity: 0.5883;"></div><div style="position: absolute; left: 99.5618%; top: 22.921%; width: 1.88091px; height: 1.88091px; background-color: rgb(255, 255, 255); border-radius: 50%; opacity: 0.0152786;"></div><div style="position: absolute; left: 12.4809%; top: 42.1039%; width: 1.6839px; height: 1.6839px; background-color: rgb(255, 255, 255); border-radius: 50%; opacity: 0.144115;"></div><div style="position: absolute; left: 36.3757%; top: 56.3395%; width: 1.23755px; height: 1.23755px; background-color: rgb(255, 255, 255); border-radius: 50%; opacity: 0.675816;"></div><div style="position: absolute; left: 78.4572%; top: 26.2644%; width: 0.911353px; height: 0.911353px; background-color: rgb(255, 255, 255); border-radius: 50%; opacity: 0.975403;"></div><div style="position: absolute; left: 53.9472%; top: 63.5304%; width: 0.503629px; height: 0.503629px; background-color: rgb(255, 255, 255); border-radius: 50%; opacity: 0.741078;"></div><div style="position: absolute; left: 29.6713%; top: 36.1986%; width: 0.915765px; height: 0.915765px; background-color: rgb(255, 255, 255); border-radius: 50%; opacity: 0.0359241;"></div><div style="position: absolute; left: 51.2677%; top: 4.84745%; width: 0.866633px; height: 0.866633px; background-color: rgb(255, 255, 255); border-radius: 50%; opacity: 0.753577;"></div><div style="position: absolute; left: 12.3206%; top: 56.7634%; width: 0.431796px; height: 0.431796px; background-color: rgb(255, 255, 255); border-radius: 50%; opacity: 0.396795;"></div><div style="position: absolute; left: 46.9138%; top: 98.4468%; width: 1.00817px; height: 1.00817px; background-color: rgb(255, 255, 255); border-radius: 50%; opacity: 0.0746663;"></div><div style="position: absolute; left: 75.4986%; top: 2.49873%; width: 1.09625px; height: 1.09625px; background-color: rgb(255, 255, 255); border-radius: 50%; opacity: 0.523832;"></div><div style="position: absolute; left: 71.8093%; top: 21.5932%; width: 0.054619px; height: 0.054619px; background-color: rgb(255, 255, 255); border-radius: 50%; opacity: 0.321561;"></div><div style="position: absolute; left: 16.6201%; top: 77.2546%; width: 1.82034px; height: 1.82034px; background-color: rgb(255, 255, 255); border-radius: 50%; opacity: 0.120047;"></div><div style="position: absolute; left: 88.585%; top: 70.9651%; width: 0.757433px; height: 0.757433px; background-color: rgb(255, 255, 255); border-radius: 50%; opacity: 0.0398;"></div><div style="position: absolute; left: 51.3001%; top: 56.0815%; width: 0.0318046px; height: 0.0318046px; background-color: rgb(255, 255, 255); border-radius: 50%; opacity: 0.317973;"></div><div style="position: absolute; left: 42.0158%; top: 30.1076%; width: 1.65949px; height: 1.65949px; background-color: rgb(255, 255, 255); border-radius: 50%; opacity: 0.3733;"></div><div style="position: absolute; left: 66.4887%; top: 83.1362%; width: 1.01711px; height: 1.01711px; background-color: rgb(255, 255, 255); border-radius: 50%; opacity: 0.819219;"></div><div style="position: absolute; left: 46.7096%; top: 31.3632%; width: 0.787662px; height: 0.787662px; background-color: rgb(255, 255, 255); border-radius: 50%; opacity: 0.395422;"></div><div style="position: absolute; left: 92.3596%; top: 80.7806%; width: 1.58203px; height: 1.58203px; background-color: rgb(255, 255, 255); border-radius: 50%; opacity: 0.3744;"></div><div style="position: absolute; left: 25.8768%; top: 26.5211%; width: 0.112619px; height: 0.112619px; background-color: rgb(255, 255, 255); border-radius: 50%; opacity: 0.802067;"></div><div style="position: absolute; left: 38.0349%; top: 11.0784%; width: 1.20107px; height: 1.20107px; background-color: rgb(255, 255, 255); border-radius: 50%; opacity: 0.162483;"></div><div style="position: absolute; left: 41.2064%; top: 12.2247%; width: 1.76796px; height: 1.76796px; background-color: rgb(255, 255, 255); border-radius: 50%; opacity: 0.86382;"></div><div style="position: absolute; left: 56.5392%; top: 69.8359%; width: 0.114801px; height: 0.114801px; background-color: rgb(255, 255, 255); border-radius: 50%; opacity: 0.0201078;"></div><div style="position: absolute; left: 48.36%; top: 69.3485%; width: 0.342629px; height: 0.342629px; background-color: rgb(255, 255, 255); border-radius: 50%; opacity: 0.678949;"></div><div style="position: absolute; left: 19.049%; top: 70.6837%; width: 0.292921px; height: 0.292921px; background-color: rgb(255, 255, 255); border-radius: 50%; opacity: 0.654172;"></div><div style="position: absolute; left: 30.2014%; top: 86.6239%; width: 0.753846px; height: 0.753846px; background-color: rgb(255, 255, 255); border-radius: 50%; opacity: 0.182007;"></div><div style="position: absolute; left: 17.2933%; top: 68.3282%; width: 0.428214px; height: 0.428214px; background-color: rgb(255, 255, 255); border-radius: 50%; opacity: 0.343709;"></div><div style="position: absolute; left: 87.2934%; top: 18.9561%; width: 1.11284px; height: 1.11284px; background-color: rgb(255, 255, 255); border-radius: 50%; opacity: 0.411827;"></div><div style="position: absolute; left: 17.8427%; top: 25.3933%; width: 1.81627px; height: 1.81627px; background-color: rgb(255, 255, 255); border-radius: 50%; opacity: 0.214924;"></div><div style="position: absolute; left: 92.8929%; top: 59.2586%; width: 1.11644px; height: 1.11644px; background-color: rgb(255, 255, 255); border-radius: 50%; opacity: 0.0911473;"></div><div style="position: absolute; left: 16.5662%; top: 31.841%; width: 1.98169px; height: 1.98169px; background-color: rgb(255, 255, 255); border-radius: 50%; opacity: 0.865946;"></div><div style="position: absolute; left: 61.2525%; top: 38.6517%; width: 0.138921px; height: 0.138921px; background-color: rgb(255, 255, 255); border-radius: 50%; opacity: 0.320287;"></div><div style="position: absolute; left: 41.2284%; top: 22.7723%; width: 0.767499px; height: 0.767499px; background-color: rgb(255, 255, 255); border-radius: 50%; opacity: 0.404058;"></div><div style="position: absolute; left: 94.0928%; top: 25.7239%; width: 1.82757px; height: 1.82757px; background-color: rgb(255, 255, 255); border-radius: 50%; opacity: 0.469912;"></div><div style="position: absolute; left: 56.5447%; top: 10.7309%; width: 1.84083px; height: 1.84083px; background-color: rgb(255, 255, 255); border-radius: 50%; opacity: 0.465439;"></div><div style="position: absolute; left: 99.0476%; top: 0.782637%; width: 0.137922px; height: 0.137922px; background-color: rgb(255, 255, 255); border-radius: 50%; opacity: 0.463351;"></div><div style="position: absolute; left: 4.03636%; top: 71.8316%; width: 1.84047px; height: 1.84047px; background-color: rgb(255, 255, 255); border-radius: 50%; opacity: 0.782298;"></div><div style="position: absolute; left: 74.9209%; top: 24.4431%; width: 1.10565px; height: 1.10565px; background-color: rgb(255, 255, 255); border-radius: 50%; opacity: 0.470705;"></div><div style="position: absolute; left: 99.0199%; top: 10.525%; width: 1.04258px; height: 1.04258px; background-color: rgb(255, 255, 255); border-radius: 50%; opacity: 0.84586;"></div><div style="position: absolute; left: 91.6729%; top: 61.4938%; width: 0.892571px; height: 0.892571px; background-color: rgb(255, 255, 255); border-radius: 50%; opacity: 0.865369;"></div><div style="position: absolute; left: 79.5177%; top: 34.6619%; width: 1.04743px; height: 1.04743px; background-color: rgb(255, 255, 255); border-radius: 50%; opacity: 0.283136;"></div><div style="position: absolute; left: 10.8518%; top: 86.4001%; width: 1.14432px; height: 1.14432px; background-color: rgb(255, 255, 255); border-radius: 50%; opacity: 0.590687;"></div><div style="position: absolute; left: 92.7775%; top: 74.7565%; width: 1.5767px; height: 1.5767px; background-color: rgb(255, 255, 255); border-radius: 50%; opacity: 0.630218;"></div><div style="position: absolute; left: 33.9872%; top: 56.4773%; width: 0.502908px; height: 0.502908px; background-color: rgb(255, 255, 255); border-radius: 50%; opacity: 0.0151655;"></div><div style="position: absolute; left: 4.72719%; top: 76.4881%; width: 1.94066px; height: 1.94066px; background-color: rgb(255, 255, 255); border-radius: 50%; opacity: 0.680571;"></div><div style="position: absolute; left: 99.6033%; top: 72.7705%; width: 1.55878px; height: 1.55878px; background-color: rgb(255, 255, 255); border-radius: 50%; opacity: 0.67715;"></div><div style="position: absolute; left: 63.3349%; top: 23.5435%; width: 0.0259416px; height: 0.0259416px; background-color: rgb(255, 255, 255); border-radius: 50%; opacity: 0.941471;"></div><div style="position: absolute; left: 91.2174%; top: 91.6305%; width: 1.02458px; height: 1.02458px; background-color: rgb(255, 255, 255); border-radius: 50%; opacity: 0.488151;"></div><div style="position: absolute; left: 74.6282%; top: 86.7425%; width: 1.79071px; height: 1.79071px; background-color: rgb(255, 255, 255); border-radius: 50%; opacity: 0.410044;"></div><div style="position: absolute; left: 60.1865%; top: 39.5867%; width: 0.564775px; height: 0.564775px; background-color: rgb(255, 255, 255); border-radius: 50%; opacity: 0.585313;"></div><div style="position: absolute; left: 0.859372%; top: 2.17898%; width: 1.31756px; height: 1.31756px; background-color: rgb(255, 255, 255); border-radius: 50%; opacity: 0.0909729;"></div><div style="position: absolute; left: 4.39003%; top: 97.4612%; width: 0.0622497px; height: 0.0622497px; background-color: rgb(255, 255, 255); border-radius: 50%; opacity: 0.826393;"></div><div style="position: absolute; left: 66.3765%; top: 46.5777%; width: 1.63126px; height: 1.63126px; background-color: rgb(255, 255, 255); border-radius: 50%; opacity: 0.965456;"></div><div style="position: absolute; left: 75.1975%; top: 25.1264%; width: 0.565457px; height: 0.565457px; background-color: rgb(255, 255, 255); border-radius: 50%; opacity: 0.0630127;"></div><div style="position: absolute; left: 86.0381%; top: 46.3438%; width: 0.0825648px; height: 0.0825648px; background-color: rgb(255, 255, 255); border-radius: 50%; opacity: 0.385008;"></div><div style="position: absolute; left: 70.368%; top: 24.5063%; width: 0.553295px; height: 0.553295px; background-color: rgb(255, 255, 255); border-radius: 50%; opacity: 0.191151;"></div><div style="position: absolute; left: 34.1193%; top: 95.3299%; width: 0.334833px; height: 0.334833px; background-color: rgb(255, 255, 255); border-radius: 50%; opacity: 0.603279;"></div><div style="position: absolute; left: 82.0413%; top: 71.5342%; width: 1.89765px; height: 1.89765px; background-color: rgb(255, 255, 255); border-radius: 50%; opacity: 0.344221;"></div><div style="position: absolute; left: 99.5029%; top: 92.727%; width: 0.718337px; height: 0.718337px; background-color: rgb(255, 255, 255); border-radius: 50%; opacity: 0.366273;"></div><div style="position: absolute; left: 25.0108%; top: 70.1944%; width: 0.0490436px; height: 0.0490436px; background-color: rgb(255, 255, 255); border-radius: 50%; opacity: 0.291144;"></div><div style="position: absolute; left: 83.1844%; top: 63.6728%; width: 0.35644px; height: 0.35644px; background-color: rgb(255, 255, 255); border-radius: 50%; opacity: 0.758929;"></div><div style="position: absolute; left: 77.2914%; top: 55.2954%; width: 0.208919px; height: 0.208919px; background-color: rgb(255, 255, 255); border-radius: 50%; opacity: 0.0372506;"></div><div style="position: absolute; left: 46.504%; top: 94.1998%; width: 0.577988px; height: 0.577988px; background-color: rgb(255, 255, 255); border-radius: 50%; opacity: 0.886132;"></div><div style="position: absolute; left: 17.0625%; top: 17.4276%; width: 1.17888px; height: 1.17888px; background-color: rgb(255, 255, 255); border-radius: 50%; opacity: 0.306721;"></div><div style="position: absolute; left: 11.3381%; top: 10.1078%; width: 1.08624px; height: 1.08624px; background-color: rgb(255, 255, 255); border-radius: 50%; opacity: 0.578284;"></div><div style="position: absolute; left: 82.8696%; top: 76.9254%; width: 1.68272px; height: 1.68272px; background-color: rgb(255, 255, 255); border-radius: 50%; opacity: 0.713079;"></div><div style="position: absolute; left: 75.0159%; top: 82.3632%; width: 1.67138px; height: 1.67138px; background-color: rgb(255, 255, 255); border-radius: 50%; opacity: 0.228158;"></div><div style="position: absolute; left: 23.8287%; top: 97.2231%; width: 1.90437px; height: 1.90437px; background-color: rgb(255, 255, 255); border-radius: 50%; opacity: 0.15701;"></div><div style="position: absolute; left: 87.7659%; top: 76.7578%; width: 0.301892px; height: 0.301892px; background-color: rgb(255, 255, 255); border-radius: 50%; opacity: 0.72529;"></div><div style="position: absolute; left: 95.333%; top: 81.1323%; width: 1.59124px; height: 1.59124px; background-color: rgb(255, 255, 255); border-radius: 50%; opacity: 0.876147;"></div><div style="position: absolute; left: 1.04412%; top: 40.7412%; width: 1.34069px; height: 1.34069px; background-color: rgb(255, 255, 255); border-radius: 50%; opacity: 0.78121;"></div><div style="position: absolute; left: 1.96393%; top: 99.7063%; width: 0.851119px; height: 0.851119px; background-color: rgb(255, 255, 255); border-radius: 50%; opacity: 0.519224;"></div><div style="position: absolute; left: 41.8376%; top: 25.8353%; width: 0.459818px; height: 0.459818px; background-color: rgb(255, 255, 255); border-radius: 50%; opacity: 0.246123;"></div><div style="position: absolute; left: 35.9106%; top: 54.8186%; width: 0.77765px; height: 0.77765px; background-color: rgb(255, 255, 255); border-radius: 50%; opacity: 0.271244;"></div><div style="position: absolute; left: 56.8596%; top: 14.5419%; width: 0.691407px; height: 0.691407px; background-color: rgb(255, 255, 255); border-radius: 50%; opacity: 0.741417;"></div><div style="position: absolute; left: 34.5086%; top: 54.171%; width: 1.29996px; height: 1.29996px; background-color: rgb(255, 255, 255); border-radius: 50%; opacity: 0.0758585;"></div><div style="position: absolute; left: 83.1569%; top: 70.002%; width: 0.159897px; height: 0.159897px; background-color: rgb(255, 255, 255); border-radius: 50%; opacity: 0.0381746;"></div><div style="position: absolute; left: 62.1746%; top: 27.7791%; width: 1.27948px; height: 1.27948px; background-color: rgb(255, 255, 255); border-radius: 50%; opacity: 0.161868;"></div><div style="position: absolute; left: 71.8571%; top: 93.1169%; width: 0.812964px; height: 0.812964px; background-color: rgb(255, 255, 255); border-radius: 50%; opacity: 0.806119;"></div><div style="position: absolute; left: 73.4347%; top: 12.6209%; width: 0.456737px; height: 0.456737px; background-color: rgb(255, 255, 255); border-radius: 50%; opacity: 0.889039;"></div><div style="position: absolute; left: 69.3434%; top: 6.05738%; width: 0.606095px; height: 0.606095px; background-color: rgb(255, 255, 255); border-radius: 50%; opacity: 0.71169;"></div><div style="position: absolute; left: 3.18104%; top: 19.3357%; width: 0.95168px; height: 0.95168px; background-color: rgb(255, 255, 255); border-radius: 50%; opacity: 0.738054;"></div><div style="position: absolute; left: 5.10797%; top: 69.8044%; width: 0.356474px; height: 0.356474px; background-color: rgb(255, 255, 255); border-radius: 50%; opacity: 0.59909;"></div><div style="position: absolute; left: 6.74418%; top: 82.8417%; width: 0.9248px; height: 0.9248px; background-color: rgb(255, 255, 255); border-radius: 50%; opacity: 0.0855789;"></div><div style="position: absolute; left: 87.8527%; top: 37.3733%; width: 0.967052px; height: 0.967052px; background-color: rgb(255, 255, 255); border-radius: 50%; opacity: 0.621347;"></div><div style="position: absolute; left: 20.3893%; top: 54.2275%; width: 1.97742px; height: 1.97742px; background-color: rgb(255, 255, 255); border-radius: 50%; opacity: 0.343245;"></div><div style="position: absolute; left: 96.3433%; top: 8.37675%; width: 0.948237px; height: 0.948237px; background-color: rgb(255, 255, 255); border-radius: 50%; opacity: 0.564903;"></div><div style="position: absolute; left: 90.3645%; top: 3.48345%; width: 0.236703px; height: 0.236703px; background-color: rgb(255, 255, 255); border-radius: 50%; opacity: 0.407088;"></div><div style="position: absolute; left: 88.603%; top: 1.98157%; width: 1.39537px; height: 1.39537px; background-color: rgb(255, 255, 255); border-radius: 50%; opacity: 0.743733;"></div><div style="position: absolute; left: 75.0949%; top: 1.67248%; width: 1.17798px; height: 1.17798px; background-color: rgb(255, 255, 255); border-radius: 50%; opacity: 0.975191;"></div><div style="position: absolute; left: 30.6012%; top: 45.9525%; width: 0.129599px; height: 0.129599px; background-color: rgb(255, 255, 255); border-radius: 50%; opacity: 0.540421;"></div><div style="position: absolute; left: 50.4046%; top: 38.1273%; width: 0.847009px; height: 0.847009px; background-color: rgb(255, 255, 255); border-radius: 50%; opacity: 0.591054;"></div><div style="position: absolute; left: 87.9977%; top: 11.398%; width: 0.956861px; height: 0.956861px; background-color: rgb(255, 255, 255); border-radius: 50%; opacity: 0.426131;"></div><div style="position: absolute; left: 23.4984%; top: 34.4258%; width: 0.337758px; height: 0.337758px; background-color: rgb(255, 255, 255); border-radius: 50%; opacity: 0.381189;"></div><div style="position: absolute; left: 92.6647%; top: 89.7965%; width: 0.458168px; height: 0.458168px; background-color: rgb(255, 255, 255); border-radius: 50%; opacity: 0.042772;"></div><div style="position: absolute; left: 55.9818%; top: 4.62095%; width: 0.455587px; height: 0.455587px; background-color: rgb(255, 255, 255); border-radius: 50%; opacity: 0.031944;"></div><div style="position: absolute; left: 59.0644%; top: 36.8855%; width: 0.662395px; height: 0.662395px; background-color: rgb(255, 255, 255); border-radius: 50%; opacity: 0.685976;"></div><div style="position: absolute; left: 90.4247%; top: 28.1206%; width: 0.811395px; height: 0.811395px; background-color: rgb(255, 255, 255); border-radius: 50%; opacity: 0.115893;"></div><div style="position: absolute; left: 1.6252%; top: 64.7373%; width: 1.74813px; height: 1.74813px; background-color: rgb(255, 255, 255); border-radius: 50%; opacity: 0.996382;"></div><div style="position: absolute; left: 21.8106%; top: 20.7949%; width: 1.19079px; height: 1.19079px; background-color: rgb(255, 255, 255); border-radius: 50%; opacity: 0.834602;"></div><div style="position: absolute; left: 34.9538%; top: 60.2395%; width: 1.59002px; height: 1.59002px; background-color: rgb(255, 255, 255); border-radius: 50%; opacity: 0.449819;"></div><div style="position: absolute; left: 26.2025%; top: 61.0656%; width: 0.727038px; height: 0.727038px; background-color: rgb(255, 255, 255); border-radius: 50%; opacity: 0.0136561;"></div><div style="position: absolute; left: 80.9463%; top: 2.86653%; width: 1.18941px; height: 1.18941px; background-color: rgb(255, 255, 255); border-radius: 50%; opacity: 0.774274;"></div><div style="position: absolute; left: 37.4874%; top: 3.7647%; width: 0.186009px; height: 0.186009px; background-color: rgb(255, 255, 255); border-radius: 50%; opacity: 0.701797;"></div><div style="position: absolute; left: 38.5944%; top: 66.3393%; width: 1.35907px; height: 1.35907px; background-color: rgb(255, 255, 255); border-radius: 50%; opacity: 0.540921;"></div><div style="position: absolute; left: 9.19986%; top: 29.5988%; width: 1.43556px; height: 1.43556px; background-color: rgb(255, 255, 255); border-radius: 50%; opacity: 0.507878;"></div><div style="position: absolute; left: 85.5613%; top: 39.8623%; width: 1.20584px; height: 1.20584px; background-color: rgb(255, 255, 255); border-radius: 50%; opacity: 0.979814;"></div><div style="position: absolute; left: 22.0942%; top: 66.6656%; width: 1.65896px; height: 1.65896px; background-color: rgb(255, 255, 255); border-radius: 50%; opacity: 0.801726;"></div><div style="position: absolute; left: 80.7171%; top: 97.8542%; width: 0.513436px; height: 0.513436px; background-color: rgb(255, 255, 255); border-radius: 50%; opacity: 0.608457;"></div><div style="position: absolute; left: 90.7637%; top: 97.0515%; width: 1.05159px; height: 1.05159px; background-color: rgb(255, 255, 255); border-radius: 50%; opacity: 0.757264;"></div><div style="position: absolute; left: 81.1719%; top: 77.7497%; width: 1.39072px; height: 1.39072px; background-color: rgb(255, 255, 255); border-radius: 50%; opacity: 0.467175;"></div><div style="position: absolute; left: 13.4112%; top: 65.2592%; width: 0.755532px; height: 0.755532px; background-color: rgb(255, 255, 255); border-radius: 50%; opacity: 0.149067;"></div><div style="position: absolute; left: 30.9629%; top: 97.7532%; width: 0.982317px; height: 0.982317px; background-color: rgb(255, 255, 255); border-radius: 50%; opacity: 0.60388;"></div><div style="position: absolute; left: 61.5201%; top: 39.3343%; width: 1.95923px; height: 1.95923px; background-color: rgb(255, 255, 255); border-radius: 50%; opacity: 0.680871;"></div><div style="position: absolute; left: 21.9201%; top: 23.3469%; width: 1.82768px; height: 1.82768px; background-color: rgb(255, 255, 255); border-radius: 50%; opacity: 0.648867;"></div><div style="position: absolute; left: 90.1102%; top: 3.77032%; width: 1.49791px; height: 1.49791px; background-color: rgb(255, 255, 255); border-radius: 50%; opacity: 0.245072;"></div><div style="position: absolute; left: 94.4739%; top: 5.75677%; width: 0.36403px; height: 0.36403px; background-color: rgb(255, 255, 255); border-radius: 50%; opacity: 0.281331;"></div><div style="position: absolute; left: 82.1403%; top: 46.9633%; width: 1.50438px; height: 1.50438px; background-color: rgb(255, 255, 255); border-radius: 50%; opacity: 0.846028;"></div><div style="position: absolute; left: 86.1077%; top: 67.7618%; width: 1.85183px; height: 1.85183px; background-color: rgb(255, 255, 255); border-radius: 50%; opacity: 0.466302;"></div><div style="position: absolute; left: 57.0686%; top: 60.3032%; width: 1.27193px; height: 1.27193px; background-color: rgb(255, 255, 255); border-radius: 50%; opacity: 0.413952;"></div><div style="position: absolute; left: 70.0837%; top: 90.2912%; width: 0.990832px; height: 0.990832px; background-color: rgb(255, 255, 255); border-radius: 50%; opacity: 0.570911;"></div><div style="position: absolute; left: 44.9796%; top: 89.3682%; width: 1.45047px; height: 1.45047px; background-color: rgb(255, 255, 255); border-radius: 50%; opacity: 0.322483;"></div><div style="position: absolute; left: 98.8535%; top: 52.0905%; width: 0.401007px; height: 0.401007px; background-color: rgb(255, 255, 255); border-radius: 50%; opacity: 0.1724;"></div><div style="position: absolute; left: 0.90839%; top: 99.1198%; width: 1.5098px; height: 1.5098px; background-color: rgb(255, 255, 255); border-radius: 50%; opacity: 0.882197;"></div><div style="position: absolute; left: 3.37743%; top: 38.4338%; width: 1.20537px; height: 1.20537px; background-color: rgb(255, 255, 255); border-radius: 50%; opacity: 0.451829;"></div><div style="position: absolute; left: 5.45574%; top: 27.2811%; width: 0.782692px; height: 0.782692px; background-color: rgb(255, 255, 255); border-radius: 50%; opacity: 0.423949;"></div><div style="position: absolute; left: 46.4798%; top: 75.7709%; width: 0.791245px; height: 0.791245px; background-color: rgb(255, 255, 255); border-radius: 50%; opacity: 0.164456;"></div><div style="position: absolute; left: 99.8578%; top: 90.9263%; width: 0.640746px; height: 0.640746px; background-color: rgb(255, 255, 255); border-radius: 50%; opacity: 0.523506;"></div><div style="position: absolute; left: 82.6172%; top: 72.5335%; width: 0.155993px; height: 0.155993px; background-color: rgb(255, 255, 255); border-radius: 50%; opacity: 0.450846;"></div><div style="position: absolute; left: 90.5325%; top: 98.6209%; width: 0.8382px; height: 0.8382px; background-color: rgb(255, 255, 255); border-radius: 50%; opacity: 0.271491;"></div><div style="position: absolute; left: 7.45607%; top: 54.7043%; width: 0.41664px; height: 0.41664px; background-color: rgb(255, 255, 255); border-radius: 50%; opacity: 0.753674;"></div><div style="position: absolute; left: 29.7859%; top: 14.7792%; width: 1.31012px; height: 1.31012px; background-color: rgb(255, 255, 255); border-radius: 50%; opacity: 0.921356;"></div><div style="position: absolute; left: 18.0715%; top: 46.5918%; width: 1.38916px; height: 1.38916px; background-color: rgb(255, 255, 255); border-radius: 50%; opacity: 0.797806;"></div><div style="position: absolute; left: 75.1105%; top: 37.3426%; width: 1.4923px; height: 1.4923px; background-color: rgb(255, 255, 255); border-radius: 50%; opacity: 0.125464;"></div><div style="position: absolute; left: 2.04207%; top: 22.0937%; width: 0.335068px; height: 0.335068px; background-color: rgb(255, 255, 255); border-radius: 50%; opacity: 0.305978;"></div><div style="position: absolute; left: 91.0326%; top: 76.0582%; width: 1.62332px; height: 1.62332px; background-color: rgb(255, 255, 255); border-radius: 50%; opacity: 0.347504;"></div><div style="position: absolute; left: 77.0326%; top: 70.5551%; width: 0.616806px; height: 0.616806px; background-color: rgb(255, 255, 255); border-radius: 50%; opacity: 0.688533;"></div><div style="position: absolute; left: 96.2158%; top: 32.5427%; width: 0.813335px; height: 0.813335px; background-color: rgb(255, 255, 255); border-radius: 50%; opacity: 0.989577;"></div><div style="position: absolute; left: 74.9771%; top: 71.6415%; width: 0.60371px; height: 0.60371px; background-color: rgb(255, 255, 255); border-radius: 50%; opacity: 0.252635;"></div><div style="position: absolute; left: 98.4264%; top: 54.4468%; width: 0.421129px; height: 0.421129px; background-color: rgb(255, 255, 255); border-radius: 50%; opacity: 0.392089;"></div><div style="position: absolute; left: 37.0586%; top: 23.5175%; width: 0.164335px; height: 0.164335px; background-color: rgb(255, 255, 255); border-radius: 50%; opacity: 0.00971591;"></div><div style="position: absolute; left: 23.533%; top: 32.016%; width: 1.4015px; height: 1.4015px; background-color: rgb(255, 255, 255); border-radius: 50%; opacity: 0.62223;"></div><div style="position: absolute; left: 62.8545%; top: 41.6446%; width: 1.28856px; height: 1.28856px; background-color: rgb(255, 255, 255); border-radius: 50%; opacity: 0.706554;"></div><div style="position: absolute; left: 22.9682%; top: 13.4366%; width: 0.536259px; height: 0.536259px; background-color: rgb(255, 255, 255); border-radius: 50%; opacity: 0.322644;"></div><div style="position: absolute; left: 30.3958%; top: 29.5258%; width: 1.44966px; height: 1.44966px; background-color: rgb(255, 255, 255); border-radius: 50%; opacity: 0.980671;"></div><div style="position: absolute; left: 51.7934%; top: 55.3312%; width: 1.53351px; height: 1.53351px; background-color: rgb(255, 255, 255); border-radius: 50%; opacity: 0.30356;"></div><div style="position: absolute; left: 43.0267%; top: 10.289%; width: 1.82145px; height: 1.82145px; background-color: rgb(255, 255, 255); border-radius: 50%; opacity: 0.479137;"></div><div style="position: absolute; left: 82.7902%; top: 77.0807%; width: 1.39327px; height: 1.39327px; background-color: rgb(255, 255, 255); border-radius: 50%; opacity: 0.0876844;"></div><div style="position: absolute; left: 42.4377%; top: 4.84652%; width: 0.657667px; height: 0.657667px; background-color: rgb(255, 255, 255); border-radius: 50%; opacity: 0.714306;"></div><div style="position: absolute; left: 98.8549%; top: 71.4091%; width: 1.92157px; height: 1.92157px; background-color: rgb(255, 255, 255); border-radius: 50%; opacity: 0.404733;"></div><div style="position: absolute; left: 92.917%; top: 43.287%; width: 1.8874px; height: 1.8874px; background-color: rgb(255, 255, 255); border-radius: 50%; opacity: 0.77765;"></div><div style="position: absolute; left: 92.885%; top: 88.7791%; width: 0.0700706px; height: 0.0700706px; background-color: rgb(255, 255, 255); border-radius: 50%; opacity: 0.912847;"></div><div style="position: absolute; left: 17.2418%; top: 90.3689%; width: 1.74744px; height: 1.74744px; background-color: rgb(255, 255, 255); border-radius: 50%; opacity: 0.45436;"></div><div style="position: absolute; left: 98.8341%; top: 70.2065%; width: 1.34948px; height: 1.34948px; background-color: rgb(255, 255, 255); border-radius: 50%; opacity: 0.429935;"></div><div style="position: absolute; left: 84.4082%; top: 84.0356%; width: 0.421832px; height: 0.421832px; background-color: rgb(255, 255, 255); border-radius: 50%; opacity: 0.0645546;"></div><div style="position: absolute; left: 57.0772%; top: 90.7698%; width: 1.48043px; height: 1.48043px; background-color: rgb(255, 255, 255); border-radius: 50%; opacity: 0.595018;"></div><div style="position: absolute; left: 51.0789%; top: 64.4595%; width: 1.5426px; height: 1.5426px; background-color: rgb(255, 255, 255); border-radius: 50%; opacity: 0.660441;"></div><div style="position: absolute; left: 86.6251%; top: 58.1176%; width: 1.40386px; height: 1.40386px; background-color: rgb(255, 255, 255); border-radius: 50%; opacity: 0.861501;"></div><div style="position: absolute; left: 12.8709%; top: 16.6119%; width: 0.898724px; height: 0.898724px; background-color: rgb(255, 255, 255); border-radius: 50%; opacity: 0.771925;"></div><div style="position: absolute; left: 50.4256%; top: 69.9804%; width: 1.82832px; height: 1.82832px; background-color: rgb(255, 255, 255); border-radius: 50%; opacity: 0.944525;"></div><div style="position: absolute; left: 98.0494%; top: 37.962%; width: 0.937677px; height: 0.937677px; background-color: rgb(255, 255, 255); border-radius: 50%; opacity: 0.274174;"></div><div style="position: absolute; left: 60.7026%; top: 83.2623%; width: 1.81926px; height: 1.81926px; background-color: rgb(255, 255, 255); border-radius: 50%; opacity: 0.850997;"></div><div style="position: absolute; left: 75.4232%; top: 20.8074%; width: 1.65786px; height: 1.65786px; background-color: rgb(255, 255, 255); border-radius: 50%; opacity: 0.967974;"></div><div style="position: absolute; left: 79.8091%; top: 32.8802%; width: 1.61842px; height: 1.61842px; background-color: rgb(255, 255, 255); border-radius: 50%; opacity: 0.624479;"></div><div style="position: absolute; left: 55.3091%; top: 81.7822%; width: 0.685223px; height: 0.685223px; background-color: rgb(255, 255, 255); border-radius: 50%; opacity: 0.773839;"></div><div style="position: absolute; left: 80.2068%; top: 30.3992%; width: 1.19743px; height: 1.19743px; background-color: rgb(255, 255, 255); border-radius: 50%; opacity: 0.58386;"></div><div style="position: absolute; left: 87.4328%; top: 55.2791%; width: 1.45965px; height: 1.45965px; background-color: rgb(255, 255, 255); border-radius: 50%; opacity: 0.179143;"></div><div style="position: absolute; left: 63.1318%; top: 76.6938%; width: 1.35527px; height: 1.35527px; background-color: rgb(255, 255, 255); border-radius: 50%; opacity: 0.462338;"></div><div style="position: absolute; left: 90.897%; top: 59.9241%; width: 0.157928px; height: 0.157928px; background-color: rgb(255, 255, 255); border-radius: 50%; opacity: 0.542097;"></div><div style="position: absolute; left: 65.4005%; top: 86.8499%; width: 1.52972px; height: 1.52972px; background-color: rgb(255, 255, 255); border-radius: 50%; opacity: 0.40669;"></div><div style="position: absolute; left: 87.0006%; top: 58.6243%; width: 1.39539px; height: 1.39539px; background-color: rgb(255, 255, 255); border-radius: 50%; opacity: 0.332623;"></div><div style="position: absolute; left: 51.8568%; top: 48.5396%; width: 1.4916px; height: 1.4916px; background-color: rgb(255, 255, 255); border-radius: 50%; opacity: 0.426306;"></div><div style="position: absolute; left: 15.9913%; top: 17.6624%; width: 1.56461px; height: 1.56461px; background-color: rgb(255, 255, 255); border-radius: 50%; opacity: 0.440419;"></div><div style="position: absolute; left: 67.9917%; top: 54.9008%; width: 0.932745px; height: 0.932745px; background-color: rgb(255, 255, 255); border-radius: 50%; opacity: 0.631404;"></div><div style="position: absolute; left: 70.3836%; top: 33.2776%; width: 0.490562px; height: 0.490562px; background-color: rgb(255, 255, 255); border-radius: 50%; opacity: 0.376179;"></div><div style="position: absolute; left: 47.1396%; top: 89.1445%; width: 1.42563px; height: 1.42563px; background-color: rgb(255, 255, 255); border-radius: 50%; opacity: 0.814158;"></div><div style="position: absolute; left: 18.7243%; top: 54.1402%; width: 1.5899px; height: 1.5899px; background-color: rgb(255, 255, 255); border-radius: 50%; opacity: 0.00146802;"></div><div style="position: absolute; left: 86.0173%; top: 47.9695%; width: 0.596519px; height: 0.596519px; background-color: rgb(255, 255, 255); border-radius: 50%; opacity: 0.381862;"></div><div style="position: absolute; left: 56.2725%; top: 90.6192%; width: 0.886362px; height: 0.886362px; background-color: rgb(255, 255, 255); border-radius: 50%; opacity: 0.600824;"></div><div style="position: absolute; left: 27.7062%; top: 54.0023%; width: 1.06508px; height: 1.06508px; background-color: rgb(255, 255, 255); border-radius: 50%; opacity: 0.353777;"></div><div style="position: absolute; left: 51.7947%; top: 46.1962%; width: 0.0955715px; height: 0.0955715px; background-color: rgb(255, 255, 255); border-radius: 50%; opacity: 0.114453;"></div><div style="position: absolute; left: 91.1291%; top: 50.3251%; width: 1.24885px; height: 1.24885px; background-color: rgb(255, 255, 255); border-radius: 50%; opacity: 0.226693;"></div><div style="position: absolute; left: 89.2145%; top: 59.1181%; width: 1.41151px; height: 1.41151px; background-color: rgb(255, 255, 255); border-radius: 50%; opacity: 0.0927076;"></div><div style="position: absolute; left: 45.4631%; top: 82.8991%; width: 0.654196px; height: 0.654196px; background-color: rgb(255, 255, 255); border-radius: 50%; opacity: 0.88697;"></div><div style="position: absolute; left: 92.0753%; top: 88.2774%; width: 0.707169px; height: 0.707169px; background-color: rgb(255, 255, 255); border-radius: 50%; opacity: 0.409029;"></div><div style="position: absolute; left: 48.0135%; top: 36.876%; width: 1.26328px; height: 1.26328px; background-color: rgb(255, 255, 255); border-radius: 50%; opacity: 0.705152;"></div><div style="position: absolute; left: 12.6137%; top: 46.0717%; width: 0.928105px; height: 0.928105px; background-color: rgb(255, 255, 255); border-radius: 50%; opacity: 0.769913;"></div><div style="position: absolute; left: 55.6129%; top: 18.106%; width: 1.2623px; height: 1.2623px; background-color: rgb(255, 255, 255); border-radius: 50%; opacity: 0.69968;"></div><div style="position: absolute; left: 86.9815%; top: 66.6615%; width: 1.09467px; height: 1.09467px; background-color: rgb(255, 255, 255); border-radius: 50%; opacity: 0.746727;"></div><div style="position: absolute; left: 11.7825%; top: 88.9373%; width: 0.865118px; height: 0.865118px; background-color: rgb(255, 255, 255); border-radius: 50%; opacity: 0.0175201;"></div><div style="position: absolute; left: 54.6738%; top: 66.1846%; width: 0.763957px; height: 0.763957px; background-color: rgb(255, 255, 255); border-radius: 50%; opacity: 0.100067;"></div><div style="position: absolute; left: 55.2369%; top: 39.0724%; width: 0.623996px; height: 0.623996px; background-color: rgb(255, 255, 255); border-radius: 50%; opacity: 0.4073;"></div><div style="position: absolute; left: 98.0212%; top: 11.8253%; width: 1.91211px; height: 1.91211px; background-color: rgb(255, 255, 255); border-radius: 50%; opacity: 0.808896;"></div></div>
+
+    <header>
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="home">
+            <h1>Nebula Node</h1>
+            <p>Hacker. Backend Developer. Science Fiction Writer.</p>
+        </section>
+
+        <section id="projects">
+            <h2>Stellar Projects</h2>
+            <div class="projects">
+                <div class="project backend">
+                    <div class="project-content">
+                        <h3>Quantum Database</h3>
+                        <p>A revolutionary backend system</p>
+                    </div>
+                </div>
+                <div class="project hacking">
+                    <div class="project-content">
+                        <h3>NeuralCrypt</h3>
+                        <p>AI-powered encryption breaker</p>
+                    </div>
+                </div>
+                <div class="project writing">
+                    <div class="project-content">
+                        <h3>Echoes of Epsilon</h3>
+                        <p>Award-winning sci-fi novel</p>
+                    </div>
+                </div>
+                <div class="project backend">
+                    <div class="project-content">
+                        <h3>GalaxyScale</h3>
+                        <p>Interplanetary load balancer</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="skills" class="skills">
+            <div class="black-hole"></div>
+            <div class="skill-orbit" style="width: 300px; height: 300px;">
+                <div class="skill" style="top: 0; left: 50%;">Python</div>
+                <div class="skill" style="bottom: 0; left: 50%;">Node.js</div>
+            </div>
+            <div class="skill-orbit" style="width: 500px; height: 500px;">
+                <div class="skill" style="top: 0; left: 50%;">Penetration Testing</div>
+                <div class="skill" style="bottom: 0; left: 50%;">Network Security</div>
+            </div>
+            <div class="skill-orbit" style="width: 700px; height: 700px;">
+                <div class="skill" style="top: 0; left: 50%;">Worldbuilding</div>
+                <div class="skill" style="bottom: 0; left: 50%;">Character Development</div>
+            </div>
+        </section>
+
+        <section id="contact" class="contact">
+            <h2>Initiate Contact Sequence</h2>
+            <div class="terminal">
+                Establishing secure connection...<br>
+                Connection established. Enter command:<br>
+                <span id="typed-text"></span><span class="cursor"></span>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        function createStarfield() {
+            const starfield = document.getElementById('starfield');
+            const stars = 200;
+
+            for (let i = 0; i < stars; i++) {
+                let star = document.createElement('div');
+                star.style.position = 'absolute';
+                star.style.left = `${Math.random() * 100}%`;
+                star.style.top = `${Math.random() * 100}%`;
+                star.style.width = `${Math.random() * 2}px`;
+                star.style.height = star.style.width;
+                star.style.backgroundColor = '#fff';
+                star.style.borderRadius = '50%';
+                star.style.opacity = Math.random();
+                starfield.appendChild(star);
+            }
+        }
+
+        function typeWriter(text, i, fnCallback) {
+            if (i < text.length) {
+                document.getElementById("typed-text").innerHTML = text.substring(0, i+1) + '<span class="cursor"></span>';
+                setTimeout(function() {
+                    typeWriter(text, i + 1, fnCallback)
+                }, 100);
+            } else if (typeof fnCallback == 'function') {
+                setTimeout(fnCallback, 700);
+            }
+        }
+
+        function startTyping() {
+            const textArray = [
+                "email: nebula@node.com",
+                "github: github.com/nebulanode",
+                "twitter: @nebulanode"
+            ];
+            let textIndex = 0;
+
+            function typeNextText() {
+                if (textIndex < textArray.length) {
+                    typeWriter(textArray[textIndex], 0, function() {
+                        setTimeout(function() {
+                            document.getElementById("typed-text").innerHTML = '';
+                            textIndex++;
+                            typeNextText();
+                        }, 2000);
+                    });
+                }
+            }
+
+            typeNextText();
+        }
+
+        document.addEventListener('DOMContentLoaded', (event) => {
+            createStarfield();
+            startTyping();
+        });
+    </script>
+
+</body></html><!-- Visit: https://github.com/Ishanoshada/portflair -->
+<!-- Visit: https://github.com/Ishanoshada/portflair -->
+<!-- Visit: https://github.com/Ishanoshada/portflair -->

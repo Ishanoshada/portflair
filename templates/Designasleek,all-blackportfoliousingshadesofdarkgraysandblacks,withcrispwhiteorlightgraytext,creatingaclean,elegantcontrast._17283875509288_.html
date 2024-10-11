@@ -1,0 +1,432 @@
+<!-- Portfolio created by Ishan -->
+<!-- Check out my work at: https://github.com/Ishanoshada/portflair -->
+<!-- 2024/10/9 -->
+<!-- Portfolio created by Ishan -->
+'<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sleek Black Portfolio</title>
+  <style>
+    /* Global Styles */
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background-color: #1a1a1a;
+      color: #f1f1f1;
+      margin: 0;
+      padding: 0;
+    }
+
+    /* Navigation */
+    nav {
+      background-color: #1a1a1a;
+      padding: 1.5rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    nav a {
+      color: #f1f1f1;
+      text-decoration: none;
+      font-size: 1.1rem;
+      font-weight: 500;
+      transition: color 0.3s ease;
+    }
+
+    nav a:hover {
+      color: #b3b3b3;
+    }
+
+    .nav-logo {
+      font-size: 1.6rem;
+      font-weight: 700;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 1.5rem;
+    }
+
+    /* Featured Projects */
+    .featured-projects {
+      padding: 4rem 2rem;
+    }
+
+    .featured-projects h2 {
+      text-align: center;
+      font-size: 2.2rem;
+      margin-bottom: 3rem;
+    }
+
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2.5rem;
+    }
+
+    .project-thumbnail {
+      position: relative;
+      overflow: hidden;
+      border-radius: 8px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      cursor: pointer;
+    }
+
+    .project-thumbnail img {
+      width: 100%;
+      height: 300px;
+      object-fit: cover;
+      transition: transform 0.3s ease;
+    }
+
+    .project-thumbnail:hover img {
+      transform: scale(1.1);
+    }
+
+    .project-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.6);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .project-thumbnail:hover .project-overlay {
+      opacity: 1;
+    }
+
+    .project-overlay h3 {
+      font-size: 1.4rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .project-overlay p {
+      font-size: 1rem;
+      text-align: center;
+    }
+
+    /* About Me */
+    .about-me {
+      background-color: #1c1c1c;
+      padding: 4rem 2rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .about-me-content {
+      max-width: 900px;
+      display: flex;
+      align-items: center;
+      gap: 3rem;
+    }
+
+    .about-me-image {
+      flex: 0 0 300px;
+      border-radius: 50%;
+      overflow: hidden;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .about-me-image img {
+      width: 100%;
+      height: auto;
+      object-fit: cover;
+    }
+
+    .about-me-text {
+      flex: 1;
+    }
+
+    .about-me-text h2 {
+      font-size: 2.2rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .about-me-text p {
+      font-size: 1.1rem;
+      line-height: 1.6;
+      margin-bottom: 1.5rem;
+    }
+
+    .skill-list {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+    }
+
+    .skill-item {
+      background-color: #2a2a2a;
+      padding: 1.2rem;
+      border-radius: 6px;
+      text-align: center;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    .skill-item h4 {
+      font-size: 1.1rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .skill-item p {
+      font-size: 0.9rem;
+      color: #b3b3b3;
+    }
+
+    /* Contact */
+    .contact {
+      padding: 4rem 2rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .contact-content {
+      max-width: 800px;
+      display: flex;
+      align-items: center;
+      gap: 3rem;
+    }
+
+    .contact-form {
+      flex: 1;
+    }
+
+    .contact-form h2 {
+      font-size: 2.2rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .contact-form form {
+      display: flex;
+      flex-direction: column;
+      gap: 1.2rem;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+      background-color: #2a2a2a;
+      border: none;
+      padding: 1rem;
+      font-size: 1rem;
+      color: #f1f1f1;
+      border-radius: 6px;
+      transition: box-shadow 0.3s ease;
+    }
+
+    .contact-form input:focus,
+    .contact-form textarea:focus {
+      outline: none;
+      box-shadow: 0 0 6px rgba(179, 179, 179, 0.5);
+    }
+
+    .contact-form button {
+      background-color: #f1f1f1;
+      color: #1a1a1a;
+      padding: 1rem 2rem;
+      font-size: 1rem;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+    .contact-form button:hover {
+      background-color: #b3b3b3;
+      color: #1a1a1a;
+    }
+
+    .contact-info {
+      flex: 0 0 300px;
+    }
+
+    .contact-info h3 {
+      font-size: 1.6rem;
+      margin-bottom: 1.2rem;
+    }
+
+    .contact-info p {
+      font-size: 1.1rem;
+      margin-bottom: 0.8rem;
+    }
+
+    .contact-info a {
+      color: #f1f1f1;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    .contact-info a:hover {
+      color: #b3b3b3;
+    }
+
+    /* Responsive Styles */
+    @media (max-width: 991px) {
+      .project-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .about-me-content {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .skill-list {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .contact-content {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .contact-info {
+        flex-basis: auto;
+      }
+    }
+
+    @media (max-width: 767px) {
+      .project-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .skill-list {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="#" class="nav-logo">Sleek Black</a>
+    <div class="nav-links">
+      <a href="#featured-projects">Featured Projects</a>
+      <a href="#about-me">About Me</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </nav>
+
+  <section class="featured-projects" id="featured-projects">
+    <h2>Featured Projects</h2>
+    <div class="project-grid">
+      <div class="project-thumbnail">
+        <img src="https://dummyimage.com/600x400/ccc/000&text=Project+1" alt="Project 1">
+        <div class="project-overlay">
+          <h3>Project 1</h3>
+          <p>A sleek and modern website design</p>
+        </div>
+      </div>
+      <div class="project-thumbnail">
+        <img src="https://dummyimage.com/600x400/ccc/000&text=Project+2" alt="Project 2">
+        <div class="project-overlay">
+          <h3>Project 2</h3>
+          <p>A clean and elegant branding design</p>
+        </div>
+      </div>
+      <div class="project-thumbnail">
+        <img src="https://dummyimage.com/600x400/ccc/000&text=Project+3" alt="Project 3">
+        <div class="project-overlay">
+          <h3>Project 3</h3>
+          <p>An interactive and responsive web app</p>
+        </div>
+      </div>
+      <div class="project-thumbnail">
+        <img src="https://dummyimage.com/600x400/ccc/000&text=Project+4" alt="Project 4">
+        <div class="project-overlay">
+          <h3>Project 4</h3>
+          <p>A minimalist and visually striking UI design</p>
+        </div>
+      </div>
+      <div class="project-thumbnail">
+        <img src="https://dummyimage.com/600x400/ccc/000&text=Project+5" alt="Project 5">
+        <div class="project-overlay">
+          <h3>Project 5</h3>
+          <p>A comprehensive and user-friendly mobile app</p>
+        </div>
+      </div>
+      <div class="project-thumbnail">
+        <img src="https://dummyimage.com/600x400/ccc/000&text=Project+6" alt="Project 6">
+        <div class="project-overlay">
+          <h3>Project 6</h3>
+          <p>A captivating and visually engaging brand identity</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="about-me" id="about-me">
+    <div class="about-me-content">
+      <div class="about-me-image">
+        <img src="https://dummyimage.com/300x300/ccc/000&text=Designer" alt="Designer">
+      </div>
+      <div class="about-me-text">
+        <h2>About Me</h2>
+        <p>I am a passionate and dedicated designer with a keen eye for detail and a deep understanding of design principles. My goal is to create visually stunning and user-friendly designs that not only look great but also enhance the overall user experience.</p>
+        <p>With years of experience in the industry, I have honed my skills in a wide range of design disciplines, including web design, branding, and UI/UX design. I am constantly seeking new challenges and opportunities to push the boundaries of what is possible in the world of design.</p>
+        <div class="skill-list">
+          <div class="skill-item">
+            <h4>Web Design</h4>
+            <p>Crafting responsive and interactive websites</p>
+          </div>
+          <div class="skill-item">
+            <h4>Branding</h4>
+            <p>Developing cohesive and visually captivating brand identities</p>
+          </div>
+          <div class="skill-item">
+            <h4>UI/UX Design</h4>
+            <p>Designing intuitive and user-friendly interfaces</p>
+          </div>
+          <div class="skill-item">
+            <h4>Illustration</h4>
+            <p>Creating unique and impactful visual elements</p>
+          </div>
+          <div class="skill-item">
+            <h4>Motion Design</h4>
+            <p>Bringing designs to life with smooth animations</p>
+          </div>
+          <div class="skill-item">
+            <h4>Photography</h4>
+            <p>Capturing stunning visuals to complement designs</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact" id="contact">
+    <div class="contact-content">
+      <div class="contact-form">
+        <h2>Get in Touch</h2>
+        <form>
+          <input type="text" placeholder="Name" required>
+          <input type="email" placeholder="Email" required>
+          <textarea placeholder="Message" rows="5" required></textarea>
+          <button type="submit">Submit</button>
+        </form>
+      </div>
+      <div class="contact-info">
+        <h3>Contact Information</h3>
+        <p>Email: info@sleekblack.com</p>
+        <p>Phone: +1 (555) 123-4567</p>
+        <p>
+          Social:
+          <a href="#">LinkedIn</a>
+          <a href="#">Instagram</a>
+          <a href="#">Behance</a>
+        </p>
+      </div>
+    </div>
+  </section>
+</body>
+</html>'<!-- Visit: https://github.com/Ishanoshada/portflair -->
+<!-- Visit: https://github.com/Ishanoshada/portflair -->

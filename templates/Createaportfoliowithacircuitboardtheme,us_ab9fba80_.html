@@ -1,0 +1,518 @@
+<!-- Portfolio created by Ishan -->
+<!-- Check out my work at: https://github.com/Ishanoshada/portflair -->
+<!-- 2024/10/9 -->
+<!-- Portfolio created by Ishan -->
+'<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create a Portfolio</title>
+    <style>
+        /* Global Styles */
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #0f0f0f;
+            color: #fff;
+        }
+
+        /* Navigation */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #0f0f0f;
+            padding: 1rem 2rem;
+            border-bottom: 1px solid #1e1e1e;
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 1.1rem;
+            font-weight: 500;
+            margin-right: 2rem;
+            transition: color 0.3s ease-in-out;
+        }
+
+        nav a:hover {
+            color: #6d6dff;
+        }
+
+        /* About Me/Skills */
+        #about-skills {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            padding: 4rem 2rem;
+            background-image: url("https://dummyimage.com/1920x1080/333/fff&text=Metallic+Texture");
+            background-size: cover;
+            background-position: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        #about-skills::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(15, 15, 15, 0.8);
+            z-index: 1;
+        }
+
+        .about-me,
+        .skills {
+            flex-basis: 50%;
+            padding: 2rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .profile-image {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            background-image: url("https://dummyimage.com/400x400/6d6dff/fff&text=Your+Photo");
+            background-size: cover;
+            background-position: center;
+            box-shadow: 0 0 20px rgba(109, 109, 255, 0.5);
+            animation: glow 2s ease-in-out infinite;
+        }
+
+        @keyframes glow {
+            0% {
+                box-shadow: 0 0 20px rgba(109, 109, 255, 0.5);
+            }
+            50% {
+                box-shadow: 0 0 40px rgba(109, 109, 255, 0.8);
+            }
+            100% {
+                box-shadow: 0 0 20px rgba(109, 109, 255, 0.5);
+            }
+        }
+
+        .about-me h2,
+        .skills h2 {
+            color: #6d6dff;
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .about-me p {
+            font-size: 1.1rem;
+            line-height: 1.6;
+        }
+
+        .skills-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+            grid-gap: 2rem;
+            justify-items: center;
+        }
+
+        .skill-item {
+            background-color: #1e1e1e;
+            border-radius: 10px;
+            padding: 1.5rem;
+            text-align: center;
+            box-shadow: 0 0 20px rgba(109, 109, 255, 0.2);
+            transition: all 0.3s ease-in-out;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .skill-item:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 40px rgba(109, 109, 255, 0.4);
+        }
+
+        .skill-item::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(109, 109, 255, 0.1);
+            z-index: 1;
+            opacity: 0;
+            transition: opacity 0.3s ease-in-out;
+        }
+
+        .skill-item:hover::before {
+            opacity: 1;
+        }
+
+        .skill-item img {
+            width: 40px;
+            height: 40px;
+            margin-bottom: 1rem;
+        }
+
+        .skill-item h3 {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .skill-item p {
+            font-size: 0.9rem;
+            color: #888;
+        }
+
+        /* Portfolio */
+        #portfolio {
+            padding: 4rem 2rem;
+            background-image: url("https://dummyimage.com/1920x1080/333/fff&text=Metallic+Texture");
+            background-size: cover;
+            background-position: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        #portfolio::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(15, 15, 15, 0.8);
+            z-index: 1;
+        }
+
+        #portfolio h2 {
+            color: #6d6dff;
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-gap: 2rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .project-card {
+            background-color: #1e1e1e;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 0 20px rgba(109, 109, 255, 0.2);
+            transition: all 0.3s ease-in-out;
+            position: relative;
+        }
+
+        .project-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 40px rgba(109, 109, 255, 0.4);
+        }
+
+        .project-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .project-details {
+            padding: 1.5rem;
+        }
+
+        .project-details h3 {
+            color: #6d6dff;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .project-details p {
+            font-size: 1rem;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+
+        .project-details a {
+            display: inline-block;
+            background-color: #6d6dff;
+            color: #fff;
+            text-decoration: none;
+            padding: 0.8rem 1.5rem;
+            border-radius: 5px;
+            font-size: 1rem;
+            transition: background-color 0.3s ease-in-out;
+        }
+
+        .project-details a:hover {
+            background-color: #5050ff;
+        }
+
+        /* Contact */
+        #contact {
+            padding: 4rem 2rem;
+            background-image: url("https://dummyimage.com/1920x1080/333/fff&text=Metallic+Texture");
+            background-size: cover;
+            background-position: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        #contact::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(15, 15, 15, 0.8);
+            z-index: 1;
+        }
+
+        #contact h2 {
+            color: #6d6dff;
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .contact-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        .contact-info {
+            flex-basis: 30%;
+            margin-right: 4rem;
+        }
+
+        .contact-info h3 {
+            color: #6d6dff;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .contact-info p {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-info a {
+            display: inline-block;
+            color: #6d6dff;
+            text-decoration: none;
+            font-size: 1.1rem;
+            transition: color 0.3s ease-in-out;
+        }
+
+        .contact-info a:hover {
+            color: #5050ff;
+        }
+
+        .contact-form {
+            flex-basis: 50%;
+            background-color: #1e1e1e;
+            border-radius: 10px;
+            padding: 2rem;
+            box-shadow: 0 0 20px rgba(109, 109, 255, 0.2);
+        }
+
+        .contact-form label {
+            display: block;
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 1rem;
+            font-size: 1rem;
+            background-color: #0f0f0f;
+            border: 2px solid #6d6dff;
+            border-radius: 5px;
+            color: #fff;
+            margin-bottom: 1.5rem;
+            transition: border-color 0.3s ease-in-out;
+        }
+
+        .contact-form input:focus,
+        .contact-form textarea:focus {
+            outline: none;
+            border-color: #5050ff;
+        }
+
+        .contact-form button {
+            display: block;
+            width: 100%;
+            background-color: #6d6dff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            padding: 1rem;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: background-color 0.3s ease-in-out;
+        }
+
+        .contact-form button:hover {
+            background-color: #5050ff;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .about-me,
+            .skills {
+                flex-basis: 100%;
+            }
+
+            .project-grid {
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            }
+
+            .contact-container {
+                flex-direction: column;
+            }
+
+            .contact-info {
+                flex-basis: auto;
+                margin-right: 0;
+                margin-bottom: 2rem;
+            }
+
+            .contact-form {
+                flex-basis: auto;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="#">Home</a>
+        <a href="#about-skills">About & Skills</a>
+        <a href="#portfolio">Portfolio</a>
+        <a href="#contact">Contact</a>
+    </nav>
+
+    <section id="about-skills">
+        <div class="about-me">
+            <div class="profile-image"></div>
+            <h2>About Me</h2>
+            <p>Hi, I'm a skilled web designer with a passion for creating visually stunning and interactive websites. I specialize in crafting unique designs that blend cutting-edge technology with elegant aesthetics.</p>
+        </div>
+        <div class="skills">
+            <h2>My Skills</h2>
+            <div class="skills-container">
+                <div class="skill-item">
+                    <img src="https://dummyimage.com/50x50/6d6dff/fff&text=HTML" alt="HTML">
+                    <h3>HTML</h3>
+                    <p>Markup language for creating web pages</p>
+                </div>
+                <div class="skill-item">
+                    <img src="https://dummyimage.com/50x50/6d6dff/fff&text=CSS" alt="CSS">
+                    <h3>CSS</h3>
+                    <p>Stylesheet language for styling web pages</p>
+                </div>
+                <div class="skill-item">
+                    <img src="https://dummyimage.com/50x50/6d6dff/fff&text=JavaScript" alt="JavaScript">
+                    <h3>JavaScript</h3>
+                    <p>Programming language for web interactivity</p>
+                </div>
+                <div class="skill-item">
+                    <img src="https://dummyimage.com/50x50/6d6dff/fff&text=React" alt="React">
+                    <h3>React</h3>
+                    <p>JavaScript library for building user interfaces</p>
+                </div>
+                <div class="skill-item">
+                    <img src="https://dummyimage.com/50x50/6d6dff/fff&text=Figma" alt="Figma">
+                    <h3>Figma</h3>
+                    <p>Design tool for creating high-fidelity prototypes</p>
+                </div>
+                <div class="skill-item">
+                    <img src="https://dummyimage.com/50x50/6d6dff/fff&text=Photoshop" alt="Photoshop">
+                    <h3>Photoshop</h3>
+                    <p>Image editing software for visual design</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="portfolio">
+        <h2>My Portfolio</h2>
+        <div class="project-grid">
+            <div class="project-card">
+                <img src="https://dummyimage.com/600x400/6d6dff/fff&text=Project+1" alt="Project 1">
+                <div class="project-details">
+                    <h3>Project 1</h3>
+                    <p>This is a description of the first project in my portfolio. It showcases my skills in web design and development.</p>
+                    <a href="#">View Project</a>
+                </div>
+            </div>
+            <div class="project-card">
+                <img src="https://dummyimage.com/600x400/6d6dff/fff&text=Project+2" alt="Project 2">
+                <div class="project-details">
+                    <h3>Project 2</h3>
+                    <p>This is a description of the second project in my portfolio. It highlights my attention to detail and creative problem-solving abilities.</p>
+                    <a href="#">View Project</a>
+                </div>
+            </div>
+            <div class="project-card">
+                <img src="https://dummyimage.com/600x400/<div class="project-card">
+                <img src="https://dummyimage.com/600x400/6d6dff/fff&text=Project+3" alt="Project 3">
+                <div class="project-details">
+                    <h3>Project 3</h3>
+                    <p>This is a description of the third project in my portfolio. It showcases my ability to create responsive and visually engaging websites.</p>
+                    <a href="#">View Project</a>
+                </div>
+            </div>
+            <div class="project-card">
+                <img src="https://dummyimage.com/600x400/6d6dff/fff&text=Project+4" alt="Project 4">
+                <div class="project-details">
+                    <h3>Project 4</h3>
+                    <p>This is a description of the fourth project in my portfolio. It demonstrates my proficiency in incorporating advanced interactive features and animations.</p>
+                    <a href="#">View Project</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <h2>Get in Touch</h2>
+        <div class="contact-container">
+            <div class="contact-info">
+                <h3>Contact Information</h3>
+                <p>Feel free to reach out to me for any inquiries or collaboration opportunities.</p>
+                <p>Email: example@email.com</p>
+                <p>Phone: +1 (555) 1234-5678</p>
+                <a href="#">LinkedIn</a>
+                <a href="#">Twitter</a>
+            </div>
+            <div class="contact-form">
+                <form>
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" name="name" required>
+
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
+
+                    <label for="message">Message:</label>
+                    <textarea id="message" name="message" required></textarea>
+
+                    <button type="submit">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </section>
+</body>
+</html>'<!-- Visit: https://github.com/Ishanoshada/portflair -->
+<!-- Visit: https://github.com/Ishanoshada/portflair -->

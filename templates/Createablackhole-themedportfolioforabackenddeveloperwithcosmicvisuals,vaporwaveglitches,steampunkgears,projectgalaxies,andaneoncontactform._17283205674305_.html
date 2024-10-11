@@ -1,0 +1,455 @@
+<!-- Portfolio created by Ishan -->
+<!-- Check out my work at: https://github.com/Ishanoshada/portflair -->
+<!-- 2024/10/9 -->
+<!-- Portfolio created by Ishan -->
+'<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Black Hole Portfolio</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
+
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Orbitron', sans-serif;
+      background-color: #000;
+      color: #fff;
+      overflow-x: hidden;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 2rem;
+    }
+
+    /* Navigation */
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 0;
+    }
+
+    .navbar-brand {
+      font-size: 2rem;
+      font-weight: 700;
+      color: #00ffff;
+      text-shadow: 0 0 20px #00ffff, 0 0 40px #00ffff, 0 0 80px #00ffff;
+      animation: glow 2s ease-in-out infinite;
+    }
+
+    .navbar-nav {
+      display: flex;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .navbar-nav li {
+      margin-left: 2rem;
+    }
+
+    .navbar-nav a {
+      color: #fff;
+      text-decoration: none;
+      font-size: 1.2rem;
+      position: relative;
+    }
+
+    .navbar-nav a:before {
+      content: "";
+      position: absolute;
+      width: 100%;
+      height: 2px;
+      bottom: -5px;
+      left: 0;
+      background-color: #00ffff;
+      visibility: hidden;
+      transform: scaleX(0);
+      transition: all 0.3s ease-in-out 0s;
+    }
+
+    .navbar-nav a:hover:before {
+      visibility: visible;
+      transform: scaleX(1);
+    }
+
+    /* About Me */
+    #about-me {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: 4rem;
+    }
+
+    .about-me-content {
+      flex: 1;
+      margin-right: 4rem;
+    }
+
+    .about-me-content h1 {
+      font-size: 3rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      text-shadow: 0 0 20px #00ffff, 0 0 40px #00ffff, 0 0 80px #00ffff;
+      animation: glow 2s ease-in-out infinite;
+    }
+
+    .about-me-content p {
+      font-size: 1.2rem;
+      line-height: 1.6;
+      margin-bottom: 2rem;
+    }
+
+    .about-me-timeline {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+    }
+
+    .timeline-item {
+      flex: 0 0 30%;
+      margin-bottom: 2rem;
+      position: relative;
+      padding-left: 2rem;
+    }
+
+    .timeline-item:before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 2px;
+      height: 100%;
+      background-color: #00ffff;
+      animation: timeline-glow 2s ease-in-out infinite;
+    }
+
+    .timeline-item h3 {
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+
+    .timeline-item p {
+      font-size: 1rem;
+      line-height: 1.4;
+    }
+
+    /* Portfolio */
+    #portfolio {
+      margin-top: 4rem;
+    }
+
+    #portfolio h2 {
+      font-size: 3rem;
+      font-weight: 700;
+      margin-bottom: 2rem;
+      text-shadow: 0 0 20px #00ffff, 0 0 40px #00ffff, 0 0 80px #00ffff;
+      animation: glow 2s ease-in-out infinite;
+    }
+
+    .portfolio-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-gap: 2rem;
+    }
+
+    .portfolio-item {
+      position: relative;
+      overflow: hidden;
+      border-radius: 10px;
+      box-shadow: 0 0 20px rgba(0, 255, 255, 0.5);
+      transition: transform 0.3s ease-in-out;
+    }
+
+    .portfolio-item:hover {
+      transform: scale(1.05);
+    }
+
+    .portfolio-item img {
+      width: 100%;
+      height: 300px;
+      object-fit: cover;
+      filter: brightness(0.7) contrast(1.2) saturate(1.2);
+      transition: filter 0.3s ease-in-out;
+    }
+
+    .portfolio-item:hover img {
+      filter: brightness(1) contrast(1) saturate(1);
+    }
+
+    .portfolio-item-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.7);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      opacity: 0;
+      transition: opacity 0.3s ease-in-out;
+    }
+
+    .portfolio-item:hover .portfolio-item-overlay {
+      opacity: 1;
+    }
+
+    .portfolio-item-overlay h3 {
+      font-size: 1.8rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+      text-shadow: 0 0 10px #00ffff, 0 0 20px #00ffff, 0 0 30px #00ffff;
+    }
+
+    .portfolio-item-overlay p {
+      font-size: 1.2rem;
+      margin-bottom: 1rem;
+    }
+
+    .portfolio-item-overlay a {
+      display: inline-block;
+      padding: 0.8rem 1.6rem;
+      background-color: #00ffff;
+      color: #000;
+      text-decoration: none;
+      font-size: 1.2rem;
+      border-radius: 5px;
+      transition: background-color 0.3s ease-in-out;
+    }
+
+    .portfolio-item-overlay a:hover {
+      background-color: #008080;
+    }
+
+    /* Contact */
+    #contact {
+      margin-top: 4rem;
+    }
+
+    #contact h2 {
+      font-size: 3rem;
+      font-weight: 700;
+      margin-bottom: 2rem;
+      text-shadow: 0 0 20px #00ffff, 0 0 40px #00ffff, 0 0 80px #00ffff;
+      animation: glow 2s ease-in-out infinite;
+    }
+
+    .contact-form {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      background-color: rgba(0, 0, 0, 0.7);
+      padding: 2rem;
+      border-radius: 10px;
+      box-shadow: 0 0 20px rgba(0, 255, 255, 0.5);
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+      width: 100%;
+      max-width: 600px;
+      padding: 1rem;
+      margin-bottom: 1rem;
+      font-size: 1.2rem;
+      font-family: 'Orbitron', sans-serif;
+      background-color: #000;
+      color: #fff;
+      border: 2px solid #00ffff;
+      border-radius: 5px;
+      transition: border-color 0.3s ease-in-out;
+    }
+
+    .contact-form input:focus,
+    .contact-form textarea:focus {
+      outline: none;
+      border-color: #008080;
+    }
+
+    .contact-form button {
+      display: inline-block;
+      padding: 0.8rem 1.6rem;
+      background-color: #00ffff;
+      color: #000;
+      text-decoration: none;
+      font-size: 1.2rem;
+      font-family: 'Orbitron', sans-serif;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease-in-out;
+    }
+
+    .contact-form button:hover {
+      background-color: #008080;
+    }
+
+    .contact-info {
+      display: flex;
+      justify-content: center;
+      margin-top: 2rem;
+    }
+
+    .contact-info a {
+      display: inline-block;
+      margin: 0 1rem;
+      color: #fff;
+      text-decoration: none;
+      font-size: 1.5rem;
+      transition: color 0.3s ease-in-out;
+    }
+
+    .contact-info a:hover {
+      color: #00ffff;
+    }
+
+    @keyframes glow {
+      0% {
+        text-shadow: 0 0 20px #00ffff, 0 0 40px #00ffff, 0 0 80px #00ffff;
+      }
+      50% {
+        text-shadow: 0 0 30px #00ffff, 0 0 50px #00ffff, 0 0 100px #00ffff;
+      }
+      100% {
+        text-shadow: 0 0 20px #00ffff, 0 0 40px #00ffff, 0 0 80px #00ffff;
+      }
+    }
+
+    @keyframes timeline-glow {
+      0% {
+        background-color: #00ffff;
+      }
+      50% {
+        background-color: #008080;
+      }
+      100% {
+        background-color: #00ffff;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .container {
+        padding: 1rem;
+      }
+
+      .navbar-nav li {
+        margin-left: 1rem;
+      }
+
+      #about-me {
+        flex-direction: column;
+      }
+
+      .about-me-content {
+        margin-right: 0;
+        margin-bottom: 2rem;
+      }
+
+      .timeline-item {
+        flex: 0 0 45%;
+      }
+
+      .portfolio-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .portfolio-item img {
+        height: 200px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- Navigation -->
+    <nav class="navbar">
+      <a href="#" class="navbar-brand">Black Hole Portfolio</a>
+      <ul class="navbar-nav">
+        <li><a href="#about-me">About Me</a></li>
+        <li><a href="#portfolio">Portfolio</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+
+    <!-- About Me -->
+    <section id="about-me">
+      <div class="about-me-content">
+        <h1>Welcome to My Black Hole Portfolio</h1>
+        <p>I'm a backend developer with a passion for creating cosmic, visually stunning applications. Dive into my world of vaporwave glitches, steampunk gears, and project galaxies as I showcase my expertise in bringing your ideas to life.</p>
+        <div class="about-me-timeline">
+          <div class="timeline-item">
+            <h3>2019</h3>
+            <p>Joined the cosmic development team at Nebula Inc.</p>
+          </div>
+          <div class="timeline-item">
+            <h3>2021</h3>
+            <p>Launched the first interstellar project, Project Galaxy.</p>
+          </div>
+          <div class="timeline-item">
+            <h3>2022</h3>
+            <p>Awarded the Supernova Award for outstanding backend contributions.</p>
+          </div>
+        </div>
+      </div>
+      <div class="about-me-image">
+        <img src="https://dummyimage.com/800x600/ccc/000&text=Black+Hole+Portfolio+Background" alt="Black Hole Portfolio Background">
+      </div>
+    </section>
+
+    <!-- Portfolio -->
+    <section id="portfolio">
+      <h2>My Portfolio</h2>
+      <div class="portfolio-grid">
+        <div class="portfolio-item">
+          <img src="https://dummyimage.com/600x400/ccc/000&text=Project+Galaxy" alt="Project Galaxy">
+          <div class="portfolio-item-overlay">
+            <h3>Project Galaxy</h3>
+            <p>Intergalactic backend development</p>
+            <a href="#">Learn More</a>
+          </div>
+        </div>
+        <div class="portfolio-item">
+          <img src="https://dummyimage.com/600x400/ccc/000&text=Nebula+Dash" alt="Nebula Dash">
+          <div class="portfolio-item-overlay">
+            <h3>Nebula Dash</h3>
+            <p>Cosmic data visualization dashboard</p>
+            <a href="#">Learn More</a>
+          </div>
+        </div>
+        <div class="portfolio-item">
+          <img src="https://dummyimage.com/600x400/ccc/000&text=Stardust+API" alt="Stardust API">
+          <div class="portfolio-item-overlay">
+            <h3>Stardust API</h3>
+            <p>Interstellar backend infrastructure</p>
+            <a href="#">Learn More</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact">
+      <h2>Get in Touch</h2>
+      <div class="contact-form">
+        <input type="text" placeholder="Name" required>
+        <input type="email" placeholder="Email" required>
+        <textarea placeholder="Message" required></textarea>
+        <button type="submit">Send Message</button>
+      </div>
+      <div class="contact-info">
+        <a href="#"><i class="fab fa-twitter"></i></a>
+        <a href="#"><i class="fab fa-linkedin"></i></a>
+        <a href="#"><i class="fab fa-github"></i></a>
+      </div>
+    </section>
+  </div>
+</body>
+</html>'<!-- Visit: https://github.com/Ishanoshada/portflair -->
+<!-- Visit: https://github.com/Ishanoshada/portflair -->

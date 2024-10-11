@@ -1,0 +1,371 @@
+<!-- Portfolio created by Ishan -->
+<!-- Check out my work at: https://github.com/Ishanoshada/portflair -->
+<!-- 2024/10/9 -->
+<!-- Portfolio created by Ishan -->
+'<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Black Hole Portfolio</title>
+  <style>
+    /* Global Styles */
+    @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Orbitron', sans-serif;
+      background-color: #0d0d0d;
+      color: #fff;
+      overflow-x: hidden;
+    }
+
+    /* Navigation Bar */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 40px;
+      background-color: rgba(13, 13, 13, 0.8);
+      backdrop-filter: blur(10px);
+      position: relative;
+      z-index: 100;
+    }
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      font-size: 18px;
+      padding: 10px 20px;
+      transition: color 0.3s ease;
+    }
+    nav a:hover {
+      color: #8b00ff;
+    }
+
+    /* Featured Projects Section */
+    #featured-projects {
+      padding: 80px 40px;
+      background-image: linear-gradient(to bottom, #0d0d0d, #1a1a1a);
+    }
+    #featured-projects h2 {
+      text-align: center;
+      font-size: 36px;
+      margin-bottom: 40px;
+      text-shadow: 0 0 20px #8b00ff, 0 0 40px #8b00ff, 0 0 80px #8b00ff;
+    }
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-gap: 40px;
+    }
+    .project-item {
+      position: relative;
+      overflow: hidden;
+      border-radius: 10px;
+      box-shadow: 0 0 20px rgba(139, 0, 255, 0.5);
+      transition: transform 0.3s ease;
+    }
+    .project-item:hover {
+      transform: scale(1.05);
+    }
+    .project-item img {
+      width: 100%;
+      height: 300px;
+      object-fit: cover;
+      filter: brightness(0.8) saturate(1.2) hue-rotate(20deg);
+      transition: filter 0.3s ease;
+    }
+    .project-item:hover img {
+      filter: brightness(1) saturate(1) hue-rotate(0deg);
+    }
+    .project-details {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(139, 0, 255, 0.8);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+    .project-item:hover .project-details {
+      opacity: 1;
+    }
+    .project-details h3 {
+      font-size: 24px;
+      margin-bottom: 10px;
+      text-shadow: 0 0 10px #000;
+    }
+    .project-details p {
+      font-size: 16px;
+      margin-bottom: 20px;
+      text-shadow: 0 0 10px #000;
+    }
+    .project-details a {
+      color: #fff;
+      text-decoration: none;
+      padding: 10px 20px;
+      background-color: #8b00ff;
+      border-radius: 5px;
+      transition: background-color 0.3s ease;
+    }
+    .project-details a:hover {
+      background-color: #6b00c7;
+    }
+
+    /* Interactive Black Hole Section */
+    #black-hole {
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-image: url('https://dummyimage.com/1920x1080/000/fff&text=Cosmic+Landscape');
+      background-size: cover;
+      background-position: center;
+      position: relative;
+      overflow: hidden;
+    }
+    #black-hole:before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(13, 13, 13, 0.8);
+      backdrop-filter: blur(10px);
+      z-index: 1;
+    }
+    #black-hole-container {
+      position: relative;
+      z-index: 2;
+      width: 80%;
+      max-width: 800px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    #black-hole-container h2 {
+      font-size: 48px;
+      margin-bottom: 20px;
+      text-shadow: 0 0 20px #8b00ff, 0 0 40px #8b00ff, 0 0 80px #8b00ff;
+    }
+    #black-hole-container p {
+      font-size: 18px;
+      margin-bottom: 40px;
+      text-align: center;
+      text-shadow: 0 0 10px #000;
+    }
+    #black-hole-canvas {
+      width: 100%;
+      height: 500px;
+      background-image: radial-gradient(circle, #8b00ff, #5b0099);
+      border-radius: 50%;
+      box-shadow: 0 0 50px #8b00ff;
+      position: relative;
+      overflow: hidden;
+    }
+    #black-hole-canvas:before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: url('https://dummyimage.com/1920x1080/000/fff&text=Black+Hole');
+      background-size: cover;
+      background-position: center;
+      filter: blur(10px) brightness(0.8);
+      animation: glitch 5s infinite linear;
+    }
+    @keyframes glitch {
+      0%, 100% {
+        transform: translate(0, 0);
+      }
+      10%, 30%, 50%, 70%, 90% {
+        transform: translate(-10px, 10px);
+      }
+      20%, 40%, 60%, 80% {
+        transform: translate(10px, -10px);
+      }
+    }
+
+    /* Neon Contact Form Section */
+    #contact {
+      padding: 80px 40px;
+      background-image: linear-gradient(to bottom, #1a1a1a, #0d0d0d);
+    }
+    #contact h2 {
+      text-align: center;
+      font-size: 36px;
+      margin-bottom: 40px;
+      text-shadow: 0 0 20px #8b00ff, 0 0 40px #8b00ff, 0 0 80px #8b00ff;
+    }
+    #contact-form {
+      max-width: 600px;
+      margin: 0 auto;
+      background-color: rgba(139, 0, 255, 0.1);
+      padding: 40px;
+      border-radius: 10px;
+      box-shadow: 0 0 20px rgba(139, 0, 255, 0.5);
+      position: relative;
+      overflow: hidden;
+    }
+    #contact-form:before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: url('https://dummyimage.com/1920x1080/000/fff&text=Steampunk+Gears');
+      background-size: cover;
+      background-position: center;
+      filter: blur(10px) brightness(0.8);
+      z-index: -1;
+    }
+    #contact-form label {
+      display: block;
+      font-size: 18px;
+      margin-bottom: 10px;
+    }
+    #contact-form input,
+    #contact-form textarea {
+      width: 100%;
+      padding: 10px;
+      font-size: 16px;
+      border: none;
+      border-radius: 5px;
+      background-color: rgba(255, 255, 255, 0.1);
+      color: #fff;
+      margin-bottom: 20px;
+      transition: background-color 0.3s ease;
+    }
+    #contact-form input:focus,
+    #contact-form textarea:focus {
+      background-color: rgba(255, 255, 255, 0.2);
+    }
+    #contact-form button {
+      display: block;
+      width: 100%;
+      padding: 10px;
+      font-size: 18px;
+      background-color: #8b00ff;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    #contact-form button:hover {
+      background-color: #6b00c7;
+    }
+
+    /* Responsive Styles */
+    @media (max-width: 768px) {
+      nav {
+        padding: 10px 20px;
+      }
+      nav a {
+        font-size: 16px;
+        padding: 8px 16px;
+      }
+      #featured-projects {
+        padding: 60px 20px;
+      }
+      .project-grid {
+        grid-template-columns: repeat(2, 1fr);
+        grid-gap: 20px;
+      }
+      .project-item img {
+        height: 200px;
+      }
+      #black-hole-container {
+        width: 90%;
+      }
+      #black-hole-container h2 {
+        font-size: 36px;
+      }
+      #black-hole-container p {
+        font-size: 16px;
+      }
+      #black-hole-canvas {
+        height: 400px;
+      }
+      #contact {
+        padding: 60px 20px;
+      }
+      #contact-form {
+        padding: 30px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="#">Home</a>
+    <a href="#">About</a>
+    <a href="#">Projects</a>
+    <a href="#">Contact</a>
+  </nav>
+
+  <section id="featured-projects">
+    <h2>Featured Projects</h2>
+    <div class="project-grid">
+      <div class="project-item">
+        <img src="https://dummyimage.com/800x500/ccc/000&text=Project+1" alt="Project 1">
+        <div class="project-details">
+          <h3>Project 1</h3>
+          <p>A captivating cosmic-inspired project with vaporwave glitches.</p>
+          <a href="#">Learn More</a>
+        </div>
+      </div>
+      <div class="project-item">
+        <img src="https://dummyimage.com/800x500/ccc/000&text=Project+2" alt="Project 2">
+        <div class="project-details">
+          <h3>Project 2</h3>
+          <p>Explore the wonders of a black hole-themed visualization.</p>
+          <a href="#">Learn More</a>
+        </div>
+      </div>
+      <div class="project-item">
+        <img src="https://dummyimage.com/800x500/ccc/000&text=Project+3" alt="Project 3">
+        <div class="project-details">
+          <h3>Project 3</h3>
+          <p>A steampunk-inspired project with intricate gears and galaxies.</p>
+          <a href="#">Learn More</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="black-hole">
+    <div id="black-hole-container">
+      <h2>Explore the Black Hole</h2>
+      <p>Immerse yourself in an interactive visualization of a captivating black hole.</p>
+      <div id="black-hole-canvas"></div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <h2>Get in Touch</h2>
+    <form id="contact-form">
+      <label for="name">Name:</label>
+      <input type="text" id="name" name="name" required>
+
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" required>
+
+      <label for="message">Message:</label>
+      <textarea id="message" name="message" rows="5" required></textarea>
+
+      <button type="submit">Send Message</button>
+    </form>
+  </section>
+</body>
+</html>'<!-- Visit: https://github.com/Ishanoshada/portflair -->
+<!-- Visit: https://github.com/Ishanoshada/portflair -->

@@ -1,0 +1,348 @@
+<!-- Portfolio created by Ishan -->
+<!-- Check out my work at: https://github.com/Ishanoshada/portflair -->
+<!-- 2024/10/9 -->
+<!-- Portfolio created by Ishan -->
+'<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Black Hole Portfolio</title>
+  <style>
+    /* General Styles */
+    body {
+      font-family: 'Orbitron', sans-serif;
+      background-color: #000;
+      color: #fff;
+      margin: 0;
+      padding: 0;
+    }
+
+    /* Navigation Bar */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px;
+      background-color: rgba(0, 0, 0, 0.8);
+      backdrop-filter: blur(10px);
+    }
+
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      margin: 0 20px;
+      font-size: 18px;
+      position: relative;
+      transition: color 0.3s ease-in-out;
+    }
+
+    nav a:after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 2px;
+      background-color: #ff00ff;
+      bottom: -5px;
+      left: 0;
+      transition: width 0.3s ease-in-out;
+    }
+
+    nav a:hover {
+      color: #ff00ff;
+    }
+
+    nav a:hover:after {
+      width: 100%;
+    }
+
+    /* Hero Section */
+    .hero {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 80vh;
+      background-image: url('https://dummyimage.com/1200x500/2b2b2b/ffffff&text=Black+Hole');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero:before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(circle, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.5) 50%, rgba(0,0,0,0.2) 100%);
+      z-index: 1;
+    }
+
+    .hero-content {
+      text-align: center;
+      z-index: 2;
+      animation: glitch 2s infinite;
+    }
+
+    .hero-content h1 {
+      font-size: 4rem;
+      margin-bottom: 20px;
+      text-shadow: 0 0 20px #ff00ff, 0 0 50px #ff00ff, 0 0 80px #ff00ff;
+    }
+
+    .hero-content p {
+      font-size: 1.5rem;
+      margin-bottom: 40px;
+      text-shadow: 0 0 10px #ff00ff, 0 0 20px #ff00ff, 0 0 30px #ff00ff;
+    }
+
+    .hero-content a {
+      display: inline-block;
+      padding: 15px 30px;
+      background-color: #ff00ff;
+      color: #000;
+      text-decoration: none;
+      font-size: 1.2rem;
+      border-radius: 30px;
+      transition: transform 0.3s ease-in-out;
+    }
+
+    .hero-content a:hover {
+      transform: scale(1.1);
+    }
+
+    /* Project Gallery */
+    .project-gallery {
+      padding: 80px 0;
+      background-color: #1a1a1a;
+      background-image: url('https://dummyimage.com/1200x800/2b2b2b/ffffff&text=Cosmic+Backdrop');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+
+    .project-gallery h2 {
+      text-align: center;
+      font-size: 3rem;
+      margin-bottom: 50px;
+      text-shadow: 0 0 20px #00ffff, 0 0 50px #00ffff, 0 0 80px #00ffff;
+    }
+
+    .projects {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-gap: 40px;
+    }
+
+    .project {
+      background-color: rgba(0, 0, 0, 0.7);
+      border-radius: 10px;
+      overflow: hidden;
+      position: relative;
+      cursor: pointer;
+      transition: transform 0.3s ease-in-out;
+    }
+
+    .project:hover {
+      transform: scale(1.05);
+    }
+
+    .project img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+
+    .project-info {
+      padding: 20px;
+      text-align: center;
+    }
+
+    .project-info h3 {
+      font-size: 1.8rem;
+      margin-bottom: 10px;
+      text-shadow: 0 0 10px #00ffff, 0 0 20px #00ffff, 0 0 30px #00ffff;
+    }
+
+    .project-info p {
+      font-size: 1.2rem;
+      margin-bottom: 20px;
+      text-shadow: 0 0 5px #00ffff, 0 0 10px #00ffff, 0 0 15px #00ffff;
+    }
+
+    .project-info a {
+      display: inline-block;
+      padding: 10px 20px;
+      background-color: #00ffff;
+      color: #000;
+      text-decoration: none;
+      font-size: 1rem;
+      border-radius: 20px;
+      transition: transform 0.3s ease-in-out;
+    }
+
+    .project-info a:hover {
+      transform: scale(1.1);
+    }
+
+    /* Contact Form */
+    .contact {
+      padding: 80px 0;
+      background-color: #1a1a1a;
+      background-image: url('https://dummyimage.com/1200x800/2b2b2b/ffffff&text=Neon+Backdrop');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+
+    .contact h2 {
+      text-align: center;
+      font-size: 3rem;
+      margin-bottom: 50px;
+      text-shadow: 0 0 20px #ff00ff, 0 0 50px #ff00ff, 0 0 80px #ff00ff;
+    }
+
+    .contact-form {
+      max-width: 600px;
+      margin: 0 auto;
+      background-color: rgba(0, 0, 0, 0.7);
+      padding: 40px;
+      border-radius: 10px;
+    }
+
+    .contact-form label {
+      display: block;
+      font-size: 1.2rem;
+      margin-bottom: 10px;
+      text-shadow: 0 0 10px #ff00ff, 0 0 20px #ff00ff, 0 0 30px #ff00ff;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+      width: 100%;
+      padding: 10px;
+      font-size: 1rem;
+      background-color: #000;
+      border: 1px solid #ff00ff;
+      border-radius: 5px;
+      color: #fff;
+      margin-bottom: 20px;
+      transition: border-color 0.3s ease-in-out;
+    }
+
+    .contact-form input:focus,
+    .contact-form textarea:focus {
+      border-color: #00ffff;
+      outline: none;
+    }
+
+    .contact-form button {
+      display: block;
+      width: 100%;
+      padding: 15px;
+      background-color: #ff00ff;
+      color: #000;
+      font-size: 1.2rem;
+      border: none;
+      border-radius: 30px;
+      cursor: pointer;
+      transition: transform 0.3s ease-in-out;
+    }
+
+    .contact-form button:hover {
+      transform: scale(1.1);
+    }
+
+    /* Animations */
+    @keyframes glitch {
+      0% {
+        text-shadow: 0 0 20px #ff00ff, 0 0 50px #ff00ff, 0 0 80px #ff00ff;
+      }
+      20% {
+        text-shadow: 0 0 20px #00ffff, 0 0 50px #00ffff, 0 0 80px #00ffff;
+      }
+      40% {
+        text-shadow: 0 0 20px #ff00ff, 0 0 50px #ff00ff, 0 0 80px #ff00ff;
+      }
+      60% {
+        text-shadow: 0 0 20px #00ffff, 0 0 50px #00ffff, 0 0 80px #00ffff;
+      }
+      80% {
+        text-shadow: 0 0 20px #ff00ff, 0 0 50px #ff00ff, 0 0 80px #ff00ff;
+      }
+      100% {
+        text-shadow: 0 0 20px #00ffff, 0 0 50px #00ffff, 0 0 80px #00ffff;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="#">Home</a>
+    <a href="#">About</a>
+    <a href="#">Projects</a>
+    <a href="#">Contact</a>
+  </nav>
+
+  <div class="hero">
+    <div class="hero-content">
+      <h1>Welcome to the Black Hole</h1>
+      <p>Explore the cosmic-inspired portfolio of a backend developer</p>
+      <a href="#">Explore My Work</a>
+    </div>
+  </div>
+
+  <div class="project-gallery">
+    <h2>My Projects</h2>
+    <div class="projects">
+      <div class="project">
+        <img src="https://dummyimage.com/400x200/2b2b2b/ffffff&text=Project+1" alt="Project 1">
+        <div class="project-info">
+          <h3>Project 1</h3>
+          <p>A cosmic-inspired backend project</p>
+          <a href="#">View Project</a>
+        </div>
+      </div>
+      <div class="project">
+        <img src="https://dummyimage.com/400x200/2b2b2b/ffffff&text=Project+2" alt="Project 2">
+        <div class="project-info">
+          <h3>Project 2</h3>
+          <p>A vaporwave-themed backend project</p>
+          <a href="#">View Project</a>
+        </div>
+      </div>
+      <div class="project">
+        <img src="https://dummyimage.com/400x200/2b2b2b/ffffff&text=Project+3" alt="Project 3">
+        <div class="project-info">
+          <h3>Project 3</h3>
+          <p>A steampunk-inspired backend project</p>
+          <a href="#">View Project</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="contact">
+    <h2>Get in Touch</h2>
+    <div class="contact-form">
+      <form>
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" placeholder="Enter your name" required>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" placeholder="Enter your email" required>
+
+        <label for="message">Message:</label>
+        <textarea id="message" name="message" placeholder="Enter your message" rows="5" required></textarea>
+
+        <button type="submit">Send Message</button>
+      </form>
+    </div>
+  </div>
+</body>
+</html>'<!-- Visit: https://github.com/Ishanoshada/portflair -->
+<!-- Visit: https://github.com/Ishanoshada/portflair -->

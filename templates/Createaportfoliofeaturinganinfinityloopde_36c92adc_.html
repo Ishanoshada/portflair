@@ -1,0 +1,430 @@
+<!-- Portfolio created by Ishan -->
+<!-- Check out my work at: https://github.com/Ishanoshada/portflair -->
+<!-- 2024/10/9 -->
+<!-- Portfolio created by Ishan -->
+'<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Create a Portfolio</title>
+  <style>
+    /* Global Styles */
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Montserrat', sans-serif;
+      background-color: #000;
+      color: #fff;
+      overflow-x: hidden;
+    }
+
+    /* Navigation Bar */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 40px;
+      background: linear-gradient(to right, #0099ff, #9b59b6);
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      position: relative;
+      z-index: 2;
+    }
+
+    nav .logo {
+      font-size: 24px;
+      font-weight: bold;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 30px;
+    }
+
+    nav ul li a {
+      text-decoration: none;
+      color: #fff;
+      font-size: 16px;
+      font-weight: 500;
+      transition: color 0.3s ease;
+    }
+
+    nav ul li a:hover {
+      color: #ddd;
+    }
+
+    /* Featured Projects Section */
+    .featured-projects {
+      padding: 80px 40px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .featured-projects:before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(ellipse at center, rgba(0, 153, 255, 0.2) 0%, rgba(155, 89, 182, 0.2) 100%);
+      z-index: 1;
+      animation: glowingBg 10s ease infinite;
+    }
+
+    .featured-projects .project-cards {
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .featured-projects .project-card {
+      width: 300px;
+      height: 450px;
+      background-color: #111;
+      border-radius: 10px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+      overflow: hidden;
+      position: relative;
+      transition: transform 0.5s ease;
+    }
+
+    .featured-projects .project-card:before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(to right, #0099ff, #9b59b6);
+      opacity: 0;
+      transition: opacity 0.5s ease;
+    }
+
+    .featured-projects .project-card:hover {
+      transform: scale(1.05);
+    }
+
+    .featured-projects .project-card:hover:before {
+      opacity: 0.5;
+    }
+
+    .featured-projects .project-card img {
+      width: 100%;
+      height: 300px;
+      object-fit: cover;
+    }
+
+    .featured-projects .project-card .project-info {
+      padding: 20px;
+    }
+
+    .featured-projects .project-card .project-info h3 {
+      margin-top: 0;
+      font-size: 18px;
+      font-weight: bold;
+    }
+
+    .featured-projects .project-card .project-info p {
+      margin-bottom: 0;
+      font-size: 14px;
+      color: #ccc;
+    }
+
+    /* Skills and Expertise Section */
+    .skills-expertise {
+      padding: 80px 40px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .skills-expertise:before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(ellipse at center, rgba(0, 153, 255, 0.2) 0%, rgba(155, 89, 182, 0.2) 100%);
+      z-index: 1;
+      animation: glowingBg 10s ease infinite;
+    }
+
+    .skills-expertise .skill-icons {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      z-index: 2;
+      animation: skillsLoop 20s linear infinite;
+    }
+
+    .skills-expertise .skill-icons .skill-icon {
+      width: 80px;
+      height: 80px;
+      background-color: #111;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 0 40px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+      position: relative;
+      transition: transform 0.5s ease;
+    }
+
+    .skills-expertise .skill-icons .skill-icon:before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(to right, #0099ff, #9b59b6);
+      opacity: 0;
+      border-radius: 50%;
+      transition: opacity 0.5s ease;
+    }
+
+    .skills-expertise .skill-icons .skill-icon:hover {
+      transform: scale(1.1);
+    }
+
+    .skills-expertise .skill-icons .skill-icon:hover:before {
+      opacity: 0.5;
+    }
+
+    .skills-expertise .skill-icons .skill-icon img {
+      width: 40px;
+      height: 40px;
+      object-fit: contain;
+      position: relative;
+      z-index: 2;
+    }
+
+    .skills-expertise .skill-icons .skill-icon p {
+      margin: 10px 0 0 0;
+      font-size: 14px;
+      font-weight: 500;
+      color: #ccc;
+      position: relative;
+      z-index: 2;
+    }
+
+    /* Contact and Call-to-Action Section */
+    .contact-cta {
+      padding: 80px 40px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .contact-cta:before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(ellipse at center, rgba(0, 153, 255, 0.2) 0%, rgba(155, 89, 182, 0.2) 100%);
+      z-index: 1;
+      animation: glowingBg 10s ease infinite;
+    }
+
+    .contact-cta .cta-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      z-index: 2;
+    }
+
+    .contact-cta .cta-container .cta-card {
+      width: 500px;
+      background-color: #111;
+      border-radius: 10px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+      padding: 40px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .contact-cta .cta-container .cta-card:before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(to right, #0099ff, #9b59b6);
+      opacity: 0;
+      transition: opacity 0.5s ease;
+    }
+
+    .contact-cta .cta-container .cta-card:hover:before {
+      opacity: 0.5;
+    }
+
+    .contact-cta .cta-container .cta-card h2 {
+      margin-top: 0;
+      font-size: 24px;
+      font-weight: bold;
+      position: relative;
+      z-index: 2;
+    }
+
+    .contact-cta .cta-container .cta-card p {
+      margin-bottom: 20px;
+      font-size: 16px;
+      color: #ccc;
+      position: relative;
+      z-index: 2;
+    }
+
+    .contact-cta .cta-container .cta-card .cta-button {
+      display: inline-block;
+      background: linear-gradient(to right, #0099ff, #9b59b6);
+      color: #fff;
+      text-decoration: none;
+      padding: 12px 30px;
+      border-radius: 30px;
+      font-size: 16px;
+      font-weight: 500;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+      position: relative;
+      z-index: 2;
+      transition: transform 0.3s ease;
+    }
+
+    .contact-cta .cta-container .cta-card .cta-button:hover {
+      transform: translateY(-3px);
+    }
+
+    .contact-cta .cta-container .cta-card .contact-info {
+      margin-top: 20px;
+      font-size: 14px;
+      color: #ccc;
+      position: relative;
+      z-index: 2;
+    }
+
+    .contact-cta .cta-container .cta-card .contact-info a {
+      color: #9b59b6;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    .contact-cta .cta-container .cta-card .contact-info a:hover {
+      color: #0099ff;
+    }
+
+    /* Animations */
+    @keyframes glowingBg {
+      0% {
+        background: radial-gradient(ellipse at center, rgba(0, 153, 255, 0.2) 0%, rgba(155, 89, 182, 0.2) 100%);
+      }
+      50% {
+        background: radial-gradient(ellipse at center, rgba(155, 89, 182, 0.2) 0%, rgba(0, 153, 255, 0.2) 100%);
+      }
+      100% {
+        background: radial-gradient(ellipse at center, rgba(0, 153, 255, 0.2) 0%, rgba(155, 89, 182, 0.2) 100%);
+      }
+    }
+
+    @keyframes skillsLoop {
+      0% {
+        transform: translateX(0);
+      }
+      100% {
+        transform: translateX(-100%);
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="logo">Create a Portfolio</div>
+    <ul>
+      <li><a href="#">Home</a></li>
+      <li><a href="#">Projects</a></li>
+      <li><a href="#">Skills</a></li>
+      <li><a href="#">Contact</a></li>
+    </ul>
+  </nav>
+
+  <section class="featured-projects">
+    <div class="project-cards">
+      <div class="project-card">
+        <img src="https://dummyimage.com/600x400/ccc/000&text=Project+1" alt="Project 1">
+        <div class="project-info">
+          <h3>Project 1</h3>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+        </div>
+      </div>
+      <div class="project-card">
+        <img src="https://dummyimage.com/600x400/ccc/000&text=Project+2" alt="Project 2">
+        <div class="project-info">
+          <h3>Project 2</h3>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+        </div>
+      </div>
+      <div class="project-card">
+        <img src="https://dummyimage.com/600x400/ccc/000&text=Project+3" alt="Project 3">
+        <div class="project-info">
+          <h3>Project 3</h3>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="skills-expertise">
+    <div class="skill-icons">
+      <div class="skill-icon">
+        <img src="https://dummyimage.com/80x80/ccc/000&text=HTML" alt="HTML">
+        <p>HTML</p>
+      </div>
+      <div class="skill-icon">
+        <img src="https://dummyimage.com/80x80/ccc/000&text=CSS" alt="CSS">
+        <p>CSS</p>
+      </div>
+      <div class="skill-icon">
+        <img src="https://dummyimage.com/80x80/ccc/000&text=JavaScript" alt="JavaScript">
+        <p>JavaScript</p>
+      </div>
+      <div class="skill-icon">
+        <img src="https://dummyimage.com/80x80/ccc/000&text=React" alt="React">
+        <p>React</p>
+      </div>
+      <div class="skill-icon">
+        <img src="https://dummyimage.com/80x80/ccc/000&text=Node.js" alt="Node.js">
+        <p>Node.js</p>
+      </div>
+      <div class="skill-icon">
+        <img src="https://dummyimage.com/80x80/ccc/000&text=MongoDB" alt="MongoDB">
+        <p>MongoDB</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact-cta">
+    <div class="cta-container">
+      <div class="cta-card">
+        <h2>Let's Work Together</h2>
+        <p>Reach out to me and let's discuss your next project.</p>
+        <a href="#" class="cta-button">Contact Me</a>
+        <div class="contact-info">
+          <p>Email: <a href="mailto:example@example.com">example@example.com</a></p>
+          <p>Phone: <a href="tel:+1234567890">+1 (234) 567-890</a></p>
+        </div>
+      </div>
+    </div>
+  </section>
+</body>
+</html>'<!-- Visit: https://github.com/Ishanoshada/portflair -->
+<!-- Visit: https://github.com/Ishanoshada/portflair -->

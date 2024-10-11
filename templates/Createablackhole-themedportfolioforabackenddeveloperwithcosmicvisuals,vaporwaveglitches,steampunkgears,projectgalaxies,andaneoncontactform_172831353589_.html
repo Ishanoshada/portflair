@@ -1,0 +1,407 @@
+<!-- Portfolio created by Ishan -->
+<!-- Check out my work at: https://github.com/Ishanoshada/portflair -->
+<!-- 2024/10/9 -->
+<!-- Portfolio created by Ishan -->
+'<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Black Hole Portfolio</title>
+  <style>
+    /* Global Styles */
+    body {
+      font-family: 'Orbitron', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #0d0d0d;
+      color: #fff;
+      overflow-x: hidden;
+    }
+
+    /* Navigation */
+    nav {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 20px 0;
+      background-color: rgba(13, 13, 13, 0.8);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+    }
+
+    nav ul {
+      display: flex;
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    nav ul li {
+      margin: 0 20px;
+    }
+
+    nav ul li a {
+      color: #fff;
+      text-decoration: none;
+      font-size: 18px;
+      font-weight: bold;
+      position: relative;
+      padding-bottom: 5px;
+    }
+
+    nav ul li a::after {
+      content: "";
+      position: absolute;
+      width: 0;
+      height: 3px;
+      background-color: #8b00ff;
+      bottom: 0;
+      left: 0;
+      transition: width 0.3s ease-in-out;
+    }
+
+    nav ul li a:hover::after {
+      width: 100%;
+    }
+
+    /* Hero Section */
+    .hero {
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-bg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: url("https://dummyimage.com/1920x1080/0d0d0d/8b00ff&text=Black+Hole");
+      background-size: cover;
+      background-position: center;
+      filter: blur(10px);
+      z-index: -1;
+    }
+
+    .hero-content {
+      text-align: center;
+      z-index: 1;
+    }
+
+    .hero-content h1 {
+      font-size: 5rem;
+      font-weight: bold;
+      text-shadow: 0 0 20px #8b00ff, 0 0 40px #8b00ff, 0 0 80px #8b00ff;
+      animation: pulse 2s infinite;
+    }
+
+    .hero-content p {
+      font-size: 2rem;
+      margin-top: 20px;
+      text-shadow: 0 0 10px #8b00ff, 0 0 20px #8b00ff, 0 0 40px #8b00ff;
+      animation: glitch 1s infinite;
+    }
+
+    @keyframes pulse {
+      0% {
+        text-shadow: 0 0 20px #8b00ff, 0 0 40px #8b00ff, 0 0 80px #8b00ff;
+      }
+      50% {
+        text-shadow: 0 0 10px #8b00ff, 0 0 20px #8b00ff, 0 0 40px #8b00ff;
+      }
+      100% {
+        text-shadow: 0 0 20px #8b00ff, 0 0 40px #8b00ff, 0 0 80px #8b00ff;
+      }
+    }
+
+    @keyframes glitch {
+      0% {
+        text-shadow: 0 0 10px #8b00ff, 0 0 20px #8b00ff, 0 0 40px #8b00ff;
+      }
+      20% {
+        text-shadow: -2px -2px 0 #8b00ff, 2px 2px 0 #8b00ff;
+      }
+      40% {
+        text-shadow: 2px -2px 0 #8b00ff, -2px 2px 0 #8b00ff;
+      }
+      60% {
+        text-shadow: -2px 2px 0 #8b00ff, 2px -2px 0 #8b00ff;
+      }
+      80% {
+        text-shadow: 2px 2px 0 #8b00ff, -2px -2px 0 #8b00ff;
+      }
+      100% {
+        text-shadow: 0 0 10px #8b00ff, 0 0 20px #8b00ff, 0 0 40px #8b00ff;
+      }
+    }
+
+    /* Project Gallery */
+    .project-gallery {
+      padding: 100px 0;
+      background-image: url("https://dummyimage.com/1920x1080/0d0d0d/8b00ff&text=Galaxy+Background");
+      background-size: cover;
+      background-position: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .project-gallery h2 {
+      font-size: 3rem;
+      margin-bottom: 50px;
+      text-shadow: 0 0 10px #8b00ff, 0 0 20px #8b00ff, 0 0 40px #8b00ff;
+      animation: glitch 1s infinite;
+    }
+
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      grid-gap: 50px;
+    }
+
+    .project-thumbnail {
+      position: relative;
+      overflow: hidden;
+      border-radius: 10px;
+      box-shadow: 0 0 20px rgba(139, 0, 255, 0.5);
+      transition: transform 0.3s ease-in-out;
+    }
+
+    .project-thumbnail:hover {
+      transform: scale(1.05);
+    }
+
+    .project-thumbnail img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: grayscale(100%) brightness(50%);
+      transition: filter 0.3s ease-in-out;
+    }
+
+    .project-thumbnail:hover img {
+      filter: grayscale(0%) brightness(100%);
+    }
+
+    .project-info {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+      opacity: 0;
+      transition: opacity 0.3s ease-in-out;
+    }
+
+    .project-thumbnail:hover .project-info {
+      opacity: 1;
+    }
+
+    .project-info h3 {
+      font-size: 1.8rem;
+      margin-bottom: 10px;
+      text-shadow: 0 0 10px #8b00ff, 0 0 20px #8b00ff, 0 0 40px #8b00ff;
+    }
+
+    .project-info p {
+      font-size: 1.2rem;
+      margin-bottom: 20px;
+      text-shadow: 0 0 10px #8b00ff, 0 0 20px #8b00ff, 0 0 40px #8b00ff;
+    }
+
+    /* Contact Form */
+    .contact-form {
+      padding: 100px 0;
+      background-image: url("https://dummyimage.com/1920x1080/0d0d0d/8b00ff&text=Neon+Glitch+Background");
+      background-size: cover;
+      background-position: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .contact-form h2 {
+      font-size: 3rem;
+      margin-bottom: 50px;
+      text-shadow: 0 0 10px #8b00ff, 0 0 20px #8b00ff, 0 0 40px #8b00ff;
+      animation: glitch 1s infinite;
+    }
+
+    .contact-form form {
+      width: 80%;
+      max-width: 600px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .contact-form .form-group {
+      width: 100%;
+      margin-bottom: 30px;
+      position: relative;
+    }
+
+    .contact-form label {
+      font-size: 1.2rem;
+      font-weight: bold;
+      position: absolute;
+      top: 50%;
+      left: 20px;
+      transform: translateY(-50%);
+      transition: all 0.3s ease-in-out;
+      color: #ccc;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+      width: 100%;
+      padding: 20px;
+      font-size: 1.2rem;
+      background-color: rgba(13, 13, 13, 0.8);
+      border: none;
+      border-radius: 10px;
+      color: #fff;
+      outline: none;
+      transition: all 0.3s ease-in-out;
+    }
+
+    .contact-form input:focus + label,
+    .contact-form textarea:focus + label,
+    .contact-form input:not(:placeholder-shown) + label,
+    .contact-form textarea:not(:placeholder-shown) + label {
+      top: 0;
+      font-size: 0.8rem;
+      color: #8b00ff;
+    }
+
+    .contact-form input:focus,
+    .contact-form textarea:focus {
+      box-shadow: 0 0 20px rgba(139, 0, 255, 0.5);
+    }
+
+    .contact-form button {
+      padding: 15px 40px;
+      font-size: 1.2rem;
+      font-weight: bold;
+      background-color: #8b00ff;
+      color: #fff;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: background-color 0.3s ease-in-out;
+      animation: pulse-button 2s infinite;
+    }
+
+    .contact-form button:hover {
+      background-color: #6b00cc;
+    }
+
+    @keyframes pulse-button {
+      0% {
+        box-shadow: 0 0 20px rgba(139, 0, 255, 0.5);
+      }
+      50% {
+        box-shadow: 0 0 40px rgba(139, 0, 255, 0.5);
+      }
+      100% {
+        box-shadow: 0 0 20px rgba(139, 0, 255, 0.5);
+      }
+    }
+
+    /* Responsive Styles */
+    @media (max-width: 768px) {
+      .hero-content h1 {
+        font-size: 3rem;
+      }
+
+      .hero-content p {
+        font-size: 1.5rem;
+      }
+
+      .project-gallery h2,
+      .contact-form h2 {
+        font-size: 2.5rem;
+      }
+
+      .project-grid {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      }
+
+      .contact-form form {
+        width: 90%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <ul>
+      <li><a href="#">Home</a></li>
+      <li><a href="#">Projects</a></li>
+      <li><a href="#">About</a></li>
+      <li><a href="#">Contact</a></li>
+    </ul>
+  </nav>
+
+  <div class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-content">
+      <h1>John Doe</h1>
+      <p>Backend Developer</p>
+    </div>
+  </div>
+
+  <div class="project-gallery">
+    <h2>My Projects</h2>
+    <div class="project-grid">
+      <div class="project-thumbnail">
+        <img src="https://dummyimage.com/600x400/0d0d0d/8b00ff&text=Project+1" alt="Project 1">
+        <div class="project-info">
+          <h3>Project 1</h3>
+          <p>Cosmic-inspired backend application</p>
+        </div>
+      </div>
+      <div class="project-thumbnail">
+        <img src="https://dummyimage.com/600x400/0d0d0d/8b00ff&text=Project+2" alt="Project 2">
+        <div class="project-info">
+          <h3>Project 2</h3>
+          <p>Vaporwave-themed data processing system</p>
+        </div>
+      </div>
+      <div class="project-thumbnail">
+        <img src="https://dummyimage.com/600x400/0d0d0d/8b00ff&text=Project+3" alt="Project 3">
+        <div class="project-info">
+          <h3>Project 3</h3>
+          <p>Steampunk-inspired API development</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="contact-form">
+    <h2>Get in Touch</h2>
+    <form>
+      <div class="form-group">
+        <input type="text" id="name" placeholder=" " required>
+        <label for="name">Name</label>
+      </div>
+      <div class="form-group">
+        <input type="email" id="email" placeholder=" " required>
+        <label for="email">Email</label>
+      </div>
+      <div class="form-group">
+        <textarea id="message" placeholder=" " required></textarea>
+        <label for="message">Message</label>
+      </div>
+      <button type="submit">Send</button>
+    </form>
+  </div>
+</body>
+</html>'<!-- Visit: https://github.com/Ishanoshada/portflair -->
+<!-- Visit: https://github.com/Ishanoshada/portflair -->

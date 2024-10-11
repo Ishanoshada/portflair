@@ -1,0 +1,570 @@
+<!-- Portfolio created by Ishan -->
+<!-- Check out my work at: https://github.com/Ishanoshada/portflair -->
+<!-- 2024/10/9 -->
+<!-- Portfolio created by Ishan -->
+'<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Black Hole Portfolio</title>
+  <style>
+    /* Global Styles */
+    body {
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #000;
+      color: #fff;
+      overflow-x: hidden;
+    }
+
+    /* Navigation */
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 40px;
+      background-color: rgba(0, 0, 0, 0.7);
+      backdrop-filter: blur(10px);
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+    }
+
+    .navbar-brand {
+      font-size: 24px;
+      font-weight: bold;
+      color: #fff;
+      text-decoration: none;
+    }
+
+    .navbar-nav {
+      display: flex;
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .navbar-nav li {
+      margin-left: 20px;
+    }
+
+    .navbar-nav li a {
+      color: #fff;
+      text-decoration: none;
+      font-size: 16px;
+      transition: color 0.3s;
+    }
+
+    .navbar-nav li a:hover {
+      color: #9b59b6;
+    }
+
+    /* Cosmic Visualizations Section */
+    .cosmic-visualizations {
+      padding: 100px 40px;
+      background: linear-gradient(to bottom, #000, #1a1a1a);
+      overflow: hidden;
+    }
+
+    .cosmic-visualizations-title {
+      font-size: 48px;
+      font-weight: bold;
+      text-align: center;
+      margin-bottom: 40px;
+      text-shadow: 0 0 20px #9b59b6, 0 0 40px #9b59b6, 0 0 80px #9b59b6;
+      animation: cosmic-title 2s ease-in-out infinite;
+    }
+
+    .project-galaxies {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-gap: 40px;
+      animation: galaxy-appear 1s ease-in-out;
+    }
+
+    .project-galaxy {
+      position: relative;
+      overflow: hidden;
+      border-radius: 10px;
+      box-shadow: 0 0 20px rgba(155, 89, 182, 0.5);
+      cursor: pointer;
+      transition: transform 0.3s;
+    }
+
+    .project-galaxy:hover {
+      transform: scale(1.05);
+    }
+
+    .project-galaxy img {
+      width: 100%;
+      height: auto;
+      display: block;
+      filter: brightness(0.7) saturate(1.2) hue-rotate(10deg);
+      transition: filter 0.3s;
+    }
+
+    .project-galaxy:hover img {
+      filter: brightness(1) saturate(1.5) hue-rotate(20deg);
+    }
+
+    .project-galaxy-details {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.7);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+
+    .project-galaxy:hover .project-galaxy-details {
+      opacity: 1;
+    }
+
+    .project-galaxy-title {
+      font-size: 24px;
+      font-weight: bold;
+      margin-bottom: 10px;
+      text-shadow: 0 0 10px #9b59b6, 0 0 20px #9b59b6;
+    }
+
+    .project-galaxy-description {
+      font-size: 16px;
+      text-align: center;
+      margin-bottom: 20px;
+      text-shadow: 0 0 5px #9b59b6;
+    }
+
+    .project-galaxy-link {
+      display: inline-block;
+      padding: 10px 20px;
+      background-color: #9b59b6;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 5px;
+      transition: background-color 0.3s;
+    }
+
+    .project-galaxy-link:hover {
+      background-color: #8e44ad;
+    }
+
+    /* Steampunk Gears Section */
+    .steampunk-gears {
+      padding: 100px 40px;
+      background-color: #1a1a1a;
+      overflow: hidden;
+    }
+
+    .steampunk-gears-title {
+      font-size: 48px;
+      font-weight: bold;
+      text-align: center;
+      margin-bottom: 40px;
+      text-shadow: 0 0 20px #c0392b, 0 0 40px #c0392b, 0 0 80px #c0392b;
+      animation: gear-title 2s ease-in-out infinite;
+    }
+
+    .gear-infographics {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-gap: 40px;
+      animation: gear-appear 1s ease-in-out;
+    }
+
+    .gear-infographic {
+      background-color: rgba(192, 57, 43, 0.1);
+      padding: 40px;
+      border-radius: 10px;
+      box-shadow: 0 0 20px rgba(192, 57, 43, 0.5);
+      position: relative;
+      overflow: hidden;
+      cursor: pointer;
+      transition: transform 0.3s;
+    }
+
+    .gear-infographic:hover {
+      transform: scale(1.05);
+    }
+
+    .gear-infographic img {
+      width: 100px;
+      height: auto;
+      display: block;
+      margin: 0 auto 20px;
+      animation: gear-spin 5s linear infinite;
+    }
+
+    .gear-infographic-title {
+      font-size: 24px;
+      font-weight: bold;
+      text-align: center;
+      margin-bottom: 10px;
+      text-shadow: 0 0 10px #c0392b, 0 0 20px #c0392b;
+    }
+
+    .gear-infographic-description {
+      font-size: 16px;
+      text-align: center;
+      margin-bottom: 20px;
+      text-shadow: 0 0 5px #c0392b;
+    }
+
+    .gear-infographic-details {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(192, 57, 43, 0.8);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+
+    .gear-infographic:hover .gear-infographic-details {
+      opacity: 1;
+    }
+
+    .gear-infographic-details p {
+      font-size: 16px;
+      text-align: center;
+      margin-bottom: 10px;
+      text-shadow: 0 0 5px #1a1a1a;
+    }
+
+    /* Neon Contact Form Section */
+    .neon-contact-form {
+      padding: 100px 40px;
+      background: linear-gradient(to bottom, #1a1a1a, #000);
+      overflow: hidden;
+    }
+
+    .neon-contact-form-title {
+      font-size: 48px;
+      font-weight: bold;
+      text-align: center;
+      margin-bottom: 40px;
+      text-shadow: 0 0 20px #00ff00, 0 0 40px #00ff00, 0 0 80px #00ff00;
+      animation: neon-title 2s ease-in-out infinite;
+    }
+
+    .neon-contact-form-container {
+      max-width: 600px;
+      margin: 0 auto;
+      background-color: rgba(0, 0, 0, 0.7);
+      padding: 40px;
+      border-radius: 10px;
+      box-shadow: 0 0 20px rgba(0, 255, 0, 0.5);
+      animation: form-appear 1s ease-in-out;
+    }
+
+    .neon-form-group {
+      margin-bottom: 20px;
+    }
+
+    .neon-form-label {
+      display: block;
+      font-size: 16px;
+      font-weight: bold;
+      margin-bottom: 5px;
+      color: #00ff00;
+      text-shadow: 0 0 5px #00ff00, 0 0 10px #00ff00;
+    }
+
+    .neon-form-input,
+    .neon-form-textarea {
+      width: 100%;
+      padding: 10px;
+      font-size: 16px;
+      background-color: rgba(0, 0, 0, 0.5);
+      border: 2px solid #00ff00;
+      border-radius: 5px;
+      color: #fff;
+      box-shadow: 0 0 10px rgba(0, 255, 0, 0.5);
+      transition: border-color 0.3s, box-shadow 0.3s;
+    }
+
+    .neon-form-input:focus,
+    .neon-form-textarea:focus {
+      border-color: #00ff00;
+      box-shadow: 0 0 20px rgba(0, 255, 0, 0.7);
+      outline: none;
+    }
+
+    .neon-form-button {
+      display: block;
+      width: 100%;
+      padding: 10px;
+      font-size: 16px;
+      font-weight: bold;
+      background-color: #00ff00;
+      color: #000;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    .neon-form-button:hover {
+      background-color: #00cc00;
+    }
+
+    /* Animations */
+    @keyframes cosmic-title {
+      0% {
+        text-shadow: 0 0 20px #9b59b6, 0 0 40px #9b59b6, 0 0 80px #9b59b6;
+      }
+      50% {
+        text-shadow: 0 0 30px #9b59b6, 0 0 50px #9b59b6, 0 0 100px #9b59b6;
+      }
+      100% {
+        text-shadow: 0 0 20px #9b59b6, 0 0 40px #9b59b6, 0 0 80px #9b59b6;
+      }
+    }
+
+    @keyframes galaxy-appear {
+      0% {
+        transform: translateY(50px);
+        opacity: 0;
+      }
+      100% {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+
+    @keyframes gear-title {
+      0% {
+        text-shadow: 0 0 20px #c0392b, 0 0 40px #c0392b, 0 0 80px #c0392b;
+      }
+      50% {
+        text-shadow: 0 0 30px #c0392b, 0 0 50px #c0392b, 0 0 100px #c0392b;
+      }
+      100% {
+        text-shadow: 0 0 20px #c0392b, 0 0 40px #c0392b, 0 0 80px #c0392b;
+      }
+    }
+
+    @keyframes gear-appear {
+      0% {
+        transform: translateY(50px);
+        opacity: 0;
+      }
+      100% {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+
+    @keyframes gear-spin {
+      0% {
+        transform: rotate(0deg);
+      }
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+
+    @keyframes neon-title {
+      0% {
+        text-shadow: 0 0 20px #00ff00, 0 0 40px #00ff00, 0 0 80px #00ff00;
+      }
+      50% {
+        text-shadow: 0 0 30px #00ff00, 0 0 50px #00ff00, 0 0 100px #00ff00;
+      }
+      100% {
+        text-shadow: 0 0 20px #00ff00, 0 0 40px #00ff00, 0 0 80px #00ff00;
+      }
+    }
+
+    @keyframes form-appear {
+      0% {
+        transform: translateY(50px);
+        opacity: 0;
+      }
+      100% {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav class="navbar">
+      <a href="#" class="navbar-brand">Black Hole Portfolio</a>
+      <ul class="navbar-nav">
+        <li><a href="#">Home</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Projects</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <!-- Cosmic Visualizations Section -->
+    <section class="cosmic-visualizations">
+      <h2 class="cosmic-visualizations-title">Cosmic Visualizations</h2>
+      <div class="project-galaxies">
+        <div class="project-galaxy">
+          <img src="https://dummyimage.com/600x400/000/fff&text=Project+Galaxy+1" alt="Project Galaxy 1">
+          <div class="project-galaxy-details">
+            <h3 class="project-galaxy-title">Project Galaxy 1</h3>
+            <p class="project-galaxy-description">Explore the depths of this cosmic project showcase.</p>
+            <a href="#" class="project-galaxy-link">Learn More</a>
+          </div>
+        </div>
+        <div class="project-galaxy">
+          <img src="https://dummyimage.com/600x400/000/fff&text=Project+Galaxy+2" alt="Project Galaxy 2">
+          <div class="project-galaxy-details">
+            <h3 class="project-galaxy-title">Project Galaxy 2</h3>
+            <p class="project-galaxy-description">Dive into the mystical realm of this cosmic project.</p>
+            <a href="#" class="project-galaxy-link">Learn More</a>
+          </div>
+        </div>
+        <div class="project-galaxy">
+          <img src="https://dummyimage.com/600x400/000/fff&text=Project+Galaxy+3" alt="Project Galaxy 3">
+          <div class="project-galaxy-details">
+            <h3 class="project-galaxy-title">Project Galaxy 3</h3>
+            <p class="project-galaxy-description">Unravel the wonders of this cosmic project showcase.</p>
+            <a href="#" class="project-galaxy-link">Learn More</</div>
+        </div>
+        <div class="project-galaxy">
+          <img src="https://dummyimage.com/600x400/000/fff&text=Project+Galaxy+4" alt="Project Galaxy 4">
+          <div class="project-galaxy-details">
+            <h3 class="project-galaxy-title">Project Galaxy 4</h3>
+            <p class="project-galaxy-description">Explore the depths of this cosmic project showcase.</p>
+            <a href="#" class="project-galaxy-link">Learn More</a>
+          </div>
+        </div>
+        <div class="project-galaxy">
+          <img src="https://dummyimage.com/600x400/000/fff&text=Project+Galaxy+5" alt="Project Galaxy 5">
+          <div class="project-galaxy-details">
+            <h3 class="project-galaxy-title">Project Galaxy 5</h3>
+            <p class="project-galaxy-description">Dive into the mystical realm of this cosmic project.</p>
+            <a href="#" class="project-galaxy-link">Learn More</a>
+          </div>
+        </div>
+        <div class="project-galaxy">
+          <img src="https://dummyimage.com/600x400/000/fff&text=Project+Galaxy+6" alt="Project Galaxy 6">
+          <div class="project-galaxy-details">
+            <h3 class="project-galaxy-title">Project Galaxy 6</h3>
+            <p class="project-galaxy-description">Unravel the wonders of this cosmic project showcase.</p>
+            <a href="#" class="project-galaxy-link">Learn More</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Steampunk Gears Section -->
+    <section class="steampunk-gears">
+      <h2 class="steampunk-gears-title">Steampunk Gears</h2>
+      <div class="gear-infographics">
+        <div class="gear-infographic">
+          <img src="https://dummyimage.com/100x100/c0392b/fff&text=Gear+1" alt="Gear 1">
+          <h3 class="gear-infographic-title">Programming Languages</h3>
+          <p class="gear-infographic-description">Expertise in a wide range of programming languages.</p>
+          <div class="gear-infographic-details">
+            <p>Python</p>
+            <p>JavaScript</p>
+            <p>Ruby</p>
+            <p>Java</p>
+          </div>
+        </div>
+        <div class="gear-infographic">
+          <img src="https://dummyimage.com/100x100/c0392b/fff&text=Gear+2" alt="Gear 2">
+          <h3 class="gear-infographic-title">Frameworks and Libraries</h3>
+          <p class="gear-infographic-description">Proficient in various frameworks and libraries.</p>
+          <div class="gear-infographic-details">
+            <p>React</p>
+            <p>Angular</p>
+            <p>Django</p>
+            <p>Ruby on Rails</p>
+          </div>
+        </div>
+        <div class="gear-infographic">
+          <img src="https://dummyimage.com/100x100/c0392b/fff&text=Gear+3" alt="Gear 3">
+          <h3 class="gear-infographic-title">Tools and Databases</h3>
+          <p class="gear-infographic-description">Skilled in utilizing a range of tools and databases.</p>
+          <div class="gear-infographic-details">
+            <p>Git</p>
+            <p>SQL</p>
+            <p>MongoDB</p>
+            <p>PostgreSQL</p>
+          </div>
+        </div>
+        <div class="gear-infographic">
+          <img src="https://dummyimage.com/100x100/c0392b/fff&text=Gear+4" alt="Gear 4">
+          <h3 class="gear-infographic-title">Cloud Services</h3>
+          <p class="gear-infographic-description">Experienced in deploying and managing cloud-based solutions.</p>
+          <div class="gear-infographic-details">
+            <p>AWS</p>
+            <p>Google Cloud</p>
+            <p>Microsoft Azure</p>
+            <p>Heroku</p>
+          </div>
+        </div>
+        <div class="gear-infographic">
+          <img src="https://dummyimage.com/100x100/c0392b/fff&text=Gear+5" alt="Gear 5">
+          <h3 class="gear-infographic-title">DevOps Practices</h3>
+          <p class="gear-infographic-description">Proficiency in DevOps methodologies and practices.</p>
+          <div class="gear-infographic-details">
+            <p>CI/CD</p>
+            <p>Containerization</p>
+            <p>Automation</p>
+            <p>Monitoring</p>
+          </div>
+        </div>
+        <div class="gear-infographic">
+          <img src="https://dummyimage.com/100x100/c0392b/fff&text=Gear+6" alt="Gear 6">
+          <h3 class="gear-infographic-title">Architectural Patterns</h3>
+          <p class="gear-infographic-description">Knowledge of various architectural patterns and design principles.</p>
+          <div class="gear-infographic-details">
+            <p>Microservices</p>
+            <p>Event-Driven</p>
+            <p>Serverless</p>
+            <p>Distributed Systems</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Neon Contact Form Section -->
+    <section class="neon-contact-form">
+      <h2 class="neon-contact-form-title">Neon Contact Form</h2>
+      <div class="neon-contact-form-container">
+        <form>
+          <div class="neon-form-group">
+            <label for="name" class="neon-form-label">Name</label>
+            <input type="text" id="name" name="name" class="neon-form-input" placeholder="Enter your name" required>
+          </div>
+          <div class="neon-form-group">
+            <label for="email" class="neon-form-label">Email</label>
+            <input type="email" id="email" name="email" class="neon-form-input" placeholder="Enter your email" required>
+          </div>
+          <div class="neon-form-group">
+            <label for="message" class="neon-form-label">Message</label>
+            <textarea id="message" name="message" class="neon-form-textarea" rows="5" placeholder="Enter your message" required></textarea>
+          </div>
+          <button type="submit" class="neon-form-button">Submit</button>
+        </form>
+      </div>
+    </section>
+  </main>
+</body>
+</html>'<!-- Visit: https://github.com/Ishanoshada/portflair -->
+<!-- Visit: https://github.com/Ishanoshada/portflair -->

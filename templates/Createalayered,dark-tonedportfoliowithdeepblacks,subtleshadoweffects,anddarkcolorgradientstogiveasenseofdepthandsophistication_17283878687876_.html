@@ -1,0 +1,418 @@
+<!-- Portfolio created by Ishan -->
+<!-- Check out my work at: https://github.com/Ishanoshada/portflair -->
+<!-- 2024/10/9 -->
+<!-- Portfolio created by Ishan -->
+'<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Layered Portfolio</title>
+  <style>
+    /* Global Styles */
+    body {
+      font-family: 'Montserrat', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #0c0c0c;
+      color: #fff;
+    }
+
+    /* Navigation */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 40px;
+      background-color: rgba(12, 12, 12, 0.8);
+      backdrop-filter: blur(10px);
+    }
+
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      font-size: 18px;
+      font-weight: 500;
+      margin-right: 30px;
+      transition: color 0.3s ease-in-out;
+    }
+
+    nav a:hover {
+      color: #b3b3b3;
+    }
+
+    /* Hero Section */
+    .hero {
+      height: 80vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(to bottom, #0c0c0c, #202020);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(to bottom, rgba(12, 12, 12, 0.8), rgba(32, 32, 32, 0.8));
+      backdrop-filter: blur(20px);
+      z-index: 1;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+    }
+
+    .hero-title {
+      font-size: 60px;
+      font-weight: 700;
+      margin-bottom: 20px;
+      text-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    }
+
+    .hero-description {
+      font-size: 24px;
+      font-weight: 400;
+      margin-bottom: 40px;
+      text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    }
+
+    .hero-cta {
+      display: inline-block;
+      background-color: #b3b3b3;
+      color: #0c0c0c;
+      padding: 15px 30px;
+      border-radius: 30px;
+      font-size: 18px;
+      font-weight: 500;
+      text-decoration: none;
+      transition: background-color 0.3s ease-in-out;
+    }
+
+    .hero-cta:hover {
+      background-color: #d9d9d9;
+    }
+
+    /* Portfolio Showcase */
+    .portfolio-showcase {
+      padding: 80px 40px;
+      background-color: #202020;
+    }
+
+    .portfolio-title {
+      font-size: 36px;
+      font-weight: 700;
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .portfolio-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      grid-gap: 40px;
+    }
+
+    .portfolio-item {
+      position: relative;
+      overflow: hidden;
+      border-radius: 10px;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+      cursor: pointer;
+    }
+
+    .portfolio-item img {
+      width: 100%;
+      height: 300px;
+      object-fit: cover;
+      transition: transform 0.3s ease-in-out;
+    }
+
+    .portfolio-item:hover img {
+      transform: scale(1.1);
+    }
+
+    .portfolio-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(12, 12, 12, 0.8);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      opacity: 0;
+      transition: opacity 0.3s ease-in-out;
+    }
+
+    .portfolio-item:hover .portfolio-overlay {
+      opacity: 1;
+    }
+
+    .portfolio-title-overlay {
+      font-size: 24px;
+      font-weight: 600;
+      margin-bottom: 10px;
+      text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    }
+
+    .portfolio-description-overlay {
+      font-size: 18px;
+      font-weight: 400;
+      text-align: center;
+      text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    }
+
+    /* About Section */
+    .about {
+      display: flex;
+      align-items: center;
+      background-color: #171717;
+      padding: 80px 40px;
+    }
+
+    .about-image {
+      flex: 0 0 40%;
+      margin-right: 40px;
+    }
+
+    .about-image img {
+      width: 100%;
+      height: auto;
+      border-radius: 10px;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+    }
+
+    .about-content {
+      flex: 1;
+    }
+
+    .about-title {
+      font-size: 36px;
+      font-weight: 700;
+      margin-bottom: 20px;
+    }
+
+    .about-description {
+      font-size: 18px;
+      font-weight: 400;
+      line-height: 1.6;
+      margin-bottom: 40px;
+    }
+
+    .about-cta {
+      display: inline-block;
+      background-color: #b3b3b3;
+      color: #171717;
+      padding: 15px 30px;
+      border-radius: 30px;
+      font-size: 18px;
+      font-weight: 500;
+      text-decoration: none;
+      transition: background-color 0.3s ease-in-out;
+    }
+
+    .about-cta:hover {
+      background-color: #d9d9d9;
+    }
+
+    /* Testimonials Section */
+    .testimonials {
+      padding: 80px 40px;
+      background-color: #202020;
+    }
+
+    .testimonials-title {
+      font-size: 36px;
+      font-weight: 700;
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .testimonial-item {
+      background-color: #171717;
+      padding: 40px;
+      border-radius: 10px;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+      margin-bottom: 40px;
+    }
+
+    .testimonial-content {
+      font-size: 18px;
+      font-weight: 400;
+      line-height: 1.6;
+      margin-bottom: 20px;
+    }
+
+    .testimonial-author {
+      display: flex;
+      align-items: center;
+    }
+
+    .testimonial-author-image {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      margin-right: 20px;
+    }
+
+    .testimonial-author-name {
+      font-size: 18px;
+      font-weight: 600;
+    }
+
+    .testimonial-author-role {
+      font-size: 16px;
+      font-weight: 400;
+      color: #b3b3b3;
+    }
+
+    /* Responsive Styles */
+    @media (max-width: 768px) {
+      nav {
+        padding: 10px 20px;
+      }
+
+      nav a {
+        font-size: 16px;
+        margin-right: 20px;
+      }
+
+      .hero-title {
+        font-size: 42px;
+      }
+
+      .hero-description {
+        font-size: 18px;
+      }
+
+      .hero-cta {
+        padding: 12px 24px;
+        font-size: 16px;
+      }
+
+      .portfolio-title,
+      .about-title,
+      .testimonials-title {
+        font-size: 30px;
+      }
+
+      .portfolio-grid {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      }
+
+      .about {
+        flex-direction: column;
+      }
+
+      .about-image {
+        flex: 0 0 auto;
+        margin-right: 0;
+        margin-bottom: 40px;
+      }
+
+      .about-content {
+        flex: 1;
+      }
+
+      .about-title,
+      .about-description {
+        text-align: center;
+      }
+
+      .about-cta {
+        display: block;
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="#">Home</a>
+    <a href="#">Portfolio</a>
+    <a href="#">About</a>
+    <a href="#">Contact</a>
+  </nav>
+
+  <section class="hero">
+    <div class="hero-content">
+      <h1 class="hero-title">Elevate Your Vision</h1>
+      <p class="hero-description">Crafting Breathtaking Designs with Depth and Sophistication</p>
+      <a href="#" class="hero-cta">View Portfolio</a>
+    </div>
+  </section>
+
+  <section class="portfolio-showcase">
+    <h2 class="portfolio-title">Featured Projects</h2>
+    <div class="portfolio-grid">
+      <div class="portfolio-item">
+        <img src="https://dummyimage.com/600x400/202020/fff&text=Project+1" alt="Project 1">
+        <div class="portfolio-overlay">
+          <h3 class="portfolio-title-overlay">Project 1</h3>
+          <p class="portfolio-description-overlay">Explore the depths of our creative expertise.</p>
+        </div>
+      </div>
+      <div class="portfolio-item">
+        <img src="https://dummyimage.com/600x400/202020/fff&text=Project+2" alt="Project 2">
+        <div class="portfolio-overlay">
+          <h3 class="portfolio-title-overlay">Project 2</h3>
+          <p class="portfolio-description-overlay">Unveiling the layers of our design mastery.</p>
+        </div>
+      </div>
+      <div class="portfolio-item">
+        <img src="https://dummyimage.com/600x400/202020/fff&text=Project+3" alt="Project 3">
+        <div class="portfolio-overlay">
+          <h3 class="portfolio-title-overlay">Project 3</h3>
+          <p class="portfolio-description-overlay">Immerse yourself in our creative world.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="about">
+    <div class="about-image">
+      <img src="https://dummyimage.com/600x400/171717/fff&text=Designer" alt="Designer">
+    </div>
+    <div class="about-content">
+      <h2 class="about-title">Unveiling the Depths of Design</h2>
+      <p class="about-description">Welcome to our world of layered, dark-toned designs that captivate the senses. As expert website designers, we craft visually stunning portfolios that exude depth, sophistication, and a touch of mystery. Immerse yourself in our creative vision and let us elevate your digital presence to new heights.</p>
+      <a href="#" class="about-cta">Learn More</a>
+    </div>
+  </section>
+
+  <section class="testimonials">
+    <h2 class="testimonials-title">What Our Clients Say</h2>
+    <div class="testimonial-item">
+      <p class="testimonial-content">"The team's attention to detail and mastery of dark, layered designs is truly remarkable. They've transformed our brand's online presence into a sophisticated and captivating experience."</p>
+      <div class="testimonial-author">
+        <img src="https://dummyimage.com/50x50/171717/fff&text=J.D." alt="John Doe" class="testimonial-author-image">
+        <div>
+          <h4 class="testimonial-author-name">John Doe</h4>
+          <p class="testimonial-author-role">CEO, XYZ Company</p>
+        </div>
+      </div>
+    </div>
+    <div class="testimonial-item">
+      <p class="testimonial-content">"Working with this design team has been a game-changer for our brand. They've truly elevated our online presence with their exceptional eye for detail and their ability to create stunning, layered designs."</p>
+      <div class="testimonial-author">
+        <img src="https://dummyimage.com/50x50/171717/fff&text=J.S." alt="Jane Smith" class="testimonial-author-image">
+        <div>
+          <h4 class="testimonial-author-name">Jane Smith</h4>
+          <p class="testimonial-author-role">Marketing Manager, ABC Corporation</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</body>
+</html>'<!-- Visit: https://github.com/Ishanoshada/portflair -->
+<!-- Visit: https://github.com/Ishanoshada/portflair -->

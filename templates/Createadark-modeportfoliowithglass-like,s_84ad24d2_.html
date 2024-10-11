@@ -1,0 +1,423 @@
+<!-- Portfolio created by Ishan -->
+<!-- Check out my work at: https://github.com/Ishanoshada/portflair -->
+<!-- 2024/10/9 -->
+<!-- Portfolio created by Ishan -->
+'<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dark-Mode Portfolio</title>
+  <style>
+    /* Global Styles */
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Montserrat', sans-serif;
+      background-color: #1a1a1a;
+      color: #f2f2f2;
+      overflow-x: hidden;
+    }
+
+    /* Navigation */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 50px;
+      background-color: rgba(26, 26, 26, 0.8);
+      backdrop-filter: blur(10px);
+      position: relative;
+      z-index: 100;
+    }
+
+    nav a {
+      color: #f2f2f2;
+      text-decoration: none;
+      font-size: 18px;
+      margin: 0 20px;
+      transition: color 0.3s ease;
+    }
+
+    nav a:hover {
+      color: #b3b3b3;
+    }
+
+    /* Portfolio Gallery */
+    .portfolio-gallery {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-gap: 40px;
+      padding: 100px 50px;
+      position: relative;
+      z-index: 10;
+    }
+
+    .portfolio-item {
+      background-color: rgba(255, 255, 255, 0.1);
+      border-radius: 10px;
+      overflow: hidden;
+      position: relative;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+
+    .portfolio-item:hover {
+      transform: translateY(-10px);
+    }
+
+    .portfolio-item::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(to bottom, rgba(255, 255, 255, 0.1), rgba(26, 26, 26, 0.8));
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .portfolio-item:hover::before {
+      opacity: 1;
+    }
+
+    .portfolio-item img {
+      width: 100%;
+      height: 300px;
+      object-fit: cover;
+      filter: brightness(0.8);
+      transition: filter 0.3s ease;
+    }
+
+    .portfolio-item:hover img {
+      filter: brightness(1);
+    }
+
+    .portfolio-item h3 {
+      position: absolute;
+      bottom: 20px;
+      left: 20px;
+      font-size: 24px;
+      font-weight: 600;
+      margin: 0;
+      z-index: 10;
+    }
+
+    .portfolio-item p {
+      position: absolute;
+      bottom: -50px;
+      left: 20px;
+      font-size: 16px;
+      margin: 0;
+      opacity: 0;
+      transition: all 0.3s ease;
+    }
+
+    .portfolio-item:hover p {
+      bottom: 50px;
+      opacity: 1;
+    }
+
+    /* About Me/Skills Section */
+    .about-section {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 100px 50px;
+      position: relative;
+      z-index: 10;
+    }
+
+    .profile-picture {
+      width: 300px;
+      height: 300px;
+      border-radius: 50%;
+      background-image: url("https://dummyimage.com/600x600/ccc/000&text=Profile+Picture");
+      background-size: cover;
+      background-position: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .profile-picture::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(to bottom, rgba(255, 255, 255, 0.1), rgba(26, 26, 26, 0.8));
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .profile-picture:hover::before {
+      opacity: 1;
+    }
+
+    .about-content {
+      flex: 1;
+      margin-left: 50px;
+    }
+
+    .about-content h2 {
+      font-size: 36px;
+      font-weight: 600;
+      margin-bottom: 20px;
+    }
+
+    .skills-container {
+      display: flex;
+      flex-wrap: wrap;
+      margin-top: 40px;
+    }
+
+    .skill-item {
+      background-color: rgba(255, 255, 255, 0.1);
+      border-radius: 20px;
+      padding: 10px 20px;
+      margin-right: 20px;
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .skill-item::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(to right, rgba(255, 255, 255, 0.1), rgba(26, 26, 26, 0.8));
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .skill-item:hover::before {
+      opacity: 1;
+    }
+
+    .skill-item img {
+      width: 40px;
+      height: 40px;
+      margin-right: 10px;
+    }
+
+    .skill-item span {
+      font-size: 16px;
+      font-weight: 500;
+      position: relative;
+      z-index: 10;
+    }
+
+    /* Contact Form */
+    .contact-section {
+      background-color: rgba(255, 255, 255, 0.05);
+      padding: 100px 50px;
+      position: relative;
+      z-index: 10;
+    }
+
+    .contact-section::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(to bottom, rgba(255, 255, 255, 0.1), rgba(26, 26, 26, 0.8));
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .contact-section:hover::before {
+      opacity: 1;
+    }
+
+    .contact-form {
+      max-width: 600px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-gap: 20px;
+    }
+
+    .form-field {
+      background-color: rgba(255, 255, 255, 0.1);
+      border-radius: 10px;
+      padding: 15px 20px;
+      border: none;
+      color: #f2f2f2;
+      font-size: 16px;
+      transition: background-color 0.3s ease;
+    }
+
+    .form-field:focus {
+      background-color: rgba(255, 255, 255, 0.2);
+      outline: none;
+    }
+
+    .form-field::placeholder {
+      color: #b3b3b3;
+    }
+
+    .submit-button {
+      grid-column: 1 / 3;
+      background-color: #4CAF50;
+      color: #f2f2f2;
+      border: none;
+      border-radius: 10px;
+      padding: 15px 20px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .submit-button:hover {
+      background-color: #3e8e41;
+    }
+
+    /* Responsive Styles */
+    @media (max-width: 1024px) {
+      .portfolio-gallery {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .about-section {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .profile-picture {
+        margin-bottom: 40px;
+      }
+
+      .about-content {
+        margin-left: 0;
+      }
+    }
+
+    @media (max-width: 768px) {
+      nav {
+        padding: 15px 30px;
+      }
+
+      nav a {
+        font-size: 16px;
+        margin: 0 10px;
+      }
+
+      .portfolio-gallery {
+        grid-template-columns: 1fr;
+        padding: 80px 30px;
+      }
+
+      .about-section {
+        padding: 80px 30px;
+      }
+
+      .contact-section {
+        padding: 80px 30px;
+      }
+
+      .contact-form {
+        grid-template-columns: 1fr;
+      }
+
+      .submit-button {
+        grid-column: auto;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="#">Home</a>
+    <a href="#">Portfolio</a>
+    <a href="#">About</a>
+    <a href="#">Contact</a>
+  </nav>
+
+  <div class="portfolio-gallery">
+    <div class="portfolio-item">
+      <img src="https://dummyimage.com/600x400/ccc/000&text=Portfolio+Item+1" alt="Portfolio Item 1">
+      <h3>Project Title 1</h3>
+      <p>This is a description of the portfolio item.</p>
+    </div>
+    <div class="portfolio-item">
+      <img src="https://dummyimage.com/600x400/ccc/000&text=Portfolio+Item+2" alt="Portfolio Item 2">
+      <h3>Project Title 2</h3>
+      <p>This is a description of the portfolio item.</p>
+    </div>
+    <div class="portfolio-item">
+      <img src="https://dummyimage.com/600x400/ccc/000&text=Portfolio+Item+3" alt="Portfolio Item 3">
+      <h3>Project Title 3</h3>
+      <p>This is a description of the portfolio item.</p>
+    </div>
+    <div class="portfolio-item">
+      <img src="https://dummyimage.com/600x400/ccc/000&text=Portfolio+Item+4" alt="Portfolio Item 4">
+      <h3>Project Title 4</h3>
+      <p>This is a description of the portfolio item.</p>
+    </div>
+    <div class="portfolio-item">
+      <img src="https://dummyimage.com/600x400/ccc/000&text=Portfolio+Item+5" alt="Portfolio Item 5">
+      <h3>Project Title 5</h3>
+      <p>This is a description of the portfolio item.</p>
+    </div>
+    <div class="portfolio-item">
+      <img src="https://dummyimage.com/600x400/ccc/000&text=Portfolio+Item+6" alt="Portfolio Item 6">
+      <h3>Project Title 6</h3>
+      <p>This is a description of the portfolio item.</p>
+    </div>
+  </div>
+
+  <div class="about-section">
+    <div class="profile-picture"></div>
+    <div class="about-content">
+      <h2>About Me</h2>
+      <p>I am a passionate and experienced web designer, specializing in creating stunning dark-mode portfolios with a focus on glass-like, semi-transparent elements and soft light reflections. My work is characterized by a unique blend of minimalism and elegance, perfectly complementing the dark and moody aesthetic.</p>
+      <div class="skills-container">
+        <div class="skill-item">
+          <img src="https://dummyimage.com/40x40/ccc/000&text=HTML" alt="HTML">
+          <span>HTML</span>
+        </div>
+        <div class="skill-item">
+          <img src="https://dummyimage.com/40x40/ccc/000&text=CSS" alt="CSS">
+          <span>CSS</span>
+        </div>
+        <div class="skill-item">
+          <img src="https://dummyimage.com/40x40/ccc/000&text=JavaScript" alt="JavaScript">
+          <span>JavaScript</span>
+        </div>
+        <div class="skill-item">
+          <img src="https://dummyimage.com/40x40/ccc/000&text=Figma" alt="Figma">
+          <span>Figma</span>
+        </div>
+        <div class="skill-item">
+          <img src="https://dummyimage.com/40x40/ccc/000&text=Photoshop" alt="Photoshop">
+          <span>Photoshop</span>
+        </div>
+        <div class="skill-item">
+          <img src="https://dummyimage.com/40x40/ccc/000&text=Illustrator" alt="Illustrator">
+          <span>Illustrator</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="contact-section">
+    <div class="contact-form">
+      <input type="text" class="form-field" placeholder="Name" required>
+      <input type="email" class="form-field" placeholder="Email" required>
+      <input type="text" class="form-field" placeholder="Subject" required>
+      <textarea class="form-field" rows="4" placeholder="Message" required></textarea>
+      <button type="submit" class="submit-button">Submit</button>
+    </div>
+  </div>
+</body>
+</html>'<!-- Visit: https://github.com/Ishanoshada/portflair -->
+<!-- Visit: https://github.com/Ishanoshada/portflair -->

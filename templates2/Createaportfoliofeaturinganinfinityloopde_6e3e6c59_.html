@@ -1,0 +1,329 @@
+<!-- Portfolio created by Ishan -->
+<!-- Check out my work at: https://github.com/Ishanoshada/portflair -->
+<!-- 2024/10/9 -->
+<!-- Portfolio created by Ishan -->
+'<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Create a Portfolio</title>
+  <style>
+    /* Global Styles */
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Poppins', sans-serif;
+      background-color: #000;
+      color: #fff;
+      overflow-x: hidden;
+    }
+
+    /* Navigation */
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 40px;
+      background-color: rgba(0, 0, 0, 0.7);
+      backdrop-filter: blur(10px);
+      position: relative;
+      z-index: 100;
+    }
+
+    .navbar-brand {
+      font-size: 24px;
+      font-weight: bold;
+      color: #fff;
+      text-decoration: none;
+    }
+
+    .navbar-nav {
+      display: flex;
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .navbar-nav li {
+      margin-left: 20px;
+    }
+
+    .navbar-nav li a {
+      color: #fff;
+      text-decoration: none;
+      font-size: 16px;
+      transition: color 0.3s ease;
+    }
+
+    .navbar-nav li a:hover {
+      color: #00c8ff;
+    }
+
+    /* Portfolio Section */
+    .portfolio-section {
+      position: relative;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+    }
+
+    .portfolio-loop {
+      width: 500px;
+      height: 500px;
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      animation: portfolioLoop 20s linear infinite;
+    }
+
+    .portfolio-item {
+      position: absolute;
+      width: 300px;
+      height: 300px;
+      background-color: rgba(0, 0, 0, 0.6);
+      border-radius: 10px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+      box-sizing: border-box;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .portfolio-item.active {
+      opacity: 1;
+    }
+
+    .portfolio-item h3 {
+      margin-top: 0;
+      font-size: 24px;
+      text-align: center;
+    }
+
+    .portfolio-item p {
+      margin-bottom: 0;
+      font-size: 16px;
+      text-align: center;
+    }
+
+    .portfolio-background {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(to right, #00c8ff, #9b00ff);
+      z-index: -1;
+      animation: backgroundLoop 20s linear infinite;
+    }
+
+    /* About Section */
+    .about-section {
+      padding: 80px 40px;
+      background-color: rgba(0, 0, 0, 0.7);
+      backdrop-filter: blur(10px);
+    }
+
+    .about-container {
+      max-width: 800px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .about-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 40px;
+    }
+
+    .about-text {
+      flex: 1;
+      margin-right: 40px;
+    }
+
+    .about-text h2 {
+      font-size: 32px;
+      margin-top: 0;
+    }
+
+    .about-text p {
+      font-size: 16px;
+      line-height: 1.6;
+    }
+
+    .about-image {
+      flex: 1;
+    }
+
+    .about-image img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 10px;
+    }
+
+    /* Contact Section */
+    .contact-section {
+      padding: 80px 40px;
+      background-color: rgba(0, 0, 0, 0.7);
+      backdrop-filter: blur(10px);
+    }
+
+    .contact-container {
+      max-width: 600px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .contact-form {
+      width: 100%;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-gap: 20px;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+      background-color: rgba(255, 255, 255, 0.1);
+      border: none;
+      border-radius: 5px;
+      padding: 12px 16px;
+      font-size: 16px;
+      color: #fff;
+      transition: background-color 0.3s ease;
+    }
+
+    .contact-form input:focus,
+    .contact-form textarea:focus {
+      background-color: rgba(255, 255, 255, 0.2);
+      outline: none;
+    }
+
+    .contact-form textarea {
+      grid-column: 1 / -1;
+      resize: vertical;
+    }
+
+    .contact-form button {
+      grid-column: 1 / -1;
+      background-color: #00c8ff;
+      color: #000;
+      border: none;
+      border-radius: 5px;
+      padding: 12px 24px;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .contact-form button:hover {
+      background-color: #009dcc;
+    }
+
+    /* Animations */
+    @keyframes portfolioLoop {
+      0% {
+        transform: rotate(0deg);
+      }
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+
+    @keyframes backgroundLoop {
+      0% {
+        background-position: 0% 50%;
+      }
+      50% {
+        background-position: 100% 50%;
+      }
+      100% {
+        background-position: 0% 50%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav class="navbar">
+    <a href="#" class="navbar-brand">Create a Portfolio</a>
+    <ul class="navbar-nav">
+      <li><a href="#">Home</a></li>
+      <li><a href="#about-section">About</a></li>
+      <li><a href="#contact-section">Contact</a></li>
+    </ul>
+  </nav>
+
+  <section class="portfolio-section">
+    <div class="portfolio-loop">
+      <div class="portfolio-item active">
+        <h3>Project 1</h3>
+        <p>Showcasing your first amazing project.</p>
+      </div>
+      <div class="portfolio-item">
+        <h3>Project 2</h3>
+        <p>Showcasing your second impressive project.</p>
+      </div>
+      <div class="portfolio-item">
+        <h3>Skill 1</h3>
+        <p>Highlighting your first key skill.</p>
+      </div>
+      <div class="portfolio-item">
+        <h3>Skill 2</h3>
+        <p>Highlighting your second key skill.</p>
+      </div>
+    </div>
+    <div class="portfolio-background"></div>
+  </section>
+
+  <section class="about-section" id="about-section">
+    <div class="about-container">
+      <div class="about-content">
+        <div class="about-text">
+          <h2>About Me</h2>
+          <p>Hi, I'm a passionate web designer and developer with a strong focus on creating stunning and interactive portfolio websites. I have a keen eye for detail and a deep understanding of the latest UI/UX trends and best practices. My goal is to help you showcase your skills and projects in the most captivating way possible.</p>
+        </div>
+        <div class="about-image">
+          <img src="https://dummyimage.com/600x400/fff/000&text=About+Me" alt="About Me">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact-section" id="contact-section">
+    <div class="contact-container">
+      <h2>Get in Touch</h2>
+      <form class="contact-form">
+        <input type="text" placeholder="Name" required>
+        <input type="email" placeholder="Email" required>
+        <textarea placeholder="Message" required></textarea>
+        <button type="submit">Send Message</button>
+      </form>
+    </div>
+  </section>
+
+  <script>
+    const portfolioItems = document.querySelectorAll('.portfolio-item');
+    let currentIndex = 0;
+
+    function showPortfolioItem() {
+      portfolioItems.forEach(item => item.classList.remove('active'));
+      portfolioItems[currentIndex].classList.add('active');
+      currentIndex = (currentIndex + 1) % portfolioItems.length;
+    }
+
+    setInterval(showPortfolioItem, 3000);
+  </script>
+</body>
+</html>'<!-- Visit: https://github.com/Ishanoshada/portflair -->
+<!-- Visit: https://github.com/Ishanoshada/portflair -->

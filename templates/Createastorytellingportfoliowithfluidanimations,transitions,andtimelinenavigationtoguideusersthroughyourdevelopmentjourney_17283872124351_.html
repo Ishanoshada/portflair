@@ -1,0 +1,431 @@
+<!-- Portfolio created by Ishan -->
+<!-- Check out my work at: https://github.com/Ishanoshada/portflair -->
+<!-- 2024/10/9 -->
+<!-- Portfolio created by Ishan -->
+'<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Create a Storytelling Portfolio</title>
+  <style>
+    /* Global Styles */
+    body {
+      font-family: 'Montserrat', sans-serif;
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    /* Navigation Bar */
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: #fff;
+      padding: 1rem 2rem;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      position: relative;
+      z-index: 100;
+    }
+
+    .navbar-brand {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #333;
+      text-decoration: none;
+    }
+
+    .navbar-nav {
+      display: flex;
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .navbar-nav li {
+      margin-left: 2rem;
+    }
+
+    .navbar-nav li a {
+      color: #555;
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s ease;
+    }
+
+    .navbar-nav li a:hover {
+      color: #000;
+    }
+
+    /* Hero Section */
+    .hero {
+      position: relative;
+      height: 80vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      background-image: url('https://dummyimage.com/1200x500/ccc/000&text=Hero+Background');
+      background-size: cover;
+      background-position: center;
+      color: #fff;
+      text-align: center;
+      overflow: hidden;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      max-width: 800px;
+      padding: 2rem;
+    }
+
+    .hero-title {
+      font-size: 4rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      animation: fadeIn 1s ease-in-out;
+    }
+
+    .hero-subtitle {
+      font-size: 1.8rem;
+      font-weight: 400;
+      margin-bottom: 2rem;
+      animation: fadeIn 1.5s ease-in-out;
+    }
+
+    .hero-button {
+      display: inline-block;
+      background-color: #007bff;
+      color: #fff;
+      text-decoration: none;
+      font-size: 1.2rem;
+      font-weight: 500;
+      padding: 1rem 2rem;
+      border-radius: 4px;
+      transition: background-color 0.3s ease;
+      animation: fadeIn 2s ease-in-out;
+    }
+
+    .hero-button:hover {
+      background-color: #0056b3;
+    }
+
+    @keyframes fadeIn {
+      0% {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Timeline Section */
+    .timeline {
+      padding: 4rem 2rem;
+      background-color: #f8f9fa;
+    }
+
+    .timeline-title {
+      font-size: 2.5rem;
+      font-weight: 700;
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+
+    .timeline-container {
+      position: relative;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .timeline-item {
+      display: flex;
+      align-items: center;
+      margin-bottom: 4rem;
+    }
+
+    .timeline-item:nth-child(even) {
+      flex-direction: row-reverse;
+    }
+
+    .timeline-image {
+      flex-basis: 40%;
+      max-width: 500px;
+      margin: 0 2rem;
+      overflow: hidden;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      transition: transform 0.5s ease;
+    }
+
+    .timeline-image:hover {
+      transform: scale(1.05);
+    }
+
+    .timeline-image img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .timeline-content {
+      flex-basis: 50%;
+      margin: 0 2rem;
+    }
+
+    .timeline-subtitle {
+      font-size: 1.8rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+    }
+
+    .timeline-description {
+      font-size: 1.2rem;
+      line-height: 1.6;
+      color: #555;
+    }
+
+    /* Portfolio Section */
+    .portfolio {
+      padding: 4rem 2rem;
+    }
+
+    .portfolio-title {
+      font-size: 2.5rem;
+      font-weight: 700;
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+
+    .portfolio-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-gap: 2rem;
+    }
+
+    .portfolio-item {
+      position: relative;
+      overflow: hidden;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      transition: transform 0.5s ease;
+    }
+
+    .portfolio-item:hover {
+      transform: scale(1.05);
+    }
+
+    .portfolio-item img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .portfolio-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.6);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      opacity: 0;
+      transition: opacity 0.5s ease;
+    }
+
+    .portfolio-item:hover .portfolio-overlay {
+      opacity: 1;
+    }
+
+    .portfolio-overlay-title {
+      font-size: 1.8rem;
+      font-weight: 600;
+      color: #fff;
+      margin-bottom: 0.5rem;
+    }
+
+    .portfolio-overlay-description {
+      font-size: 1.2rem;
+      color: #fff;
+      text-align: center;
+    }
+
+    /* Responsive Styles */
+    @media (max-width: 991px) {
+      .navbar-nav li {
+        margin-left: 1.5rem;
+      }
+
+      .hero-title {
+        font-size: 3rem;
+      }
+
+      .hero-subtitle {
+        font-size: 1.5rem;
+      }
+
+      .timeline-item {
+        flex-direction: column-reverse;
+        text-align: center;
+      }
+
+      .timeline-item:nth-child(even) {
+        flex-direction: column-reverse;
+      }
+
+      .timeline-image {
+        flex-basis: auto;
+        max-width: 100%;
+        margin: 2rem 0;
+      }
+
+      .timeline-content {
+        flex-basis: auto;
+        margin: 0;
+      }
+
+      .portfolio-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 767px) {
+      .navbar-nav li {
+        margin-left: 1rem;
+      }
+
+      .hero-title {
+        font-size: 2.5rem;
+      }
+
+      .hero-subtitle {
+        font-size: 1.2rem;
+      }
+
+      .timeline-subtitle {
+        font-size: 1.5rem;
+      }
+
+      .timeline-description {
+        font-size: 1rem;
+      }
+
+      .portfolio-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav class="navbar">
+      <a href="#" class="navbar-brand">Storytelling Portfolio</a>
+      <ul class="navbar-nav">
+        <li><a href="#">Home</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Portfolio</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-content">
+        <h1 class="hero-title">Discover My Storytelling Portfolio</h1>
+        <p class="hero-subtitle">Explore my journey through fluid animations, transitions, and timeline navigation.</p>
+        <a href="#" class="hero-button">Explore Now</a>
+      </div>
+    </section>
+
+    <section class="timeline">
+      <h2 class="timeline-title">My Development Journey</h2>
+      <div class="timeline-container">
+        <div class="timeline-item">
+          <div class="timeline-image">
+            <img src="https://dummyimage.com/500x300/ccc/000&text=Project+1" alt="Project 1">
+          </div>
+          <div class="timeline-content">
+            <h3 class="timeline-subtitle">Project 1</h3>
+            <p class="timeline-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed auctor, magna vel aliquam lacinia, nisl nisl aliquam nisl, eget aliquam nisl nisl sit amet nisl.</p>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-image">
+            <img src="https://dummyimage.com/500x300/ccc/000&text=Project+2" alt="Project 2">
+          </div>
+          <div class="timeline-content">
+            <h3 class="timeline-subtitle">Project 2</h3>
+            <p class="timeline-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed auctor, magna vel aliquam lacinia, nisl nisl aliquam nisl, eget aliquam nisl nisl sit amet nisl.</p>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-image">
+            <img src="https://dummyimage.com/500x300/ccc/000&text=Project+3" alt="Project 3">
+          </div>
+          <div class="timeline-content">
+            <h3 class="timeline-subtitle">Project 3</h3>
+            <p class="timeline-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed auctor, magna vel aliquam lacinia, nisl nisl aliquam nisl, eget aliquam nisl nisl sit amet nisl.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="portfolio">
+      <h2 class="portfolio-title">My Portfolio</h2>
+      <div class="portfolio-grid">
+        <div class="portfolio-item">
+          <img src="https://dummyimage.com/400x300/ccc/000&text=Project+1" alt="Project 1">
+          <div class="portfolio-overlay">
+            <h3 class="portfolio-overlay-title">Project 1</h3>
+            <p class="portfolio-overlay-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+          </div>
+        </div>
+        <div class="portfolio-item">
+          <img src="https://dummyimage.com/400x300/ccc/000&text=Project+2" alt="Project 2">
+          <div class="portfolio-overlay">
+            <h3 class="portfolio-overlay-title">Project 2</h3>
+            <p class="portfolio-overlay-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+          </div>
+        </div>
+        <div class="portfolio-item">
+          <img src="https://dummyimage.com/400x300/ccc/000&text=Project+3" alt="Project 3">
+          <div class="portfolio-overlay">
+            <h3 class="portfolio-overlay-title">Project 3</h3>
+            <p class="portfolio-overlay-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+          </div>
+        </div>
+        <div class="portfolio-item">
+          <img src="https://dummyimage.com/400x300/ccc/000&text=Project+4" alt="Project 4">
+          <div class="portfolio-overlay">
+            <h3 class="portfolio-overlay-title">Project 4</h3>
+            <p class="portfolio-overlay-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+          </div>
+        </div>
+        <div class="portfolio-item">
+          <img src="https://dummyimage.com/400x300/ccc/000&text=Project+5" alt="Project 5">
+          <div class="portfolio-overlay">
+            <h3 class="portfolio-overlay-title">Project 5</h3>
+            <p class="portfolio-overlay-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+          </div>
+        </div>
+        <div class="portfolio-item">
+          <img src="https://dummyimage.com/400x300/ccc/000&text=Project+6" alt="Project 6">
+          <div class="portfolio-overlay">
+            <h3 class="portfolio-overlay-title">Project 6</h3>
+            <p class="portfolio-overlay-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+</body>
+</html>'<!-- Visit: https://github.com/Ishanoshada/portflair -->
+<!-- Visit: https://github.com/Ishanoshada/portflair -->

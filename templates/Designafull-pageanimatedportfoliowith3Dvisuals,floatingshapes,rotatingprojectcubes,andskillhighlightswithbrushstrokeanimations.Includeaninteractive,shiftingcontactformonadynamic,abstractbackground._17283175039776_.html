@@ -1,0 +1,558 @@
+<!-- Portfolio created by Ishan -->
+<!-- Check out my work at: https://github.com/Ishanoshada/portflair -->
+<!-- 2024/10/9 -->
+<!-- Portfolio created by Ishan -->
+'<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animated Portfolio</title>
+    <style>
+        /* Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Body Styles */
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #1a1a1a;
+            color: #f2f2f2;
+            overflow-x: hidden;
+        }
+
+        /* Navigation Styles */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 40px;
+            background-color: rgba(26, 26, 26, 0.8);
+            backdrop-filter: blur(10px);
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 999;
+        }
+
+        .navbar-brand {
+            font-size: 24px;
+            font-weight: bold;
+            text-decoration: none;
+            color: #f2f2f2;
+            transition: color 0.3s ease;
+        }
+
+        .navbar-brand:hover {
+            color: #5c6bc0;
+        }
+
+        .navbar-nav {
+            display: flex;
+            list-style-type: none;
+        }
+
+        .navbar-nav li {
+            margin-left: 20px;
+        }
+
+        .navbar-nav li a {
+            text-decoration: none;
+            color: #f2f2f2;
+            font-size: 16px;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .navbar-nav li a:hover {
+            color: #5c6bc0;
+        }
+
+        /* Portfolio Section Styles */
+        .portfolio-section {
+            padding: 100px 40px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .portfolio-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, #5c6bc0, #7986cb, #9fa8da);
+            z-index: -1;
+            animation: backgroundAnimation 20s ease infinite;
+        }
+
+        @keyframes backgroundAnimation {
+            0% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.1);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        .portfolio-title {
+            font-size: 48px;
+            font-weight: bold;
+            text-align: center;
+            margin-bottom: 40px;
+            text-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+        }
+
+        .project-cube-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 40px;
+        }
+
+        .project-cube {
+            width: 300px;
+            height: 300px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .project-cube:hover {
+            transform: translateY(-10px);
+        }
+
+        .project-cube:before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, #5c6bc0, #7986cb, #9fa8da);
+            animation: cubeAnimation 10s ease infinite;
+            z-index: -1;
+        }
+
+        @keyframes cubeAnimation {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        .project-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 10px;
+            transition: transform 0.3s ease;
+        }
+
+        .project-cube:hover .project-image {
+            transform: scale(1.1);
+        }
+
+        .project-details {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(26, 26, 26, 0.8);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .project-cube:hover .project-details {
+            opacity: 1;
+        }
+
+        .project-title {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .project-description {
+            font-size: 16px;
+            text-align: center;
+            padding: 0 20px;
+        }
+
+        /* Skill Highlights Section Styles */
+        .skill-highlights-section {
+            padding: 100px 40px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .skill-highlights-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, #8e24aa, #ba68c8, #e1bee7);
+            z-index: -1;
+            animation: backgroundAnimation 20s ease infinite;
+        }
+
+        .skill-highlights-title {
+            font-size: 48px;
+            font-weight: bold;
+            text-align: center;
+            margin-bottom: 40px;
+            text-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+        }
+
+        .skill-highlight-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 40px;
+        }
+
+        .skill-highlight {
+            width: 300px;
+            height: 300px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .skill-highlight:before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, #8e24aa, #ba68c8, #e1bee7);
+            animation: skillHighlightAnimation 10s ease infinite;
+            z-index: -1;
+        }
+
+        @keyframes skillHighlightAnimation {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        .skill-icon {
+            font-size: 48px;
+            margin-bottom: 20px;
+            animation: skillIconAnimation 5s ease infinite;
+        }
+
+        @keyframes skillIconAnimation {
+            0% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.2);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        .skill-title {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .skill-description {
+            font-size: 16px;
+            padding: 0 20px;
+        }
+
+        /* Contact Form Section Styles */
+        .contact-form-section {
+            padding: 100px 40px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .contact-form-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, #4527a0, #673ab7, #9575cd);
+            z-index: -1;
+            animation: backgroundAnimation 20s ease infinite;
+        }
+
+        .contact-form-title {
+            font-size: 48px;
+            font-weight: bold;
+            text-align: center;
+            margin-bottom: 40px;
+            text-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+        }
+
+        .contact-form {
+            width: 100%;
+            max-width: 600px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            animation: formAnimation 1s ease;
+        }
+
+        @keyframes formAnimation {
+            0% {
+                transform: translateY(50px);
+                opacity: 0;
+            }
+            100% {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .form-group {
+            width: 100%;
+            margin-bottom: 20px;
+            position: relative;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 10px 20px;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            background-color: rgba(255, 255, 255, 0.2);
+            color: #f2f2f2;
+            outline: none;
+            transition: background-color 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            background-color: rgba(255, 255, 255, 0.3);
+        }
+
+        .form-group label {
+            position: absolute;
+            top: 50%;
+            left: 20px;
+            transform: translateY(-50%);
+            font-size: 16px;
+            color: #f2f2f2;
+            pointer-events: none;
+            transition: all 0.3s ease;
+        }
+
+        .form-group input:focus ~ label,
+        .form-group textarea:focus ~ label,
+        .form-group input:not(:placeholder-shown) ~ label,
+        .form-group textarea:not(:placeholder-shown) ~ label {
+            top: 0;
+            font-size: 12px;
+            color: #5c6bc0;
+        }
+
+        .submit-button {
+            width: 100%;
+            padding: 10px 20px;
+            font-size: 16px;
+            font-weight: bold;
+            border: none;
+            border-radius: 5px;
+            background-color: #5c6bc0;
+            color: #f2f2f2;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .submit-button:hover {
+            background-color: #4527a0;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 767px) {
+            .navbar {
+                padding: 10px 20px;
+            }
+
+            .navbar-brand {
+                font-size: 20px;
+            }
+
+            .navbar-nav li {
+                margin-left: 10px;
+            }
+
+            .navbar-nav li a {
+                font-size: 14px;
+            }
+
+            .portfolio-section,
+            .skill-highlights-section,
+            .contact-form-section {
+                padding: 80px 20px;
+            }
+
+            .portfolio-title,
+            .skill-highlights-title,
+            .contact-form-title {
+                font-size: 36px;
+            }
+
+            .project-cube,
+            .skill-highlight {
+                width: 250px;
+                height: 250px;
+            }
+
+            .contact-form {
+                padding: 30px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <a href="#" class="navbar-brand">Animated Portfolio</a>
+        <ul class="navbar-nav">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Portfolio</a></li>
+            <li><a href="#">Skills</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- Portfolio Section -->
+    <section class="portfolio-section">
+        <div class="portfolio-background"></div>
+        <h1 class="portfolio-title">3D Animated Portfolio</h1>
+        <div class="project-cube-container">
+            <div class="project-cube">
+                <img src="https://dummyimage.com/300x300/ccc/000&text=Project+1" alt="Project 1" class="project-image">
+                <div class="project-details">
+                    <h2 class="project-title">Project 1</h2>
+                    <p class="project-description">A detailed description of the first project showcased in the portfolio.</p>
+                </div>
+            </div>
+            <div class="project-cube">
+                <img src="https://dummyimage.com/300x300/ccc/000&text=Project+2" alt="Project 2" class="project-image">
+                <div class="project-details">
+                    <h2 class="project-title">Project 2</h2>
+                    <p class="project-description">A detailed description of the second project showcased in the portfolio.</p>
+                </div>
+            </div>
+            <div class="project-cube">
+                <img src="https://dummyimage.com/300x300/ccc/000&text=Project+3" alt="Project 3" class="project-image">
+                <div class="project-details">
+                    <h2 class="project-title">Project 3</h2>
+                    <p class="project-description">A detailed description of the third project showcased in the portfolio.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skill Highlights Section -->
+    <section class="skill-highlights-section">
+        <div class="skill-highlights-background"></div>
+        <h1 class="skill-highlights-title">Skill Highlights</h1>
+        <div class="skill-highlight-container">
+            <div class="skill-highlight">
+                <i class="skill-icon fas fa-paint-brush"></i>
+                <h2 class="skill-title">Graphic Design</h2>
+                <p class="skill-description">Expertise in creating visually stunning and impactful designs.</p>
+            </div>
+            <div class="skill-highlight">
+                <i class="skill-icon fas fa-cube"></i>
+                <h2 class="skill-title">3D Modeling</h2>
+                <p class="skill-description">Proficient in designing and animating 3D models an</h2>
+                <p class="skill-description">Proficient in designing and animating 3D models and bringing creative ideas to life.</p>
+            </div>
+            <div class="skill-highlight">
+                <i class="skill-icon fas fa-video"></i>
+                <h2 class="skill-title">Animation</h2>
+                <p class="skill-description">Skilled in creating fluid and captivating animations to enhance visual storytelling.</p>
+            </div>
+            <div class="skill-highlight">
+                <i class="skill-icon fas fa-code"></i>
+                <h2 class="skill-title">Web Development</h2>
+                <p class="skill-description">Experienced in building responsive and interactive websites with clean code and intuitive user interfaces.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Form Section -->
+    <section class="contact-form-section">
+        <div class="contact-form-background"></div>
+        <h1 class="contact-form-title">Get in Touch</h1>
+        <form class="contact-form">
+            <div class="form-group">
+                <input type="text" id="name" placeholder=" " required>
+                <label for="name">Name</label>
+            </div>
+            <div class="form-group">
+                <input type="email" id="email" placeholder=" " required>
+                <label for="email">Email</label>
+            </div>
+            <div class="form-group">
+                <textarea id="message" placeholder=" " required></textarea>
+                <label for="message">Message</label>
+            </div>
+            <button type="submit" class="submit-button">Send</button>
+        </form>
+    </section>
+
+    <!-- Font Awesome Icons -->
+    <script src="https://kit.fontawesome.com/your-font-awesome-kit.js" crossorigin="anonymous"></script>
+</body>
+</html>'<!-- Visit: https://github.com/Ishanoshada/portflair -->
+<!-- Visit: https://github.com/Ishanoshada/portflair -->

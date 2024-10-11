@@ -1,0 +1,454 @@
+<!-- Portfolio created by Ishan -->
+<!-- Check out my work at: https://github.com/Ishanoshada/portflair -->
+<!-- 2024/10/9 -->
+<!-- Portfolio created by Ishan -->
+'<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Black Hole Portfolio</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Audiowide&display=swap');
+
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #000;
+            color: #fff;
+            font-family: 'Orbitron', sans-serif;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 40px;
+            background-color: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(10px);
+            position: relative;
+            z-index: 100;
+        }
+
+        .navbar-brand {
+            font-size: 24px;
+            font-weight: bold;
+            color: #fff;
+            text-decoration: none;
+            text-shadow: 0 0 10px #00ffff, 0 0 20px #00ffff, 0 0 30px #00ffff, 0 0 40px #00ffff;
+            animation: glowText 2s ease-in-out infinite;
+        }
+
+        .navbar-nav {
+            display: flex;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .navbar-nav li {
+            margin-left: 20px;
+        }
+
+        .navbar-nav li a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 16px;
+            transition: color 0.3s ease-in-out;
+        }
+
+        .navbar-nav li a:hover {
+            color: #00ffff;
+            text-shadow: 0 0 10px #00ffff, 0 0 20px #00ffff, 0 0 30px #00ffff, 0 0 40px #00ffff;
+            animation: glowText 2s ease-in-out infinite;
+        }
+
+        .hero {
+            position: relative;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        .hero-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url("https://dummyimage.com/1920x1080/000/00ffff.jpg&text=Black+Hole");
+            background-size: cover;
+            background-position: center;
+            filter: blur(5px);
+            z-index: -1;
+        }
+
+        .hero-content {
+            text-align: center;
+            text-shadow: 0 0 10px #00ffff, 0 0 20px #00ffff, 0 0 30px #00ffff, 0 0 40px #00ffff;
+            animation: glowText 2s ease-in-out infinite;
+        }
+
+        .hero-title {
+            font-size: 64px;
+            font-weight: bold;
+            font-family: 'Audiowide', cursive;
+            margin-bottom: 20px;
+        }
+
+        .hero-subtitle {
+            font-size: 24px;
+            font-weight: normal;
+            margin-bottom: 40px;
+        }
+
+        .project-gallery {
+            padding: 80px 40px;
+            background-color: #111;
+        }
+
+        .project-gallery-title {
+            font-size: 36px;
+            font-weight: bold;
+            text-align: center;
+            margin-bottom: 40px;
+            text-shadow: 0 0 10px #00ffff, 0 0 20px #00ffff, 0 0 30px #00ffff, 0 0 40px #00ffff;
+            animation: glowText 2s ease-in-out infinite;
+        }
+
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-gap: 40px;
+        }
+
+        .project-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 8px;
+            box-shadow: 0 0 20px rgba(0, 255, 255, 0.5);
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .project-item:hover {
+            transform: scale(1.05);
+        }
+
+        .project-item img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            filter: grayscale(1) brightness(0.7);
+            transition: filter 0.3s ease-in-out;
+        }
+
+        .project-item:hover img {
+            filter: grayscale(0) brightness(1);
+        }
+
+        .project-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transition: opacity 0.3s ease-in-out;
+        }
+
+        .project-item:hover .project-overlay {
+            opacity: 1;
+        }
+
+        .project-title {
+            font-size: 24px;
+            font-weight: bold;
+            color: #00ffff;
+            text-shadow: 0 0 10px #00ffff, 0 0 20px #00ffff, 0 0 30px #00ffff, 0 0 40px #00ffff;
+            margin-bottom: 10px;
+        }
+
+        .project-description {
+            font-size: 16px;
+            color: #fff;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .project-link {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #00ffff;
+            color: #000;
+            text-decoration: none;
+            border-radius: 4px;
+            font-size: 14px;
+            transition: background-color 0.3s ease-in-out;
+        }
+
+        .project-link:hover {
+            background-color: #00c8c8;
+        }
+
+        .contact-form {
+            padding: 80px 40px;
+            background-image: linear-gradient(to bottom, #000, #111);
+        }
+
+        .contact-form-title {
+            font-size: 36px;
+            font-weight: bold;
+            text-align: center;
+            margin-bottom: 40px;
+            text-shadow: 0 0 10px #00ffff, 0 0 20px #00ffff, 0 0 30px #00ffff, 0 0 40px #00ffff;
+            animation: glowText 2s ease-in-out infinite;
+        }
+
+        .contact-form-container {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 0 20px rgba(0, 255, 255, 0.5);
+        }
+
+        .contact-form-group {
+            margin-bottom: 20px;
+        }
+
+        .contact-form-label {
+            display: block;
+            font-size: 16px;
+            margin-bottom: 5px;
+            color: #00ffff;
+            text-shadow: 0 0 10px #00ffff, 0 0 20px #00ffff, 0 0 30px #00ffff, 0 0 40px #00ffff;
+        }
+
+        .contact-form-input,
+        .contact-form-textarea {
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #00ffff;
+            border-radius: 4px;
+            background-color: rgba(0, 0, 0, 0.5);
+            color: #fff;
+            transition: border-color 0.3s ease-in-out;
+        }
+
+        .contact-form-input:focus,
+        .contact-form-textarea:focus {
+            border-color: #00c8c8;
+            outline: none;
+        }
+
+        .contact-form-submit {
+            display: block;
+            width: 100%;
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #00ffff;
+            color: #000;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s ease-in-out;
+        }
+
+        .contact-form-submit:hover {
+            background-color: #00c8c8;
+        }
+
+        @keyframes glowText {
+            0% {
+                text-shadow: 0 0 10px #00ffff, 0 0 20px #00ffff, 0 0 30px #00ffff, 0 0 40px #00ffff;
+            }
+            50% {
+                text-shadow: 0 0 20px #00ffff, 0 0 30px #00ffff, 0 0 40px #00ffff, 0 0 50px #00ffff;
+            }
+            100% {
+                text-shadow: 0 0 10px #00ffff, 0 0 20px #00ffff, 0 0 30px #00ffff, 0 0 40px #00ffff;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .navbar {
+                padding: 10px 20px;
+            }
+
+            .navbar-brand {
+                font-size: 20px;
+            }
+
+            .navbar-nav li {
+                margin-left: 10px;
+            }
+
+            .navbar-nav li a {
+                font-size: 14px;
+            }
+
+            .hero-title {
+                font-size: 36px;
+            }
+
+            .hero-subtitle {
+                font-size: 18px;
+            }
+
+            .project-gallery {
+                padding: 40px 20px;
+            }
+
+            .project-gallery-title {
+                font-size: 28px;
+            }
+
+            .project-grid {
+                grid-template-columns: repeat(2, 1fr);
+                grid-gap: 20px;
+            }
+
+            .project-item img {
+                height: 200px;
+            }
+
+            .project-title {
+                font-size: 20px;
+            }
+
+            .project-description {
+                font-size: 14px;
+            }
+
+            .contact-form {
+                padding: 40px 20px;
+            }
+
+            .contact-form-title {
+                font-size: 28px;
+            }
+
+            .contact-form-container {
+                max-width: 100%;
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="navbar">
+        <a href="#" class="navbar-brand">Black Hole Portfolio</a>
+        <nav>
+            <ul class="navbar-nav">
+                <li><a href="#">Home</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Projects</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="hero-bg"></div>
+            <div class="hero-content">
+                <h1 class="hero-title">Dive into my Cosmic Portfolio</h1>
+                <p class="hero-subtitle">Explore the dark matter of my backend development expertise</p>
+            </div>
+        </section>
+
+        <section class="project-gallery">
+            <h2 class="project-gallery-title">Project Galaxies</h2>
+            <div class="project-grid">
+                <div class="project-item">
+                    <img src="https://dummyimage.com/400x300/000/00ffff.jpg&text=Project+1" alt="Project 1">
+                    <div class="project-overlay">
+                        <h3 class="project-title">Project 1</h3>
+                        <p class="project-description">Discover the black hole of my backend development skills.</p>
+                        <a href="#" class="project-link">View Project</a>
+                    </div>
+                </div>
+                <div class="project-item">
+                    <img src="https://dummyimage.com/400x300/000/00ffff.jpg&text=Project+2" alt="Project 2">
+                    <div class="project-overlay">
+                        <h3 class="project-title">Project 2</h3>
+                        <p class="project-description">Explore the black hole of my backend development expertise.</p>
+                        <a href="#" class="project-link">View Project</a>
+                    </div>
+                </div>
+                <div class="project-item">
+                    <img src="https://dummyimage.com/400x300/000/00ffff.jpg&text=Project+3" alt="Project 3">
+                    <div class="project-overlay">
+                        <h3 class="project-title">Project 3</h3>
+                        <p class="project-description">Delve into the black hole of my backend development skills.</p>
+                        <a href="#" class="project-link">View Project</a>
+                    </div>
+                </div>
+                <div class="project-item">
+                    <img src="https://dummyimage.com/400x300/000/00ffff.jpg&text=Project+4" alt="Project 4">
+                    <div class="project-overlay">
+                        <h3 class="project-title">Project 4</h3>
+                        <p class="project-description">Unravel the black hole of my backend development expertise.</p>
+                        <a href="#" class="project-link">View Project</a>
+                    </div>
+                </div>
+                <div class="project-item">
+                    <img src="https://dummyimage.com/400x300/000/00ffff.jpg&text=Project+5" alt="Project 5">
+                    <div class="project-overlay">
+                        <h3 class="project-title">Project 5</h3>
+                        <p class="project-description">Traverse the black hole of my backend development skills.</p>
+                        <a href="#" class="project-link">View Project</a>
+                    </div>
+                </div>
+                <div class="project-item">
+                    <img src="https://dummyimage.com/400x300/000/00ffff.jpg&text=Project+6" alt="Project 6">
+                    <div class="project-overlay">
+                        <h3 class="project-title">Project 6</h3>
+                        <p class="project-description">Escape the black hole of my backend development expertise.</p>
+                        <a href="#" class="project-link">View Project</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="contact-form">
+            <h2 class="contact-form-title">Connect with the Black Hole</h2>
+            <div class="contact-form-container">
+                <form>
+                    <div class="contact-form-group">
+                        <label for="name" class="contact-form-label">Name</label>
+                        <input type="text" id="name" name="name" class="contact-form-input" placeholder="Enter your name" required>
+                    </div>
+                    <div class="contact-form-group">
+                        <label for="email" class="contact-form-label">Email</label>
+                        <input type="email" id="email" name="email" class="contact-form-input" placeholder="Enter your email" required>
+                    </div>
+                    <div class="contact-form-group">
+                        <label for="message" class="contact-form-label">Message</label>
+                        <textarea id="message" name="message" class="contact-form-textarea" placeholder="Enter your message" required></textarea>
+                    </div>
+                    <button type="submit" class="contact-form-submit">Send Message</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2024 Black Hole Portfolio. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>'<!-- Visit: https://github.com/Ishanoshada/portflair -->
+<!-- Visit: https://github.com/Ishanoshada/portflair -->

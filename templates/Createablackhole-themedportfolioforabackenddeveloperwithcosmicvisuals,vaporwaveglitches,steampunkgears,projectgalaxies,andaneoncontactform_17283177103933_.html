@@ -1,0 +1,510 @@
+<!-- Portfolio created by Ishan -->
+<!-- Check out my work at: https://github.com/Ishanoshada/portflair -->
+<!-- 2024/10/9 -->
+<!-- Portfolio created by Ishan -->
+'<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Black Hole Portfolio</title>
+  <style>
+    /* Normalize CSS */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Orbitron', sans-serif;
+      background-color: #0d0d0d;
+      color: #fff;
+      overflow-x: hidden;
+    }
+
+    /* Navigation */
+    .nav {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 1.5rem 0;
+      background-color: rgba(13, 13, 13, 0.8);
+      backdrop-filter: blur(10px);
+      position: relative;
+      z-index: 100;
+    }
+
+    .nav a {
+      color: #fff;
+      text-decoration: none;
+      margin: 0 1.5rem;
+      font-size: 1.1rem;
+      position: relative;
+      transition: color 0.3s ease;
+    }
+
+    .nav a:before {
+      content: "";
+      position: absolute;
+      width: 0;
+      height: 2px;
+      bottom: -5px;
+      left: 50%;
+      transform: translateX(-50%);
+      background-color: #9b59b6;
+      transition: width 0.3s ease;
+    }
+
+    .nav a:hover {
+      color: #9b59b6;
+    }
+
+    .nav a:hover:before {
+      width: 100%;
+    }
+
+    /* Interactive Cosmic Visuals */
+    .cosmic-visuals {
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cosmic-visuals:before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(ellipse at center, rgba(13, 13, 13, 0.8) 0%, rgba(13, 13, 13, 1) 100%);
+      z-index: 1;
+    }
+
+    .cosmic-visuals .background {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url("https://dummyimage.com/1920x1080/000/fff&text=Cosmic+Background") no-repeat center center / cover;
+      z-index: 0;
+      animation: cosmic-background 60s linear infinite;
+    }
+
+    .cosmic-visuals .black-hole {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 300px;
+      height: 300px;
+      background: radial-gradient(ellipse at center, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 1) 100%);
+      border-radius: 50%;
+      z-index: 2;
+      animation: black-hole-pulse 5s ease-in-out infinite;
+    }
+
+    .cosmic-visuals .stars {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      z-index: 1;
+      animation: cosmic-stars 60s linear infinite;
+    }
+
+    .cosmic-visuals .stars span {
+      position: absolute;
+      width: 2px;
+      height: 2px;
+      background-color: #fff;
+      border-radius: 50%;
+      animation: star-twinkle 2s ease-in-out infinite;
+    }
+
+    .cosmic-visuals .content {
+      position: relative;
+      z-index: 3;
+      text-align: center;
+    }
+
+    .cosmic-visuals .content h1 {
+      font-size: 4rem;
+      text-transform: uppercase;
+      letter-spacing: 0.2rem;
+      text-shadow: 0 0 20px #9b59b6, 0 0 40px #9b59b6, 0 0 60px #9b59b6;
+      animation: neon-glow 2s ease-in-out infinite;
+    }
+
+    .cosmic-visuals .content p {
+      font-size: 1.5rem;
+      margin-top: 1rem;
+      text-shadow: 0 0 10px #9b59b6, 0 0 20px #9b59b6;
+    }
+
+    /* Vaporwave Glitch Gallery */
+    .vaporwave-gallery {
+      padding: 5rem 0;
+      background-color: #1f1f1f;
+      position: relative;
+    }
+
+    .vaporwave-gallery:before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(45deg, #9b59b6, #8e44ad, #2980b9, #e74c3c);
+      background-size: 200% 200%;
+      animation: vaporwave-gradient 10s ease infinite;
+      opacity: 0.1;
+    }
+
+    .vaporwave-gallery .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      padding: 0 2rem;
+    }
+
+    .vaporwave-gallery .gallery .project {
+      position: relative;
+      overflow: hidden;
+      border-radius: 10px;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+
+    .vaporwave-gallery .gallery .project:hover {
+      transform: scale(1.05);
+    }
+
+    .vaporwave-gallery .gallery .project:before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(45deg, #9b59b6, #8e44ad, #2980b9, #e74c3c);
+      background-size: 200% 200%;
+      animation: vaporwave-glitch 5s ease infinite;
+      opacity: 0.5;
+      z-index: 1;
+    }
+
+    .vaporwave-gallery .gallery .project img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      position: relative;
+      z-index: 0;
+    }
+
+    .vaporwave-gallery .gallery .project .overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.6);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      z-index: 2;
+    }
+
+    .vaporwave-gallery .gallery .project:hover .overlay {
+      opacity: 1;
+    }
+
+    .vaporwave-gallery .gallery .project .overlay h3 {
+      font-size: 1.5rem;
+      margin-bottom: 0.5rem;
+      text-shadow: 0 0 10px #9b59b6, 0 0 20px #9b59b6;
+    }
+
+    .vaporwave-gallery .gallery .project .overlay p {
+      font-size: 1.2rem;
+      margin-bottom: 1rem;
+      text-shadow: 0 0 10px #9b59b6, 0 0 20px #9b59b6;
+    }
+
+    .vaporwave-gallery .gallery .project .overlay a {
+      color: #fff;
+      text-decoration: none;
+      padding: 0.5rem 1rem;
+      background-color: #9b59b6;
+      border-radius: 5px;
+      transition: background-color 0.3s ease;
+    }
+
+    .vaporwave-gallery .gallery .project .overlay a:hover {
+      background-color: #8e44ad;
+    }
+
+    /* Steampunk Contact Form */
+    .steampunk-contact {
+      padding: 5rem 0;
+      background-color: #1f1f1f;
+      position: relative;
+    }
+
+    .steampunk-contact:before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url("https://dummyimage.com/1920x1080/8e44ad/fff&text=Steampunk+Background") no-repeat center center / cover;
+      opacity: 0.1;
+      z-index: 0;
+    }
+
+    .steampunk-contact .form-container {
+      max-width: 600px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
+    }
+
+    .steampunk-contact .form-container h2 {
+      font-size: 2.5rem;
+      text-align: center;
+      margin-bottom: 2rem;
+      text-shadow: 0 0 10px #9b59b6, 0 0 20px #9b59b6;
+    }
+
+    .steampunk-contact .form-container form {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .steampunk-contact .form-container .form-field {
+      width: 100%;
+      margin-bottom: 1.5rem;
+      position: relative;
+    }
+
+    .steampunk-contact .form-container .form-field input,
+    .steampunk-contact .form-container .form-field textarea {
+      width: 100%;
+      padding: 1rem;
+      font-size: 1.1rem;
+      background-color: #2c2c2c;
+      border: none;
+      border-radius: 5px;
+      color: #fff;
+      font-family: 'Orbitron', sans-serif;
+      position: relative;
+      z-index: 1;
+    }
+
+    .steampunk-contact .form-container .form-field input:focus,
+    .steampunk-contact .form-container .form-field textarea:focus {
+      outline: none;
+      box-shadow: 0 0 10px rgba(155, 89, 182, 0.5);
+    }
+
+    .steampunk-contact .form-container .form-field:before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(circle at center, rgba(142, 68, 173, 0.3) 0%, rgba(0, 0, 0, 0.3) 100%);
+      border-radius: 5px;
+      z-index: 0;
+    }
+
+    .steampunk-contact .form-container button {
+      width: 100%;
+      max-width: 200px;
+      padding: 1rem 2rem;
+      font-size: 1.1rem;
+      background-color: #9b59b6;
+      border: none;
+      border-radius: 30px;
+      color: #fff;
+      font-family: 'Orbitron', sans-serif;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .steampunk-contact .form-container button:before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(circle at center, rgba(142, 68, 173, 0.3) 0%, rgba(0, 0, 0, 0.3) 100%);
+      border-radius: 30px;
+      z-index: 0;
+      animation: gear-spin 5s linear infinite;
+    }
+
+    .steampunk-contact .form-container button:hover {
+      background-color: #8e44ad;
+    }
+
+    .steampunk-contact .form-container button span {
+      position: relative;
+      z-index: 1;
+    }
+
+    /* Animations */
+    @keyframes cosmic-background {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.1); }
+      100% { transform: scale(1); }
+    }
+
+    @keyframes black-hole-pulse {
+      0% { transform: translate(-50%, -50%) scale(1); }
+      50% { transform: translate(-50%, -50%) scale(1.1); }
+      100% { transform: translate(-50%, -50%) scale(1); }
+    }
+
+    @keyframes cosmic-stars {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-100%); }
+    }
+
+    @keyframes star-twinkle {
+      0% { opacity: 1; }
+      50% { opacity: 0.5; }
+      100% { opacity: 1; }
+    }
+
+    @keyframes neon-glow {
+      0% { text-shadow: 0 0 20px #9b59b6, 0 0 40px #9b59b6, 0 0 60px #9b59b6; }
+      50% { text-shadow: 0 0 30px #9b59b6, 0 0 50px #9b59b6, 0 0 70px #9b59b6; }
+      100% { text-shadow: 0 0 20px #9b59b6, 0 0 40px #9b59b6, 0 0 60px #9b59b6; }
+    }
+
+    @keyframes vaporwave-gradient {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    @keyframes vaporwave-glitch {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    @keyframes gear-spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+  </style>
+</head>
+<body>
+  <div class="nav">
+    <a href="#">Home</a>
+    <a href="#">About</a>
+    <a href="#">Portfolio</a>
+    <a href="#">Contact</a>
+  </div>
+
+  <div class="cosmic-visuals">
+    <div class="background"></div>
+    <div class="black-hole"></div>
+    <div class="stars">
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+    <div class="content">
+      <h1>Black Hole Portfolio</h1>
+      <p>Welcome to the cosmic realm of a backend developer's portfolio, where the boundaries of reality blur and the extraordinary becomes the norm. Immerse yourself in an interstellar experience that defies the constraints of the digital world.
+
+</p>
+    </div>
+  </div>
+
+  <div class="vaporwave-gallery">
+    <div class="gallery">
+      <div class="project">
+        <img src="https://dummyimage.com/600x400/8e44ad/fff&text=Project+1" alt="Project 1">
+        <div class="overlay">
+          <h3>Project 1</h3>
+          <p>A brief description of the project.</p>
+          <a href="#">View Project</a>
+        </div>
+      </div>
+      <div class="project">
+        <img src="https://dummyimage.com/600x400/2980b9/fff&text=Project+2" alt="Project 2">
+        <div class="overlay">
+          <h3>Project 2</h3>
+          <p>A brief description of the project.</p>
+          <a href="#">View Project</a>
+        </div>
+      </div>
+      <div class="project">
+        <img src="https://dummyimage.com/600x400/e74c3c/fff&text=Project+3" alt="Project 3">
+        <div class="overlay">
+          <h3>Project 3</h3>
+          <p>A brief description of the project.</p>
+          <a href="#">View Project</a>
+        </div>
+      </div>
+      <div class="project">
+        <img src="https://dummyimage.com/600x400/9b59b6/fff&text=Project+4" alt="Project 4">
+        <div class="overlay">
+          <h3>Project 4</h3>
+          <p>A brief description of the project.</p>
+          <a href="#">View Project</a>
+        </div>
+      </div>
+    </div>
+    <div class="view-more">
+      <a href="#" class="btn">View More</a>
+    </div>
+  </div>
+
+  <div class="steampunk-contact">
+    <div class="form-container">
+      <h2>Get in Touch</h2>
+      <form>
+        <div class="form-field">
+          <input type="text" placeholder="Name" required>
+        </div>
+        <div class="form-field">
+          <input type="email" placeholder="Email" required>
+        </div>
+        <div class="form-field">
+          <textarea placeholder="Message" required></textarea>
+        </div>
+        <button type="submit"><span>Submit</span></button>
+      </form>
+    </div>
+  </div>
+</body>
+</html>'<!-- Visit: https://github.com/Ishanoshada/portflair -->
+<!-- Visit: https://github.com/Ishanoshada/portflair -->

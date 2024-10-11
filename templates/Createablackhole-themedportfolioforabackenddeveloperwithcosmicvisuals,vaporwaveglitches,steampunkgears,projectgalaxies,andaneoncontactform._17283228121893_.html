@@ -1,0 +1,515 @@
+<!-- Portfolio created by Ishan -->
+<!-- Check out my work at: https://github.com/Ishanoshada/portflair -->
+<!-- 2024/10/9 -->
+<!-- Portfolio created by Ishan -->
+'<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Black Hole Portfolio</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
+
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Orbitron', sans-serif;
+      background-color: #000;
+      color: #fff;
+      overflow-x: hidden;
+    }
+
+    /* Navigation */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 40px;
+      background-color: rgba(0, 0, 0, 0.5);
+      backdrop-filter: blur(10px);
+    }
+
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      font-size: 18px;
+      font-weight: bold;
+      margin: 0 20px;
+      position: relative;
+      transition: color 0.3s ease;
+    }
+
+    nav a:before {
+      content: "";
+      position: absolute;
+      width: 0;
+      height: 2px;
+      bottom: -5px;
+      left: 0;
+      background-color: #9b59b6;
+      visibility: hidden;
+      transition: all 0.3s ease-in-out;
+    }
+
+    nav a:hover {
+      color: #9b59b6;
+    }
+
+    nav a:hover:before {
+      visibility: visible;
+      width: 100%;
+    }
+
+    /* Project Galaxies */
+    #project-galaxies {
+      padding: 80px 40px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .galaxy-background {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: url("https://dummyimage.com/1200x800/000/9b59b6.jpg&text=Cosmic+Background");
+      background-size: cover;
+      background-position: center;
+      filter: blur(5px);
+      z-index: -1;
+    }
+
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      grid-gap: 40px;
+    }
+
+    .project-item {
+      position: relative;
+      overflow: hidden;
+      border-radius: 10px;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+      transition: transform 0.3s ease;
+    }
+
+    .project-item:hover {
+      transform: scale(1.05);
+    }
+
+    .project-item img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      filter: brightness(0.7) contrast(1.2) hue-rotate(20deg);
+      transition: filter 0.3s ease;
+    }
+
+    .project-item:hover img {
+      filter: brightness(1) contrast(1) hue-rotate(0deg);
+    }
+
+    .project-details {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      background-color: rgba(0, 0, 0, 0.7);
+      padding: 20px;
+      opacity: 0;
+      transform: translateY(100%);
+      transition: opacity 0.3s ease, transform 0.3s ease;
+    }
+
+    .project-item:hover .project-details {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .project-details h3 {
+      margin-top: 0;
+      font-size: 18px;
+      font-weight: bold;
+      color: #9b59b6;
+    }
+
+    .project-details p {
+      margin-bottom: 0;
+      font-size: 14px;
+      color: #fff;
+    }
+
+    /* Cosmic Skills and Expertise */
+    #cosmic-skills {
+      padding: 80px 40px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cosmic-background {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: url("https://dummyimage.com/1200x800/000/9b59b6.jpg&text=Cosmic+Background");
+      background-size: cover;
+      background-position: center;
+      filter: blur(5px);
+      z-index: -1;
+    }
+
+    .skill-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      grid-gap: 40px;
+    }
+
+    .skill-item {
+      background-color: rgba(0, 0, 0, 0.5);
+      backdrop-filter: blur(10px);
+      border-radius: 10px;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+      padding: 40px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.3s ease;
+    }
+
+    .skill-item:hover {
+      transform: scale(1.1);
+    }
+
+    .skill-item i {
+      font-size: 48px;
+      color: #9b59b6;
+      margin-bottom: 20px;
+      position: relative;
+      z-index: 1;
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0% {
+        transform: scale(1);
+      }
+      50% {
+        transform: scale(1.2);
+      }
+      100% {
+        transform: scale(1);
+      }
+    }
+
+    .skill-item h3 {
+      margin-top: 0;
+      font-size: 18px;
+      font-weight: bold;
+      color: #fff;
+      position: relative;
+      z-index: 1;
+    }
+
+    .skill-item p {
+      margin-bottom: 0;
+      font-size: 14px;
+      color: #ccc;
+      position: relative;
+      z-index: 1;
+    }
+
+    .skill-item:before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: url("https://dummyimage.com/150x150/000/9b59b6.jpg&text=Gear");
+      background-size: 50% 50%;
+      background-repeat: no-repeat;
+      background-position: center;
+      opacity: 0.1;
+      transform: rotate(45deg);
+      transition: opacity 0.3s ease;
+    }
+
+    .skill-item:hover:before {
+      opacity: 0.3;
+    }
+
+    /* Neon Contact Form */
+    #contact {
+      padding: 80px 40px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .form-background {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url("https://dummyimage.com/1200x800/000/9b59b6.jpg&text=Neon+Background");
+      background-size: cover;
+      background-position: center;
+      filter: blur(5px);
+      z-index: -1;
+    }
+
+    .contact-form {
+      max-width: 500px;
+      margin: 0 auto;
+      background-color: rgba(0, 0, 0, 0.5);
+      backdrop-filter: blur(10px);
+      border-radius: 10px;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+      padding: 40px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .contact-form:before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: 3px solid #9b59b6;
+      border-radius: 10px;
+      animation: neon-glow 2s infinite;
+    }
+
+    @keyframes neon-glow {
+      0% {
+        box-shadow: 0 0 5px #9b59b6, 0 0 10px #9b59b6, 0 0 15px #9b59b6, 0 0 20px #9b59b6;
+      }
+      50% {
+        box-shadow: 0 0 10px #9b59b6, 0 0 20px #9b59b6, 0 0 30px #9b59b6, 0 0 40px #9b59b6;
+      }
+      100% {
+        box-shadow: 0 0 5px #9b59b6, 0 0 10px #9b59b6, 0 0 15px #9b59b6, 0 0 20px #9b59b6;
+      }
+    }
+
+    .contact-form h2 {
+      margin-top: 0;
+      font-size: 24px;
+      font-weight: bold;
+      color: #9b59b6;
+      text-align: center;
+    }
+
+    .contact-form label {
+      display: block;
+      font-size: 16px;
+      font-weight: bold;
+      color: #fff;
+      margin-bottom: 10px;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+      width: 100%;
+      padding: 10px;
+      font-size: 16px;
+      border: none;
+      border-radius: 5px;
+      background-color: rgba(255, 255, 255, 0.1);
+      color: #fff;
+      margin-bottom: 20px;
+      transition: background-color 0.3s ease;
+    }
+
+    .contact-form input:focus,
+    .contact-form textarea:focus {
+      background-color: rgba(255, 255, 255, 0.2);
+    }
+
+    .contact-form button {
+      display: block;
+      width: 100%;
+      padding: 10px;
+      font-size: 16px;
+      font-weight: bold;
+      color: #fff;
+      background-color: #9b59b6;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .contact-form button:hover {
+      background-color: #8e44ad;
+    }
+
+    /* Responsive Styles */
+    @media (max-width: 768px) {
+      nav {
+        padding: 10px 20px;
+      }
+
+      nav a {
+        font-size: 16px;
+        margin: 0 10px;
+      }
+
+      #project-galaxies,
+      #cosmic-skills,
+      #contact {
+        padding: 60px 20px;
+      }
+
+      .project-grid,
+      .skill-grid {
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        grid-gap: 30px;
+      }
+
+      .project-item img {
+        height: 150px;
+      }
+
+      .skill-item {
+        padding: 30px;
+      }
+
+      .skill-item i {
+        font-size: 36px;
+      }
+
+      .skill-item h3 {
+        font-size: 16px;
+      }
+
+      .skill-item p {
+        font-size: 12px;
+      }
+
+      .contact-form {
+        padding: 30px;
+      }
+
+      .contact-form h2 {
+        font-size: 20px;
+      }
+
+      .contact-form label,
+      .contact-form input,
+      .contact-form textarea,
+      .contact-form button {
+        font-size: 14px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="#">Home</a>
+    <a href="#">Projects</a>
+    <a href="#">Skills</a>
+    <a href="#">Contact</a>
+  </nav>
+
+  <section id="project-galaxies">
+    <div class="galaxy-background"></div>
+    <h2>Project Galaxies</h2>
+    <div class="project-grid">
+      <div class="project-item">
+        <img src="https://dummyimage.com/400x300/000/9b59b6.jpg&text=Project+1" alt="Project 1">
+        <div class="project-details">
+          <h3>Project 1</h3>
+          <p>A cosmic-themed project with vaporwave glitches and steampunk gears.</p>
+        </div>
+      </div>
+      <div class="project-item">
+        <img src="https://dummyimage.com/400x300/000/9b59b6.jpg&text=Project+2" alt="Project 2">
+        <div class="project-details">
+          <h3>Project 2</h3>
+          <p>An interactive black hole-inspired project with a neon contact form.</p>
+        </div>
+      </div>
+      <div class="project-item">
+        <img src="https://dummyimage.com/400x300/000/9b59b6.jpg&text=Project+3" alt="Project 3">
+        <div class="project-details">
+          <h3>Project 3</h3>
+          <p>A visually stunning portfolio showcasing the developer's work.</p>
+        </div>
+      </div>
+      <div class="project-item">
+        <img src="https://dummyimage.com/400x300/000/9b59b6.jpg&text=Project+4" alt="Project 4">
+        <div class="project-details">
+          <h3>Project 4</h3>
+          <p>A cosmic-inspired project with vaporwave-infused animations.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="cosmic-skills">
+    <div class="cosmic-background"></div>
+    <h2>Cosmic Skills and Expertise</h2>
+    <div class="skill-grid">
+      <div class="skill-item">
+        <i class="fas fa-rocket"></i>
+        <h3>Backend Development</h3>
+        <p>Proficient in building robust and scalable backend systems.</p>
+      </div>
+      <div class="skill-item">
+        <i class="fas fa-satellite"></i>
+        <h3>Cloud Computing</h3>
+        <p>Experienced in deploying and managing applications on cloud platforms.</p>
+      </div>
+      <div class="skill-item">
+        <i class="fas fa-cog"></i>
+        <h3>DevOps</h3>
+        <p>Skilled in automating and optimizing development and deployment workflows.</p>
+      </div>
+      <div class="skill-item">
+        <i class="fas fa-database"></i>
+        <h3>Database Management</h3>
+        <p>Expertise in designing and managing efficient database solutions.</p>
+      </div>
+      <div class="skill-item">
+        <i class="fas fa-code"></i>
+        <h3>Programming Languages</h3>
+        <p>Proficient in a wide range of programming languages, including Python, JavaScript, and Go.</p></div>
+      <div class="skill-item">
+        <i class="fas fa-chart-line"></i>
+        <h3>Data Analysis</h3>
+        <p>Experienced in extracting insights from complex data sets and presenting them effectively.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="form-background"></div>
+    <h2>Get in Touch</h2>
+    <div class="contact-form">
+      <h2>Neon Contact Form</h2>
+      <form>
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+
+        <label for="message">Message:</label>
+        <textarea id="message" name="message" rows="5" required></textarea>
+
+        <button type="submit">Send Message</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- Font Awesome Icons -->
+  <script src="https://kit.fontawesome.com/your-font-awesome-kit.js" crossorigin="anonymous"></script>
+</body>
+</html>'<!-- Visit: https://github.com/Ishanoshada/portflair -->
+<!-- Visit: https://github.com/Ishanoshada/portflair -->

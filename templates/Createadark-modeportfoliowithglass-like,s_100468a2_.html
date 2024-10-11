@@ -1,0 +1,357 @@
+<!-- Portfolio created by Ishan -->
+<!-- Check out my work at: https://github.com/Ishanoshada/portflair -->
+<!-- 2024/10/9 -->
+<!-- Portfolio created by Ishan -->
+'<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dark Mode Portfolio</title>
+  <style>
+    /* Global Styles */
+    body {
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #1a1a1a;
+      color: #f1f1f1;
+    }
+
+    /* Navigation */
+    nav {
+      background-color: rgba(26, 26, 26, 0.8);
+      backdrop-filter: blur(10px);
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: relative;
+      z-index: 100;
+    }
+
+    nav a {
+      color: #f1f1f1;
+      text-decoration: none;
+      margin-right: 1.5rem;
+      font-size: 1.1rem;
+      transition: color 0.3s ease;
+    }
+
+    nav a:hover {
+      color: #8a8a8a;
+    }
+
+    /* Portfolio Showcase */
+    .portfolio-showcase {
+      padding: 4rem 2rem;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      grid-gap: 2rem;
+    }
+
+    .portfolio-item {
+      background-color: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(20px);
+      border-radius: 10px;
+      padding: 2rem;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .portfolio-item:hover {
+      transform: translateY(-10px);
+    }
+
+    .portfolio-item::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(45deg, #ff6b6b, #ffa500, #ffff00, #00ff00, #00ffff, #0000ff, #ff00ff);
+      background-size: 200% 200%;
+      animation: gradient 10s ease infinite;
+      opacity: 0.3;
+      z-index: -1;
+    }
+
+    @keyframes gradient {
+      0% {
+        background-position: 0% 50%;
+      }
+      50% {
+        background-position: 100% 50%;
+      }
+      100% {
+        background-position: 0% 50%;
+      }
+    }
+
+    .portfolio-item h3 {
+      margin-top: 0;
+      font-size: 1.5rem;
+      font-weight: 600;
+    }
+
+    .portfolio-item p {
+      margin-bottom: 1.5rem;
+      font-size: 1rem;
+      color: #8a8a8a;
+    }
+
+    .portfolio-item a {
+      color: #f1f1f1;
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s ease;
+    }
+
+    .portfolio-item a:hover {
+      color: #8a8a8a;
+    }
+
+    /* About Section */
+    .about-section {
+      padding: 4rem 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: rgba(26, 26, 26, 0.8);
+      backdrop-filter: blur(10px);
+    }
+
+    .about-content {
+      max-width: 800px;
+      text-align: center;
+    }
+
+    .profile-picture {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      margin-bottom: 2rem;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      position: relative;
+    }
+
+    .profile-picture::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      background: linear-gradient(45deg, #ff6b6b, #ffa500, #ffff00, #00ff00, #00ffff, #0000ff, #ff00ff);
+      background-size: 200% 200%;
+      animation: gradient 10s ease infinite;
+      opacity: 0.5;
+      z-index: -1;
+    }
+
+    .about-content h2 {
+      font-size: 2.5rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+    }
+
+    .about-content p {
+      font-size: 1.1rem;
+      color: #8a8a8a;
+      line-height: 1.6;
+      margin-bottom: 2rem;
+    }
+
+    .about-content .skills {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-bottom: 2rem;
+    }
+
+    .about-content .skills span {
+      background-color: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      padding: 0.5rem 1rem;
+      border-radius: 20px;
+      margin: 0.5rem;
+      font-size: 0.9rem;
+      color: #f1f1f1;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Contact Section */
+    .contact-section {
+      padding: 4rem 2rem;
+      background-color: rgba(26, 26, 26, 0.8);
+      backdrop-filter: blur(10px);
+    }
+
+    .contact-content {
+      max-width: 800px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .contact-content h2 {
+      font-size: 2.5rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+    }
+
+    .contact-content p {
+      font-size: 1.1rem;
+      color: #8a8a8a;
+      line-height: 1.6;
+      margin-bottom: 2rem;
+    }
+
+    .contact-form {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-gap: 1.5rem;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+      background-color: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      border: none;
+      padding: 1rem;
+      border-radius: 5px;
+      color: #f1f1f1;
+      font-size: 1rem;
+      transition: background-color 0.3s ease;
+    }
+
+    .contact-form input:focus,
+    .contact-form textarea:focus {
+      background-color: rgba(255, 255, 255, 0.2);
+    }
+
+    .contact-form textarea {
+      grid-column: 1 / -1;
+    }
+
+    .contact-form button {
+      grid-column: 1 / -1;
+      background-color: #ff6b6b;
+      color: #f1f1f1;
+      border: none;
+      padding: 1rem 2rem;
+      border-radius: 5px;
+      font-size: 1.1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .contact-form button:hover {
+      background-color: #ff4d4d;
+    }
+
+    /* Responsive Styles */
+    @media (max-width: 768px) {
+      .portfolio-showcase {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      }
+
+      .about-section,
+      .contact-section {
+        padding: 3rem 1.5rem;
+      }
+
+      .contact-form {
+        grid-template-columns: 1fr;
+      }
+
+      .contact-form textarea {
+        grid-column: auto;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="#">Home</a>
+    <a href="#">Portfolio</a>
+    <a href="#">About</a>
+    <a href="#">Contact</a>
+  </nav>
+
+  <section class="portfolio-showcase">
+    <div class="portfolio-item">
+      <h3>Project 1</h3>
+      <p>This is a description of the first project in the portfolio.</p>
+      <a href="#">View Project</a>
+    </div>
+    <div class="portfolio-item">
+      <h3>Project 2</h3>
+      <p>This is a description of the second project in the portfolio.</p>
+      <a href="#">View Project</a>
+    </div>
+    <div class="portfolio-item">
+      <h3>Project 3</h3>
+      <p>This is a description of the third project in the portfolio.</p>
+      <a href="#">View Project</a>
+    </div>
+    <div class="portfolio-item">
+      <h3>Project 4</h3>
+      <p>This is a description of the fourth project in the portfolio.</p>
+      <a href="#">View Project</a>
+    </div>
+    <div class="portfolio-item">
+      <h3>Project 5</h3>
+      <p>This is a description of the fifth project in the portfolio.</p>
+      <a href="#">View Project</a>
+    </div>
+    <div class="portfolio-item">
+      <h3>Project 6</h3>
+      <p>This is a description of the sixth project in the portfolio.</p>
+      <a href="#">View Project</a>
+    </div>
+  </section>
+
+  <section class="about-section">
+    <div class="about-content">
+      <div class="profile-picture">
+        <img src="https://dummyimage.com/150x150/ccc/000&text=Profile+Picture" alt="Profile Picture">
+      </div>
+      <h2>About Me</h2>
+      <p>
+        I am a passionate designer and creative professional with a strong background in
+        UI/UX design, web development, and digital art. I specialize in creating visually
+        stunning and user-friendly experiences that captivate audiences.
+      </p>
+      <div class="skills">
+        <span>UI/UX Design</span>
+        <span>Web Development</span>
+        <span>Graphic Design</span>
+        <span>Branding</span>
+        <span>Motion Graphics</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact-section">
+    <div class="contact-content">
+      <h2>Get in Touch</h2>
+      <p>
+        If you're interested in collaborating on a project or just want to say hello,
+        feel free to reach out using the form below.
+      </p>
+      <form class="contact-form">
+        <input type="text" placeholder="Name" required>
+        <input type="email" placeholder="Email" required>
+        <textarea placeholder="Message" rows="5" required></textarea>
+        <button type="submit">Send Message</button>
+      </form>
+    </div>
+  </section>
+</body>
+</html>'<!-- Visit: https://github.com/Ishanoshada/portflair -->
+<!-- Visit: https://github.com/Ishanoshada/portflair -->

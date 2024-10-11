@@ -1,0 +1,383 @@
+<!-- Portfolio created by Ishan -->
+<!-- Check out my work at: https://github.com/Ishanoshada/portflair -->
+<!-- 2024/10/9 -->
+<!-- Portfolio created by Ishan -->
+'<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Black Hole Portfolio</title>
+  <style>
+    /* Reset Styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Audiowide', cursive;
+    }
+
+    body {
+      background: radial-gradient(ellipse at center, #0c0c0c 0%, #000000 100%);
+      color: #fff;
+      overflow-x: hidden;
+    }
+
+    /* Navigation */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.5rem 2rem;
+      background-color: rgba(0, 0, 0, 0.5);
+      backdrop-filter: blur(10px);
+      position: relative;
+      z-index: 1;
+    }
+
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      font-size: 1.2rem;
+      transition: color 0.3s ease;
+    }
+
+    nav a:hover {
+      color: #9b59b6;
+    }
+
+    /* Project Showcase */
+    .project-showcase {
+      padding: 4rem 2rem;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      grid-gap: 2rem;
+      perspective: 1000px;
+    }
+
+    .project-galaxy {
+      background: radial-gradient(circle at center, #9b59b6, #2980b9);
+      border-radius: 10px;
+      box-shadow: 0 0 20px rgba(155, 89, 182, 0.5);
+      overflow: hidden;
+      position: relative;
+      cursor: pointer;
+      transition: transform 0.5s ease;
+    }
+
+    .project-galaxy:hover {
+      transform: scale(1.05);
+    }
+
+    .project-galaxy::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(45deg, #9b59b6, #2980b9);
+      opacity: 0.3;
+      z-index: 1;
+    }
+
+    .project-galaxy::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(circle at center, transparent, rgba(0, 0, 0, 0.5));
+      z-index: 2;
+    }
+
+    .project-galaxy img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      filter: brightness(0.8) contrast(1.2);
+      transition: filter 0.5s ease;
+    }
+
+    .project-galaxy:hover img {
+      filter: brightness(1) contrast(1);
+    }
+
+    .project-galaxy .project-details {
+      padding: 1.5rem;
+      position: relative;
+      z-index: 3;
+    }
+
+    .project-galaxy h3 {
+      font-size: 1.5rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .project-galaxy p {
+      font-size: 1rem;
+      line-height: 1.5;
+    }
+
+    /* Skill and Experience Visualization */
+    .skill-experience {
+      padding: 4rem 2rem;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      grid-gap: 2rem;
+    }
+
+    .skill-system {
+      background: radial-gradient(circle at center, #2980b9, #9b59b6);
+      border-radius: 10px;
+      box-shadow: 0 0 20px rgba(41, 128, 185, 0.5);
+      overflow: hidden;
+      position: relative;
+      cursor: pointer;
+      transition: transform 0.5s ease;
+    }
+
+    .skill-system:hover {
+      transform: scale(1.05);
+    }
+
+    .skill-system::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(45deg, #2980b9, #9b59b6);
+      opacity: 0.3;
+      z-index: 1;
+    }
+
+    .skill-system::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(circle at center, transparent, rgba(0, 0, 0, 0.5));
+      z-index: 2;
+    }
+
+    .skill-system .skill-details {
+      padding: 1.5rem;
+      position: relative;
+      z-index: 3;
+    }
+
+    .skill-system h3 {
+      font-size: 1.5rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .skill-system p {
+      font-size: 1rem;
+      line-height: 1.5;
+    }
+
+    .skill-system .gear {
+      position: absolute;
+      width: 50px;
+      height: 50px;
+      background-image: url('https://dummyimage.com/50x50/ccc/000&text=Gear');
+      background-size: contain;
+      background-repeat: no-repeat;
+      animation: rotate 10s linear infinite;
+    }
+
+    @keyframes rotate {
+      0% {
+        transform: rotate(0deg);
+      }
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+
+    /* Contact Form */
+    .contact-form {
+      padding: 4rem 2rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .contact-form h2 {
+      font-size: 2rem;
+      margin-bottom: 2rem;
+      text-align: center;
+      background: linear-gradient(to right, #9b59b6, #2980b9);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .contact-form form {
+      width: 100%;
+      max-width: 600px;
+      background-color: rgba(0, 0, 0, 0.5);
+      backdrop-filter: blur(10px);
+      border-radius: 10px;
+      padding: 2rem;
+      box-shadow: 0 0 20px rgba(155, 89, 182, 0.5);
+    }
+
+    .contact-form .form-group {
+      margin-bottom: 1.5rem;
+      position: relative;
+    }
+
+    .contact-form label {
+      display: block;
+      font-size: 1.1rem;
+      margin-bottom: 0.5rem;
+      color: #9b59b6;
+      text-shadow: 0 0 10px rgba(155, 89, 182, 0.5);
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+      width: 100%;
+      padding: 1rem;
+      font-size: 1rem;
+      background-color: rgba(0, 0, 0, 0.7);
+      border: none;
+      border-radius: 5px;
+      color: #fff;
+      box-shadow: 0 0 10px rgba(155, 89, 182, 0.5);
+      transition: box-shadow 0.3s ease;
+    }
+
+    .contact-form input:focus,
+    .contact-form textarea:focus {
+      outline: none;
+      box-shadow: 0 0 20px rgba(155, 89, 182, 0.8);
+    }
+
+    .contact-form button {
+      display: block;
+      width: 100%;
+      padding: 1rem;
+      font-size: 1.2rem;
+      font-weight: bold;
+      background: linear-gradient(to right, #9b59b6, #2980b9);
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    .contact-form button:hover {
+      background: linear-gradient(to right, #2980b9, #9b59b6);
+    }
+
+    /* Responsive Styles */
+    @media (max-width: 768px) {
+      nav {
+        padding: 1rem;
+      }
+
+      nav a {
+        font-size: 1rem;
+      }
+
+      .project-showcase,
+      .skill-experience,
+      .contact-form {
+        padding: 2rem 1rem;
+      }
+
+      .project-galaxy img {
+        height: 150px;
+      }
+
+      .skill-system .gear {
+        width: 30px;
+        height: 30px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="#">Home</a>
+    <a href="#">Projects</a>
+    <a href="#">Skills</a>
+    <a href="#">Contact</a>
+  </nav>
+
+  <section class="project-showcase">
+    <div class="project-galaxy">
+      <img src="https://dummyimage.com/600x400/ccc/000&text=Project+1" alt="Project 1">
+      <div class="project-details">
+        <h3>Project 1</h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+      </div>
+    </div>
+    <div class="project-galaxy">
+      <img src="https://dummyimage.com/600x400/ccc/000&text=Project+2" alt="Project 2">
+      <div class="project-details">
+        <h3>Project 2</h3>
+        <p>Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+      </div>
+    </div>
+    <div class="project-galaxy">
+      <img src="https://dummyimage.com/600x400/ccc/000&text=Project+3" alt="Project 3">
+      <div class="project-details">
+        <h3>Project 3</h3>
+        <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="skill-experience">
+    <div class="skill-system">
+      <div class="skill-details">
+        <h3>Backend Development</h3>
+        <p>Expertise in Node.js, Express, and database management.</p>
+      </div>
+      <div class="gear"></div>
+    </div>
+    <div class="skill-system">
+      <div class="skill-details">
+        <h3>Distributed Systems</h3>
+        <p>Experience in building scalable and fault-tolerant distributed applications.</p>
+      </div>
+      <div class="gear"></div>
+    </div>
+    <div class="skill-system">
+      <div class="skill-details">
+        <h3>Cloud Architecture</h3>
+        <p>Proficient in cloud infrastructure design and deployment on platforms like AWS and Azure.</p>
+      </div>
+      <div class="gear"></div>
+    </div>
+  </section>
+
+  <section class="contact-form">
+    <h2>Get in Touch</h2>
+    <form>
+      <div class="form-group">
+        <label for="name">Name</label>
+        <input type="text" id="name" name="name" required>
+      </div>
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" required>
+      </div>
+      <div class="form-group">
+        <label for="message">Message</label>
+        <textarea id="message" name="message" rows="5" required></textarea>
+      </div>
+      <button type="submit">Send Message</button>
+    </form>
+  </section>
+</body>
+</html>'<!-- Visit: https://github.com/Ishanoshada/portflair -->
+<!-- Visit: https://github.com/Ishanoshada/portflair -->

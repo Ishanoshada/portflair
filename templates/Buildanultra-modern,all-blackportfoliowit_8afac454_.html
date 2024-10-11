@@ -1,0 +1,400 @@
+<!-- Portfolio created by Ishan -->
+<!-- Check out my work at: https://github.com/Ishanoshada/portflair -->
+<!-- 2024/10/9 -->
+<!-- Portfolio created by Ishan -->
+'<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ultra-Modern Portfolio</title>
+  <style>
+    /* Global Styles */
+    body {
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #000000;
+      color: #ffffff;
+    }
+
+    /* Navigation Bar */
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 40px;
+      background-color: #1a1a1a;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    .navbar-brand {
+      font-size: 24px;
+      font-weight: 700;
+      color: #ffffff;
+      text-decoration: none;
+    }
+
+    .navbar-nav {
+      display: flex;
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .navbar-nav li {
+      margin-left: 20px;
+    }
+
+    .navbar-nav li a {
+      color: #ffffff;
+      text-decoration: none;
+      font-size: 16px;
+      font-weight: 500;
+      transition: color 0.3s ease;
+    }
+
+    .navbar-nav li a:hover {
+      color: #b3b3b3;
+    }
+
+    /* Featured Projects Section */
+    .featured-projects {
+      padding: 80px 40px;
+    }
+
+    .section-title {
+      font-size: 36px;
+      font-weight: 700;
+      margin-bottom: 40px;
+      text-align: center;
+    }
+
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-gap: 40px;
+    }
+
+    .project-thumbnail {
+      position: relative;
+      overflow: hidden;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease;
+    }
+
+    .project-thumbnail:hover {
+      transform: scale(1.05);
+    }
+
+    .project-thumbnail img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .project-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.6);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .project-thumbnail:hover .project-overlay {
+      opacity: 1;
+    }
+
+    .project-title {
+      font-size: 24px;
+      font-weight: 600;
+      margin-bottom: 10px;
+    }
+
+    .project-description {
+      font-size: 16px;
+      text-align: center;
+      color: #b3b3b3;
+    }
+
+    .view-project-btn {
+      display: inline-block;
+      padding: 12px 24px;
+      background-color: #ffffff;
+      color: #000000;
+      font-size: 16px;
+      font-weight: 500;
+      border-radius: 4px;
+      text-decoration: none;
+      margin-top: 20px;
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+    .view-project-btn:hover {
+      background-color: #b3b3b3;
+      color: #000000;
+    }
+
+    /* About Me Section */
+    .about-me {
+      padding: 80px 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .about-me-content {
+      max-width: 800px;
+      display: flex;
+      align-items: center;
+    }
+
+    .about-me-image {
+      flex-basis: 300px;
+      border-radius: 50%;
+      overflow: hidden;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      margin-right: 40px;
+    }
+
+    .about-me-image img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .about-me-text {
+      flex-basis: 500px;
+    }
+
+    .about-me-title {
+      font-size: 36px;
+      font-weight: 700;
+      margin-bottom: 20px;
+    }
+
+    .about-me-description {
+      font-size: 18px;
+      line-height: 1.6;
+      color: #b3b3b3;
+    }
+
+    /* Contact Section */
+    .contact {
+      padding: 80px 40px;
+      display: flex;
+      justify-content: center;
+    }
+
+    .contact-content {
+      max-width: 600px;
+      width: 100%;
+    }
+
+    .contact-title {
+      font-size: 36px;
+      font-weight: 700;
+      margin-bottom: 40px;
+      text-align: center;
+    }
+
+    .contact-form {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-gap: 20px;
+    }
+
+    .form-field {
+      position: relative;
+    }
+
+    .form-field label {
+      position: absolute;
+      top: 50%;
+      left: 16px;
+      transform: translateY(-50%);
+      font-size: 16px;
+      color: #b3b3b3;
+      transition: all 0.3s ease;
+    }
+
+    .form-field input,
+    .form-field textarea {
+      width: 100%;
+      padding: 16px;
+      font-size: 16px;
+      background-color: #1a1a1a;
+      border: none;
+      border-radius: 4px;
+      color: #ffffff;
+      transition: background-color 0.3s ease;
+    }
+
+    .form-field input:focus,
+    .form-field textarea:focus {
+      outline: none;
+      background-color: #262626;
+    }
+
+    .form-field input:focus + label,
+    .form-field textarea:focus + label,
+    .form-field input:not(:placeholder-shown) + label,
+    .form-field textarea:not(:placeholder-shown) + label {
+      top: 0;
+      font-size: 12px;
+      color: #b3b3b3;
+    }
+
+    .contact-form .full-width {
+      grid-column: 1 / -1;
+    }
+
+    .submit-btn {
+      display: block;
+      width: 100%;
+      padding: 16px;
+      font-size: 16px;
+      font-weight: 500;
+      background-color: #ffffff;
+      color: #000000;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+    .submit-btn:hover {
+      background-color: #b3b3b3;
+      color: #000000;
+    }
+
+    /* Responsive Styles */
+    @media (max-width: 1024px) {
+      .project-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 768px) {
+      .navbar {
+        padding: 16px 24px;
+      }
+
+      .featured-projects,
+      .about-me,
+      .contact {
+        padding: 60px 24px;
+      }
+
+      .section-title,
+      .about-me-title,
+      .contact-title {
+        font-size: 28px;
+      }
+
+      .project-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .about-me-content {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .about-me-image {
+        margin-right: 0;
+        margin-bottom: 40px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav class="navbar">
+      <a href="#" class="navbar-brand">Ultra-Modern Portfolio</a>
+      <ul class="navbar-nav">
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Projects</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="featured-projects">
+      <h2 class="section-title">Featured Projects</h2>
+      <div class="project-grid">
+        <div class="project-thumbnail">
+          <img src="https://dummyimage.com/600x400/ccc/000&text=Project+1" alt="Project 1">
+          <div class="project-overlay">
+            <h3 class="project-title">Project 1</h3>
+            <p class="project-description">A sleek and modern web design project.</p>
+            <a href="#" class="view-project-btn">View Project</a>
+          </div>
+        </div>
+        <div class="project-thumbnail">
+          <img src="https://dummyimage.com/600x400/ccc/000&text=Project+2" alt="Project 2">
+          <div class="project-overlay">
+            <h3 class="project-title">Project 2</h3>
+            <p class="project-description">A clean and minimalist UI design.</p>
+            <a href="#" class="view-project-btn">View Project</a>
+          </div>
+        </div>
+        <div class="project-thumbnail">
+          <img src="https://dummyimage.com/600x400/ccc/000&text=Project+3" alt="Project 3">
+          <div class="project-overlay">
+            <h3 class="project-title">Project 3</h3>
+            <p class="project-description">A visually striking branding project.</p>
+            <a href="#" class="view-project-btn">View Project</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="about-me">
+      <div class="about-me-content">
+        <div class="about-me-image">
+          <img src="https://dummyimage.com/300x300/ccc/000&text=Designer+Photo" alt="Designer Photo">
+        </div>
+        <div class="about-me-text">
+          <h2 class="about-me-title">About Me</h2>
+          <p class="about-me-description">
+            Hi, I'm a passionate designer with a keen eye for detail and a deep understanding of modern design trends. I specialize in creating visually stunning and highly functional digital experiences. With years of experience under my belt, I've honed my skills in crafting sleek and sophisticated portfolios that showcase my expertise.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact">
+      <div class="contact-content">
+        <h2 class="contact-title">Get in Touch</h2>
+        <form class="contact-form">
+          <div class="form-field">
+            <input type="text" id="name" placeholder=" " required>
+            <label for="name">Name</label>
+          </div>
+          <div class="form-field">
+            <input type="email" id="email" placeholder=" " required>
+            <label for="email">Email</label>
+          </div>
+          <div class="form-field full-width">
+            <textarea id="message" placeholder=" " required></textarea>
+            <label for="message">Message</label>
+          </div>
+          <button type="submit" class="submit-btn">Send</button>
+        </form>
+      </div>
+    </section>
+  </main>
+</body>
+</html>'<!-- Visit: https://github.com/Ishanoshada/portflair -->
+<!-- Visit: https://github.com/Ishanoshada/portflair -->

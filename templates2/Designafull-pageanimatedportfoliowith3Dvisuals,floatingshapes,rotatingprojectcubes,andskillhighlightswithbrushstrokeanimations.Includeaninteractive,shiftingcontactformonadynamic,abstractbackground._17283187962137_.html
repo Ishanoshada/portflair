@@ -1,0 +1,342 @@
+<!-- Portfolio created by Ishan -->
+<!-- Check out my work at: https://github.com/Ishanoshada/portflair -->
+<!-- 2024/10/9 -->
+<!-- Portfolio created by Ishan -->
+'<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Design a full-page animated portfolio</title>
+  <style>
+    /* Styles for the entire page */
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #8e2de2, #4a00e0);
+      overflow-x: hidden;
+    }
+
+    /* Navigation Bar */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.5rem 3rem;
+      background-color: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      position: relative;
+      z-index: 100;
+    }
+
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      font-size: 1.1rem;
+      margin: 0 1rem;
+      transition: color 0.3s ease-in-out;
+    }
+
+    nav a:hover {
+      color: #b9b9b9;
+    }
+
+    /* Interactive 3D Portfolio */
+    .portfolio {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .portfolio-cube {
+      width: 300px;
+      height: 300px;
+      position: relative;
+      transform-style: preserve-3d;
+      transform-origin: center center;
+      animation: rotate 20s linear infinite;
+    }
+
+    .portfolio-cube > div {
+      position: absolute;
+      width: 300px;
+      height: 300px;
+      opacity: 0.9;
+      transition: transform 0.5s ease;
+    }
+
+    .front {
+      background: url('https://dummyimage.com/600x400/000/fff.png&text=Project+1') no-repeat center;
+      background-size: cover;
+      transform: translateZ(150px);
+    }
+
+    .back {
+      background: url('https://dummyimage.com/600x400/000/fff.png&text=Project+2') no-repeat center;
+      background-size: cover;
+      transform: rotateY(180deg) translateZ(150px);
+    }
+
+    .right {
+      background: url('https://dummyimage.com/600x400/000/fff.png&text=Project+3') no-repeat center;
+      background-size: cover;
+      transform: rotateY(90deg) translateZ(150px);
+    }
+
+    .left {
+      background: url('https://dummyimage.com/600x400/000/fff.png&text=Project+4') no-repeat center;
+      background-size: cover;
+      transform: rotateY(-90deg) translateZ(150px);
+    }
+
+    .top {
+      background: url('https://dummyimage.com/600x400/000/fff.png&text=Project+5') no-repeat center;
+      background-size: cover;
+      transform: rotateX(90deg) translateZ(150px);
+    }
+
+    .bottom {
+      background: url('https://dummyimage.com/600x400/000/fff.png&text=Project+6') no-repeat center;
+      background-size: cover;
+      transform: rotateX(-90deg) translateZ(150px);
+    }
+
+    .floating-shapes {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+    }
+
+    .floating-shape {
+      position: absolute;
+      width: 80px;
+      height: 80px;
+      background-color: rgba(255, 255, 255, 0.1);
+      border-radius: 50%;
+      animation: float 10s ease-in-out infinite;
+    }
+
+    /* Skills and Expertise Showcase */
+    .skills {
+      padding: 6rem 3rem;
+      text-align: center;
+      background-color: #f0f0f0;
+    }
+
+    .skills h2 {
+      font-size: 2.5rem;
+      margin-bottom: 3rem;
+      color: #333;
+    }
+
+    .skill-item {
+      display: inline-block;
+      width: 150px;
+      height: 150px;
+      margin: 2rem;
+      position: relative;
+      overflow: hidden;
+      cursor: pointer;
+    }
+
+    .skill-item canvas {
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 1;
+    }
+
+    .skill-item h3 {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 1.2rem;
+      color: #fff;
+      z-index: 2;
+      margin: 0;
+    }
+
+    /* Dynamic Contact Form */
+    .contact {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, rgba(0,0,0,0.8) 100%);
+    }
+
+    .contact-form {
+      width: 500px;
+      padding: 3rem;
+      background-color: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(20px);
+      border-radius: 10px;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .contact-form:before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(45deg, #8e2de2, #4a00e0);
+      z-index: -1;
+      animation: shiftBackground 10s ease-in-out infinite;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+      display: block;
+      width: 100%;
+      padding: 1rem;
+      margin-bottom: 1.5rem;
+      font-size: 1rem;
+      border: none;
+      border-radius: 5px;
+      background-color: rgba(255, 255, 255, 0.2);
+      color: #fff;
+      transition: background-color 0.3s ease-in-out;
+    }
+
+    .contact-form input:focus,
+    .contact-form textarea:focus {
+      outline: none;
+      background-color: rgba(255, 255, 255, 0.3);
+    }
+
+    .contact-form button {
+      display: block;
+      width: 100%;
+      padding: 1rem;
+      font-size: 1.1rem;
+      font-weight: bold;
+      color: #fff;
+      background-color: #8e2de2;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease-in-out;
+    }
+
+    .contact-form button:hover {
+      background-color: #4a00e0;
+    }
+
+    /* Animations */
+    @keyframes rotate {
+      from { transform: rotateX(0deg) rotateY(0deg); }
+      to { transform: rotateX(360deg) rotateY(360deg); }
+    }
+
+    @keyframes float {
+      0% { transform: translateY(0); }
+      50% { transform: translateY(-50px); }
+      100% { transform: translateY(0); }
+    }
+
+    @keyframes shiftBackground {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="#">Home</a>
+    <a href="#">Portfolio</a>
+    <a href="#">Skills</a>
+    <a href="#">Contact</a>
+  </nav>
+
+  <section class="portfolio">
+    <div class="portfolio-cube">
+      <div class="front"></div>
+      <div class="back"></div>
+      <div class="right"></div>
+      <div class="left"></div>
+      <div class="top"></div>
+      <div class="bottom"></div>
+    </div>
+    <div class="floating-shapes">
+      <div class="floating-shape"></div>
+      <div class="floating-shape"></div>
+      <div class="floating-shape"></div>
+      <div class="floating-shape"></div>
+      <div class="floating-shape"></div>
+      <div class="floating-shape"></div>
+    </div>
+  </section>
+
+  <section class="skills">
+    <h2>My Skills</h2>
+    <div class="skill-item">
+      <canvas id="skill1"></canvas>
+      <h3>Skill 1</h3>
+    </div>
+    <div class="skill-item">
+      <canvas id="skill2"></canvas>
+      <h3>Skill 2</h3>
+    </div>
+    <div class="skill-item">
+      <canvas id="skill3"></canvas>
+      <h3>Skill 3</h3>
+    </div>
+    <div class="skill-item">
+      <canvas id="skill4"></canvas>
+      <h3>Skill 4</h3>
+    </div>
+  </section>
+
+  <section class="contact">
+    <div class="contact-form">
+      <form>
+        <input type="text" placeholder="Name" />
+        <input type="email" placeholder="Email" />
+        <textarea placeholder="Message"></textarea>
+        <button type="submit">Send</button>
+      </form>
+    </div>
+  </section>
+
+  <script>
+    // Skill Highlight Animations
+    const skillCanvases = document.querySelectorAll('.skill-item canvas');
+
+    skillCanvases.forEach((canvas, index) => {
+      const ctx = canvas.getContext('2d');
+      const centerX = canvas.width / 2;
+      const centerY = canvas.height / 2;
+      const radius = Math.min(centerX, centerY) - 20;
+
+      function drawBrushstroke() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        ctx.beginPath();
+        ctx.moveTo(centerX, centerY);
+        ctx.arc(centerX, centerY, radius, 0, 2 * Math.PI * (index + 1) / 4, false);
+        ctx.strokeStyle = `hsl(${index * 90}, 80%, 60%)`;
+        ctx.lineWidth = 20;
+        ctx.stroke();
+        requestAnimationFrame(drawBrushstroke);
+      }
+
+      drawBrushstroke();
+    });
+  </script>
+</body>
+</html>'<!-- Visit: https://github.com/Ishanoshada/portflair -->
+<!-- Visit: https://github.com/Ishanoshada/portflair -->

@@ -1,0 +1,608 @@
+<!-- Portfolio created by Ishan -->
+<!-- Check out my work at: https://github.com/Ishanoshada/portflair -->
+<!-- 2024/10/9 -->
+<!-- Portfolio created by Ishan -->
+'<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multidimensional Portfolio | Backend Developer & Sci-Fi Writer</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Orbitron:wght@400;700&display=swap');
+
+        :root {
+            --primary-color: #0a0a2a;
+            --secondary-color: #1a1a4a;
+            --accent-color: #00ffff;
+            --text-color: #ffffff;
+            --neon-glow: 0 0 10px #00ffff, 0 0 20px #00ffff, 0 0 30px #00ffff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Space Mono', monospace;
+            background-color: var(--primary-color);
+            color: var(--text-color);
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        nav {
+            background-color: rgba(10, 10, 42, 0.8);
+            backdrop-filter: blur(10px);
+            padding: 20px 0;
+            position: relative;
+            z-index: 1000;
+        }
+
+        nav ul {
+            display: flex;
+            justify-content: center;
+            list-style-type: none;
+        }
+
+        nav ul li {
+            margin: 0 20px;
+        }
+
+        nav ul li a {
+            color: var(--text-color);
+            text-decoration: none;
+            font-size: 18px;
+            font-weight: 700;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background-color: var(--accent-color);
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+
+        nav ul li a:hover::after {
+            transform: scaleX(1);
+        }
+
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('https://dummyimage.com/1920x1080/000/fff&text=Cosmic+Background') no-repeat center center;
+            background-size: cover;
+            opacity: 0.5;
+            z-index: -1;
+        }
+
+        .hero-content {
+            text-align: center;
+            z-index: 1;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            font-family: 'Orbitron', sans-serif;
+            margin-bottom: 20px;
+            animation: glow 2s ease-in-out infinite alternate;
+        }
+
+        @keyframes glow {
+            from {
+                text-shadow: var(--neon-glow);
+            }
+            to {
+                text-shadow: 0 0 5px #00ffff, 0 0 10px #00ffff, 0 0 15px #00ffff;
+            }
+        }
+
+        .hero p {
+            font-size: 1.5rem;
+            max-width: 600px;
+            margin: 0 auto 30px;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 15px 30px;
+            background-color: var(--accent-color);
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 700;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(
+                120deg,
+                transparent,
+                rgba(255, 255, 255, 0.3),
+                transparent
+            );
+            transition: all 0.5s;
+        }
+
+        .cta-button:hover::before {
+            left: 100%;
+        }
+
+        .universe-explorer {
+            height: 100vh;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .stars {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+        }
+
+        .star {
+            position: absolute;
+            background-color: #ffffff;
+            border-radius: 50%;
+            animation: twinkle 2s infinite alternate;
+        }
+
+        @keyframes twinkle {
+            0% {
+                opacity: 0.3;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+
+        .planet {
+            position: absolute;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .planet:hover {
+            transform: scale(1.1);
+        }
+
+        .planet-info {
+            position: absolute;
+            background-color: rgba(0, 0, 0, 0.8);
+            color: var(--text-color);
+            padding: 20px;
+            border-radius: 10px;
+            display: none;
+            max-width: 300px;
+        }
+
+        .code-editor {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .editor-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            background-color: var(--secondary-color);
+        }
+
+        .tab-container {
+            display: flex;
+        }
+
+        .tab {
+            padding: 10px 20px;
+            background-color: var(--primary-color);
+            color: var(--text-color);
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .tab.active {
+            background-color: var(--accent-color);
+            color: var(--primary-color);
+        }
+
+        .dimension-shifter {
+            background-color: var(--accent-color);
+            color: var(--primary-color);
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .dimension-shifter:hover {
+            transform: scale(1.05);
+        }
+
+        .editor-content {
+            flex: 1;
+            display: flex;
+            overflow: hidden;
+        }
+
+        .editor-pane {
+            flex: 1;
+            padding: 20px;
+            background-color: var(--secondary-color);
+            border: 1px solid var(--accent-color);
+            box-shadow: 0 0 10px var(--accent-color);
+            transition: all 0.3s ease;
+        }
+
+        .editor-pane pre {
+            font-family: 'Fira Code', monospace;
+            font-size: 14px;
+            line-height: 1.5;
+            overflow-x: auto;
+        }
+
+        .terminal {
+            height: 200px;
+            background-color: #000;
+            color: #0f0;
+            padding: 10px;
+            font-family: 'Fira Code', monospace;
+            overflow-y: auto;
+        }
+
+        .narrative-nexus {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: url('https://dummyimage.com/1920x1080/000/fff&text=Futuristic+Space+Station') no-repeat center center;
+            background-size: cover;
+        }
+
+        .story-container {
+            width: 80%;
+            height: 80%;
+            background-color: rgba(0, 0, 0, 0.8);
+            border-radius: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 40px;
+        }
+
+        .hologram {
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, var(--accent-color) 0%, transparent 70%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 40px;
+            position: relative;
+        }
+
+        .hologram::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: url('https://dummyimage.com/300x300/000/fff&text=Story+Cover') no-repeat center center;
+            background-size: cover;
+            border-radius: 50%;
+            opacity: 0.5;
+        }
+
+        .story-title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 2rem;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .story-excerpt {
+            font-size: 1rem;
+            text-align: center;
+            max-width: 600px;
+            margin-bottom: 30px;
+        }
+
+        .story-nav {
+            display: flex;
+            justify-content: center;
+        }
+
+        .story-nav button {
+            background-color: var(--accent-color);
+            color: var(--primary-color);
+            border: none;
+            padding: 10px 20px;
+            margin: 0 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .story-nav button:hover {
+            transform: scale(1.05);
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 3rem;
+            }
+
+            .hero p {
+                font-size: 1.2rem;
+            }
+
+            .editor-content {
+                flex-direction: column;
+            }
+
+            .story-container {
+                width: 90%;
+                height: 90%;
+            }
+
+            .hologram {
+                width: 200px;
+                height: 200px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#universe">Universe</a></li>
+            <li><a href="#code">Code</a></li>
+            <li><a href="#stories">Stories</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>Multidimensional Portfolio</h1>
+            <p>Explore the intersection of backend development, science fiction, and the cosmos.</p>
+            <a href="#universe" class="cta-button">Begin Your Journey</a>
+        </div>
+    </section>
+
+    <section id="universe" class="universe-explorer">
+        <div class="stars"></div>
+        <div class="planet" style="top: 20%; left: 30%; width: 100px; height: 100px; background: radial-gradient(circle at 30% 30%, #ff4500, #8b0000);">
+            <div class="planet-info">
+                <h3>Project: Quantum Database</h3>
+                <p>A revolutionary database system utilizing quantum computing principles for unparalleled performance.</p>
+            </div>
+        </div>
+        <div class="planet" style="top: 60%; left: 70%; width: 80px; height: 80px; background: radial-gradient(circle at 70% 70%, #4b0082, #000000);">
+            <div class="planet-info">
+                <h3>Skill: Machine Learning</h3>
+                <p>Expertise in developing and implementing advanced machine learning algorithms for predictive analytics.</p>
+            </div>
+        </div>
+        <div class="planet" style="top: 40%; left: 50%; width: 120px; height: 120px; background: radial-gradient(circle at 50% 50%, #00ced1, #00008b);">
+            <div class="planet-info">
+                <h3>Story: The Algorithmic Apocalypse</h3>
+                <p>A thrilling sci-fi novel about a world where AI has surpassed human intelligence, leading to unforeseen consequences.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="code" class="code-editor">
+        <div class="editor-header">
+            <div class="tab-container">
+                <button class="tab active">Python</button>
+                <button class="tab">JavaScript</button>
+                <button class="tab">Rust</button>
+            </div>
+            <button class="dimension-shifter">Shift Dimensions</button>
+        </div>
+        <div class="editor-content">
+            <div class="editor-pane">
+                <pre><code>
+def quantum_sort(arr):
+    # Implementation of a quantum-inspired sorting algorithm
+    n = len(arr)
+    for i in range(n):
+        for j in range(0, n-i-1):
+            if arr[j] > arr[j+1]:
+                arr[j], arr[j+1] = arr[j+1], arr[j]
+    return arr
+
+# Example usage
+data = [64, 34, 25, 12, 22, 11, 90]
+sorted_data = quantum_sort(data)
+print(f"Sorted array: {sorted_data}")
+                </code></pre>
+            </div>
+            <div class="editor-pane" style="display: none;">
+                <pre><code>
+// Multidimensional array traversal
+function traverseDimensions(arr, depth = 0) {
+  if (!Array.isArray(arr)) {
+    console.log(`${'  '.repeat(depth)}${arr}`);
+    return;
+  }
+  
+  for (let i = 0; i < arr.length; i++) {
+    traverseDimensions(arr[i], depth + 1);
+  }
+}
+
+const multiverse = [
+  [1, [2, 3]],
+  [4, [5, [6, 7]]],
+  8
+];
+
+traverseDimensions(multiverse);
+                </code></pre>
+            </div>
+            <div class="editor-pane" style="display: none;">
+                <pre><code>
+use std::sync::{Arc, Mutex};
+use std::thread;
+
+fn parallel_universe_simulation(num_universes: usize) -> Vec<f64> {
+    let results = Arc::new(Mutex::new(Vec::new()));
+    let mut handles = vec![];
+
+    for i in 0..num_universes {
+        let results = Arc::clone(&results);
+        let handle = thread::spawn(move || {
+            let universe_constant = simulate_universe(i);
+            let mut results = results.lock().unwrap();
+            results.push(universe_constant);
+        });
+        handles.push(handle);
+    }
+
+    for handle in handles {
+        handle.join().unwrap();
+    }
+
+    let final_results = results.lock().unwrap().clone();
+    final_results
+}
+
+fn simulate_universe(seed: usize) -> f64 {
+    // Complex universe simulation logic would go here
+    (seed as f64).sin().abs()
+}
+
+fn main() {
+    let num_universes = 10000;
+    let universe_constants = parallel_universe_simulation(num_universes);
+    println!("Simulated {} universes", universe_constants.len());
+    println!("Average universal constant: {}", universe_constants.iter().sum::<f64>() / num_universes as f64);
+}
+                </code></pre>
+            </div>
+        </div>
+        <div class="terminal">
+            > quantum_sort([64, 34, 25, 12, 22, 11, 90])
+            Sorted array: [11, 12, 22, 25, 34, 64, 90]
+            > traverseDimensions(multiverse)
+            1
+              2
+              3
+            4
+              5
+                6
+                7
+            8
+            > cargo run
+            Simulated 10000 universes
+            Average universal constant: 0.6366197723675814
+        </div>
+    </section>
+
+    <section id="stories" class="narrative-nexus">
+        <div class="story-container">
+            <div class="hologram"></div>
+            <h2 class="story-title">The Quantum Entanglement</h2>
+            <p class="story-excerpt">In a universe where reality shifts with every observation, Dr. Amelia Quantum must unravel the mystery of her own existence across multiple dimensions. As she delves deeper into the fabric of spacetime, she discovers a threat that could unravel the very nature of reality itself.</p>
+            <div class="story-nav">
+                <button>Previous Story</button>
+                <button>Next Story</button>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Create stars
+        const starsContainer = document.querySelector('.stars');
+        for (let i = 0; i < 200; i++) {
+            const star = document.createElement('div');
+            star.classList.add('star');
+            star.style.width = `${Math.random() * 3}px`;
+            star.style.height = star.style.width;
+            star.style.top = `${Math.random() * 100}%`;
+            star.style.left = `${Math.random() * 100}%`;
+            star.style.animationDuration = `${Math.random() * 3 + 1}s`;
+            starsContainer.appendChild(star);
+        }
+
+        // Planet interaction
+        const planets = document.querySelectorAll('.planet');
+        planets.forEach(planet => {
+            planet.addEventListener('mouseenter', () => {
+                const info = planet.querySelector('.planet-info');
+                info.style.display = 'block';
+                info.style.top = `${planet.offsetTop + planet.offsetHeight}px`;
+                info.style.left = `${planet.offsetLeft}px`;
+            });
+            planet.addEventListener('mouseleave', () => {
+                planet.querySelector('.planet-info').style.display = 'none';
+            });
+        });
+
+        // Code editor tabs
+        const tabs = document.querySelectorAll('.tab');
+        const editorPanes = document.querySelectorAll('.editor-pane');
+        tabs.forEach((tab, index) => {
+            tab.addEventListener('click', () => {
+                tabs.forEach(t => t.classList.remove('active'));
+                tab.classList.add('active');
+                editorPanes.forEach(pane => pane.style.display = 'none');
+                editorPanes[index].style.display = 'block';
+            });
+        });
+
+        // Dimension shifter
+        const dimensionShifter = document.querySelector('.dimension-shifter');
+        dimensionShifter.addEventListener('click', () => {
+            editorPanes.forEach(pane => {
+                pane.style.transform = `rotate3d(${Math.random()}, ${Math.random()}, ${Math.random()}, ${Math.random() * 360}deg)`;
+            });
+        });
+    </script>
+</body>
+</html>'<!-- Visit: https://github.com/Ishanoshada/portflair -->
+<!-- Visit: https://github.com/Ishanoshada/portflair -->

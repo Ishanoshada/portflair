@@ -1,0 +1,406 @@
+<!-- Portfolio created by Ishan -->
+<!-- Check out my work at: https://github.com/Ishanoshada/portflair -->
+<!-- 2024/10/9 -->
+<!-- Portfolio created by Ishan -->
+'<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sleek Black Portfolio</title>
+  <style>
+    /* Global Styles */
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Montserrat', sans-serif;
+      background-color: #1a1a1a;
+      color: #f2f2f2;
+    }
+
+    /* Navigation */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.5rem 2rem;
+      background-color: #121212;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    nav .logo {
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: #f2f2f2;
+      text-decoration: none;
+    }
+
+    nav ul {
+      display: flex;
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    nav ul li {
+      margin-left: 2rem;
+    }
+
+    nav ul li a {
+      color: #f2f2f2;
+      text-decoration: none;
+      font-size: 1.1rem;
+      font-weight: 500;
+      transition: color 0.3s ease-in-out;
+    }
+
+    nav ul li a:hover {
+      color: #b3b3b3;
+    }
+
+    /* Project Showcase */
+    .project-showcase {
+      padding: 4rem 2rem;
+    }
+
+    .project-showcase h2 {
+      font-size: 2.2rem;
+      font-weight: 700;
+      margin-bottom: 2rem;
+    }
+
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+    }
+
+    .project-item {
+      position: relative;
+      overflow: hidden;
+      border-radius: 8px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      cursor: pointer;
+      transition: transform 0.3s ease-in-out;
+    }
+
+    .project-item:hover {
+      transform: translateY(-5px);
+    }
+
+    .project-item img {
+      width: 100%;
+      height: 250px;
+      object-fit: cover;
+    }
+
+    .project-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.7);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      opacity: 0;
+      transition: opacity 0.3s ease-in-out;
+    }
+
+    .project-item:hover .project-overlay {
+      opacity: 1;
+    }
+
+    .project-overlay h3 {
+      font-size: 1.6rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+    }
+
+    .project-overlay p {
+      font-size: 1.1rem;
+      text-align: center;
+      max-width: 80%;
+    }
+
+    /* About Me */
+    .about-me {
+      padding: 4rem 2rem;
+      display: flex;
+      align-items: center;
+    }
+
+    .about-me-image {
+      flex: 0 0 300px;
+      margin-right: 3rem;
+    }
+
+    .about-me-image img {
+      width: 100%;
+      border-radius: 50%;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .about-me-content {
+      flex: 1;
+    }
+
+    .about-me-content h2 {
+      font-size: 2.2rem;
+      font-weight: 700;
+      margin-bottom: 1.5rem;
+    }
+
+    .about-me-content p {
+      font-size: 1.1rem;
+      line-height: 1.6;
+      margin-bottom: 2rem;
+    }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .skill-item {
+      background-color: #262626;
+      padding: 1.5rem;
+      border-radius: 8px;
+      text-align: center;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease-in-out;
+    }
+
+    .skill-item:hover {
+      transform: translateY(-5px);
+    }
+
+    .skill-item h3 {
+      font-size: 1.2rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+    }
+
+    .skill-item p {
+      font-size: 0.9rem;
+      color: #b3b3b3;
+    }
+
+    /* Contact */
+    .contact {
+      padding: 4rem 2rem;
+      background-color: #121212;
+    }
+
+    .contact h2 {
+      font-size: 2.2rem;
+      font-weight: 700;
+      margin-bottom: 2rem;
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+    }
+
+    .contact-info {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .contact-info a {
+      color: #f2f2f2;
+      text-decoration: none;
+      font-size: 1.1rem;
+      margin-bottom: 1rem;
+      transition: color 0.3s ease-in-out;
+    }
+
+    .contact-info a:hover {
+      color: #b3b3b3;
+    }
+
+    .contact-form {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+      background-color: #1a1a1a;
+      border: none;
+      border-radius: 6px;
+      padding: 1rem;
+      font-size: 1rem;
+      color: #f2f2f2;
+      margin-bottom: 1.5rem;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      transition: box-shadow 0.3s ease-in-out;
+    }
+
+    .contact-form input:focus,
+    .contact-form textarea:focus {
+      outline: none;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .contact-form button {
+      background-color: #0077b6;
+      border: none;
+      border-radius: 6px;
+      padding: 1rem 2rem;
+      font-size: 1rem;
+      color: #f2f2f2;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background-color 0.3s ease-in-out;
+    }
+
+    .contact-form button:hover {
+      background-color: #005a8d;
+    }
+
+    /* Responsive Styles */
+    @media (max-width: 768px) {
+      nav {
+        padding: 1rem;
+      }
+
+      nav .logo {
+        font-size: 1.5rem;
+      }
+
+      nav ul li {
+        margin-left: 1.5rem;
+      }
+
+      nav ul li a {
+        font-size: 1rem;
+      }
+
+      .project-showcase,
+      .about-me,
+      .contact {
+        padding: 3rem 1.5rem;
+      }
+
+      .project-showcase h2,
+      .about-me-content h2,
+      .contact h2 {
+        font-size: 1.8rem;
+      }
+
+      .about-me {
+        flex-direction: column;
+      }
+
+      .about-me-image {
+        margin-right: 0;
+        margin-bottom: 2rem;
+      }
+
+      .contact-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="#" class="logo">Sleek Black Portfolio</a>
+    <ul>
+      <li><a href="#">Home</a></li>
+      <li><a href="#">Projects</a></li>
+      <li><a href="#">About</a></li>
+      <li><a href="#">Contact</a></li>
+    </ul>
+  </nav>
+
+  <section class="project-showcase">
+    <h2>My Latest Projects</h2>
+    <div class="project-grid">
+      <div class="project-item">
+        <img src="https://dummyimage.com/600x400/1a1a1a/f2f2f2&text=Project+1" alt="Project 1">
+        <div class="project-overlay">
+          <h3>Project 1</h3>
+          <p>A sleek and modern design project with a focus on user experience.</p>
+        </div>
+      </div>
+      <div class="project-item">
+        <img src="https://dummyimage.com/600x400/1a1a1a/f2f2f2&text=Project+2" alt="Project 2">
+        <div class="project-overlay">
+          <h3>Project 2</h3>
+          <p>A minimalist and clean branding project with a strong visual identity.</p>
+        </div>
+      </div>
+      <div class="project-item">
+        <img src="https://dummyimage.com/600x400/1a1a1a/f2f2f2&text=Project+3" alt="Project 3">
+        <div class="project-overlay">
+          <h3>Project 3</h3>
+          <p>A responsive and visually striking website design for a cutting-edge client.</p>
+        </div>
+      </div>
+      <div class="project-item">
+        <img src="https://dummyimage.com/600x400/1a1a1a/f2f2f2&text=Project+4" alt="Project 4">
+        <div class="project-overlay">
+          <h3>Project 4</h3>
+          <p>A bold and innovative UI/UX design for a mobile application.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="about-me">
+    <div class="about-me-image">
+      <img src="https://dummyimage.com/300x300/1a1a1a/f2f2f2&text=Designer+Photo" alt="Designer Photo">
+    </div>
+    <div class="about-me-content">
+      <h2>About Me</h2>
+      <p>Hi, I'm a passionate and experienced designer with a keen eye for detail and a love for creating sleek, modern, and visually captivating designs. I specialize in a wide range of design disciplines, from branding and UI/UX to web design and beyond. My goal is to work closely with my clients to bring their visions to life, while always pushing the boundaries of what's possible.</p>
+      <div class="skills-grid">
+        <div class="skill-item">
+          <h3>UI/UX Design</h3>
+          <p>Crafting intuitive and user-friendly interfaces.</p>
+        </div>
+        <div class="skill-item">
+          <h3>Branding</h3>
+          <p>Building distinctive and memorable brand identities.</p>
+        </div>
+        <div class="skill-item">
+          <h3>Web Design</h3>
+          <p>Designing responsive and visually stunning websites.</p>
+        </div>
+        <div class="skill-item">
+          <h3>Typography</h3>
+          <p>Mastering the art of typographic excellence.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact">
+    <h2>Get in Touch</h2>
+    <div class="contact-grid">
+      <div class="contact-info">
+        <a href="mailto:info@example.com">info@example.com</a>
+        <a href="tel:+1234567890">+1 (234) 567-890</a>
+        <a href="#" target="_blank">LinkedIn</a>
+        <a href="#" target="_blank">Behance</a>
+      </div>
+      <div class="contact-form">
+        <input type="text" placeholder="Name" required>
+        <input type="email" placeholder="Email" required>
+        <textarea placeholder="Message" required></textarea>
+        <button type="submit">Send Message</button>
+      </div>
+    </div>
+  </section>
+</body>
+</html>'<!-- Visit: https://github.com/Ishanoshada/portflair -->
+<!-- Visit: https://github.com/Ishanoshada/portflair -->

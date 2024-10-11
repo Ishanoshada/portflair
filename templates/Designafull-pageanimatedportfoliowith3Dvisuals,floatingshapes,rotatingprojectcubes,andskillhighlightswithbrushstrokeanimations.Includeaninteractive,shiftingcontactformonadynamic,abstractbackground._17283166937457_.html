@@ -1,0 +1,494 @@
+<!-- Portfolio created by Ishan -->
+<!-- Check out my work at: https://github.com/Ishanoshada/portflair -->
+<!-- 2024/10/9 -->
+<!-- Portfolio created by Ishan -->
+'<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Animated Portfolio</title>
+  <style>
+    /* Global Styles */
+    body {
+      font-family: 'Montserrat', sans-serif;
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(45deg, #0077b6, #00bcd4, #ff9800);
+      background-size: 400% 400%;
+      animation: gradient 15s ease infinite;
+    }
+
+    @keyframes gradient {
+      0% {
+        background-position: 0% 50%;
+      }
+      50% {
+        background-position: 100% 50%;
+      }
+      100% {
+        background-position: 0% 50%;
+      }
+    }
+
+    /* Navigation Bar */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: rgba(255, 255, 255, 0.2);
+      padding: 20px;
+      backdrop-filter: blur(10px);
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-size: 18px;
+      margin: 0 20px;
+      transition: color 0.3s ease;
+    }
+
+    nav a:hover {
+      color: #ff9800;
+    }
+
+    /* Portfolio Section */
+    .portfolio {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 100px 0;
+    }
+
+    .portfolio h2 {
+      font-size: 48px;
+      color: white;
+      margin-bottom: 50px;
+      text-align: center;
+      text-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    }
+
+    .portfolio-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-gap: 50px;
+      width: 100%;
+      max-width: 1200px;
+    }
+
+    .portfolio-item {
+      position: relative;
+      perspective: 1000px;
+      cursor: pointer;
+    }
+
+    .portfolio-item .front,
+    .portfolio-item .back {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      backface-visibility: hidden;
+      transition: transform 0.6s;
+    }
+
+    .portfolio-item .front {
+      background-color: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 10px;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    }
+
+    .portfolio-item .front img {
+      max-width: 80%;
+      max-height: 80%;
+      border-radius: 10px;
+    }
+
+    .portfolio-item .back {
+      background-color: #0077b6;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      color: white;
+      padding: 20px;
+      border-radius: 10px;
+      transform: rotateY(180deg);
+    }
+
+    .portfolio-item .back h3 {
+      font-size: 24px;
+      margin-bottom: 10px;
+    }
+
+    .portfolio-item .back p {
+      font-size: 16px;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .portfolio-item .back a {
+      color: white;
+      text-decoration: none;
+      font-size: 16px;
+      padding: 10px 20px;
+      background-color: #ff9800;
+      border-radius: 5px;
+      transition: background-color 0.3s ease;
+    }
+
+    .portfolio-item .back a:hover {
+      background-color: #e68a00;
+    }
+
+    .portfolio-item:hover .front {
+      transform: rotateY(-180deg);
+    }
+
+    .portfolio-item:hover .back {
+      transform: rotateY(0);
+    }
+
+    /* Skills and Highlights Section */
+    .skills {
+      background-color: rgba(255, 255, 255, 0.2);
+      padding: 100px 0;
+      backdrop-filter: blur(10px);
+    }
+
+    .skills h2 {
+      font-size: 48px;
+      color: white;
+      margin-bottom: 50px;
+      text-align: center;
+      text-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      grid-gap: 50px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .skill-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+
+    .skill-item i {
+      font-size: 48px;
+      color: #ff9800;
+      margin-bottom: 20px;
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0% {
+        transform: scale(1);
+      }
+      50% {
+        transform: scale(1.2);
+      }
+      100% {
+        transform: scale(1);
+      }
+    }
+
+    .skill-item h3 {
+      font-size: 24px;
+      color: white;
+      margin-bottom: 10px;
+      text-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    }
+
+    .skill-item p {
+      font-size: 16px;
+      color: white;
+      text-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    }
+
+    /* Contact Form */
+    .contact {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background-image: url('https://dummyimage.com/1200x800/000/fff&text=Abstract+Background');
+      background-size: cover;
+      background-position: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .contact-form {
+      background-color: rgba(255, 255, 255, 0.8);
+      padding: 50px;
+      border-radius: 10px;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+      z-index: 1;
+      max-width: 500px;
+      width: 100%;
+    }
+
+    .contact-form h2 {
+      font-size: 36px;
+      color: #0077b6;
+      margin-bottom: 30px;
+      text-align: center;
+    }
+
+    .contact-form .form-group {
+      margin-bottom: 20px;
+    }
+
+    .contact-form label {
+      display: block;
+      font-size: 16px;
+      color: #0077b6;
+      margin-bottom: 5px;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+      width: 100%;
+      padding: 10px;
+      font-size: 16px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      transition: border-color 0.3s ease;
+    }
+
+    .contact-form input:focus,
+    .contact-form textarea:focus {
+      border-color: #0077b6;
+    }
+
+    .contact-form button {
+      display: block;
+      width: 100%;
+      padding: 10px;
+      font-size: 16px;
+      background-color: #0077b6;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .contact-form button:hover {
+      background-color: #005c8b;
+    }
+
+    .floating-shapes {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      z-index: 0;
+    }
+
+    .floating-shapes .shape {
+      position: absolute;
+      width: 50px;
+      height: 50px;
+      background-color: rgba(255, 255, 255, 0.2);
+      border-radius: 50%;
+      animation: float 10s linear infinite;
+    }
+
+    @keyframes float {
+      0% {
+        transform: translate(0, 0);
+      }
+      50% {
+        transform: translate(50%, 50%);
+      }
+      100% {
+        transform: translate(0, 0);
+      }
+    }
+
+    /* Responsive Styles */
+    @media (max-width: 768px) {
+      .portfolio-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .skills-grid {
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      }
+
+      .contact-form {
+        padding: 30px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .portfolio-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .skills-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .contact-form {
+        padding: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="#">Home</a>
+    <a href="#">Portfolio</a>
+    <a href="#">Skills</a>
+    <a href="#">Contact</a>
+  </nav>
+
+  <section class="portfolio">
+    <h2>My Portfolio</h2>
+    <div class="portfolio-grid">
+      <div class="portfolio-item">
+        <div class="front">
+          <img src="https://dummyimage.com/300x200/000/fff&text=Project+1" alt="Project 1">
+        </div>
+        <div class="back">
+          <h3>Project 1</h3>
+          <p>A brief description of the first project.</p>
+          <a href="#">View Project</a>
+        </div>
+      </div>
+      <div class="portfolio-item">
+        <div class="front">
+          <img src="https://dummyimage.com/300x200/000/fff&text=Project+2" alt="Project 2">
+        </div>
+        <div class="back">
+          <h3>Project 2</h3>
+          <p>A brief description of the second project.</p>
+          <a href="#">View Project</a>
+        </div>
+      </div>
+      <div class="portfolio-item">
+        <div class="front">
+          <img src="https://dummyimage.com/300x200/000/fff&text=Project+3" alt="Project 3">
+        </div>
+        <div class="back">
+          <h3>Project 3</h3>
+          <p>A brief description of the third project.</p>
+          <a href="#">View Project</a>
+        </div>
+      </div>
+      <div class="portfolio-item">
+        <div class="front">
+          <img src="https://dummyimage.com/300x200/000/fff&text=Project+4" alt="Project 4">
+        </div>
+        <div class="back">
+          <h3>Project 4</h3>
+          <p>A brief description of the fourth project.</p>
+          <a href="#">View Project</a>
+        </div>
+      </div>
+      <div class="portfolio-item">
+        <div class="front">
+          <img src="https://dummyimage.com/300x200/000/fff&text=Project+5" alt="Project 5">
+        </div>
+        <div class="back">
+          <h3>Project 5</h3>
+          <p>A brief description of the fifth project.</p>
+          <a href="#">View Project</a>
+        </div>
+      </div>
+      <div class="portfolio-item">
+        <div class="front">
+          <img src="https://dummyimage.com/300x200/000/fff&text=Project+6" alt="Project 6">
+        </div>
+        <div class="back">
+          <h3>Project 6</h3>
+          <p>A brief description of the sixth project.</p>
+          <a href="#">View Project</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="skills">
+    <h2>My Skills</h2>
+    <div class="skills-grid">
+      <div class="skill-item">
+        <i class="fas fa-paint-brush"></i>
+        <h3>Graphic Design</h3>
+        <p>Proficient in various design tools and techniques.</p>
+      </div>
+      <div class="skill-item">
+        <i class="fas fa-code"></i>
+        <h3>Web Development</h3>
+        <p>Experienced in HTML, CSS, JavaScript, and modern web frameworks.</p>
+      </div>
+      <div class="skill-item">
+        <i class="fas fa-camera-retro"></i>
+        <h3>Photography</h3>
+        <p>Skilled in capturing visually stunning images.</p>
+      </div>
+      <div class="skill-item">
+        <i class="fas fa-palette"></i>
+        <h3>UI/UX Design</h3>
+        <p>Proficient in creating user-friendly and visually appealing interfaces.</p>
+      </div>
+      <div class="skill-item">
+        <i class="fas fa-ad"></i>
+        <h3>Advertising</h3>
+        <p>Expertise in creating effective and impactful advertising campaigns.</p>
+      </div>
+      <div class="skill-item">
+        <i class="fas fa-award"></i>
+        <h3>Awards</h3>
+        <p>Recognized for various design and creative achievements.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact">
+    <div class="floating-shapes">
+      <div class="shape"></div>
+      <div class="shape"></div>
+      <div class="shape"></div>
+      <div class="shape"></div>
+      <div class="shape"></div>
+      <div class="shape"></div>
+      <div class="shape"></div>
+      <div class="shape"></div>
+      <div class="shape"></div>
+      <div class="shape"></div>
+    </div>
+    <div class="contact-form">
+      <h2>Get in Touch</h2>
+      <form>
+        <div class="form-group">
+          <label for="name">Name</label>
+          <input type="text" id="name" name="name" required>
+        </div>
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" required>
+        </div>
+        <div class="form-group">
+          <label for="message">Message</label>
+          <textarea id="message" name="message" rows="5" required></textarea>
+        </div>
+        <button type="submit">Submit</button>
+      </form>
+    </div>
+  </section>
+</body>
+</html>'<!-- Visit: https://github.com/Ishanoshada/portflair -->
+<!-- Visit: https://github.com/Ishanoshada/portflair -->

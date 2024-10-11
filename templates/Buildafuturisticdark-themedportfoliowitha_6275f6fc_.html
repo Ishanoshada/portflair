@@ -1,0 +1,394 @@
+<!-- Portfolio created by Ishan -->
+<!-- Check out my work at: https://github.com/Ishanoshada/portflair -->
+<!-- 2024/10/9 -->
+<!-- Portfolio created by Ishan -->
+<!-- Portfolio created by Ishan -->
+'<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Futuristic Dark Portfolio</title>
+    <style>
+        /* Global Styles */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Montserrat', sans-serif;
+            background-color: #000;
+            color: #fff;
+            overflow-x: hidden;
+        }
+
+        /* Navbar Styles */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 40px;
+            background-color: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(10px);
+            position: relative;
+            z-index: 100;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav ul li {
+            margin-left: 30px;
+        }
+
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: 500;
+            position: relative;
+            padding-bottom: 5px;
+        }
+
+        nav ul li a::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: #00ffff;
+            transition: width 0.3s ease;
+        }
+
+        nav ul li a:hover::after {
+            width: 100%;
+        }
+
+        /* Hero Section Styles */
+        .hero {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(10px);
+            z-index: 1;
+        }
+
+        .hero-content {
+            text-align: center;
+            position: relative;
+            z-index: 10;
+        }
+
+        .hero-title {
+            font-size: 6rem;
+            font-weight: 900;
+            color: #00ffff;
+            text-shadow: 0 0 20px #00ffff, 0 0 40px #00ffff, 0 0 80px #00ffff;
+            animation: glowPulse 2s infinite;
+        }
+
+        @keyframes glowPulse {
+            0% {
+                text-shadow: 0 0 20px #00ffff, 0 0 40px #00ffff, 0 0 80px #00ffff;
+            }
+            50% {
+                text-shadow: 0 0 30px #00ffff, 0 0 50px #00ffff, 0 0 100px #00ffff;
+            }
+            100% {
+                text-shadow: 0 0 20px #00ffff, 0 0 40px #00ffff, 0 0 80px #00ffff;
+            }
+        }
+
+        .hero-subtitle {
+            font-size: 2rem;
+            font-weight: 500;
+            color: #fff;
+            margin-top: 20px;
+            animation: glowPulse 2s infinite 0.5s;
+        }
+
+        .hero-avatar {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            background-image: url("https://dummyimage.com/400x400/00ffff/000000.png&text=+");
+            background-size: cover;
+            background-position: center;
+            margin-top: 40px;
+            box-shadow: 0 0 20px #00ffff, 0 0 40px #00ffff, 0 0 80px #00ffff;
+            animation: glowPulse 2s infinite 1s;
+        }
+
+        /* Project Showcase Styles */
+        .project-showcase {
+            padding: 80px 40px;
+            background-color: #0b0b0b;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .project-showcase-title {
+            font-size: 3rem;
+            font-weight: 900;
+            color: #00ffff;
+            text-shadow: 0 0 20px #00ffff, 0 0 40px #00ffff, 0 0 80px #00ffff;
+            margin-bottom: 40px;
+            animation: glowPulse 2s infinite;
+        }
+
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-gap: 40px;
+            width: 100%;
+        }
+
+        .project-thumbnail {
+            position: relative;
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 0 20px #00ffff, 0 0 40px #00ffff, 0 0 80px #00ffff;
+            cursor: pointer;
+        }
+
+        .project-thumbnail img {
+            width: 100%;
+            height: auto;
+            transition: transform 0.3s ease;
+        }
+
+        .project-thumbnail:hover img {
+            transform: scale(1.1);
+        }
+
+        .project-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 255, 255, 0.8);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .project-thumbnail:hover .project-overlay {
+            opacity: 1;
+        }
+
+        .project-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #000;
+            margin-bottom: 10px;
+        }
+
+        .project-description {
+            font-size: 1rem;
+            color: #000;
+            text-align: center;
+            padding: 0 20px;
+        }
+
+        /* About Section Styles */
+        .about {
+            padding: 80px 40px;
+            background-color: #0b0b0b;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .about-title {
+            font-size: 3rem;
+            font-weight: 900;
+            color: #00ffff;
+            text-shadow: 0 0 20px #00ffff, 0 0 40px #00ffff, 0 0 80px #00ffff;
+            margin-bottom: 40px;
+            animation: glowPulse 2s infinite;
+        }
+
+        .about-content {
+            display: flex;
+            align-items: center;
+            max-width: 1200px;
+            width: 100%;
+        }
+
+        .about-text {
+            flex: 1;
+            font-size: 1.2rem;
+            line-height: 1.6;
+            color: #fff;
+            margin-right: 40px;
+        }
+
+        .about-avatar {
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            background-image: url("https://dummyimage.com/600x600/00ffff/000000.png&text=+");
+            background-size: cover;
+            background-position: center;
+            box-shadow: 0 0 20px #00ffff, 0 0 40px #00ffff, 0 0 80px #00ffff;
+            animation: glowPulse 2s infinite 0.5s;
+        }
+
+        .about-quote {
+            font-size: 1.5rem;
+            font-weight: 500;
+            color: #00ffff;
+            text-shadow: 0 0 20px #00ffff, 0 0 40px #00ffff, 0 0 80px #00ffff;
+            margin-top: 40px;
+            animation: glowPulse 2s infinite 1s;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            nav {
+                padding: 10px 20px;
+            }
+
+            nav ul li {
+                margin-left: 20px;
+            }
+
+            .hero-title {
+                font-size: 4rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1.5rem;
+            }
+
+            .hero-avatar {
+                width: 150px;
+                height: 150px;
+            }
+
+            .project-showcase {
+                padding: 40px 20px;
+            }
+
+            .project-showcase-title {
+                font-size: 2.5rem;
+            }
+
+            .project-grid {
+                grid-template-columns: repeat(2, 1fr);
+                grid-gap: 20px;
+            }
+
+            .about {
+                padding: 40px 20px;
+            }
+
+            .about-title {
+                font-size: 2.5rem;
+            }
+
+            .about-content {
+                flex-direction: column;
+            }
+
+            .about-text {
+                margin-right: 0;
+                margin-bottom: 40px;
+            }
+
+            .about-avatar {
+                width: 200px;
+                height: 200px;
+            }
+
+            .about-quote {
+                font-size: 1.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="logo">
+            <a href="#" style="color: #00ffff; font-size: 24px; font-weight: 700;">Futuristic Portfolio</a>
+        </div>
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Projects</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+    </nav>
+
+    <div class="hero">
+        <div class="hero-content">
+            <h1 class="hero-title">John Doe</h1>
+            <p class="hero-subtitle">Futuristic UI/UX Designer</p>
+            <div class="hero-avatar"></div>
+        </div>
+    </div>
+
+    <div class="project-showcase">
+        <h2 class="project-showcase-title">My Projects</h2>
+        <div class="project-grid">
+            <div class="project-thumbnail">
+                <img src="https://dummyimage.com/600x400/00ffff/000000.png&text=Project+1" alt="Project 1">
+                <div class="project-overlay">
+                    <h3 class="project-title">Project 1</h3>
+                    <p class="project-description">A futuristic UI design for a cutting-edge technology company.</p>
+                </div>
+            </div>
+            <div class="project-thumbnail">
+                <img src="https://dummyimage.com/600x400/00ffff/000000.png&text=Project+2" alt="Project 2">
+                <div class="project-overlay">
+                    <h3 class="project-title">Project 2</h3>
+                    <p class="project-description">An interactive, cyberpunk-inspired dashboard for a data analytics platform.</p>
+                </div>
+            </div>
+            <div class="project-thumbnail">
+                <img src="https://dummyimage.com/600x400/00ffff/000000.png&text=Project+3" alt="Project 3">
+                <div class="project-overlay">
+                    <h3 class="project-title">Project 3</h3>
+                    <p class="project-description">A sleek, futuristic mobile app design for a smart home automation system.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="about">
+        <h2 class="about-title">About Me</h2>
+        <div class="about-content">
+            <div class="about-text">
+                <p>Hi, I'm John Doe, a passionate UI/UX designer with a love for all things futuristic and tech-focused. I have a keen eye for detail and a deep understanding of the latest design trends and technologies.</p>
+                <p>My portfolio showcases a range of projects that blend seamless functionality with a visually stunning, cyberpunk-inspired aesthetic. I'm always pushing the boundaries of what's possible, constantly exploring new ways to create innovative, user-centric designs that captivate and engage.</p>
+            </div>
+            <div class="about-avatar"></div>
+        </div>
+        <p class="about-quote">"Embracing the future, one pixel at a time."</p>
+    </div>
+</body>
+</html>'<!-- Visit: https://github.com/Ishanoshada/portflair -->
+<!-- Visit: https://github.com/Ishanoshada/portflair -->
+<!-- Visit: https://github.com/Ishanoshada/portflair -->

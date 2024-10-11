@@ -1,0 +1,349 @@
+<!-- Portfolio created by Ishan -->
+<!-- Check out my work at: https://github.com/Ishanoshada/portflair -->
+<!-- 2024/10/9 -->
+<!-- Portfolio created by Ishan -->
+'<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Create a Layered, Dark-Toned Portfolio</title>
+  <style>
+    /* Global Styles */
+    body {
+      font-family: 'Montserrat', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #0F0F0F;
+      color: #FFFFFF;
+    }
+
+    /* Navigation */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.5rem 2rem;
+      background-color: rgba(15, 15, 15, 0.8);
+      backdrop-filter: blur(10px);
+    }
+
+    nav a {
+      color: #FFFFFF;
+      text-decoration: none;
+      font-size: 1.1rem;
+      font-weight: 500;
+      transition: color 0.3s ease;
+    }
+
+    nav a:hover {
+      color: #BBBBBB;
+    }
+
+    /* Featured Projects */
+    .featured-projects {
+      padding: 4rem 2rem;
+    }
+
+    .featured-projects h2 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 3rem;
+      text-align: center;
+      text-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+    }
+
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      grid-gap: 3rem;
+    }
+
+    .project-card {
+      background-color: #1A1A1A;
+      border-radius: 10px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+      overflow: hidden;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .project-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    }
+
+    .project-card img {
+      width: 100%;
+      height: 250px;
+      object-fit: cover;
+      filter: brightness(0.8);
+      transition: filter 0.3s ease;
+    }
+
+    .project-card:hover img {
+      filter: brightness(1);
+    }
+
+    .project-details {
+      padding: 1.5rem;
+    }
+
+    .project-details h3 {
+      font-size: 1.5rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+    }
+
+    .project-details p {
+      font-size: 1rem;
+      line-height: 1.5;
+      color: #BBBBBB;
+    }
+
+    /* About Me */
+    .about-me {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 4rem 2rem;
+      background-image: linear-gradient(to right, #0F0F0F, #1A1A1A);
+    }
+
+    .about-me-content {
+      max-width: 800px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .about-me-portrait {
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+      margin-right: 3rem;
+    }
+
+    .about-me-portrait img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .about-me-text {
+      flex-grow: 1;
+    }
+
+    .about-me-text h2 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 1.5rem;
+      text-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+    }
+
+    .about-me-text p {
+      font-size: 1.1rem;
+      line-height: 1.6;
+      color: #BBBBBB;
+      margin-bottom: 2rem;
+    }
+
+    .about-me-skills {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+      grid-gap: 1.5rem;
+    }
+
+    .about-me-skill {
+      background-color: #1A1A1A;
+      border-radius: 8px;
+      padding: 1rem;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .about-me-skill:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+    }
+
+    .about-me-skill h3 {
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+    }
+
+    .about-me-skill p {
+      font-size: 0.9rem;
+      color: #BBBBBB;
+    }
+
+    /* Contact Form */
+    .contact-form {
+      padding: 4rem 2rem;
+      display: flex;
+      justify-content: center;
+    }
+
+    .contact-form-container {
+      max-width: 600px;
+      width: 100%;
+      background-color: #1A1A1A;
+      border-radius: 10px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+      padding: 3rem;
+    }
+
+    .contact-form-container h2 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 2rem;
+      text-align: center;
+      text-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+    }
+
+    .contact-form-container form {
+      display: grid;
+      grid-gap: 1.5rem;
+    }
+
+    .contact-form-container input,
+    .contact-form-container textarea {
+      background-color: #2A2A2A;
+      border: none;
+      border-radius: 8px;
+      padding: 1.2rem;
+      font-size: 1rem;
+      color: #FFFFFF;
+      transition: box-shadow 0.3s ease;
+    }
+
+    .contact-form-container input:focus,
+    .contact-form-container textarea:focus {
+      outline: none;
+      box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+    }
+
+    .contact-form-container textarea {
+      resize: vertical;
+      min-height: 150px;
+    }
+
+    .contact-form-container button {
+      background-image: linear-gradient(to right, #FF6B6B, #FF9B6B);
+      border: none;
+      border-radius: 8px;
+      padding: 1.2rem 2rem;
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: #FFFFFF;
+      cursor: pointer;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .contact-form-container button:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(255, 107, 107, 0.3);
+    }
+
+    /* Responsive Styles */
+    @media (max-width: 768px) {
+      .about-me-content {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .about-me-portrait {
+        margin-right: 0;
+        margin-bottom: 2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="#">Home</a>
+    <a href="#">Portfolio</a>
+    <a href="#">About</a>
+    <a href="#">Contact</a>
+  </nav>
+
+  <section class="featured-projects">
+    <h2>Featured Projects</h2>
+    <div class="project-grid">
+      <div class="project-card">
+        <img src="https://dummyimage.com/600x400/1a1a1a/ffffff.jpg&text=Project+1" alt="Project 1">
+        <div class="project-details">
+          <h3>Project 1</h3>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+        </div>
+      </div>
+      <div class="project-card">
+        <img src="https://dummyimage.com/600x400/1a1a1a/ffffff.jpg&text=Project+2" alt="Project 2">
+        <div class="project-details">
+          <h3>Project 2</h3>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+        </div>
+      </div>
+      <div class="project-card">
+        <img src="https://dummyimage.com/600x400/1a1a1a/ffffff.jpg&text=Project+3" alt="Project 3">
+        <div class="project-details">
+          <h3>Project 3</h3>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+        </div>
+      </div>
+      <div class="project-card">
+        <img src="https://dummyimage.com/600x400/1a1a1a/ffffff.jpg&text=Project+4" alt="Project 4">
+        <div class="project-details">
+          <h3>Project 4</h3>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="about-me">
+    <div class="about-me-content">
+      <div class="about-me-portrait">
+        <img src="https://dummyimage.com/400x400/1a1a1a/ffffff.jpg&text=Author" alt="Author">
+      </div>
+      <div class="about-me-text">
+        <h2>About Me</h2>
+        <p>Hello! My name is John Doe, and I'm a passionate web designer with a focus on creating visually stunning and user-friendly websites. With years of experience under my belt, I've honed my skills in crafting layered, dark-toned portfolios that showcase my work in a sophisticated and engaging manner.</p>
+        <div class="about-me-skills">
+          <div class="about-me-skill">
+            <h3>Web Design</h3>
+            <p>Expertise in creating modern, responsive, and visually appealing websites.</p>
+          </div>
+          <div class="about-me-skill">
+            <h3>UI/UX</h3>
+            <p>Designing intuitive and user-friendly interfaces that enhance the overall experience.</p>
+          </div>
+          <div class="about-me-skill">
+            <h3>Branding</h3>
+            <p>Developing cohesive brand identities that resonate with target audiences.</p>
+          </div>
+          <div class="about-me-skill">
+            <h3>Front-end Development</h3>
+            <p>Proficient in transforming design concepts into functional, responsive websites.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact-form">
+    <div class="contact-form-container">
+      <h2>Get in Touch</h2>
+      <form>
+        <input type="text" placeholder="Name" required>
+        <input type="email" placeholder="Email" required>
+        <textarea placeholder="Message" required></textarea>
+        <button type="submit">Send Message</button>
+      </form>
+    </div>
+  </section>
+</body>
+</html>'<!-- Visit: https://github.com/Ishanoshada/portflair -->
+<!-- Visit: https://github.com/Ishanoshada/portflair -->

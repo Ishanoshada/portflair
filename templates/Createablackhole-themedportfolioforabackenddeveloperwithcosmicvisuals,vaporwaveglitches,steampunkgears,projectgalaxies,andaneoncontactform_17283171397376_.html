@@ -1,0 +1,411 @@
+<!-- Portfolio created by Ishan -->
+<!-- Check out my work at: https://github.com/Ishanoshada/portflair -->
+<!-- 2024/10/9 -->
+<!-- Portfolio created by Ishan -->
+'<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Black Hole Portfolio</title>
+  <style>
+    /* Global Styles */
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Orbitron', sans-serif;
+      background-color: #000000;
+      color: #ffffff;
+      overflow-x: hidden;
+    }
+
+    /* Navigation Bar */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 40px;
+      background-color: rgba(0, 0, 0, 0.5);
+      backdrop-filter: blur(10px);
+    }
+
+    nav ul {
+      list-style-type: none;
+      display: flex;
+      gap: 30px;
+    }
+
+    nav ul li a {
+      text-decoration: none;
+      color: #ffffff;
+      font-size: 18px;
+      font-weight: bold;
+      position: relative;
+      padding-bottom: 5px;
+    }
+
+    nav ul li a::after {
+      content: "";
+      position: absolute;
+      width: 0;
+      height: 2px;
+      bottom: 0;
+      left: 0;
+      background-color: #9b59b6;
+      transition: width 0.3s ease-in-out;
+    }
+
+    nav ul li a:hover::after {
+      width: 100%;
+    }
+
+    /* Project Galaxies Section */
+    .project-galaxies {
+      padding: 100px 40px;
+      background: radial-gradient(ellipse at center, #000000 0%, #1c1c1c 100%);
+    }
+
+    .project-galaxies h2 {
+      font-size: 36px;
+      text-align: center;
+      margin-bottom: 50px;
+      text-shadow: 0 0 20px #9b59b6, 0 0 40px #9b59b6, 0 0 80px #9b59b6;
+    }
+
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-gap: 40px;
+    }
+
+    .project-item {
+      position: relative;
+      overflow: hidden;
+      border-radius: 10px;
+      box-shadow: 0 0 20px rgba(155, 89, 182, 0.5);
+      transition: transform 0.3s ease-in-out;
+    }
+
+    .project-item:hover {
+      transform: scale(1.05);
+    }
+
+    .project-item img {
+      width: 100%;
+      height: auto;
+      display: block;
+      filter: brightness(0.7) saturate(1.2) hue-rotate(20deg);
+      transition: filter 0.3s ease-in-out;
+    }
+
+    .project-item:hover img {
+      filter: brightness(1) saturate(1) hue-rotate(0deg);
+    }
+
+    .project-details {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.7);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      opacity: 0;
+      transition: opacity 0.3s ease-in-out;
+    }
+
+    .project-item:hover .project-details {
+      opacity: 1;
+    }
+
+    .project-details h3 {
+      font-size: 24px;
+      margin-bottom: 10px;
+      text-shadow: 0 0 10px #9b59b6, 0 0 20px #9b59b6, 0 0 30px #9b59b6;
+    }
+
+    .project-details p {
+      font-size: 16px;
+      margin-bottom: 20px;
+      text-shadow: 0 0 5px #9b59b6, 0 0 10px #9b59b6, 0 0 15px #9b59b6;
+    }
+
+    /* Cosmic Skills and Experience Section */
+    .cosmic-skills {
+      padding: 100px 40px;
+      background: radial-gradient(ellipse at center, #1c1c1c 0%, #000000 100%);
+    }
+
+    .cosmic-skills h2 {
+      font-size: 36px;
+      text-align: center;
+      margin-bottom: 50px;
+      text-shadow: 0 0 20px #9b59b6, 0 0 40px #9b59b6, 0 0 80px #9b59b6;
+    }
+
+    .skill-icons {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 50px;
+    }
+
+    .skill-icon {
+      position: relative;
+      width: 100px;
+      height: 100px;
+      background-color: rgba(155, 89, 182, 0.2);
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      box-shadow: 0 0 20px rgba(155, 89, 182, 0.5);
+      transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    }
+
+    .skill-icon:hover {
+      transform: scale(1.1);
+      box-shadow: 0 0 40px rgba(155, 89, 182, 0.8);
+    }
+
+    .skill-icon i {
+      font-size: 40px;
+      color: #9b59b6;
+      text-shadow: 0 0 10px #9b59b6, 0 0 20px #9b59b6, 0 0 30px #9b59b6;
+    }
+
+    .skill-icon h4 {
+      position: absolute;
+      bottom: -30px;
+      font-size: 16px;
+      color: #ffffff;
+      text-shadow: 0 0 5px #9b59b6, 0 0 10px #9b59b6, 0 0 15px #9b59b6;
+    }
+
+    /* Neon Contact Form Section */
+    .neon-contact {
+      padding: 100px 40px;
+      background: radial-gradient(ellipse at center, #1c1c1c 0%, #000000 100%);
+    }
+
+    .neon-contact h2 {
+      font-size: 36px;
+      text-align: center;
+      margin-bottom: 50px;
+      text-shadow: 0 0 20px #9b59b6, 0 0 40px #9b59b6, 0 0 80px #9b59b6;
+    }
+
+    .contact-form {
+      max-width: 600px;
+      margin: 0 auto;
+      background-color: rgba(155, 89, 182, 0.1);
+      padding: 40px;
+      border-radius: 10px;
+      box-shadow: 0 0 20px rgba(155, 89, 182, 0.5);
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+      width: 100%;
+      padding: 15px;
+      margin-bottom: 20px;
+      background-color: rgba(255, 255, 255, 0.1);
+      border: none;
+      border-radius: 5px;
+      color: #ffffff;
+      font-family: 'Orbitron', sans-serif;
+      font-size: 16px;
+      transition: box-shadow 0.3s ease-in-out;
+    }
+
+    .contact-form input:focus,
+    .contact-form textarea:focus {
+      outline: none;
+      box-shadow: 0 0 10px rgba(155, 89, 182, 0.8);
+    }
+
+    .contact-form button {
+      display: block;
+      width: 100%;
+      padding: 15px;
+      background-color: #9b59b6;
+      border: none;
+      border-radius: 5px;
+      color: #ffffff;
+      font-family: 'Orbitron', sans-serif;
+      font-size: 18px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    }
+
+    .contact-form button:hover {
+      background-color: #8e44ad;
+      box-shadow: 0 0 20px rgba(155, 89, 182, 0.8);
+    }
+
+    /* Responsive Styles */
+    @media (max-width: 768px) {
+      nav {
+        padding: 15px 20px;
+      }
+
+      nav ul {
+        gap: 20px;
+      }
+
+      nav ul li a {
+        font-size: 16px;
+      }
+
+      .project-galaxies,
+      .cosmic-skills,
+      .neon-contact {
+        padding: 80px 20px;
+      }
+
+      .project-grid {
+        grid-template-columns: repeat(2, 1fr);
+        grid-gap: 30px;
+      }
+
+      .skill-icons {
+        gap: 40px;
+      }
+
+      .skill-icon {
+        width: 80px;
+        height: 80px;
+      }
+
+      .skill-icon i {
+        font-size: 30px;
+      }
+
+      .skill-icon h4 {
+        font-size: 14px;
+      }
+
+      .contact-form {
+        padding: 30px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation Bar -->
+  <nav>
+    <div class="logo">
+      <a href="#"><img src="https://dummyimage.com/150x50/ccc/000&text=Logo" alt="Logo"></a>
+    </div>
+    <ul>
+      <li><a href="#">Home</a></li>
+      <li><a href="#">About</a></li>
+      <li><a href="#">Projects</a></li>
+      <li><a href="#">Skills</a></li>
+      <li><a href="#">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- Project Galaxies Section -->
+  <section class="project-galaxies">
+    <h2>Project Galaxies</h2>
+    <div class="project-grid">
+      <div class="project-item">
+        <img src="https://dummyimage.com/400x300/ccc/000&text=Project+1" alt="Project 1">
+        <div class="project-details">
+          <h3>Project 1</h3>
+          <p>Backend development project with cosmic visuals</p>
+        </div>
+      </div>
+      <div class="project-item">
+        <img src="https://dummyimage.com/400x300/ccc/000&text=Project+2" alt="Project 2">
+        <div class="project-details">
+          <h3>Project 2</h3>
+          <p>Backend development project with vaporwave glitches</p>
+        </div>
+      </div>
+      <div class="project-item">
+        <img src="https://dummyimage.com/400x300/ccc/000&text=Project+3" alt="Project 3">
+        <div class="project-details">
+          <h3>Project 3</h3>
+          <p>Backend development project with steampunk gears</p>
+        </div>
+      </div>
+      <div class="project-item">
+        <img src="https://dummyimage.com/400x300/ccc/000&text=Project+4" alt="Project 4">
+        <div class="project-details">
+          <h3>Project 4</h3>
+          <p>Backend development project with cosmic visuals</p>
+        </div>
+      </div>
+      <div class="project-item">
+        <img src="https://dummyimage.com/400x300/ccc/000&text=Project+5" alt="Project 5">
+        <div class="project-details">
+          <h3>Project 5</h3>
+          <p>Backend development project with vaporwave glitches</p>
+        </div>
+      </div>
+      <div class="project-item">
+        <img src="https://dummyimage.com/400x300/ccc/000&text=Project+6" alt="Project 6">
+        <div class="project-details">
+          <h3>Project 6</h3>
+          <p>Backend development project with steampunk gears</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Cosmic Skills and Experience Section -->
+  <section class="cosmic-skills">
+    <h2>Cosmic Skills and Experience</h2>
+    <div class="skill-icons">
+      <div class="skill-icon">
+        <i class="fas fa-code"></i>
+        <h4>Backend Development</h4>
+      </div>
+      <div class="skill-icon">
+        <i class="fas fa-database"></i>
+        <h4>Database Management</h4>
+      </div>
+      <div class="skill-icon">
+        <i class="fas fa-cloud"></i>
+        <h4>Cloud Computing</h4>
+      </div>
+      <div class="skill-icon">
+        <i class="fas fa-server"></i>
+        <h4>Server Administration</h4>
+      </div>
+      <div class="skill-icon">
+        <i class="fas fa-cogs"></i>
+        <h4>DevOps</h4>
+      </div>
+      <div class="skill-icon">
+        <i class="fas fa-network-wired"></i>
+        <h4>Networking</h4>
+      </div>
+    </div>
+  </section>
+
+  <!-- Neon Contact Form Section -->
+  <section class="neon-contact">
+    <h2>Reach Out to the Cosmic Developer</h2>
+    <div class="contact-form">
+      <form>
+        <input type="text" placeholder="Name" required>
+        <input type="email" placeholder="Email" required>
+        <textarea placeholder="Message" rows="5" required></textarea>
+        <button type="submit">Send Message</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- Font Awesome Icons -->
+  <script src="https://kit.fontawesome.com/your-font-awesome-kit.js" crossorigin="anonymous"></script>
+</body>
+</html>'<!-- Visit: https://github.com/Ishanoshada/portflair -->
+<!-- Visit: https://github.com/Ishanoshada/portflair -->

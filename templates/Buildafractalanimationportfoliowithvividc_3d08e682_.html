@@ -1,0 +1,326 @@
+<!-- Portfolio created by Ishan -->
+<!-- Check out my work at: https://github.com/Ishanoshada/portflair -->
+<!-- 2024/10/9 -->
+<!-- Portfolio created by Ishan -->
+<!-- Portfolio created by Ishan -->
+'<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fractal Portfolio</title>
+  <style>
+    /* Global Styles */
+    body {
+      font-family: 'Montserrat', sans-serif;
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(to bottom, #1a1a1a, #0c0c0c);
+      color: #ffffff;
+    }
+
+    /* Navigation */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: rgba(26, 26, 26, 0.8);
+      padding: 1.5rem 2rem;
+    }
+
+    nav a {
+      color: #ffffff;
+      text-decoration: none;
+      font-size: 1.1rem;
+      margin: 0 1rem;
+      transition: color 0.3s ease;
+    }
+
+    nav a:hover {
+      color: #9b59b6;
+    }
+
+    /* Dynamic Fractal Gallery */
+    .fractal-gallery {
+      padding: 4rem 2rem;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      grid-gap: 2rem;
+    }
+
+    .fractal-item {
+      position: relative;
+      overflow: hidden;
+      border-radius: 8px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease;
+    }
+
+    .fractal-item:hover {
+      transform: scale(1.05);
+    }
+
+    .fractal-item img {
+      width: 100%;
+      height: auto;
+      display: block;
+      transition: filter 0.3s ease;
+    }
+
+    .fractal-item:hover img {
+      filter: brightness(1.1);
+    }
+
+    .fractal-item h3 {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 1.8rem;
+      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+      transition: font-size 0.3s ease;
+    }
+
+    .fractal-item:hover h3 {
+      font-size: 2rem;
+    }
+
+    /* Interactive Fractal Playground */
+    .fractal-playground {
+      background: linear-gradient(to right, #9b59b6, #2980b9);
+      padding: 4rem 2rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .fractal-playground h2 {
+      font-size: 2.5rem;
+      margin-bottom: 2rem;
+    }
+
+    .fractal-controls {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 2rem;
+    }
+
+    .fractal-controls label {
+      font-size: 1.1rem;
+      margin: 0 1rem;
+      display: flex;
+      align-items: center;
+    }
+
+    .fractal-controls input[type="range"] {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 200px;
+      height: 8px;
+      background: linear-gradient(to right, #ff69b4, #00ff00, #00bfff);
+      outline: none;
+      opacity: 0.7;
+      transition: opacity 0.2s;
+    }
+
+    .fractal-controls input[type="range"]::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 20px;
+      height: 20px;
+      background: #ffffff;
+      border-radius: 50%;
+      cursor: pointer;
+    }
+
+    .fractal-display {
+      width: 100%;
+      max-width: 800px;
+      height: 500px;
+      background: #000000;
+      border-radius: 8px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+      position: relative;
+    }
+
+    .fractal-display iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+      display: block;
+    }
+
+    /* Project Details and Insights */
+    .project-details {
+      padding: 4rem 2rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .project-details h2 {
+      font-size: 2.5rem;
+      margin-bottom: 2rem;
+    }
+
+    .project-card {
+      background: linear-gradient(to right, #9b59b6, #2980b9);
+      border-radius: 8px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+      margin-bottom: 2rem;
+      width: 100%;
+      max-width: 800px;
+    }
+
+    .project-card-header {
+      padding: 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .project-card-header h3 {
+      font-size: 1.8rem;
+      margin: 0;
+    }
+
+    .project-card-header a {
+      color: #ffffff;
+      text-decoration: none;
+      font-size: 1.1rem;
+      transition: color 0.3s ease;
+    }
+
+    .project-card-header a:hover {
+      color: #ff69b4;
+    }
+
+    .project-card-content {
+      padding: 2rem;
+      background-color: #ffffff;
+      color: #333333;
+    }
+
+    .project-card-content p {
+      line-height: 1.6;
+      margin-bottom: 1rem;
+    }
+
+    .project-card-content ul {
+      list-style-type: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .project-card-content li {
+      margin-bottom: 0.5rem;
+    }
+
+    .project-card-content li::before {
+      content: "â¢";
+      color: #9b59b6;
+      font-weight: bold;
+      display: inline-block;
+      width: 1em;
+      margin-left: -1em;
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="#">Home</a>
+    <a href="#">Gallery</a>
+    <a href="#">Playground</a>
+    <a href="#">Projects</a>
+  </nav>
+
+  <section class="fractal-gallery">
+    <div class="fractal-item">
+      <img src="https://dummyimage.com/600x400/ccc/000&text=Fractal+1" alt="Fractal 1">
+      <h3>Fractal 1</h3>
+    </div>
+    <div class="fractal-item">
+      <img src="https://dummyimage.com/600x400/ccc/000&text=Fractal+2" alt="Fractal 2">
+      <h3>Fractal 2</h3>
+    </div>
+    <div class="fractal-item">
+      <img src="https://dummyimage.com/600x400/ccc/000&text=Fractal+3" alt="Fractal 3">
+      <h3>Fractal 3</h3>
+    </div>
+    <div class="fractal-item">
+      <img src="https://dummyimage.com/600x400/ccc/000&text=Fractal+4" alt="Fractal 4">
+      <h3>Fractal 4</h3>
+    </div>
+    <div class="fractal-item">
+      <img src="https://dummyimage.com/600x400/ccc/000&text=Fractal+5" alt="Fractal 5">
+      <h3>Fractal 5</h3>
+    </div>
+    <div class="fractal-item">
+      <img src="https://dummyimage.com/600x400/ccc/000&text=Fractal+6" alt="Fractal 6">
+      <h3>Fractal 6</h3>
+    </div>
+  </section>
+
+  <section class="fractal-playground">
+    <h2>Interactive Fractal Playground</h2>
+    <div class="fractal-controls">
+      <label for="complexity">Complexity:
+        <input type="range" id="complexity" min="1" max="10" value="5">
+      </label>
+      <label for="speed">Speed:
+        <input type="range" id="speed" min="1" max="10" value="5">
+      </label>
+      <label for="palette">Palette:
+        <input type="range" id="palette" min="1" max="10" value="5">
+      </label>
+    </div>
+    <div class="fractal-display">
+      <iframe src="https://dummyimage.com/800x500/ccc/000&text=Fractal+Animation" frameborder="0"></iframe>
+    </div>
+  </section>
+
+  <section class="project-details">
+    <h2>Project Details and Insights</h2>
+    <div class="project-card">
+      <div class="project-card-header">
+        <h3>Project 1: Mandelbrot Set Visualization</h3>
+        <a href="#">View Project</a>
+      </div>
+      <div class="project-card-content">
+        <p>In this project, I developed an interactive visualization of the Mandelbrot set, a complex mathematical fractal. The application allows users to navigate and explore the intricate patterns of the Mandelbrot set, adjusting various parameters such as zoom level, color palette, and iteration depth.</p>
+        <h4>Key Technologies Used:</h4>
+        <ul>
+          <li>JavaScript</li>
+          <li>HTML5 Canvas</li>
+          <li>Complex Number Mathematics</li>
+          <li>Responsive Design</li>
+        </ul>
+        <h4>Insights and Challenges:</h4>
+        <p>The primary challenge in this project was optimizing the rendering performance to provide a smooth and responsive user experience, even when zooming deep into the fractal. I implemented various optimization techniques, such as incremental rendering, multi-threaded computation, and efficient data structures, to ensure a high frame rate and seamless interaction.</p>
+      </div>
+    </div>
+    <div class="project-card">
+      <div class="project-card-header">
+        <h3>Project 2: Fractal Flame Generator</h3>
+        <a href="#">View Project</a>
+      </div>
+      <div class="project-card-content">
+        <p>This project focused on creating a fractal flame generator, a type of iterated function system that generates intricate, organic-looking fractal patterns. The application allows users to customize the fractal flame by adjusting parameters such as flame complexity, color variations, and animation speed.</p>
+        <h4>Key Technologies Used:</h4>
+        <ul>
+          <li>JavaScript</li>
+          <li>HTML5 Canvas</li>
+          <li>Iterated Function Systems</li>
+          <li>Particle Systems</li>
+        </ul>
+        <h4>Insights and Challenges:</h4>
+        <p>The primary challenge in this project was developing the mathematical algorithms and formulas to generate the fractal flame patterns efficiently. I experimented with various techniques, including Lindenmayer systems, and optimized the rendering process to provide a real-time, interactive experience for the user.</p>
+      </div>
+    </div>
+  </section>
+</body>
+</html>'<!-- Visit: https://github.com/Ishanoshada/portflair -->
+<!-- Visit: https://github.com/Ishanoshada/portflair -->
+<!-- Visit: https://github.com/Ishanoshada/portflair -->

@@ -1,0 +1,535 @@
+<!-- Portfolio created by Ishan -->
+<!-- Check out my work at: https://github.com/Ishanoshada/portflair -->
+<!-- 2024/10/9 -->
+<!-- Portfolio created by Ishan -->
+'<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Black Hole Portfolio</title>
+    <style>
+        /* Global Styles */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Orbitron', sans-serif;
+            background-color: #000000;
+            color: #ffffff;
+            overflow-x: hidden;
+        }
+
+        /* Navigation Bar */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 40px;
+            background-color: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(10px);
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+        }
+
+        nav ul {
+            list-style-type: none;
+            display: flex;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav ul li {
+            margin-right: 30px;
+        }
+
+        nav ul li a {
+            color: #ffffff;
+            text-decoration: none;
+            font-size: 18px;
+            position: relative;
+            padding-bottom: 5px;
+        }
+
+        nav ul li a:before {
+            content: "";
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: #8f2eff;
+            transition: width 0.3s ease;
+        }
+
+        nav ul li a:hover:before {
+            width: 100%;
+        }
+
+        /* Project Galaxies Section */
+        #project-galaxies {
+            padding: 100px 40px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-gap: 40px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .project-galaxy {
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            padding: 30px;
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .project-galaxy:hover {
+            transform: scale(1.05);
+        }
+
+        .project-galaxy:before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle, rgba(143, 46, 255, 0.3) 0%, rgba(0, 0, 0, 0) 70%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .project-galaxy:hover:before {
+            opacity: 1;
+        }
+
+        .project-galaxy h3 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            color: #8f2eff;
+            text-shadow: 0 0 10px rgba(143, 46, 255, 0.5);
+        }
+
+        .project-galaxy p {
+            font-size: 16px;
+            margin-bottom: 20px;
+        }
+
+        .project-galaxy .technologies {
+            font-size: 14px;
+            color: #aaaaaa;
+        }
+
+        .project-galaxy .link {
+            display: block;
+            color: #8f2eff;
+            text-decoration: none;
+            font-size: 16px;
+            margin-top: 10px;
+            position: relative;
+        }
+
+        .project-galaxy .link:before {
+            content: "";
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -2px;
+            left: 0;
+            background-color: #8f2eff;
+            transition: width 0.3s ease;
+        }
+
+        .project-galaxy .link:hover:before {
+            width: 100%;
+        }
+
+        /* Cosmic Skills Section */
+        #cosmic-skills {
+            padding: 100px 40px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .skill-orb {
+            width: 80px;
+            height: 80px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            margin: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .skill-orb:hover {
+            transform: scale(1.2);
+        }
+
+        .skill-orb:before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle, rgba(143, 46, 255, 0.3) 0%, rgba(0, 0, 0, 0) 70%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .skill-orb:hover:before {
+            opacity: 1;
+        }
+
+        .skill-orb i {
+            font-size: 30px;
+            color: #8f2eff;
+            text-shadow: 0 0 10px rgba(143, 46, 255, 0.5);
+        }
+
+        .skill-orb .skill-name {
+            position: absolute;
+            bottom: -30px;
+            font-size: 14px;
+            color: #ffffff;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .skill-orb:hover .skill-name {
+            opacity: 1;
+        }
+
+        /* Neon Contact Form */
+        #neon-contact {
+            padding: 100px 40px;
+            display: flex;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .neon-form {
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            padding: 40px;
+            width: 400px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .neon-form:before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle, rgba(143, 46, 255, 0.3) 0%, rgba(0, 0, 0, 0) 70%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .neon-form:hover:before {
+            opacity: 1;
+        }
+
+        .neon-form h2 {
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: #8f2eff;
+            text-shadow: 0 0 10px rgba(143, 46, 255, 0.5);
+        }
+
+        .neon-form input,
+        .neon-form textarea {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border: none;
+            border-radius: 5px;
+            color: #ffffff;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 16px;
+            transition: box-shadow 0.3s ease;
+        }
+
+        .neon-form input:focus,
+        .neon-form textarea:focus {
+            outline: none;
+            box-shadow: 0 0 10px rgba(143, 46, 255, 0.5);
+        }
+
+        .neon-form button {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            background-color: #8f2eff;
+            border: none;
+            border-radius: 5px;
+            color: #ffffff;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .neon-form button:hover {
+            background-color: #7018d6;
+        }
+
+        /* Steampunk Gears and Vaporwave Glitches */
+        .steampunk-gear {
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            background-image: url(https://dummyimage.com/100x100/8f2eff/ffffff&text=GEAR);
+            background-size: contain;
+            animation: rotate 10s linear infinite;
+            z-index: -1;
+        }
+
+        .vaporwave-glitch {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-image: url(https://dummyimage.com/1200x500/ccc/000&text=GLITCH);
+            background-size: cover;
+            background-repeat: no-repeat;
+            animation: glitch 2s linear infinite;
+            opacity: 0.1;
+            z-index: -1;
+        }
+
+        @keyframes rotate {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        @keyframes glitch {
+            0% {
+                background-position: 0 0;
+            }
+            10% {
+                background-position: -5px -5px;
+            }
+            20% {
+                background-position: 5px 5px;
+            }
+            30% {
+                background-position: -5px 0;
+            }
+            40% {
+                background-position: 5px 0;
+            }
+            50% {
+                background-position: 0 5px;
+            }
+            60% {
+                background-position: -5px 0;
+            }
+            70% {
+                background-position: 5px 0;
+            }
+            80% {
+                background-position: 0 -5px;
+            }
+            90% {
+                background-position: 5px -5px;
+            }
+            100% {
+                background-position: 0 0;
+            }
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            nav {
+                padding: 10px 20px;
+            }
+
+            nav ul li {
+                margin-right: 20px;
+            }
+
+            nav ul li a {
+                font-size: 16px;
+            }
+
+            #project-galaxies,
+            #cosmic-skills,
+            #neon-contact {
+                padding: 80px 20px;
+            }
+
+            .project-galaxy {
+                padding: 20px;
+            }
+
+            .project-galaxy h3 {
+                font-size: 20px;
+            }
+
+            .project-galaxy p {
+                font-size: 14px;
+            }
+
+            .skill-orb {
+                width: 60px;
+                height: 60px;
+                margin: 15px;
+            }
+
+            .skill-orb i {
+                font-size: 24px;
+            }
+
+            .skill-orb .skill-name {
+                font-size: 12px;
+            }
+
+            .neon-form {
+                width: 90%;
+                padding: 30px;
+            }
+
+            .neon-form h2 {
+                font-size: 20px;
+            }
+
+            .neon-form input,
+            .neon-form textarea,
+            .neon-form button {
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="logo">
+            <a href="#" style="color: #8f2eff; font-size: 24px; text-decoration: none;">Black Hole Portfolio</a>
+        </div>
+        <ul>
+            <li><a href="#project-galaxies">Projects</a></li>
+            <li><a href="#cosmic-skills">Skills</a></li>
+            <li><a href="#neon-contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <section id="project-galaxies">
+        <div class="project-galaxy">
+            <h3>Project Galaxy 1</h3>
+            <p>A captivating web application that showcases the developer's expertise in backend development, featuring a sleek and responsive interface.</p>
+            <div class="technologies">Technologies: Node.js, Express, MongoDB</div>
+            <a href="#" class="link">View Project</a>
+        </div>
+        <div class="project-galaxy">
+            <h3>Project Galaxy 2</h3>
+            <p>An innovative API-driven project that demonstrates the developer's ability to design and implement robust and scalable backend solutions.</p>
+            <div class="technologies">Technologies: Python, Django, PostgreSQL</div>
+            <a href="#" class="link">View Project</a>
+        </div>
+        <div class="project-galaxy">
+            <h3>Project Galaxy 3</h3>
+            <p>A visually stunning and highly interactive web application that showcases the developer's expertise in creating captivating user experiences.</p>
+            <div class="technologies">Technologies: Ruby on Rails, Redis, SocketIO</div>
+            <a href="#" class="link">View Project</a>
+        </div>
+        <div class="project-galaxy">
+            <h3>Project Galaxy 4</h3>
+            <p>A cutting-edge microservices-based architecture project that demonstrates the developer's proficiency in building scalable and fault-tolerant backend systems.</p>
+            <div class="technologies">Technologies: Go, Kubernetes, RabbitMQ</div>
+            <a href="#" class="link">View Project</a>
+        </div>
+        <div class="project-galaxy">
+            <h3>Project Galaxy 5</h3>
+            <p>A high-performance and secure backend application that showcases the developer's expertise in implementing effective data management and authentication strategies.</p>
+            <div class="technologies">Technologies: Java, Spring Boot, Cassandra</div>
+            <a href="#" class="link">View Project</a>
+        </div>
+        <div class="project-galaxy">
+            <h3>Project Galaxy 6</h3>
+            <p>An AI-powered backend system that demonstrates the developer's ability to integrate cutting-edge technologies and deliver innovative solutions.</p>
+            <div class="technologies">Technologies: Rust, TensorFlow, RabbitMQ</div>
+            <a href="#" class="link">View Project</a>
+        </div>
+    </section>
+
+    <section id="cosmic-skills">
+        <div class="skill-orb">
+            <i class="fa fa-code"></i>
+            <div class="skill-name">Backend Development</div>
+        </div>
+        <div class="skill-orb">
+            <i class="fa fa-database"></i>
+            <div class="skill-name">Database Management</div>
+        </div>
+        <div class="skill-orb">
+            <i class="fa fa-microchip"></i>
+            <div class="skill-name">Microservices</div>
+        </div>
+        <div class="skill-orb">
+            <i class="fa fa-server"></i>
+            <div class="skill-name">Scalable Systems</div>
+        </div>
+        <div class="skill-orb">
+            <i class="fa fa-lock"></i>
+            <div class="skill-name">Security</div>
+        </div>
+        <div class="skill-orb</div>
+        <div class="skill-orb">
+            <i class="fa fa-cog"></i>
+            <div class="skill-name">DevOps</div>
+        </div>
+        <div class="skill-orb">
+            <i class="fa fa-rocket"></i>
+            <div class="skill-name">Deployment</div>
+        </div>
+        <div class="skill-orb">
+            <i class="fa fa-chart-line"></i>
+            <div class="skill-name">Performance</div>
+        </div>
+        <div class="skill-orb">
+            <i class="fa fa-brain"></i>
+            <div class="skill-name">Artificial Intelligence</div>
+        </div>
+    </section>
+
+    <section id="neon-contact">
+        <div class="neon-form">
+            <h2>Get in Touch</h2>
+            <form>
+                <input type="text" placeholder="Name" required>
+                <input type="email" placeholder="Email" required>
+                <textarea placeholder="Message" required></textarea>
+                <button type="submit">Submit</button>
+            </form>
+        </div>
+    </section>
+
+    <div class="steampunk-gear"></div>
+    <div class="steampunk-gear" style="top: 200px; left: 80%;"></div>
+    <div class="steampunk-gear" style="top: 500px; left: 20%;"></div>
+    <div class="vaporwave-glitch"></div>
+</body>
+</html>'<!-- Visit: https://github.com/Ishanoshada/portflair -->
+<!-- Visit: https://github.com/Ishanoshada/portflair -->

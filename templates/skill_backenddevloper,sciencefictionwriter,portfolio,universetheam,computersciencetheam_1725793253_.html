@@ -1,0 +1,529 @@
+<!-- Portfolio created by Ishan -->
+<!-- Check out my work at: https://github.com/Ishanoshada/portflair -->
+<!-- 2024/10/9 -->
+<!-- Portfolio created by Ishan -->
+'<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cosmic Code Chronicles | Backend Dev & Sci-Fi Writer</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Space+Mono&display=swap');
+
+        :root {
+            --space-black: #000033;
+            --deep-purple: #1a0033;
+            --neon-blue: #00ffff;
+            --neon-green: #00ff00;
+            --star-white: #ffffff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Space Mono', monospace;
+            background: linear-gradient(135deg, var(--space-black), var(--deep-purple));
+            color: var(--star-white);
+            overflow-x: hidden;
+        }
+
+        .cosmic-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+            border-bottom: 1px solid var(--neon-blue);
+        }
+
+        .logo {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 24px;
+            color: var(--neon-blue);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 20px;
+        }
+
+        .nav-links a {
+            color: var(--star-white);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--neon-green);
+        }
+
+        .hero {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('https://dummyimage.com/1920x1080/000033/ffffff&text=Cosmic+Background') no-repeat center center;
+            background-size: cover;
+            opacity: 0.5;
+            z-index: -1;
+        }
+
+        .hero h1 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 4rem;
+            margin-bottom: 20px;
+            text-shadow: 0 0 10px var(--neon-blue);
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin-bottom: 30px;
+        }
+
+        .cta-button {
+            background: linear-gradient(45deg, var(--neon-blue), var(--neon-green));
+            border: none;
+            padding: 12px 24px;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1rem;
+            color: var(--space-black);
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 255, 255, 0.4);
+        }
+
+        .galaxy-showcase {
+            height: 100vh;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .galaxy-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://dummyimage.com/1920x1080/000033/ffffff&text=Interactive+Galaxy') no-repeat center center;
+            background-size: cover;
+        }
+
+        .celestial-body {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .celestial-body:hover {
+            transform: scale(1.2);
+            box-shadow: 0 0 20px var(--neon-blue);
+        }
+
+        .star {
+            background-color: var(--star-white);
+            box-shadow: 0 0 10px var(--star-white);
+        }
+
+        .planet {
+            background-color: var(--neon-green);
+            box-shadow: 0 0 10px var(--neon-green);
+        }
+
+        .nebula {
+            background: linear-gradient(45deg, var(--neon-blue), var(--neon-green));
+            box-shadow: 0 0 15px var(--neon-blue);
+        }
+
+        .project-info {
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            background: rgba(0, 0, 51, 0.8);
+            padding: 20px;
+            border-radius: 10px;
+            max-width: 300px;
+        }
+
+        .project-info h3 {
+            font-family: 'Orbitron', sans-serif;
+            margin-bottom: 10px;
+        }
+
+        .terminal {
+            background-color: #1A1A1A;
+            border-radius: 10px;
+            padding: 20px;
+            font-family: 'Space Mono', monospace;
+            color: var(--neon-green);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .terminal::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(
+                to bottom,
+                rgba(255, 255, 255, 0.1) 50%,
+                rgba(0, 0, 0, 0.1) 50%
+            );
+            background-size: 100% 4px;
+            pointer-events: none;
+        }
+
+        .terminal-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+            font-family: 'Orbitron', sans-serif;
+            color: var(--neon-blue);
+        }
+
+        .terminal-content {
+            height: 300px;
+            overflow-y: auto;
+        }
+
+        .command-line {
+            display: flex;
+            margin-bottom: 5px;
+        }
+
+        .prompt {
+            color: var(--neon-blue);
+            margin-right: 10px;
+        }
+
+        .cursor {
+            display: inline-block;
+            width: 10px;
+            height: 20px;
+            background-color: var(--neon-green);
+            animation: blink 0.7s infinite;
+        }
+
+        @keyframes blink {
+            0%, 100% { opacity: 0; }
+            50% { opacity: 1; }
+        }
+
+        .skill-tree {
+            height: 100vh;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .skill-node {
+            position: absolute;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: radial-gradient(circle, var(--neon-blue), var(--neon-green));
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .skill-node:hover {
+            transform: scale(1.2);
+            box-shadow: 0 0 30px var(--neon-blue);
+        }
+
+        .skill-connection {
+            position: absolute;
+            height: 2px;
+            background: linear-gradient(to right, var(--neon-blue), var(--neon-green));
+            transform-origin: left center;
+        }
+
+        .skill-info {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: rgba(0, 0, 51, 0.8);
+            padding: 20px;
+            border-radius: 10px;
+            max-width: 300px;
+        }
+
+        .skill-info h3 {
+            font-family: 'Orbitron', sans-serif;
+            margin-bottom: 10px;
+        }
+
+        .skill-progress {
+            width: 100%;
+            height: 10px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 5px;
+            overflow: hidden;
+            margin-top: 10px;
+        }
+
+        .skill-progress-bar {
+            height: 100%;
+            background: linear-gradient(45deg, var(--neon-blue), var(--neon-green));
+            transition: width 0.5s ease;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            .galaxy-showcase, .skill-tree {
+                height: 50vh;
+            }
+
+            .terminal {
+                height: auto;
+            }
+
+            .skill-info {
+                position: static;
+                margin-top: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="cosmic-container">
+        <nav>
+            <div class="logo">Cosmic Code Chronicles</div>
+            <div class="nav-links">
+                <a href="#home">Home</a>
+                <a href="#projects">Projects</a>
+                <a href="#skills">Skills</a>
+                <a href="#contact">Contact</a>
+            </div>
+        </nav>
+
+        <section class="hero" id="home">
+            <h1>Backend Dev & Sci-Fi Writer</h1>
+            <p>Exploring the intersection of cutting-edge technology and boundless imagination</p>
+            <button class="cta-button">Embark on a Cosmic Journey</button>
+        </section>
+
+        <section class="galaxy-showcase" id="projects">
+            <div class="galaxy-container">
+                <div class="celestial-body star" style="top: 20%; left: 30%;" title="API Gateway Project"></div>
+                <div class="celestial-body planet" style="top: 40%; left: 60%;" title="Quantum Entanglement Novel"></div>
+                <div class="celestial-body nebula" style="top: 70%; left: 20%;" title="Microservices Architecture Series"></div>
+                <div class="celestial-body star" style="top: 30%; left: 80%;" title="Blockchain Integration"></div>
+                <div class="celestial-body planet" style="top: 60%; left: 40%;" title="Cybernetic Rebellion Trilogy"></div>
+            </div>
+            <div class="project-info">
+                <h3>Featured Project</h3>
+                <p>Hover over celestial bodies to explore projects. Click to dive deeper into the cosmic code.</p>
+            </div>
+        </section>
+
+        <section class="terminal">
+            <div class="terminal-header">
+                <span>Cosmic Terminal</span>
+                <span>v2.0.24</span>
+            </div>
+            <div class="terminal-content">
+                <div class="command-line">
+                    <span class="prompt">$</span>
+                    <span>initialize_quantum_compiler</span>
+                </div>
+                <div>Quantum states aligned. Awaiting input...</div>
+                <div class="command-line">
+                    <span class="prompt">$</span>
+                    <span>deploy_neural_network_ai</span>
+                </div>
+                <div>AI consciousness expanding. Sentience level: 42%</div>
+                <div class="command-line">
+                    <span class="prompt">$</span>
+                    <span>generate_scifi_plot</span>
+                </div>
+                <div>Plot generated: "The Silicon Singularity"</div>
+                <div class="command-line">
+                    <span class="prompt">$</span>
+                    <span>optimize_warp_drive</span>
+                </div>
+                <div>Warp field stabilized. Time-space coordinates calibrated.</div>
+                <div class="command-line">
+                    <span class="prompt">$</span>
+                    <span><span class="cursor"></span></span>
+                </div>
+            </div>
+        </section>
+
+<style>
+.skill-tree {
+            height: 100vh;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .skill-node {
+            position: absolute;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: radial-gradient(circle, var(--neon-blue), var(--neon-green));
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .skill-node:hover {
+            transform: scale(1.2);
+            box-shadow: 0 0 30px var(--neon-blue);
+        }
+
+        .skill-connection {
+            position: absolute;
+            height: 2px;
+            background: linear-gradient(to right, var(--neon-blue), var(--neon-green));
+            transform-origin: left center;
+        }
+
+        .skill-info {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: rgba(0, 0, 51, 0.8);
+            padding: 20px;
+            border-radius: 10px;
+            max-width: 300px;
+        }
+
+        .skill-info h3 {
+            font-family: 'Orbitron', sans-serif;
+            margin-bottom: 10px;
+        }
+
+        .skill-progress {
+            width: 100%;
+            height: 10px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 5px;
+            overflow: hidden;
+            margin-top: 10px;
+        }
+
+        .skill-progress-bar {
+            height: 100%;
+            background: linear-gradient(45deg, var(--neon-blue), var(--neon-green));
+            transition: width 0.5s ease;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            .galaxy-showcase, .skill-tree {
+                height: 50vh;
+            }
+
+            .terminal {
+                height: auto;
+            }
+
+            .skill-info {
+                position: static;
+                margin-top: 20px;
+            }
+        }
+
+</style>
+       <section class="skill-tree" id="skills">
+    <div class="skill-node" style="top: 20%; left: 30%;" title="JavaScript"></div>
+    <div class="skill-node" style="top: 40%; left: 60%;" title="Node.js"></div>
+    <div class="skill-node" style="top: 70%; left: 20%;" title="Python"></div>
+    <div class="skill-node" style="top: 30%; left: 80%;" title="Go"></div>
+    <div class="skill-node" style="top: 60%; left: 40%;" title="Ruby"></div>
+    <!-- Update connections as needed -->
+    <div class="skill-connection" style="top: 22%; left: 32%; width: 200px; transform: rotate(30deg);"></div>
+    <div class="skill-connection" style="top: 42%; left: 62%; width: 150px; transform: rotate(-45deg);"></div>
+    <div class="skill-info">
+        <h3>Skill: JavaScript</h3>
+        <p>Expertise in creating interactive web applications and dynamic user interfaces.</p>
+        <div class="skill-progress">
+            <div class="skill-progress-bar" style="width: 90%;"></div>
+        </div>
+    </div>
+</section>
+
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const celestialBodies = document.querySelectorAll('.celestial-body');
+            const projectInfo = document.querySelector('.project-info');
+
+            celestialBodies.forEach(body => {
+                body.addEventListener('mouseover', () => {
+                    projectInfo.innerHTML = `
+                        <h3>${body.title}</h3>
+                        <p>Explore the depths of ${body.title}. Click to uncover its cosmic secrets.</p>
+                    `;
+                });
+            });
+
+            const skillNodes = document.querySelectorAll('.skill-node');
+            const skillInfo = document.querySelector('.skill-info');
+
+            skillNodes.forEach(node => {
+                node.addEventListener('mouseover', () => {
+                    skillInfo.innerHTML = `
+                        <h3>Skill: ${node.title}</h3>
+                        <p>Mastery of ${node.title} for innovative solutions and cosmic creations.</p>
+                        <div class="skill-progress">
+                            <div class="skill-progress-bar" style="width: ${Math.random() * 100}%;"></div>
+                        </div>
+                    `;
+                });
+            });
+        });
+    </script>
+</body>
+</html>'<!-- Visit: https://github.com/Ishanoshada/portflair -->
+<!-- Visit: https://github.com/Ishanoshada/portflair -->

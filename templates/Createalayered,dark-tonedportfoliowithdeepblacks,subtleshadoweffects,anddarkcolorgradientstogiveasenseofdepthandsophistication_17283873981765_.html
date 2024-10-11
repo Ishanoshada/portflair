@@ -1,0 +1,456 @@
+<!-- Portfolio created by Ishan -->
+<!-- Check out my work at: https://github.com/Ishanoshada/portflair -->
+<!-- 2024/10/9 -->
+<!-- Portfolio created by Ishan -->
+'<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Darkly Sophisticated Portfolio</title>
+  <style>
+    /* Global Styles */
+    body {
+      font-family: 'Montserrat', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #0f0f0f;
+      color: #f0f0f0;
+    }
+
+    /* Navigation Bar */
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.5rem 3rem;
+      background-color: #131313;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    .navbar-brand {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: #f0f0f0;
+      text-decoration: none;
+    }
+
+    .navbar-nav {
+      display: flex;
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .navbar-nav li {
+      margin-left: 2rem;
+    }
+
+    .navbar-nav li a {
+      color: #f0f0f0;
+      text-decoration: none;
+      font-size: 1.1rem;
+      position: relative;
+      padding-bottom: 0.25rem;
+    }
+
+    .navbar-nav li a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 0;
+      height: 2px;
+      background-color: #5c5c5c;
+      transition: width 0.3s ease-in-out;
+    }
+
+    .navbar-nav li a:hover::after {
+      width: 100%;
+    }
+
+    /* Featured Projects Section */
+    .featured-projects {
+      padding: 4rem 3rem;
+    }
+
+    .featured-projects-title {
+      font-size: 2.5rem;
+      font-weight: bold;
+      margin-bottom: 2rem;
+      text-align: center;
+      text-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+    }
+
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      grid-gap: 2rem;
+    }
+
+    .project-card {
+      background-color: #1a1a1a;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      overflow: hidden;
+      transition: transform 0.3s ease-in-out;
+    }
+
+    .project-card:hover {
+      transform: translateY(-10px);
+    }
+
+    .project-thumbnail {
+      width: 100%;
+      height: 200px;
+      background-image: url('https://dummyimage.com/600x400/333/fff&text=Project+Thumbnail');
+      background-size: cover;
+      background-position: center;
+      position: relative;
+    }
+
+    .project-thumbnail::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(to bottom, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.6));
+      transition: opacity 0.3s ease-in-out;
+      opacity: 0;
+    }
+
+    .project-card:hover .project-thumbnail::before {
+      opacity: 1;
+    }
+
+    .project-details {
+      padding: 1.5rem;
+    }
+
+    .project-title {
+      font-size: 1.5rem;
+      font-weight: bold;
+      margin-bottom: 0.5rem;
+    }
+
+    .project-description {
+      font-size: 1rem;
+      line-height: 1.5;
+      margin-bottom: 1rem;
+    }
+
+    .view-project-btn {
+      display: inline-block;
+      background-color: #5c5c5c;
+      color: #f0f0f0;
+      padding: 0.75rem 1.5rem;
+      border-radius: 4px;
+      text-decoration: none;
+      font-size: 1rem;
+      transition: background-color 0.3s ease-in-out;
+    }
+
+    .view-project-btn:hover {
+      background-color: #7c7c7c;
+    }
+
+    /* About Me Section */
+    .about-me {
+      padding: 4rem 3rem;
+      display: flex;
+      align-items: center;
+      background-color: #131313;
+      box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    .about-me-image {
+      flex: 0 0 300px;
+      height: 300px;
+      background-image: url('https://dummyimage.com/300x300/333/fff&text=Designer+Portrait');
+      background-size: cover;
+      background-position: center;
+      border-radius: 50%;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+      margin-right: 3rem;
+    }
+
+    .about-me-content {
+      flex: 1;
+    }
+
+    .about-me-title {
+      font-size: 2.5rem;
+      font-weight: bold;
+      margin-bottom: 1.5rem;
+      text-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+    }
+
+    .about-me-text {
+      font-size: 1.1rem;
+      line-height: 1.6;
+      margin-bottom: 2rem;
+    }
+
+    .skill-icons {
+      display: flex;
+      flex-wrap: wrap;
+      margin-bottom: 2rem;
+    }
+
+    .skill-icon {
+      width: 50px;
+      height: 50px;
+      background-color: #5c5c5c;
+      border-radius: 50%;
+      margin-right: 1rem;
+      margin-bottom: 1rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 1.5rem;
+      color: #f0f0f0;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+      transition: transform 0.3s ease-in-out;
+    }
+
+    .skill-icon:hover {
+      transform: scale(1.1);
+    }
+
+    .contact-btn {
+      display: inline-block;
+      background-color: #5c5c5c;
+      color: #f0f0f0;
+      padding: 0.75rem 1.5rem;
+      border-radius: 4px;
+      text-decoration: none;
+      font-size: 1rem;
+      transition: background-color 0.3s ease-in-out;
+    }
+
+    .contact-btn:hover {
+      background-color: #7c7c7c;
+    }
+
+    /* Testimonials Section */
+    .testimonials {
+      padding: 4rem 3rem;
+    }
+
+    .testimonials-title {
+      font-size: 2.5rem;
+      font-weight: bold;
+      margin-bottom: 2rem;
+      text-align: center;
+      text-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+    }
+
+    .testimonial-carousel {
+      display: flex;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      scroll-behavior: smooth;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+    }
+
+    .testimonial-carousel::-webkit-scrollbar {
+      display: none;
+    }
+
+    .testimonial-card {
+      flex: 0 0 400px;
+      background-color: #1a1a1a;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      padding: 2rem;
+      margin-right: 2rem;
+      scroll-snap-align: start;
+    }
+
+    .testimonial-text {
+      font-size: 1.1rem;
+      line-height: 1.6;
+      margin-bottom: 1.5rem;
+    }
+
+    .testimonial-author {
+      display: flex;
+      align-items: center;
+    }
+
+    .testimonial-author-image {
+      width: 50px;
+      height: 50px;
+      background-image: url('https://dummyimage.com/50x50/333/fff&text=Author');
+      background-size: cover;
+      background-position: center;
+      border-radius: 50%;
+      margin-right: 1rem;
+    }
+
+    .testimonial-author-name {
+      font-size: 1.1rem;
+      font-weight: bold;
+    }
+
+    .testimonial-author-role {
+      font-size: 0.9rem;
+      color: #8c8c8c;
+    }
+
+    /* Media Queries */
+    @media (max-width: 768px) {
+      .navbar {
+        padding: 1rem 2rem;
+      }
+
+      .featured-projects,
+      .about-me,
+      .testimonials {
+        padding: 3rem 2rem;
+      }
+
+      .project-grid {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      }
+
+      .about-me {
+        flex-direction: column;
+      }
+
+      .about-me-image {
+        flex: 0 0 200px;
+        height: 200px;
+        margin-right: 0;
+        margin-bottom: 2rem;
+      }
+
+      .testimonial-card {
+        flex: 0 0 300px;
+        padding: 1.5rem;
+        margin-right: 1.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation Bar -->
+  <nav class="navbar">
+    <a href="#" class="navbar-brand">Darkly Sophisticated</a>
+    <ul class="navbar-nav">
+      <li><a href="#">Home</a></li>
+      <li><a href="#">About</a></li>
+      <li><a href="#">Projects</a></li>
+      <li><a href="#">Testimonials</a></li>
+      <li><a href="#">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- Featured Projects Section -->
+  <section class="featured-projects">
+    <h2 class="featured-projects-title">Featured Projects</h2>
+    <div class="project-grid">
+      <div class="project-card">
+        <div class="project-thumbnail"></div>
+        <div class="project-details">
+          <h3 class="project-title">Project 1</h3>
+          <p class="project-description">A captivating project that showcases my design expertise.</p>
+          <a href="#" class="view-project-btn">View Project</a>
+        </div>
+      </div>
+      <div class="project-card">
+        <div class="project-thumbnail"></div>
+        <div class="project-details">
+          <h3 class="project-title">Project 2</h3>
+          <p class="project-description">An innovative design that pushes the boundaries of creativity.</p>
+          <a href="#" class="view-project-btn">View Project</a>
+        </div>
+      </div>
+      <div class="project-card">
+        <div class="project-thumbnail"></div>
+        <div class="project-details">
+          <h3 class="project-title">Project 3</h3>
+          <p class="project-description">A visually striking project that captivates the audience.</p>
+          <a href="#" class="view-project-btn">View Project</a>
+        </div>
+      </div>
+      <div class="project-card">
+        <div class="project-thumbnail"></div>
+        <div class="project-details">
+          <h3 class="project-title">Project 4</h3>
+          <p class="project-description">A thoughtfully designed project that showcases my attention to detail.</p>
+          <a href="#" class="view-project-btn">View Project</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Me Section -->
+  <section class="about-me">
+    <div class="about-me-image"></div>
+    <div class="about-me-content">
+      <h2 class="about-me-title">About Me</h2>
+      <p class="about-me-text">As a passionate designer, I strive to create visually stunning and captivating experiences. With a deep understanding of design principles and a keen eye for detail, I specialize in crafting sophisticated and layered portfolios that evoke a sense of depth and sophistication.</p>
+      <div class="skill-icons">
+        <div class="skill-icon">
+          <i class="fas fa-paint-brush"></i>
+        </div>
+        <div class="skill-icon">
+          <i class="fas fa-code"></i>
+        </div>
+        <div class="skill-icon">
+          <i class="fas fa-palette"></i>
+        </div>
+        <div class="skill-icon">
+          <i class="fas fa-mobile-alt"></i>
+        </div>
+        <div class="skill-icon">
+          <i class="fas fa-desktop"></i>
+        </div>
+      </div>
+      <a href="#" class="contact-btn">Contact Me</a>
+    </div>
+  </section>
+
+  <!-- Testimonials Section -->
+  <section class="testimonials">
+    <h2 class="testimonials-title">What People Say</h2>
+    <div class="testimonial-carousel">
+      <div class="testimonial-card">
+        <p class="testimonial-text">"The designer's portfolio is truly a work of art. The depth and sophistication of the designs are unparalleled."</p>
+        <div class="testimonial-author">
+          <div class="testimonial-author-image"></div>
+          <div>
+            <h4 class="testimonial-author-name">John Doe</h4>
+            <p class="testimonial-author-role">Creative Director</p>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-card">
+        <p class="testimonial-text">"Stunning visuals, impeccable attention to detail, and a truly captivating user experience. This portfolio sets the standard for modern design."</p>
+        <div class="testimonial-author">
+          <div class="testimonial-author-image"></div>
+          <div>
+            <h4 class="testimonial-author-name">Jane Smith</h4>
+            <p class="testimonial-author-role">Art Director</p>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-card">
+        <p class="testimonial-text">"I've been blown away by the designer's ability to create a portfolio that is both visually striking and functionally brilliant. Truly impressive work."</p>
+        <div class="testimonial-author">
+          <div class="testimonial-author-image"></div>
+          <div>
+            <h4 class="testimonial-author-</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</body>
+</html>'<!-- Visit: https://github.com/Ishanoshada/portflair -->
+<!-- Visit: https://github.com/Ishanoshada/portflair -->

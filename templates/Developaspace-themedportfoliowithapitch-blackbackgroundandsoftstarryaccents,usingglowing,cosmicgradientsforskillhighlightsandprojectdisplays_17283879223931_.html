@@ -1,0 +1,363 @@
+<!-- Portfolio created by Ishan -->
+<!-- Check out my work at: https://github.com/Ishanoshada/portflair -->
+<!-- 2024/10/9 -->
+<!-- Portfolio created by Ishan -->
+'<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Develop a Space-Themed Portfolio</title>
+  <style>
+    /* Global Styles */
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Orbitron', sans-serif;
+      background-color: #000000;
+      color: #ffffff;
+      overflow-x: hidden;
+    }
+
+    /* Navbar Styles */
+    nav {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 20px 0;
+      background-color: rgba(0, 0, 0, 0.5);
+      backdrop-filter: blur(10px);
+      position: relative;
+      z-index: 100;
+    }
+
+    nav a {
+      color: #ffffff;
+      text-decoration: none;
+      font-size: 18px;
+      margin: 0 20px;
+      position: relative;
+      transition: color 0.3s ease;
+    }
+
+    nav a:before {
+      content: "";
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background-image: linear-gradient(to right, #ff00ff, #00ffff);
+      transition: width 0.3s ease;
+    }
+
+    nav a:hover {
+      color: #ff00ff;
+    }
+
+    nav a:hover:before {
+      width: 100%;
+    }
+
+    /* Hero Section Styles */
+    .hero {
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero:before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.2));
+      z-index: 1;
+    }
+
+    .hero:after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: url("https://dummyimage.com/1920x1080/000/fff&text=Starry+Background");
+      background-size: cover;
+      background-position: center;
+      animation: starry-background 60s linear infinite;
+      z-index: 0;
+    }
+
+    @keyframes starry-background {
+      0% {
+        transform: scale(1);
+      }
+      100% {
+        transform: scale(1.1);
+      }
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+    }
+
+    .hero-title {
+      font-size: 6rem;
+      font-weight: bold;
+      background-image: linear-gradient(to right, #ff00ff, #00ffff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: glow 2s ease-in-out infinite;
+    }
+
+    @keyframes glow {
+      0%, 100% {
+        text-shadow: 0 0 20px #ff00ff, 0 0 50px #ff00ff, 0 0 80px #ff00ff;
+      }
+      50% {
+        text-shadow: 0 0 20px #00ffff, 0 0 50px #00ffff, 0 0 80px #00ffff;
+      }
+    }
+
+    .hero-subtitle {
+      font-size: 2rem;
+      background-image: linear-gradient(to right, #ff00ff, #00ffff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: pulse 2s ease-in-out infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% {
+        transform: scale(1);
+      }
+      50% {
+        transform: scale(1.1);
+      }
+    }
+
+    /* Skills Section Styles */
+    .skills {
+      padding: 100px 0;
+      background-color: #111111;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .skills:before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: url("https://dummyimage.com/1920x1080/111/fff&text=Starry+Background");
+      background-size: cover;
+      background-position: center;
+      animation: starry-background 60s linear infinite;
+      opacity: 0.5;
+      z-index: 0;
+    }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      grid-gap: 50px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .skill-card {
+      background-image: linear-gradient(to right, #ff00ff, #00ffff);
+      padding: 40px;
+      border-radius: 20px;
+      box-shadow: 0 0 20px rgba(255, 0, 255, 0.5), 0 0 40px rgba(0, 255, 255, 0.5);
+      transition: transform 0.3s ease;
+    }
+
+    .skill-card:hover {
+      transform: scale(1.05);
+    }
+
+    .skill-title {
+      font-size: 2rem;
+      font-weight: bold;
+      background-image: linear-gradient(to right, #ff00ff, #00ffff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .skill-description {
+      font-size: 1.2rem;
+      color: #cccccc;
+    }
+
+    /* Project Showcase Styles */
+    .projects {
+      padding: 100px 0;
+      background-color: #000000;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .projects:before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: url("https://dummyimage.com/1920x1080/000/fff&text=Starry+Background");
+      background-size: cover;
+      background-position: center;
+      animation: starry-background 60s linear infinite;
+      opacity: 0.5;
+      z-index: 0;
+    }
+
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      grid-gap: 50px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .project-card {
+      background-image: linear-gradient(to right, #ff00ff, #00ffff);
+      border-radius: 20px;
+      box-shadow: 0 0 20px rgba(255, 0, 255, 0.5), 0 0 40px rgba(0, 255, 255, 0.5);
+      overflow: hidden;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+
+    .project-card:hover {
+      transform: scale(1.05);
+    }
+
+    .project-card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+
+    .project-details {
+      padding: 20px;
+    }
+
+    .project-title {
+      font-size: 1.8rem;
+      font-weight: bold;
+      background-image: linear-gradient(to right, #ff00ff, #00ffff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .project-description {
+      font-size: 1.2rem;
+      color: #cccccc;
+    }
+
+    /* Responsive Styles */
+    @media (max-width: 768px) {
+      .hero-title {
+        font-size: 4rem;
+      }
+
+      .hero-subtitle {
+        font-size: 1.5rem;
+      }
+
+      .skill-title {
+        font-size: 1.8rem;
+      }
+
+      .skill-description {
+        font-size: 1rem;
+      }
+
+      .project-title {
+        font-size: 1.5rem;
+      }
+
+      .project-description {
+        font-size: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="#">Home</a>
+    <a href="#">About</a>
+    <a href="#">Skills</a>
+    <a href="#">Projects</a>
+    <a href="#">Contact</a>
+  </nav>
+
+  <section class="hero">
+    <div class="hero-content">
+      <h1 class="hero-title">Develop a Space-Themed Portfolio</h1>
+      <p class="hero-subtitle">Explore the cosmos with our captivating designs</p>
+    </div>
+  </section>
+
+  <section class="skills">
+    <div class="skills-grid">
+      <div class="skill-card">
+        <h2 class="skill-title">Web Development</h2>
+        <p class="skill-description">Crafting responsive and visually stunning websites</p>
+      </div>
+      <div class="skill-card">
+        <h2 class="skill-title">Graphic Design</h2>
+        <p class="skill-description">Creating captivating and cosmic-inspired visuals</p>
+      </div>
+      <div class="skill-card">
+        <h2 class="skill-title">UI/UX Design</h2>
+        <p class="skill-description">Designing intuitive and immersive user experiences</p>
+      </div>
+      <div class="skill-card">
+        <h2 class="skill-title">Motion Graphics</h2>
+        <p class="skill-description">Bringing your ideas to life with mesmerizing animations</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="projects">
+    <div class="project-grid">
+      <div class="project-card">
+        <img src="https://dummyimage.com/600x400/ccc/000&text=Project+1" alt="Project 1">
+        <div class="project-details">
+          <h2 class="project-title">Project 1</h2>
+          <p class="project-description">A captivating space-themed website with glowing gradients</p>
+        </div>
+      </div>
+      <div class="project-card">
+        <img src="https://dummyimage.com/600x400/ccc/000&text=Project+2" alt="Project 2">
+        <div class="project-details">
+          <h2 class="project-title">Project 2</h2>
+          <p class="project-description">An interactive data visualization with a cosmic twist</p>
+        </div>
+      </div>
+      <div class="project-card">
+        <img src="https://dummyimage.com/600x400/ccc/000&text=Project+3" alt="Project 3">
+        <div class="project-details">
+          <h2 class="project-title">Project 3</h2>
+          <p class="project-description">A mobile app design featuring a deep-space aesthetic</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</body>
+</html>'<!-- Visit: https://github.com/Ishanoshada/portflair -->
+<!-- Visit: https://github.com/Ishanoshada/portflair -->

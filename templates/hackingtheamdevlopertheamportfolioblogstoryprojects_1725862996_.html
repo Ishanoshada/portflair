@@ -1,0 +1,537 @@
+<!-- Portfolio created by Ishan -->
+<!-- Check out my work at: https://github.com/Ishanoshada/portflair -->
+<!-- 2024/10/9 -->
+<!-- Portfolio created by Ishan -->
+'<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CyberNexus | Hacking-Themed Developer Portfolio</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Share+Tech+Mono&display=swap');
+
+        :root {
+            --bg-primary: #0a0a0a;
+            --bg-secondary: #1a1a1a;
+            --text-primary: #00ff00;
+            --text-secondary: #ffffff;
+            --accent-primary: #00ffff;
+            --accent-secondary: #ff00ff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Share Tech Mono', monospace;
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        header {
+            background-color: rgba(0, 0, 0, 0.8);
+            padding: 20px 0;
+            position: relative;
+            z-index: 1000;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--accent-primary);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            text-shadow: 0 0 10px var(--accent-primary);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 20px;
+        }
+
+        .nav-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--accent-primary);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, #000033, #000066);
+            opacity: 0.7;
+            z-index: -1;
+        }
+
+        .hero-content {
+            z-index: 1;
+        }
+
+        .hero h1 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 48px;
+            margin-bottom: 20px;
+            color: var(--accent-primary);
+            text-shadow: 0 0 10px var(--accent-primary);
+            animation: glitch 5s infinite;
+        }
+
+        .hero p {
+            font-size: 18px;
+            margin-bottom: 30px;
+            color: var(--text-secondary);
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 12px 24px;
+            background-color: var(--accent-primary);
+            color: var(--bg-primary);
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(
+                120deg,
+                transparent,
+                rgba(255, 255, 255, 0.3),
+                transparent
+            );
+            transition: all 0.5s;
+        }
+
+        .cta-button:hover::before {
+            left: 100%;
+        }
+
+        .projects {
+            padding: 80px 0;
+            background-color: var(--bg-secondary);
+            position: relative;
+        }
+
+        .projects::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: url('https://dummyimage.com/1200x800/000/0ff&text=Circuit+Pattern');
+            opacity: 0.1;
+            z-index: 0;
+        }
+
+        .section-title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 36px;
+            text-align: center;
+            margin-bottom: 40px;
+            color: var(--accent-primary);
+            text-shadow: 0 0 10px var(--accent-primary);
+        }
+
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .project-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 10px;
+            padding: 20px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .project-card::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            background: linear-gradient(45deg, #00ffff, #ff00ff, #00ffff);
+            z-index: -1;
+            filter: blur(10px);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .project-card:hover::before {
+            opacity: 1;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .project-card h3 {
+            font-family: 'Orbitron', sans-serif;
+            color: var(--accent-primary);
+            margin-bottom: 10px;
+        }
+
+        .project-card p {
+            color: var(--text-secondary);
+            font-size: 14px;
+            margin-bottom: 15px;
+        }
+
+        .project-link {
+            display: inline-block;
+            padding: 8px 16px;
+            background-color: var(--accent-secondary);
+            color: var(--text-secondary);
+            text-decoration: none;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+
+        .project-link:hover {
+            background-color: var(--accent-primary);
+            color: var(--bg-primary);
+        }
+
+        .blog {
+            padding: 80px 0;
+            background-color: var(--bg-primary);
+            position: relative;
+        }
+
+        .blog::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(rgba(0, 255, 0, 0.05) 1px, transparent 1px),
+                        linear-gradient(90deg, rgba(0, 255, 0, 0.05) 1px, transparent 1px);
+            background-size: 20px 20px;
+            z-index: 0;
+        }
+
+        .blog-post {
+            background-color: rgba(0, 0, 0, 0.7);
+            border-radius: 5px;
+            padding: 20px;
+            margin-bottom: 30px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .blog-post h3 {
+            color: var(--accent-primary);
+            margin-bottom: 10px;
+            font-family: 'Orbitron', sans-serif;
+        }
+
+        .blog-post-meta {
+            font-size: 14px;
+            color: var(--text-secondary);
+            margin-bottom: 10px;
+        }
+
+        .blog-post p {
+            margin-bottom: 15px;
+        }
+
+        .read-more {
+            color: var(--accent-secondary);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .read-more:hover {
+            color: var(--accent-primary);
+            text-decoration: underline;
+        }
+
+        .skills {
+            padding: 80px 0;
+            background: linear-gradient(45deg, #000033, #000066);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .skills-container {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+
+        .skill-item {
+            text-align: center;
+            margin: 20px;
+            position: relative;
+        }
+
+        .skill-circle {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            border: 5px solid var(--accent-primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            font-weight: bold;
+            color: var(--text-secondary);
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .skill-circle::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: conic-gradient(
+                var(--accent-primary) var(--percentage),
+                transparent var(--percentage)
+            );
+            opacity: 0.3;
+            transition: all 0.3s ease;
+        }
+
+        .skill-circle:hover::before {
+            opacity: 0.7;
+        }
+
+        .skill-name {
+            margin-top: 10px;
+            font-family: 'Orbitron', sans-serif;
+            color: var(--accent-secondary);
+        }
+
+        @keyframes glitch {
+            0% {
+                text-shadow: 0.05em 0 0 var(--accent-secondary), -0.05em -0.025em 0 var(--accent-primary),
+                    -0.025em 0.05em 0 var(--text-primary);
+            }
+            14% {
+                text-shadow: 0.05em 0 0 var(--accent-secondary), -0.05em -0.025em 0 var(--accent-primary),
+                    -0.025em 0.05em 0 var(--text-primary);
+            }
+            15% {
+                text-shadow: -0.05em -0.025em 0 var(--accent-secondary), 0.025em 0.025em 0 var(--accent-primary),
+                    -0.05em -0.05em 0 var(--text-primary);
+            }
+            49% {
+                text-shadow: -0.05em -0.025em 0 var(--accent-secondary), 0.025em 0.025em 0 var(--accent-primary),
+                    -0.05em -0.05em 0 var(--text-primary);
+            }
+            50% {
+                text-shadow: 0.025em 0.05em 0 var(--accent-secondary), 0.05em 0 0 var(--accent-primary),
+                    0 -0.05em 0 var(--text-primary);
+            }
+            99% {
+                text-shadow: 0.025em 0.05em 0 var(--accent-secondary), 0.05em 0 0 var(--accent-primary),
+                    0 -0.05em 0 var(--text-primary);
+            }
+            100% {
+                text-shadow: -0.025em 0 0 var(--accent-secondary), -0.025em -0.025em 0 var(--accent-primary),
+                    -0.025em -0.05em 0 var(--text-primary);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 36px;
+            }
+
+            .hero p {
+                font-size: 16px;
+            }
+
+            .project-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .skill-circle {
+                width: 120px;
+                height: 120px;
+                font-size: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="container">
+            <div class="logo">CyberNexus</div>
+            <div class="nav-links">
+                <a href="#projects">Projects</a>
+                <a href="#blog">Blog</a>
+                <a href="#skills">Skills</a>
+                <a href="#contact">Contact</a>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="hero-content">
+                <h1>Welcome to CyberNexus</h1>
+                <p>Explore the world of ethical hacking and cybersecurity</p>
+                <a href="#projects" class="cta-button">View Projects</a>
+            </div>
+        </section>
+
+        <section id="projects" class="projects">
+            <div class="container">
+                <h2 class="section-title">Featured Projects</h2>
+                <div class="project-grid">
+                    <div class="project-card">
+                        <h3>NetSentry</h3>
+                        <p>Advanced network monitoring tool with real-time threat detection.</p>
+                        <a href="#" class="project-link">Learn More</a>
+                    </div>
+                    <div class="project-card">
+                        <h3>CryptoShield</h3>
+                        <p>End-to-end encryption solution for secure communication.</p>
+                        <a href="#" class="project-link">Learn More</a>
+                    </div>
+                    <div class="project-card">
+                        <h3>VulnScanner</h3>
+                        <p>Automated vulnerability assessment and penetration testing framework.</p>
+                        <a href="#" class="project-link">Learn More</a>
+                    </div>
+                    <div class="project-card">
+                        <h3>PhishGuard</h3>
+                        <p>AI-powered phishing detection and prevention system.</p>
+                        <a href="#" class="project-link">Learn More</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="blog" class="blog">
+            <div class="container">
+                <h2 class="section-title">Hacking Stories</h2>
+                <div class="blog-post">
+                    <h3>> The Great Firewall Bypass</h3><p class="blog-post-meta">[2024-06-20] [10 min read]</p>
+                    <p>In this thrilling tale, we explore how a team of ethical hackers managed to circumvent the infamous Great Firewall of China...</p>
+                    <a href="#" class="read-more">Read More</a>
+                </div>
+                <div class="blog-post">
+                    <h3>> Unmasking the Shadow Brokers</h3>
+                    <p class="blog-post-meta">[2024-06-15] [8 min read]</p>
+                    <p>Dive into the mysterious world of the Shadow Brokers, a hacker group that shook the cybersecurity community to its core...</p>
+                    <a href="#" class="read-more">Read More</a>
+                </div>
+                <div class="blog-post">
+                    <h3>> The Art of Social Engineering</h3>
+                    <p class="blog-post-meta">[2024-06-10] [12 min read]</p>
+                    <p>Discover the psychological tricks and techniques used by hackers to manipulate human behavior and gain unauthorized access...</p>
+                    <a href="#" class="read-more">Read More</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="skills" class="skills">
+            <div class="container">
+                <h2 class="section-title">Skills Matrix</h2>
+                <div class="skills-container">
+                    <div class="skill-item">
+                        <div class="skill-circle" style="--percentage: 90%;">90%</div>
+                        <p class="skill-name">Network Security</p>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-circle" style="--percentage: 85%;">85%</div>
+                        <p class="skill-name">Cryptography</p>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-circle" style="--percentage: 95%;">95%</div>
+                        <p class="skill-name">Web App Security</p>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-circle" style="--percentage: 80%;">80%</div>
+                        <p class="skill-name">Reverse Engineering</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer id="contact" style="background-color: var(--bg-secondary); color: var(--text-secondary); text-align: center; padding: 20px 0;">
+        <div class="container">
+            <p>&copy; 2024 CyberNexus. All rights reserved.</p>
+            <p>Contact: <a href="mailto:info@cybernexus.com" style="color: var(--accent-primary);">info@cybernexus.com</a></p>
+        </div>
+    </footer>
+</body>
+</html>'<!-- Visit: https://github.com/Ishanoshada/portflair -->
+<!-- Visit: https://github.com/Ishanoshada/portflair -->

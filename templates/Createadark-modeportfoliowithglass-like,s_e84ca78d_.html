@@ -1,0 +1,546 @@
+<!-- Portfolio created by Ishan -->
+<!-- Check out my work at: https://github.com/Ishanoshada/portflair -->
+<!-- 2024/10/9 -->
+<!-- Portfolio created by Ishan -->
+'<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dark Mode Portfolio</title>
+  <style>
+    /* Global Styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Montserrat', sans-serif;
+    }
+
+    body {
+      background-color: #151515;
+      color: #f1f1f1;
+      overflow-x: hidden;
+    }
+
+    /* Navigation Bar */
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.5rem 3rem;
+      background-color: rgba(21, 21, 21, 0.8);
+      backdrop-filter: blur(10px);
+    }
+
+    .navbar-brand {
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: #f1f1f1;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    .navbar-brand:hover {
+      color: #b3b3b3;
+    }
+
+    .navbar-nav {
+      display: flex;
+      list-style-type: none;
+    }
+
+    .nav-item {
+      margin-left: 2rem;
+    }
+
+    .nav-link {
+      font-size: 1.1rem;
+      font-weight: 500;
+      color: #f1f1f1;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    .nav-link:hover {
+      color: #b3b3b3;
+    }
+
+    /* Hero Section */
+    .hero-section {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 80vh;
+      background-image: linear-gradient(to bottom, rgba(21, 21, 21, 0.8), rgba(21, 21, 21, 0.9)), url('https://dummyimage.com/1920x1080/151515/f1f1f1.jpg&text=Dark+Mode+Portfolio');
+      background-size: cover;
+      background-position: center;
+      overflow: hidden;
+    }
+
+    .hero-title {
+      font-size: 4rem;
+      font-weight: 700;
+      text-align: center;
+      margin-bottom: 1rem;
+      text-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+    }
+
+    .hero-subtitle {
+      font-size: 1.8rem;
+      font-weight: 500;
+      text-align: center;
+      margin-bottom: 3rem;
+      text-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+    }
+
+    .portfolio-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-gap: 2rem;
+      width: 80%;
+      margin-top: 3rem;
+    }
+
+    .portfolio-item {
+      position: relative;
+      overflow: hidden;
+      border-radius: 0.5rem;
+      box-shadow: 0 0 50px rgba(255, 255, 255, 0.1);
+      transition: transform 0.3s ease;
+    }
+
+    .portfolio-item:hover {
+      transform: scale(1.05);
+    }
+
+    .portfolio-item img {
+      width: 100%;
+      height: 250px;
+      object-fit: cover;
+      opacity: 0.7;
+      transition: opacity 0.3s ease;
+    }
+
+    .portfolio-item:hover img {
+      opacity: 1;
+    }
+
+    .portfolio-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(21, 21, 21, 0.7);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .portfolio-item:hover .portfolio-overlay {
+      opacity: 1;
+    }
+
+    .portfolio-title {
+      font-size: 1.5rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+      text-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+    }
+
+    .portfolio-description {
+      font-size: 1.1rem;
+      text-align: center;
+      padding: 0 1rem;
+      text-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+    }
+
+    /* About Section */
+    .about-section {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 6rem 3rem;
+      background-color: rgba(21, 21, 21, 0.8);
+      backdrop-filter: blur(10px);
+    }
+
+    .about-content {
+      display: flex;
+      align-items: center;
+      max-width: 1200px;
+    }
+
+    .about-image {
+      flex: 0 0 300px;
+      margin-right: 3rem;
+      border-radius: 50%;
+      overflow: hidden;
+      box-shadow: 0 0 50px rgba(255, 255, 255, 0.1);
+    }
+
+    .about-image img {
+      width: 100%;
+      height: auto;
+      object-fit: cover;
+      opacity: 0.8;
+      transition: opacity 0.3s ease;
+    }
+
+    .about-image:hover img {
+      opacity: 1;
+    }
+
+    .about-text {
+      flex: 1;
+    }
+
+    .about-title {
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 1.5rem;
+      text-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+    }
+
+    .about-description {
+      font-size: 1.2rem;
+      line-height: 1.6;
+      margin-bottom: 2rem;
+      text-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+    }
+
+    .about-cta {
+      display: inline-block;
+      background-color: #2196f3;
+      color: #f1f1f1;
+      font-size: 1.1rem;
+      font-weight: 500;
+      padding: 0.8rem 2rem;
+      border-radius: 2rem;
+      text-decoration: none;
+      transition: background-color 0.3s ease;
+    }
+
+    .about-cta:hover {
+      background-color: #1565c0;
+    }
+
+    /* Contact Section */
+    .contact-section {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 6rem 3rem;
+      background-color: rgba(21, 21, 21, 0.8);
+      backdrop-filter: blur(10px);
+    }
+
+    .contact-content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      max-width: 800px;
+      width: 100%;
+    }
+
+    .contact-title {
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 2rem;
+      text-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+    }
+
+    .contact-form {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+    }
+
+    .form-group {
+      margin-bottom: 1.5rem;
+    }
+
+    .form-label {
+      font-size: 1.1rem;
+      font-weight: 500;
+      margin-bottom: 0.5rem;
+    }
+
+    .form-input,
+    .form-textarea {
+      background-color: rgba(241, 241, 241, 0.1);
+      border: none;
+      border-radius: 0.5rem;
+      color: #f1f1f1;
+      font-size: 1.1rem;
+      padding: 1rem;
+      transition: box-shadow 0.3s ease;
+    }
+
+    .form-input:focus,
+    .form-textarea:focus {
+      outline: none;
+      box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+    }
+
+    .form-textarea {
+      resize: vertical;
+    }
+
+    .form-submit {
+      background-color: #2196f3;
+      border: none;
+      border-radius: 2rem;
+      color: #f1f1f1;
+      cursor: pointer;
+      font-size: 1.1rem;
+      font-weight: 500;
+      padding: 0.8rem 2rem;
+      transition: background-color 0.3s ease;
+    }
+
+    .form-submit:hover {
+      background-color: #1565c0;
+    }
+
+    .contact-info {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-top: 2rem;
+    }
+
+    .contact-info-item {
+      display: flex;
+      align-items: center;
+      margin: 1rem;
+      font-size: 1.1rem;
+      color: #f1f1f1;
+    }
+
+    .contact-info-item i {
+      margin-right: 0.5rem;
+      color: #2196f3;
+    }
+
+    /* Responsive Styles */
+    @media (max-width: 991px) {
+      .navbar {
+        padding: 1rem 2rem;
+      }
+
+      .navbar-brand {
+        font-size: 1.5rem;
+      }
+
+      .nav-link {
+        font-size: 1rem;
+      }
+
+      .hero-title {
+        font-size: 3rem;
+      }
+
+      .hero-subtitle {
+        font-size: 1.5rem;
+      }
+
+      .portfolio-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .about-content {
+        flex-direction: column;
+      }
+
+      .about-image {
+        flex: 0 0 200px;
+        margin-right: 0;
+        margin-bottom: 2rem;
+      }
+
+      .about-title {
+        font-size: 2rem;
+      }
+
+      .about-description {
+        font-size: 1.1rem;
+      }
+
+      .contact-title {
+        font-size: 2rem;
+      }
+    }
+
+    @media (max-width: 767px) {
+      .navbar {
+        padding: 0.8rem 1.5rem;
+      }
+
+      .navbar-brand {
+        font-size: 1.3rem;
+      }
+
+      .nav-link {
+        font-size: 0.9rem;
+      }
+
+      .hero-title {
+        font-size: 2.5rem;
+      }
+
+      .hero-subtitle {
+        font-size: 1.3rem;
+      }
+
+      .portfolio-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .about-title {
+        font-size: 1.8rem;
+      }
+
+      .about-description {
+        font-size: 1rem;
+      }
+
+      .contact-title {
+        font-size: 1.8rem;
+      }
+
+      .form-input,
+      .form-textarea,
+      .form-submit {
+        font-size: 1rem;
+      }
+
+      .contact-info-item {
+        font-size: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav class="navbar">
+      <a href="#" class="navbar-brand">Dark Mode Portfolio</a>
+      <ul class="navbar-nav">
+        <li class="nav-item"><a href="#" class="nav-link">Home</a></li>
+        <li class="nav-item"><a href="#about" class="nav-link">About</a></li>
+        <li class="nav-item"><a href="#contact" class="nav-link">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <!-- Hero Section -->
+    <section class="hero-section">
+      <h1 class="hero-title">Welcome to My Dark Mode Portfolio</h1>
+      <p class="hero-subtitle">Explore my latest design projects</p>
+      <div class="portfolio-grid">
+        <div class="portfolio-item">
+          <img src="https://dummyimage.com/600x400/151515/f1f1f1.jpg&text=Project+1" alt="Project 1">
+          <div class="portfolio-overlay">
+            <h3 class="portfolio-title">Project 1</h3>
+            <p class="portfolio-description">This is a description of the first project in the portfolio.</p>
+          </div>
+        </div>
+        <div class="portfolio-item">
+          <img src="https://dummyimage.com/600x400/151515/f1f1f1.jpg&text=Project+2" alt="Project 2">
+          <div class="portfolio-overlay">
+            <h3 class="portfolio-title">Project 2</h3>
+            <p class="portfolio-description">This is a description of the second project in the portfolio.</p>
+          </div>
+        </div>
+        <div class="portfolio-item">
+          <img src="https://dummyimage.com/600x400/151515/f1f1f1.jpg&text=Project+3" alt="Project 3">
+          <div class="portfolio-overlay">
+            <h3 class="portfolio-title">Project 3</h3>
+            <p class="portfolio-description">This is a description of the third project in the portfolio.</p>
+          </div>
+        </div>
+        <div class="portfolio-item">
+          <img src="https://dummyimage.com/600x400/151515/f1f1f1.jpg&text=Project+4" alt="Project 4">
+          <div class="portfolio-overlay">
+            <h3 class="portfolio-title">Project 4</h3>
+            <p class="portfolio-description">This is a description of the fourth project in the portfolio.</p>
+          </div>
+        </div>
+        <div class="portfolio-item">
+          <img src="https://dummyimage.com/600x400/151515/f1f1f1.jpg&text=Project+5" alt="Project 5">
+          <div class="portfolio-overlay">
+            <h3 class="portfolio-title">Project 5</h3>
+            <p class="portfolio-description">This is a description of the fifth project in the portfolio.</p>
+          </div>
+        </div>
+        <div class="portfolio-item">
+          <img src="https://dummyimage.com/600x400/151515/f1f1f1.jpg&text=Project+6" alt="Project 6">
+          <div class="portfolio-overlay">
+            <h3 class="portfolio-title">Project 6</h3>
+            <p class="portfolio-description">This is a description of the sixth project in the portfolio.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about-section" id="about">
+      <div class="about-content">
+        <div class="about-image">
+          <img src="https://dummyimage.com/300x300/151515/f1f1f1.jpg&text=Designer+Photo" alt="Designer Photo">
+        </div>
+        <div class="about-text">
+          <h2 class="about-title">About Me</h2>
+          <p class="about-description">Hello! I'm a passionate designer with a deep love for creating visually stunning and immersive experiences. My portfolio showcases a range of projects that embody my signature dark mode aesthetic, featuring semi-transparent, glass-like elements that float over a dark background with soft light reflections and gradients.</p>
+          <a href="#" class="about-cta">Explore My Portfolio</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact-section" id="contact">
+      <div class="contact-content">
+        <h2 class="contact-title">Get in Touch</h2>
+        <form class="contact-form">
+          <div class="form-group">
+            <label for="name" class="form-label">Name</label>
+            <input type="text" id="name" name="name" class="form-input" required>
+          </div>
+          <div class="form-group">
+            <label for="email" class="form-label">Email</label>
+            <input type="email" id="email" name="email" class="form-input" required>
+          </div>
+          <div class="form-group">
+            <label for="message" class="form-label">Message</label>
+            <textarea id="message" name="message" class="form-textarea" rows="5" required></textarea>
+          </div>
+          <button type="submit" class="form-submit">Send Message</button>
+        </form>
+        <div class="contact-info">
+          <div class="contact-info-item">
+            <i class="fas fa-envelope"></i>
+            <span>example@email.com</span>
+          </div>
+          <div class="contact-info-item">
+            <i class="fas fa-phone"></i>
+            <span>+1 (123) 456-7890</span>
+          </div>
+          <div class="contact-info-item">
+            <i class="fas fa-map-marker-alt"></i>
+            <span>123 Main Street, Anytown USA</span>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script src="https://kit.fontawesome.com/your-font-awesome-kit.js" crossorigin="anonymous"></script>
+</body>
+</html>'<!-- Visit: https://github.com/Ishanoshada/portflair -->
+<!-- Visit: https://github.com/Ishanoshada/portflair -->

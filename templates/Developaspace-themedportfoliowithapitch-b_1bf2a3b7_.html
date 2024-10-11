@@ -1,0 +1,425 @@
+<!-- Portfolio created by Ishan -->
+<!-- Check out my work at: https://github.com/Ishanoshada/portflair -->
+<!-- 2024/10/9 -->
+<!-- Portfolio created by Ishan -->
+'<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Develop a Space-Themed Portfolio</title>
+    <style>
+        /* Global Styles */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Poppins', sans-serif;
+            background-color: #000000;
+            color: #ffffff;
+        }
+
+        /* Navigation Bar */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 40px;
+            background-color: rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(10px);
+            position: relative;
+            z-index: 1;
+        }
+
+        .navbar-brand {
+            font-size: 24px;
+            font-weight: bold;
+            background: linear-gradient(to right, #9b59b6, #8e44ad);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .navbar-nav {
+            display: flex;
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .navbar-nav li {
+            margin-left: 20px;
+        }
+
+        .navbar-nav a {
+            color: #ffffff;
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .navbar-nav a:hover {
+            color: #9b59b6;
+        }
+
+        /* Hero Section */
+        .hero-section {
+            height: 80vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background: radial-gradient(ellipse at center, rgba(155, 89, 182, 0.3) 0%, rgba(0, 0, 0, 1) 70%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-section::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url("https://dummyimage.com/1200x500/ccc/000&text=Starry+Background") no-repeat center center;
+            background-size: cover;
+            opacity: 0.2;
+            z-index: -1;
+        }
+
+        .hero-content {
+            text-align: center;
+            z-index: 1;
+        }
+
+        .hero-title {
+            font-size: 48px;
+            font-weight: bold;
+            background: linear-gradient(to right, #9b59b6, #8e44ad);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: glowEffect 3s ease-in-out infinite;
+        }
+
+        .hero-subtitle {
+            font-size: 24px;
+            margin-top: 10px;
+            animation: glowEffect 3s ease-in-out infinite;
+        }
+
+        .hero-cta {
+            margin-top: 30px;
+            padding: 12px 30px;
+            font-size: 16px;
+            font-weight: 500;
+            border: none;
+            border-radius: 30px;
+            background: linear-gradient(to right, #9b59b6, #8e44ad);
+            color: #ffffff;
+            text-decoration: none;
+            transition: transform 0.3s ease;
+        }
+
+        .hero-cta:hover {
+            transform: scale(1.1);
+        }
+
+        /* Skills Section */
+        .skills-section {
+            padding: 80px 40px;
+            background: radial-gradient(ellipse at center, rgba(155, 89, 182, 0.1) 0%, rgba(0, 0, 0, 1) 70%);
+        }
+
+        .skills-section-title {
+            font-size: 36px;
+            font-weight: bold;
+            text-align: center;
+            background: linear-gradient(to right, #9b59b6, #8e44ad);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 40px;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            grid-gap: 40px;
+        }
+
+        .skill-item {
+            background-color: rgba(0, 0, 0, 0.6);
+            padding: 30px;
+            border-radius: 10px;
+            text-align: center;
+            transition: transform 0.3s ease;
+            cursor: pointer;
+        }
+
+        .skill-item:hover {
+            transform: translateY(-10px);
+        }
+
+        .skill-icon {
+            font-size: 48px;
+            background: linear-gradient(to right, #9b59b6, #8e44ad);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 10px;
+        }
+
+        .skill-title {
+            font-size: 20px;
+            font-weight: bold;
+            margin-bottom: 10px;
+            background: linear-gradient(to right, #9b59b6, #8e44ad);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .skill-description {
+            font-size: 14px;
+            color: #cccccc;
+        }
+
+        /* Project Section */
+        .project-section {
+            padding: 80px 40px;
+            background: radial-gradient(ellipse at center, rgba(155, 89, 182, 0.1) 0%, rgba(0, 0, 0, 1) 70%);
+        }
+
+        .project-section-title {
+            font-size: 36px;
+            font-weight: bold;
+            text-align: center;
+            background: linear-gradient(to right, #9b59b6, #8e44ad);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 40px;
+        }
+
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-gap: 40px;
+        }
+
+        .project-item {
+            background-color: rgba(0, 0, 0, 0.6);
+            border-radius: 10px;
+            overflow: hidden;
+            transition: transform 0.3s ease;
+            cursor: pointer;
+        }
+
+        .project-item:hover {
+            transform: translateY(-10px);
+        }
+
+        .project-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            background: url("https://dummyimage.com/600x400/ccc/000&text=Project+Image") no-repeat center center;
+            background-size: cover;
+        }
+
+        .project-content {
+            padding: 20px;
+        }
+
+        .project-title {
+            font-size: 24px;
+            font-weight: bold;
+            background: linear-gradient(to right, #9b59b6, #8e44ad);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 10px;
+        }
+
+        .project-description {
+            font-size: 14px;
+            color: #cccccc;
+            margin-bottom: 20px;
+        }
+
+        .project-link {
+            display: inline-block;
+            padding: 10px 20px;
+            font-size: 14px;
+            font-weight: 500;
+            border-radius: 20px;
+            background: linear-gradient(to right, #9b59b6, #8e44ad);
+            color: #ffffff;
+            text-decoration: none;
+            transition: transform 0.3s ease;
+        }
+
+        .project-link:hover {
+            transform: scale(1.1);
+        }
+
+        /* Animation */
+        @keyframes glowEffect {
+            0% {
+                text-shadow: 0 0 10px #9b59b6, 0 0 20px #8e44ad;
+            }
+            50% {
+                text-shadow: 0 0 20px #9b59b6, 0 0 30px #8e44ad;
+            }
+            100% {
+                text-shadow: 0 0 10px #9b59b6, 0 0 20px #8e44ad;
+            }
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .navbar {
+                padding: 15px 20px;
+            }
+
+            .navbar-brand {
+                font-size: 20px;
+            }
+
+            .navbar-nav li {
+                margin-left: 15px;
+            }
+
+            .navbar-nav a {
+                font-size: 14px;
+            }
+
+            .hero-title {
+                font-size: 36px;
+            }
+
+            .hero-subtitle {
+                font-size: 20px;
+            }
+
+            .hero-cta {
+                font-size: 14px;
+                padding: 10px 25px;
+            }
+
+            .skills-section,
+            .project-section {
+                padding: 60px 20px;
+            }
+
+            .skills-section-title,
+            .project-section-title {
+                font-size: 30px;
+            }
+
+            .skill-item {
+                padding: 20px;
+            }
+
+            .skill-icon {
+                font-size: 36px;
+            }
+
+            .skill-title {
+                font-size: 18px;
+            }
+
+            .skill-description {
+                font-size: 12px;
+            }
+
+            .project-image {
+                height: 150px;
+            }
+
+            .project-title {
+                font-size: 20px;
+            }
+
+            .project-description {
+                font-size: 12px;
+            }
+
+            .project-link {
+                font-size: 12px;
+                padding: 8px 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="navbar-brand">Develop</div>
+        <ul class="navbar-nav">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Skills</a></li>
+            <li><a href="#">Projects</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+    </nav>
+
+    <section class="hero-section">
+        <div class="hero-content">
+            <h1 class="hero-title">Reach for the Stars</h1>
+            <p class="hero-subtitle">Crafting Visually Stunning Space-Themed Portfolios</p>
+            <a href="#" class="hero-cta">View My Work</a>
+        </div>
+    </section>
+
+    <section class="skills-section">
+        <h2 class="skills-section-title">My Skills</h2>
+        <div class="skills-grid">
+            <div class="skill-item">
+                <i class="skill-icon fas fa-code"></i>
+                <h3 class="skill-title">Web Development</h3>
+                <p class="skill-description">Expertly crafting responsive and performant websites.</p>
+            </div>
+            <div class="skill-item">
+                <i class="skill-icon fas fa-palette"></i>
+                <h3 class="skill-title">UI/UX Design</h3>
+                <p class="skill-description">Creating captivating and user-friendly interfaces.</p>
+            </div>
+            <div class="skill-item">
+                <i class="skill-icon fas fa-rocket"></i>
+                <h3 class="skill-title">Space Theming</h3>
+                <p class="skill-description">Specializing in out-of-this-world cosmic designs.</p>
+            </div>
+            <div class="skill-item">
+                <i class="skill-icon fas fa-chart-line"></i>
+                <h3 class="skill-title">Data Visualization</h3>
+                <p class="skill-description">Transforming complex data into engaging visuals.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="project-section">
+        <h2 class="project-section-title">My Recent Projects</h2>
+        <div class="project-grid">
+            <div class="project-item">
+                <div class="project-image"></div>
+                <div class="project-content">
+                    <h3 class="project-title">Stellar Space Explorer</h3>
+                    <p class="project-description">An interactive web application that allows users to explore the wonders of the cosmos.</p>
+                    <a href="#" class="project-link">View Project</a>
+                </div>
+            </div>
+            <div class="project-item">
+                <div class="project-image"></div>
+                <div class="project-content">
+                    <h3 class="project-title">Cosmic Constellation Creator</h3>
+                    <p class="project-description">A tool that enables users to design and customize their own celestial constellations.</p>
+                    <a href="#" class="project-link">View Project</a>
+                </div>
+            </div>
+            <div class="project-item">
+                <div class="project-image"></div>
+                <div class="project-content">
+                    <h3 class="project-title">Nebula Visualization Lab</h3>
+                    <p class="project-description">A data visualization platform that brings the vibrant colors of cosmic nebulae to life.</p>
+                    <a href="#" class="project-link">View Project</a>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+</html>'<!-- Visit: https://github.com/Ishanoshada/portflair -->
+<!-- Visit: https://github.com/Ishanoshada/portflair -->

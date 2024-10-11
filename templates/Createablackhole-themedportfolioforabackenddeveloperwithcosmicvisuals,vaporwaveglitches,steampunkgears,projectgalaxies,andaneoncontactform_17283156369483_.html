@@ -1,0 +1,427 @@
+<!-- Portfolio created by Ishan -->
+<!-- Check out my work at: https://github.com/Ishanoshada/portflair -->
+<!-- 2024/10/9 -->
+<!-- Portfolio created by Ishan -->
+'<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Black Hole Portfolio</title>
+  <style>
+    /* Reset styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    /* Global styles */
+    body {
+      font-family: 'Roboto', sans-serif;
+      background-color: #0f0f0f;
+      color: #fff;
+      overflow-x: hidden;
+    }
+
+    /* Navigation */
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 50px;
+      background-color: rgba(15, 15, 15, 0.8);
+      backdrop-filter: blur(10px);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .navbar-brand {
+      font-size: 24px;
+      font-weight: bold;
+      color: #fff;
+      text-shadow: 0 0 20px #9b59b6, 0 0 30px #8e44ad, 0 0 40px #9b59b6;
+      transition: text-shadow 0.3s ease-in-out;
+    }
+
+    .navbar-brand:hover {
+      text-shadow: 0 0 40px #9b59b6, 0 0 50px #8e44ad, 0 0 60px #9b59b6;
+    }
+
+    .navbar-nav {
+      display: flex;
+      list-style-type: none;
+    }
+
+    .navbar-nav li {
+      margin-left: 30px;
+    }
+
+    .navbar-nav li a {
+      color: #fff;
+      text-decoration: none;
+      font-size: 18px;
+      position: relative;
+      padding-bottom: 5px;
+    }
+
+    .navbar-nav li a::after {
+      content: '';
+      position: absolute;
+      width: 100%;
+      height: 2px;
+      bottom: 0;
+      left: 0;
+      background-color: #9b59b6;
+      transform: scaleX(0);
+      transition: transform 0.3s ease-in-out;
+    }
+
+    .navbar-nav li a:hover::after {
+      transform: scaleX(1);
+    }
+
+    /* Project Galaxy */
+    .project-galaxy {
+      padding: 100px 50px;
+      background-image: linear-gradient(to bottom, #0f0f0f, #151515);
+      position: relative;
+      overflow-x: hidden;
+    }
+
+    .project-galaxy::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: url('https://dummyimage.com/1200x500/ccc/000&text=Cosmic+Background');
+      background-size: cover;
+      background-position: center;
+      opacity: 0.5;
+      z-index: -1;
+    }
+
+    .project-gallery {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 50px;
+      margin-top: 50px;
+    }
+
+    .project-thumbnail {
+      width: 200px;
+      height: 200px;
+      background-image: url('https://dummyimage.com/200x200/ccc/000&text=Project+Thumbnail');
+      background-size: cover;
+      background-position: center;
+      border-radius: 50%;
+      box-shadow: 0 0 20px rgba(155, 89, 182, 0.5);
+      position: relative;
+      overflow: hidden;
+      cursor: pointer;
+      transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    }
+
+    .project-thumbnail::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: linear-gradient(to bottom, rgba(155, 89, 182, 0.3), rgba(142, 68, 173, 0.3));
+      opacity: 0;
+      transition: opacity 0.3s ease-in-out;
+    }
+
+    .project-thumbnail:hover {
+      transform: scale(1.1);
+      box-shadow: 0 0 40px rgba(155, 89, 182, 0.8);
+    }
+
+    .project-thumbnail:hover::before {
+      opacity: 1;
+    }
+
+    .project-details {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+      opacity: 0;
+      transition: opacity 0.3s ease-in-out;
+    }
+
+    .project-thumbnail:hover .project-details {
+      opacity: 1;
+    }
+
+    .project-name {
+      font-size: 18px;
+      font-weight: bold;
+      color: #fff;
+      text-shadow: 0 0 10px #9b59b6, 0 0 20px #8e44ad;
+    }
+
+    .project-description {
+      font-size: 14px;
+      color: #ccc;
+      margin-top: 5px;
+    }
+
+    /* Steampunk Gears */
+    .steampunk-gears {
+      padding: 100px 50px;
+      background-image: linear-gradient(to bottom, #151515, #1a1a1a);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .steampunk-gears::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: url('https://dummyimage.com/1200x500/ccc/000&text=Steampunk+Background');
+      background-size: cover;
+      background-position: center;
+      opacity: 0.5;
+      z-index: -1;
+    }
+
+    .gear-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 50px;
+      margin-top: 50px;
+    }
+
+    .gear {
+      width: 150px;
+      height: 150px;
+      background-image: url('https://dummyimage.com/150x150/ccc/000&text=Gear');
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center;
+      position: relative;
+      cursor: pointer;
+      transition: transform 0.3s ease-in-out;
+    }
+
+    .gear:hover {
+      transform: scale(1.1) rotate(360deg);
+    }
+
+    .gear-label {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 16px;
+      font-weight: bold;
+      color: #fff;
+      text-shadow: 0 0 10px #9b59b6, 0 0 20px #8e44ad;
+    }
+
+    /* Neon Contact Form */
+    .neon-contact {
+      padding: 100px 50px;
+      background-image: linear-gradient(to bottom, #1a1a1a, #1f1f1f);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .neon-contact::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: url('https://dummyimage.com/1200x500/ccc/000&text=Vaporwave+Background');
+      background-size: cover;
+      background-position: center;
+      opacity: 0.5;
+      z-index: -1;
+    }
+
+    .neon-form {
+      max-width: 400px;
+      margin: 0 auto;
+      padding: 40px;
+      background-color: rgba(155, 89, 182, 0.1);
+      backdrop-filter: blur(10px);
+      border-radius: 10px;
+      box-shadow: 0 0 20px rgba(155, 89, 182, 0.5);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .neon-form::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: linear-gradient(to right, #9b59b6, #8e44ad);
+      opacity: 0.3;
+      filter: blur(50px);
+      z-index: -1;
+    }
+
+    .neon-form input,
+    .neon-form textarea {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 20px;
+      background-color: transparent;
+      border: none;
+      border-bottom: 2px solid #9b59b6;
+      color: #fff;
+      font-size: 16px;
+      font-family: 'Roboto', sans-serif;
+      outline: none;
+      transition: border-color 0.3s ease-in-out;
+    }
+
+    .neon-form input:focus,
+    .neon-form textarea:focus {
+      border-color: #8e44ad;
+    }
+
+    .neon-form input::placeholder,
+    .neon-form textarea::placeholder {
+      color: #ccc;
+    }
+
+    .neon-form button {
+      display: block;
+      width: 100%;
+      padding: 10px;
+      background-color: #9b59b6;
+      border: none;
+      border-radius: 5px;
+      color: #fff;
+      font-size: 18px;
+      font-weight: bold;
+      cursor: pointer;
+      box-shadow: 0 0 20px rgba(155, 89, 182, 0.5);
+      position: relative;
+      overflow: hidden;
+      transition: background-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    }
+
+    .neon-form button::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: linear-gradient(to right, #9b59b6, #8e44ad);
+      opacity: 0.3;
+      filter: blur(20px);
+      z-index: -1;
+    }
+
+    .neon-form button:hover {
+      background-color: #8e44ad;
+      box-shadow: 0 0 30px rgba(142, 68, 173, 0.8);
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav class="navbar">
+      <a href="#" class="navbar-brand">Black Hole Portfolio</a>
+      <ul class="navbar-nav">
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Projects</a></li>
+        <li><a href="#">Skills</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="project-galaxy">
+      <h2 class="section-title">Project Galaxy</h2>
+      <div class="project-gallery">
+        <div class="project-thumbnail">
+          <div class="project-details">
+            <h3 class="project-name">Project 1</h3>
+            <p class="project-description">A brief description of the project.</p>
+          </div>
+        </div>
+        <div class="project-thumbnail">
+          <div class="project-details">
+            <h3 class="project-name">Project 2</h3>
+            <p class="project-description">A brief description of the project.</p>
+          </div>
+        </div>
+        <div class="project-thumbnail">
+          <div class="project-details">
+            <h3 class="project-name">Project 3</h3>
+            <p class="project-description">A brief description of the project.</p>
+          </div>
+        </div>
+        <div class="project-thumbnail">
+          <div class="project-details">
+            <h3 class="project-name">Project 4</h3>
+            <p class="project-description">A brief description of the project.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="steampunk-gears">
+      <h2 class="section-title">Steampunk Gears</h2>
+      <div class="gear-container">
+        <div class="gear">
+          <div class="gear-label">Skill 1</div>
+        </div>
+        <div class="gear">
+          <div class="gear-label">Skill 2</div>
+        </div>
+        <div class="gear">
+          <div class="gear-label">Skill 3</div>
+        </div>
+        <div class="gear">
+          <div class="gear-label">Skill 4</div>
+        </div>
+        <div class="gear">
+          <div class="gear-label">Skill 5</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="neon-contact">
+      <h2 class="section-title">Get in Touch</h2>
+      <div class="neon-form">
+        <form>
+          <input type="text" placeholder="Name" required>
+          <input type="email" placeholder="Email" required>
+          <textarea placeholder="Message" rows="5" required></textarea>
+          <button type="submit">Send Message</button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-content">
+      <p>&copy; 2024 Black Hole Portfolio. All rights reserved.</p>
+    </div>
+  </footer>
+</body>
+</html>'<!-- Visit: https://github.com/Ishanoshada/portflair -->
+<!-- Visit: https://github.com/Ishanoshada/portflair -->

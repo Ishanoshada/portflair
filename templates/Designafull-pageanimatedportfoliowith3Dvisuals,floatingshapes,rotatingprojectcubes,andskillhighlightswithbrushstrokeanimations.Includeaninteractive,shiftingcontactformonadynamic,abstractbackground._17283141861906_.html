@@ -1,0 +1,480 @@
+<!-- Portfolio created by Ishan -->
+<!-- Check out my work at: https://github.com/Ishanoshada/portflair -->
+<!-- 2024/10/9 -->
+<!-- Portfolio created by Ishan -->
+'<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animated Portfolio</title>
+    <style>
+        /* Global Styles */
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #1a1a1a;
+            color: #f2f2f2;
+        }
+
+        /* Navigation Bar */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            background-color: rgba(26, 26, 26, 0.8);
+            backdrop-filter: blur(10px);
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 999;
+        }
+
+        nav a {
+            color: #f2f2f2;
+            text-decoration: none;
+            font-size: 18px;
+            margin: 0 20px;
+            position: relative;
+            transition: color 0.3s ease-in-out;
+        }
+
+        nav a:after {
+            content: "";
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: #f2f2f2;
+            transition: width 0.3s ease-in-out;
+        }
+
+        nav a:hover {
+            color: #e6e6e6;
+        }
+
+        nav a:hover:after {
+            width: 100%;
+        }
+
+        /* Portfolio Section */
+        #portfolio {
+            padding: 100px 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        #portfolio h2 {
+            font-size: 48px;
+            margin-bottom: 50px;
+            text-align: center;
+        }
+
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-gap: 40px;
+            width: 100%;
+            max-width: 1200px;
+        }
+
+        .portfolio-item {
+            position: relative;
+            perspective: 1000px;
+            cursor: pointer;
+        }
+
+        .portfolio-item .front,
+        .portfolio-item .back {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            transition: transform 0.6s;
+        }
+
+        .portfolio-item .front {
+            background-color: #2a2a2a;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .portfolio-item .front img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .portfolio-item .back {
+            background-color: #1a1a1a;
+            transform: rotateY(180deg);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .portfolio-item .back h3 {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        .portfolio-item .back p {
+            font-size: 16px;
+            text-align: center;
+        }
+
+        .portfolio-item:hover .front {
+            transform: rotateY(-180deg);
+        }
+
+        .portfolio-item:hover .back {
+            transform: rotateY(0);
+        }
+
+        .floating-shapes {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: -1;
+        }
+
+        .floating-shape {
+            position: absolute;
+            width: 80px;
+            height: 80px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            animation: float 10s linear infinite;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translate(0, 0);
+            }
+            50% {
+                transform: translate(50%, 50%);
+            }
+            100% {
+                transform: translate(0, 0);
+            }
+        }
+
+        /* Skills Highlight Section */
+        #skills {
+            padding: 100px 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        #skills h2 {
+            font-size: 48px;
+            margin-bottom: 50px;
+            text-align: center;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-gap: 40px;
+            width: 100%;
+            max-width: 1200px;
+        }
+
+        .skill-item {
+            background-color: #2a2a2a;
+            padding: 40px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .skill-item .icon {
+            font-size: 48px;
+            margin-bottom: 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .skill-item h3 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .skill-item p {
+            font-size: 16px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .skill-item:before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: linear-gradient(to right, #e6e6e6, #f2f2f2);
+            background-size: 200% 200%;
+            animation: brushstroke 5s ease infinite;
+            opacity: 0;
+            transition: opacity 0.5s ease-in-out;
+        }
+
+        .skill-item:hover:before {
+            opacity: 1;
+        }
+
+        @keyframes brushstroke {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        /* Contact Form Section */
+        #contact {
+            padding: 100px 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        #contact h2 {
+            font-size: 48px;
+            margin-bottom: 50px;
+            text-align: center;
+        }
+
+        .contact-form {
+            background-color: #2a2a2a;
+            padding: 40px;
+            width: 100%;
+            max-width: 600px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .contact-form .form-group {
+            margin-bottom: 20px;
+        }
+
+        .contact-form label {
+            display: block;
+            font-size: 16px;
+            margin-bottom: 5px;
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            border: none;
+            background-color: #f2f2f2;
+            color: #1a1a1a;
+            border-radius: 5px;
+            transition: box-shadow 0.3s ease-in-out;
+        }
+
+        .contact-form input:focus,
+        .contact-form textarea:focus {
+            outline: none;
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+        }
+
+        .contact-form button {
+            background-color: #e6e6e6;
+            color: #1a1a1a;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease-in-out;
+        }
+
+        .contact-form button:hover {
+            background-color: #d9d9d9;
+        }
+
+        .abstract-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, #2a2a2a, #1a1a1a, #2a2a2a);
+            background-size: 200% 200%;
+            animation: abstractBackground 10s ease infinite;
+            z-index: -1;
+        }
+
+        @keyframes abstractBackground {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="#">Home</a>
+        <a href="#">Portfolio</a>
+        <a href="#">Skills</a>
+        <a href="#">Contact</a>
+    </nav>
+
+    <section id="portfolio">
+        <h2>Portfolio</h2>
+        <div class="portfolio-grid">
+            <div class="portfolio-item">
+                <div class="front">
+                    <img src="https://dummyimage.com/400x400/ccc/000&text=Project+1" alt="Project 1">
+                </div>
+                <div class="back">
+                    <h3>Project 1</h3>
+                    <p>Description of Project 1</p>
+                </div>
+            </div>
+            <div class="portfolio-item">
+                <div class="front">
+                    <img src="https://dummyimage.com/400x400/ccc/000&text=Project+2" alt="Project 2">
+                </div>
+                <div class="back">
+                    <h3>Project 2</h3>
+                    <p>Description of Project 2</p>
+                </div>
+            </div>
+            <div class="portfolio-item">
+                <div class="front">
+                    <img src="https://dummyimage.com/400x400/ccc/000&text=Project+3" alt="Project 3">
+                </div>
+                <div class="back">
+                    <h3>Project 3</h3>
+                    <p>Description of Project 3</p>
+                </div>
+            </div>
+            <div class="portfolio-item">
+                <div class="front">
+                    <img src="https://dummyimage.com/400x400/ccc/000&text=Project+4" alt="Project 4">
+                </div>
+                <div class="back">
+                    <h3>Project 4</h3>
+                    <p>Description of Project 4</p>
+                </div>
+            </div>
+            <div class="portfolio-item">
+                <div class="front">
+                    <img src="https://dummyimage.com/400x400/ccc/000&text=Project+5" alt="Project 5">
+                </div>
+                <div class="back">
+                    <h3>Project 5</h3>
+                    <p>Description of Project 5</p>
+                </div>
+            </div>
+            <div class="portfolio-item">
+                <div class="front">
+                    <img src="https://dummyimage.com/400x400/ccc/000&text=Project+6" alt="Project 6">
+                </div>
+                <div class="back">
+                    <h3>Project 6</h3>
+                    <p>Description of Project 6</p>
+                </div>
+            </div>
+        </div>
+        <div class="floating-shapes">
+            <div class="floating-shape"></div>
+            <div class="floating-shape"></div>
+            <div class="floating-shape"></div>
+            <div class="floating-shape"></div>
+            <div class="floating-shape"></div>
+            <div class="floating-shape"></div>
+            <div class="floating-shape"></div>
+            <div class="floating-shape"></div>
+            <div class="floating-shape"></div>
+            <div class="floating-shape"></div>
+        </div>
+    </section>
+
+    <section id="skills">
+        <h2>Skills</h2>
+        <div class="skills-grid">
+            <div class="skill-item">
+                <div class="icon">&#9758;</div>
+                <h3>Web Design</h3>
+                <p>Crafting modern and responsive websites</p>
+            </div>
+            <div class="skill-item">
+                <div class="icon">&#9854;</div>
+                <h3>3D Modeling</h3>
+                <p>Bringing digital objects to life</p>
+            </div>
+            <div class="skill-item">
+                <div class="icon">&#9876;</div>
+                <h3>Motion Graphics</h3>
+                <p>Animating and creating dynamic visuals</p>
+            </div>
+            <div class="skill-item">
+                <div class="icon">&#9658;</div>
+                <h3>Branding</h3>
+                <p>Crafting unique and memorable brand identities</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <h2>Contact</h2>
+        <div class="contact-form">
+            <form>
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" id="name" name="name" placeholder="Enter your name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" placeholder="Enter your email" required>
+                </div>
+                <div class="form-group">
+                    <label for="message">Message</label>
+                    <textarea id="message" name="message" placeholder="Enter your message" required></textarea>
+                </div>
+                <button type="submit">Send Message</button>
+            </form>
+        </div>
+        <div class="abstract-background"></div>
+    </section>
+</body>
+</html>'<!-- Visit: https://github.com/Ishanoshada/portflair -->
+<!-- Visit: https://github.com/Ishanoshada/portflair -->

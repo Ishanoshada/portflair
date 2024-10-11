@@ -1,0 +1,399 @@
+<!-- Portfolio created by Ishan -->
+<!-- Check out my work at: https://github.com/Ishanoshada/portflair -->
+<!-- 2024/10/9 -->
+<!-- Portfolio created by Ishan -->
+'<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Black Hole Portfolio</title>
+  <style>
+    /* General Styles */
+    body {
+      font-family: 'Orbitron', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #0d0d0d;
+      color: #ffffff;
+    }
+
+    /* Navbar Styles */
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: rgba(13, 13, 13, 0.8);
+      padding: 1rem 2rem;
+      backdrop-filter: blur(10px);
+      position: relative;
+      z-index: 100;
+    }
+
+    .navbar-brand {
+      font-size: 2rem;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: #00ffff;
+      text-shadow: 0 0 20px #00ffff, 0 0 40px #00ffff, 0 0 80px #00ffff;
+      animation: neon-glow 2s ease-in-out infinite;
+    }
+
+    .navbar-nav {
+      display: flex;
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .navbar-nav li {
+      margin-left: 2rem;
+    }
+
+    .navbar-nav li a {
+      color: #ffffff;
+      text-decoration: none;
+      font-size: 1.2rem;
+      position: relative;
+      padding-bottom: 0.5rem;
+    }
+
+    .navbar-nav li a::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background-color: #00ffff;
+      transition: width 0.3s ease-in-out;
+    }
+
+    .navbar-nav li a:hover::after {
+      width: 100%;
+    }
+
+    /* Interactive Black Hole Visualization Section */
+    .black-hole-section {
+      position: relative;
+      height: 80vh;
+      overflow: hidden;
+    }
+
+    .black-hole-visualization {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 100%;
+      height: 100%;
+      background-image: url("https://dummyimage.com/1200x500/ccc/000&text=Black+Hole+Visualization");
+      background-size: cover;
+      background-position: center;
+      animation: cosmic-glow 5s ease-in-out infinite;
+    }
+
+    .black-hole-visualization::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(13, 13, 13, 0.8);
+      backdrop-filter: blur(10px);
+    }
+
+    .black-hole-visualization::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: radial-gradient(ellipse at center, rgba(255, 255, 255, 0.1) 0%, rgba(13, 13, 13, 0.8) 100%);
+      animation: vaporwave-glitch 2s ease-in-out infinite;
+    }
+
+    /* Project Showcase Galaxy Section */
+    .project-galaxy-section {
+      padding: 4rem 2rem;
+      background-color: #0d0d0d;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .project-galaxy {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      grid-gap: 2rem;
+      justify-items: center;
+      align-items: center;
+      position: relative;
+      z-index: 1;
+    }
+
+    .project-planet {
+      width: 150px;
+      height: 150px;
+      background-image: url("https://dummyimage.com/150x150/ccc/000&text=Project+1");
+      background-size: cover;
+      background-position: center;
+      border-radius: 50%;
+      box-shadow: 0 0 20px rgba(0, 255, 255, 0.5), 0 0 40px rgba(0, 255, 255, 0.3), 0 0 80px rgba(0, 255, 255, 0.1);
+      position: relative;
+      animation: planet-orbit 10s linear infinite;
+    }
+
+    .project-planet::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(13, 13, 13, 0.5);
+      border-radius: 50%;
+      backdrop-filter: blur(5px);
+    }
+
+    .project-planet::after {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 80%;
+      height: 80%;
+      background-image: url("https://dummyimage.com/150x150/ccc/000&text=Project+2");
+      background-size: cover;
+      background-position: center;
+      border-radius: 50%;
+      box-shadow: 0 0 20px rgba(255, 0, 255, 0.5), 0 0 40px rgba(255, 0, 255, 0.3), 0 0 80px rgba(255, 0, 255, 0.1);
+      animation: planet-spin 10s linear infinite;
+    }
+
+    .project-galaxy::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: radial-gradient(ellipse at center, rgba(255, 255, 255, 0.1) 0%, rgba(13, 13, 13, 0.8) 100%);
+      animation: cosmic-dust 10s linear infinite;
+    }
+
+    /* Neon Contact Form Section */
+    .contact-form-section {
+      padding: 4rem 2rem;
+      background-color: #0d0d0d;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .contact-form {
+      max-width: 500px;
+      margin: 0 auto;
+      background-color: rgba(13, 13, 13, 0.8);
+      padding: 2rem;
+      border-radius: 10px;
+      backdrop-filter: blur(10px);
+      box-shadow: 0 0 20px rgba(0, 255, 255, 0.5), 0 0 40px rgba(0, 255, 255, 0.3), 0 0 80px rgba(0, 255, 255, 0.1);
+      position: relative;
+      z-index: 1;
+    }
+
+    .contact-form h2 {
+      text-align: center;
+      font-size: 2rem;
+      margin-bottom: 1.5rem;
+      color: #00ffff;
+      text-shadow: 0 0 20px #00ffff, 0 0 40px #00ffff, 0 0 80px #00ffff;
+      animation: neon-glow 2s ease-in-out infinite;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+      display: block;
+      width: 100%;
+      padding: 1rem;
+      margin-bottom: 1.5rem;
+      background-color: rgba(255, 255, 255, 0.1);
+      border: none;
+      border-radius: 5px;
+      color: #ffffff;
+      font-size: 1.1rem;
+      font-family: 'Orbitron', sans-serif;
+      backdrop-filter: blur(5px);
+      box-shadow: 0 0 10px rgba(0, 255, 255, 0.3), 0 0 20px rgba(0, 255, 255, 0.2), 0 0 40px rgba(0, 255, 255, 0.1);
+      transition: box-shadow 0.3s ease-in-out;
+    }
+
+    .contact-form input:focus,
+    .contact-form textarea:focus {
+      outline: none;
+      box-shadow: 0 0 20px rgba(0, 255, 255, 0.5), 0 0 40px rgba(0, 255, 255, 0.3), 0 0 80px rgba(0, 255, 255, 0.1);
+    }
+
+    .contact-form button {
+      display: block;
+      width: 100%;
+      padding: 1rem;
+      background-color: #00ffff;
+      border: none;
+      border-radius: 5px;
+      color: #0d0d0d;
+      font-size: 1.1rem;
+      font-family: 'Orbitron', sans-serif;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      cursor: pointer;
+      box-shadow: 0 0 20px rgba(0, 255, 255, 0.5), 0 0 40px rgba(0, 255, 255, 0.3), 0 0 80px rgba(0, 255, 255, 0.1);
+      transition: box-shadow 0.3s ease-in-out;
+    }
+
+    .contact-form button:hover {
+      box-shadow: 0 0 40px rgba(0, 255, 255, 0.5), 0 0 80px rgba(0, 255, 255, 0.3), 0 0 120px rgba(0, 255, 255, 0.1);
+    }
+
+    .contact-form-section::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: radial-gradient(ellipse at center, rgba(255, 255, 255, 0.1) 0%, rgba(13, 13, 13, 0.8) 100%);
+      animation: neon-particles 5s linear infinite;
+    }
+
+    /* Animations */
+    @keyframes cosmic-glow {
+      0% {
+        filter: brightness(1);
+      }
+      50% {
+        filter: brightness(1.2);
+      }
+      100% {
+        filter: brightness(1);
+      }
+    }
+
+    @keyframes vaporwave-glitch {
+      0% {
+        background-position: 0 0;
+      }
+      20% {
+        background-position: -20px -20px;
+      }
+      40% {
+        background-position: 20px 20px;
+      }
+      60% {
+        background-position: -20px 20px;
+      }
+      80% {
+        background-position: 20px -20px;
+      }
+      100% {
+        background-position: 0 0;
+      }
+    }
+
+    @keyframes planet-orbit {
+      0% {
+        transform: rotate(0deg) translateX(100px) rotate(0deg);
+      }
+      100% {
+        transform: rotate(360deg) translateX(100px) rotate(-360deg);
+      }
+    }
+
+    @keyframes planet-spin {
+      0% {
+        transform: translate(-50%, -50%) rotate(0deg);
+      }
+      100% {
+        transform: translate(-50%, -50%) rotate(360deg);
+      }
+    }
+
+    @keyframes cosmic-dust {
+      0% {
+        background-position: 0 0;
+      }
+      100% {
+        background-position: 100% 100%;
+      }
+    }
+
+    @keyframes neon-glow {
+      0% {
+        text-shadow: 0 0 10px #00ffff, 0 0 20px #00ffff, 0 0 30px #00ffff;
+      }
+      50% {
+        text-shadow: 0 0 20px #00ffff, 0 0 40px #00ffff, 0 0 60px #00ffff;
+      }
+      100% {
+        text-shadow: 0 0 10px #00ffff, 0 0 20px #00ffff, 0 0 30px #00ffff;
+      }
+    }
+
+    @keyframes neon-particles {
+      0% {
+        background-position: 0 0;
+      }
+      100% {
+        background-position: 100% 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav class="navbar">
+      <a href="#" class="navbar-brand">Black Hole Portfolio</a>
+      <ul class="navbar-nav">
+        <li><a href="#">Home</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Projects</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="black-hole-section">
+      <div class="black-hole-visualization"></div>
+    </section>
+
+    <section class="project-galaxy-section">
+      <div class="project-galaxy">
+        <div class="project-planet"></div>
+        <div class="project-planet"></div>
+        <div class="project-planet"></div>
+        <div class="project-planet"></div>
+        <div class="project-planet"></div>
+        <div class="project-planet"></div>
+      </div>
+    </section>
+
+    <section class="contact-form-section">
+      <div class="contact-form">
+        <h2>Get in Touch</h2>
+        <form>
+          <input type="text" placeholder="Name" required>
+          <input type="email" placeholder="Email" required>
+          <textarea placeholder="Message" required></textarea>
+          <button type="submit">Send</button>
+        </form>
+      </div>
+    </section>
+  </main>
+</body>
+</html>'<!-- Visit: https://github.com/Ishanoshada/portflair -->
+<!-- Visit: https://github.com/Ishanoshada/portflair -->

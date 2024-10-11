@@ -1,0 +1,374 @@
+<!-- Portfolio created by Ishan -->
+<!-- Check out my work at: https://github.com/Ishanoshada/portflair -->
+<!-- 2024/10/9 -->
+<!-- Portfolio created by Ishan -->
+'<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Black Hole Portfolio</title>
+    <style>
+        /* Global Styles */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Poppins', sans-serif;
+            background-color: #000;
+            color: #fff;
+        }
+
+        /* Navigation */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 2rem;
+            background-color: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(10px);
+            position: relative;
+            z-index: 100;
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 1.2rem;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: #9b59b6;
+        }
+
+        /* Interactive Galaxy Showcase */
+        #galaxy-showcase {
+            position: relative;
+            height: 80vh;
+            overflow: hidden;
+        }
+
+        #galaxy-showcase::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(ellipse at center, rgba(0,0,0,0.8) 0%, rgba(0,0,0,1) 100%);
+            z-index: 1;
+        }
+
+        #galaxy {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url(https://dummyimage.com/1200x500/000/fff.png&text=Galaxy) no-repeat center center;
+            background-size: cover;
+            animation: galaxy-rotate 60s linear infinite;
+            z-index: 0;
+        }
+
+        @keyframes galaxy-rotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .project-planet {
+            position: absolute;
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background-color: #9b59b6;
+            box-shadow: 0 0 20px rgba(155, 89, 182, 0.8);
+            cursor: pointer;
+            transition: transform 0.3s ease;
+            z-index: 10;
+        }
+
+        .project-planet:hover {
+            transform: scale(1.2);
+        }
+
+        .project-info {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: rgba(0, 0, 0, 0.8);
+            padding: 1.5rem;
+            border-radius: 10px;
+            text-align: center;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+        }
+
+        .project-planet:hover .project-info {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .project-info h3 {
+            margin-top: 0;
+            font-size: 1.5rem;
+        }
+
+        .project-info p {
+            margin-bottom: 1rem;
+        }
+
+        .project-info a {
+            color: #9b59b6;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .project-info a:hover {
+            color: #c39bd3;
+        }
+
+        /* Cosmic Skills and Expertise */
+        #skills-section {
+            padding: 4rem 2rem;
+            background-color: #121212;
+            position: relative;
+            overflow: hidden;
+        }
+
+        #skills-section::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(ellipse at center, rgba(18,18,18,0.8) 0%, rgba(18,18,18,1) 100%);
+            z-index: 1;
+        }
+
+        #skills-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url(https://dummyimage.com/1200x500/000/fff.png&text=Cosmic+Background) no-repeat center center;
+            background-size: cover;
+            animation: skills-bg-rotate 120s linear infinite;
+            z-index: 0;
+        }
+
+        @keyframes skills-bg-rotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .skill-icon {
+            position: relative;
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background-color: #9b59b6;
+            box-shadow: 0 0 20px rgba(155, 89, 182, 0.8);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 2rem;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+            z-index: 10;
+        }
+
+        .skill-icon:hover {
+            transform: scale(1.2);
+        }
+
+        .skill-info {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: rgba(0, 0, 0, 0.8);
+            padding: 1.5rem;
+            border-radius: 10px;
+            text-align: center;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+        }
+
+        .skill-icon:hover .skill-info {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .skill-info h3 {
+            margin-top: 0;
+            font-size: 1.5rem;
+        }
+
+        .skill-info p {
+            margin-bottom: 1rem;
+        }
+
+        /* Neon Contact Form */
+        #contact-section {
+            padding: 4rem 2rem;
+            background-color: #000;
+            position: relative;
+            overflow: hidden;
+        }
+
+        #contact-section::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(ellipse at center, rgba(0,0,0,0.8) 0%, rgba(0,0,0,1) 100%);
+            z-index: 1;
+        }
+
+        #contact-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url(https://dummyimage.com/1200x500/000/fff.png&text=Neon+Background) no-repeat center center;
+            background-size: cover;
+            animation: contact-bg-pulse 5s ease-in-out infinite;
+            z-index: 0;
+        }
+
+        @keyframes contact-bg-pulse {
+            0% { opacity: 0.8; }
+            50% { opacity: 1; }
+            100% { opacity: 0.8; }
+        }
+
+        .neon-form {
+            position: relative;
+            max-width: 500px;
+            margin: 0 auto;
+            z-index: 10;
+        }
+
+        .neon-form input,
+        .neon-form textarea {
+            display: block;
+            width: 100%;
+            padding: 1rem;
+            margin-bottom: 1.5rem;
+            background-color: transparent;
+            border: 2px solid #9b59b6;
+            border-radius: 5px;
+            color: #fff;
+            font-size: 1rem;
+            font-family: 'Poppins', sans-serif;
+            transition: border-color 0.3s ease;
+        }
+
+        .neon-form input:focus,
+        .neon-form textarea:focus {
+            outline: none;
+            border-color: #c39bd3;
+        }
+
+        .neon-form button {
+            display: block;
+            width: 100%;
+            padding: 1rem;
+            background-color: #9b59b6;
+            border: none;
+            border-radius: 5px;
+            color: #fff;
+            font-size: 1.2rem;
+            font-family: 'Poppins', sans-serif;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .neon-form button:hover {
+            background-color: #c39bd3;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="#">Home</a>
+        <a href="#">About</a>
+        <a href="#">Projects</a>
+        <a href="#">Skills</a>
+        <a href="#">Contact</a>
+    </nav>
+
+    <section id="galaxy-showcase">
+        <div id="galaxy"></div>
+        <div class="project-planet" style="top: 20%; left: 30%;">
+            <div class="project-info">
+                <h3>Project 1</h3>
+                <p>Description of Project 1</p>
+                <a href="#">View Project</a>
+            </div>
+        </div>
+        <div class="project-planet" style="top: 45%; left: 60%;">
+            <div class="project-info">
+                <h3>Project 2</h3>
+                <p>Description of Project 2</p>
+                <a href="#">View Project</a>
+            </div>
+        </div>
+        <div class="project-planet" style="top: 70%; left: 20%;">
+            <div class="project-info">
+                <h3>Project 3</h3>
+                <p>Description of Project 3</p>
+                <a href="#">View Project</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="skills-section">
+        <div id="skills-bg"></div>
+        <div class="skill-icon" style="top: 20%; left: 30%;">
+            <i class="fas fa-code"></i>
+            <div class="skill-info">
+                <h3>Backend Development</h3>
+                <p>Expertise in server-side technologies and APIs</p>
+            </div>
+        </div>
+        <div class="skill-icon" style="top: 45%; left: 60%;">
+            <i class="fas fa-database"></i>
+            <div class="skill-info">
+                <h3>Database Management</h3>
+                <p>Proficient in relational and NoSQL databases</p>
+            </div>
+        </div>
+        <div class="skill-icon" style="top: 70%; left: 20%;">
+            <i class="fas fa-cloud"></i>
+            <div class="skill-info">
+                <h3>Cloud Infrastructure</h3>
+                <p>Experience with cloud platforms and deployment</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact-section">
+        <div id="contact-bg"></div>
+        <form class="neon-form">
+            <input type="text" placeholder="Name" required>
+            <input type="email" placeholder="Email" required>
+            <textarea placeholder="Message" required></textarea>
+            <button type="submit">Send</button>
+        </form>
+    </section>
+
+    <!-- Font Awesome Icons -->
+    <script src="https://kit.fontawesome.com/your-font-awesome-kit.js" crossorigin="anonymous"></script>
+</body>
+</html>'<!-- Visit: https://github.com/Ishanoshada/portflair -->
+<!-- Visit: https://github.com/Ishanoshada/portflair -->

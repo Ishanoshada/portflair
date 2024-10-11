@@ -1,0 +1,460 @@
+<!-- Portfolio created by Ishan -->
+<!-- Check out my work at: https://github.com/Ishanoshada/portflair -->
+<!-- 2024/10/9 -->
+<!-- Portfolio created by Ishan -->
+'<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Editor Portfolio</title>
+    <style>
+        /* Global Styles */
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #F7F7F7;
+        }
+
+        /* Navigation */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #FFFFFF;
+            padding: 20px 40px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        nav .logo {
+            font-size: 24px;
+            font-weight: 700;
+            color: #2D3748;
+        }
+
+        nav ul {
+            display: flex;
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav ul li {
+            margin-left: 30px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #4A5568;
+            font-size: 16px;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            color: #2D3748;
+        }
+
+        /* Projects Section */
+        .projects-section {
+            padding: 80px 40px;
+        }
+
+        .projects-section h2 {
+            font-size: 36px;
+            font-weight: 700;
+            color: #2D3748;
+            margin-bottom: 40px;
+            text-align: center;
+        }
+
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-gap: 40px;
+        }
+
+        .project-item {
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .project-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .project-item img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+        }
+
+        .project-details {
+            padding: 20px;
+        }
+
+        .project-details h3 {
+            font-size: 20px;
+            font-weight: 600;
+            color: #2D3748;
+            margin-bottom: 10px;
+        }
+
+        .project-details p {
+            font-size: 16px;
+            color: #4A5568;
+            margin-bottom: 0;
+        }
+
+        /* Skills Section */
+        .skills-section {
+            background-color: #FFFFFF;
+            padding: 80px 40px;
+            text-align: center;
+        }
+
+        .skills-section h2 {
+            font-size: 36px;
+            font-weight: 700;
+            color: #2D3748;
+            margin-bottom: 40px;
+        }
+
+        .skill-items {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-gap: 40px;
+        }
+
+        .skill-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .skill-item i {
+            font-size: 48px;
+            color: #4A5568;
+            margin-bottom: 20px;
+        }
+
+        .skill-item h3 {
+            font-size: 20px;
+            font-weight: 600;
+            color: #2D3748;
+            margin-bottom: 10px;
+        }
+
+        .skill-item p {
+            font-size: 16px;
+            color: #4A5568;
+            margin-bottom: 0;
+        }
+
+        /* Testimonials Section */
+        .testimonials-section {
+            padding: 80px 40px;
+        }
+
+        .testimonials-section h2 {
+            font-size: 36px;
+            font-weight: 700;
+            color: #2D3768;
+            margin-bottom: 40px;
+            text-align: center;
+        }
+
+        .testimonial-carousel {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+
+        .testimonial-item {
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 40px;
+            text-align: center;
+            width: 80%;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+
+        .testimonial-item.active {
+            opacity: 1;
+        }
+
+        .testimonial-item img {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 20px;
+        }
+
+        .testimonial-item h3 {
+            font-size: 20px;
+            font-weight: 600;
+            color: #2D3748;
+            margin-bottom: 10px;
+        }
+
+        .testimonial-item p {
+            font-size: 16px;
+            color: #4A5568;
+            margin-bottom: 0;
+        }
+
+        .testimonial-carousel button {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 24px;
+            color: #4A5568;
+            background-color: transparent;
+            border: none;
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+
+        .testimonial-carousel button.prev {
+            left: 20px;
+        }
+
+        .testimonial-carousel button.next {
+            right: 20px;
+        }
+
+        .testimonial-carousel button:hover {
+            color: #2D3748;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #2D3748;
+            color: #FFFFFF;
+            padding: 20px 40px;
+            text-align: center;
+        }
+
+        footer p {
+            margin: 0;
+            font-size: 14px;
+        }
+
+        /* Media Queries */
+        @media (max-width: 1024px) {
+            .project-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .skill-items {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            nav {
+                padding: 20px;
+            }
+
+            .projects-section,
+            .skills-section,
+            .testimonials-section {
+                padding: 60px 20px;
+            }
+
+            .project-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .skill-items {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .testimonial-item {
+                width: 90%;
+            }
+        }
+
+        @media (max-width: 480px) {
+            nav .logo {
+                font-size: 20px;
+            }
+
+            nav ul li {
+                margin-left: 20px;
+            }
+
+            nav ul li a {
+                font-size: 14px;
+            }
+
+            .projects-section h2,
+            .skills-section h2,
+            .testimonials-section h2 {
+                font-size: 28px;
+            }
+
+            .skill-items {
+                grid-template-columns: 1fr;
+            }
+
+            .testimonial-carousel button {
+                font-size: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="logo">Web Editor</div>
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Projects</a></li>
+            <li><a href="#">Skills</a></li>
+            <li><a href="#">Testimonials</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+    </nav>
+
+    <section class="projects-section">
+        <h2>My Projects</h2>
+        <div class="project-grid">
+            <div class="project-item">
+                <img src="https://dummyimage.com/600x400/ccc/000&text=Project+1" alt="Project 1">
+                <div class="project-details">
+                    <h3>Project 1</h3>
+                    <p>A modern and responsive website design for a tech startup.</p>
+                </div>
+            </div>
+            <div class="project-item">
+                <img src="https://dummyimage.com/600x400/ccc/000&text=Project+2" alt="Project 2">
+                <div class="project-details">
+                    <h3>Project 2</h3>
+                    <p>A clean and visually appealing e-commerce platform for an online store.</p>
+                </div>
+            </div>
+            <div class="project-item">
+                <img src="https://dummyimage.com/600x400/ccc/000&text=Project+3" alt="Project 3">
+                <div class="project-details">
+                    <h3>Project 3</h3>
+                    <p>A user-friendly and interactive web application for a SaaS company.</p>
+                </div>
+            </div>
+            <div class="project-item">
+                <img src="https://dummyimage.com/600x400/ccc/000&text=Project+4" alt="Project 4">
+                <div class="project-details">
+                    <h3>Project 4</h3>
+                    <p>A modern and minimalist portfolio website for a creative professional.</p>
+                </div>
+            </div>
+            <div class="project-item">
+                <img src="https://dummyimage.com/600x400/ccc/000&text=Project+5" alt="Project 5">
+                <div class="project-details">
+                    <h3>Project 5</h3>
+                    <p>A visually stunning and user-friendly website for a design agency.</p>
+                </div>
+            </div>
+            <div class="project-item">
+                <img src="https://dummyimage.com/600x400/ccc/000&text=Project+6" alt="Project 6">
+                <div class="project-details">
+                    <h3>Project 6</h3>
+                    <p>A responsive and engaging website for a leading technology company.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="skills-section">
+        <h2>My Skills</h2>
+        <div class="skill-items">
+            <div class="skill-item">
+                <i class="fas fa-code"></i>
+                <h3>Web Development</h3>
+                <p>Proficient in HTML, CSS, and JavaScript.</p>
+            </div>
+            <div class="skill-item">
+                <i class="fas fa-paint-brush"></i>
+                <h3>UI/UX Design</h3>
+                <p>Expertise in creating user-friendly and visually appealing designs.</p>
+            </div>
+            <div class="skill-item">
+                <i class="fas fa-database"></i>
+                <h3>Database Management</h3>
+                <p>Familiar with SQL and NoSQL databases.</p>
+            </div>
+            <div class="skill-item">
+                <i class="fas fa-project-diagram"></i>
+                <h3>Project Management</h3>
+                <p>Skilled in managing projects from start to finish.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="testimonials-section">
+        <h2>What My Clients Say</h2>
+        <div class="testimonial-carousel">
+            <button class="prev">&#8249;</button>
+            <div class="testimonial-item active">
+                <img src="https://dummyimage.com/80x80/ccc/000&text=Client+1" alt="Client 1">
+                <h3>John Doe</h3>
+                <p>"The web editor did an amazing job on our website. They were professional, responsive, and delivered exactly what we needed."</p>
+            </div>
+            <div class="testimonial-item">
+                <img src="https://dummyimage.com/80x80/ccc/000&text=Client+2" alt="Client 2">
+                <h3>Jane Smith</h3>
+                <p>"I was impressed by the web editor's attention to detail and ability to translate our vision into a stunning website. Highly recommended!"</p>
+            </div>
+            <div class="testimonial-item">
+                <img src="https://dummyimage.com/80x80/ccc/000&text=Client+3" alt="Client 3">
+                <h3>Michael Johnson</h3>
+                <p>"The web editor's expertise in both design and development was invaluable. They helped us create a website that has significantly improved our online presence."</p>
+            </div>
+            <button class="next">&#8250;</button>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Web Editor. All rights reserved.</p>
+    </footer>
+
+    <script>
+        const testimonialItems = document.querySelectorAll('.testimonial-item');
+        const prevBtn = document.querySelector('.testimonial-carousel .prev');
+        const nextBtn = document.querySelector('.testimonial-carousel .next');
+
+        let currentIndex = 0;
+
+        function showTestimonial(index) {
+            testimonialItems.forEach((item, i) => {
+                if (i === index) {
+                    item.classList.add('active');
+                } else {
+                    item.classList.remove('active');
+                }
+            });
+        }
+
+        prevBtn.addEventListener('click', () => {
+            currentIndex = (currentIndex - 1 + testimonialItems.length) % testimonialItems.length;
+            showTestimonial(currentIndex);
+        });
+
+        nextBtn.addEventListener('click', () => {
+            currentIndex = (currentIndex + 1) % testimonialItems.length;
+            showTestimonial(currentIndex);
+        });
+
+        showTestimonial(currentIndex);
+    </script>
+</body>
+</html>'<!-- Visit: https://github.com/Ishanoshada/portflair -->
+<!-- Visit: https://github.com/Ishanoshada/portflair -->

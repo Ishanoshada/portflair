@@ -1,0 +1,466 @@
+<!-- Portfolio created by Ishan -->
+<!-- Check out my work at: https://github.com/Ishanoshada/portflair -->
+<!-- 2024/10/9 -->
+<!-- Portfolio created by Ishan -->
+'<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multidimensional | Backend Developer & Sci-Fi Writer</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Orbitron:wght@400;500;700&display=swap');
+
+        :root {
+            --color-bg: #010b14;
+            --color-text: #e0f2ff;
+            --color-accent: #00ffaa;
+            --color-secondary: #ff00ff;
+            --color-tertiary: #00ffff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Space Mono', monospace;
+            background-color: var(--color-bg);
+            color: var(--color-text);
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        header {
+            padding: 20px 0;
+            background: rgba(1, 11, 20, 0.8);
+            backdrop-filter: blur(10px);
+            position: relative;
+            z-index: 100;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--color-accent);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            text-shadow: 0 0 10px var(--color-accent);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            color: var(--color-text);
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--color-accent);
+        }
+
+        .hero {
+            height: calc(100vh - 80px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-content {
+            text-align: center;
+            z-index: 2;
+        }
+
+        h1 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 64px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            background: linear-gradient(45deg, var(--color-accent), var(--color-secondary), var(--color-tertiary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: gradient 10s ease infinite;
+        }
+
+        .hero p {
+            font-size: 18px;
+            max-width: 600px;
+            margin: 0 auto 30px;
+            line-height: 1.6;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 12px 24px;
+            background: var(--color-accent);
+            color: var(--color-bg);
+            text-decoration: none;
+            font-weight: 700;
+            border-radius: 30px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 255, 170, 0.3);
+        }
+
+        .cta-button::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: rgba(255, 255, 255, 0.1);
+            transform: rotate(45deg);
+            z-index: -1;
+            transition: all 0.6s ease;
+        }
+
+        .cta-button:hover::before {
+            transform: rotate(45deg) translateY(-300%);
+        }
+
+        .universe-explorer {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+        }
+
+        .star {
+            position: absolute;
+            background: #fff;
+            border-radius: 50%;
+            animation: twinkle 2s infinite;
+        }
+
+        @keyframes twinkle {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+
+        .planet {
+            position: absolute;
+            border-radius: 50%;
+            animation: rotate 20s linear infinite;
+        }
+
+        @keyframes rotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .code-visualizer {
+            padding: 100px 0;
+            background: linear-gradient(45deg, #020c1b, #0f2943);
+        }
+
+        .code-container {
+            display: flex;
+            gap: 30px;
+            background: rgba(1, 11, 20, 0.8);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 0 30px rgba(0, 255, 170, 0.1);
+        }
+
+        .code-editor {
+            flex: 1;
+            padding: 20px;
+            font-family: 'Space Mono', monospace;
+            font-size: 14px;
+            line-height: 1.6;
+            color: var(--color-text);
+            background: #011627;
+            border-right: 1px solid var(--color-accent);
+        }
+
+        .visualization {
+            flex: 1;
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .visualization-placeholder {
+            width: 300px;
+            height: 300px;
+            background: linear-gradient(45deg, var(--color-accent), var(--color-secondary));
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            text-align: center;
+            color: var(--color-bg);
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+        }
+
+        .story-generator {
+            padding: 100px 0;
+            background: url('https://dummyimage.com/1920x1080/020c1b/ffffff&text=Futuristic+Library') no-repeat center center;
+            background-size: cover;
+            position: relative;
+        }
+
+        .story-generator::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(1, 11, 20, 0.8);
+        }
+
+        .story-core {
+            width: 200px;
+            height: 200px;
+            background: radial-gradient(circle, var(--color-accent), var(--color-secondary));
+            border-radius: 50%;
+            margin: 0 auto 50px;
+            position: relative;
+            animation: pulse 4s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        .story-controls {
+            max-width: 600px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .story-input {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 20px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid var(--color-accent);
+            border-radius: 5px;
+            color: var(--color-text);
+            font-family: 'Space Mono', monospace;
+        }
+
+        .generate-button {
+            padding: 12px 24px;
+            background: var(--color-accent);
+            color: var(--color-bg);
+            border: none;
+            border-radius: 5px;
+            font-family: 'Orbitron', sans-serif;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .generate-button:hover {
+            background: var(--color-secondary);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(255, 0, 255, 0.3);
+        }
+
+        footer {
+            padding: 50px 0;
+            background: #010b14;
+            text-align: center;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .social-link {
+            color: var(--color-text);
+            font-size: 24px;
+            transition: color 0.3s ease;
+        }
+
+        .social-link:hover {
+            color: var(--color-accent);
+        }
+
+        .copyright {
+            font-size: 14px;
+            opacity: 0.7;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 40px;
+            }
+
+            .code-container {
+                flex-direction: column;
+            }
+
+            .story-core {
+                width: 150px;
+                height: 150px;
+            }
+        }
+
+        @keyframes gradient {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="container">
+            <div class="logo">Multidimensional</div>
+            <div class="nav-links">
+                <a href="#home">Home</a>
+                <a href="#universe">Universe</a>
+                <a href="#code">Code</a>
+                <a href="#stories">Stories</a>
+                <a href="#contact">Contact</a>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section id="home" class="hero">
+            <div class="hero-content">
+                <h1>Explore the Multidimensional Universe</h1>
+                <p>Embark on a journey through code, creativity, and cosmic wonders. Discover the intersection of backend development and science fiction writing.</p>
+                <a href="#universe" class="cta-button">Begin Your Adventure</a>
+            </div>
+            <div class="universe-explorer" id="universe-explorer"></div>
+        </section>
+
+        <section id="code" class="code-visualizer">
+            <div class="container">
+                <div class="code-container">
+                    <div class="code-editor" contenteditable="true">
+function traverseDimensions(startPoint, endPoint) {
+    let path = [];
+    let currentDimension = startPoint.dimension;
+
+    while (currentDimension !== endPoint.dimension) {
+        path.push(warpSpace(currentDimension));
+        currentDimension = calculateNextDimension(currentDimension);
+    }
+
+    return path;
+}
+
+function warpSpace(dimension) {
+    // Complex space-warping algorithm
+    return dimension.fold().twist().expand();
+}
+
+function calculateNextDimension(current) {
+    return current.increment().stabilize();
+}
+
+// Usage
+const journey = traverseDimensions(
+    { dimension: universe.origin },
+    { dimension: universe.destination }
+);
+console.log("Interdimensional path:", journey);
+                    </div>
+                    <div class="visualization">
+                        <div class="visualization-placeholder">
+                            3D Visualization of Multidimensional Traversal
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="stories" class="story-generator">
+            <div class="container">
+                <div class="story-core"></div>
+                <div class="story-controls">
+                    <input type="text" class="story-input" placeholder="Enter a sci-fi concept or theme...">
+                    <button class="generate-button">Generate Story</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="social-links">
+                <a href="#" class="social-link">&#xf099;</a>
+                <a href="#" class="social-link">&#xf09b;</a>
+                <a href="#" class="social-link">&#xf08c;</a>
+            </div>
+            <p class="copyright">&copy; 2024 Multidimensional. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const universeExplorer = document.getElementById('universe-explorer');
+            
+            // Create stars
+            for (let i = 0; i < 200; i++) {
+                const star = document.createElement('div');
+                star.classList.add('star');
+                star.style.width = `${Math.random() * 3}px`;
+                star.style.height = star.style.width;
+                star.style.left = `${Math.random() * 100}%`;
+                star.style.top = `${Math.random() * 100}%`;
+                star.style.animationDelay = `${Math.random() * 2}s`;
+                universeExplorer.appendChild(star);
+            }
+
+            // Create planets
+            const planetColors = ['#ff9800', '#e91e63', '#2196f3', '#4caf50'];
+            for (let i = 0; i < 4; i++) {
+                const planet = document.createElement('div');
+                planet.classList.add('planet');
+                const size = 30 + Math.random() * 60;
+                planet.style.width = `${size}px`;
+                planet.style.height = `${size}px`;
+                planet.style.backgroundColor = planetColors[i];
+                planet.style.left = `${Math.random() * 80 + 10}%`;
+                planet.style.top = `${Math.random() * 80 + 10}%`;
+                planet.style.animationDuration = `${20 + Math.random() * 40}s`;
+                universeExplorer.appendChild(planet);
+            }
+        });
+    </script>
+</body>
+</html>'<!-- Visit: https://github.com/Ishanoshada/portflair -->
+<!-- Visit: https://github.com/Ishanoshada/portflair -->

@@ -1,0 +1,402 @@
+<!-- Portfolio created by Ishan -->
+<!-- Check out my work at: https://github.com/Ishanoshada/portflair -->
+<!-- 2024/10/9 -->
+<!-- Portfolio created by Ishan -->
+'<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Design a full-page animated portfolio</title>
+  <style>
+    /* Global Styles */
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background-color: #0f0f0f;
+      color: #f1f1f1;
+      overflow-x: hidden;
+    }
+
+    /* Navigation */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 40px;
+      background-color: rgba(15, 15, 15, 0.8);
+      backdrop-filter: blur(10px);
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+    }
+
+    nav a {
+      color: #f1f1f1;
+      text-decoration: none;
+      font-size: 18px;
+      font-weight: 500;
+      transition: color 0.3s ease;
+    }
+
+    nav a:hover {
+      color: #ff6b6b;
+    }
+
+    /* Animated Portfolio */
+    .animated-portfolio {
+      position: relative;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+    }
+
+    .animated-portfolio::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: url("https://dummyimage.com/1920x1080/0f0f0f/f1f1f1&text=Animated+Portfolio");
+      background-size: cover;
+      background-position: center;
+      filter: blur(20px);
+      z-index: -1;
+    }
+
+    .cube-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      transform-style: preserve-3d;
+      transform: rotateX(30deg) rotateY(45deg);
+      animation: rotate 20s linear infinite;
+    }
+
+    .cube {
+      width: 300px;
+      height: 300px;
+      position: relative;
+      transform-style: preserve-3d;
+      transition: transform 0.5s ease;
+      margin: 20px;
+    }
+
+    .cube:hover {
+      transform: scale(1.1);
+    }
+
+    .cube-face {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      opacity: 0.9;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      font-size: 24px;
+      font-weight: bold;
+      color: #f1f1f1;
+      backface-visibility: hidden;
+    }
+
+    .cube-face-front {
+      background-color: #ff6b6b;
+      transform: translateZ(150px);
+    }
+
+    .cube-face-right {
+      background-color: #ffa500;
+      transform: rotateY(90deg) translateZ(150px);
+    }
+
+    .cube-face-back {
+      background-color: #7bed9f;
+      transform: rotateY(180deg) translateZ(150px);
+    }
+
+    .cube-face-left {
+      background-color: #9b59b6;
+      transform: rotateY(-90deg) translateZ(150px);
+    }
+
+    .cube-face-top {
+      background-color: #3498db;
+      transform: rotateX(90deg) translateZ(150px);
+    }
+
+    .cube-face-bottom {
+      background-color: #2ecc71;
+      transform: rotateX(-90deg) translateZ(150px);
+    }
+
+    @keyframes rotate {
+      0% {
+        transform: rotateX(30deg) rotateY(45deg);
+      }
+      100% {
+        transform: rotateX(30deg) rotateY(405deg);
+      }
+    }
+
+    /* Skills Showcase */
+    .skills-showcase {
+      padding: 80px 40px;
+      background-color: #1f1f1f;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      grid-gap: 40px;
+      width: 100%;
+      max-width: 1200px;
+    }
+
+    .skill-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      position: relative;
+      opacity: 0.8;
+      transition: opacity 0.3s ease, transform 0.3s ease;
+    }
+
+    .skill-item:hover {
+      opacity: 1;
+      transform: translateY(-10px);
+    }
+
+    .skill-item img {
+      width: 80px;
+      height: 80px;
+      margin-bottom: 20px;
+    }
+
+    .skill-item h3 {
+      font-size: 18px;
+      font-weight: 600;
+      margin-bottom: 10px;
+    }
+
+    .skill-item p {
+      font-size: 14px;
+      color: #b3b3b3;
+    }
+
+    .skill-item::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: linear-gradient(to right, #ff6b6b, #ffa500);
+      background-size: 200% 200%;
+      background-position: 0% 50%;
+      opacity: 0;
+      transition: opacity 0.5s ease, background-position 0.5s ease;
+    }
+
+    .skill-item:hover::before {
+      opacity: 0.2;
+      background-position: 100% 50%;
+    }
+
+    /* Interactive Contact Form */
+    .contact-form {
+      position: relative;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+    }
+
+    .contact-form::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: url("https://dummyimage.com/1920x1080/1f1f1f/f1f1f1&text=Contact+Form");
+      background-size: cover;
+      background-position: center;
+      filter: blur(20px);
+      z-index: -1;
+    }
+
+    .contact-form-container {
+      background-color: rgba(15, 15, 15, 0.8);
+      backdrop-filter: blur(10px);
+      padding: 40px;
+      border-radius: 10px;
+      width: 400px;
+      max-width: 90%;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+      animation: formShift 10s ease-in-out infinite;
+    }
+
+    .contact-form-container h2 {
+      text-align: center;
+      font-size: 28px;
+      margin-bottom: 20px;
+    }
+
+    .contact-form-container form {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .contact-form-container input,
+    .contact-form-container textarea {
+      margin-bottom: 20px;
+      padding: 12px 16px;
+      border: none;
+      border-radius: 5px;
+      background-color: rgba(255, 255, 255, 0.1);
+      color: #f1f1f1;
+      font-size: 16px;
+      transition: background-color 0.3s ease;
+    }
+
+    .contact-form-container input:focus,
+    .contact-form-container textarea:focus {
+      outline: none;
+      background-color: rgba(255, 255, 255, 0.2);
+    }
+
+    .contact-form-container button {
+      background-color: #ff6b6b;
+      color: #f1f1f1;
+      border: none;
+      border-radius: 5px;
+      padding: 12px 24px;
+      font-size: 16px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .contact-form-container button:hover {
+      background-color: #e65252;
+    }
+
+    @keyframes formShift {
+      0% {
+        transform: translateX(-20px);
+      }
+      50% {
+        transform: translateX(20px);
+      }
+      100% {
+        transform: translateX(-20px);
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation -->
+  <nav>
+    <a href="#">Home</a>
+    <a href="#">About</a>
+    <a href="#">Portfolio</a>
+    <a href="#">Skills</a>
+    <a href="#">Contact</a>
+  </nav>
+
+  <!-- Animated Portfolio -->
+  <section class="animated-portfolio">
+    <div class="cube-container">
+      <div class="cube">
+        <div class="cube-face cube-face-front">Project 1</div>
+        <div class="cube-face cube-face-right">Project 2</div>
+        <div class="cube-face cube-face-back">Project 3</div>
+        <div class="cube-face cube-face-left">Project 4</div>
+        <div class="cube-face cube-face-top">Project 5</div>
+        <div class="cube-face cube-face-bottom">Project 6</div>
+      </div>
+      <div class="cube">
+        <div class="cube-face cube-face-front">Project 7</div>
+        <div class="cube-face cube-face-right">Project 8</div>
+        <div class="cube-face cube-face-back">Project 9</div>
+        <div class="cube-face cube-face-left">Project 10</div>
+        <div class="cube-face cube-face-top">Project 11</div>
+        <div class="cube-face cube-face-bottom">Project 12</div>
+      </div>
+      <div class="cube">
+        <div class="cube-face cube-face-front">Project 13</div>
+        <div class="cube-face cube-face-right">Project 14</div>
+        <div class="cube-face cube-face-back">Project 15</div>
+        <div class="cube-face cube-face-left">Project 16</div>
+        <div class="cube-face cube-face-top">Project 17</div>
+        <div class="cube-face cube-face-bottom">Project 18</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills Showcase -->
+  <section class="skills-showcase">
+    <h2>My Design Skills</h2>
+    <div class="skills-grid">
+      <div class="skill-item">
+        <img src="https://dummyimage.com/80x80/ff6b6b/f1f1f1&text=UI" alt="UI Design">
+        <h3>UI Design</h3>
+        <p>Crafting intuitive and visually stunning user interfaces.</p>
+      </div>
+      <div class="skill-item">
+        <img src="https://dummyimage.com/80x80/ffa500/f1f1f1&text=UX" alt="UX Design">
+        <h3>UX Design</h3>
+        <p>Delivering seamless and user-centric experiences.</p>
+      </div>
+      <div class="skill-item">
+        <img src="https://dummyimage.com/80x80/7bed9f/0f0f0f&text=Branding" alt="Branding">
+        <h3>Branding</h3>
+        <p>Developing distinct and memorable brand identities.</p>
+      </div>
+      <div class="skill-item">
+        <img src="https://dummyimage.com/80x80/9b59b6/f1f1f1&text=Illustration" alt="Illustration">
+        <h3>Illustration</h3>
+        <p>Bringing ideas to life through captivating illustrations.</p>
+      </div>
+      <div class="skill-item">
+        <img src="https://dummyimage.com/80x80/3498db/0f0f0f&text=Animation" alt="Animation">
+        <h3>Animation</h3>
+        <p>Creating dynamic and engaging motion graphics.</p>
+      </div>
+      <div class="skill-item">
+        <img src="https://dummyimage.com/80x80/2ecc71/0f0f0f&text=Photography" alt="Photography">
+        <h3>Photography</h3>
+        <p>Capturing the essence of moments through visuals.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Interactive Contact Form -->
+  <section class="contact-form">
+    <div class="contact-form-container">
+      <h2>Get in Touch</h2>
+      <form>
+        <input type="text" placeholder="Name" required>
+        <input type="email" placeholder="Email" required>
+        <textarea placeholder="Message" rows="5" required></textarea>
+        <button type="submit">Submit</button>
+      </form>
+    </div>
+  </section>
+</body>
+</html>'<!-- Visit: https://github.com/Ishanoshada/portflair -->
+<!-- Visit: https://github.com/Ishanoshada/portflair -->

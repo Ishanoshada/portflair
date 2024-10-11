@@ -1,0 +1,325 @@
+<!-- Portfolio created by Ishan -->
+<!-- Check out my work at: https://github.com/Ishanoshada/portflair -->
+<!-- 2024/10/9 -->
+<!-- Portfolio created by Ishan -->
+'<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hacking-Themed Portfolio</title>
+  <style>
+    /* Global Styles */
+    body {
+      font-family: 'Monospace', monospace;
+      background-color: #131313;
+      color: #fff;
+      margin: 0;
+      padding: 0;
+    }
+
+    /* Navigation */
+    nav {
+      background-color: #1f1f1f;
+      padding: 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    nav ul {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+    }
+
+    nav ul li {
+      margin-right: 20px;
+    }
+
+    nav a {
+      color: #8a8a8a;
+      text-decoration: none;
+      font-size: 16px;
+      transition: color 0.3s ease;
+    }
+
+    nav a:hover {
+      color: #fff;
+    }
+
+    /* Hero Section */
+    .hero {
+      background-image: url(https://dummyimage.com/1920x1080/000/fff&text=Hacking+Portfolio+Hero+Image);
+      background-size: cover;
+      background-position: center;
+      height: 80vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(19, 19, 19, 0.7);
+      z-index: 1;
+    }
+
+    .hero-content {
+      z-index: 2;
+      text-align: center;
+      animation: glitch 2s infinite;
+    }
+
+    .hero-title {
+      font-size: 4rem;
+      font-weight: bold;
+      text-shadow: 0 0 20px #00ff00, 0 0 40px #00ff00, 0 0 80px #00ff00;
+      margin-bottom: 20px;
+    }
+
+    .hero-description {
+      font-size: 1.5rem;
+      margin-bottom: 40px;
+      text-shadow: 0 0 10px #00ff00, 0 0 20px #00ff00, 0 0 40px #00ff00;
+    }
+
+    .hero-button {
+      background-color: #00ff00;
+      color: #131313;
+      padding: 12px 24px;
+      border: none;
+      border-radius: 4px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .hero-button:hover {
+      background-color: #00d600;
+    }
+
+    /* Project Showcase */
+    .project-showcase {
+      padding: 80px 0;
+    }
+
+    .project-showcase h2 {
+      font-size: 2.5rem;
+      text-align: center;
+      margin-bottom: 40px;
+      text-shadow: 0 0 10px #00ff00, 0 0 20px #00ff00, 0 0 40px #00ff00;
+    }
+
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      grid-gap: 40px;
+    }
+
+    .project-item {
+      background-color: #1f1f1f;
+      border-radius: 8px;
+      overflow: hidden;
+      position: relative;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+
+    .project-item:hover {
+      transform: scale(1.05);
+    }
+
+    .project-item::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: linear-gradient(to right, #00ff00, #0080ff);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .project-item:hover::before {
+      opacity: 0.3;
+    }
+
+    .project-thumbnail {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+
+    .project-details {
+      padding: 20px;
+    }
+
+    .project-title {
+      font-size: 1.5rem;
+      margin-bottom: 10px;
+      text-shadow: 0 0 5px #00ff00, 0 0 10px #00ff00, 0 0 20px #00ff00;
+    }
+
+    .project-description {
+      font-size: 1rem;
+      color: #8a8a8a;
+      margin-bottom: 20px;
+    }
+
+    .project-tags {
+      font-size: 0.9rem;
+      color: #00ff00;
+      margin-bottom: 10px;
+    }
+
+    /* Contact Section */
+    .contact {
+      background-color: #1f1f1f;
+      padding: 80px 0;
+    }
+
+    .contact h2 {
+      font-size: 2.5rem;
+      text-align: center;
+      margin-bottom: 40px;
+      text-shadow: 0 0 10px #00ff00, 0 0 20px #00ff00, 0 0 40px #00ff00;
+    }
+
+    .contact-form {
+      max-width: 600px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+      width: 100%;
+      background-color: #131313;
+      border: 2px solid #00ff00;
+      border-radius: 4px;
+      color: #00ff00;
+      font-size: 1rem;
+      padding: 12px 16px;
+      margin-bottom: 20px;
+      font-family: 'Monospace', monospace;
+      transition: border-color 0.3s ease;
+    }
+
+    .contact-form input:focus,
+    .contact-form textarea:focus {
+      outline: none;
+      border-color: #0080ff;
+    }
+
+    .contact-form button {
+      background-color: #00ff00;
+      color: #131313;
+      border: none;
+      border-radius: 4px;
+      font-size: 1rem;
+      padding: 12px 24px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .contact-form button:hover {
+      background-color: #00d600;
+    }
+
+    /* Animations */
+    @keyframes glitch {
+      0% {
+        transform: translate(0);
+      }
+      20% {
+        transform: translate(-2px, 2px);
+      }
+      40% {
+        transform: translate(-2px, -2px);
+      }
+      60% {
+        transform: translate(2px, 2px);
+      }
+      80% {
+        transform: translate(2px, -2px);
+      }
+      100% {
+        transform: translate(0);
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="#">Home</a>
+    <ul>
+      <li><a href="#">Projects</a></li>
+      <li><a href="#">Skills</a></li>
+      <li><a href="#">About</a></li>
+      <li><a href="#">Contact</a></li>
+    </ul>
+  </nav>
+
+  <div class="hero">
+    <div class="hero-content">
+      <h1 class="hero-title">Designing the Digital Underworld</h1>
+      <p class="hero-description">Crafting Cyber Masterpieces for the Discerning Hacker</p>
+      <button class="hero-button">Explore My Work</button>
+    </div>
+  </div>
+
+  <div class="project-showcase">
+    <h2>Featured Projects</h2>
+    <div class="project-grid">
+      <div class="project-item">
+        <img class="project-thumbnail" src="https://dummyimage.com/600x400/1f1f1f/00ff00&text=Project+1" alt="Project 1">
+        <div class="project-details">
+          <h3 class="project-title">Cyber Security Dashboard</h3>
+          <p class="project-description">A sleek and intuitive dashboard for monitoring cybersecurity threats.</p>
+          <p class="project-tags">Technologies: React, D3.js, Node.js</p>
+        </div>
+      </div>
+      <div class="project-item">
+        <img class="project-thumbnail" src="https://dummyimage.com/600x400/1f1f1f/00ff00&text=Project+2" alt="Project 2">
+        <div class="project-details">
+          <h3 class="project-title">Ethical Hacking Toolkit</h3>
+          <p class="project-description">A comprehensive suite of tools for ethical hackers and security professionals.</p>
+          <p class="project-tags">Technologies: Python, Bash, Electron</p>
+        </div>
+      </div>
+      <div class="project-item">
+        <img class="project-thumbnail" src="https://dummyimage.com/600x400/1f1f1f/00ff00&text=Project+3" alt="Project 3">
+        <div class="project-details">
+          <h3 class="project-title">Cyberpunk Branding</h3>
+          <p class="project-description">A bold and futuristic branding identity for a cutting-edge tech startup.</p>
+          <p class="project-tags">Technologies: Adobe Creative Suite, 3D Modeling</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="contact">
+    <h2>Get in Touch</h2>
+    <form class="contact-form">
+      <input type="text" placeholder="Name" required>
+      <input type="email" placeholder="Email" required>
+      <textarea placeholder="Message" rows="5" required></textarea>
+      <button type="submit">Send Message</button>
+    </form>
+  </div>
+</body>
+</html>'<!-- Visit: https://github.com/Ishanoshada/portflair -->
+<!-- Visit: https://github.com/Ishanoshada/portflair -->

@@ -1,0 +1,626 @@
+<!-- Portfolio created by Ishan -->
+<!-- Check out my work at: https://github.com/Ishanoshada/portflair -->
+<!-- 2024/10/9 -->
+<!-- Portfolio created by Ishan -->
+'<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Soooo Mind Blowing Backend Developer Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-red: #FF0000;
+            --dark-red: #8B0000;
+            --light-red: #FF6666;
+            --bg-red: #400000;
+            --text-white: #FFFFFF;
+            --text-gray: #CCCCCC;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Open Sans', sans-serif;
+            background-color: var(--bg-red);
+            color: var(--text-white);
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Floating Binary Background */
+        .binary-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            overflow: hidden;
+        }
+
+        .binary {
+            position: absolute;
+            font-family: 'Courier New', monospace;
+            font-size: 14px;
+            color: var(--light-red);
+            opacity: 0.3;
+            animation: float 20s linear infinite;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0); }
+            100% { transform: translateY(-100%); }
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(135deg, var(--dark-red), var(--bg-red));
+            padding: 20px 0;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: var(--text-white);
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 20px;
+        }
+
+        .nav-links a {
+            color: var(--text-white);
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--light-red);
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-content {
+            z-index: 1;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .hero p {
+            font-size: 1.5rem;
+            margin-bottom: 30px;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 12px 24px;
+            background-color: var(--primary-red);
+            color: var(--text-white);
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 30px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 4px 8px rgba(255,0,0,0.3);
+        }
+
+        /* Projects Showcase */
+        .projects {
+            padding: 100px 0;
+        }
+
+        .projects h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 50px;
+        }
+
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .project-item {
+            position: relative;
+            height: 250px;
+            overflow: hidden;
+            border-radius: 15px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .project-item:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 20px rgba(255,0,0,0.2);
+        }
+
+        .project-content {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(139,0,0,0.9), rgba(75,0,0,0.9));
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            text-align: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .project-item:hover .project-content {
+            opacity: 1;
+        }
+
+        .project-title {
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .project-description {
+            font-size: 0.9rem;
+            margin-bottom: 15px;
+        }
+
+        .project-tech {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+
+        .tech-badge {
+            background-color: var(--dark-red);
+            color: var(--text-white);
+            padding: 5px 10px;
+            border-radius: 15px;
+            font-size: 0.8rem;
+        }
+
+        .project-link {
+            background-color: var(--primary-red);
+            color: var(--text-white);
+            padding: 8px 16px;
+            border-radius: 20px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+        }
+
+        .project-link:hover {
+            background-color: var(--light-red);
+        }
+
+        /* Skills Meter */
+        .skills {
+            padding: 100px 0;
+            position: relative;
+        }
+
+        .skills h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 50px;
+        }
+
+        .skills-chart {
+            width: 400px;
+            height: 400px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .skill-node {
+            position: absolute;
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background-color: var(--dark-red);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-weight: bold;
+            box-shadow: 0 0 10px rgba(255,0,0,0.5);
+        }
+
+        .skill-node:nth-child(1) { top: 0; left: 50%; transform: translateX(-50%); }
+        .skill-node:nth-child(2) { top: 25%; right: 0; }
+        .skill-node:nth-child(3) { bottom: 25%; right: 0; }
+        .skill-node:nth-child(4) { bottom: 0; left: 50%; transform: translateX(-50%); }
+        .skill-node:nth-child(5) { bottom: 25%; left: 0; }
+        .skill-node:nth-child(6) { top: 25%; left: 0; }
+
+        .skill-line {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 150px;
+            height: 2px;
+            background-color: var(--light-red);
+            transform-origin: left center;
+        }
+
+        .skill-line:nth-child(1) { transform: rotate(0deg); }
+        .skill-line:nth-child(2) { transform: rotate(60deg); }
+        .skill-line:nth-child(3) { transform: rotate(120deg); }
+        .skill-line:nth-child(4) { transform: rotate(180deg); }
+        .skill-line:nth-child(5) { transform: rotate(240deg); }
+        .skill-line:nth-child(6) { transform: rotate(300deg); }
+
+        /* Interactive Terminal */
+        .terminal {
+            background-color: #000000;
+            padding: 20px;
+            border-radius: 10px;
+            font-family: 'Courier New', monospace;
+            margin-top: 50px;
+        }
+
+        .terminal-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+        }
+
+        .terminal-title {
+            color: var(--text-gray);
+        }
+
+        .terminal-controls span {
+            display: inline-block;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            margin-left: 5px;
+        }
+
+        .terminal-controls span:nth-child(1) { background-color: #FF5F56; }
+        .terminal-controls span:nth-child(2) { background-color: #FFBD2E; }
+        .terminal-controls span:nth-child(3) { background-color: #27C93F; }
+
+        .terminal-content {
+            height: 300px;
+            overflow-y: auto;
+        }
+
+        .terminal-line {
+            margin-bottom: 5px;
+        }
+
+        .terminal-prompt {
+            color: var(--primary-red);
+        }
+
+        .terminal-input {
+            color: var(--text-white);
+            background: none;
+            border: none;
+            outline: none;
+            font-family: inherit;
+            font-size: inherit;
+            width: calc(100% - 20px);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--dark-red);
+            padding: 20px 0;
+            text-align: center;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+
+        .social-links a {
+            color: var(--text-white);
+            font-size: 24px;
+            transition: color 0.3s ease;
+        }
+
+        .social-links a:hover {
+            color: var(--light-red);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 3rem;
+            }
+
+            .hero p {
+                font-size: 1.2rem;
+            }
+
+            .skills-chart {
+                width: 300px;
+                height: 300px;
+            }
+
+            .skill-node {
+                width: 60px;
+                height: 60px;
+                font-size: 0.8rem;
+            }
+
+            .skill-line {
+                width: 120px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            .project-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .skills-chart {
+                width: 250px;
+                height: 250px;
+            }
+
+            .skill-node {
+                width: 50px;
+                height: 50px;
+                font-size: 0.7rem;
+            }
+
+            .skill-line {
+                width: 100px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="binary-bg">
+        <div class="binary" style="top: 10%; left: 5%;">01001000</div>
+        <div class="binary" style="top: 30%; left: 25%;">10110101</div>
+        <div class="binary" style="top: 50%; left: 45%;">11001010</div>
+        <div class="binary" style="top: 70%; left: 65%;">00111100</div>
+        <div class="binary" style="top: 90%; left: 85%;">10101010</div>
+    </div>
+
+    <header>
+        <nav class="container">
+            <a href="#" class="logo">MindBlowing Dev</a>
+            <div class="nav-links">
+                <a href="#projects">Projects</a>
+                <a href="#skills">Skills</a>
+                <a href="#terminal">Terminal</a>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="hero-content">
+                <h1>Backend Wizardry Unleashed</h1>
+                <p>Crafting mind-bending solutions with code</p>
+                <a href="#projects" class="cta-button">Explore My Work</a>
+            </div>
+        </section>
+
+        <section id="projects" class="projects container">
+            <h2>Mind-Blowing Projects</h2>
+            <div class="project-grid">
+                <div class="project-item">
+                    <div class="project-content">
+                        <h3 class="project-title">Quantum API</h3>
+                        <p class="project-description">A revolutionary API that bends the laws of data physics</p>
+                        <div class="project-tech">
+                            <span class="tech-badge">Node.js</span>
+                            <span class="tech-badge">GraphQL</span>
+                            <span class="tech-badge">MongoDB</span>
+                        </div>
+                        <a href="#" class="project-link">View Project</a>
+                    </div>
+                </div>
+                <div class="project-item">
+                    <div class="project-content">
+                        <h3 class="project-title">Neural Net Architect</h3>
+                        <p class="project-description">AI-powered system design that evolves with your needs</p>
+                        <div class="project-tech">
+                            <span class="tech-badge">Python</span>
+                            <span class="tech-badge">TensorFlow</span>
+                            <span class="tech-badge">Docker</span>
+                        </div>
+                        <a href="#" class="project-link">View Project</a>
+                    </div>
+                </div>
+                <div class="project-item">
+                    <div class="project-content">
+                        <h3 class="project-title">Crypto Vault</h3>
+                        <p class="project-description">Unbreakable blockchain security for digital assets</p>
+                        <div class="project-tech">
+                            <span class="tech-badge">Solidity</span>
+                            <span class="tech-badge">Web3.js</span>
+                            <span class="tech-badge">Rust</span>
+                        </div>
+                        <a href="#" class="project-link">View Project</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="skills" class="skills container">
+            <h2>Skill Supernova</h2>
+            <div class="skills-chart">
+                <div class="skill-node">Node.js</div>
+                <div class="skill-node">Python</div>
+                <div class="skill-node">Databases</div>
+                <div class="skill-node">DevOps</div>
+                <div class="skill-node">API Design</div>
+                <div class="skill-node">Security</div>
+                <div class="skill-line"></div>
+                <div class="skill-line"></div>
+                <div class="skill-line"></div>
+                <div class="skill-line"></div>
+                <div class="skill-line"></div>
+                <div class="skill-line"></div>
+            </div>
+        </section>
+
+        <section id="terminal" class="container">
+            <div class="terminal">
+                <div class="terminal-header">
+                    <span class="terminal-title">Mind-Blowing Terminal</span>
+                    <div class="terminal-controls">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                </div>
+                <div class="terminal-content">
+                    <div class="terminal-line">
+                        <span class="terminal-prompt">$ </span>
+                        <span>Welcome to the Mind-Blowing Backend Developer Terminal</span>
+                    </div>
+                    <div class="terminal-line">
+                        <span class="terminal-prompt">$ </span>
+                        <span>Type 'help' to see available commands</span>
+                    </div>
+                    <div class="terminal-line">
+                        <span class="terminal-prompt">$ </span>
+                        <input type="text" class="terminal-input" placeholder="Enter command...">
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="social-links">
+                <a href="#" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+            </div>
+            <p>&copy; 2024 Soooo Mind Blowing Backend Developer. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="https://kit.fontawesome.com/your-fontawesome-kit.js" crossorigin="anonymous"></script>
+    <script>
+        // Binary background animation
+        function createBinary() {
+            const binary = document.createElement('div');
+            binary.classList.add('binary');
+            binary.style.left = Math.random() * 100 + 'vw';
+            binary.style.animationDuration = Math.random() * 3 + 2 + 's';
+            binary.innerText = Math.random() > 0.5 ? '0' : '1';
+            document.querySelector('.binary-bg').appendChild(binary);
+
+            setTimeout(() => {
+                binary.remove();
+            }, 5000);
+        }
+
+        setInterval(createBinary, 100);
+
+        // Interactive terminal
+        const terminalInput = document.querySelector('.terminal-input');
+        const terminalContent = document.querySelector('.terminal-content');
+
+        terminalInput.addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                const command = this.value.trim();
+                const response = handleCommand(command);
+                addTerminalLine(command, response);
+                this.value = '';
+            }
+        });
+
+        function handleCommand(command) {
+            switch(command.toLowerCase()) {
+                case 'help':
+                    return 'Available commands: about, skills, contact';
+                case 'about':
+                    return 'I am a mind-blowing backend developer with a passion for creating scalable and efficient systems.';
+                case 'skills':
+                    return 'My top skills include Node.js, Python, API Design, and Database Management.';
+                case 'contact':
+                    return 'You can reach me at mindblowing@example.com';
+                default:
+                    return 'Command not recognized. Type "help" for available commands.';
+            }
+        }
+
+        function addTerminalLine(command, response) {
+            const commandLine = document.createElement('div');
+            commandLine.classList.add('terminal-line');
+            commandLine.innerHTML = `<span class="terminal-prompt">$ </span>${command}`;
+            terminalContent.insertBefore(commandLine, terminalInput.parentNode);
+
+            const responseLine = document.createElement('div');
+            responseLine.classList.add('terminal-line');
+            responseLine.textContent = response;
+            terminalContent.insertBefore(responseLine, terminalInput.parentNode);
+
+            terminalContent.scrollTop = terminalContent.scrollHeight;
+        }
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>'<!-- Visit: https://github.com/Ishanoshada/portflair -->
+<!-- Visit: https://github.com/Ishanoshada/portflair -->

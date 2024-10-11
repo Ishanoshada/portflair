@@ -1,0 +1,460 @@
+<!-- Portfolio created by Ishan -->
+<!-- Check out my work at: https://github.com/Ishanoshada/portflair -->
+<!-- 2024/10/9 -->
+<!-- Portfolio created by Ishan -->
+'<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Design a Portfolio</title>
+  <style>
+    /* Global Styles */
+    @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap');
+
+    body {
+      font-family: 'Playfair Display', serif;
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(to bottom, #36096d, #000000);
+      color: #ffffff;
+    }
+
+    /* Navigation */
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 40px;
+      background-color: rgba(0, 0, 0, 0.3);
+      backdrop-filter: blur(10px);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .navbar-brand {
+      font-family: 'Cinzel', serif;
+      font-size: 24px;
+      font-weight: 700;
+      text-decoration: none;
+      color: #ffffff;
+    }
+
+    .navbar-nav {
+      display: flex;
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .nav-item {
+      margin-left: 20px;
+    }
+
+    .nav-link {
+      font-family: 'Cinzel', serif;
+      font-size: 16px;
+      font-weight: 400;
+      text-decoration: none;
+      color: #ffffff;
+      transition: color 0.3s ease-in-out;
+    }
+
+    .nav-link:hover {
+      color: #b380ff;
+    }
+
+    /* Hero Section */
+    .hero {
+      height: 80vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      background: linear-gradient(to bottom, #36096d, #000000);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(circle at center, rgba(255, 255, 255, 0.1), rgba(0, 0, 0, 0.8));
+      z-index: 1;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 800px;
+      padding: 0 20px;
+    }
+
+    .hero-title {
+      font-family: 'Cinzel', serif;
+      font-size: 48px;
+      font-weight: 700;
+      margin-bottom: 20px;
+      text-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+    }
+
+    .hero-subtitle {
+      font-size: 24px;
+      margin-bottom: 40px;
+      text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+    }
+
+    .hero-cta {
+      display: inline-block;
+      background-color: #b380ff;
+      color: #ffffff;
+      font-family: 'Cinzel', serif;
+      font-size: 16px;
+      font-weight: 700;
+      text-decoration: none;
+      padding: 12px 24px;
+      border-radius: 30px;
+      box-shadow: 0 0 20px rgba(179, 128, 255, 0.5);
+      transition: transform 0.3s ease-in-out;
+    }
+
+    .hero-cta:hover {
+      transform: scale(1.05);
+    }
+
+    /* Portfolio Section */
+    .portfolio {
+      padding: 80px 40px;
+      background: linear-gradient(to bottom, #000000, #36096d);
+    }
+
+    .portfolio-title {
+      font-family: 'Cinzel', serif;
+      font-size: 36px;
+      font-weight: 700;
+      text-align: center;
+      margin-bottom: 40px;
+      text-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+    }
+
+    .portfolio-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-gap: 40px;
+    }
+
+    .portfolio-item {
+      position: relative;
+      overflow: hidden;
+      border-radius: 10px;
+      box-shadow: 0 0 20px rgba(179, 128, 255, 0.5);
+      cursor: pointer;
+      transition: transform 0.3s ease-in-out;
+    }
+
+    .portfolio-item:hover {
+      transform: scale(1.05);
+    }
+
+    .portfolio-item img {
+      width: 100%;
+      height: 300px;
+      object-fit: cover;
+      filter: brightness(0.7);
+      transition: filter 0.3s ease-in-out;
+    }
+
+    .portfolio-item:hover img {
+      filter: brightness(1);
+    }
+
+    .portfolio-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(179, 128, 255, 0.5);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      opacity: 0;
+      transition: opacity 0.3s ease-in-out;
+    }
+
+    .portfolio-item:hover .portfolio-overlay {
+      opacity: 1;
+    }
+
+    .portfolio-overlay h3 {
+      font-family: 'Cinzel', serif;
+      font-size: 24px;
+      font-weight: 700;
+      color: #ffffff;
+      text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+      margin-bottom: 10px;
+    }
+
+    .portfolio-overlay p {
+      font-size: 16px;
+      color: #ffffff;
+      text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    }
+
+    /* About Section */
+    .about {
+      padding: 80px 40px;
+      background: linear-gradient(to bottom, #36096d, #000000);
+    }
+
+    .about-content {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .about-image {
+      flex: 0 0 40%;
+      position: relative;
+      overflow: hidden;
+      border-radius: 50%;
+      box-shadow: 0 0 20px rgba(179, 128, 255, 0.5);
+    }
+
+    .about-image img {
+      width: 100%;
+      height: auto;
+      object-fit: cover;
+      filter: brightness(0.8);
+      transition: filter 0.3s ease-in-out;
+    }
+
+    .about-image:hover img {
+      filter: brightness(1);
+    }
+
+    .about-image::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(circle at center, rgba(255, 255, 255, 0.1), rgba(0, 0, 0, 0.8));
+      z-index: 1;
+    }
+
+    .about-text {
+      flex: 0 0 55%;
+    }
+
+    .about-title {
+      font-family: 'Cinzel', serif;
+      font-size: 36px;
+      font-weight: 700;
+      margin-bottom: 20px;
+      text-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+    }
+
+    .about-description {
+      font-size: 18px;
+      line-height: 1.6;
+      margin-bottom: 40px;
+      text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+    }
+
+    .about-cta {
+      display: inline-block;
+      background-color: #b380ff;
+      color: #ffffff;
+      font-family: 'Cinzel', serif;
+      font-size: 16px;
+      font-weight: 700;
+      text-decoration: none;
+      padding: 12px 24px;
+      border-radius: 30px;
+      box-shadow: 0 0 20px rgba(179, 128, 255, 0.5);
+      transition: transform 0.3s ease-in-out;
+    }
+
+    .about-cta:hover {
+      transform: scale(1.05);
+    }
+
+    /* Footer */
+    .footer {
+      background-color: #000000;
+      padding: 20px 0;
+      text-align: center;
+      font-size: 14px;
+      color: #ffffff;
+    }
+
+    .footer-text {
+      margin: 0;
+      text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+    }
+
+    /* Responsive Styles */
+    @media (max-width: 768px) {
+      .navbar {
+        padding: 10px 20px;
+      }
+
+      .navbar-brand {
+        font-size: 20px;
+      }
+
+      .nav-link {
+        font-size: 14px;
+      }
+
+      .hero {
+        height: 60vh;
+      }
+
+      .hero-title {
+        font-size: 36px;
+      }
+
+      .hero-subtitle {
+        font-size: 18px;
+      }
+
+      .portfolio {
+        padding: 60px 20px;
+      }
+
+      .portfolio-title {
+        font-size: 30px;
+      }
+
+      .portfolio-grid {
+        grid-template-columns: repeat(2, 1fr);
+        grid-gap: 30px;
+      }
+
+      .about {
+        padding: 60px 20px;
+      }
+
+      .about-content {
+        flex-direction: column;
+      }
+
+      .about-image {
+        flex: 0 0 60%;
+        margin-bottom: 40px;
+      }
+
+      .about-text {
+        flex: 0 0 100%;
+      }
+
+      .about-title {
+        font-size: 30px;
+      }
+
+      .about-description {
+        font-size: 16px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav class="navbar">
+      <a href="#" class="navbar-brand">Design a Portfolio</a>
+      <ul class="navbar-nav">
+        <li class="nav-item"><a href="#" class="nav-link">Home</a></li>
+        <li class="nav-item"><a href="#" class="nav-link">Portfolio</a></li>
+        <li class="nav-item"><a href="#" class="nav-link">About</a></li>
+        <li class="nav-item"><a href="#" class="nav-link">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-content">
+        <h1 class="hero-title">Unlock Your Creative Potential</h1>
+        <p class="hero-subtitle">Showcase your design mastery with a breathtaking portfolio</p>
+        <a href="#" class="hero-cta">Explore Portfolio</a>
+      </div>
+    </section>
+
+    <section class="portfolio">
+      <h2 class="portfolio-title">Featured Projects</h2>
+      <div class="portfolio-grid">
+        <div class="portfolio-item">
+          <img src="https://dummyimage.com/600x400/ccc/000&text=Project+1" alt="Project 1">
+          <div class="portfolio-overlay">
+            <h3>Project 1</h3>
+            <p>Branding and UI Design</p>
+          </div>
+        </div>
+        <div class="portfolio-item">
+          <img src="https://dummyimage.com/600x400/ccc/000&text=Project+2" alt="Project 2">
+          <div class="portfolio-overlay">
+            <h3>Project 2</h3>
+            <p>Web Development</p>
+          </div>
+        </div>
+        <div class="portfolio-item">
+          <img src="https://dummyimage.com/600x400/ccc/000&text=Project+3" alt="Project 3">
+          <div class="portfolio-overlay">
+            <h3>Project 3</h3>
+            <p>Mobile App Design</p>
+          </div>
+        </div>
+        <div class="portfolio-item">
+          <img src="https://dummyimage.com/600x400/ccc/000&text=Project+4" alt="Project 4">
+          <div class="portfolio-overlay">
+            <h3>Project 4</h3>
+            <p>Print Design</p>
+          </div>
+        </div>
+        <div class="portfolio-item">
+          <img src="https://dummyimage.com/600x400/ccc/000&text=Project+5" alt="Project 5">
+          <div class="portfolio-overlay">
+            <h3>Project 5</h3>
+            <p>UI/UX Design</p>
+          </div>
+        </div>
+        <div class="portfolio-item">
+          <img src="https://dummyimage.com/600x400/ccc/000&text=Project+6" alt="Project 6">
+          <div class="portfolio-overlay">
+            <h3>Project 6</h3>
+            <p>Illustration and Graphic Design</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="about">
+      <div class="about-content">
+        <div class="about-image">
+          <img src="https://dummyimage.com/400x400/ccc/000&text=Designer" alt="Designer">
+        </div>
+        <div class="about-text">
+          <h2 class="about-title">About the Designer</h2>
+          <p class="about-description">Immerse yourself in the captivating world of design, where creativity and innovation converge. As a seasoned designer, I have honed my skills to craft visually stunning and functionally superior solutions that leave a lasting impression. With a keen eye for detail and a deep understanding of design principles, I strive to bring your ideas to life in the most breathtaking and impactful way possible.</p>
+          <a href="#" class="about-cta">Learn More</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p class="footer-text">&copy; 2024 Design a Portfolio. All rights reserved.</p>
+  </footer>
+</body>
+</html>'<!-- Visit: https://github.com/Ishanoshada/portflair -->
+<!-- Visit: https://github.com/Ishanoshada/portflair -->

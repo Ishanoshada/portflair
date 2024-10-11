@@ -1,0 +1,417 @@
+<!-- Portfolio created by Ishan -->
+<!-- Check out my work at: https://github.com/Ishanoshada/portflair -->
+<!-- 2024/10/9 -->
+<!-- Portfolio created by Ishan -->
+<html lang="en"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quantum Coder | Black Hole Portfolio</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Space+Mono&family=Orbitron:wght@400;700&display=swap');
+
+        :root {
+            --primary-color: #00FFFF;
+            --secondary-color: #00FF00;
+            --background-color: #000011;
+            --text-color: #FFFFFF;
+            --accent-color: #FF00FF;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Space Mono', monospace;
+            background-color: var(--background-color);
+            color: var(--text-color);
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        nav {
+            background: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(10px);
+            padding: 20px 0;
+        }
+
+        nav ul {
+            display: flex;
+            justify-content: center;
+            list-style-type: none;
+        }
+
+        nav ul li {
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-size: 18px;
+            transition: all 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            color: var(--accent-color);
+            text-shadow: 0 0 10px var(--accent-color);
+        }
+
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .black-hole {
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, #000 30%, #00356b 70%);
+            border-radius: 50%;
+            box-shadow: 0 0 50px #007bff;
+            animation: pulse 4s infinite alternate, rotate 20s linear infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            100% { transform: scale(1.1); }
+        }
+
+        @keyframes rotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .particles {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+        }
+
+        .particle {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background: var(--primary-color);
+            border-radius: 50%;
+            animation: float 20s infinite linear;
+        }
+
+        @keyframes float {
+            0% { transform: translate(0, 0); }
+            25% { transform: translate(50px, 50px); }
+            50% { transform: translate(100px, -50px); }
+            75% { transform: translate(-50px, 100px); }
+            100% { transform: translate(0, 0); }
+        }
+
+        .hero-text {
+            position: absolute;
+            text-align: center;
+            z-index: 1;
+        }
+
+        .hero-text h1 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 4rem;
+            color: var(--primary-color);
+            text-shadow: 0 0 10px var(--primary-color);
+            margin-bottom: 20px;
+        }
+
+        .hero-text p {
+            font-size: 1.5rem;
+            margin-bottom: 30px;
+        }
+
+        .cta-button {
+            background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+            border: none;
+            padding: 15px 30px;
+            font-size: 1.2rem;
+            color: var(--background-color);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            border-radius: 30px;
+        }
+
+        .cta-button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 20px var(--primary-color);
+        }
+
+        .terminal {
+            background-color: #000;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 50px 0;
+            box-shadow: 0 0 20px rgba(0, 255, 0, 0.5);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .terminal::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 30px;
+            background: linear-gradient(to bottom, rgba(255,255,255,0.1), transparent);
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+        }
+
+        .terminal-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+
+        .terminal-title {
+            font-size: 1.2rem;
+            color: var(--secondary-color);
+        }
+
+        .terminal-controls span {
+            display: inline-block;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            margin-left: 5px;
+        }
+
+        .terminal-controls span:nth-child(1) { background-color: #FF5F56; }
+        .terminal-controls span:nth-child(2) { background-color: #FFBD2E; }
+        .terminal-controls span:nth-child(3) { background-color: #27C93F; }
+
+        .terminal-content {
+            font-family: 'Space Mono', monospace;
+            color: var(--secondary-color);
+            line-height: 1.6;
+        }
+
+        .cursor {
+            display: inline-block;
+            width: 10px;
+            height: 20px;
+            background-color: var(--secondary-color);
+            animation: blink 0.7s infinite;
+        }
+
+        @keyframes blink {
+            0% { opacity: 0; }
+            50% { opacity: 1; }
+            100% { opacity: 0; }
+        }
+
+        .constellation-map {
+            position: relative;
+            height: 600px;
+            background-color: #000033;
+            overflow: hidden;
+            margin: 50px 0;
+            border-radius: 10px;
+        }
+
+        .star {
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            background-color: #FFF;
+            border-radius: 50%;
+        }
+
+        .constellation {
+            position: absolute;
+            transition: all 0.3s ease;
+        }
+
+        .constellation:hover {
+            transform: scale(1.1);
+        }
+
+        .constellation-line {
+            stroke: #333;
+            stroke-width: 1;
+        }
+
+        .skill-name {
+            font-family: 'Orbitron', sans-serif;
+            fill: #FFF;
+            font-size: 12px;
+        }
+
+        .shooting-star {
+            position: absolute;
+            width: 100px;
+            height: 1px;
+            background: linear-gradient(to right, rgba(255,255,255,0) 0%, rgba(255,255,255,1) 50%, rgba(255,255,255,0) 100%);
+            animation: shoot 2s linear infinite;
+        }
+
+        @keyframes shoot {
+            0% { transform: translateX(-100%) translateY(0); }
+            100% { transform: translateX(200%) translateY(200px); }
+        }
+
+        @media (max-width: 768px) {
+            .hero-text h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero-text p {
+                font-size: 1rem;
+            }
+
+            .black-hole {
+                width: 200px;
+                height: 200px;
+            }
+
+            .terminal, .constellation-map {
+                margin: 30px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <section id="home" class="hero">
+        <div class="hero-text">
+            <h1>Quantum Coder</h1>
+            <p>Hacking the universe, one bit at a time</p>
+            <button class="cta-button">Explore My Work</button>
+        </div>
+        <div class="black-hole"></div>
+        <div class="particles">
+            <div class="particle" style="top: 20%; left: 30%; transform: translate(-135.936px, -110.368px);"></div>
+            <div class="particle" style="top: 70%; left: 80%; transform: translate(-246.808px, -200.385px);"></div>
+            <div class="particle" style="top: 40%; left: 60%; transform: translate(-182.302px, -148.013px);"></div>
+            <div class="particle" style="top: 80%; left: 20%; transform: translate(-194.263px, -157.724px);"></div>
+            <div class="particle" style="top: 10%; left: 90%; transform: translate(-164.524px, -133.578px);"></div>
+        </div>
+    </section>
+
+    <div class="container">
+        <section id="projects" class="terminal">
+            <div class="terminal-header">
+                <div class="terminal-title">Project_Explorer.exe</div>
+                <div class="terminal-controls">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+            <div class="terminal-content">
+                <p>&gt; ls projects</p>
+                <p>
+                    quantum_encryption.py<br>
+                    neural_network_optimizer.js<br>
+                    blockchain_explorer.go<br>
+                    ai_chatbot.py
+                </p>
+                <p>&gt; cd quantum_encryption.py</p>
+                <p>
+                    Quantum Encryption Algorithm<br>
+                    - Utilizes quantum entanglement for unbreakable encryption<br>
+                    - Implemented using Python and IBM's Qiskit framework<br>
+                    - Successfully tested on simulated quantum computers
+                </p>
+                <p>&gt; _<span class="cursor"></span></p>
+            &gt; ls projects<br>&gt; cd quantum_encryption.py<br>&gt; npm install ai-chatbot<br>&gt; go run blockchain_explorer.go<br>&gt; python3 neural_network_optimizer.py<br>&gt; ls projects<br>&gt; cd quantum_encryption.py<br>&gt; npm install ai-chatbot<br>&gt; go run blockchain_explorer.go<br>&gt; python3 neural_network_optimizer.py<br>&gt; ls projects<br>&gt; cd quantum_encryption.py<br>&gt; npm install ai-chatbot<br>&gt; go run blockchain_explorer.go<br>&gt; python3 neural_network_optimizer.py<br></div>
+        </section>
+
+        <section id="skills" class="constellation-map">
+            <svg width="100%" height="100%">
+                <g class="constellation">
+                    <line class="constellation-line" x1="100" y1="100" x2="200" y2="150"></line>
+                    <line class="constellation-line" x1="200" y1="150" x2="300" y2="100"></line>
+                    <circle cx="100" cy="100" r="5" fill="#ADD8E6"></circle>
+                    <circle cx="200" cy="150" r="5" fill="#FFFFE0"></circle>
+                    <circle cx="300" cy="100" r="5" fill="#FFFFFF"></circle>
+                    <text x="100" y="90" class="skill-name">Python</text>
+                    <text x="200" y="140" class="skill-name">JavaScript</text>
+                    <text x="300" y="90" class="skill-name">Go</text>
+                </g>
+                <g class="constellation">
+                    <line class="constellation-line" x1="400" y1="300" x2="500" y2="350"></line>
+                    <line class="constellation-line" x1="500" y1="350" x2="600" y2="300"></line>
+                    <circle cx="400" cy="300" r="5" fill="#ADD8E6"></circle>
+                    <circle cx="500" cy="350" r="5" fill="#FFFFE0"></circle>
+                    <circle cx="600" cy="300" r="5" fill="#FFFFFF"></circle>
+                    <text x="400" y="290" class="skill-name">Machine Learning</text>
+                    <text x="500" y="340" class="skill-name">Blockchain</text>
+                    <text x="600" y="290" class="skill-name">Cybersecurity</text>
+                </g>
+            </svg>
+            <div class="shooting-star" style="top: 20%; left: -100px;"></div>
+            <div class="shooting-star" style="top: 60%; left: -100px; animation-delay: 1s;"></div>
+        </section>
+    </div>
+
+    <script>
+        document.addEventListener('mousemove', (e) => {
+            const particles = document.querySelectorAll('.particle');
+            particles.forEach(particle => {
+                const speed = Math.random() * 2 + 1;
+                const x = (e.clientX - window.innerWidth / 2) / speed;
+                const y = (e.clientY - window.innerHeight / 2) / speed;
+                particle.style.transform = `translate(${x}px, ${y}px)`;
+            });
+        });
+
+        const terminalContent = document.querySelector('.terminal-content');
+        const commands = [
+            '> ls projects',
+            '> cd quantum_encryption.py',
+            '> npm install ai-chatbot',
+            '> go run blockchain_explorer.go',
+            '> python3 neural_network_optimizer.py'
+        ];
+        let commandIndex = 0;
+
+        function typeCommand() {
+            const command = commands[commandIndex];
+            let charIndex = 0;
+
+            function typeChar() {
+                if (charIndex < command.length) {
+                    terminalContent.innerHTML += command.charAt(charIndex);
+                    charIndex++;
+                    setTimeout(typeChar, 50);
+                } else {
+                    terminalContent.innerHTML += '<br>';
+                    commandIndex = (commandIndex + 1) % commands.length;
+                    setTimeout(typeCommand, 2000);
+                }
+            }
+
+            typeChar();
+        }
+
+        typeCommand();
+    </script>
+
+</body></html><!-- Visit: https://github.com/Ishanoshada/portflair -->
+<!-- Visit: https://github.com/Ishanoshada/portflair -->

@@ -1,0 +1,408 @@
+<!-- Portfolio created by Ishan -->
+<!-- Check out my work at: https://github.com/Ishanoshada/portflair -->
+<!-- 2024/10/9 -->
+<!-- Portfolio created by Ishan -->
+'<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Black Hole Portfolio</title>
+  <style>
+    /* Global Styles */
+    body {
+      font-family: 'Orbitron', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #000000;
+      color: #ffffff;
+      overflow-x: hidden;
+    }
+
+    /* Navigation Bar */
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: rgba(0, 0, 0, 0.7);
+      padding: 20px;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 999;
+    }
+
+    .navbar-brand {
+      font-size: 24px;
+      font-weight: bold;
+      color: #00ffff;
+      text-shadow: 0 0 10px #00ffff, 0 0 20px #00ffff, 0 0 30px #00ffff, 0 0 40px #00ffff;
+      animation: pulse 2s infinite;
+    }
+
+    .navbar-nav {
+      display: flex;
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .navbar-nav li {
+      margin-left: 20px;
+    }
+
+    .navbar-nav li a {
+      color: #ffffff;
+      text-decoration: none;
+      font-size: 16px;
+      transition: color 0.3s ease;
+    }
+
+    .navbar-nav li a:hover {
+      color: #00ffff;
+      text-shadow: 0 0 10px #00ffff, 0 0 20px #00ffff, 0 0 30px #00ffff, 0 0 40px #00ffff;
+    }
+
+    /* Hero Section */
+    .hero {
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      background-image: url('https://dummyimage.com/1920x1080/000000/00ffff.jpg&text=Black+Hole');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero:before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(ellipse at center, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 1) 100%);
+      z-index: 1;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      animation: glitch 2s infinite;
+    }
+
+    .hero-title {
+      font-size: 60px;
+      font-weight: bold;
+      color: #00ffff;
+      text-shadow: 0 0 10px #00ffff, 0 0 20px #00ffff, 0 0 30px #00ffff, 0 0 40px #00ffff;
+      margin-bottom: 10px;
+    }
+
+    .hero-subtitle {
+      font-size: 24px;
+      color: #ffffff;
+      text-shadow: 0 0 10px #ffffff, 0 0 20px #ffffff, 0 0 30px #ffffff, 0 0 40px #ffffff;
+    }
+
+    /* Project Galaxies Section */
+    .project-galaxies {
+      padding: 80px 0;
+      background-image: url('https://dummyimage.com/1920x1080/000000/9370db.jpg&text=Cosmic+Landscape');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+
+    .project-galaxies-title {
+      font-size: 36px;
+      font-weight: bold;
+      color: #00ffff;
+      text-shadow: 0 0 10px #00ffff, 0 0 20px #00ffff, 0 0 30px #00ffff, 0 0 40px #00ffff;
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .project-galaxy {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-bottom: 40px;
+      position: relative;
+      overflow: hidden;
+      cursor: pointer;
+    }
+
+    .project-galaxy:before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(ellipse at center, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 1) 100%);
+      z-index: 1;
+      transition: opacity 0.3s ease;
+    }
+
+    .project-galaxy:hover:before {
+      opacity: 0;
+    }
+
+    .project-galaxy-image {
+      width: 300px;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 10px;
+      box-shadow: 0 0 20px 0 rgba(0, 255, 255, 0.5);
+      transform-origin: center center;
+      transition: transform 0.5s ease;
+    }
+
+    .project-galaxy:hover .project-galaxy-image {
+      transform: scale(1.1);
+    }
+
+    .project-galaxy-details {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 2;
+      text-align: center;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .project-galaxy:hover .project-galaxy-details {
+      opacity: 1;
+    }
+
+    .project-galaxy-title {
+      font-size: 24px;
+      font-weight: bold;
+      color: #00ffff;
+      text-shadow: 0 0 10px #00ffff, 0 0 20px #00ffff, 0 0 30px #00ffff, 0 0 40px #00ffff;
+      margin-bottom: 10px;
+    }
+
+    .project-galaxy-description {
+      font-size: 16px;
+      color: #ffffff;
+      text-shadow: 0 0 10px #ffffff, 0 0 20px #ffffff, 0 0 30px #ffffff, 0 0 40px #ffffff;
+    }
+
+    /* Contact Form Section */
+    .contact-form {
+      padding: 80px 0;
+      background-image: url('https://dummyimage.com/1920x1080/000000/9370db.jpg&text=Steampunk+Landscape');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .contact-form-container {
+      background-color: rgba(0, 0, 0, 0.7);
+      padding: 40px;
+      border-radius: 10px;
+      box-shadow: 0 0 20px 0 rgba(0, 255, 255, 0.5);
+      width: 500px;
+      position: relative;
+    }
+
+    .contact-form-container:before {
+      content: "";
+      position: absolute;
+      top: -10px;
+      left: -10px;
+      right: -10px;
+      bottom: -10px;
+      background: linear-gradient(45deg, #00ffff, #ff00ff, #00ff00);
+      z-index: -1;
+      border-radius: 10px;
+      animation: rotate 10s linear infinite;
+    }
+
+    .contact-form-title {
+      font-size: 36px;
+      font-weight: bold;
+      color: #00ffff;
+      text-shadow: 0 0 10px #00ffff, 0 0 20px #00ffff, 0 0 30px #00ffff, 0 0 40px #00ffff;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .contact-form-field {
+      margin-bottom: 20px;
+    }
+
+    .contact-form-field label {
+      display: block;
+      font-size: 16px;
+      color: #ffffff;
+      text-shadow: 0 0 10px #ffffff, 0 0 20px #ffffff, 0 0 30px #ffffff, 0 0 40px #ffffff;
+      margin-bottom: 5px;
+    }
+
+    .contact-form-field input,
+    .contact-form-field textarea {
+      width: 100%;
+      padding: 10px;
+      font-size: 16px;
+      font-family: 'Orbitron', sans-serif;
+      background-color: rgba(255, 255, 255, 0.1);
+      color: #ffffff;
+      border: none;
+      border-radius: 5px;
+      box-shadow: 0 0 10px 0 rgba(0, 255, 255, 0.5);
+      transition: box-shadow 0.3s ease;
+    }
+
+    .contact-form-field input:focus,
+    .contact-form-field textarea:focus {
+      outline: none;
+      box-shadow: 0 0 20px 0 rgba(0, 255, 255, 0.5);
+    }
+
+    .contact-form-submit {
+      display: block;
+      width: 100%;
+      padding: 10px;
+      font-size: 16px;
+      font-family: 'Orbitron', sans-serif;
+      background-color: #00ffff;
+      color: #000000;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      box-shadow: 0 0 10px 0 rgba(0, 255, 255, 0.5);
+      transition: box-shadow 0.3s ease;
+    }
+
+    .contact-form-submit:hover {
+      box-shadow: 0 0 20px 0 rgba(0, 255, 255, 0.5);
+    }
+
+    /* Animations */
+    @keyframes pulse {
+      0% {
+        transform: scale(1);
+      }
+      50% {
+        transform: scale(1.1);
+      }
+      100% {
+        transform: scale(1);
+      }
+    }
+
+    @keyframes glitch {
+      0% {
+        transform: translateX(0);
+      }
+      20% {
+        transform: translateX(-2px);
+      }
+      40% {
+        transform: translateX(2px);
+      }
+      60% {
+        transform: translateX(-2px);
+      }
+      80% {
+        transform: translateX(2px);
+      }
+      100% {
+        transform: translateX(0);
+      }
+    }
+
+    @keyframes rotate {
+      0% {
+        transform: rotate(0deg);
+      }
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="navbar">
+    <div class="navbar-brand">Black Hole Portfolio</div>
+    <nav>
+      <ul class="navbar-nav">
+        <li><a href="#">Home</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Projects</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-content">
+        <h1 class="hero-title">John Doe</h1>
+        <h2 class="hero-subtitle">Backend Developer</h2>
+      </div>
+    </section>
+
+    <section class="project-galaxies">
+      <h2 class="project-galaxies-title">Project Galaxies</h2>
+      <div class="project-galaxy">
+        <img src="https://dummyimage.com/300x200/000000/9370db.jpg&text=Project+1" alt="Project 1" class="project-galaxy-image">
+        <div class="project-galaxy-details">
+          <h3 class="project-galaxy-title">Project 1</h3>
+          <p class="project-galaxy-description">A cosmic-themed backend project with vaporwave glitches and steampunk elements.</p>
+        </div>
+      </div>
+      <div class="project-galaxy">
+        <img src="https://dummyimage.com/300x200/000000/00ff00.jpg&text=Project+2" alt="Project 2" class="project-galaxy-image">
+        <div class="project-galaxy-details">
+          <h3 class="project-galaxy-title">Project 2</h3>
+          <p class="project-galaxy-description">An interactive backend application with a vaporwave-inspired user interface.</p>
+        </div>
+      </div>
+      <div class="project-galaxy">
+        <img src="https://dummyimage.com/300x200/000000/ff00ff.jpg&text=Project+3" alt="Project 3" class="project-galaxy-image">
+        <div class="project-galaxy-details">
+          <h3 class="project-galaxy-title">Project 3</h3>
+          <p class="project-galaxy-description">A steampunk-themed backend system with cosmic visuals and glitching effects.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact-form">
+      <div class="contact-form-container">
+        <h2 class="contact-form-title">Get in Touch</h2>
+        <form>
+          <div class="contact-form-field">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" placeholder="Enter your name" required>
+          </div>
+          <div class="contact-form-field">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" placeholder="Enter your email" required>
+          </div>
+          <div class="contact-form-field">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" placeholder="Enter your message" rows="5" required></textarea>
+          </div>
+          <button type="submit" class="contact-form-submit">Send Message</button>
+        </form>
+      </div>
+    </section>
+  </main>
+</body>
+</html>'<!-- Visit: https://github.com/Ishanoshada/portflair -->
+<!-- Visit: https://github.com/Ishanoshada/portflair -->

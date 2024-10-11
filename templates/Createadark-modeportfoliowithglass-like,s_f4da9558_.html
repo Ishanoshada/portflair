@@ -1,0 +1,410 @@
+<!-- Portfolio created by Ishan -->
+<!-- Check out my work at: https://github.com/Ishanoshada/portflair -->
+<!-- 2024/10/9 -->
+<!-- Portfolio created by Ishan -->
+'<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dark-Mode Portfolio</title>
+  <style>
+    /* Global Styles */
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Montserrat', sans-serif;
+      background: linear-gradient(to bottom, #151515, #1c1c1c);
+      color: #f2f2f2;
+      overflow-x: hidden;
+    }
+
+    /* Navigation Bar */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 40px;
+      background-color: rgba(24, 24, 24, 0.8);
+      backdrop-filter: blur(10px);
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+    }
+
+    nav a {
+      color: #f2f2f2;
+      text-decoration: none;
+      font-size: 18px;
+      margin: 0 20px;
+      transition: color 0.3s ease;
+    }
+
+    nav a:hover {
+      color: #8c8c8c;
+    }
+
+    /* Hero Section */
+    .hero {
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+    }
+
+    .hero-content {
+      width: 80%;
+      text-align: center;
+      z-index: 1;
+    }
+
+    .hero-glass {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 80%;
+      max-width: 800px;
+      height: 60%;
+      background: linear-gradient(to bottom, rgba(56, 56, 56, 0.8), rgba(32, 32, 32, 0.8));
+      backdrop-filter: blur(20px);
+      border-radius: 20px;
+      box-shadow: 0 0 50px rgba(0, 0, 0, 0.5);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      opacity: 0.9;
+      transition: opacity 0.3s ease;
+    }
+
+    .hero-glass:hover {
+      opacity: 1;
+    }
+
+    .hero-glass h1 {
+      font-size: 48px;
+      margin-bottom: 10px;
+    }
+
+    .hero-glass p {
+      font-size: 24px;
+      margin-bottom: 20px;
+    }
+
+    /* Featured Projects Section */
+    .featured-projects {
+      padding: 80px 40px;
+      background-color: #1c1c1c;
+    }
+
+    .featured-projects h2 {
+      font-size: 36px;
+      margin-bottom: 40px;
+      text-align: center;
+    }
+
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      grid-gap: 40px;
+    }
+
+    .project-card {
+      background-color: #222222;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 0 30px rgba(0, 0, 0, 0.3);
+      position: relative;
+      cursor: pointer;
+    }
+
+    .project-card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      transition: transform 0.3s ease;
+    }
+
+    .project-card:hover img {
+      transform: scale(1.1);
+    }
+
+    .project-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.6);
+      backdrop-filter: blur(10px);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .project-card:hover .project-overlay {
+      opacity: 1;
+    }
+
+    .project-overlay h3 {
+      font-size: 24px;
+      margin-bottom: 10px;
+    }
+
+    .project-overlay p {
+      font-size: 18px;
+      margin-bottom: 20px;
+    }
+
+    .project-overlay a {
+      font-size: 16px;
+      color: #f2f2f2;
+      text-decoration: none;
+      padding: 10px 20px;
+      background-color: #8c8c8c;
+      border-radius: 5px;
+      transition: background-color 0.3s ease;
+    }
+
+    .project-overlay a:hover {
+      background-color: #b3b3b3;
+    }
+
+    /* About Section */
+    .about {
+      padding: 80px 40px;
+      background-color: #151515;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .about-glass {
+      width: 80%;
+      max-width: 800px;
+      background: linear-gradient(to bottom, rgba(56, 56, 56, 0.8), rgba(32, 32, 32, 0.8));
+      backdrop-filter: blur(20px);
+      border-radius: 20px;
+      box-shadow: 0 0 50px rgba(0, 0, 0, 0.5);
+      padding: 40px;
+      display: flex;
+      align-items: center;
+      opacity: 0.9;
+      transition: opacity 0.3s ease;
+    }
+
+    .about-glass:hover {
+      opacity: 1;
+    }
+
+    .about-image {
+      flex: 0 0 200px;
+      border-radius: 50%;
+      overflow: hidden;
+      margin-right: 40px;
+    }
+
+    .about-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .about-content h2 {
+      font-size: 36px;
+      margin-bottom: 20px;
+    }
+
+    .about-content p {
+      font-size: 18px;
+      margin-bottom: 20px;
+    }
+
+    .about-content ul {
+      list-style-type: none;
+      padding: 0;
+      margin-bottom: 20px;
+    }
+
+    .about-content li {
+      font-size: 16px;
+      margin-bottom: 10px;
+    }
+
+    .about-content a {
+      font-size: 16px;
+      color: #f2f2f2;
+      text-decoration: none;
+      padding: 10px 20px;
+      background-color: #8c8c8c;
+      border-radius: 5px;
+      transition: background-color 0.3s ease;
+    }
+
+    .about-content a:hover {
+      background-color: #b3b3b3;
+    }
+
+    /* Responsive Styles */
+    @media (max-width: 768px) {
+      nav {
+        padding: 15px 20px;
+      }
+
+      nav a {
+        font-size: 16px;
+        margin: 0 10px;
+      }
+
+      .hero-glass {
+        width: 90%;
+        height: 50%;
+      }
+
+      .hero-glass h1 {
+        font-size: 36px;
+      }
+
+      .hero-glass p {
+        font-size: 18px;
+      }
+
+      .featured-projects {
+        padding: 60px 20px;
+      }
+
+      .featured-projects h2 {
+        font-size: 30px;
+        margin-bottom: 30px;
+      }
+
+      .project-grid {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        grid-gap: 30px;
+      }
+
+      .project-overlay h3 {
+        font-size: 20px;
+      }
+
+      .project-overlay p {
+        font-size: 16px;
+      }
+
+      .about {
+        padding: 60px 20px;
+      }
+
+      .about-glass {
+        width: 90%;
+        padding: 30px;
+      }
+
+      .about-image {
+        flex: 0 0 150px;
+        margin-right: 30px;
+      }
+
+      .about-content h2 {
+        font-size: 30px;
+        margin-bottom: 15px;
+      }
+
+      .about-content p {
+        font-size: 16px;
+        margin-bottom: 15px;
+      }
+
+      .about-content li {
+        font-size: 14px;
+      }
+
+      .about-content a {
+        font-size: 14px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="#">Home</a>
+    <a href="#">Projects</a>
+    <a href="#">About</a>
+    <a href="#">Contact</a>
+  </nav>
+
+  <div class="hero">
+    <div class="hero-content">
+      <div class="hero-glass">
+        <h1>Welcome to My Portfolio</h1>
+        <p>Discover the captivating work of a talented designer</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="featured-projects">
+    <h2>Featured Projects</h2>
+    <div class="project-grid">
+      <div class="project-card">
+        <img src="https://dummyimage.com/400x300/ccc/000&text=Project+1" alt="Project 1">
+        <div class="project-overlay">
+          <h3>Project 1</h3>
+          <p>A stunning design showcasing my expertise</p>
+          <a href="#">View Project</a>
+        </div>
+      </div>
+      <div class="project-card">
+        <img src="https://dummyimage.com/400x300/ccc/000&text=Project+2" alt="Project 2">
+        <div class="project-overlay">
+          <h3>Project 2</h3>
+          <p>Bringing ideas to life with creativity</p>
+          <a href="#">View Project</a>
+        </div>
+      </div>
+      <div class="project-card">
+        <img src="https://dummyimage.com/400x300/ccc/000&text=Project+3" alt="Project 3">
+        <div class="project-overlay">
+          <h3>Project 3</h3>
+          <p>Innovative solutions for modern challenges</p>
+          <a href="#">View Project</a>
+        </div>
+      </div>
+      <div class="project-card">
+        <img src="https://dummyimage.com/400x300/ccc/000&text=Project+4" alt="Project 4">
+        <div class="project-overlay">
+          <h3>Project 4</h3>
+          <p>Combining beauty and functionality</p>
+          <a href="#">View Project</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="about">
+    <div class="about-glass">
+      <div class="about-image">
+        <img src="https://dummyimage.com/200x200/ccc/000&text=Designer" alt="Designer">
+      </div>
+      <div class="about-content">
+        <h2>About the Designer</h2>
+        <p>I am a passionate designer with a keen eye for detail and a deep understanding of modern design trends. My portfolio showcases my ability to create visually stunning and highly functional designs that captivate and engage audiences.</p>
+        <ul>
+          <li>Expertise in UI/UX design</li>
+          <li>Proficient in the latest design tools and technologies</li>
+          <li>Dedicated to staying up-to-date with industry best practices</li>
+          <li>Committed to delivering exceptional results for every project</li>
+        </ul>
+        <a href="#">Contact Me</a>
+      </div>
+    </div>
+  </div>
+</body>
+</html>'<!-- Visit: https://github.com/Ishanoshada/portflair -->
+<!-- Visit: https://github.com/Ishanoshada/portflair -->

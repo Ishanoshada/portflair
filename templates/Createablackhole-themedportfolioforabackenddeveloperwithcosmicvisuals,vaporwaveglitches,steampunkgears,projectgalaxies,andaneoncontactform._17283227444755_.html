@@ -1,0 +1,580 @@
+<!-- Portfolio created by Ishan -->
+<!-- Check out my work at: https://github.com/Ishanoshada/portflair -->
+<!-- 2024/10/9 -->
+<!-- Portfolio created by Ishan -->
+'<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Black Hole Portfolio</title>
+  <style>
+    /* Global Styles */
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Roboto', sans-serif;
+      color: #fff;
+      background-color: #000;
+      overflow-x: hidden;
+    }
+
+    /* Navigation */
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 40px;
+      background-color: rgba(0, 0, 0, 0.7);
+      backdrop-filter: blur(10px);
+      position: relative;
+      z-index: 100;
+    }
+
+    .navbar-brand {
+      font-size: 24px;
+      font-weight: bold;
+      color: #9b59b6;
+      text-shadow: 0 0 20px #9b59b6, 0 0 40px #9b59b6, 0 0 80px #9b59b6;
+      animation: glow 2s ease-in-out infinite;
+    }
+
+    .navbar-nav {
+      display: flex;
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .navbar-nav li {
+      margin-left: 20px;
+    }
+
+    .navbar-nav li a {
+      color: #fff;
+      text-decoration: none;
+      font-size: 16px;
+      font-weight: 500;
+      padding: 10px 20px;
+      border-radius: 20px;
+      transition: background-color 0.3s ease;
+    }
+
+    .navbar-nav li a:hover {
+      background-color: rgba(155, 89, 182, 0.3);
+      box-shadow: 0 0 20px rgba(155, 89, 182, 0.5);
+    }
+
+    /* Project Galaxies */
+    .project-galaxies {
+      padding: 80px 40px;
+      background-image: url('https://dummyimage.com/1200x500/000000/9b59b6.jpg&text=Black+Hole');
+      background-size: cover;
+      background-position: center;
+      position: relative;
+      z-index: 1;
+    }
+
+    .project-galaxies::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.7);
+      z-index: -1;
+    }
+
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-gap: 40px;
+    }
+
+    .project-thumbnail {
+      position: relative;
+      overflow: hidden;
+      border-radius: 20px;
+      box-shadow: 0 0 20px rgba(155, 89, 182, 0.5);
+      transform-style: preserve-3d;
+      transition: transform 0.3s ease;
+    }
+
+    .project-thumbnail::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(circle, rgba(155, 89, 182, 0.5) 0%, rgba(0, 0, 0, 0.7) 100%);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .project-thumbnail:hover {
+      transform: scale(1.05);
+    }
+
+    .project-thumbnail:hover::before {
+      opacity: 1;
+    }
+
+    .project-thumbnail img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .project-details {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .project-thumbnail:hover .project-details {
+      opacity: 1;
+    }
+
+    .project-title {
+      font-size: 24px;
+      font-weight: bold;
+      color: #fff;
+      text-shadow: 0 0 20px #9b59b6, 0 0 40px #9b59b6, 0 0 80px #9b59b6;
+      margin-bottom: 10px;
+    }
+
+    .project-description {
+      font-size: 16px;
+      color: #fff;
+      margin-bottom: 20px;
+    }
+
+    .project-links {
+      display: flex;
+      justify-content: center;
+    }
+
+    .project-links a {
+      display: inline-block;
+      margin: 0 10px;
+      color: #fff;
+      text-decoration: none;
+      font-size: 16px;
+      padding: 10px 20px;
+      border-radius: 20px;
+      background-color: rgba(155, 89, 182, 0.3);
+      box-shadow: 0 0 20px rgba(155, 89, 182, 0.5);
+      transition: transform 0.3s ease;
+    }
+
+    .project-links a:hover {
+      transform: translateY(-5px);
+    }
+
+    /* Cosmic Visuals */
+    .cosmic-visuals {
+      padding: 80px 40px;
+      background-image: url('https://dummyimage.com/1200x500/000000/9b59b6.jpg&text=Black+Hole');
+      background-size: cover;
+      background-position: center;
+      position: relative;
+      z-index: 1;
+    }
+
+    .cosmic-visuals::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.7);
+      z-index: -1;
+    }
+
+    .visual-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-gap: 40px;
+    }
+
+    .visual-item {
+      position: relative;
+      overflow: hidden;
+      border-radius: 20px;
+      box-shadow: 0 0 20px rgba(155, 89, 182, 0.5);
+      transform-style: preserve-3d;
+      transition: transform 0.3s ease;
+    }
+
+    .visual-item::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(circle, rgba(155, 89, 182, 0.5) 0%, rgba(0, 0, 0, 0.7) 100%);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .visual-item:hover {
+      transform: translateY(-10px);
+    }
+
+    .visual-item:hover::before {
+      opacity: 1;
+    }
+
+    .visual-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .visual-details {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .visual-item:hover .visual-details {
+      opacity: 1;
+    }
+
+    .visual-title {
+      font-size: 20px;
+      font-weight: bold;
+      color: #fff;
+      text-shadow: 0 0 20px #9b59b6, 0 0 40px #9b59b6, 0 0 80px #9b59b6;
+      margin-bottom: 10px;
+    }
+
+    .visual-description {
+      font-size: 16px;
+      color: #fff;
+      margin-bottom: 20px;
+    }
+
+    /* Neon Contact Form */
+    .neon-contact {
+      padding: 80px 40px;
+      background-image: linear-gradient(to bottom right, #9b59b6, #2980b9);
+      position: relative;
+      z-index: 1;
+    }
+
+    .neon-contact::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: url('https://dummyimage.com/1200x500/000000/9b59b6.jpg&text=Black+Hole');
+      background-size: cover;
+      background-position: center;
+      opacity: 0.3;
+      z-index: -1;
+    }
+
+    .neon-contact-form {
+      max-width: 600px;
+      margin: 0 auto;
+      background-color: rgba(0, 0, 0, 0.7);
+      padding: 40px;
+      border-radius: 20px;
+      box-shadow: 0 0 20px rgba(155, 89, 182, 0.5);
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    .form-group label {
+      display: block;
+      font-size: 16px;
+      font-weight: 500;
+      color: #fff;
+      margin-bottom: 5px;
+    }
+
+    .form-group input,
+    .form-group textarea {
+      width: 100%;
+      padding: 10px 20px;
+      font-size: 16px;
+      font-weight: 500;
+      color: #fff;
+      background-color: rgba(155, 89, 182, 0.3);
+      border: none;
+      border-radius: 20px;
+      outline: none;
+      transition: box-shadow 0.3s ease;
+    }
+
+    .form-group input:focus,
+    .form-group textarea:focus {
+      box-shadow: 0 0 20px rgba(155, 89, 182, 0.5);
+    }
+
+    .form-group textarea {
+      resize: vertical;
+      min-height: 150px;
+    }
+
+    .form-submit {
+      display: block;
+      width: 100%;
+      padding: 10px 20px;
+      font-size: 16px;
+      font-weight: 500;
+      color: #fff;
+      background-color: #9b59b6;
+      border: none;
+      border-radius: 20px;
+      cursor: pointer;
+      box-shadow: 0 0 20px rgba(155, 89, 182, 0.5);
+      transition: transform 0.3s ease;
+    }
+
+    .form-submit:hover {
+      transform: translateY(-5px);
+    }
+
+    .social-links {
+      display: flex;
+      justify-content: center;
+      margin-top: 20px;
+    }
+
+    .social-links a {
+      display: inline-block;
+      margin: 0 10px;
+      color: #fff;
+      text-decoration: none;
+      font-size: 24px;
+      transition: transform 0.3s ease;
+    }
+
+    .social-links a:hover {
+      transform: translateY(-5px);
+    }
+
+    /* Animations */
+    @keyframes glow {
+      0% {
+        text-shadow: 0 0 20px #9b59b6, 0 0 40px #9b59b6, 0 0 80px #9b59b6;
+      }
+      50% {
+        text-shadow: 0 0 30px #9b59b6, 0 0 50px #9b59b6, 0 0 100px #9b59b6;
+      }
+      100% {
+        text-shadow: 0 0 20px #9b59b6, 0 0 40px #9b59b6, 0 0 80px #9b59b6;
+      }
+    }
+
+    /* Responsive Styles */
+    @media (max-width: 768px) {
+      .navbar {
+        padding: 10px 20px;
+      }
+
+      .project-grid,
+      .visual-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .neon-contact-form {
+        padding: 20px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .project-grid,
+      .visual-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .neon-contact-form {
+        padding: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation -->
+  <nav class="navbar">
+    <a href="#" class="navbar-brand">Black Hole Portfolio</a>
+    <ul class="navbar-nav">
+      <li><a href="#">Home</a></li>
+      <li><a href="#">Projects</a></li>
+      <li><a href="#">Visuals</a></li>
+      <li><a href="#">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- Project Galaxies -->
+  <section class="project-galaxies">
+    <h2 class="section-title">Project Galaxies</h2>
+    <div class="project-grid">
+      <div class="project-thumbnail">
+        <img src="https://dummyimage.com/300x200/000000/9b59b6.jpg&text=Project+1" alt="Project 1">
+        <div class="project-details">
+          <h3 class="project-title">Project 1</h3>
+          <p class="project-description">This is a description of Project 1.</p>
+          <div class="project-links">
+            <a href="#">View Project</a>
+            <a href="#">Learn More</a>
+          </div>
+        </div>
+      </div>
+      <div class="project-thumbnail">
+        <img src="https://dummyimage.com/300x200/000000/9b59b6.jpg&text=Project+2" alt="Project 2">
+        <div class="project-details">
+          <h3 class="project-title">Project 2</h3>
+          <p class="project-description">This is a description of Project 2.</p>
+          <div class="project-links">
+            <a href="#">View Project</a>
+            <a href="#">Learn More</a>
+          </div>
+        </div>
+      </div>
+      <div class="project-thumbnail">
+        <img src="https://dummyimage.com/300x200/000000/9b59b6.jpg&text=Project+3" alt="Project 3">
+        <div class="project-details">
+          <h3 class="project-title">Project 3</h3>
+          <p class="project-description">This is a description of Project 3.</p>
+          <div class="project-links">
+            <a href="#">View Project</a>
+            <a href="#">Learn More</a>
+          </div>
+        </div>
+      </div>
+      <div class="project-thumbnail">
+        <img src="https://dummyimage.com/300x200/000000/9b59b6.jpg&text=Project+4" alt="Project 4">
+        <div class="project-details">
+          <h3 class="project-title">Project 4</h3>
+          <p class="project-description">This is a description of</p>
+          <div class="project-links">
+            <a href="#">View Project</a>
+            <a href="#">Learn More</a>
+          </div>
+        </div>
+      </div>
+      <div class="project-thumbnail">
+        <img src="https://dummyimage.com/300x200/000000/9b59b6.jpg&text=Project+5" alt="Project 5">
+        <div class="project-details">
+          <h3 class="project-title">Project 5</h3>
+          <p class="project-description">This is a description of Project 5.</p>
+          <div class="project-links">
+            <a href="#">View Project</a>
+            <a href="#">Learn More</a>
+          </div>
+        </div>
+      </div>
+      <div class="project-thumbnail">
+        <img src="https://dummyimage.com/300x200/000000/9b59b6.jpg&text=Project+6" alt="Project 6">
+        <div class="project-details">
+          <h3 class="project-title">Project 6</h3>
+          <p class="project-description">This is a description of Project 6.</p>
+          <div class="project-links">
+            <a href="#">View Project</a>
+            <a href="#">Learn More</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Cosmic Visuals -->
+  <section class="cosmic-visuals">
+    <h2 class="section-title">Cosmic Visuals</h2>
+    <div class="visual-grid">
+      <div class="visual-item">
+        <img src="https://dummyimage.com/300x200/000000/9b59b6.jpg&text=Visual+1" alt="Visual 1">
+        <div class="visual-details">
+          <h3 class="visual-title">Visual 1</h3>
+          <p class="visual-description">This is a description of Visual 1.</p>
+        </div>
+      </div>
+      <div class="visual-item">
+        <img src="https://dummyimage.com/300x200/000000/9b59b6.jpg&text=Visual+2" alt="Visual 2">
+        <div class="visual-details">
+          <h3 class="visual-title">Visual 2</h3>
+          <p class="visual-description">This is a description of Visual 2.</p>
+        </div>
+      </div>
+      <div class="visual-item">
+        <img src="https://dummyimage.com/300x200/000000/9b59b6.jpg&text=Visual+3" alt="Visual 3">
+        <div class="visual-details">
+          <h3 class="visual-title">Visual 3</h3>
+          <p class="visual-description">This is a description of Visual 3.</p>
+        </div>
+      </div>
+      <div class="visual-item">
+        <img src="https://dummyimage.com/300x200/000000/9b59b6.jpg&text=Visual+4" alt="Visual 4">
+        <div class="visual-details">
+          <h3 class="visual-title">Visual 4</h3>
+          <p class="visual-description">This is a description of Visual 4.</p>
+        </div>
+      </div>
+      <div class="visual-item">
+        <img src="https://dummyimage.com/300x200/000000/9b59b6.jpg&text=Visual+5" alt="Visual 5">
+        <div class="visual-details">
+          <h3 class="visual-title">Visual 5</h3>
+          <p class="visual-description">This is a description of Visual 5.</p>
+        </div>
+      </div>
+      <div class="visual-item">
+        <img src="https://dummyimage.com/300x200/000000/9b59b6.jpg&text=Visual+6" alt="Visual 6">
+        <div class="visual-details">
+          <h3 class="visual-title">Visual 6</h3>
+          <p class="visual-description">This is a description of Visual 6.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Neon Contact Form -->
+  <section class="neon-contact">
+    <h2 class="section-title">Get in Touch</h2>
+    <div class="neon-contact-form">
+      <form>
+        <div class="form-group">
+          <label for="name">Name</label>
+          <input type="text" id="name" name="name" placeholder="Enter your name" required>
+        </div>
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" placeholder="Enter your email" required>
+        </div>
+        <div class="form-group">
+          <label for="message">Message</label>
+          <textarea id="message" name="message" placeholder="Enter your message" required></textarea>
+        </div>
+        <button type="submit" class="form-submit">Send Message</button>
+      </form>
+      <div class="social-links">
+        <a href="#" class="fab fa-twitter"></a>
+        <a href="#" class="fab fa-linkedin"></a>
+        <a href="#" class="fab fa-github"></a>
+      </div>
+    </div>
+  </section>
+</body>
+</html>'<!-- Visit: https://github.com/Ishanoshada/portflair -->
+<!-- Visit: https://github.com/Ishanoshada/portflair -->

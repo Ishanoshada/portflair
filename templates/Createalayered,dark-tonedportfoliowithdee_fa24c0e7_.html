@@ -1,0 +1,461 @@
+<!-- Portfolio created by Ishan -->
+<!-- Check out my work at: https://github.com/Ishanoshada/portflair -->
+<!-- 2024/10/9 -->
+<!-- Portfolio created by Ishan -->
+'<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create a Layered, Dark-Toned Portfolio</title>
+    <style>
+        /* Reset some default styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Body styles */
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: #0f0f0f;
+            color: #f5f5f5;
+            line-height: 1.6;
+        }
+
+        /* Navigation styles */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 40px;
+            background-color: rgba(15, 15, 15, 0.8);
+            backdrop-filter: blur(10px);
+            position: relative;
+            z-index: 1;
+        }
+
+        nav a {
+            color: #f5f5f5;
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: #b3b3b3;
+        }
+
+        /* Hero section styles */
+        .hero {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(to bottom, rgba(15, 15, 15, 0.8), rgba(15, 15, 15, 1)), url(https://dummyimage.com/1200x600/333/fff&text=Hero+Image);
+            background-size: cover;
+            background-position: center;
+            text-align: center;
+            padding: 0 20px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            font-weight: 700;
+            text-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+            margin-bottom: 20px;
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        .hero p {
+            font-size: 1.8rem;
+            font-weight: 400;
+            text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            margin-bottom: 40px;
+            animation: fadeIn 1.5s ease-in-out;
+        }
+
+        .hero .cta {
+            display: inline-block;
+            background: linear-gradient(to right, #7c6aff, #9b7eff);
+            color: #f5f5f5;
+            font-size: 16px;
+            font-weight: 600;
+            padding: 16px 32px;
+            border-radius: 30px;
+            text-decoration: none;
+            box-shadow: 0 10px 20px rgba(124, 106, 255, 0.3);
+            transition: transform 0.3s ease-in-out;
+            animation: slideUp 2s ease-in-out;
+        }
+
+        .hero .cta:hover {
+            transform: translateY(-5px);
+        }
+
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideUp {
+            0% {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Project showcase styles */
+        .project-showcase {
+            padding: 80px 40px;
+            background-color: #0f0f0f;
+        }
+
+        .project-showcase h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 40px;
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+        }
+
+        .projects {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-gap: 40px;
+        }
+
+        .project {
+            position: relative;
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .project:hover {
+            transform: translateY(-10px);
+        }
+
+        .project img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            filter: brightness(0.8);
+            transition: filter 0.3s ease-in-out;
+        }
+
+        .project:hover img {
+            filter: brightness(1);
+        }
+
+        .project-details {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background-color: rgba(15, 15, 15, 0.8);
+            backdrop-filter: blur(10px);
+            padding: 20px;
+            transform: translateY(100%);
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .project:hover .project-details {
+            transform: translateY(0);
+        }
+
+        .project-details h3 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .project-details p {
+            font-size: 1rem;
+            color: #b3b3b3;
+        }
+
+        /* About/Contact section styles */
+        .about-contact {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 80px 40px;
+            background: linear-gradient(to right, #0f0f0f, #141414);
+        }
+
+        .about-contact-left {
+            flex: 0 0 40%;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        .about-contact-left h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+        }
+
+        .about-contact-left p {
+            font-size: 1.2rem;
+            margin-bottom: 40px;
+            text-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+        }
+
+        .about-contact-left .social-links a {
+            color: #f5f5f5;
+            font-size: 24px;
+            margin-right: 20px;
+            transition: color 0.3s ease;
+        }
+
+        .about-contact-left .social-links a:hover {
+            color: #b3b3b3;
+        }
+
+        .about-contact-right {
+            flex: 0 0 50%;
+            background: url(https://dummyimage.com/400x500/333/fff&text=Portrait+Image) no-repeat center center;
+            background-size: cover;
+            border-radius: 10px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .about-contact-right img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+        }
+
+        /* Contact form styles */
+        .contact-form {
+            background-color: #0f0f0f;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .contact-form h3 {
+            font-size: 1.8rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+        }
+
+        .contact-form form {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-gap: 20px;
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            background-color: #141414;
+            border: none;
+            border-radius: 5px;
+            color: #f5f5f5;
+            font-size: 16px;
+            padding: 12px 16px;
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+            transition: box-shadow 0.3s ease;
+        }
+
+        .contact-form input:focus,
+        .contact-form textarea:focus {
+            outline: none;
+            box-shadow: 0 10px 20px rgba(124, 106, 255, 0.3);
+        }
+
+        .contact-form textarea {
+            grid-column: 1 / -1;
+            resize: vertical;
+        }
+
+        .contact-form button {
+            grid-column: 1 / -1;
+            background: linear-gradient(to right, #7c6aff, #9b7eff);
+            color: #f5f5f5;
+            font-size: 16px;
+            font-weight: 600;
+            padding: 16px 32px;
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+            box-shadow: 0 10px 20px rgba(124, 106, 255, 0.3);
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .contact-form button:hover {
+            transform: translateY(-5px);
+        }
+
+        /* Responsive styles */
+        @media (max-width: 1024px) {
+            .hero h1 {
+                font-size: 3.5rem;
+            }
+
+            .hero p {
+                font-size: 1.6rem;
+            }
+
+            .projects {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .about-contact {
+                flex-direction: column;
+                padding: 60px 20px;
+            }
+
+            .about-contact-left {
+                flex: 0 0 auto;
+                width: 100%;
+                margin-bottom: 40px;
+            }
+
+            .about-contact-right {
+                flex: 0 0 auto;
+                width: 100%;
+                height: 400px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            nav {
+                padding: 15px 20px;
+            }
+
+            .hero h1 {
+                font-size: 3rem;
+            }
+
+            .hero p {
+                font-size: 1.4rem;
+            }
+
+            .project-showcase {
+                padding: 60px 20px;
+            }
+
+            .projects {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-form {
+                padding: 30px;
+            }
+
+            .contact-form h3 {
+                font-size: 1.6rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="#">Home</a>
+        <a href="#">Portfolio</a>
+        <a href="#">About</a>
+        <a href="#">Contact</a>
+    </nav>
+
+    <section class="hero">
+        <h1>Welcome to My Portfolio</h1>
+        <p>Exploring the depths of design and creativity</p>
+        <a href="#" class="cta">View My Work</a>
+    </section>
+
+    <section class="project-showcase">
+        <h2>My Latest Projects</h2>
+        <div class="projects">
+            <div class="project">
+                <img src="https://dummyimage.com/400x300/333/fff&text=Project+1" alt="Project 1">
+                <div class="project-details">
+                    <h3>Project 1</h3>
+                    <p>A brief description of Project 1</p>
+                </div>
+            </div>
+            <div class="project">
+                <img src="https://dummyimage.com/400x300/333/fff&text=Project+2" alt="Project 2">
+                <div class="project-details">
+                    <h3>Project 2</h3>
+                    <p>A brief description of Project 2</p>
+                </div>
+            </div>
+            <div class="project">
+                <img src="https://dummyimage.com/400x300/333/fff&text=Project+3" alt="Project 3">
+                <div class="project-details">
+                    <h3>Project 3</h3>
+                    <p>A brief description of Project 3</p>
+                </div>
+            </div>
+            <div class="project">
+                <img src="https://dummyimage.com/400x300/333/fff&text=Project+4" alt="Project 4">
+                <div class="project-details">
+                    <h3>Project 4</h3>
+                    <p>A brief description of Project 4</p>
+                </div>
+            </div>
+            <div class="project">
+                <img src="https://dummyimage.com/400x300/333/fff&text=Project+5" alt="Project 5">
+                <div class="project-details">
+                    <h3>Project 5</h3>
+                    <p>A brief description of Project 5</p>
+                </div>
+            </div>
+            <div class="project">
+                <img src="https://dummyimage.com/400x300/333/fff&text=Project+6" alt="Project 6">
+                <div class="project-details">
+                    <h3>Project 6</h3>
+                    <p>A brief description of Project 6</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="about-contact">
+        <div class="about-contact-left">
+            <h2>About Me</h2>
+            <p>I'm a passionate designer with a keen eye for detail and a love for creating visually stunning and impactful designs. Explore my portfolio to see my latest work.</p>
+            <div class="social-links">
+                <a href="#"><i class="fab fa-linkedin"></i></a>
+                <a href="#"><i class="fab fa-behance"></i></a>
+                <a href="#"><i class="fab fa-dribbble"></i></a>
+            </div>
+        </div>
+        <div class="about-contact-right">
+            <img src="https://dummyimage.com/400x500/333/fff&text=Portrait+Image" alt="Portrait Image">
+        </div>
+    </section>
+
+    <section class="contact-form">
+        <h3>Get in Touch</h3>
+        <form>
+            <input type="text" placeholder="Name" required>
+            <input type="email" placeholder="Email" required>
+            <textarea placeholder="Message" rows="4" required></textarea>
+            <button type="submit">Send Message</button>
+        </form>
+    </section>
+</body>
+</html>'<!-- Visit: https://github.com/Ishanoshada/portflair -->
+<!-- Visit: https://github.com/Ishanoshada/portflair -->

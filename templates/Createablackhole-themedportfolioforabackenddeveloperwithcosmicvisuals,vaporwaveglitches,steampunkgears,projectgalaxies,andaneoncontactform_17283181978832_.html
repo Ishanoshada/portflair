@@ -1,0 +1,526 @@
+<!-- Portfolio created by Ishan -->
+<!-- Check out my work at: https://github.com/Ishanoshada/portflair -->
+<!-- 2024/10/9 -->
+<!-- Portfolio created by Ishan -->
+'<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Black Hole Portfolio</title>
+    <style>
+        /* Global Styles */
+        body {
+            margin: 0;
+            font-family: 'Roboto', sans-serif;
+            background-color: #0f0f0f;
+            color: #fff;
+            overflow-x: hidden;
+        }
+
+        /* Navigation Bar */
+        nav {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: rgba(15, 15, 15, 0.8);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 999;
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 1.5rem;
+            font-size: 1.1rem;
+            position: relative;
+            transition: color 0.3s ease;
+        }
+
+        nav a:after {
+            content: "";
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: #9b59b6;
+            transition: width 0.3s ease;
+        }
+
+        nav a:hover {
+            color: #9b59b6;
+        }
+
+        nav a:hover:after {
+            width: 100%;
+        }
+
+        /* Project Galaxies Section */
+        .project-galaxies {
+            padding: 4rem 0;
+            background-image: linear-gradient(to bottom, #0f0f0f, #1a1a1a);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .project-galaxies::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: radial-gradient(circle, rgba(155, 89, 182, 0.2), transparent 70%);
+            animation: glitch 10s linear infinite;
+        }
+
+        .project-galaxy {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            margin: 2rem 0;
+            opacity: 0;
+            transform: translateY(50px);
+            animation: fadeIn 0.7s ease forwards, floatUp 10s linear infinite;
+        }
+
+        .project-galaxy:nth-child(even) {
+            animation-delay: 0.3s;
+        }
+
+        .project-galaxy .project-info {
+            background-color: rgba(26, 26, 26, 0.8);
+            padding: 1.5rem;
+            border-radius: 10px;
+            width: 80%;
+            max-width: 400px;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+            transition: transform 0.3s ease;
+        }
+
+        .project-galaxy .project-info h3 {
+            margin-top: 0;
+            font-size: 1.8rem;
+            color: #9b59b6;
+        }
+
+        .project-galaxy .project-info p {
+            margin-bottom: 0;
+            font-size: 1.1rem;
+        }
+
+        .project-galaxy:hover .project-info {
+            transform: scale(1.05);
+        }
+
+        .project-galaxy .steampunk-gear {
+            position: absolute;
+            width: 80px;
+            height: 80px;
+            background-image: url("https://dummyimage.com/80x80/333/fff.png&text=Gear");
+            background-size: contain;
+            animation: rotate 10s linear infinite;
+        }
+
+        .project-galaxy .steampunk-gear:nth-child(1) {
+            top: 20%;
+            left: 10%;
+            animation-delay: 2s;
+        }
+
+        .project-galaxy .steampunk-gear:nth-child(2) {
+            bottom: 15%;
+            right: 12%;
+            animation-delay: 4s;
+        }
+
+        /* Skills and Expertise Section */
+        .skills-and-expertise {
+            padding: 4rem 0;
+            background-image: linear-gradient(to bottom, #1a1a1a, #262626);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .skills-and-expertise::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: radial-gradient(circle, rgba(155, 89, 182, 0.2), transparent 70%);
+            animation: glitch 10s linear infinite;
+        }
+
+        .skill-icon {
+            width: 100px;
+            height: 100px;
+            background-image: url("https://dummyimage.com/100x100/9b59b6/fff.png&text=Skill");
+            background-size: contain;
+            margin: 2rem;
+            position: relative;
+            opacity: 0;
+            transform: translateY(50px);
+            animation: fadeIn 0.7s ease forwards, pulsate 3s ease-in-out infinite;
+        }
+
+        .skill-icon:nth-child(even) {
+            animation-delay: 0.3s;
+        }
+
+        .skill-icon::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: radial-gradient(circle, rgba(155, 89, 182, 0.4), transparent 70%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .skill-icon:hover::before {
+            opacity: 1;
+        }
+
+        .skill-icon .skill-info {
+            position: absolute;
+            top: 120%;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: rgba(38, 38, 38, 0.8);
+            padding: 1rem;
+            border-radius: 10px;
+            width: 200px;
+            text-align: center;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+        }
+
+        .skill-icon:hover .skill-info {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .skill-icon .skill-info h4 {
+            margin-top: 0;
+            font-size: 1.4rem;
+            color: #9b59b6;
+        }
+
+        .skill-icon .skill-info p {
+            margin-bottom: 0;
+            font-size: 1rem;
+        }
+
+        /* Contact Form Section */
+        .contact-form {
+            padding: 4rem 0;
+            background-image: linear-gradient(to bottom, #262626, #333333);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .contact-form::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: radial-gradient(circle, rgba(155, 89, 182, 0.2), transparent 70%);
+            animation: ripple 10s linear infinite;
+        }
+
+        .contact-form form {
+            background-color: rgba(51, 51, 51, 0.8);
+            padding: 2rem;
+            border-radius: 10px;
+            max-width: 500px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+            opacity: 0;
+            transform: translateY(50px);
+            animation: fadeIn 0.7s ease forwards;
+        }
+
+        .contact-form form h2 {
+            margin-top: 0;
+            font-size: 2rem;
+            color: #9b59b6;
+        }
+
+        .contact-form form .form-field {
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-form form label {
+            display: block;
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .contact-form form input,
+        .contact-form form textarea {
+            width: 100%;
+            padding: 0.8rem;
+            font-size: 1rem;
+            background-color: #4d4d4d;
+            border: none;
+            border-radius: 5px;
+            color: #fff;
+            transition: background-color 0.3s ease;
+        }
+
+        .contact-form form input:focus,
+        .contact-form form textarea:focus {
+            background-color: #595959;
+        }
+
+        .contact-form form button {
+            display: block;
+            width: 100%;
+            padding: 1rem;
+            font-size: 1.2rem;
+            background-color: #9b59b6;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .contact-form form button:hover {
+            background-color: #8e44ad;
+        }
+
+        .contact-form .steampunk-gear {
+            position: absolute;
+            width: 60px;
+            height: 60px;
+            background-image: url("https://dummyimage.com/60x60/333/fff.png&text=Gear");
+            background-size: contain;
+            animation: rotate 10s linear infinite;
+        }
+
+        .contact-form .steampunk-gear:nth-child(1) {
+            top: 15%;
+            left: 10%;
+            animation-delay: 2s;
+        }
+
+        .contact-form .steampunk-gear:nth-child(2) {
+            bottom: 12%;
+            right: 8%;
+            animation-delay: 4s;
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes floatUp {
+            0% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-20px);
+            }
+            100% {
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes glitch {
+            0% {
+                background-position: 0 0;
+            }
+            20% {
+                background-position: -20px -20px;
+            }
+            40% {
+                background-position: 20px 20px;
+            }
+            60% {
+                background-position: -20px 0;
+            }
+            80% {
+                background-position: 20px -20px;
+            }
+            100% {
+                background-position: 0 0;
+            }
+        }
+
+        @keyframes rotate {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        @keyframes pulsate {
+            0% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.1);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        @keyframes ripple {
+            0% {
+                background-position: 0 0;
+            }
+            100% {
+                background-position: 0 100%;
+            }
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            nav a {
+                margin: 0 1rem;
+                font-size: 1rem;
+            }
+
+            .project-galaxy .project-info {
+                width: 90%;
+            }
+
+            .skill-icon {
+                width: 80px;
+                height: 80px;
+                margin: 1.5rem;
+            }
+
+            .skill-icon .skill-info {
+                width: 180px;
+            }
+
+            .contact-form form {
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="#">Home</a>
+        <a href="#">Projects</a>
+        <a href="#">Skills</a>
+        <a href="#">Contact</a>
+    </nav>
+
+    <section class="project-galaxies">
+        <div class="project-galaxy">
+            <div class="project-info">
+                <h3>Project Galaxy Alpha</h3>
+                <p>A cosmic-themed backend system built with Node.js and MongoDB.</p>
+            </div>
+            <div class="steampunk-gear"></div>
+            <div class="steampunk-gear"></div>
+        </div>
+        <div class="project-galaxy">
+            <div class="project-info">
+                <h3>Project Galaxy Beta</h3>
+                <p>A vaporwave-inspired API gateway powered by Golang and gRPC.</p>
+            </div>
+            <div class="steampunk-gear"></div>
+            <div class="steampunk-gear"></div>
+        </div>
+        <div class="project-galaxy">
+            <div class="project-info">
+                <h3>Project Galaxy Gamma</h3>
+                <p>A steampunk-themed microservices architecture built with Rust and WebAssembly.</p>
+            </div>
+            <div class="steampunk-gear"></div>
+            <div class="steampunk-gear"></div>
+        </div>
+    </section>
+
+    <section class="skills-and-expertise">
+        <div class="skill-icon">
+            <div class="skill-info">
+                <h4>Node.js</h4>
+                <p>Proficient in building scalable backend systems with Node.js and related technologies.</p>
+            </div>
+        </div>
+        <div class="skill-icon">
+            <div class="skill-info">
+                <h4>Golang</h4>
+                <p>Experienced in developing high-performance, concurrent applications with Golang.</p>
+            </div>
+        </div>
+        <div class="skill-icon">
+            <div class="skill-info">
+                <h4>Rust</h4>
+                <p>Adept at building secure and efficient systems with the Rust programming language.</p>
+            </div>
+        </div>
+        <div class="skill-icon">
+            <div class="skill-info">
+                <h4>MongoDB</h4>
+                <p>Skilled in designing and implementing NoSQL database solutions with MongoDB.</p>
+            </div>
+        </div>
+        <div class="skill-icon">
+            <div class="skill-info">
+                <h4>gRPC</h4>
+                <p>Proficient in building high-performance, cross-platform communication systems with gRPC.</p>
+            </div>
+        </div>
+        <div class="skill-icon">
+            <div class="skill-info">
+                <h4>WebAssembly</h4>
+                <p>Experienced in leveraging the power of WebAssembly for fast and secure web applications.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="contact-form">
+        <form>
+            <h2>Get in Touch</h2>
+            <div class="form-field">
+                <label for="name">Name</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+            <div class="form-field">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div class="form-field">
+                <label for="message">Message</label>
+                <textarea id="message" name="message" required></textarea>
+            </div>
+            <button type="submit">Send Message</button>
+        </form>
+        <div class="steampunk-gear"></div>
+        <div class="steampunk-gear"></div>
+    </section>
+</body>
+</html>'<!-- Visit: https://github.com/Ishanoshada/portflair -->
+<!-- Visit: https://github.com/Ishanoshada/portflair -->

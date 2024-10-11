@@ -1,0 +1,344 @@
+<!-- Portfolio created by Ishan -->
+<!-- Check out my work at: https://github.com/Ishanoshada/portflair -->
+<!-- 2024/10/9 -->
+<!-- Portfolio created by Ishan -->
+'<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dark Mode Portfolio</title>
+  <style>
+    /* Global Styles */
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Montserrat', sans-serif;
+      background-color: #1a1a1a;
+      color: #f2f2f2;
+    }
+
+    /* Navigation Bar */
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.5rem 2rem;
+      background-color: rgba(26, 26, 26, 0.8);
+      backdrop-filter: blur(10px);
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+    }
+
+    .navbar-brand {
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: #f2f2f2;
+      text-decoration: none;
+    }
+
+    .navbar-nav {
+      display: flex;
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .nav-item {
+      margin-left: 1.5rem;
+    }
+
+    .nav-link {
+      color: #f2f2f2;
+      text-decoration: none;
+      font-size: 1rem;
+      font-weight: 500;
+      transition: color 0.3s ease;
+    }
+
+    .nav-link:hover {
+      color: #7f8c8d;
+    }
+
+    /* Hero Section */
+    .hero {
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-background {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: linear-gradient(to bottom, rgba(26, 26, 26, 0.8), rgba(26, 26, 26, 0.9)), url(https://dummyimage.com/1920x1080/000/fff&text=Dark+Portfolio+Background);
+      background-size: cover;
+      background-position: center;
+      z-index: -1;
+    }
+
+    .hero-content {
+      text-align: center;
+      max-width: 800px;
+      padding: 2rem;
+    }
+
+    .hero-title {
+      font-size: 3.5rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      text-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+    }
+
+    .hero-subtitle {
+      font-size: 1.8rem;
+      font-weight: 500;
+      margin-bottom: 2rem;
+      text-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+    }
+
+    .hero-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 1rem 2rem;
+      background-color: rgba(255, 255, 255, 0.1);
+      color: #f2f2f2;
+      font-size: 1rem;
+      font-weight: 500;
+      text-decoration: none;
+      border-radius: 0.5rem;
+      transition: background-color 0.3s ease;
+    }
+
+    .btn:hover {
+      background-color: rgba(255, 255, 255, 0.2);
+    }
+
+    /* Portfolio Showcase */
+    .portfolio-showcase {
+      padding: 4rem 2rem;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+    }
+
+    .portfolio-item {
+      background-color: rgba(255, 255, 255, 0.1);
+      border-radius: 0.5rem;
+      overflow: hidden;
+      position: relative;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+      transition: transform 0.3s ease;
+    }
+
+    .portfolio-item:hover {
+      transform: translateY(-10px);
+    }
+
+    .portfolio-item-image {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      filter: grayscale(100%);
+      transition: filter 0.3s ease;
+    }
+
+    .portfolio-item:hover .portfolio-item-image {
+      filter: grayscale(0%);
+    }
+
+    .portfolio-item-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(26, 26, 26, 0.7);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .portfolio-item:hover .portfolio-item-overlay {
+      opacity: 1;
+    }
+
+    .portfolio-item-title {
+      font-size: 1.5rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+      color: #f2f2f2;
+      text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+    }
+
+    .portfolio-item-description {
+      font-size: 1rem;
+      color: #f2f2f2;
+      text-align: center;
+      padding: 0 1rem;
+      text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+    }
+
+    /* About Section */
+    .about {
+      padding: 4rem 2rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+
+    .about-content {
+      max-width: 800px;
+      margin-bottom: 2rem;
+    }
+
+    .about-title {
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      text-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+    }
+
+    .about-description {
+      font-size: 1.2rem;
+      line-height: 1.6;
+      text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+    }
+
+    .about-image {
+      width: 300px;
+      height: 300px;
+      border-radius: 50%;
+      object-fit: cover;
+      box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+    }
+
+    /* Responsive Styles */
+    @media (max-width: 768px) {
+      .hero-title {
+        font-size: 2.5rem;
+      }
+
+      .hero-subtitle {
+        font-size: 1.5rem;
+      }
+
+      .portfolio-showcase {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      }
+
+      .about-title {
+        font-size: 2rem;
+      }
+
+      .about-description {
+        font-size: 1rem;
+      }
+
+      .about-image {
+        width: 200px;
+        height: 200px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation Bar -->
+  <nav class="navbar">
+    <a href="#" class="navbar-brand">Dark Portfolio</a>
+    <ul class="navbar-nav">
+      <li class="nav-item"><a href="#" class="nav-link">Home</a></li>
+      <li class="nav-item"><a href="#" class="nav-link">Portfolio</a></li>
+      <li class="nav-item"><a href="#" class="nav-link">About</a></li>
+      <li class="nav-item"><a href="#" class="nav-link">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-background"></div>
+    <div class="hero-content">
+      <h1 class="hero-title">Welcome to My Dark Portfolio</h1>
+      <p class="hero-subtitle">Explore a world of stunning glass-like, semi-transparent elements</p>
+      <div class="hero-buttons">
+        <a href="#" class="btn">View Portfolio</a>
+        <a href="#" class="btn">Learn More</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Portfolio Showcase -->
+  <section class="portfolio-showcase">
+    <div class="portfolio-item">
+      <img src="https://dummyimage.com/600x400/000/fff&text=Portfolio+Item+1" alt="Portfolio Item 1" class="portfolio-item-image">
+      <div class="portfolio-item-overlay">
+        <h3 class="portfolio-item-title">Project 1</h3>
+        <p class="portfolio-item-description">This is a description of the first portfolio item.</p>
+      </div>
+    </div>
+    <div class="portfolio-item">
+      <img src="https://dummyimage.com/600x400/000/fff&text=Portfolio+Item+2" alt="Portfolio Item 2" class="portfolio-item-image">
+      <div class="portfolio-item-overlay">
+        <h3 class="portfolio-item-title">Project 2</h3>
+        <p class="portfolio-item-description">This is a description of the second portfolio item.</p>
+      </div>
+    </div>
+    <div class="portfolio-item">
+      <img src="https://dummyimage.com/600x400/000/fff&text=Portfolio+Item+3" alt="Portfolio Item 3" class="portfolio-item-image">
+      <div class="portfolio-item-overlay">
+        <h3 class="portfolio-item-title">Project 3</h3>
+        <p class="portfolio-item-description">This is a description of the third portfolio item.</p>
+      </div>
+    </div>
+    <div class="portfolio-item">
+      <img src="https://dummyimage.com/600x400/000/fff&text=Portfolio+Item+4" alt="Portfolio Item 4" class="portfolio-item-image">
+      <div class="portfolio-item-overlay">
+        <h3 class="portfolio-item-title">Project 4</h3>
+        <p class="portfolio-item-description">This is a description of the fourth portfolio item.</p>
+      </div>
+    </div>
+    <div class="portfolio-item">
+      <img src="https://dummyimage.com/600x400/000/fff&text=Portfolio+Item+5" alt="Portfolio Item 5" class="portfolio-item-image">
+      <div class="portfolio-item-overlay">
+        <h3 class="portfolio-item-title">Project 5</h3>
+        <p class="portfolio-item-description">This is a description of the fifth portfolio item.</p>
+      </div>
+    </div>
+    <div class="portfolio-item">
+      <img src="https://dummyimage.com/600x400/000/fff&text=Portfolio+Item+6" alt="Portfolio Item 6" class="portfolio-item-image">
+      <div class="portfolio-item-overlay">
+        <h3 class="portfolio-item-title">Project 6</h3>
+        <p class="portfolio-item-description">This is a description of the sixth portfolio item.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section class="about">
+    <div class="about-content">
+      <h2 class="about-title">About Me</h2>
+      <p class="about-description">Hi there! I'm a passionate designer who specializes in creating stunning dark-mode portfolios with glass-like, semi-transparent elements floating over a dark background. My designs are infused with soft light reflections and gradients, creating a mesmerizing and visually captivating experience for my clients and their audiences.</p>
+    </div>
+    <img src="https://dummyimage.com/300x300/000/fff&text=Designer+Portrait" alt="Designer Portrait" class="about-image">
+  </section>
+</body>
+</html>'<!-- Visit: https://github.com/Ishanoshada/portflair -->
+<!-- Visit: https://github.com/Ishanoshada/portflair -->

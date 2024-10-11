@@ -1,0 +1,361 @@
+<!-- Portfolio created by Ishan -->
+<!-- Check out my work at: https://github.com/Ishanoshada/portflair -->
+<!-- 2024/10/9 -->
+<!-- Portfolio created by Ishan -->
+'<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hacking-Themed Portfolio</title>
+  <style>
+    /* Global Styles */
+    body {
+      font-family: 'Menlo', monospace;
+      background-color: #0e0e0e;
+      color: #fff;
+      margin: 0;
+      padding: 0;
+      overflow-x: hidden;
+    }
+
+    /* Navbar Styles */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.5rem 2rem;
+      background-color: #0e0e0e;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      position: relative;
+      z-index: 100;
+    }
+
+    nav ul {
+      display: flex;
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    nav ul li {
+      margin-left: 2rem;
+    }
+
+    nav ul li a {
+      text-decoration: none;
+      color: #fff;
+      font-size: 1.1rem;
+      transition: color 0.3s ease;
+    }
+
+    nav ul li a:hover {
+      color: #7fff00;
+    }
+
+    /* Hero Section Styles */
+    .hero {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 80vh;
+      background: linear-gradient(to right, #0e0e0e, #1a1a1a);
+      overflow: hidden;
+      position: relative;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url("https://dummyimage.com/1200x500/7fff00/000&text=HACKING+PORTFOLIO") no-repeat center center;
+      background-size: cover;
+      filter: blur(10px);
+      z-index: -1;
+      animation: glitch 5s infinite linear;
+    }
+
+    .hero-title {
+      font-size: 5rem;
+      font-weight: bold;
+      text-align: center;
+      text-shadow: 0 0 20px #7fff00, 0 0 40px #7fff00, 0 0 80px #7fff00;
+      animation: neon-glow 2s ease-in-out infinite;
+    }
+
+    .hero-subtitle {
+      font-size: 2rem;
+      text-align: center;
+      margin-top: 1rem;
+      text-shadow: 0 0 10px #7fff00, 0 0 20px #7fff00, 0 0 40px #7fff00;
+      animation: neon-glow 3s ease-in-out infinite;
+    }
+
+    /* Project Showcase Styles */
+    .project-showcase {
+      padding: 4rem 2rem;
+      background-color: #1a1a1a;
+    }
+
+    .project-showcase h2 {
+      font-size: 2.5rem;
+      text-align: center;
+      margin-bottom: 3rem;
+      text-shadow: 0 0 10px #7fff00, 0 0 20px #7fff00, 0 0 40px #7fff00;
+      animation: neon-glow 3s ease-in-out infinite;
+    }
+
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      grid-gap: 2rem;
+    }
+
+    .project-tile {
+      background-color: #0e0e0e;
+      border: 2px solid #7fff00;
+      border-radius: 10px;
+      overflow: hidden;
+      position: relative;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .project-tile:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 20px rgba(127, 255, 0, 0.5);
+    }
+
+    .project-tile:hover::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(to right, #7fff00, #00ff00);
+      animation: glitch 0.5s infinite linear;
+      z-index: 1;
+    }
+
+    .project-tile img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      transition: transform 0.3s ease;
+    }
+
+    .project-tile:hover img {
+      transform: scale(1.1);
+    }
+
+    .project-info {
+      padding: 1.5rem;
+      text-align: center;
+      position: relative;
+      z-index: 2;
+    }
+
+    .project-info h3 {
+      font-size: 1.5rem;
+      margin-bottom: 0.5rem;
+      text-shadow: 0 0 10px #7fff00, 0 0 20px #7fff00, 0 0 40px #7fff00;
+      animation: neon-glow 2s ease-in-out infinite;
+    }
+
+    .project-info p {
+      font-size: 1.1rem;
+      margin-bottom: 0;
+      color: #ccc;
+    }
+
+    /* Contact Section Styles */
+    .contact {
+      padding: 4rem 2rem;
+      background-color: #0e0e0e;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .contact::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: url("https://dummyimage.com/1200x500/000/7fff00&text=CONTACT");
+      background-repeat: repeat;
+      background-size: 100px 100px;
+      opacity: 0.1;
+      z-index: -1;
+      animation: matrix 10s linear infinite;
+    }
+
+    .contact h2 {
+      font-size: 2.5rem;
+      text-align: center;
+      margin-bottom: 3rem;
+      text-shadow: 0 0 10px #7fff00, 0 0 20px #7fff00, 0 0 40px #7fff00;
+      animation: neon-glow 3s ease-in-out infinite;
+    }
+
+    .contact-form {
+      max-width: 600px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+      width: 100%;
+      padding: 1rem;
+      margin-bottom: 1.5rem;
+      background-color: #1a1a1a;
+      border: none;
+      border-radius: 5px;
+      color: #fff;
+      font-family: 'Menlo', monospace;
+      font-size: 1.1rem;
+      transition: box-shadow 0.3s ease;
+    }
+
+    .contact-form input:focus,
+    .contact-form textarea:focus {
+      outline: none;
+      box-shadow: 0 0 20px rgba(127, 255, 0, 0.5);
+    }
+
+    .contact-form button {
+      padding: 1rem 2rem;
+      background-color: #7fff00;
+      border: none;
+      border-radius: 5px;
+      color: #0e0e0e;
+      font-family: 'Menlo', monospace;
+      font-size: 1.1rem;
+      font-weight: bold;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+
+    .contact-form button:hover {
+      transform: scale(1.05);
+    }
+
+    /* Animations */
+    @keyframes glitch {
+      0% {
+        background-position: 0 0;
+      }
+      20% {
+        background-position: -20px -20px;
+      }
+      40% {
+        background-position: 20px 20px;
+      }
+      60% {
+        background-position: -20px 20px;
+      }
+      80% {
+        background-position: 20px -20px;
+      }
+      100% {
+        background-position: 0 0;
+      }
+    }
+
+    @keyframes neon-glow {
+      0% {
+        text-shadow: 0 0 10px #7fff00, 0 0 20px #7fff00, 0 0 40px #7fff00;
+      }
+      50% {
+        text-shadow: 0 0 20px #7fff00, 0 0 40px #7fff00, 0 0 80px #7fff00;
+      }
+      100% {
+        text-shadow: 0 0 10px #7fff00, 0 0 20px #7fff00, 0 0 40px #7fff00;
+      }
+    }
+
+    @keyframes matrix {
+      0% {
+        background-position: 0 0;
+      }
+      100% {
+        background-position: 0 100px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="logo">
+      <a href="#">
+        <img src="https://dummyimage.com/120x40/7fff00/000&text=LOGO" alt="Logo">
+      </a>
+    </div>
+    <ul>
+      <li><a href="#">Home</a></li>
+      <li><a href="#">About</a></li>
+      <li><a href="#">Projects</a></li>
+      <li><a href="#">Contact</a></li>
+    </ul>
+  </nav>
+
+  <div class="hero">
+    <h1 class="hero-title">HACKING PORTFOLIO</h1>
+    <p class="hero-subtitle">Embrace the digital chaos with our designer's hacking-inspired creations.</p>
+  </div>
+
+  <div class="project-showcase">
+    <h2>Our Projects</h2>
+    <div class="project-grid">
+      <div class="project-tile">
+        <img src="https://dummyimage.com/400x300/0e0e0e/7fff00&text=PROJECT+1" alt="Project 1">
+        <div class="project-info">
+          <h3>Project 1</h3>
+          <p>Explore the digital realm with this hacking-themed design.</p>
+        </div>
+      </div>
+      <div class="project-tile">
+        <img src="https://dummyimage.com/400x300/0e0e0e/7fff00&text=PROJECT+2" alt="Project 2">
+        <div class="project-info">
+          <h3>Project 2</h3>
+          <p>Immerse yourself in the glitched world of our designer's work.</p>
+        </div>
+      </div>
+      <div class="project-tile">
+        <img src="https://dummyimage.com/400x300/0e0e0e/7fff00&text=PROJECT+3" alt="Project 3">
+        <div class="project-info">
+          <h3>Project 3</h3>
+          <p>Experience the fusion of technology and creativity.</p>
+        </div>
+      </div>
+      <div class="project-tile">
+        <img src="https://dummyimage.com/400x300/0e0e0e/7fff00&text=PROJECT+4" alt="Project 4">
+        <div class="project-info">
+          <h3>Project 4</h3>
+          <p>Dive into the dark, captivating world of our designer's portfolio.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="contact">
+    <h2>Get in Touch</h2>
+    <form class="contact-form">
+      <input type="text" placeholder="Name" required>
+      <input type="email" placeholder="Email" required>
+      <textarea placeholder="Message" rows="5" required></textarea>
+      <button type="submit">Send</button>
+    </form>
+  </div>
+</body>
+</html>'<!-- Visit: https://github.com/Ishanoshada/portflair -->
+<!-- Visit: https://github.com/Ishanoshada/portflair -->

@@ -1,0 +1,425 @@
+<!-- Portfolio created by Ishan -->
+<!-- Check out my work at: https://github.com/Ishanoshada/portflair -->
+<!-- 2024/10/9 -->
+<!-- Portfolio created by Ishan -->
+'<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Design Portfolio</title>
+  <style>
+    /* Global Styles */
+    body {
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f4;
+      color: #333;
+    }
+
+    /* Navigation Bar */
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: #ffffff;
+      padding: 1rem 2rem;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    .navbar-logo a {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: #1a202c;
+      text-decoration: none;
+    }
+
+    .navbar-menu {
+      display: flex;
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .navbar-menu li {
+      margin-left: 1.5rem;
+    }
+
+    .navbar-menu li a {
+      color: #4a5568;
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s ease;
+    }
+
+    .navbar-menu li a:hover {
+      color: #1a202c;
+    }
+
+    /* Portfolio Section */
+    .portfolio-section {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 4rem 2rem;
+      background-color: #ffffff;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .portfolio-title {
+      font-size: 3rem;
+      font-weight: 700;
+      margin-bottom: 2rem;
+      text-align: center;
+    }
+
+    .portfolio-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-gap: 2rem;
+      width: 100%;
+      max-width: 1200px;
+    }
+
+    .portfolio-item {
+      position: relative;
+      perspective: 1000px;
+      cursor: pointer;
+    }
+
+    .portfolio-item-inner {
+      position: relative;
+      width: 100%;
+      height: 0;
+      padding-bottom: 100%;
+      transform-style: preserve-3d;
+      transition: transform 0.6s;
+    }
+
+    .portfolio-item-front,
+    .portfolio-item-back {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      backface-visibility: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      background-color: #f4f4f4;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .portfolio-item-front {
+      z-index: 2;
+      transform: rotateY(0deg);
+    }
+
+    .portfolio-item-back {
+      transform: rotateY(180deg);
+    }
+
+    .portfolio-item:hover .portfolio-item-inner {
+      transform: rotateY(180deg);
+    }
+
+    .portfolio-item-thumbnail {
+      width: 100%;
+      height: 60%;
+      background-image: url("https://dummyimage.com/600x400/ccc/000&text=Project+Thumbnail");
+      background-size: cover;
+      background-position: center;
+      border-radius: 8px 8px 0 0;
+    }
+
+    .portfolio-item-title {
+      font-size: 1.25rem;
+      font-weight: 600;
+      margin: 1rem 0 0.5rem;
+    }
+
+    .portfolio-item-description {
+      font-size: 0.9rem;
+      color: #4a5568;
+      text-align: center;
+      padding: 0 1rem;
+    }
+
+    /* Skills Section */
+    .skills-section {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 4rem 2rem;
+      background-color: #f4f4f4;
+    }
+
+    .skills-title {
+      font-size: 3rem;
+      font-weight: 700;
+      margin-bottom: 2rem;
+      text-align: center;
+    }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      grid-gap: 2rem;
+      width: 100%;
+      max-width: 1200px;
+    }
+
+    .skill-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      cursor: pointer;
+    }
+
+    .skill-item:hover .skill-animation {
+      animation-play-state: running;
+    }
+
+    .skill-animation {
+      width: 100px;
+      height: 100px;
+      background-image: url("https://dummyimage.com/100x100/ccc/000&text=Skill+Icon");
+      background-size: cover;
+      background-position: center;
+      animation: brushstroke 2s infinite linear;
+      animation-play-state: paused;
+    }
+
+    @keyframes brushstroke {
+      0% {
+        transform: translateX(-10%) rotate(-5deg);
+      }
+      50% {
+        transform: translateX(10%) rotate(5deg);
+      }
+      100% {
+        transform: translateX(-10%) rotate(-5deg);
+      }
+    }
+
+    .skill-title {
+      font-size: 1rem;
+      font-weight: 600;
+      margin-top: 1rem;
+    }
+
+    /* Contact Section */
+    .contact-section {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 4rem 2rem;
+      background-color: #1a202c;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .contact-title {
+      font-size: 3rem;
+      font-weight: 700;
+      color: #ffffff;
+      margin-bottom: 2rem;
+      text-align: center;
+    }
+
+    .contact-form {
+      width: 100%;
+      max-width: 600px;
+      background-color: #ffffff;
+      border-radius: 8px;
+      padding: 2rem;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      position: relative;
+      z-index: 1;
+    }
+
+    .form-field {
+      margin-bottom: 1.5rem;
+    }
+
+    .form-field label {
+      display: block;
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: #4a5568;
+      margin-bottom: 0.5rem;
+    }
+
+    .form-field input,
+    .form-field textarea {
+      width: 100%;
+      padding: 0.75rem 1rem;
+      font-size: 1rem;
+      font-family: 'Poppins', sans-serif;
+      border: 1px solid #e2e8f0;
+      border-radius: 4px;
+      background-color: #f4f4f4;
+      transition: border-color 0.3s ease;
+    }
+
+    .form-field input:focus,
+    .form-field textarea:focus {
+      outline: none;
+      border-color: #4299e1;
+    }
+
+    .form-field textarea {
+      resize: vertical;
+      min-height: 120px;
+    }
+
+    .form-submit {
+      display: block;
+      width: 100%;
+      padding: 0.75rem 1rem;
+      font-size: 1rem;
+      font-family: 'Poppins', sans-serif;
+      font-weight: 600;
+      color: #ffffff;
+      background-color: #4299e1;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .form-submit:hover {
+      background-color: #3182ce;
+    }
+
+    .contact-background {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: url("https://dummyimage.com/1200x500/ccc/000&text=Abstract+Background");
+      background-size: cover;
+      background-position: center;
+      filter: blur(8px);
+      z-index: 0;
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation Bar -->
+  <nav class="navbar">
+    <div class="navbar-logo">
+      <a href="#">Design Portfolio</a>
+    </div>
+    <ul class="navbar-menu">
+      <li><a href="#">Home</a></li>
+      <li><a href="#">Portfolio</a></li>
+      <li><a href="#">Skills</a></li>
+      <li><a href="#">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- Portfolio Section -->
+  <section class="portfolio-section">
+    <h2 class="portfolio-title">My Portfolio</h2>
+    <div class="portfolio-grid">
+      <div class="portfolio-item">
+        <div class="portfolio-item-inner">
+          <div class="portfolio-item-front">
+            <div class="portfolio-item-thumbnail"></div>
+            <h3 class="portfolio-item-title">Project 1</h3>
+            <p class="portfolio-item-description">A brief description of the project.</p>
+          </div>
+          <div class="portfolio-item-back">
+            <h3 class="portfolio-item-title">Project 1</h3>
+            <p class="portfolio-item-description">A more detailed description of the project, including client testimonials and a link to the live project.</p>
+          </div>
+        </div>
+      </div>
+      <div class="portfolio-item">
+        <div class="portfolio-item-inner">
+          <div class="portfolio-item-front">
+            <div class="portfolio-item-thumbnail"></div>
+            <h3 class="portfolio-item-title">Project 2</h3>
+            <p class="portfolio-item-description">A brief description of the project.</p>
+          </div>
+          <div class="portfolio-item-back">
+            <h3 class="portfolio-item-title">Project 2</h3>
+            <p class="portfolio-item-description">A more detailed description of the project, including client testimonials and a link to the live project.</p>
+          </div>
+        </div>
+      </div>
+      <div class="portfolio-item">
+        <div class="portfolio-item-inner">
+          <div class="portfolio-item-front">
+            <div class="portfolio-item-thumbnail"></div>
+            <h3 class="portfolio-item-title">Project 3</h3>
+            <p class="portfolio-item-description">A brief description of the project.</p>
+          </div>
+          <div class="portfolio-item-back">
+            <h3 class="portfolio-item-title">Project 3</h3>
+            <p class="portfolio-item-description">A more detailed description of the project, including client testimonials and a link to the live project.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills Section -->
+  <section class="skills-section">
+    <h2 class="skills-title">My Skills</h2>
+    <div class="skills-grid">
+      <div class="skill-item">
+        <div class="skill-animation"></div>
+        <h3 class="skill-title">Graphic Design</h3>
+      </div>
+      <div class="skill-item">
+        <div class="skill-animation"></div>
+        <h3 class="skill-title">UI/UX Design</h3>
+      </div>
+      <div class="skill-item">
+        <div class="skill-animation"></div>
+        <h3 class="skill-title">Web Development</h3>
+      </div>
+      <div class="skill-item">
+        <div class="skill-animation"></div>
+        <h3 class="skill-title">Motion Graphics</h3>
+      </div>
+      <div class="skill-item">
+        <div class="skill-animation"></div>
+        <h3 class="skill-title">Branding</h3>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section class="contact-section">
+    <h2 class="contact-title">Get in Touch</h2>
+    <form class="contact-form">
+      <div class="form-field">
+        <label for="name">Name</label>
+        <input type="text" id="name" name="name" placeholder="Enter your name" required>
+      </div>
+      <div class="form-field">
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" placeholder="Enter your email" required>
+      </div>
+      <div class="form-field">
+        <label for="message">Message</label>
+        <textarea id="message" name="message" placeholder="Enter your message" required></textarea>
+      </div>
+      <button type="submit" class="form-submit">Send Message</button>
+    </form>
+    <div class="contact-background"></div>
+  </section>
+</body>
+</html>'<!-- Visit: https://github.com/Ishanoshada/portflair -->
+<!-- Visit: https://github.com/Ishanoshada/portflair -->

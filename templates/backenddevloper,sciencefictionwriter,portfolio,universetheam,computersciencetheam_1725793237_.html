@@ -1,0 +1,503 @@
+<!-- Portfolio created by Ishan -->
+<!-- Check out my work at: https://github.com/Ishanoshada/portflair -->
+<!-- 2024/10/9 -->
+<!-- Portfolio created by Ishan -->
+<!-- Portfolio created by Ishan -->
+'<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cosmic Code Chronicles | Backend Developer & Sci-Fi Writer</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Roboto:wght@300;400;700&family=Space+Mono&display=swap');
+
+        :root {
+            --deep-space: #0a0a1f;
+            --nebula-purple: #6a0dad;
+            --cosmic-blue: #1e90ff;
+            --stardust-teal: #40e0d0;
+            --nova-cyan: #00ffff;
+            --alien-green: #39ff14;
+            --meteor-orange: #ff4500;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: var(--deep-space);
+            color: #ffffff;
+            overflow-x: hidden;
+        }
+
+        .star-field {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .star {
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            background-color: #ffffff;
+            border-radius: 50%;
+            animation: twinkle 5s infinite;
+        }
+
+        @keyframes twinkle {
+            0%, 100% { opacity: 0.5; }
+            50% { opacity: 1; }
+        }
+
+        .nav-wrapper {
+            background: rgba(10, 10, 31, 0.8);
+            backdrop-filter: blur(10px);
+            position: relative;
+            z-index: 1000;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 5%;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.5rem;
+            color: var(--nova-cyan);
+            text-shadow: 0 0 10px var(--nova-cyan);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: #ffffff;
+            text-decoration: none;
+            font-family: 'Space Mono', monospace;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--nova-cyan);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .hero {
+            height: calc(100vh - 80px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-content {
+            z-index: 2;
+        }
+
+        .hero h1 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            animation: glow 2s ease-in-out infinite alternate;
+        }
+
+        @keyframes glow {
+            from { text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px var(--nova-cyan), 0 0 20px var(--nova-cyan); }
+            to { text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px var(--nova-cyan), 0 0 40px var(--nova-cyan); }
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin: 0 auto 2rem;
+        }
+
+        .cta-button {
+            background: linear-gradient(45deg, var(--cosmic-blue), var(--nebula-purple));
+            color: #ffffff;
+            padding: 0.8rem 2rem;
+            border: none;
+            border-radius: 50px;
+            font-family: 'Space Mono', monospace;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .project-showcase {
+            padding: 5rem 0;
+            position: relative;
+        }
+
+        .galaxy-cluster {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 2rem;
+            padding: 2rem;
+        }
+
+        .project-node {
+            width: 200px;
+            height: 200px;
+            background: rgba(30, 144, 255, 0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .project-node::before {
+            content: '';
+            position: absolute;
+            top: -5px;
+            left: -5px;
+            right: -5px;
+            bottom: -5px;
+            background: linear-gradient(45deg, var(--cosmic-blue), var(--nebula-purple));
+            border-radius: 50%;
+            z-index: -1;
+            opacity: 0;
+            transition: all 0.3s ease;
+        }
+
+        .project-node:hover::before {
+            opacity: 1;
+            top: -10px;
+            left: -10px;
+            right: -10px;
+            bottom: -10px;
+        }
+
+        .project-node:hover {
+            transform: scale(1.1);
+        }
+
+        .project-title {
+            font-family: 'Orbitron', sans-serif;
+            color: var(--nova-cyan);
+            text-align: center;
+        }
+
+        .timeline {
+            padding: 5rem 0;
+            position: relative;
+        }
+
+        .timeline-container {
+            display: flex;
+            justify-content: space-between;
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .timeline-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            width: 2px;
+            height: 100%;
+            background: linear-gradient(to bottom, var(--cosmic-blue), var(--nebula-purple));
+            transform: translateX(-50%);
+        }
+
+        .timeline-column {
+            width: 45%;
+        }
+
+        .timeline-event {
+            background: rgba(30, 144, 255, 0.1);
+            border-radius: 10px;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .timeline-event::before {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background-color: var(--nova-cyan);
+            border-radius: 50%;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        .timeline-column:first-child .timeline-event::before {
+            right: -10px;
+        }
+
+        .timeline-column:last-child .timeline-event::before {
+            left: -10px;
+        }
+
+        .timeline-event:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 20px rgba(0, 255, 255, 0.3);
+        }
+
+        .timeline-date {
+            font-family: 'Space Mono', monospace;
+            color: var(--nova-cyan);
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline-title {
+            font-family: 'Orbitron', sans-serif;
+            margin-bottom: 0.5rem;
+        }
+
+        .blog-section {
+            padding: 5rem 0;
+            position: relative;
+        }
+
+        .blog-cube {
+            width: 300px;
+            height: 300px;
+            position: relative;
+            transform-style: preserve-3d;
+            transform: rotateX(-15deg) rotateY(15deg);
+            transition: transform 0.5s ease;
+            margin: 0 auto;
+        }
+
+        .cube-face {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: rgba(30, 144, 255, 0.1);
+            border: 2px solid var(--nova-cyan);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.5rem;
+            color: var(--nova-cyan);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .cube-face:hover {
+            background: rgba(30, 144, 255, 0.3);
+        }
+
+        .cube-face:nth-child(1) { transform: rotateY(0deg) translateZ(150px); }
+        .cube-face:nth-child(2) { transform: rotateY(90deg) translateZ(150px); }
+        .cube-face:nth-child(3) { transform: rotateY(180deg) translateZ(150px); }
+        .cube-face:nth-child(4) { transform: rotateY(-90deg) translateZ(150px); }
+        .cube-face:nth-child(5) { transform: rotateX(90deg) translateZ(150px); }
+        .cube-face:nth-child(6) { transform: rotateX(-90deg) translateZ(150px); }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .timeline-container {
+                flex-direction: column;
+            }
+
+            .timeline-column {
+                width: 100%;
+            }
+
+            .timeline-container::before {
+                left: 10px;
+            }
+
+            .timeline-event::before {
+                left: -30px !important;
+            }
+
+            .blog-cube {
+                width: 200px;
+                height: 200px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="star-field" id="starField"></div>
+
+    <div class="nav-wrapper">
+        <nav>
+            <div class="logo">Cosmic Code Chronicles</div>
+            <div class="nav-links">
+                <a href="#projects">Projects</a>
+                <a href="#timeline">Journey</a>
+                <a href="#blog">Blog</a>
+                <a href="#contact">Contact</a>
+            </div>
+        </nav>
+    </div>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Backend Developer & Sci-Fi Visionary</h1>
+            <p>Bridging the gap between cutting-edge technology and interstellar imagination</p>
+            <a href="#contact" class="cta-button">Initiate Contact</a>
+        </div>
+    </section>
+
+    <section id="projects" class="project-showcase">
+        <h2 class="section-title">Galactic Projects</h2>
+        <div class="galaxy-cluster">
+            <div class="project-node">
+                <h3 class="project-title">Quantum Database</h3>
+            </div>
+            <div class="project-node">
+                <h3 class="project-title">AI Story Generator</h3>
+            </div>
+            <div class="project-node">
+                <h3 class="project-title">Nebula Network</h3>
+            </div>
+            <div class="project-node">
+                <h3 class="project-title">Time Warp API</h3>
+            </div>
+        </div>
+    </section>
+
+    <section id="timeline" class="timeline">
+        <h2 class="section-title">Dual Timeline</h2>
+        <div class="timeline-container">
+            <div class="timeline-column">
+                <div class="timeline-event">
+                    <div class="timeline-date">2020</div>
+                    <h3 class="timeline-title">Senior Backend Developer</h3>
+                    <p>Led the development of a scalable microservices architecture</p>
+                </div>
+                <div class="timeline-event">
+                    <div class="timeline-date">2018</div>
+                    <h3 class="timeline-title">Cloud Migration Specialist</h3>
+                    <p>Orchestrated seamless transition to cloud infrastructure</p>
+                </div>
+            </div>
+            <div class="timeline-column">
+                <div class="timeline-event">
+                    <div class="timeline-date">2021</div>
+                    <h3 class="timeline-title">Debut Novel: "Silicon Dreams"</h3>
+                    <p>Award-winning sci-fi thriller exploring AI consciousness</p>
+                </div>
+                <div class="timeline-event">
+                    <div class="timeline-date">2019</div>
+                    <h3 class="timeline-title">Short Story Collection</h3>
+                    <p>"Circuits of the Soul" published in Asimov's Science Fiction</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="blog" class="blog-section">
+        <h2 class="section-title">Multidimensional Blog</h2>
+        <div class="blog-cube">
+            <div class="cube-face">Code Insights</div>
+            <div class="cube-face">Sci-Fi Snippets</div>
+            <div class="cube-face">Tech Predictions</div>
+            <div class="cube-face">Writing Tips</div>
+            <div class="cube-face">Book Reviews</div>
+            <div class="cube-face">Dev Tools</div>
+        </div>
+    </section>
+
+    <script>
+        function createStarField() {
+            const starField = document.getElementById('starField');
+            for (let i = 0; i < 200; i++) {
+                const star = document.createElement('div');
+                star.className = 'star';
+                star.style.left = `${Math.random() * 100}%`;
+                star.style.top = `${Math.random() * 100}%`;
+                star.style.animationDelay = `${Math.random() * 5}s`;
+                starField.appendChild(star);
+            }
+        }
+
+        createStarField();
+
+        document.querySelector('.blog-cube').addEventListener('mousemove', (e) => {
+            const cube = e.currentTarget;
+            const rect = cube.getBoundingClientRect();
+            const x = e.clientX - rect.left - rect.width / 2;
+            const y = e.clientY - rect.top - rect.height / 2;
+            cube.style.transform = `rotateX(${-y / 5}deg) rotateY(${x / 5}deg)`;
+        });
+
+        document.querySelector('.blog-cube').addEventListener('mouseleave', (e) => {
+            e.currentTarget.style.transform = 'rotateX(-15deg) rotateY(15deg)';
+        });
+
+        const projectNodes = document.querySelectorAll('.project-node');
+        projectNodes.forEach(node => {
+            node.addEventListener('mouseenter', () => {
+                node.style.transform = 'scale(1.1) rotate(5deg)';
+            });
+            node.addEventListener('mouseleave', () => {
+                node.style.transform = 'scale(1) rotate(0deg)';
+            });
+        });
+
+        const timelineEvents = document.querySelectorAll('.timeline-event');
+        timelineEvents.forEach(event => {
+            event.addEventListener('mouseenter', () => {
+                event.style.transform = 'scale(1.05) translateY(-5px)';
+            });
+            event.addEventListener('mouseleave', () => {
+                event.style.transform = 'scale(1) translateY(0)';
+            });
+        });
+
+        window.addEventListener('scroll', () => {
+            const scrollPosition = window.scrollY;
+            document.body.style.backgroundPositionY = scrollPosition * 0.5 + 'px';
+        });
+    </script>
+</body>
+</html>'<!-- Visit: https://github.com/Ishanoshada/portflair -->
+<!-- Visit: https://github.com/Ishanoshada/portflair -->
+<!-- Visit: https://github.com/Ishanoshada/portflair -->

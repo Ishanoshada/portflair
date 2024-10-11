@@ -1,0 +1,372 @@
+<!-- Portfolio created by Ishan -->
+<!-- Check out my work at: https://github.com/Ishanoshada/portflair -->
+<!-- 2024/10/9 -->
+<!-- Portfolio created by Ishan -->
+<!-- Portfolio created by Ishan -->
+'<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cyberpunk Portfolio</title>
+    <style>
+        /* Reset default styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Body styles */
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: #0c0c0c;
+            color: #ffffff;
+            overflow-x: hidden;
+        }
+
+        /* Navigation styles */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 2rem;
+            background-color: #0c0c0c;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        nav a {
+            color: #ffffff;
+            text-decoration: none;
+            font-size: 1.1rem;
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        nav a:hover {
+            background-color: #1f1f1f;
+            color: #9b59b6;
+        }
+
+        /* About Me section */
+        .about-me {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 4rem 2rem;
+            background: linear-gradient(to bottom, #0c0c0c, #1f1f1f);
+        }
+
+        .about-me-content {
+            display: flex;
+            align-items: center;
+            max-width: 1200px;
+            width: 100%;
+        }
+
+        .profile-picture {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            overflow: hidden;
+            box-shadow: 0 0 20px 5px #9b59b6;
+            animation: pulsate 2s infinite;
+        }
+
+        .profile-picture img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .about-me-text {
+            flex: 1;
+            margin-left: 3rem;
+        }
+
+        .about-me-text h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #9b59b6;
+            text-shadow: 0 0 20px #9b59b6;
+            animation: glow 2s infinite;
+        }
+
+        .about-me-text p {
+            font-size: 1.2rem;
+            line-height: 1.6;
+            margin-top: 1rem;
+        }
+
+        /* Projects Showcase */
+        .projects-showcase {
+            padding: 4rem 2rem;
+            background: linear-gradient(to bottom, #1f1f1f, #0c0c0c);
+        }
+
+        .projects-showcase h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #00e6e6;
+            text-shadow: 0 0 20px #00e6e6;
+            text-align: center;
+            margin-bottom: 3rem;
+            animation: glow 2s infinite;
+        }
+
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-gap: 2rem;
+        }
+
+        .project-thumbnail {
+            position: relative;
+            overflow: hidden;
+            border-radius: 8px;
+            box-shadow: 0 0 20px 5px #00e6e6;
+            transition: transform 0.3s;
+        }
+
+        .project-thumbnail:hover {
+            transform: scale(1.05);
+        }
+
+        .project-thumbnail img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            filter: brightness(0.7);
+            transition: filter 0.3s;
+        }
+
+        .project-thumbnail:hover img {
+            filter: brightness(1);
+        }
+
+        .project-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .project-thumbnail:hover .project-overlay {
+            opacity: 1;
+        }
+
+        .project-overlay h3 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #00e6e6;
+            text-shadow: 0 0 10px #00e6e6;
+            margin-bottom: 0.5rem;
+        }
+
+        .project-overlay p {
+            font-size: 1.2rem;
+            color: #ffffff;
+            text-align: center;
+        }
+
+        /* Contact Form */
+        .contact-form {
+            padding: 4rem 2rem;
+            background: linear-gradient(to bottom, #0c0c0c, #1f1f1f);
+        }
+
+        .contact-form h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #9b59b6;
+            text-shadow: 0 0 20px #9b59b6;
+            text-align: center;
+            margin-bottom: 3rem;
+            animation: glow 2s infinite;
+        }
+
+        .contact-form-container {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .form-field {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-field label {
+            display: block;
+            font-size: 1.2rem;
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+        }
+
+        .form-field input,
+        .form-field textarea {
+            width: 100%;
+            padding: 1rem;
+            font-size: 1.1rem;
+            font-family: 'Montserrat', sans-serif;
+            background-color: #1f1f1f;
+            color: #ffffff;
+            border: none;
+            border-radius: 4px;
+            box-shadow: 0 0 10px 2px #9b59b6;
+            transition: box-shadow 0.3s;
+        }
+
+        .form-field input:focus,
+        .form-field textarea:focus {
+            outline: none;
+            box-shadow: 0 0 20px 4px #9b59b6;
+        }
+
+        .submit-button {
+            display: block;
+            width: 100%;
+            padding: 1rem;
+            font-size: 1.2rem;
+            font-weight: 700;
+            font-family: 'Montserrat', sans-serif;
+            background-color: #9b59b6;
+            color: #ffffff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            box-shadow: 0 0 20px 4px #9b59b6;
+            transition: background-color 0.3s, box-shadow 0.3s;
+        }
+
+        .submit-button:hover {
+            background-color: #8e44ad;
+            box-shadow: 0 0 30px 6px #9b59b6;
+        }
+
+        /* Animations */
+        @keyframes glow {
+            0%, 100% {
+                text-shadow: 0 0 20px #9b59b6;
+            }
+            50% {
+                text-shadow: 0 0 40px #9b59b6;
+            }
+        }
+
+        @keyframes pulsate {
+            0%, 100% {
+                box-shadow: 0 0 20px 5px #9b59b6;
+            }
+            50% {
+                box-shadow: 0 0 30px 10px #9b59b6;
+            }
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .about-me-content {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .profile-picture {
+                margin-bottom: 2rem;
+            }
+
+            .about-me-text {
+                margin-left: 0;
+            }
+
+            .project-grid {
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="#">Home</a>
+        <a href="#">About</a>
+        <a href="#">Projects</a>
+        <a href="#">Contact</a>
+    </nav>
+
+    <section class="about-me">
+        <div class="about-me-content">
+            <div class="profile-picture">
+                <img src="https://dummyimage.com/400x400/00e6e6/fff&text=PROFILE" alt="Profile Picture">
+            </div>
+            <div class="about-me-text">
+                <h2>John Doe</h2>
+                <p>I am a passionate web developer and designer, specializing in creating futuristic, dark-themed portfolios with a cyberpunk, tech vibe. I love to experiment with cutting-edge technologies and design trends to bring my clients' visions to life.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="projects-showcase">
+        <h2>My Projects</h2>
+        <div class="project-grid">
+            <div class="project-thumbnail">
+                <img src="https://dummyimage.com/600x400/00e6e6/fff&text=PROJECT+1" alt="Project 1">
+                <div class="project-overlay">
+                    <h3>Project 1</h3>
+                    <p>A futuristic, dark-themed portfolio with neon glow effects.</p>
+                </div>
+            </div>
+            <div class="project-thumbnail">
+                <img src="https://dummyimage.com/600x400/9b59b6/fff&text=PROJECT+2" alt="Project 2">
+                <div class="project-overlay">
+                    <h3>Project 2</h3>
+                    <p>A cyberpunk-inspired website with interactive elements.</p>
+                </div>
+            </div>
+            <div class="project-thumbnail">
+                <img src="https://dummyimage.com/600x400/00e6e6/fff&text=PROJECT+3" alt="Project 3">
+                <div class="project-overlay">
+                    <h3>Project 3</h3>
+                    <p>A tech-driven portfolio showcasing cutting-edge design.</p>
+                </div>
+            </div>
+            <div class="project-thumbnail">
+                <img src="https://dummyimage.com/600x400/9b59b6/fff&text=PROJECT+4" alt="Project 4">
+                <div class="project-overlay">
+                    <h3>Project 4</h3>
+                    <p>A visually stunning, futuristic website design.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="contact-form">
+        <h2>Get in Touch</h2>
+        <div class="contact-form-container">
+            <form>
+                <div class="form-field">
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" name="name" placeholder="Enter your name" required>
+                </div>
+                <div class="form-field">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" placeholder="Enter your email" required>
+                </div>
+                <div class="form-field">
+                    <label for="message">Message:</label>
+                    <textarea id="message" name="message" rows="5" placeholder="Enter your message" required></textarea>
+                </div>
+                <button type="submit" class="submit-button">Send Message</button>
+            </form>
+        </div>
+    </section>
+</body>
+</html>'<!-- Visit: https://github.com/Ishanoshada/portflair -->
+<!-- Visit: https://github.com/Ishanoshada/portflair -->
+<!-- Visit: https://github.com/Ishanoshada/portflair -->

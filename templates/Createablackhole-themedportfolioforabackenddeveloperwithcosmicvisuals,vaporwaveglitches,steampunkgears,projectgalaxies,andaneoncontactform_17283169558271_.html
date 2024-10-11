@@ -1,0 +1,599 @@
+<!-- Portfolio created by Ishan -->
+<!-- Check out my work at: https://github.com/Ishanoshada/portflair -->
+<!-- 2024/10/9 -->
+<!-- Portfolio created by Ishan -->
+'<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Black Hole Portfolio</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
+
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Orbitron', sans-serif;
+      background: radial-gradient(ellipse at center, #0e0e0e 0%, #000000 100%);
+      color: #f0f0f0;
+      overflow-x: hidden;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 40px;
+      background: linear-gradient(to right, #1e2024, #0e0e0e);
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .logo {
+      font-size: 24px;
+      font-weight: bold;
+      color: #00d8ff;
+      text-shadow: 0 0 10px #00d8ff, 0 0 20px #00d8ff, 0 0 30px #00d8ff;
+      animation: glow 2s ease-in-out infinite;
+    }
+
+    @keyframes glow {
+      0% {
+        text-shadow: 0 0 10px #00d8ff, 0 0 20px #00d8ff, 0 0 30px #00d8ff;
+      }
+      50% {
+        text-shadow: 0 0 20px #00d8ff, 0 0 30px #00d8ff, 0 0 40px #00d8ff;
+      }
+      100% {
+        text-shadow: 0 0 10px #00d8ff, 0 0 20px #00d8ff, 0 0 30px #00d8ff;
+      }
+    }
+
+    nav {
+      display: flex;
+      gap: 20px;
+    }
+
+    nav a {
+      color: #f0f0f0;
+      text-decoration: none;
+      font-size: 16px;
+      padding: 10px 20px;
+      border-radius: 20px;
+      transition: background-color 0.3s ease;
+    }
+
+    nav a:hover {
+      background-color: rgba(0, 216, 255, 0.2);
+    }
+
+    .project-galaxies {
+      padding: 80px 40px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .project-galaxies::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url(https://dummyimage.com/1200x500/020202/ffffff&text=Cosmic+Landscape) no-repeat center center;
+      background-size: cover;
+      filter: blur(10px);
+      z-index: -1;
+    }
+
+    .project-galaxies h2 {
+      font-size: 36px;
+      font-weight: bold;
+      margin-bottom: 40px;
+      text-shadow: 0 0 10px #00d8ff, 0 0 20px #00d8ff, 0 0 30px #00d8ff;
+      animation: glow 2s ease-in-out infinite;
+    }
+
+    .project-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 40px;
+      width: 100%;
+      max-width: 1200px;
+    }
+
+    .project-item {
+      position: relative;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+
+    .project-item:hover {
+      transform: scale(1.1);
+    }
+
+    .project-item::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url(https://dummyimage.com/400x400/00d8ff/ffffff&text=Project+Planet) no-repeat center center;
+      background-size: contain;
+      filter: brightness(0.8) hue-rotate(45deg) saturate(1.2);
+      z-index: -1;
+      animation: rotate 10s linear infinite;
+    }
+
+    @keyframes rotate {
+      0% {
+        transform: rotate(0deg);
+      }
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+
+    .project-item h3 {
+      font-size: 18px;
+      font-weight: bold;
+      margin-top: 20px;
+      text-align: center;
+      text-shadow: 0 0 5px #00d8ff, 0 0 10px #00d8ff, 0 0 15px #00d8ff;
+    }
+
+    .project-details {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: rgba(14, 14, 14, 0.9);
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 20px rgba(0, 216, 255, 0.5);
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.3s ease, visibility 0.3s ease;
+    }
+
+    .project-item:hover .project-details {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .project-details h4 {
+      font-size: 20px;
+      font-weight: bold;
+      margin-bottom: 10px;
+      color: #00d8ff;
+      text-shadow: 0 0 5px #00d8ff, 0 0 10px #00d8ff, 0 0 15px #00d8ff;
+    }
+
+    .project-details p {
+      font-size: 14px;
+      margin-bottom: 10px;
+    }
+
+    .project-details a {
+      display: block;
+      color: #00d8ff;
+      text-decoration: none;
+      font-size: 14px;
+      margin-top: 10px;
+      transition: color 0.3s ease;
+    }
+
+    .project-details a:hover {
+      color: #ffffff;
+    }
+
+    .cosmic-skills {
+      padding: 80px 40px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cosmic-skills::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url(https://dummyimage.com/1200x500/020202/ffffff&text=Swirling+Black+Hole) no-repeat center center;
+      background-size: cover;
+      filter: blur(10px);
+      z-index: -1;
+    }
+
+    .cosmic-skills h2 {
+      font-size: 36px;
+      font-weight: bold;
+      margin-bottom: 40px;
+      text-shadow: 0 0 10px #00d8ff, 0 0 20px #00d8ff, 0 0 30px #00d8ff;
+      animation: glow 2s ease-in-out infinite;
+    }
+
+    .skill-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 40px;
+      width: 100%;
+      max-width: 1200px;
+    }
+
+    .skill-item {
+      position: relative;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+
+    .skill-item:hover {
+      transform: scale(1.1);
+    }
+
+    .skill-item::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url(https://dummyimage.com/200x200/00d8ff/ffffff&text=Skill+Orb) no-repeat center center;
+      background-size: contain;
+      filter: brightness(0.8) hue-rotate(45deg) saturate(1.2);
+      z-index: -1;
+      animation: pulsate 2s ease-in-out infinite;
+    }
+
+    @keyframes pulsate {
+      0% {
+        transform: scale(1);
+      }
+      50% {
+        transform: scale(1.1);
+      }
+      100% {
+        transform: scale(1);
+      }
+    }
+
+    .skill-item h3 {
+      font-size: 16px;
+      font-weight: bold;
+      margin-top: 20px;
+      text-align: center;
+      text-shadow: 0 0 5px #00d8ff, 0 0 10px #00d8ff, 0 0 15px #00d8ff;
+    }
+
+    .skill-details {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: rgba(14, 14, 14, 0.9);
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 20px rgba(0, 216, 255, 0.5);
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.3s ease, visibility 0.3s ease;
+    }
+
+    .skill-item:hover .skill-details {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .skill-details h4 {
+      font-size: 18px;
+      font-weight: bold;
+      margin-bottom: 10px;
+      color: #00d8ff;
+      text-shadow: 0 0 5px #00d8ff, 0 0 10px #00d8ff, 0 0 15px #00d8ff;
+    }
+
+    .skill-details p {
+      font-size: 14px;
+      margin-bottom: 10px;
+    }
+
+    .neon-contact {
+      padding: 80px 40px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .neon-contact::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url(https://dummyimage.com/1200x500/020202/ffffff&text=Glitchy+Background) no-repeat center center;
+      background-size: cover;
+      filter: blur(5px);
+      z-index: -1;
+    }
+
+    .neon-contact h2 {
+      font-size: 36px;
+      font-weight: bold;
+      margin-bottom: 40px;
+      text-shadow: 0 0 10px #00d8ff, 0 0 20px #00d8ff, 0 0 30px #00d8ff;
+      animation: glow 2s ease-in-out infinite;
+    }
+
+    .contact-form {
+      background-color: rgba(14, 14, 14, 0.8);
+      padding: 40px;
+      border-radius: 10px;
+      box-shadow: 0 0 20px rgba(0, 216, 255, 0.5);
+      width: 100%;
+      max-width: 600px;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    .form-group label {
+      display: block;
+      font-size: 14px;
+      font-weight: bold;
+      margin-bottom: 5px;
+      color: #00d8ff;
+      text-shadow: 0 0 5px #00d8ff, 0 0 10px #00d8ff, 0 0 15px #00d8ff;
+    }
+
+    .form-group input,
+    .form-group textarea {
+      width: 100%;
+      padding: 10px;
+      font-size: 16px;
+      font-family: 'Orbitron', sans-serif;
+      background-color: rgba(0, 216, 255, 0.1);
+      border: 2px solid rgba(0, 216, 255, 0.5);
+      border-radius: 5px;
+      color: #f0f0f0;
+      transition: border-color 0.3s ease;
+    }
+
+    .form-group input:focus,
+    .form-group textarea:focus {
+      border-color: #00d8ff;
+      outline: none;
+    }
+
+    .form-group button {
+      display: block;
+      width: 100%;
+      padding: 10px;
+      font-size: 16px;
+      font-family: 'Orbitron', sans-serif;
+      background-color: #00d8ff;
+      color: #0e0e0e;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      animation: pulse 2s ease-in-out infinite;
+    }
+
+    .form-group button:hover {
+      background-color: #00b2cc;
+    }
+
+    @keyframes pulse {
+      0% {
+        transform: scale(1);
+      }
+      50% {
+        transform: scale(1.1);
+      }
+      100% {
+        transform: scale(1);
+      }
+    }
+
+    @media (max-width: 768px) {
+      header {
+        padding: 15px 20px;
+      }
+
+      .logo {
+        font-size: 20px;
+      }
+
+      nav a {
+        font-size: 14px;
+        padding: 8px 16px;
+      }
+
+      .project-galaxies,
+      .cosmic-skills,
+      .neon-contact {
+        padding: 60px 20px;
+      }
+
+      .project-galaxies h2,
+      .cosmic-skills h2,
+      .neon-contact h2 {
+        font-size: 28px;
+      }
+
+      .project-list,
+      .skill-list {
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        gap: 30px;
+      }
+
+      .project-item h3,
+      .skill-item h3 {
+        font-size: 16px;
+      }
+
+      .project-details,
+      .skill-details {
+        padding: 15px;
+      }
+
+      .project-details h4,
+      .skill-details h4 {
+        font-size: 18px;
+      }
+
+      .project-details p,
+      .skill-details p,
+      .form-group label,
+      .form-group input,
+      .form-group textarea,
+      .form-group button {
+        font-size: 14px;
+      }
+
+      .contact-form {
+        padding: 30px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">Black Hole Portfolio</div>
+    <nav>
+      <a href="#">Home</a>
+      <a href="#">Projects</a><a href="#">Skills</a>
+      <a href="#">Contact</a>
+    </nav>
+  </header>
+
+  <section class="project-galaxies">
+    <h2>Project Galaxies</h2>
+    <div class="project-list">
+      <div class="project-item">
+        <div class="project-details">
+          <h4>Project 1</h4>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+          <a href="#">View Project</a>
+        </div>
+      </div>
+      <div class="project-item">
+        <div class="project-details">
+          <h4>Project 2</h4>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+          <a href="#">View Project</a>
+        </div>
+      </div>
+      <div class="project-item">
+        <div class="project-details">
+          <h4>Project 3</h4>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+          <a href="#">View Project</a>
+        </div>
+      </div>
+      <div class="project-item">
+        <div class="project-details">
+          <h4>Project 4</h4>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+          <a href="#">View Project</a>
+        </div>
+      </div>
+      <div class="project-item">
+        <div class="project-details">
+          <h4>Project 5</h4>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+          <a href="#">View Project</a>
+        </div>
+      </div>
+      <div class="project-item">
+        <div class="project-details">
+          <h4>Project 6</h4>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+          <a href="#">View Project</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cosmic-skills">
+    <h2>Cosmic Skills</h2>
+    <div class="skill-list">
+      <div class="skill-item">
+        <div class="skill-details">
+          <h4>Backend Development</h4>
+          <p>Proficient in Node.js, Express, and database integration.</p>
+        </div>
+      </div>
+      <div class="skill-item">
+        <div class="skill-details">
+          <h4>Containerization</h4>
+          <p>Experienced in Docker and Kubernetes for scalable deployment.</p>
+        </div>
+      </div>
+      <div class="skill-item">
+        <div class="skill-details">
+          <h4>Cloud Architecture</h4>
+          <p>Knowledgeable in AWS, GCP, and Azure cloud services.</p>
+        </div>
+      </div>
+      <div class="skill-item">
+        <div class="skill-details">
+          <h4>DevOps Tooling</h4>
+          <p>Proficient with CI/CD pipelines, monitoring, and automation.</p>
+        </div>
+      </div>
+      <div class="skill-item">
+        <div class="skill-details">
+          <h4>Microservices</h4>
+          <p>Experience in designing and implementing scalable microservices.</p>
+        </div>
+      </div>
+      <div class="skill-item">
+        <div class="skill-details">
+          <h4>Data Engineering</h4>
+          <p>Expertise in data processing, analytics, and machine learning.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="neon-contact">
+    <h2>Get in Touch</h2>
+    <div class="contact-form">
+      <form>
+        <div class="form-group">
+          <label for="name">Name</label>
+          <input type="text" id="name" name="name" required>
+        </div>
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" required>
+        </div>
+        <div class="form-group">
+          <label for="message">Message</label>
+          <textarea id="message" name="message" rows="5" required></textarea>
+        </div>
+        <div class="form-group">
+          <button type="submit">Send Message</button>
+        </div>
+      </form>
+    </div>
+  </section>
+</body>
+</html>'<!-- Visit: https://github.com/Ishanoshada/portflair -->
+<!-- Visit: https://github.com/Ishanoshada/portflair -->

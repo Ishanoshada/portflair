@@ -1,0 +1,497 @@
+<!-- Portfolio created by Ishan -->
+<!-- Check out my work at: https://github.com/Ishanoshada/portflair -->
+<!-- 2024/10/9 -->
+<!-- Portfolio created by Ishan -->
+'<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Black Hole Portfolio</title>
+    <style>
+        /* Global Styles */
+        body {
+            font-family: 'Orbitron', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #0d0d0d;
+            color: #fff;
+            overflow-x: hidden;
+        }
+
+        /* Navbar Styles */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 40px;
+            background-color: rgba(13, 13, 13, 0.8);
+            backdrop-filter: blur(10px);
+            position: relative;
+            z-index: 100;
+        }
+
+        .navbar .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #8b00ff;
+            text-shadow: 0 0 20px #8b00ff, 0 0 40px #8b00ff, 0 0 60px #8b00ff;
+            animation: pulsate 3s infinite;
+        }
+
+        .navbar .nav-links {
+            display: flex;
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .navbar .nav-links li {
+            margin-left: 30px;
+            font-size: 16px;
+            font-weight: bold;
+            color: #fff;
+            text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff;
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+
+        .navbar .nav-links li:hover {
+            color: #8b00ff;
+            text-shadow: 0 0 20px #8b00ff, 0 0 40px #8b00ff, 0 0 60px #8b00ff;
+        }
+
+        /* Project Galaxies Section Styles */
+        .project-galaxies {
+            padding: 80px 40px;
+            background-image: radial-gradient(ellipse at center, #0d0d0d 0%, #000000 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .project-galaxies .galaxy-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-gap: 40px;
+            z-index: 10;
+        }
+
+        .project-galaxies .galaxy {
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(139, 0, 255, 0.5);
+            overflow: hidden;
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .project-galaxies .galaxy:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 40px rgba(139, 0, 255, 0.8);
+        }
+
+        .project-galaxies .galaxy .galaxy-content {
+            padding: 20px;
+            text-align: center;
+        }
+
+        .project-galaxies .galaxy .galaxy-content h3 {
+            margin-top: 0;
+            font-size: 20px;
+            font-weight: bold;
+            color: #fff;
+            text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff;
+        }
+
+        .project-galaxies .galaxy .galaxy-content p {
+            margin-bottom: 0;
+            font-size: 14px;
+            color: #ccc;
+        }
+
+        .project-galaxies .galaxy .galaxy-content .tech-used {
+            margin-top: 10px;
+            font-size: 12px;
+            color: #999;
+        }
+
+        .project-galaxies::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url("https://dummyimage.com/1200x500/0d0d0d/8b00ff.jpg&text=Cosmic+Nebula");
+            background-size: cover;
+            background-position: center;
+            opacity: 0.2;
+            z-index: 1;
+        }
+
+        .project-galaxies::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: radial-gradient(ellipse at center, rgba(13, 13, 13, 0.8) 0%, rgba(0, 0, 0, 0.8) 100%);
+            z-index: 2;
+        }
+
+        /* Cosmic Skills Section Styles */
+        .cosmic-skills {
+            padding: 80px 40px;
+            background-image: radial-gradient(ellipse at center, #0d0d0d 0%, #000000 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cosmic-skills .skills-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            z-index: 10;
+        }
+
+        .cosmic-skills .skill-orb {
+            width: 200px;
+            height: 200px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            box-shadow: 0 0 20px rgba(139, 0, 255, 0.5);
+            margin: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .cosmic-skills .skill-orb:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 40px rgba(139, 0, 255, 0.8);
+        }
+
+        .cosmic-skills .skill-orb .skill-name {
+            font-size: 18px;
+            font-weight: bold;
+            color: #fff;
+            text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff;
+            margin-bottom: 10px;
+        }
+
+        .cosmic-skills .skill-orb .skill-level,
+        .cosmic-skills .skill-orb .skill-details {
+            font-size: 14px;
+            color: #ccc;
+        }
+
+        .cosmic-skills::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url("https://dummyimage.com/1200x500/0d0d0d/8b00ff.jpg&text=Cosmic+Galaxy");
+            background-size: cover;
+            background-position: center;
+            opacity: 0.2;
+            z-index: 1;
+        }
+
+        .cosmic-skills::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: radial-gradient(ellipse at center, rgba(13, 13, 13, 0.8) 0%, rgba(0, 0, 0, 0.8) 100%);
+            z-index: 2;
+        }
+
+        /* Neon Contact Form Section Styles */
+        .neon-contact {
+            padding: 80px 40px;
+            background-image: radial-gradient(ellipse at center, #0d0d0d 0%, #000000 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .neon-contact .form-container {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(139, 0, 255, 0.5);
+            padding: 40px;
+            z-index: 10;
+        }
+
+        .neon-contact .form-container h2 {
+            text-align: center;
+            font-size: 24px;
+            font-weight: bold;
+            color: #fff;
+            text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff;
+            margin-top: 0;
+        }
+
+        .neon-contact .form-container .form-group {
+            margin-bottom: 20px;
+        }
+
+        .neon-contact .form-container label {
+            display: block;
+            font-size: 14px;
+            color: #ccc;
+            margin-bottom: 5px;
+        }
+
+        .neon-contact .form-container input,
+        .neon-contact .form-container textarea {
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            font-family: 'Orbitron', sans-serif;
+            background-color: rgba(255, 255, 255, 0.1);
+            border: none;
+            border-radius: 5px;
+            color: #fff;
+            box-shadow: 0 0 10px rgba(139, 0, 255, 0.5);
+            transition: box-shadow 0.3s ease;
+        }
+
+        .neon-contact .form-container input:focus,
+        .neon-contact .form-container textarea:focus {
+            outline: none;
+            box-shadow: 0 0 20px rgba(139, 0, 255, 0.8);
+        }
+
+        .neon-contact .form-container button {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            font-family: 'Orbitron', sans-serif;
+            background-color: #8b00ff;
+            border: none;
+            border-radius: 5px;
+            color: #fff;
+            font-weight: bold;
+            cursor: pointer;
+            box-shadow: 0 0 10px rgba(139, 0, 255, 0.5);
+            transition: box-shadow 0.3s ease;
+        }
+
+        .neon-contact .form-container button:hover {
+            box-shadow: 0 0 20px rgba(139, 0, 255, 0.8);
+        }
+
+        .neon-contact::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url("https://dummyimage.com/1200x500/0d0d0d/8b00ff.jpg&text=Neon+Vaporwave");
+            background-size: cover;
+            background-position: center;
+            opacity: 0.2;
+            z-index: 1;
+        }
+
+        .neon-contact::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: radial-gradient(ellipse at center, rgba(13, 13, 13, 0.8) 0%, rgba(0, 0, 0, 0.8) 100%);
+            z-index: 2;
+        }
+
+        /* Animations */
+        @keyframes pulsate {
+            0% {
+                text-shadow: 0 0 10px #8b00ff, 0 0 20px #8b00ff, 0 0 30px #8b00ff;
+            }
+            50% {
+                text-shadow: 0 0 20px #8b00ff, 0 0 40px #8b00ff, 0 0 60px #8b00ff;
+            }
+            100% {
+                text-shadow: 0 0 10px #8b00ff, 0 0 20px #8b00ff, 0 0 30px #8b00ff;
+            }
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .navbar {
+                padding: 15px 20px;
+            }
+
+            .navbar .logo {
+                font-size: 20px;
+            }
+
+            .navbar .nav-links li {
+                margin-left: 20px;
+                font-size: 14px;
+            }
+
+            .project-galaxies,
+            .cosmic-skills,
+            .neon-contact {
+                padding: 60px 20px;
+            }
+
+            .project-galaxies .galaxy-container {
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            }
+
+            .cosmic-skills .skill-orb {
+                width: 150px;
+                height: 150px;
+                margin: 15px;
+            }
+
+            .cosmic-skills .skill-orb .skill-name {
+                font-size: 16px;
+            }
+
+            .cosmic-skills .skill-orb .skill-level,
+            .cosmic-skills .skill-orb .skill-details {
+                font-size: 12px;
+            }
+
+            .neon-contact .form-container {
+                padding: 30px;
+            }
+
+            .neon-contact .form-container h2 {
+                font-size: 20px;
+            }
+
+            .neon-contact .form-container input,
+            .neon-contact .form-container textarea,
+            .neon-contact .form-container button {
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo">Black Hole Portfolio</div>
+            <ul class="nav-links">
+                <li>Home</li>
+                <li>Projects</li>
+                <li>Skills</li>
+                <li>Contact</li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="project-galaxies">
+            <div class="galaxy-container">
+                <div class="galaxy">
+                    <div class="galaxy-content">
+                        <h3>Galaxy Project 1</h3>
+                        <p>A cosmic-themed web application with vaporwave glitches and steampunk elements.</p>
+                        <div class="tech-used">JavaScript, React, Node.js</div>
+                    </div>
+                </div>
+                <div class="galaxy">
+                    <div class="galaxy-content">
+                        <h3>Galaxy Project 2</h3>
+                        <p>A backend system that powers a black hole-inspired data visualization platform.</p>
+                        <div class="tech-used">Python, Django, PostgreSQL</div>
+                    </div>
+                </div>
+                <div class="galaxy">
+                    <div class="galaxy-content">
+                        <h3>Galaxy Project 3</h3>
+                        <p>A microservice architecture with a neon-infused API gateway and event-driven components.</p>
+                        <div class="tech-used">Golang, RabbitMQ, Kubernetes</div>
+                    </div>
+                </div>
+                <div class="galaxy">
+                    <div class="galaxy-content">
+                        <h3>Galaxy Project 4</h3>
+                        <p>A real-time, cosmic-themed chat<h3>Galaxy Project 4</h3>
+<p>A real-time, cosmic-themed chat application with vaporwave-inspired visuals and steampunk-infused features.</p>
+<div class="tech-used">WebSocket, Node.js, Vue.js</div>
+</div>
+</div>
+</div>
+</section>
+
+<section class="cosmic-skills">
+<div class="skills-container">
+<div class="skill-orb">
+<div class="skill-name">JavaScript</div>
+<div class="skill-level">Expert</div>
+<div class="skill-details">Proficient in modern JavaScript features, frameworks, and best practices.</div>
+</div>
+<div class="skill-orb">
+<div class="skill-name">React</div>
+<div class="skill-level">Advanced</div>
+<div class="skill-details">Experienced in building highly interactive and scalable web applications with React.</div>
+</div>
+<div class="skill-orb">
+<div class="skill-name">Node.js</div>
+<div class="skill-level">Expert</div>
+<div class="skill-details">Skilled in building robust, event-driven backend systems with Node.js and related technologies.</div>
+</div>
+<div class="skill-orb">
+<div class="skill-name">Python</div>
+<div class="skill-level">Advanced</div>
+<div class="skill-details">Proficient in designing and implementing data-driven applications with Python and its ecosystem.</div>
+</div>
+<div class="skill-orb">
+<div class="skill-name">Golang</div>
+<div class="skill-level">Intermediate</div>
+<div class="skill-details">Experienced in building high-performance, scalable services and microservices with Golang.</div>
+</div>
+<div class="skill-orb">
+<div class="skill-name">Docker</div>
+<div class="skill-level">Advanced</div>
+<div class="skill-details">Skilled in containerizing and deploying applications using Docker and container orchestration platforms.</div>
+</div>
+</div>
+</section>
+
+<section class="neon-contact">
+<div class="form-container">
+<h2>Get in Touch</h2>
+<form>
+<div class="form-group">
+<label for="name">Name</label>
+<input type="text" id="name" name="name" placeholder="Enter your name" required>
+</div>
+<div class="form-group">
+<label for="email">Email</label>
+<input type="email" id="email" name="email" placeholder="Enter your email" required>
+</div>
+<div class="form-group">
+<label for="message">Message</label>
+<textarea id="message" name="message" placeholder="Enter your message" rows="5" required></textarea>
+</div>
+<button type="submit">Send Message</button>
+</form>
+</div>
+</section>
+</main>
+</body>
+</html>'<!-- Visit: https://github.com/Ishanoshada/portflair -->
+<!-- Visit: https://github.com/Ishanoshada/portflair -->

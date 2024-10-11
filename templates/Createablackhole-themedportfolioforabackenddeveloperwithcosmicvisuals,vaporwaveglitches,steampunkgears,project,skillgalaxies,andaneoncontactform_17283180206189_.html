@@ -1,0 +1,494 @@
+<!-- Portfolio created by Ishan -->
+<!-- Check out my work at: https://github.com/Ishanoshada/portflair -->
+<!-- 2024/10/9 -->
+<!-- Portfolio created by Ishan -->
+'<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Backend Developer's Black Hole Portfolio</title>
+  <style>
+    /* General Styles */
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Roboto', sans-serif;
+      background-color: #000;
+      color: #fff;
+      overflow-x: hidden;
+    }
+
+    /* Header and Navigation */
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.5rem 2rem;
+      background-image: linear-gradient(to right, #4b0082, #8b00ff);
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .logo {
+      font-size: 2rem;
+      font-weight: bold;
+      text-transform: uppercase;
+      background: linear-gradient(to right, #00ffff, #ff00ff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    nav ul {
+      display: flex;
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    nav li {
+      margin-left: 2rem;
+    }
+
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      font-size: 1.1rem;
+      position: relative;
+      padding-bottom: 0.5rem;
+    }
+
+    nav a::after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 2px;
+      background-color: #00ffff;
+      bottom: 0;
+      left: 0;
+      transition: width 0.3s ease-in-out;
+    }
+
+    nav a:hover::after {
+      width: 100%;
+    }
+
+    /* Project Gallery Section */
+    .project-gallery {
+      padding: 4rem 2rem;
+      background-image: radial-gradient(ellipse at center, #130033, #000000);
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      grid-gap: 2rem;
+    }
+
+    .project-item {
+      background-color: #1a1a1a;
+      border-radius: 10px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+      position: relative;
+      cursor: pointer;
+      transition: transform 0.3s ease-in-out;
+    }
+
+    .project-item:hover {
+      transform: scale(1.05);
+    }
+
+    .project-item::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: radial-gradient(ellipse at center, #4b0082, #8b00ff);
+      opacity: 0.3;
+      z-index: 1;
+      transition: opacity 0.3s ease-in-out;
+    }
+
+    .project-item:hover::before {
+      opacity: 0.6;
+    }
+
+    .project-item img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .project-details {
+      padding: 1.5rem;
+      position: relative;
+      z-index: 2;
+    }
+
+    .project-details h3 {
+      margin-top: 0;
+      margin-bottom: 0.5rem;
+      font-size: 1.5rem;
+      background: linear-gradient(to right, #00ffff, #ff00ff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .project-details p {
+      margin: 0;
+      font-size: 1rem;
+      color: #ccc;
+    }
+
+    /* Skills and Expertise Section */
+    .skills-expertise {
+      padding: 4rem 2rem;
+      background-image: radial-gradient(ellipse at center, #130033, #000000);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .skills-expertise h2 {
+      font-size: 2.5rem;
+      margin-bottom: 2rem;
+      background: linear-gradient(to right, #00ffff, #ff00ff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .skill-galaxies {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      grid-gap: 2rem;
+      width: 100%;
+      max-width: 1200px;
+    }
+
+    .skill-galaxy {
+      background-color: #1a1a1a;
+      border-radius: 10px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      padding: 2rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      cursor: pointer;
+      transition: transform 0.3s ease-in-out;
+    }
+
+    .skill-galaxy:hover {
+      transform: scale(1.05);
+    }
+
+    .skill-galaxy::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: radial-gradient(ellipse at center, #4b0082, #8b00ff);
+      opacity: 0.3;
+      z-index: 1;
+      transition: opacity 0.3s ease-in-out;
+    }
+
+    .skill-galaxy:hover::before {
+      opacity: 0.6;
+    }
+
+    .skill-galaxy i {
+      font-size: 3rem;
+      background: linear-gradient(to right, #00ffff, #ff00ff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      position: relative;
+      z-index: 2;
+    }
+
+    .skill-galaxy h3 {
+      margin-top: 1rem;
+      margin-bottom: 0.5rem;
+      font-size: 1.2rem;
+      background: linear-gradient(to right, #00ffff, #ff00ff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      position: relative;
+      z-index: 2;
+    }
+
+    .skill-galaxy p {
+      margin: 0;
+      font-size: 0.9rem;
+      color: #ccc;
+      position: relative;
+      z-index: 2;
+    }
+
+    /* Contact Form Section */
+    .contact-form {
+      padding: 4rem 2rem;
+      background-image: radial-gradient(ellipse at center, #130033, #000000);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .contact-form h2 {
+      font-size: 2.5rem;
+      margin-bottom: 2rem;
+      background: linear-gradient(to right, #00ffff, #ff00ff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .contact-form form {
+      background-color: #1a1a1a;
+      border-radius: 10px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      padding: 2rem;
+      width: 100%;
+      max-width: 600px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .contact-form form::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: radial-gradient(ellipse at center, #4b0082, #8b00ff);
+      opacity: 0.3;
+      z-index: 1;
+      animation: glitch 5s infinite linear;
+    }
+
+    @keyframes glitch {
+      0% {
+        transform: translate(0, 0);
+      }
+      20% {
+        transform: translate(-10px, 10px);
+      }
+      40% {
+        transform: translate(10px, -10px);
+      }
+      60% {
+        transform: translate(-10px, 10px);
+      }
+      80% {
+        transform: translate(10px, -10px);
+      }
+      100% {
+        transform: translate(0, 0);
+      }
+    }
+
+    .contact-form form .form-group {
+      margin-bottom: 1.5rem;
+      position: relative;
+      z-index: 2;
+    }
+
+    .contact-form form label {
+      display: block;
+      font-size: 1rem;
+      margin-bottom: 0.5rem;
+      color: #ccc;
+    }
+
+    .contact-form form input,
+    .contact-form form textarea {
+      display: block;
+      width: 100%;
+      padding: 0.75rem 1rem;
+      font-size: 1rem;
+      border: none;
+      border-radius: 5px;
+      background-color: #2a2a2a;
+      color: #fff;
+      transition: box-shadow 0.3s ease-in-out;
+    }
+
+    .contact-form form input:focus,
+    .contact-form form textarea:focus {
+      outline: none;
+      box-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+    }
+
+    .contact-form form button {
+      display: block;
+      width: 100%;
+      padding: 0.75rem 1rem;
+      font-size: 1.1rem;
+      font-weight: bold;
+      border: none;
+      border-radius: 5px;
+      background-image: linear-gradient(to right, #00ffff, #ff00ff);
+      color: #000;
+      cursor: pointer;
+      transition: transform 0.3s ease-in-out;
+      position: relative;
+      z-index: 2;
+    }
+
+    .contact-form form button:hover {
+      transform: scale(1.05);
+    }
+
+    /* Responsive Styles */
+    @media (max-width: 768px) {
+      header {
+        padding: 1rem;
+      }
+
+      .logo {
+        font-size: 1.5rem;
+      }
+
+      nav li {
+        margin-left: 1rem;
+      }
+
+      nav a {
+        font-size: 1rem;
+      }
+
+      .project-gallery,
+      .skills-expertise,
+      .contact-form {
+        padding: 3rem 1rem;
+      }
+
+      .project-item img {
+        height: 150px;
+      }
+
+      .skill-galaxy {
+        padding: 1.5rem;
+      }
+
+      .skill-galaxy i {
+        font-size: 2.5rem;
+      }
+
+      .skill-galaxy h3 {
+        font-size: 1.1rem;
+      }
+
+      .skill-galaxy p {
+        font-size: 0.8rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">Black Hole Portfolio</div>
+    <nav>
+      <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Projects</a></li>
+        <li><a href="#">Skills</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="project-gallery">
+    <div class="project-item">
+      <img src="https://dummyimage.com/400x300/ccc/000&text=Project+1" alt="Project 1">
+      <div class="project-details">
+        <h3>Project 1</h3>
+        <p>Backend development for a cosmic web application.</p>
+      </div>
+    </div>
+    <div class="project-item">
+      <img src="https://dummyimage.com/400x300/ccc/000&text=Project+2" alt="Project 2">
+      <div class="project-details">
+        <h3>Project 2</h3>
+        <p>Developing a vaporwave-inspired API for a black hole simulation.</p>
+      </div>
+    </div>
+    <div class="project-item">
+      <img src="https://dummyimage.com/400x300/ccc/000&text=Project+3" alt="Project 3">
+      <div class="project-details">
+        <h3>Project 3</h3>
+        <p>Implementing a steampunk-themed backend for a cosmic web application.</p>
+      </div>
+    </div>
+    <div class="project-item">
+      <img src="https://dummyimage.com/400x300/ccc/000&text=Project+4" alt="Project 4">
+      <div class="project-details">
+        <h3>Project 4</h3>
+        <p>Crafting a neon-powered backend for a space-themed web application.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="skills-expertise">
+    <h2>Skills and Expertise</h2>
+    <div class="skill-galaxies">
+      <div class="skill-galaxy">
+        <i class="fas fa-code"></i>
+        <h3>Backend Development</h3>
+        <p>Expertise in building robust and scalable backend systems.</p>
+      </div>
+      <div class="skill-galaxy">
+        <i class="fas fa-database"></i>
+        <h3>Database Management</h3>
+        <p>Proficient in designing and optimizing database solutions.</p>
+      </div>
+      <div class="skill-galaxy">
+        <i class="fas fa-cloud"></i>
+        <h3>Cloud Integration</h3>
+        <p>Experience in deploying and managing applications on cloud platforms.</p>
+      </div>
+      <div class="skill-galaxy">
+        <i class="fas fa-cog"></i>
+        <h3>DevOps Practices</h3>
+        <p>Skilled in automating and streamlining development and deployment processes.</p>
+      </div>
+      <div class="skill-galaxy">
+        <i class="fas fa-server"></i>
+        <h3>Server Administration</h3>
+        <p>Expertise in configuring and maintaining high-performance server environments.</p>
+      </div>
+      <div class="skill-galaxy">
+        <i class="fas fa-rocket"></i>
+        <h3>Scalable Systems</h3>
+        <p>Adept at designing and implementing scalable and reliable backend architectures.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact-form">
+    <h2>Get in Touch</h2>
+    <form>
+      <div class="form-group">
+        <label for="name">Name</label>
+        <input type="text" id="name" placeholder="Enter your name" required>
+      </div>
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" id="email" placeholder="Enter your email" required>
+      </div>
+      <div class="form-group">
+        <label for="message">Message</label>
+        <textarea</div>
+      <div class="form-group">
+        <label for="message">Message</label>
+        <textarea id="message" placeholder="Enter your message" required></textarea>
+      </div>
+      <button type="submit">Send Message</button>
+    </form>
+  </section>
+
+  <script src="https://kit.fontawesome.com/your-font-awesome-key.js" crossorigin="anonymous"></script>
+</body>
+</html>'<!-- Visit: https://github.com/Ishanoshada/portflair -->
+<!-- Visit: https://github.com/Ishanoshada/portflair -->

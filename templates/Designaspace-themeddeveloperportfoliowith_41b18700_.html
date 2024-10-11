@@ -1,0 +1,442 @@
+<!-- Portfolio created by Ishan -->
+<!-- Check out my work at: https://github.com/Ishanoshada/portflair -->
+<!-- 2024/10/9 -->
+<!-- Portfolio created by Ishan -->
+'<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Space-Themed Developer Portfolio</title>
+  <style>
+    /* Global Styles */
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Montserrat', sans-serif;
+      background-color: #0c0c0c;
+      color: #fff;
+      overflow-x: hidden;
+    }
+
+    /* Navigation Bar */
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.5rem 2rem;
+      background-color: rgba(12, 12, 12, 0.8);
+      backdrop-filter: blur(10px);
+      position: relative;
+      z-index: 1000;
+    }
+
+    .navbar-brand {
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: #8b5cf6;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    .navbar-brand:hover {
+      color: #a78bfa;
+    }
+
+    .navbar-nav {
+      display: flex;
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .nav-item {
+      margin-left: 1.5rem;
+    }
+
+    .nav-link {
+      font-size: 1.1rem;
+      font-weight: 500;
+      color: #fff;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    .nav-link:hover {
+      color: #8b5cf6;
+    }
+
+    /* Interactive Code Snippet Galaxy */
+    .code-snippet-galaxy {
+      position: relative;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      background: radial-gradient(ellipse at center, #1b2735 0%, #090a0f 100%);
+      overflow: hidden;
+    }
+
+    .constellation {
+      position: absolute;
+      width: 200px;
+      height: 200px;
+      background-image: url('https://dummyimage.com/200x200/8b5cf6/fff&text=Constellation');
+      background-size: contain;
+      background-repeat: no-repeat;
+      animation: constellation-pulse 3s ease-in-out infinite;
+      cursor: pointer;
+      z-index: 100;
+    }
+
+    @keyframes constellation-pulse {
+      0% {
+        transform: scale(1);
+        opacity: 1;
+      }
+      50% {
+        transform: scale(1.1);
+        opacity: 0.8;
+      }
+      100% {
+        transform: scale(1);
+        opacity: 1;
+      }
+    }
+
+    .code-snippet-modal {
+      display: none;
+      position: fixed;
+      z-index: 1000;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: rgba(0, 0, 0, 0.8);
+    }
+
+    .code-snippet-modal-content {
+      background-color: #0c0c0c;
+      margin: 10% auto;
+      padding: 2rem;
+      border-radius: 1rem;
+      width: 80%;
+      max-width: 900px;
+      box-shadow: 0 0 20px rgba(139, 92, 246, 0.5);
+    }
+
+    .code-snippet-modal-content pre {
+      background-color: #1b2735;
+      padding: 1.5rem;
+      border-radius: 0.5rem;
+      overflow-x: auto;
+    }
+
+    .code-snippet-modal-content h2 {
+      color: #8b5cf6;
+      margin-top: 0;
+    }
+
+    .code-snippet-modal-content p {
+      line-height: 1.6;
+    }
+
+    /* Project Showcase */
+    .project-showcase {
+      padding: 4rem 2rem;
+      background: radial-gradient(ellipse at center, #1b2735 0%, #090a0f 100%);
+    }
+
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      grid-gap: 2rem;
+    }
+
+    .project-card {
+      background-color: #0c0c0c;
+      border-radius: 1rem;
+      box-shadow: 0 0 20px rgba(139, 92, 246, 0.3);
+      overflow: hidden;
+      transition: transform 0.3s ease;
+      cursor: pointer;
+    }
+
+    .project-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .project-card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+
+    .project-card-content {
+      padding: 1.5rem;
+    }
+
+    .project-card-content h3 {
+      color: #8b5cf6;
+      margin-top: 0;
+    }
+
+    .project-card-content p {
+      line-height: 1.6;
+    }
+
+    /* About and Contact */
+    .about-contact {
+      padding: 4rem 2rem;
+      background: radial-gradient(ellipse at center, #1b2735 0%, #090a0f 100%);
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .about-section {
+      flex: 1 1 400px;
+      margin-right: 2rem;
+    }
+
+    .about-section h2 {
+      color: #8b5cf6;
+    }
+
+    .about-section p {
+      line-height: 1.6;
+    }
+
+    .profile-picture {
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      background-image: url('https://dummyimage.com/200x200/8b5cf6/fff&text=Profile');
+      background-size: cover;
+      background-position: center;
+      box-shadow: 0 0 20px rgba(139, 92, 246, 0.5);
+    }
+
+    .contact-section {
+      flex: 1 1 400px;
+    }
+
+    .contact-form {
+      background-color: #0c0c0c;
+      padding: 2rem;
+      border-radius: 1rem;
+      box-shadow: 0 0 20px rgba(139, 92, 246, 0.3);
+    }
+
+    .contact-form h2 {
+      color: #8b5cf6;
+      margin-top: 0;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+      width: 100%;
+      padding: 1rem;
+      margin-bottom: 1rem;
+      background-color: #1b2735;
+      border: none;
+      border-radius: 0.5rem;
+      color: #fff;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1rem;
+    }
+
+    .contact-form textarea {
+      height: 150px;
+    }
+
+    .contact-form button {
+      background-color: #8b5cf6;
+      color: #fff;
+      border: none;
+      border-radius: 0.5rem;
+      padding: 1rem 2rem;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .contact-form button:hover {
+      background-color: #a78bfa;
+    }
+
+    /* Responsive Styles */
+    @media (max-width: 768px) {
+      .navbar {
+        padding: 1rem;
+      }
+
+      .navbar-brand {
+        font-size: 1.5rem;
+      }
+
+      .nav-link {
+        font-size: 1rem;
+      }
+
+      .code-snippet-modal-content {
+        margin: 15% auto;
+        padding: 1.5rem;
+      }
+
+      .project-grid {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      }
+
+      .about-contact {
+        padding: 3rem 1rem;
+      }
+
+      .about-section {
+        margin-right: 0;
+        margin-bottom: 2rem;
+      }
+
+      .profile-picture {
+        width: 150px;
+        height: 150px;
+      }
+
+      .contact-form {
+        padding: 1.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation Bar -->
+  <nav class="navbar">
+    <a href="#" class="navbar-brand">Space Portfolio</a>
+    <ul class="navbar-nav">
+      <li class="nav-item"><a href="#" class="nav-link">Home</a></li>
+      <li class="nav-item"><a href="#" class="nav-link">Projects</a></li>
+      <li class="nav-item"><a href="#" class="nav-link">About</a></li>
+      <li class="nav-item"><a href="#" class="nav-link">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- Interactive Code Snippet Galaxy -->
+  <section class="code-snippet-galaxy">
+    <div class="constellation" data-project-id="1"></div>
+    <div class="constellation" data-project-id="2"></div>
+    <div class="constellation" data-project-id="3"></div>
+    <div class="code-snippet-modal">
+      <div class="code-snippet-modal-content">
+        <span class="close-button">&times;</span>
+        <h2>Project Title</h2>
+        <pre><code>
+  // Interactive code snippet
+  function displayResult() {
+    console.log('Hello, Space!')
+  }
+        </code></pre>
+        <p>
+          This is a detailed description of the project represented by the constellation.
+          It includes information about the technologies used, the purpose of the project,
+          and any other relevant details.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Project Showcase -->
+  <section class="project-showcase">
+    <h2 style="color: #8b5cf6; text-align: center; margin-bottom: 2rem;">Featured Projects</h2>
+    <div class="project-grid">
+      <div class="project-card">
+        <img src="https://dummyimage.com/600x400/8b5cf6/fff&text=Project+1" alt="Project 1">
+        <div class="project-card-content">
+          <h3>Project 1</h3>
+          <p>
+            A brief description of the first project, including the technologies used and
+            the purpose of the project.
+          </p>
+        </div>
+      </div>
+      <div class="project-card">
+        <img src="https://dummyimage.com/600x400/8b5cf6/fff&text=Project+2" alt="Project 2">
+        <div class="project-card-content">
+          <h3>Project 2</h3>
+          <p>
+            A brief description of the second project, including the technologies used and
+            the purpose of the project.
+          </p>
+        </div>
+      </div>
+      <div class="project-card">
+        <img src="https://dummyimage.com/600x400/8b5cf6/fff&text=Project+3" alt="Project 3">
+        <div class="project-card-content">
+          <h3>Project 3</h3>
+          <p>
+            A brief description of the third project, including the technologies used and
+            the purpose of the project.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About and Contact -->
+  <section class="about-contact">
+    <div class="about-section">
+      <h2>About Me</h2>
+      <p>
+        Hi there! I'm a passionate space-themed developer with a deep fascination for
+        the cosmos and a love for creating innovative and interactive web experiences.
+        My portfolio showcases a galaxy of projects that blend cutting-edge technology
+        with a visually stunning, space-inspired aesthetic.
+      </p>
+      <p>
+        I'm always exploring new ways to push the boundaries of what's possible in
+        web development, and I'd love to connect with you to discuss how I can
+        contribute to your next out-of-this-world project.
+      </p>
+    </div>
+    <div class="profile-picture"></div>
+    <div class="contact-section">
+      <div class="contact-form">
+        <h2>Get in Touch</h2>
+        <form>
+          <input type="text" placeholder="Name" required>
+          <input type="email" placeholder="Email" required>
+          <textarea placeholder="Message" required></textarea>
+          <button type="submit">Send</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    // Code Snippet Modal Interaction
+    const constellations = document.querySelectorAll('.constellation');
+    const codeSnipgetModal = document.querySelector('.code-snippet-modal');
+    const closeButton = document.querySelector('.code-snippet-modal .close-button');
+
+    constellations.forEach((constellation) => {
+      constellation.addEventListener('click', () => {
+        codeSnipgetModal.style.display = 'block';
+      });
+    });
+
+    closeButton.addEventListener('click', () => {
+      codeSnipgetModal.style.display = 'none';
+    });
+
+    window.addEventListener('click', (event) => {
+      if (event.target == codeSnipgetModal) {
+        codeSnipgetModal.style.display = 'none';
+      }
+    });
+  </script>
+</body>
+</html>'<!-- Visit: https://github.com/Ishanoshada/portflair -->
+<!-- Visit: https://github.com/Ishanoshada/portflair -->

@@ -1,0 +1,450 @@
+<!-- Portfolio created by Ishan -->
+<!-- Check out my work at: https://github.com/Ishanoshada/portflair -->
+<!-- 2024/10/9 -->
+<!-- Portfolio created by Ishan -->
+'<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Black Hole Portfolio</title>
+  <style>
+    /* Global Styles */
+    @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
+
+    body {
+      font-family: 'Orbitron', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #000000;
+      color: #ffffff;
+      overflow-x: hidden;
+    }
+
+    /* Navigation */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px;
+      background-color: rgba(0, 0, 0, 0.7);
+      backdrop-filter: blur(10px);
+      position: relative;
+      z-index: 1;
+    }
+
+    nav a {
+      color: #ffffff;
+      text-decoration: none;
+      font-size: 18px;
+      padding: 10px 20px;
+      transition: color 0.3s ease;
+    }
+
+    nav a:hover {
+      color: #00ffff;
+    }
+
+    /* Project Showcase */
+    .project-showcase {
+      padding: 100px 20px;
+      background: radial-gradient(ellipse at center, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 1) 100%);
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      grid-gap: 40px;
+    }
+
+    .project-item {
+      position: relative;
+      overflow: hidden;
+      border-radius: 10px;
+      box-shadow: 0 0 20px 0 rgba(0, 255, 255, 0.3);
+      transition: transform 0.3s ease;
+    }
+
+    .project-item:hover {
+      transform: scale(1.05);
+    }
+
+    .project-item img {
+      width: 100%;
+      height: auto;
+      display: block;
+      filter: brightness(0.7) saturate(1.2) contrast(1.2);
+      transition: filter 0.3s ease;
+    }
+
+    .project-item:hover img {
+      filter: brightness(1) saturate(1) contrast(1);
+    }
+
+    .project-details {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .project-item:hover .project-details {
+      opacity: 1;
+    }
+
+    .project-details h3 {
+      font-size: 24px;
+      margin-bottom: 10px;
+      color: #00ffff;
+      text-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+    }
+
+    .project-details p {
+      font-size: 16px;
+      margin-bottom: 20px;
+    }
+
+    .project-details a {
+      display: inline-block;
+      padding: 10px 20px;
+      background-color: #00ffff;
+      color: #000000;
+      text-decoration: none;
+      border-radius: 5px;
+      font-size: 16px;
+      transition: background-color 0.3s ease;
+    }
+
+    .project-details a:hover {
+      background-color: #00cccc;
+    }
+
+    /* Skills and Expertise Galaxy */
+    .skills-galaxy {
+      padding: 100px 20px;
+      background: radial-gradient(ellipse at center, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 1) 100%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .skills-galaxy h2 {
+      font-size: 36px;
+      margin-bottom: 40px;
+      color: #00ffff;
+      text-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+    }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+      grid-gap: 40px;
+      animation: rotate-galaxy 30s linear infinite;
+    }
+
+    @keyframes rotate-galaxy {
+      0% {
+        transform: rotate(0deg);
+      }
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+
+    .skill-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      transition: transform 0.3s ease;
+    }
+
+    .skill-item:hover {
+      transform: scale(1.1);
+    }
+
+    .skill-item img {
+      width: 80px;
+      height: 80px;
+      filter: brightness(0.8) saturate(1.5) hue-rotate(45deg);
+      transition: filter 0.3s ease;
+    }
+
+    .skill-item:hover img {
+      filter: brightness(1) saturate(1) hue-rotate(0deg);
+    }
+
+    .skill-item h3 {
+      font-size: 16px;
+      margin-top: 10px;
+      color: #ffffff;
+      text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+    }
+
+    /* Contact Form */
+    .contact-form {
+      padding: 100px 20px;
+      background: radial-gradient(ellipse at center, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 1) 100%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .contact-form h2 {
+      font-size: 36px;
+      margin-bottom: 40px;
+      color: #00ffff;
+      text-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+    }
+
+    .contact-form form {
+      width: 100%;
+      max-width: 500px;
+      background-color: rgba(255, 255, 255, 0.1);
+      padding: 40px;
+      border-radius: 10px;
+      box-shadow: 0 0 20px 0 rgba(0, 255, 255, 0.3);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .contact-form form::before {
+      content: "";
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: linear-gradient(45deg, #00ffff, #ff00ff, #00ffff);
+      animation: glitch 10s linear infinite;
+    }
+
+    @keyframes glitch {
+      0% {
+        transform: translate(0, 0);
+      }
+      10% {
+        transform: translate(-5px, -5px);
+      }
+      20% {
+        transform: translate(5px, 5px);
+      }
+      30% {
+        transform: translate(-5px, -5px);
+      }
+      40% {
+        transform: translate(5px, 5px);
+      }
+      50% {
+        transform: translate(-5px, -5px);
+      }
+      60% {
+        transform: translate(5px, 5px);
+      }
+      70% {
+        transform: translate(-5px, -5px);
+      }
+      80% {
+        transform: translate(5px, 5px);
+      }
+      90% {
+        transform: translate(-5px, -5px);
+      }
+      100% {
+        transform: translate(0, 0);
+      }
+    }
+
+    .contact-form form .form-group {
+      margin-bottom: 20px;
+      position: relative;
+    }
+
+    .contact-form form label {
+      font-size: 16px;
+      color: #00ffff;
+      display: block;
+      margin-bottom: 5px;
+    }
+
+    .contact-form form input,
+    .contact-form form textarea {
+      width: 100%;
+      padding: 10px;
+      font-size: 16px;
+      background-color: rgba(255, 255, 255, 0.1);
+      border: none;
+      border-radius: 5px;
+      color: #ffffff;
+      transition: background-color 0.3s ease;
+    }
+
+    .contact-form form input:focus,
+    .contact-form form textarea:focus {
+      background-color: rgba(255, 255, 255, 0.2);
+    }
+
+    .contact-form form button {
+      display: block;
+      width: 100%;
+      padding: 10px;
+      font-size: 16px;
+      background-color: #00ffff;
+      color: #000000;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .contact-form form button:hover {
+      background-color: #00cccc;
+    }
+
+    /* Responsive Styles */
+    @media (max-width: 768px) {
+      nav {
+        padding: 10px;
+      }
+
+      nav a {
+        font-size: 16px;
+        padding: 5px 10px;
+      }
+
+      .project-showcase,
+      .skills-galaxy,
+      .contact-form {
+        padding: 60px 20px;
+      }
+
+      .project-details h3 {
+        font-size: 20px;
+      }
+
+      .project-details p {
+        font-size: 14px;
+      }
+
+      .skills-galaxy h2,
+      .contact-form h2 {
+        font-size: 28px;
+      }
+
+      .skill-item img {
+        width: 60px;
+        height: 60px;
+      }
+
+      .skill-item h3 {
+        font-size: 14px;
+      }
+
+      .contact-form form {
+        padding: 30px;
+      }
+
+      .contact-form form label,
+      .contact-form form input,
+      .contact-form form textarea,
+      .contact-form form button {
+        font-size: 14px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="#">Home</a>
+    <a href="#">Projects</a>
+    <a href="#">Skills</a>
+    <a href="#">Contact</a>
+  </nav>
+
+  <section class="project-showcase">
+    <div class="project-item">
+      <img src="https://dummyimage.com/600x400/ccc/000&text=Project+1" alt="Project 1">
+      <div class="project-details">
+        <h3>Project 1</h3>
+        <p>A brief description of the project.</p>
+        <a href="#">View Case Study</a>
+      </div>
+    </div>
+    <div class="project-item">
+      <img src="https://dummyimage.com/600x400/ccc/000&text=Project+2" alt="Project 2">
+      <div class="project-details">
+        <h3>Project 2</h3>
+        <p>A brief description of the project.</p>
+        <a href="#">View Case Study</a>
+      </div>
+    </div>
+    <div class="project-item">
+      <img src="https://dummyimage.com/600x400/ccc/000&text=Project+3" alt="Project 3">
+      <div class="project-details">
+        <h3>Project 3</h3>
+        <p>A brief description of the project.</p>
+        <a href="#">View Case Study</a>
+      </div>
+    </div>
+    <div class="project-item">
+      <img src="https://dummyimage.com/600x400/ccc/000&text=Project+4" alt="Project 4">
+      <div class="project-details">
+        <h3>Project 4</h3>
+        <p>A brief description of the project.</p>
+        <a href="#">View Case Study</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="skills-galaxy">
+    <h2>Skills and Expertise</h2>
+    <div class="skills-grid">
+      <div class="skill-item">
+        <img src="https://dummyimage.com/100x100/ccc/000&text=Skill+1" alt="Skill 1">
+        <h3>Skill 1</h3>
+      </div>
+      <div class="skill-item">
+        <img src="https://dummyimage.com/100x100/ccc/000&text=Skill+2" alt="Skill 2">
+        <h3>Skill 2</h3>
+      </div>
+      <div class="skill-item">
+        <img src="https://dummyimage.com/100x100/ccc/000&text=Skill+3" alt="Skill 3">
+        <h3>Skill 3</h3>
+      </div>
+      <div class="skill-item">
+        <img src="https://dummyimage.com/100x100/ccc/000&text=Skill+4" alt="Skill 4">
+        <h3>Skill 4</h3>
+      </div>
+      <div class="skill-item">
+        <img src="https://dummyimage.com/100x100/ccc/000&text=Skill+5" alt="Skill 5">
+        <h3>Skill 5</h3>
+      </div>
+      <div class="skill-item">
+        <img src="https://dummyimage.com/100x100/ccc/000&text=Skill+6" alt="Skill 6">
+        <h3>Skill 6</h3>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact-form">
+    <h2>Get in Touch</h2>
+    <form>
+      <div class="form-group">
+        <label for="name">Name</label>
+        <input type="text" id="name" placeholder="Enter your name" required>
+      </div>
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" id="email" placeholder="Enter your email" required>
+      </div>
+      <div class="form-group">
+        <label for="message">Message</label>
+        <textarea id="message" rows="5" placeholder="Enter your message" required></textarea>
+      </div>
+      <button type="submit">Send Message</button>
+    </form>
+  </section>
+</body>
+</html>'<!-- Visit: https://github.com/Ishanoshada/portflair -->
+<!-- Visit: https://github.com/Ishanoshada/portflair -->

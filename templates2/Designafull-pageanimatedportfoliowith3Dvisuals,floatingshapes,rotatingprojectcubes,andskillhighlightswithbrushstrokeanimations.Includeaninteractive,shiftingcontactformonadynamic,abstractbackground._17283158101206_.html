@@ -1,0 +1,409 @@
+<!-- Portfolio created by Ishan -->
+<!-- Check out my work at: https://github.com/Ishanoshada/portflair -->
+<!-- 2024/10/9 -->
+<!-- Portfolio created by Ishan -->
+'<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Design Full-Page Animated Portfolio</title>
+  <style>
+    /* Global Styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background-color: #0f0f0f;
+      color: #fff;
+      overflow-x: hidden;
+    }
+
+    /* Navigation Bar */
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 40px;
+      background-color: rgba(15, 15, 15, 0.8);
+      backdrop-filter: blur(10px);
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+    }
+
+    .navbar-brand {
+      font-size: 24px;
+      font-weight: bold;
+      text-decoration: none;
+      color: #fff;
+    }
+
+    .navbar-nav {
+      display: flex;
+      list-style-type: none;
+    }
+
+    .navbar-nav li {
+      margin-left: 20px;
+    }
+
+    .navbar-nav li a {
+      text-decoration: none;
+      color: #fff;
+      font-size: 16px;
+      transition: color 0.3s ease;
+    }
+
+    .navbar-nav li a:hover {
+      color: #8e44ad;
+    }
+
+    /* Interactive Portfolio Section */
+    .portfolio-section {
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(45deg, #8e44ad, #2980b9);
+      overflow: hidden;
+    }
+
+    .portfolio-container {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      perspective: 1000px;
+    }
+
+    .portfolio-cube {
+      position: absolute;
+      width: 300px;
+      height: 300px;
+      transform-style: preserve-3d;
+      animation: rotate 20s linear infinite;
+    }
+
+    .portfolio-cube .face {
+      position: absolute;
+      width: 300px;
+      height: 300px;
+      opacity: 0.9;
+      transition: all 0.5s ease;
+      background-size: cover;
+      background-position: center;
+    }
+
+    .portfolio-cube .front {
+      transform: translateZ(150px);
+      background-image: url('https://dummyimage.com/600x400/ccc/000&text=Portfolio+Item+1');
+    }
+
+    .portfolio-cube .back {
+      transform: rotateY(180deg) translateZ(150px);
+      background-image: url('https://dummyimage.com/600x400/ccc/000&text=Portfolio+Item+2');
+    }
+
+    .portfolio-cube .right {
+      transform: rotateY(90deg) translateZ(150px);
+      background-image: url('https://dummyimage.com/600x400/ccc/000&text=Portfolio+Item+3');
+    }
+
+    .portfolio-cube .left {
+      transform: rotateY(-90deg) translateZ(150px);
+      background-image: url('https://dummyimage.com/600x400/ccc/000&text=Portfolio+Item+4');
+    }
+
+    .portfolio-cube .top {
+      transform: rotateX(90deg) translateZ(150px);
+      background-image: url('https://dummyimage.com/600x400/ccc/000&text=Portfolio+Item+5');
+    }
+
+    .portfolio-cube .bottom {
+      transform: rotateX(-90deg) translateZ(150px);
+      background-image: url('https://dummyimage.com/600x400/ccc/000&text=Portfolio+Item+6');
+    }
+
+    .portfolio-cube:hover .face {
+      opacity: 1;
+    }
+
+    @keyframes rotate {
+      from {
+        transform: rotateX(0deg) rotateY(0deg);
+      }
+      to {
+        transform: rotateX(360deg) rotateY(360deg);
+      }
+    }
+
+    /* Skill Highlights Section */
+    .skill-section {
+      padding: 100px 0;
+      background: linear-gradient(45deg, #2980b9, #8e44ad);
+    }
+
+    .skill-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .skill-item {
+      width: 200px;
+      height: 200px;
+      margin: 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .skill-item canvas {
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 1;
+    }
+
+    .skill-item h3 {
+      font-size: 18px;
+      font-weight: bold;
+      margin-bottom: 10px;
+      z-index: 2;
+    }
+
+    .skill-item p {
+      font-size: 14px;
+      text-align: center;
+      z-index: 2;
+    }
+
+    /* Interactive Contact Form Section */
+    .contact-section {
+      padding: 100px 0;
+      background: linear-gradient(45deg, #8e44ad, #2980b9);
+    }
+
+    .contact-container {
+      max-width: 800px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .contact-form {
+      width: 100%;
+      background-color: rgba(255, 255, 255, 0.1);
+      padding: 40px;
+      border-radius: 10px;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+      backdrop-filter: blur(10px);
+    }
+
+    .contact-form h2 {
+      font-size: 24px;
+      font-weight: bold;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    .contact-form .form-group {
+      margin-bottom: 20px;
+    }
+
+    .contact-form label {
+      display: block;
+      font-size: 16px;
+      margin-bottom: 5px;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+      width: 100%;
+      padding: 10px;
+      font-size: 16px;
+      border: none;
+      border-radius: 5px;
+      background-color: rgba(255, 255, 255, 0.2);
+      color: #fff;
+      transition: background-color 0.3s ease;
+    }
+
+    .contact-form input:focus,
+    .contact-form textarea:focus {
+      background-color: rgba(255, 255, 255, 0.3);
+    }
+
+    .contact-form button {
+      display: block;
+      width: 100%;
+      padding: 10px;
+      font-size: 16px;
+      font-weight: bold;
+      border: none;
+      border-radius: 5px;
+      background-color: #8e44ad;
+      color: #fff;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .contact-form button:hover {
+      background-color: #6c3c84;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav class="navbar">
+      <a href="#" class="navbar-brand">Design Portfolio</a>
+      <ul class="navbar-nav">
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Portfolio</a></li>
+        <li><a href="#">Skills</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <!-- Interactive Portfolio Section -->
+    <section class="portfolio-section">
+      <div class="portfolio-container">
+        <div class="portfolio-cube">
+          <div class="face front"></div>
+          <div class="face back"></div>
+          <div class="face right"></div>
+          <div class="face left"></div>
+          <div class="face top"></div>
+          <div class="face bottom"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Skill Highlights Section -->
+    <section class="skill-section">
+      <div class="skill-container">
+        <div class="skill-item">
+          <canvas id="skill1"></canvas>
+          <h3>Skill 1</h3>
+          <p>Description of Skill 1</p>
+        </div>
+        <div class="skill-item">
+          <canvas id="skill2"></canvas>
+          <h3>Skill 2</h3>
+          <p>Description of Skill 2</p>
+        </div>
+        <div class="skill-item">
+          <canvas id="skill3"></canvas>
+          <h3>Skill 3</h3>
+          <p>Description of Skill 3</p>
+        </div>
+        <div class="skill-item">
+          <canvas id="skill4"></canvas>
+          <h3>Skill 4</h3>
+          <p>Description of Skill 4</p>
+        </div>
+        <div class="skill-item">
+          <canvas id="skill5"></canvas>
+          <h3>Skill 5</h3>
+          <p>Description of Skill 5</p>
+        </div>
+        <div class="skill-item">
+          <canvas id="skill6"></canvas>
+          <h3>Skill 6</h3>
+          <p>Description of Skill 6</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Interactive Contact Form Section -->
+    <section class="contact-section">
+      <div class="contact-container">
+        <div class="contact-form">
+          <h2>Get in Touch</h2>
+          <form>
+            <div class="form-group">
+              <label for="name">Name</label>
+              <input type="text" id="name" name="name" required>
+            </div>
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input type="email" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+              <label for="message">Message</label>
+              <textarea id="message" name="message" rows="5" required></textarea>
+            </div>
+            <button type="submit">Send Message</button>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    // Skill Highlights Section Animation
+    const skillCanvases = document.querySelectorAll('.skill-item canvas');
+
+    skillCanvases.forEach((canvas, index) => {
+      const ctx = canvas.getContext('2d');
+      canvas.width = 200;
+      canvas.height = 200;
+
+      const brushStrokes = [];
+      const numBrushStrokes = 20;
+
+      for (let i = 0; i < numBrushStrokes; i++) {
+        const x = Math.random() * canvas.width;
+        const y = Math.random() * canvas.height;
+        const width = Math.random() * 50 + 10;
+        const height = Math.random() * 50 + 10;
+        const rotation = Math.random() * Math.PI * 2;
+        const color = `hsl(${Math.random() * 360}, 80%, 60%)`;
+
+        brushStrokes.push({ x, y, width, height, rotation, color });
+      }
+
+      function animate() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+        brushStrokes.forEach((stroke, i) => {
+          ctx.save();
+          ctx.translate(stroke.x, stroke.y);
+          ctx.rotate(stroke.rotation);
+          ctx.fillStyle = stroke.color;
+          ctx.fillRect(-stroke.width / 2, -stroke.height / 2, stroke.width, stroke.height);
+          ctx.restore();
+
+          stroke.rotation += 0.01;
+          stroke.x += (Math.random() - 0.5) * 2;
+          stroke.y += (Math.random() - 0.5) * 2;
+        });
+
+        requestAnimationFrame(animate);
+      }
+
+      animate();
+    });
+  </script>
+</body>
+</html>'<!-- Visit: https://github.com/Ishanoshada/portflair -->
+<!-- Visit: https://github.com/Ishanoshada/portflair -->

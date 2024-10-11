@@ -1,0 +1,435 @@
+<!-- Portfolio created by Ishan -->
+<!-- Check out my work at: https://github.com/Ishanoshada/portflair -->
+<!-- 2024/10/9 -->
+<!-- Portfolio created by Ishan -->
+'<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Design a full-page animated portfolio</title>
+  <style>
+    /* Reset styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #f0f0f0;
+      color: #333;
+      line-height: 1.6;
+    }
+
+    /* Navigation */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.5rem 2rem;
+      background-color: #fff;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    nav a {
+      color: #333;
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s ease;
+    }
+
+    nav a:hover {
+      color: #555;
+    }
+
+    /* Project Showcase Section */
+    .project-showcase {
+      padding: 4rem 2rem;
+      background-image: linear-gradient(45deg, #4b6cb7, #182848);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .project-showcase h2 {
+      color: #fff;
+      font-size: 2.5rem;
+      margin-bottom: 2rem;
+      text-align: center;
+      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    }
+
+    .cube-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      perspective: 1000px;
+    }
+
+    .cube {
+      width: 300px;
+      height: 300px;
+      position: relative;
+      transform-style: preserve-3d;
+      animation: rotate 20s linear infinite;
+    }
+
+    .cube-face {
+      position: absolute;
+      width: 300px;
+      height: 300px;
+      opacity: 0.9;
+      transition: all 0.5s ease;
+      background-size: cover;
+      background-position: center;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: #fff;
+      font-size: 1.5rem;
+      font-weight: 600;
+      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    }
+
+    .cube-face:hover {
+      transform: scale(1.1);
+      opacity: 1;
+    }
+
+    .cube-face-front {
+      background-image: url('https://dummyimage.com/300x300/ccc/000&text=Project+1');
+      transform: translateZ(150px);
+    }
+
+    .cube-face-right {
+      background-image: url('https://dummyimage.com/300x300/ccc/000&text=Project+2');
+      transform: rotateY(90deg) translateZ(150px);
+    }
+
+    .cube-face-back {
+      background-image: url('https://dummyimage.com/300x300/ccc/000&text=Project+3');
+      transform: rotateY(180deg) translateZ(150px);
+    }
+
+    .cube-face-left {
+      background-image: url('https://dummyimage.com/300x300/ccc/000&text=Project+4');
+      transform: rotateY(-90deg) translateZ(150px);
+    }
+
+    .cube-face-top {
+      background-image: url('https://dummyimage.com/300x300/ccc/000&text=Project+5');
+      transform: rotateX(90deg) translateZ(150px);
+    }
+
+    .cube-face-bottom {
+      background-image: url('https://dummyimage.com/300x300/ccc/000&text=Project+6');
+      transform: rotateX(-90deg) translateZ(150px);
+    }
+
+    @keyframes rotate {
+      from {
+        transform: rotateX(0deg) rotateY(0deg);
+      }
+      to {
+        transform: rotateX(360deg) rotateY(360deg);
+      }
+    }
+
+    /* Skills and Expertise Section */
+    .skills-section {
+      padding: 4rem 2rem;
+      background-color: #fff;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .skills-section h2 {
+      font-size: 2.5rem;
+      margin-bottom: 2rem;
+      text-align: center;
+    }
+
+    .skills-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .skill-item {
+      width: 200px;
+      height: 200px;
+      margin: 1rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      background-color: #f0f0f0;
+      border-radius: 10px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .skill-item:before {
+      content: "";
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background-image: url('https://dummyimage.com/400x400/ccc/000&text=Skill+Brush');
+      background-size: 50%;
+      background-repeat: no-repeat;
+      background-position: center;
+      animation: brush-stroke 5s linear infinite;
+    }
+
+    .skill-item h3 {
+      font-size: 1.2rem;
+      margin-bottom: 0.5rem;
+      z-index: 1;
+    }
+
+    .skill-item p {
+      font-size: 0.9rem;
+      color: #555;
+      z-index: 1;
+    }
+
+    @keyframes brush-stroke {
+      0% {
+        transform: translate(-50%, -50%);
+      }
+      100% {
+        transform: translate(50%, 50%);
+      }
+    }
+
+    /* Contact Form Section */
+    .contact-section {
+      padding: 4rem 2rem;
+      background-image: linear-gradient(135deg, #f093fb, #f5576c);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .contact-section h2 {
+      color: #fff;
+      font-size: 2.5rem;
+      margin-bottom: 2rem;
+      text-align: center;
+      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    }
+
+    .contact-form {
+      max-width: 500px;
+      margin: 0 auto;
+      background-color: #fff;
+      padding: 2rem;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .form-control {
+      margin-bottom: 1.5rem;
+      position: relative;
+    }
+
+    .form-control label {
+      display: block;
+      font-weight: 500;
+      margin-bottom: 0.5rem;
+    }
+
+    .form-control input,
+    .form-control textarea {
+      width: 100%;
+      padding: 0.75rem 1rem;
+      font-size: 1rem;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      transition: border-color 0.3s ease;
+    }
+
+    .form-control input:focus,
+    .form-control textarea:focus {
+      outline: none;
+      border-color: #4b6cb7;
+    }
+
+    .form-control.shake {
+      animation: shake 0.5s;
+    }
+
+    .contact-form button {
+      display: block;
+      width: 100%;
+      padding: 0.75rem 1rem;
+      font-size: 1rem;
+      font-weight: 500;
+      color: #fff;
+      background-color: #4b6cb7;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .contact-form button:hover {
+      background-color: #182848;
+    }
+
+    @keyframes shake {
+      0% {
+        transform: translateX(0);
+      }
+      25% {
+        transform: translateX(-10px);
+      }
+      50% {
+        transform: translateX(10px);
+      }
+      75% {
+        transform: translateX(-10px);
+      }
+      100% {
+        transform: translateX(0);
+      }
+    }
+
+    /* Responsive Styles */
+    @media (max-width: 768px) {
+      nav {
+        padding: 1rem;
+      }
+
+      .project-showcase,
+      .skills-section,
+      .contact-section {
+        padding: 3rem 1rem;
+      }
+
+      .cube {
+        width: 200px;
+        height: 200px;
+      }
+
+      .cube-face {
+        width: 200px;
+        height: 200px;
+      }
+
+      .skill-item {
+        width: 150px;
+        height: 150px;
+      }
+
+      .contact-form {
+        padding: 1.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="#">Home</a>
+    <a href="#">Portfolio</a>
+    <a href="#">About</a>
+    <a href="#">Contact</a>
+  </nav>
+
+  <section class="project-showcase">
+    <h2>My Portfolio</h2>
+    <div class="cube-container">
+      <div class="cube">
+        <div class="cube-face cube-face-front"></div>
+        <div class="cube-face cube-face-right"></div>
+        <div class="cube-face cube-face-back"></div>
+        <div class="cube-face cube-face-left"></div>
+        <div class="cube-face cube-face-top"></div>
+        <div class="cube-face cube-face-bottom"></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="skills-section">
+    <h2>Skills and Expertise</h2>
+    <div class="skills-container">
+      <div class="skill-item">
+        <h3>Web Design</h3>
+        <p>Crafting visually stunning and user-friendly websites</p>
+      </div>
+      <div class="skill-item">
+        <h3>UI/UX Design</h3>
+        <p>Designing intuitive and engaging user experiences</p>
+      </div>
+      <div class="skill-item">
+        <h3>Branding</h3>
+        <p>Developing cohesive and memorable brand identities</p>
+      </div>
+      <div class="skill-item">
+        <h3>Motion Graphics</h3>
+        <p>Bringing designs to life with captivating animations</p>
+      </div>
+      <div class="skill-item">
+        <h3>Illustration</h3>
+        <p>Creating custom illustrations and graphics</p>
+      </div>
+      <div class="skill-item">
+        <h3>Photography</h3>
+        <p>Capturing visually striking and emotive imagery</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact-section">
+    <h2>Get in Touch</h2>
+    <div class="contact-form">
+      <form>
+        <div class="form-control">
+          <label for="name">Name</label>
+          <input type="text" id="name" placeholder="Enter your name" required>
+        </div>
+        <div class="form-control">
+          <label for="email">Email</label>
+          <input type="email" id="email" placeholder="Enter your email" required>
+        </div>
+        <div class="form-control">
+          <label for="message">Message</label>
+          <textarea id="message" rows="5" placeholder="Enter your message" required></textarea>
+        </div>
+        <button type="submit">Send Message</button>
+      </form>
+    </div>
+  </section>
+
+  <script>
+    // Form validation and animation
+    const form = document.querySelector('.contact-form');
+    const nameInput = document.getElementById('name');
+    const emailInput = document.getElementById('email');
+    const messageInput = document.getElementById('message');
+
+    form.addEventListener('submit', (event) => {
+      event.preventDefault();
+
+      if (!nameInput.value.trim() || !emailInput.value.trim() || !messageInput.value.trim()) {
+        form.classList.add('shake');
+        setTimeout(() => {
+          form.classList.remove('shake');
+        }, 500);
+        return;
+      }
+
+      // Submit the form or perform other actions
+      console.log('Form submitted successfully!');
+      form.reset();
+    });
+  </script>
+</body>
+</html>'<!-- Visit: https://github.com/Ishanoshada/portflair -->
+<!-- Visit: https://github.com/Ishanoshada/portflair -->

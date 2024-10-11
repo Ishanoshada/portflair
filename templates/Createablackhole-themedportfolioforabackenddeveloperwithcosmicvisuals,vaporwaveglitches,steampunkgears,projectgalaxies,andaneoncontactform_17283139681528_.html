@@ -1,0 +1,460 @@
+<!-- Portfolio created by Ishan -->
+<!-- Check out my work at: https://github.com/Ishanoshada/portflair -->
+<!-- 2024/10/9 -->
+<!-- Portfolio created by Ishan -->
+'<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Black Hole Portfolio</title>
+  <style>
+    /* Global Styles */
+    body {
+      margin: 0;
+      font-family: 'Roboto', sans-serif;
+      background-color: #0f0f0f;
+      color: #fff;
+      overflow-x: hidden;
+    }
+
+    /* Navigation */
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.5rem 2rem;
+      background-color: rgba(15, 15, 15, 0.8);
+      backdrop-filter: blur(10px);
+      position: relative;
+      z-index: 100;
+    }
+
+    .navbar-brand {
+      font-size: 1.8rem;
+      font-weight: bold;
+      color: #fff;
+      text-decoration: none;
+      text-shadow: 0 0 20px #9b59b6, 0 0 30px #8e44ad, 0 0 40px #9b59b6, 0 0 50px #8e44ad;
+      animation: neon-glow 2s ease-in-out infinite;
+    }
+
+    .navbar-nav {
+      display: flex;
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .navbar-nav li {
+      margin-left: 1.5rem;
+    }
+
+    .navbar-nav li a {
+      color: #fff;
+      text-decoration: none;
+      font-size: 1.1rem;
+      font-weight: 500;
+      text-shadow: 0 0 10px #9b59b6, 0 0 20px #8e44ad;
+      transition: text-shadow 0.3s ease-in-out;
+    }
+
+    .navbar-nav li a:hover {
+      text-shadow: 0 0 20px #9b59b6, 0 0 30px #8e44ad, 0 0 40px #9b59b6, 0 0 50px #8e44ad;
+    }
+
+    /* Interactive Galaxy Section */
+    .galaxy-section {
+      position: relative;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    .galaxy-background {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(ellipse at center, #0f0f0f 0%, #000000 100%);
+      animation: galaxy-animation 60s linear infinite;
+    }
+
+    .galaxy-background::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url(https://dummyimage.com/1200x500/ccc/000&text=Galaxy) no-repeat center center;
+      background-size: cover;
+      opacity: 0.5;
+      animation: galaxy-glitch 5s linear infinite;
+    }
+
+    .project-planets {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 80%;
+      height: 80%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+      z-index: 10;
+    }
+
+    .project-planet {
+      position: relative;
+      width: 150px;
+      height: 150px;
+      margin: 2rem;
+      background-color: rgba(255, 255, 255, 0.1);
+      border-radius: 50%;
+      box-shadow: 0 0 20px rgba(156, 39, 176, 0.5), inset 0 0 10px rgba(156, 39, 176, 0.5);
+      cursor: pointer;
+      transition: transform 0.3s ease-in-out;
+    }
+
+    .project-planet:hover {
+      transform: scale(1.1);
+    }
+
+    .project-planet::before {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 80%;
+      height: 80%;
+      background: url(https://dummyimage.com/150x150/ccc/000&text=Project) no-repeat center center;
+      background-size: cover;
+      border-radius: 50%;
+    }
+
+    /* Steampunk Skills and Experience Section */
+    .skills-section {
+      padding: 4rem 2rem;
+      background-color: #1a1a1a;
+      position: relative;
+    }
+
+    .skills-title {
+      font-size: 2.5rem;
+      font-weight: bold;
+      text-align: center;
+      margin-bottom: 3rem;
+      text-shadow: 0 0 20px #e67e22, 0 0 30px #d35400, 0 0 40px #e67e22, 0 0 50px #d35400;
+      animation: neon-glow 2s ease-in-out infinite;
+    }
+
+    .skills-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      grid-gap: 3rem;
+    }
+
+    .skill-card {
+      background-color: rgba(255, 255, 255, 0.05);
+      padding: 2rem;
+      border-radius: 10px;
+      box-shadow: 0 0 20px rgba(230, 126, 34, 0.5), inset 0 0 10px rgba(230, 126, 34, 0.5);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .skill-card::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url(https://dummyimage.com/150x150/ccc/000&text=Gear) no-repeat center center;
+      background-size: 50%;
+      opacity: 0.2;
+      transform: rotate(45deg);
+      animation: gear-spin 10s linear infinite;
+    }
+
+    .skill-title {
+      font-size: 1.8rem;
+      font-weight: bold;
+      margin-bottom: 1rem;
+      text-shadow: 0 0 10px #e67e22, 0 0 20px #d35400;
+    }
+
+    .skill-description {
+      font-size: 1.1rem;
+      line-height: 1.5;
+    }
+
+    /* Neon Contact Form Section */
+    .contact-section {
+      padding: 4rem 2rem;
+      background: radial-gradient(ellipse at center, #0f0f0f 0%, #000000 100%);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .contact-form {
+      max-width: 500px;
+      width: 100%;
+      background-color: rgba(255, 255, 255, 0.05);
+      padding: 3rem;
+      border-radius: 10px;
+      box-shadow: 0 0 20px rgba(255, 255, 0, 0.5), inset 0 0 10px rgba(255, 255, 0, 0.5);
+      position: relative;
+      z-index: 10;
+    }
+
+    .contact-form::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(45deg, #ff00ff, #00ffff, #ff00ff);
+      background-size: 200% 200%;
+      animation: neon-glow 5s ease infinite;
+      opacity: 0.3;
+      z-index: -1;
+    }
+
+    .contact-title {
+      font-size: 2.5rem;
+      font-weight: bold;
+      text-align: center;
+      margin-bottom: 2rem;
+      text-shadow: 0 0 20px #ff00ff, 0 0 30px #00ffff, 0 0 40px #ff00ff, 0 0 50px #00ffff;
+      animation: neon-glow 2s ease-in-out infinite;
+    }
+
+    .form-group {
+      margin-bottom: 1.5rem;
+    }
+
+    .form-group label {
+      display: block;
+      font-size: 1.1rem;
+      font-weight: 500;
+      margin-bottom: 0.5rem;
+      text-shadow: 0 0 10px #ff00ff, 0 0 20px #00ffff;
+    }
+
+    .form-group input,
+    .form-group textarea {
+      display: block;
+      width: 100%;
+      padding: 1rem;
+      font-size: 1.1rem;
+      background-color: rgba(255, 255, 255, 0.1);
+      border: none;
+      border-radius: 5px;
+      color: #fff;
+      box-shadow: 0 0 10px rgba(255, 255, 0, 0.5);
+      transition: box-shadow 0.3s ease-in-out;
+    }
+
+    .form-group input:focus,
+    .form-group textarea:focus {
+      box-shadow: 0 0 20px rgba(255, 255, 0, 0.8);
+      outline: none;
+    }
+
+    .form-group textarea {
+      resize: vertical;
+      min-height: 150px;
+    }
+
+    .submit-btn {
+      display: block;
+      width: 100%;
+      padding: 1rem;
+      font-size: 1.2rem;
+      font-weight: bold;
+      background-color: #ff00ff;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      box-shadow: 0 0 20px rgba(255, 0, 255, 0.5);
+      transition: box-shadow 0.3s ease-in-out;
+    }
+
+    .submit-btn:hover {
+      box-shadow: 0 0 30px rgba(255, 0, 255, 0.8);
+    }
+
+    /* Animations */
+    @keyframes galaxy-animation {
+      0% {
+        background-position: 0% 0%;
+      }
+      100% {
+        background-position: 100% 100%;
+      }
+    }
+
+    @keyframes galaxy-glitch {
+      0% {
+        opacity: 0.5;
+      }
+      50% {
+        opacity: 0.3;
+      }
+      100% {
+        opacity: 0.5;
+      }
+    }
+
+    @keyframes gear-spin {
+      0% {
+        transform: rotate(0deg);
+      }
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+
+    @keyframes neon-glow {
+      0% {
+        text-shadow: 0 0 10px #ff00ff, 0 0 20px #00ffff;
+      }
+      50% {
+        text-shadow: 0 0 20px #ff00ff, 0 0 30px #00ffff;
+      }
+      100% {
+        text-shadow: 0 0 10px #ff00ff, 0 0 20px #00ffff;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .navbar {
+        padding: 1rem;
+      }
+
+      .navbar-brand {
+        font-size: 1.5rem;
+      }
+
+      .navbar-nav li {
+        margin-left: 1rem;
+      }
+
+      .navbar-nav li a {
+        font-size: 1rem;
+      }
+
+      .project-planet {
+        width: 120px;
+        height: 120px;
+        margin: 1.5rem;
+      }
+
+      .skills-title {
+        font-size: 2rem;
+      }
+
+      .skill-title {
+        font-size: 1.5rem;
+      }
+
+      .skill-description {
+        font-size: 1rem;
+      }
+
+      .contact-title {
+        font-size: 2rem;
+      }
+
+      .form-group label {
+        font-size: 1rem;
+      }
+
+      .form-group input,
+      .form-group textarea {
+        font-size: 1rem;
+        padding: 0.8rem;
+      }
+
+      .submit-btn {
+        font-size: 1.1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav class="navbar">
+    <a href="#" class="navbar-brand">Black Hole Portfolio</a>
+    <ul class="navbar-nav">
+      <li><a href="#">Home</a></li>
+      <li><a href="#">Projects</a></li>
+      <li><a href="#">Skills</a></li>
+      <li><a href="#">Contact</a></li>
+    </ul>
+  </nav>
+
+  <section class="galaxy-section">
+    <div class="galaxy-background"></div>
+    <div class="project-planets">
+      <div class="project-planet"></div>
+      <div class="project-planet"></div>
+      <div class="project-planet"></div>
+      <div class="project-planet"></div>
+      <div class="project-planet"></div>
+      <div class="project-planet"></div>
+    </div>
+  </section>
+
+  <section class="skills-section">
+    <h2 class="skills-title">Skills and Experience</h2>
+    <div class="skills-container">
+      <div class="skill-card">
+        <h3 class="skill-title">Backend Development</h3>
+        <p class="skill-description">Proficient in building robust and scalable backend systems using technologies like Node.js, Python, and Ruby on Rails.</p>
+      </div>
+      <div class="skill-card">
+        <h3 class="skill-title">Database Management</h3>
+        <p class="skill-description">Experienced in designing and implementing efficient database solutions, including SQL and NoSQL databases.</p>
+      </div>
+      <div class="skill-card">
+        <h3 class="skill-title">Cloud Infrastructure</h3>
+        <p class="skill-description">Skilled in deploying and managing applications on cloud platforms like AWS, Google Cloud, and Azure.</p>
+      </div>
+      <div class="skill-card">
+        <h3 class="skill-title">DevOps Automation</h3>
+        <p class="skill-description">Proficient in automating development, testing, and deployment processes using tools like Docker, Kubernetes, and Jenkins.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact-section">
+    <form class="contact-form">
+      <h2 class="contact-title">Get in Touch</h2>
+      <div class="form-group">
+        <label for="name">Name</label>
+        <input type="text" id="name" name="name" placeholder="Enter your name" required>
+      </div>
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" placeholder="Enter your email" required>
+      </div>
+      <div class="form-group">
+        <label for="message">Message</label>
+        <textarea id="message" name="message" placeholder="Enter your message" required></textarea>
+      </div>
+      <button type="submit" class="submitbtn">Submit</button>
+    </form>
+  </section>
+</body>
+</html>'<!-- Visit: https://github.com/Ishanoshada/portflair -->
+<!-- Visit: https://github.com/Ishanoshada/portflair -->

@@ -1,0 +1,509 @@
+<!-- Portfolio created by Ishan -->
+<!-- Check out my work at: https://github.com/Ishanoshada/portflair -->
+<!-- 2024/10/9 -->
+<!-- Portfolio created by Ishan -->
+'<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Black Hole Portfolio</title>
+  <style>
+    /* Global Styles */
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Orbitron', sans-serif;
+      background-color: #0c0c0c;
+      color: #fff;
+    }
+
+    /* Navigation */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.5rem 2rem;
+      background-image: linear-gradient(to right, #7b00ff, #00a2ff);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    nav .logo {
+      font-size: 1.8rem;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+    }
+
+    nav ul {
+      display: flex;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    nav ul li {
+      margin-left: 2rem;
+    }
+
+    nav ul li a {
+      color: #fff;
+      text-decoration: none;
+      font-size: 1.1rem;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      transition: color 0.3s ease-in-out;
+    }
+
+    nav ul li a:hover {
+      color: #00a2ff;
+    }
+
+    /* Project Galaxies Section */
+    #project-galaxies {
+      padding: 4rem 2rem;
+      background-image: radial-gradient(ellipse at center, #0c0c0c 0%, #000000 100%);
+      overflow-x: hidden;
+    }
+
+    #project-galaxies h2 {
+      text-align: center;
+      font-size: 2.5rem;
+      margin-bottom: 3rem;
+      text-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+    }
+
+    .galaxy-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .galaxy {
+      position: relative;
+      width: 200px;
+      height: 200px;
+      margin: 2rem;
+      border-radius: 50%;
+      background-image: radial-gradient(circle, #7b00ff, #00a2ff);
+      box-shadow: 0 0 20px rgba(123, 0, 255, 0.5), 0 0 40px rgba(0, 162, 255, 0.5);
+      overflow: hidden;
+      cursor: pointer;
+      transition: transform 0.3s ease-in-out;
+    }
+
+    .galaxy:hover {
+      transform: scale(1.1);
+    }
+
+    .galaxy img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0.5;
+      transition: opacity 0.3s ease-in-out;
+    }
+
+    .galaxy:hover img {
+      opacity: 1;
+    }
+
+    .galaxy-details {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+      opacity: 0;
+      transition: opacity 0.3s ease-in-out;
+    }
+
+    .galaxy:hover .galaxy-details {
+      opacity: 1;
+    }
+
+    .galaxy-details h3 {
+      font-size: 1.5rem;
+      margin-bottom: 0.5rem;
+      text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+    }
+
+    .galaxy-details p {
+      font-size: 1rem;
+      margin-bottom: 1rem;
+      text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+    }
+
+    .galaxy-details a {
+      display: inline-block;
+      padding: 0.5rem 1rem;
+      background-image: linear-gradient(to right, #7b00ff, #00a2ff);
+      color: #fff;
+      text-decoration: none;
+      border-radius: 4px;
+      font-weight: bold;
+      letter-spacing: 1px;
+      box-shadow: 0 0 10px rgba(123, 0, 255, 0.5), 0 0 20px rgba(0, 162, 255, 0.5);
+      transition: transform 0.3s ease-in-out;
+    }
+
+    .galaxy-details a:hover {
+      transform: translateY(-3px);
+    }
+
+    /* Steampunk Gears Section */
+    #steampunk-gears {
+      padding: 4rem 2rem;
+      background-image: radial-gradient(ellipse at center, #0c0c0c 0%, #000000 100%);
+    }
+
+    #steampunk-gears h2 {
+      text-align: center;
+      font-size: 2.5rem;
+      margin-bottom: 3rem;
+      text-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+    }
+
+    .gear-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .gear {
+      position: relative;
+      width: 200px;
+      height: 200px;
+      margin: 2rem;
+      background-image: radial-gradient(circle, #b47c00, #7b5500);
+      border-radius: 50%;
+      box-shadow: 0 0 20px rgba(180, 124, 0, 0.5), 0 0 40px rgba(123, 85, 0, 0.5);
+      overflow: hidden;
+      cursor: pointer;
+      transition: transform 0.3s ease-in-out;
+    }
+
+    .gear:hover {
+      transform: rotate(45deg);
+    }
+
+    .gear .cog {
+      position: absolute;
+      width: 50%;
+      height: 50%;
+      background-image: radial-gradient(circle, #7b5500, #b47c00);
+      border-radius: 50%;
+      animation: rotate 10s linear infinite;
+    }
+
+    .gear .cog:nth-child(2) {
+      top: 0;
+      right: 0;
+      animation-direction: reverse;
+    }
+
+    .gear .cog:nth-child(3) {
+      bottom: 0;
+      left: 0;
+      animation-direction: reverse;
+    }
+
+    @keyframes rotate {
+      0% {
+        transform: rotate(0deg);
+      }
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+
+    .gear-details {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+      opacity: 0;
+      transition: opacity 0.3s ease-in-out;
+    }
+
+    .gear:hover .gear-details {
+      opacity: 1;
+    }
+
+    .gear-details h3 {
+      font-size: 1.5rem;
+      margin-bottom: 0.5rem;
+      text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+    }
+
+    .gear-details p {
+      font-size: 1rem;
+      margin-bottom: 1rem;
+      text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+    }
+
+    /* Neon Contact Form Section */
+    #neon-contact {
+      padding: 4rem 2rem;
+      background-image: radial-gradient(ellipse at center, #0c0c0c 0%, #000000 100%);
+    }
+
+    #neon-contact h2 {
+      text-align: center;
+      font-size: 2.5rem;
+      margin-bottom: 3rem;
+      text-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+    }
+
+    .neon-form {
+      max-width: 600px;
+      margin: 0 auto;
+      padding: 2rem;
+      background-color: #0c0c0c;
+      border-radius: 8px;
+      box-shadow: 0 0 20px rgba(123, 0, 255, 0.5), 0 0 40px rgba(0, 162, 255, 0.5);
+    }
+
+    .neon-form h3 {
+      text-align: center;
+      font-size: 1.8rem;
+      margin-bottom: 2rem;
+      color: #00a2ff;
+      text-shadow: 0 0 10px rgba(123, 0, 255, 0.5), 0 0 20px rgba(0, 162, 255, 0.5);
+    }
+
+    .neon-form .form-group {
+      margin-bottom: 1.5rem;
+    }
+
+    .neon-form label {
+      display: block;
+      font-size: 1.1rem;
+      margin-bottom: 0.5rem;
+      color: #00a2ff;
+      text-shadow: 0 0 10px rgba(123, 0, 255, 0.5), 0 0 20px rgba(0, 162, 255, 0.5);
+    }
+
+    .neon-form input,
+    .neon-form textarea {
+      width: 100%;
+      padding: 0.8rem 1rem;
+      font-size: 1rem;
+      border: none;
+      border-radius: 4px;
+      background-image: linear-gradient(to right, #7b00ff, #00a2ff);
+      color: #fff;
+      box-shadow: 0 0 10px rgba(123, 0, 255, 0.5), 0 0 20px rgba(0, 162, 255, 0.5);
+      transition: box-shadow 0.3s ease-in-out;
+    }
+
+    .neon-form input:focus,
+    .neon-form textarea:focus {
+      outline: none;
+      box-shadow: 0 0 20px rgba(123, 0, 255, 0.5), 0 0 40px rgba(0, 162, 255, 0.5);
+    }
+
+    .neon-form button {
+      display: block;
+      width: 100%;
+      padding: 0.8rem 1rem;
+      font-size: 1.1rem;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      border: none;
+      border-radius: 4px;
+      background-image: linear-gradient(to right, #7b00ff, #00a2ff);
+      color: #fff;
+      box-shadow: 0 0 10px rgba(123, 0, 255, 0.5), 0 0 20px rgba(0, 162, 255, 0.5);
+      cursor: pointer;
+      transition: transform 0.3s ease-in-out;
+    }
+
+    .neon-form button:hover {
+      transform: translateY(-3px);
+    }
+
+    /* Media Queries for Responsiveness */
+    @media (max-width: 768px) {
+      nav {
+        padding: 1rem;
+      }
+
+      nav .logo {
+        font-size: 1.5rem;
+      }
+
+      nav ul li {
+        margin-left: 1.5rem;
+      }
+
+      nav ul li a {
+        font-size: 1rem;
+      }
+
+      #project-galaxies,
+      #steampunk-gears,
+      #neon-contact {
+        padding: 3rem 1rem;
+      }
+
+      #project-galaxies h2,
+      #steampunk-gears h2,
+      #neon-contact h2 {
+        font-size: 2rem;
+        margin-bottom: 2rem;
+      }
+
+      .galaxy,
+      .gear {
+        width: 150px;
+        height: 150px;
+        margin: 1.5rem;
+      }
+
+      .neon-form {
+        padding: 1.5rem;
+      }
+
+      .neon-form h3 {
+        font-size: 1.5rem;
+        margin-bottom: 1.5rem;
+      }
+
+      .neon-form label {
+        font-size: 1rem;
+      }
+
+      .neon-form input,
+      .neon-form textarea {
+        padding: 0.6rem 0.8rem;
+        font-size: 0.9rem;
+      }
+
+      .neon-form button {
+        font-size: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="logo">Black Hole Portfolio</div>
+    <ul>
+      <li><a href="#">Home</a></li>
+      <li><a href="#">Projects</a></li>
+      <li><a href="#">About</a></li>
+      <li><a href="#">Contact</a></li>
+    </ul>
+  </nav>
+
+  <section id="project-galaxies">
+    <h2>Project Galaxies</h2>
+    <div class="galaxy-container">
+      <div class="galaxy">
+        <img src="https://dummyimage.com/400x400/7b00ff/fff&text=Project+1" alt="Project 1">
+        <div class="galaxy-details">
+          <h3>Project 1</h3>
+          <p>A cosmic-themed project with vaporwave glitches.</p>
+          <a href="#">View Project</a>
+        </div>
+      </div>
+      <div class="galaxy">
+        <img src="https://dummyimage.com/400x400/00a2ff/fff&text=Project+2" alt="Project 2">
+        <div class="galaxy-details">
+          <h3>Project 2</h3>
+          <p>A steampunk-inspired web application.</p>
+          <a href="#">View Project</a>
+        </div>
+      </div>
+      <div class="galaxy">
+        <img src="https://dummyimage.com/400x400/7b00ff/fff&text=Project+3" alt="Project 3">
+        <div class="galaxy-details">
+          <h3>Project 3</h3>
+          <p>A neon-themed backend system.</p>
+          <a href="#">View Project</a>
+        </div>
+      </div>
+      <div class="galaxy">
+        <img src="https://dummyimage.com/400x400/00a2ff/fff&text=Project+4" alt="Project 4">
+        <div class="galaxy-details">
+          <h3>Project 4</h3>
+          <p>A cosmic data visualization tool.</p>
+          <a href="#">View Project</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="steampunk-gears">
+    <h2>Steampunk Gears</h2>
+    <div class="gear-container">
+      <div class="gear">
+        <div class="cog"></div>
+        <div class="cog"></div>
+        <div class="cog"></div>
+        <div class="gear-details">
+          <h3>Backend Expertise</h3>
+          <p>Proficient in Node.js, Express, and MongoDB.</p>
+        </div>
+      </div>
+      <div class="gear">
+        <div class="cog"></div>
+        <div class="cog"></div>
+        <div class="cog"></div>
+        <div class="gear-details">
+          <h3>Database Management</h3>
+          <p>Experienced in designing scalable database systems.</p>
+        </div>
+      </div>
+      <div class="gear">
+        <div class="cog"></div>
+        <div class="cog"></div>
+        <div class="cog"></div>
+        <div class="gear-details">
+          <h3>API Development</h3>
+          <p>Skilled in building robust and secure APIs.</p>
+        </div>
+      </div>
+      <div class="gear">
+        <div class="cog"></div>
+        <div class="cog"></div>
+        <div class="cog"></div>
+        <div class="gear-details">
+          <h3>DevOps Automation</h3>
+          <p>Proficient in CI/CD and infrastructure-as-code.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="neon-contact">
+    <h2>Neon Contact</h2>
+    <div class="neon-form">
+      <h3>Get in Touch</h3>
+      <form>
+        <div class="form-group">
+          <label for="name">Name</label>
+          <input type="text" id="name" placeholder="Enter your name" required>
+        </div>
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" id="email" placeholder="Enter your email" required>
+        </div>
+        <div class="form-group">
+          <label for="message">Message</label>
+          <textarea id="message" rows="5" placeholder="Enter your message" required></textarea>
+        </div>
+        <button type="submit">Send Message</button>
+      </form>
+    </div>
+  </section>
+</body>
+</html>'<!-- Visit: https://github.com/Ishanoshada/portflair -->
+<!-- Visit: https://github.com/Ishanoshada/portflair -->

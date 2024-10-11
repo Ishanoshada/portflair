@@ -1,0 +1,385 @@
+<!-- Portfolio created by Ishan -->
+<!-- Check out my work at: https://github.com/Ishanoshada/portflair -->
+<!-- 2024/10/9 -->
+<!-- Portfolio created by Ishan -->
+'<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dark-Mode Portfolio</title>
+  <style>
+    /* Global Styles */
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Montserrat', sans-serif;
+      background-color: #1a1a1a;
+      color: #f2f2f2;
+      overflow-x: hidden;
+    }
+
+    /* Navigation */
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.5rem 2rem;
+      background-color: rgba(26, 26, 26, 0.8);
+      backdrop-filter: blur(10px);
+      position: relative;
+      z-index: 100;
+    }
+
+    .navbar-brand {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: #f2f2f2;
+      text-decoration: none;
+    }
+
+    .navbar-nav {
+      display: flex;
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .navbar-nav li {
+      margin-left: 1.5rem;
+    }
+
+    .navbar-nav li a {
+      color: #f2f2f2;
+      text-decoration: none;
+      font-size: 1rem;
+      transition: color 0.3s ease;
+    }
+
+    .navbar-nav li a:hover {
+      color: #8c8c8c;
+    }
+
+    /* Hero Section */
+    .hero {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 80vh;
+      background-color: #1a1a1a;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero:before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(to bottom, rgba(26, 26, 26, 0.8), rgba(26, 26, 26, 0.2));
+      z-index: 1;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      max-width: 800px;
+      padding: 0 2rem;
+    }
+
+    .hero-title {
+      font-size: 3.5rem;
+      font-weight: bold;
+      margin-bottom: 1rem;
+      text-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+    }
+
+    .hero-description {
+      font-size: 1.2rem;
+      margin-bottom: 2rem;
+      text-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+    }
+
+    .hero-cta {
+      display: inline-block;
+      background-color: #8c8c8c;
+      color: #1a1a1a;
+      text-decoration: none;
+      padding: 1rem 2rem;
+      border-radius: 30px;
+      font-size: 1rem;
+      font-weight: bold;
+      box-shadow: 0 0 20px rgba(140, 140, 140, 0.5);
+      transition: background-color 0.3s ease;
+    }
+
+    .hero-cta:hover {
+      background-color: #a6a6a6;
+    }
+
+    .hero-bg-elements {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 0;
+    }
+
+    .hero-bg-element {
+      position: absolute;
+      width: 200px;
+      height: 200px;
+      background-color: rgba(255, 255, 255, 0.1);
+      border-radius: 50%;
+      filter: blur(100px);
+      animation: float 10s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(50px);
+      }
+      100% {
+        transform: translateY(0);
+      }
+    }
+
+    /* Project Showcase */
+    .project-showcase {
+      padding: 4rem 2rem;
+      background-color: #1a1a1a;
+    }
+
+    .project-showcase-title {
+      font-size: 2.5rem;
+      font-weight: bold;
+      text-align: center;
+      margin-bottom: 3rem;
+      text-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+    }
+
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      grid-gap: 3rem;
+    }
+
+    .project-card {
+      background-color: rgba(255, 255, 255, 0.1);
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 0 30px rgba(0, 0, 0, 0.3);
+      transition: transform 0.3s ease;
+    }
+
+    .project-card:hover {
+      transform: translateY(-10px);
+    }
+
+    .project-image {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      filter: brightness(0.8);
+      transition: filter 0.3s ease;
+    }
+
+    .project-card:hover .project-image {
+      filter: brightness(1);
+    }
+
+    .project-content {
+      padding: 1.5rem;
+    }
+
+    .project-title {
+      font-size: 1.5rem;
+      font-weight: bold;
+      margin-bottom: 0.5rem;
+      text-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+    }
+
+    .project-description {
+      font-size: 1rem;
+      color: #8c8c8c;
+      text-shadow: 0 0 5px rgba(255, 255, 255, 0.1);
+    }
+
+    /* About Section */
+    .about {
+      display: flex;
+      align-items: center;
+      padding: 4rem 2rem;
+      background-color: #1a1a1a;
+    }
+
+    .about-image {
+      flex: 0 0 300px;
+      margin-right: 3rem;
+      border-radius: 50%;
+      overflow: hidden;
+      box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+    }
+
+    .about-image img {
+      width: 100%;
+      height: auto;
+      filter: brightness(0.8);
+      transition: filter 0.3s ease;
+    }
+
+    .about-image:hover img {
+      filter: brightness(1);
+    }
+
+    .about-content {
+      flex: 1;
+    }
+
+    .about-title {
+      font-size: 2.5rem;
+      font-weight: bold;
+      margin-bottom: 1rem;
+      text-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+    }
+
+    .about-description {
+      font-size: 1.2rem;
+      color: #8c8c8c;
+      margin-bottom: 2rem;
+      text-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+    }
+
+    .about-cta {
+      display: inline-block;
+      background-color: #8c8c8c;
+      color: #1a1a1a;
+      text-decoration: none;
+      padding: 1rem 2rem;
+      border-radius: 30px;
+      font-size: 1rem;
+      font-weight: bold;
+      box-shadow: 0 0 20px rgba(140, 140, 140, 0.5);
+      transition: background-color 0.3s ease;
+    }
+
+    .about-cta:hover {
+      background-color: #a6a6a6;
+    }
+
+    /* Responsive Styles */
+    @media (max-width: 768px) {
+      .hero-title {
+        font-size: 2.5rem;
+      }
+
+      .hero-description {
+        font-size: 1rem;
+      }
+
+      .project-showcase-title {
+        font-size: 2rem;
+      }
+
+      .about {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .about-image {
+        flex: 0 0 200px;
+        margin-right: 0;
+        margin-bottom: 2rem;
+      }
+
+      .about-title {
+        font-size: 2rem;
+      }
+
+      .about-description {
+        font-size: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="navbar">
+    <a href="#" class="navbar-brand">Dark-Mode Portfolio</a>
+    <nav>
+      <ul class="navbar-nav">
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Projects</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="hero-bg-elements">
+        <div class="hero-bg-element"></div>
+        <div class="hero-bg-element"></div>
+        <div class="hero-bg-element"></div>
+        <div class="hero-bg-element"></div>
+        <div class="hero-bg-element"></div>
+      </div>
+      <div class="hero-content">
+        <h1 class="hero-title">Welcome to My Dark-Mode Portfolio</h1>
+        <p class="hero-description">Explore a collection of stunning projects crafted with passion and attention to detail.</p>
+        <a href="#" class="hero-cta">View My Work</a>
+      </div>
+    </section>
+
+    <!-- Project Showcase -->
+    <section class="project-showcase">
+      <h2 class="project-showcase-title">My Latest Projects</h2>
+      <div class="project-grid">
+        <div class="project-card">
+          <img src="https://dummyimage.com/600x400/ccc/000&text=Project+1" alt="Project 1" class="project-image">
+          <div class="project-content">
+            <h3 class="project-title">Project 1</h3>
+            <p class="project-description">A captivating project that showcases my design skills.</p>
+          </div>
+        </div>
+        <div class="project-card">
+          <img src="https://dummyimage.com/600x400/ccc/000&text=Project+2" alt="Project 2" class="project-image">
+          <div class="project-content">
+            <h3 class="project-title">Project 2</h3>
+            <p class="project-description">An innovative project that pushes the boundaries of design.</p>
+          </div>
+        </div>
+        <div class="project-card">
+          <img src="https://dummyimage.com/600x400/ccc/000&text=Project+3" alt="Project 3" class="project-image">
+          <div class="project-content">
+            <h3 class="project-title">Project 3</h3>
+            <p class="project-description">A visually stunning project that captivates the audience.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about">
+      <div class="about-image">
+        <img src="https://dummyimage.com/300x300/ccc/000&text=Portfolio+Owner" alt="Portfolio Owner">
+      </div>
+      <div class="about-content">
+        <h2 class="about-title">About Me</h2>
+        <p class="about-description">I am a passionate designer with a keen eye for detail and a love for creating captivating digital experiences. My portfolio showcases my best work, reflecting my commitment to pushing the boundaries of design and delivering exceptional results.</p>
+        <a href="#" class="about-cta">Learn More</a>
+      </div>
+    </section>
+  </main>
+</body>
+</html>'<!-- Visit: https://github.com/Ishanoshada/portflair -->
+<!-- Visit: https://github.com/Ishanoshada/portflair -->

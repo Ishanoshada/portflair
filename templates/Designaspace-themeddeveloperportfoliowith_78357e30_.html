@@ -1,0 +1,415 @@
+<!-- Portfolio created by Ishan -->
+<!-- Check out my work at: https://github.com/Ishanoshada/portflair -->
+<!-- 2024/10/9 -->
+<!-- Portfolio created by Ishan -->
+'<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Space-Themed Developer Portfolio</title>
+    <style>
+        /* Global Styles */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Montserrat', sans-serif;
+            background-color: #0d0d0d;
+            color: #f1f1f1;
+            overflow-x: hidden;
+        }
+
+        /* Navigation */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 40px;
+            background-color: rgba(13, 13, 13, 0.8);
+            backdrop-filter: blur(10px);
+            z-index: 100;
+        }
+
+        nav a {
+            color: #f1f1f1;
+            text-decoration: none;
+            font-size: 1.1rem;
+            font-weight: 500;
+            padding: 10px 20px;
+            transition: color 0.3s ease-in-out;
+        }
+
+        nav a:hover {
+            color: #b3b3b3;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, #0d0d0d, #1a1a1a);
+            z-index: -1;
+        }
+
+        .hero-background::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('https://dummyimage.com/1920x1080/0d0d0d/ffffff.jpg&text=Galaxy');
+            background-size: cover;
+            background-position: center;
+            filter: blur(2px);
+            z-index: -2;
+        }
+
+        .hero-content {
+            text-align: center;
+            z-index: 1;
+        }
+
+        .hero-content h1 {
+            font-size: 4rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            text-shadow: 0 0 20px #6a00ff, 0 0 40px #6a00ff, 0 0 80px #6a00ff;
+            animation: glowText 2s ease-in-out infinite;
+        }
+
+        .hero-content p {
+            font-size: 1.8rem;
+            margin-top: 10px;
+            text-shadow: 0 0 10px #00b7ff, 0 0 20px #00b7ff, 0 0 40px #00b7ff;
+            animation: glowText 2.5s ease-in-out infinite;
+        }
+
+        .constellation {
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            background-image: url('https://dummyimage.com/100x100/6a00ff/ffffff.jpg&text=+');
+            background-size: cover;
+            animation: constellation 10s linear infinite;
+        }
+
+        /* Project Showcase */
+        .project-showcase {
+            padding: 80px 40px;
+            background-color: #0d0d0d;
+        }
+
+        .project-showcase h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 50px;
+            text-shadow: 0 0 10px #00b7ff, 0 0 20px #00b7ff, 0 0 40px #00b7ff;
+            animation: glowText 3s ease-in-out infinite;
+        }
+
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-gap: 40px;
+        }
+
+        .project-item {
+            background-color: #1a1a1a;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .project-item:hover {
+            transform: translateY(-10px);
+        }
+
+        .project-item-content {
+            padding: 30px;
+        }
+
+        .project-item h3 {
+            font-size: 1.8rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: #f1f1f1;
+            text-shadow: 0 0 10px #6a00ff, 0 0 20px #6a00ff, 0 0 40px #6a00ff;
+        }
+
+        .project-item p {
+            font-size: 1.1rem;
+            color: #b3b3b3;
+            margin-bottom: 20px;
+        }
+
+        .project-item a {
+            display: inline-block;
+            background-color: #6a00ff;
+            color: #f1f1f1;
+            text-decoration: none;
+            font-size: 1.1rem;
+            font-weight: 500;
+            padding: 10px 20px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease-in-out;
+        }
+
+        .project-item a:hover {
+            background-color: #8000ff;
+        }
+
+        /* About Section */
+        .about {
+            padding: 80px 40px;
+            background-color: #0d0d0d;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .about-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('https://dummyimage.com/1920x1080/0d0d0d/ffffff.jpg&text=Constellation');
+            background-size: cover;
+            background-position: center;
+            filter: blur(2px);
+            z-index: -1;
+        }
+
+        .about-content {
+            display: flex;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .about-image {
+            flex: 0 0 300px;
+            margin-right: 50px;
+            position: relative;
+        }
+
+        .about-image img {
+            width: 100%;
+            height: auto;
+            border-radius: 50%;
+            box-shadow: 0 0 20px rgba(106, 0, 255, 0.5), 0 0 40px rgba(106, 0, 255, 0.5), 0 0 80px rgba(106, 0, 255, 0.5);
+            animation: pulse 3s ease-in-out infinite;
+        }
+
+        .about-image::before {
+            content: "";
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 350px;
+            height: 350px;
+            border-radius: 50%;
+            background-color: rgba(106, 0, 255, 0.2);
+            z-index: -1;
+            animation: pulse 3s ease-in-out infinite;
+        }
+
+        .about-text {
+            flex: 1;
+        }
+
+        .about-text h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            text-shadow: 0 0 10px #00b7ff, 0 0 20px #00b7ff, 0 0 40px #00b7ff;
+            animation: glowText 3s ease-in-out infinite;
+        }
+
+        .about-text p {
+            font-size: 1.1rem;
+            color: #b3b3b3;
+            line-height: 1.6;
+            margin-bottom: 30px;
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        .about-text a {
+            display: inline-block;
+            background-color: #6a00ff;
+            color: #f1f1f1;
+            text-decoration: none;
+            font-size: 1.1rem;
+            font-weight: 500;
+            padding: 10px 20px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease-in-out;
+        }
+
+        .about-text a:hover {
+            background-color: #8000ff;
+        }
+
+        /* Animations */
+        @keyframes glowText {
+            0%, 100% {
+                text-shadow: 0 0 10px #00b7ff, 0 0 20px #00b7ff, 0 0 40px #00b7ff;
+            }
+            50% {
+                text-shadow: 0 0 20px #6a00ff, 0 0 40px #6a00ff, 0 0 80px #6a00ff;
+            }
+        }
+
+        @keyframes constellation {
+            0% {
+                transform: translate(-50%, -50%) rotate(0deg) scale(1);
+                opacity: 1;
+            }
+            50% {
+                transform: translate(-50%, -50%) rotate(180deg) scale(1.2);
+                opacity: 0.7;
+            }
+            100% {
+                transform: translate(-50%, -50%) rotate(360deg) scale(1);
+                opacity: 1;
+            }
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                transform: translate(-50%, -50%) scale(1);
+                opacity: 0.5;
+            }
+            50% {
+                transform: translate(-50%, -50%) scale(1.1);
+                opacity: 0.8;
+            }
+        }
+
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .hero-content h1 {
+                font-size: 3rem;
+            }
+
+            .hero-content p {
+                font-size: 1.5rem;
+            }
+
+            .project-showcase h2 {
+                font-size: 2rem;
+            }
+
+            .about-content {
+                flex-direction: column;
+            }
+
+            .about-image {
+                flex: 0 0 200px;
+                margin-right: 0;
+                margin-bottom: 30px;
+            }
+
+            .about-text h2 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="#">Home</a>
+        <a href="#">Projects</a>
+        <a href="#">About</a>
+        <a href="#">Contact</a>
+    </nav>
+
+    <div class="hero">
+        <div class="hero-background"></div>
+        <div class="hero-content">
+            <h1>John Doe</h1>
+            <p>Space-Themed Developer Portfolio</p>
+        </div>
+        <div class="constellation"></div>
+        <div class="constellation" style="top: 20%; left: 30%;"></div>
+        <div class="constellation" style="top: 70%; left: 80%;"></div>
+        <div class="constellation" style="top: 50%; left: 50%;"></div>
+    </div>
+
+    <div class="project-showcase">
+        <h2>My Projects</h2>
+        <div class="project-grid">
+            <div class="project-item">
+                <div class="project-item-content">
+                    <h3>Project 1</h3>
+                    <p>A captivating space-themed project showcasing my coding skills.</p>
+                    <a href="#">View Project</a>
+                </div>
+            </div>
+            <div class="project-item">
+                <div class="project-item-content">
+                    <h3>Project 2</h3>
+                    <p>An interactive and visually stunning coding project inspired by the depths of space.</p>
+                    <a href="#">View Project</a>
+                </div>
+            </div>
+            <div class="project-item">
+                <div class="project-item-content">
+                    <h3>Project 3</h3>
+                    <p>A complex and innovative space-themed application that pushes the boundaries of web development.</p>
+                    <a href="#">View Project</a>
+                </div>
+            </div>
+            <div class="project-item">
+                <div class="project-item-content">
+                    <h3>Project 4</h3>
+                    <p>An intricate and captivating space-themed project that showcases my attention to detail and problem-solving skills.</p>
+                    <a href="#">View Project</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="about">
+        <div class="about-background"></div>
+        <div class="about-content">
+            <div class="about-image">
+                <img src="https://dummyimage.com/300x300/0d0d0d/ffffff.jpg&text=Developer" alt="Developer">
+            </div>
+            <div class="about-text">
+                <h2>About Me</h2>
+                <p>I am a space-themed developer with a passion for creating captivating and interactive web experiences. With a deep understanding of the latest technologies and a keen eye for design, I strive to push the boundaries of what's possible in the digital realm. Join me on a journey through the cosmos of my coding projects and let's explore the infinite possibilities of the web together.</p>
+                <a href="#">Learn More</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>'<!-- Visit: https://github.com/Ishanoshada/portflair -->
+<!-- Visit: https://github.com/Ishanoshada/portflair -->

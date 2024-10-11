@@ -1,0 +1,392 @@
+<!-- Portfolio created by Ishan -->
+<!-- Check out my work at: https://github.com/Ishanoshada/portflair -->
+<!-- 2024/10/9 -->
+<!-- Portfolio created by Ishan -->
+'<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Design a Portfolio - Space Station Control Console</title>
+  <style>
+    /* Global Styles */
+    body {
+      font-family: 'Orbitron', sans-serif;
+      background-color: #000;
+      color: #fff;
+      margin: 0;
+      padding: 0;
+    }
+
+    /* Navigation */
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: #1c1c1c;
+      padding: 1rem 2rem;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    .navbar-brand {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: #8c8c8c;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    .navbar-brand:hover {
+      color: #ffffff;
+    }
+
+    .navbar-nav {
+      display: flex;
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .nav-item {
+      margin-left: 1.5rem;
+    }
+
+    .nav-link {
+      color: #8c8c8c;
+      text-decoration: none;
+      font-size: 1rem;
+      transition: color 0.3s ease;
+    }
+
+    .nav-link:hover {
+      color: #ffffff;
+    }
+
+    /* Mission Control Dashboard */
+    .mission-control {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 3rem 2rem;
+    }
+
+    .central-screen {
+      width: 80%;
+      max-width: 1200px;
+      background-color: #1c1c1c;
+      border: 2px solid #4c4c4c;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      overflow: hidden;
+      position: relative;
+    }
+
+    .central-screen::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(to right, #2c2c2c, #4c4c4c);
+      opacity: 0.1;
+      z-index: 1;
+    }
+
+    .central-screen img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .project-screens {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      grid-gap: 1.5rem;
+      margin-top: 2rem;
+      width: 80%;
+      max-width: 1200px;
+    }
+
+    .project-screen {
+      background-color: #1c1c1c;
+      border: 2px solid #4c4c4c;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      padding: 1rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .project-screen::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(to right, #2c2c2c, #4c4c4c);
+      opacity: 0.1;
+      z-index: 1;
+    }
+
+    .project-screen h3 {
+      margin-top: 0;
+      font-size: 1.2rem;
+      font-weight: bold;
+      color: #8c8c8c;
+    }
+
+    .project-screen p {
+      margin-bottom: 0;
+      font-size: 0.9rem;
+      color: #b3b3b3;
+    }
+
+    .project-screen img {
+      width: 100%;
+      height: auto;
+      display: block;
+      border-radius: 4px;
+    }
+
+    /* Mission Logs */
+    .mission-logs {
+      padding: 3rem 2rem;
+    }
+
+    .mission-logs h2 {
+      text-align: center;
+      font-size: 2rem;
+      font-weight: bold;
+      color: #8c8c8c;
+      margin-bottom: 2rem;
+    }
+
+    .log-entry {
+      background-color: #1c1c1c;
+      border: 2px solid #4c4c4c;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      padding: 2rem;
+      margin-bottom: 2rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .log-entry::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(to right, #2c2c2c, #4c4c4c);
+      opacity: 0.1;
+      z-index: 1;
+    }
+
+    .log-entry h3 {
+      margin-top: 0;
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: #8c8c8c;
+    }
+
+    .log-entry p {
+      font-size: 1rem;
+      color: #b3b3b3;
+      line-height: 1.6;
+    }
+
+    .log-entry img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 4px;
+      margin-top: 1rem;
+    }
+
+    /* Team Roster */
+    .team-roster {
+      padding: 3rem 2rem;
+    }
+
+    .team-roster h2 {
+      text-align: center;
+      font-size: 2rem;
+      font-weight: bold;
+      color: #8c8c8c;
+      margin-bottom: 2rem;
+    }
+
+    .team-member {
+      background-color: #1c1c1c;
+      border: 2px solid #4c4c4c;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      padding: 2rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .team-member::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(to right, #2c2c2c, #4c4c4c);
+      opacity: 0.1;
+      z-index: 1;
+    }
+
+    .team-member img {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-bottom: 1rem;
+    }
+
+    .team-member h3 {
+      margin-top: 0;
+      font-size: 1.2rem;
+      font-weight: bold;
+      color: #8c8c8c;
+    }
+
+    .team-member p {
+      margin-bottom: 0;
+      font-size: 0.9rem;
+      color: #b3b3b3;
+    }
+
+    /* Responsive Styles */
+    @media (max-width: 991px) {
+      .project-screens {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    @media (max-width: 767px) {
+      .project-screens {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .team-roster .team-member {
+        padding: 1.5rem;
+      }
+
+      .team-roster .team-member img {
+        width: 100px;
+        height: 100px;
+      }
+    }
+
+    @media (max-width: 575px) {
+      .project-screens {
+        grid-template-columns: 1fr;
+      }
+
+      .mission-logs .log-entry {
+        padding: 1.5rem;
+      }
+
+      .team-roster .team-member {
+        padding: 1rem;
+      }
+
+      .team-roster .team-member img {
+        width: 80px;
+        height: 80px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation -->
+  <nav class="navbar">
+    <a href="#" class="navbar-brand">Design a Portfolio</a>
+    <ul class="navbar-nav">
+      <li class="nav-item"><a href="#" class="nav-link">Home</a></li>
+      <li class="nav-item"><a href="#" class="nav-link">About</a></li>
+      <li class="nav-item"><a href="#" class="nav-link">Portfolio</a></li>
+      <li class="nav-item"><a href="#" class="nav-link">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- Mission Control Dashboard -->
+  <section class="mission-control">
+    <div class="central-screen">
+      <img src="https://dummyimage.com/1200x500/1c1c1c/8c8c8c&text=Featured+Project" alt="Featured Project">
+    </div>
+
+    <div class="project-screens">
+      <div class="project-screen">
+        <img src="https://dummyimage.com/300x200/1c1c1c/8c8c8c&text=Project+1" alt="Project 1">
+        <h3>Project 1</h3>
+        <p>Description of Project 1</p>
+      </div>
+      <div class="project-screen">
+        <img src="https://dummyimage.com/300x200/1c1c1c/8c8c8c&text=Project+2" alt="Project 2">
+        <h3>Project 2</h3>
+        <p>Description of Project 2</p>
+      </div>
+      <div class="project-screen">
+        <img src="https://dummyimage.com/300x200/1c1c1c/8c8c8c&text=Project+3" alt="Project 3">
+        <h3>Project 3</h3>
+        <p>Description of Project 3</p>
+      </div>
+      <div class="project-screen">
+        <img src="https://dummyimage.com/300x200/1c1c1c/8c8c8c&text=Project+4" alt="Project 4">
+        <h3>Project 4</h3>
+        <p>Description of Project 4</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Mission Logs -->
+  <section class="mission-logs">
+    <h2>Mission Logs</h2>
+    <div class="log-entry">
+      <h3>Mission Log: Entry 1</h3>
+      <p>This is the first entry in my mission log, detailing my journey as a designer and developer. It includes insights, challenges, and milestones along the way.</p>
+      <img src="https://dummyimage.com/800x400/1c1c1c/8c8c8c&text=Mission+Log+Entry+1" alt="Mission Log Entry 1">
+    </div>
+    <div class="log-entry">
+      <h3>Mission Log: Entry 2</h3>
+      <p>This is the second entry in my mission log, highlighting new projects, collaborations, and the continued growth of my skills and expertise.</p>
+      <img src="https://dummyimage.com/800x400/1c1c1c/8c8c8c&text=Mission+Log+Entry+2" alt="Mission Log Entry 2">
+    </div>
+  </section>
+
+  <!-- Team Roster -->
+  <section class="team-roster">
+    <h2>Team Roster</h2>
+    <div class="team-member">
+      <img src="https://dummyimage.com/120x120/1c1c1c/8c8c8c&text=Team+Member+1" alt="Team Member 1">
+      <h3>Team Member 1</h3>
+      <p>Designer</p>
+    </div>
+    <div class="team-member">
+      <img src="https://dummyimage.com/120x120/1c1c1c/8c8c8c&text=Team+Member+2" alt="Team Member 2">
+      <h3>Team Member 2</h3>
+      <p>Developer</p>
+    </div>
+    <div class="team-member">
+      <img src="https://dummyimage.com/120x120/1c1c1c/8c8c8c&text=Team+Member+3" alt="Team Member 3">
+      <h3>Team Member 3</h3>
+      <p>Project Manager</p>
+    </div>
+    <div class="team-member">
+      <img src="https://dummyimage.com/120x120/1c1c1c/8c8c8c&text=Team+Member+4" alt="Team Member 4">
+      <h3>Team Member 4</h3>
+      <p>UX Researcher</p>
+    </div>
+  </section>
+</body>
+</html>'<!-- Visit: https://github.com/Ishanoshada/portflair -->
+<!-- Visit: https://github.com/Ishanoshada/portflair -->

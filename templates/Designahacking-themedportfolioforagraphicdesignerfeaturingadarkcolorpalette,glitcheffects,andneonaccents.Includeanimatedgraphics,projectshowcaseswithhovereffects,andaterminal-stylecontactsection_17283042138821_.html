@@ -1,0 +1,396 @@
+<!-- Portfolio created by Ishan -->
+<!-- Check out my work at: https://github.com/Ishanoshada/portflair -->
+<!-- 2024/10/9 -->
+<!-- Portfolio created by Ishan -->
+'<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hacking-Themed Portfolio</title>
+  <style>
+    /* Global Styles */
+    @import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@400;700&display=swap');
+
+    body {
+      margin: 0;
+      font-family: 'Source Code Pro', monospace;
+      background-color: #0c0c0c;
+      color: #00ff00;
+      overflow-x: hidden;
+    }
+
+    /* Navigation Bar */
+    .navbar {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: #0c0c0c;
+      padding: 1rem;
+      border-bottom: 1px solid #00ff00;
+    }
+
+    .navbar-nav {
+      display: flex;
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .navbar-nav li {
+      margin: 0 1rem;
+    }
+
+    .navbar-nav li a {
+      color: #00ff00;
+      text-decoration: none;
+      font-size: 1.2rem;
+      padding: 0.5rem;
+      position: relative;
+    }
+
+    .navbar-nav li a::before {
+      content: "";
+      position: absolute;
+      width: 0;
+      height: 2px;
+      bottom: 0;
+      left: 0;
+      background-color: #00ff00;
+      transition: width 0.3s ease-in-out;
+    }
+
+    .navbar-nav li a:hover::before {
+      width: 100%;
+    }
+
+    /* Hero Section */
+    .hero {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 80vh;
+      background-image: url("https://dummyimage.com/1200x500/0c0c0c/00ff00&text=Hacking+Portfolio");
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(12, 12, 12, 0.7);
+      z-index: 1;
+    }
+
+    .hero-content {
+      text-align: center;
+      z-index: 2;
+    }
+
+    .hero-title {
+      font-size: 4rem;
+      font-weight: bold;
+      color: #00ff00;
+      text-shadow: 0 0 20px #00ff00;
+      animation: glitch 0.5s infinite;
+    }
+
+    @keyframes glitch {
+      0% {
+        transform: translateX(0);
+      }
+      20% {
+        transform: translateX(-2px);
+      }
+      40% {
+        transform: translateX(2px);
+      }
+      60% {
+        transform: translateX(-2px);
+      }
+      80% {
+        transform: translateX(2px);
+      }
+      100% {
+        transform: translateX(0);
+      }
+    }
+
+    .hero-description {
+      font-size: 1.8rem;
+      margin-top: 1rem;
+      color: #00ff00;
+      text-shadow: 0 0 10px #00ff00;
+    }
+
+    /* Project Showcase */
+    .project-showcase {
+      padding: 4rem 2rem;
+      background-color: #0c0c0c;
+    }
+
+    .project-showcase-title {
+      font-size: 2.5rem;
+      text-align: center;
+      margin-bottom: 3rem;
+      color: #00ff00;
+      text-shadow: 0 0 10px #00ff00;
+    }
+
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      grid-gap: 3rem;
+    }
+
+    .project-item {
+      position: relative;
+      overflow: hidden;
+      border-radius: 8px;
+      cursor: pointer;
+      box-shadow: 0 0 20px rgba(0, 255, 0, 0.3);
+      transition: transform 0.3s ease-in-out;
+    }
+
+    .project-item:hover {
+      transform: scale(1.05);
+    }
+
+    .project-item::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(12, 12, 12, 0.7);
+      z-index: 1;
+      transition: background-color 0.3s ease-in-out;
+    }
+
+    .project-item:hover::before {
+      background-color: rgba(12, 12, 12, 0.4);
+    }
+
+    .project-item img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+
+    .project-info {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      padding: 1rem;
+      background-color: rgba(12, 12, 12, 0.8);
+      z-index: 2;
+      transition: transform 0.3s ease-in-out;
+    }
+
+    .project-item:hover .project-info {
+      transform: translateY(0);
+    }
+
+    .project-title {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: #00ff00;
+      text-shadow: 0 0 10px #00ff00;
+    }
+
+    .project-description {
+      font-size: 1.2rem;
+      color: #00ff00;
+      text-shadow: 0 0 5px #00ff00;
+    }
+
+    /* Contact Section */
+    .contact {
+      padding: 4rem 2rem;
+      background-color: #0c0c0c;
+      border-top: 1px solid #00ff00;
+    }
+
+    .contact-title {
+      font-size: 2.5rem;
+      text-align: center;
+      margin-bottom: 3rem;
+      color: #00ff00;
+      text-shadow: 0 0 10px #00ff00;
+    }
+
+    .contact-form {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .form-group {
+      width: 100%;
+      max-width: 500px;
+      margin-bottom: 2rem;
+    }
+
+    .form-group label {
+      font-size: 1.2rem;
+      color: #00ff00;
+      text-shadow: 0 0 5px #00ff00;
+      display: block;
+      margin-bottom: 0.5rem;
+    }
+
+    .form-group input,
+    .form-group textarea {
+      width: 100%;
+      padding: 0.8rem 1rem;
+      font-size: 1.2rem;
+      font-family: 'Source Code Pro', monospace;
+      background-color: #0c0c0c;
+      color: #00ff00;
+      border: 1px solid #00ff00;
+      border-radius: 4px;
+      resize: none;
+    }
+
+    .form-group input:focus,
+    .form-group textarea:focus {
+      outline: none;
+      box-shadow: 0 0 10px rgba(0, 255, 0, 0.5);
+    }
+
+    .submit-btn {
+      padding: 0.8rem 2rem;
+      font-size: 1.2rem;
+      font-family: 'Source Code Pro', monospace;
+      background-color: #0c0c0c;
+      color: #00ff00;
+      border: 1px solid #00ff00;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+    }
+
+    .submit-btn:hover {
+      background-color: #00ff00;
+      color: #0c0c0c;
+      text-shadow: 0 0 10px #0c0c0c;
+    }
+
+    /* Responsive Styles */
+    @media (max-width: 768px) {
+      .hero-title {
+        font-size: 3rem;
+      }
+
+      .hero-description {
+        font-size: 1.5rem;
+      }
+
+      .project-showcase-title,
+      .contact-title {
+        font-size: 2rem;
+      }
+
+      .project-title {
+        font-size: 1.3rem;
+      }
+
+      .project-description {
+        font-size: 1rem;
+      }
+
+      .form-group label,
+      .form-group input,
+      .form-group textarea,
+      .submit-btn {
+        font-size: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation Bar -->
+  <nav class="navbar">
+    <ul class="navbar-nav">
+      <li><a href="#">Home</a></li>
+      <li><a href="#">About</a></li>
+      <li><a href="#">Projects</a></li>
+      <li><a href="#">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- Hero Section -->
+  <div class="hero">
+    <div class="hero-content">
+      <h1 class="hero-title">HACKING PORTFOLIO</h1>
+      <p class="hero-description">Explore the digital world of a graphic designer</p>
+    </div>
+  </div>
+
+  <!-- Project Showcase -->
+  <section class="project-showcase">
+    <h2 class="project-showcase-title">Featured Projects</h2>
+    <div class="project-grid">
+      <div class="project-item">
+        <img src="https://dummyimage.com/300x200/0c0c0c/00ff00&text=Project+1" alt="Project 1">
+        <div class="project-info">
+          <h3 class="project-title">Project 1</h3>
+          <p class="project-description">A hacking-inspired design project</p>
+        </div>
+      </div>
+      <div class="project-item">
+        <img src="https://dummyimage.com/300x200/0c0c0c/00ff00&text=Project+2" alt="Project 2">
+        <div class="project-info">
+          <h3 class="project-title">Project 2</h3>
+          <p class="project-description">Exploring the depths of digital glitches</p>
+        </div>
+      </div>
+      <div class="project-item">
+        <img src="https://dummyimage.com/300x200/0c0c0c/00ff00&text=Project+3" alt="Project 3">
+        <div class="project-info">
+          <h3 class="project-title">Project 3</h3>
+          <p class="project-description">Neon-infused branding and identity</p>
+        </div>
+      </div>
+      <div class="project-item">
+        <img src="https://dummyimage.com/300x200/0c0c0c/00ff00&text=Project+4" alt="Project 4">
+        <div class="project-info">
+          <h3 class="project-title">Project 4</h3>
+          <p class="project-description">Cyberpunk-inspired UI/UX design</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section class="contact">
+    <h2 class="contact-title">Get in Touch</h2>
+    <form class="contact-form">
+      <div class="form-group">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required>
+      </div>
+      <div class="form-group">
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+      </div>
+      <div class="form-group">
+        <label for="message">Message:</label>
+        <textarea id="message" name="message" rows="5" required></textarea>
+      </div>
+      <button type="submit" class="submit-btn">SEND</button>
+    </form>
+  </section>
+</body>
+</html>'<!-- Visit: https://github.com/Ishanoshada/portflair -->
+<!-- Visit: https://github.com/Ishanoshada/portflair -->

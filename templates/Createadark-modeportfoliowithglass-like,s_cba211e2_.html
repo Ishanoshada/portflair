@@ -1,0 +1,444 @@
+<!-- Portfolio created by Ishan -->
+<!-- Check out my work at: https://github.com/Ishanoshada/portflair -->
+<!-- 2024/10/9 -->
+<!-- Portfolio created by Ishan -->
+'<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dark Mode Portfolio</title>
+  <style>
+    /* Global Styles */
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Montserrat', sans-serif;
+      background-color: #1a1a1a;
+      color: #fff;
+    }
+
+    /* Navigation */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.5rem 2rem;
+      background-color: rgba(26, 26, 26, 0.8);
+      backdrop-filter: blur(10px);
+      position: relative;
+      z-index: 100;
+    }
+
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      font-size: 1.1rem;
+      font-weight: 500;
+      margin-right: 1.5rem;
+      transition: color 0.3s ease;
+    }
+
+    nav a:hover {
+      color: #8c8c8c;
+    }
+
+    /* Hero Section */
+    .hero {
+      position: relative;
+      height: 80vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(to bottom, rgba(26, 26, 26, 0.8), #1a1a1a);
+      z-index: -1;
+    }
+
+    .hero-content {
+      text-align: center;
+      z-index: 1;
+    }
+
+    .hero-title {
+      font-size: 4rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      text-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+    }
+
+    .hero-subtitle {
+      font-size: 1.8rem;
+      font-weight: 400;
+      margin-bottom: 2rem;
+      text-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+    }
+
+    .hero-cta {
+      display: inline-block;
+      background-color: #8c8c8c;
+      color: #1a1a1a;
+      text-decoration: none;
+      font-size: 1.1rem;
+      font-weight: 500;
+      padding: 1rem 2rem;
+      border-radius: 30px;
+      box-shadow: 0 0 20px rgba(140, 140, 140, 0.5);
+      transition: background-color 0.3s ease, transform 0.3s ease;
+    }
+
+    .hero-cta:hover {
+      background-color: #a3a3a3;
+      transform: translateY(-3px);
+    }
+
+    .hero-glass-elements {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+    }
+
+    .hero-glass-element {
+      position: absolute;
+      width: 25%;
+      height: 25%;
+      background-color: rgba(255, 255, 255, 0.1);
+      border-radius: 50%;
+      animation: float 10s ease-in-out infinite;
+      opacity: 0.5;
+    }
+
+    @keyframes float {
+      0% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(-20px);
+      }
+      100% {
+        transform: translateY(0);
+      }
+    }
+
+    /* Portfolio Showcase */
+    .portfolio {
+      padding: 4rem 2rem;
+      background-color: #1a1a1a;
+    }
+
+    .portfolio-title {
+      font-size: 2.5rem;
+      font-weight: 700;
+      text-align: center;
+      margin-bottom: 3rem;
+      text-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+    }
+
+    .portfolio-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      grid-gap: 2rem;
+    }
+
+    .portfolio-item {
+      position: relative;
+      background-color: rgba(255, 255, 255, 0.1);
+      border-radius: 10px;
+      overflow: hidden;
+      cursor: pointer;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .portfolio-item:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 0 30px rgba(255, 255, 255, 0.2);
+    }
+
+    .portfolio-item img {
+      width: 100%;
+      height: 250px;
+      object-fit: cover;
+      transition: opacity 0.3s ease;
+    }
+
+    .portfolio-item:hover img {
+      opacity: 0.7;
+    }
+
+    .portfolio-item-details {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      padding: 1.5rem;
+      background-color: rgba(26, 26, 26, 0.8);
+      backdrop-filter: blur(10px);
+      transition: transform 0.3s ease;
+    }
+
+    .portfolio-item:hover .portfolio-item-details {
+      transform: translateY(0);
+    }
+
+    .portfolio-item-title {
+      font-size: 1.2rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+    }
+
+    .portfolio-item-description {
+      font-size: 0.9rem;
+      color: #ccc;
+    }
+
+    /* About Section */
+    .about {
+      padding: 4rem 2rem;
+      background-color: #1a1a1a;
+    }
+
+    .about-content {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .about-image {
+      flex: 0 0 300px;
+      border-radius: 50%;
+      overflow: hidden;
+      box-shadow: 0 0 30px rgba(255, 255, 255, 0.2);
+    }
+
+    .about-image img {
+      width: 100%;
+      height: auto;
+      object-fit: cover;
+    }
+
+    .about-info {
+      flex: 1;
+      margin-left: 3rem;
+    }
+
+    .about-title {
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 1.5rem;
+      text-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+    }
+
+    .about-description {
+      font-size: 1.1rem;
+      line-height: 1.6;
+      color: #ccc;
+      margin-bottom: 2rem;
+    }
+
+    .about-timeline {
+      position: relative;
+      padding-left: 2rem;
+    }
+
+    .about-timeline::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 2px;
+      height: 100%;
+      background-color: rgba(255, 255, 255, 0.2);
+    }
+
+    .about-timeline-item {
+      position: relative;
+      margin-bottom: 2rem;
+    }
+
+    .about-timeline-item::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: -2rem;
+      width: 1rem;
+      height: 1rem;
+      background-color: #8c8c8c;
+      border-radius: 50%;
+    }
+
+    .about-timeline-title {
+      font-size: 1.2rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+    }
+
+    .about-timeline-description {
+      font-size: 0.9rem;
+      color: #ccc;
+    }
+
+    .about-cta {
+      display: inline-block;
+      background-color: #8c8c8c;
+      color: #1a1a1a;
+      text-decoration: none;
+      font-size: 1.1rem;
+      font-weight: 500;
+      padding: 1rem 2rem;
+      border-radius: 30px;
+      box-shadow: 0 0 20px rgba(140, 140, 140, 0.5);
+      transition: background-color 0.3s ease, transform 0.3s ease;
+    }
+
+    .about-cta:hover {
+      background-color: #a3a3a3;
+      transform: translateY(-3px);
+    }
+
+    /* Responsive Styles */
+    @media (max-width: 768px) {
+      .hero-title {
+        font-size: 3rem;
+      }
+
+      .hero-subtitle {
+        font-size: 1.5rem;
+      }
+
+      .portfolio-grid {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      }
+
+      .about-content {
+        flex-direction: column;
+      }
+
+      .about-image {
+        flex: 0 0 200px;
+        margin-bottom: 2rem;
+      }
+
+      .about-info {
+        margin-left: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="#">Home</a>
+    <a href="#">Portfolio</a>
+    <a href="#">About</a>
+    <a href="#">Contact</a>
+  </nav>
+
+  <div class="hero">
+    <div class="hero-content">
+      <h1 class="hero-title">Welcome to my Dark Mode Portfolio</h1>
+      <p class="hero-subtitle">Explore my latest projects and get in touch.</p>
+      <a href="#" class="hero-cta">View Portfolio</a>
+    </div>
+    <div class="hero-glass-elements">
+      <div class="hero-glass-element"></div>
+      <div class="hero-glass-element"></div>
+      <div class="hero-glass-element"></div>
+      <div class="hero-glass-element"></div>
+      <div class="hero-glass-element"></div>
+      <div class="hero-glass-element"></div>
+      <div class="hero-glass-element"></div>
+      <div class="hero-glass-element"></div>
+    </div>
+  </div>
+
+  <div class="portfolio">
+    <h2 class="portfolio-title">My Portfolio</h2>
+    <div class="portfolio-grid">
+      <div class="portfolio-item">
+        <img src="https://dummyimage.com/600x400/ccc/000&text=Project+1" alt="Project 1">
+        <div class="portfolio-item-details">
+          <h3 class="portfolio-item-title">Project 1</h3>
+          <p class="portfolio-item-description">A brief description of Project 1.</p>
+        </div>
+      </div>
+      <div class="portfolio-item">
+        <img src="https://dummyimage.com/600x400/ccc/000&text=Project+2" alt="Project 2">
+        <div class="portfolio-item-details">
+          <h3 class="portfolio-item-title">Project 2</h3>
+          <p class="portfolio-item-description">A brief description of Project 2.</p>
+        </div>
+      </div>
+      <div class="portfolio-item">
+        <img src="https://dummyimage.com/600x400/ccc/000&text=Project+3" alt="Project 3">
+        <div class="portfolio-item-details">
+          <h3 class="portfolio-item-title">Project 3</h3>
+          <p class="portfolio-item-description">A brief description of Project 3.</p>
+        </div>
+      </div>
+      <div class="portfolio-item">
+        <img src="https://dummyimage.com/600x400/ccc/000&text=Project+4" alt="Project 4">
+        <div class="portfolio-item-details">
+          <h3 class="portfolio-item-title">Project 4</h3>
+          <p class="portfolio-item-description">A brief description of Project 4.</p>
+        </div>
+      </div>
+      <div class="portfolio-item">
+        <img src="https://dummyimage.com/600x400/ccc/000&text=Project+5" alt="Project 5">
+        <div class="portfolio-item-details">
+          <h3 class="portfolio-item-title">Project 5</h3>
+          <p class="portfolio-item-description">A brief description of Project 5.</p>
+        </div>
+      </div>
+      <div class="portfolio-item">
+        <img src="https://dummyimage.com/600x400/ccc/000&text=Project+6" alt="Project 6">
+        <div class="portfolio-item-details">
+          <h3 class="portfolio-item-title">Project 6</h3>
+          <p class="portfolio-item-description">A brief description of Project 6.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="about">
+    <div class="about-content">
+      <div class="about-image">
+        <img src="https://dummyimage.com/300x300/ccc/000&text=Designer+Photo" alt="Designer Photo">
+      </div>
+      <div class="about-info">
+        <h2 class="about-title">About Me</h2>
+        <p class="about-description">
+          Hi, I'm a passionate designer with a keen eye for detail and a love for creating visually stunning experiences. I specialize in crafting dark-mode portfolios that blend elegant, glass-like elements with soft gradients and subtle lighting effects.
+        </p>
+        <div class="about-timeline">
+          <div class="about-timeline-item">
+            <h3 class="about-timeline-title">2018 - 2020</h3>
+            <p class="about-timeline-description">Worked as a UI/UX Designer at a leading tech company.</p>
+          </div>
+          <div class="about-timeline-item">
+            <h3 class="about-timeline-title">2020 - Present</h3>
+            <p class="about-timeline-description">Launched my own design studio, focusing on creating unique and visually captivating portfolios.</p>
+          </div>
+          <div class="about-timeline-item">
+            <h3 class="about-timeline-title">Awards & Recognitions</h3>
+            <p class="about-timeline-description">Awarded the Best Portfolio Design of the Year in 2022.</p>
+          </div>
+        </div>
+        <a href="#" class="about-cta">Get in Touch</a>
+      </div>
+    </div>
+  </div>
+</body>
+</html>'<!-- Visit: https://github.com/Ishanoshada/portflair -->
+<!-- Visit: https://github.com/Ishanoshada/portflair -->

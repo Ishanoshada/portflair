@@ -1,0 +1,351 @@
+<!-- Portfolio created by Ishan -->
+<!-- Check out my work at: https://github.com/Ishanoshada/portflair -->
+<!-- 2024/10/9 -->
+<!-- Portfolio created by Ishan -->
+'<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hacking-Themed Portfolio</title>
+  <style>
+    /* Global Styles */
+    body {
+      font-family: 'Courier New', monospace;
+      background-color: #1a1a1a;
+      color: #c0c0c0;
+      margin: 0;
+      padding: 0;
+    }
+
+    /* Navbar Styles */
+    .navbar {
+      background-color: #0d0d0d;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .navbar-brand {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: #00ff00;
+      text-decoration: none;
+    }
+
+    .navbar-nav {
+      list-style-type: none;
+      display: flex;
+      gap: 1.5rem;
+    }
+
+    .navbar-nav a {
+      color: #c0c0c0;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    .navbar-nav a:hover {
+      color: #00ff00;
+    }
+
+    /* Project Showcase Styles */
+    .project-showcase {
+      padding: 3rem 2rem;
+    }
+
+    .project-showcase h2 {
+      font-size: 2rem;
+      color: #00ff00;
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+    }
+
+    .project-card {
+      background-color: #0d0d0d;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease;
+      position: relative;
+    }
+
+    .project-card:hover {
+      transform: translateY(-10px);
+    }
+
+    .project-card:before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(45deg, #00ff00, #ff0080, #00ffff);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .project-card:hover:before {
+      opacity: 0.5;
+    }
+
+    .project-card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      filter: grayscale(100%);
+      transition: filter 0.3s ease;
+    }
+
+    .project-card:hover img {
+      filter: grayscale(0%);
+    }
+
+    .project-details {
+      padding: 1.5rem;
+    }
+
+    .project-details h3 {
+      font-size: 1.2rem;
+      color: #00ff00;
+      margin-bottom: 0.5rem;
+    }
+
+    .project-details p {
+      font-size: 0.9rem;
+      color: #c0c0c0;
+      margin-bottom: 0.5rem;
+    }
+
+    /* About/Skills Section Styles */
+    .about-skills {
+      display: flex;
+      align-items: center;
+      background-color: #0d0d0d;
+      padding: 3rem 2rem;
+    }
+
+    .about-section {
+      flex: 1;
+      padding-right: 2rem;
+    }
+
+    .about-section h2 {
+      font-size: 2rem;
+      color: #00ff00;
+      margin-bottom: 1rem;
+    }
+
+    .about-section p {
+      font-size: 1rem;
+      color: #c0c0c0;
+      line-height: 1.6;
+      margin-bottom: 1rem;
+    }
+
+    .skills-section {
+      flex: 1;
+      padding-left: 2rem;
+      border-left: 1px solid #1a1a1a;
+    }
+
+    .skills-section h2 {
+      font-size: 2rem;
+      color: #00ff00;
+      margin-bottom: 1rem;
+    }
+
+    .skills-list {
+      list-style-type: none;
+      padding: 0;
+    }
+
+    .skills-list li {
+      font-size: 1rem;
+      color: #c0c0c0;
+      margin-bottom: 0.5rem;
+      position: relative;
+      padding-left: 1.5rem;
+    }
+
+    .skills-list li:before {
+      content: ">";
+      position: absolute;
+      left: 0;
+      color: #00ff00;
+    }
+
+    /* Contact Section Styles */
+    .contact-section {
+      background-color: #0d0d0d;
+      padding: 3rem 2rem;
+      text-align: center;
+    }
+
+    .contact-section h2 {
+      font-size: 2rem;
+      color: #00ff00;
+      margin-bottom: 2rem;
+    }
+
+    .contact-form {
+      max-width: 500px;
+      margin: 0 auto;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+      display: block;
+      width: 100%;
+      padding: 0.75rem 1rem;
+      margin-bottom: 1.5rem;
+      background-color: #1a1a1a;
+      border: none;
+      border-radius: 4px;
+      color: #c0c0c0;
+      font-family: 'Courier New', monospace;
+      font-size: 1rem;
+      transition: background-color 0.3s ease;
+    }
+
+    .contact-form input:focus,
+    .contact-form textarea:focus {
+      background-color: #262626;
+      outline: none;
+    }
+
+    .contact-form button {
+      display: block;
+      width: 100%;
+      padding: 0.75rem 1rem;
+      background-color: #00ff00;
+      border: none;
+      border-radius: 4px;
+      color: #0d0d0d;
+      font-family: 'Courier New', monospace;
+      font-size: 1rem;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .contact-form button:hover {
+      background-color: #00cc00;
+    }
+
+    /* Media Queries */
+    @media (max-width: 768px) {
+      .navbar {
+        padding: 1rem;
+      }
+
+      .project-showcase,
+      .about-skills,
+      .contact-section {
+        padding: 2rem 1rem;
+      }
+
+      .about-skills {
+        flex-direction: column;
+      }
+
+      .about-section,
+      .skills-section {
+        flex: auto;
+        padding: 0;
+        border-left: none;
+      }
+
+      .skills-section {
+        margin-top: 2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav class="navbar">
+      <a href="#" class="navbar-brand">Hacking Portfolio</a>
+      <ul class="navbar-nav">
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Projects</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <!-- Project Showcase Section -->
+    <section class="project-showcase">
+      <h2>Project Showcase</h2>
+      <div class="project-grid">
+        <div class="project-card">
+          <img src="https://dummyimage.com/600x400/000/fff&text=Project+1" alt="Project 1">
+          <div class="project-details">
+            <h3>Project 1</h3>
+            <p>A hacking-themed design project with glitch effects and neon accents.</p>
+          </div>
+        </div>
+        <div class="project-card">
+          <img src="https://dummyimage.com/600x400/000/fff&text=Project+2" alt="Project 2">
+          <div class="project-details">
+            <h3>Project 2</h3>
+            <p>A cyberpunk-inspired design with interactive UI elements.</p>
+          </div>
+        </div>
+        <div class="project-card">
+          <img src="https://dummyimage.com/600x400/000/fff&text=Project+3" alt="Project 3">
+          <div class="project-details">
+            <h3>Project 3</h3>
+            <p>A data visualization dashboard with a dark, hacking-themed aesthetic.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- About/Skills Section -->
+    <section class="about-skills">
+      <div class="about-section">
+        <h2>About the Designer</h2>
+        <p>Hi there! I'm a graphic designer with a passion for hacking-inspired designs. I love creating visually striking and interactive experiences that blend dark color palettes, glitch effects, and neon accents. My work is focused on pushing the boundaries of traditional design and creating unique, immersive portfolios that captivate the audience.</p>
+      </div>
+      <div class="skills-section">
+        <h2>Skills</h2>
+        <ul class="skills-list">
+          <li>UI/UX Design</li>
+          <li>Graphic Design</li>
+          <li>Illustration</li>
+          <li>Motion Graphics</li>
+          <li>Branding</li>
+          <li>Responsive Web Design</li>
+          <li>Photoshop</li>
+          <li>Illustrator</li>
+          <li>After Effects</li>
+          <li>Figma</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact-section">
+      <h2>Get in Touch</h2>
+      <form class="contact-form">
+        <input type="text" placeholder="Name" required>
+        <input type="email" placeholder="Email" required>
+        <textarea placeholder="Message" rows="5" required></textarea>
+        <button type="submit">Send</button>
+      </form>
+    </section>
+  </main>
+</body>
+</html>'<!-- Visit: https://github.com/Ishanoshada/portflair -->
+<!-- Visit: https://github.com/Ishanoshada/portflair -->

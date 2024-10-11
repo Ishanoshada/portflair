@@ -1,0 +1,578 @@
+<!-- Portfolio created by Ishan -->
+<!-- Check out my work at: https://github.com/Ishanoshada/portflair -->
+<!-- 2024/10/9 -->
+<!-- Portfolio created by Ishan -->
+<!-- Portfolio created by Ishan -->
+'<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cosmic Code Chronicles | Backend Dev & Sci-Fi Writer</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Orbitron:wght@400;700&display=swap');
+
+        :root {
+            --space-blue: #0a192f;
+            --neon-cyan: #64ffda;
+            --neon-purple: #b794f4;
+            --star-white: #e6f1ff;
+            --meteor-orange: #ffa500;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Space Mono', monospace;
+            background: var(--space-blue);
+            color: var(--star-white);
+            overflow-x: hidden;
+        }
+
+        .cosmic-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        nav {
+            background: rgba(10, 25, 47, 0.8);
+            backdrop-filter: blur(10px);
+            padding: 20px 0;
+            position: relative;
+            z-index: 1000;
+        }
+
+        .nav-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 24px;
+            color: var(--neon-cyan);
+            text-decoration: none;
+            letter-spacing: 2px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            color: var(--star-white);
+            text-decoration: none;
+            font-size: 16px;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--neon-cyan);
+        }
+
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .starfield {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: -1;
+        }
+
+        .star {
+            position: absolute;
+            background: var(--star-white);
+            border-radius: 50%;
+            animation: twinkle 5s infinite;
+        }
+
+        @keyframes twinkle {
+            0%, 100% { opacity: 0; }
+            50% { opacity: 1; }
+        }
+
+        .hero-content {
+            text-align: center;
+            z-index: 1;
+        }
+
+        h1 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 4rem;
+            margin-bottom: 20px;
+            color: var(--neon-cyan);
+            text-shadow: 0 0 10px var(--neon-cyan);
+        }
+
+        .tagline {
+            font-size: 1.5rem;
+            margin-bottom: 40px;
+            color: var(--neon-purple);
+        }
+
+        .cta-button {
+            background: transparent;
+            border: 2px solid var(--neon-cyan);
+            color: var(--neon-cyan);
+            padding: 15px 30px;
+            font-size: 1rem;
+            font-family: 'Space Mono', monospace;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(
+                120deg,
+                transparent,
+                rgba(100, 255, 218, 0.4),
+                transparent
+            );
+            transition: all 0.4s;
+        }
+
+        .cta-button:hover::before {
+            left: 100%;
+        }
+
+        .cta-button:hover {
+            background: rgba(100, 255, 218, 0.1);
+            box-shadow: 0 0 20px var(--neon-cyan);
+        }
+
+        .galaxy-showcase {
+            padding: 100px 0;
+            position: relative;
+        }
+
+        .galaxy {
+            position: relative;
+            width: 100%;
+            height: 600px;
+            perspective: 1000px;
+        }
+
+        .orbit {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            transform-style: preserve-3d;
+        }
+
+        .project {
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background-size: cover;
+            background-position: center;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .project:hover {
+            transform: scale(1.2);
+            box-shadow: 0 0 20px var(--neon-purple);
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(10, 25, 47, 0.9);
+        }
+
+        .modal-content {
+            background: rgba(16, 32, 58, 0.95);
+            margin: 10% auto;
+            padding: 40px;
+            border: 1px solid var(--neon-cyan);
+            width: 60%;
+            max-width: 700px;
+            border-radius: 10px;
+            box-shadow: 0 0 30px var(--neon-cyan);
+        }
+
+        .close {
+            color: var(--neon-cyan);
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .terminal {
+            background: rgba(0, 0, 0, 0.8);
+            border-radius: 10px;
+            padding: 20px;
+            font-family: 'Space Mono', monospace;
+            color: var(--neon-cyan);
+            margin-top: 50px;
+            box-shadow: 0 0 20px rgba(100, 255, 218, 0.3);
+            overflow: hidden;
+        }
+
+        .terminal-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+
+        .terminal-title {
+            font-size: 1.2rem;
+            font-weight: bold;
+        }
+
+        .terminal-controls span {
+            display: inline-block;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            margin-left: 8px;
+        }
+
+        .control-close { background-color: #ff5f56; }
+        .control-minimize { background-color: #ffbd2e; }
+        .control-maximize { background-color: #27c93f; }
+
+        .terminal-body {
+            height: 300px;
+            overflow-y: auto;
+        }
+
+        .command-line {
+            display: flex;
+            margin-bottom: 10px;
+        }
+
+        .prompt {
+            color: var(--meteor-orange);
+            margin-right: 10px;
+        }
+
+        .command-input {
+            background: transparent;
+            border: none;
+            color: var(--neon-cyan);
+            font-family: 'Space Mono', monospace;
+            font-size: 1rem;
+            width: 100%;
+            outline: none;
+        }
+
+        .bookshelf {
+            margin-top: 100px;
+            perspective: 1000px;
+        }
+
+        .shelf {
+            transform-style: preserve-3d;
+            transform: rotateY(-20deg);
+            transition: transform 0.5s ease;
+        }
+
+        .book {
+            width: 50px;
+            height: 200px;
+            position: absolute;
+            transform-style: preserve-3d;
+            transition: transform 0.3s ease;
+            cursor: pointer;
+        }
+
+        .book-spine {
+            position: absolute;
+            width: 50px;
+            height: 200px;
+            background: linear-gradient(45deg, #2c3e50, #34495e);
+            transform: rotateY(0deg) translateZ(25px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            writing-mode: vertical-rl;
+            text-orientation: mixed;
+            color: var(--star-white);
+            font-family: 'Orbitron', sans-serif;
+            padding: 10px;
+            box-shadow: -5px 0 10px rgba(0, 0, 0, 0.5);
+        }
+
+        .book:hover {
+            transform: rotateY(-30deg) translateZ(50px);
+        }
+
+        @media (max-width: 768px) {
+            h1 { font-size: 2.5rem; }
+            .tagline { font-size: 1rem; }
+            .galaxy { height: 400px; }
+            .modal-content { width: 90%; }
+            .book { width: 30px; height: 150px; }
+            .book-spine { width: 30px; height: 150px; font-size: 0.8rem; }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="cosmic-container nav-content">
+            <a href="#" class="logo">CosmiCode</a>
+            <div class="nav-links">
+                <a href="#galaxy">Projects</a>
+                <a href="#terminal">Terminal</a>
+                <a href="#library">Stories</a>
+                <a href="#contact">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="hero">
+        <div class="starfield" id="starfield"></div>
+        <div class="hero-content">
+            <h1>Cosmic Code Chronicles</h1>
+            <p class="tagline">Where Backend Magic Meets Sci-Fi Imagination</p>
+            <button class="cta-button">Explore My Universe</button>
+        </div>
+    </div>
+
+    <div class="galaxy-showcase" id="galaxy">
+        <div class="cosmic-container">
+            <div class="galaxy" id="galaxy-projects"></div>
+        </div>
+    </div>
+
+    <div id="projectModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2 id="modalTitle"></h2>
+            <p id="modalDescription"></p>
+            <img id="modalImage" src="" alt="Project Image" style="max-width:100%; height:auto; margin-top:20px;">
+        </div>
+    </div>
+
+    <div class="cosmic-container">
+        <div class="terminal" id="terminal">
+            <div class="terminal-header">
+                <div class="terminal-title">CosmiCode Terminal</div>
+                <div class="terminal-controls">
+                    <span class="control-close"></span>
+                    <span class="control-minimize"></span>
+                    <span class="control-maximize"></span>
+                </div>
+            </div>
+            <div class="terminal-body" id="terminalBody">
+                <div class="command-line">
+                    <span class="prompt">guest@cosmicode:~$</span>
+                    <input type="text" class="command-input" id="commandInput" autofocus>
+                </div>
+            </div>
+        </div>
+
+        <div class="bookshelf" id="library">
+            <div class="shelf" id="bookshelf"></div>
+        </div>
+    </div>
+
+    <script>
+        // Starfield Animation
+        const starfield = document.getElementById('starfield');
+        for (let i = 0; i < 200; i++) {
+            const star = document.createElement('div');
+            star.className = 'star';
+            star.style.width = `${Math.random() * 3}px`;
+            star.style.height = star.style.width;
+            star.style.left = `${Math.random() * 100}%`;
+            star.style.top = `${Math.random() * 100}%`;
+            star.style.animationDelay = `${Math.random() * 5}s`;
+            starfield.appendChild(star);
+        }
+
+        // Galaxy Project Showcase
+        const galaxy = document.getElementById('galaxy-projects');
+        const projects = [
+            { name: "Quantum Database", description: "A database system that leverages quantum entanglement for instant data retrieval across galaxies.", image: "https://dummyimage.com/600x400/000/fff&text=Quantum+Database" },
+            { name: "Neural Net Novelist", description: "AI-powered storytelling engine that creates immersive sci-fi narratives.", image: "https://dummyimage.com/600x400/000/fff&text=Neural+Net+Novelist" },
+            { name: "Interstellar API", description: "RESTful API for managing intergalactic communications and resource sharing.", image: "https://dummyimage.com/600x400/000/fff&text=Interstellar+API" },
+            { name: "Time Warp Debugger", description: "Debugging tool that allows developers to step through code execution across different timelines.", image: "https://dummyimage.com/600x400/000/fff&text=Time+Warp+Debugger" },
+        ];
+
+        projects.forEach((project, index) => {
+            const orbit = document.createElement('div');
+            orbit.className = 'orbit';
+            orbit.style.width = `${300 + index * 100}px`;
+            orbit.style.height = `${300 + index * 100}px`;
+            orbit.style.animation = `rotate 20s linear infinite`;
+
+            const projectEl = document.createElement('div');
+            projectEl.className = 'project';
+            projectEl.style.backgroundImage = `url(${project.image})`;
+            projectEl.style.left = '50%';
+            projectEl.style.top = '0';
+            projectEl.style.transform = `translateX(-50%) rotate(${index * (360 / projects.length)}deg) translateY(-${150 + index * 50}px) rotate(-${index * (360 / projects.length)}deg)`;
+            
+            projectEl.addEventListener('click', () => showProjectDetails(project));
+
+            orbit.appendChild(projectEl);
+            galaxy.appendChild(orbit);
+        });
+
+        // Project Modal
+        const modal = document.getElementById('projectModal');
+        const closeBtn = document.getElementsByClassName('close')[0];
+        const modalTitle = document.getElementById('modalTitle');
+        const modalDescription = document.getElementById('modalDescription');
+        const modalImage = document.getElementById('modalImage');
+
+        function showProjectDetails(project) {
+            modalTitle.textContent = project.name;
+            modalDescription.textContent = project.description;
+            modalImage.src = project.image;
+            modal.style.display = 'block';
+        }
+
+        closeBtn.onclick = () => modal.style.display = 'none';
+        window.onclick = (event) => {
+            if (event.target == modal) modal.style.display = 'none';
+        }
+
+        // Terminal Functionality
+        const terminalBody = document.getElementById('terminalBody');
+        const commandInput = document.getElementById('commandInput');
+
+        commandInput.addEventListener('keydown', function(e) {
+            if (e.key === 'Enter') {
+                const command = this.value.trim().toLowerCase();
+                const response = executeCommand(command);
+                displayTerminalOutput(command, response);
+                this.value = '';
+            }
+        });
+
+        function executeCommand(command) {
+            switch(command) {
+                case 'help':
+                    return "Available commands: help, about, skills, projects, story";
+                case 'about':
+                    return "I'm a backend developer with a passion for science fiction writing.";
+                case 'skills':
+                    return "Python, Node.js, SQL, MongoDB, AWS, Docker, Kubernetes";
+                case 'projects':
+                    return "1. Quantum Database\n2. Neural Net Novelist\n3. Interstellar API\n4. Time Warp Debugger";
+                case 'story':
+                    return generateMicroStory();
+                default:
+                    return `Command not found: ${command}. Type 'help' for available commands.`;
+            }
+        }
+
+        function displayTerminalOutput(command, output) {
+            const outputDiv = document.createElement('div');
+            outputDiv.innerHTML = `<span class="prompt">guest@cosmicode:~$</span> ${command}<br>${output}`;
+            terminalBody.insertBefore(outputDiv, commandInput.parentNode);
+            terminalBody.scrollTop = terminalBody.scrollHeight;
+        }
+
+        function generateMicroStory() {
+            const characters = ['AI', 'Astronaut', 'Alien', 'Time Traveler'];
+            const settings = ['Abandoned Space Station', 'Quantum Realm', 'Dyson Sphere', 'Parallel Universe'];
+            const conflicts = ['Rogue Black Hole', 'Sentient Virus', 'Temporal Paradox', 'Interdimensional Invasion'];
+            
+            const character = characters[Math.floor(Math.random() * characters.length)];
+            const setting = settings[Math.floor(Math.random() * settings.length)];
+            const conflict = conflicts[Math.floor(Math.random() * conflicts.length)];
+            
+            return `In a ${setting}, a lone ${character} faces a ${conflict}. The fate of reality hangs in the balance...`;
+        }
+
+        // Bookshelf
+        const bookshelf = document.getElementById('bookshelf');
+        const books = [
+            "Nebula's Edge",
+            "Quantum Whispers",
+            "Chrono Convergence",
+            "Stellar Shadows",
+            "Binary Dreamscapes"
+        ];
+
+        books.forEach((title, index) => {
+            const book = document.createElement('div');
+            book.className = 'book';
+            book.style.transform = `translateX(${index * 60}px) translateZ(${-Math.abs(index - 2) * 20}px)`;
+            
+            const spine = document.createElement('div');
+            spine.className = 'book-spine';
+            spine.textContent = title;
+            
+            book.appendChild(spine);
+            bookshelf.appendChild(book);
+        });
+
+        // Bookshelf Rotation
+        let isDragging = false;
+        let startPosition;
+        let currentRotation = -20;
+
+        bookshelf.addEventListener('mousedown', startDrag);
+        document.addEventListener('mousemove', drag);
+        document.addEventListener('mouseup', endDrag);
+
+        function startDrag(e) {
+            isDragging = true;
+            startPosition = e.clientX;
+        }
+
+        function drag(e) {
+            if (!isDragging) return;
+            const deltaX = e.clientX - startPosition;
+            const newRotation = currentRotation + deltaX * 0.5;
+            bookshelf.style.transform = `rotateY(${newRotation}deg)`;
+        }
+
+        function endDrag(e) {
+            if (!isDragging) return;
+            isDragging = false;
+            currentRotation += (e.clientX - startPosition) * 0.5;
+        }
+
+        // Smooth Scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>'<!-- Visit: https://github.com/Ishanoshada/portflair -->
+<!-- Visit: https://github.com/Ishanoshada/portflair -->
+<!-- Visit: https://github.com/Ishanoshada/portflair -->

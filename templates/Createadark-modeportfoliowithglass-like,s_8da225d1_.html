@@ -1,0 +1,564 @@
+<!-- Portfolio created by Ishan -->
+<!-- Check out my work at: https://github.com/Ishanoshada/portflair -->
+<!-- 2024/10/9 -->
+<!-- Portfolio created by Ishan -->
+'<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dark-Mode Portfolio</title>
+    <style>
+        /* Global Styles */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Montserrat', sans-serif;
+            background-color: #1a1a1a;
+            color: #f0f0f0;
+            overflow-x: hidden;
+        }
+
+        /* Navigation */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 2rem;
+            background-color: rgba(26, 26, 26, 0.8);
+            backdrop-filter: blur(10px);
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+        }
+
+        nav .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        nav ul {
+            display: flex;
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav ul li {
+            margin-left: 2rem;
+        }
+
+        nav ul li a {
+            color: #f0f0f0;
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: color 0.3s ease-in-out;
+        }
+
+        nav ul li a:hover {
+            color: #bdbdbd;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(ellipse at center, rgba(26, 26, 26, 0.8) 0%, rgba(26, 26, 26, 1) 100%);
+            z-index: -1;
+        }
+
+        .hero-card {
+            width: 60%;
+            height: 500px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            box-shadow: 0 0 50px rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(20px);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-card::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, #ff6b6b, #ffa500, #ffff00, #00ff00, #00ffff, #0000ff, #ff00ff);
+            background-size: 200% 200%;
+            animation: gradient 10s ease infinite;
+            z-index: -1;
+            opacity: 0.5;
+        }
+
+        @keyframes gradient {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        .hero-card .carousel {
+            width: 90%;
+            height: 90%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        .hero-card .carousel img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.7;
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .hero-card .carousel img:hover {
+            transform: scale(1.1);
+            opacity: 1;
+        }
+
+        .hero-content {
+            text-align: center;
+            z-index: 1;
+        }
+
+        .hero-content h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            text-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+        }
+
+        .hero-content p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+        }
+
+        /* About Section */
+        .about {
+            padding: 6rem 2rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .about-card {
+            width: 80%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            box-shadow: 0 0 50px rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(20px);
+            overflow: hidden;
+        }
+
+        .about-card .about-image {
+            width: 40%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .about-card .about-image::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, #ff6b6b, #ffa500, #ffff00, #00ff00, #00ffff, #0000ff, #ff00ff);
+            background-size: 200% 200%;
+            animation: gradient 10s ease infinite;
+            z-index: -1;
+            opacity: 0.5;
+        }
+
+        .about-card .about-image img {
+            width: 80%;
+            height: 80%;
+            object-fit: cover;
+            border-radius: 50%;
+            opacity: 0.8;
+            transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
+        }
+
+        .about-card .about-image img:hover {
+            transform: scale(1.1);
+            opacity: 1;
+        }
+
+        .about-card .about-content {
+            width: 60%;
+            padding: 3rem;
+            position: relative;
+        }
+
+        .about-card .about-content::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, #ff6b6b, #ffa500, #ffff00, #00ff00, #00ffff, #0000ff, #ff00ff);
+            background-size: 200% 200%;
+            animation: gradient 10s ease infinite;
+            z-index: -1;
+            opacity: 0.2;
+        }
+
+        .about-card .about-content h2 {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            text-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+        }
+
+        .about-card .about-content p {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            margin-bottom: 2rem;
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+        }
+
+        .about-card .about-content a {
+            display: inline-block;
+            padding: 0.8rem 1.5rem;
+            background-color: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 5px;
+            color: #f0f0f0;
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+        }
+
+        .about-card .about-content a:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+            color: #bdbdbd;
+        }
+
+        /* Project Section */
+        .projects {
+            padding: 6rem 2rem;
+        }
+
+        .projects h2 {
+            font-size: 2rem;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 3rem;
+            text-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+        }
+
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-gap: 2rem;
+        }
+
+        .project-card {
+            width: 100%;
+            height: 400px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            box-shadow: 0 0 50px rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(20px);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+        }
+
+        .project-card::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, #ff6b6b, #ffa500, #ffff00, #00ff00, #00ffff, #0000ff, #ff00ff);
+            background-size: 200% 200%;
+            animation: gradient 10s ease infinite;
+            z-index: -1;
+            opacity: 0.5;
+        }
+
+        .project-card .project-image {
+            width: 90%;
+            height: 70%;
+            background-size: cover;
+            background-position: center;
+            border-radius: 10px;
+            opacity: 0.8;
+            transition: opacity 0.3s ease-in-out;
+        }
+
+        .project-card:hover .project-image {
+            opacity: 1;
+        }
+
+        .project-card .project-info {
+            width: 90%;
+            text-align: center;
+            margin-top: 1rem;
+            position: relative;
+        }
+
+        .project-card .project-info::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, #ff6b6b, #ffa500, #ffff00, #00ff00, #00ffff, #0000ff, #ff00ff);
+            background-size: 200% 200%;
+            animation: gradient 10s ease infinite;
+            z-index: -1;
+            opacity: 0.2;
+        }
+
+        .project-card .project-info h3 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+        }
+
+        .project-card .project-info p {
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+            text-shadow: 0 0 5px rgba(255, 255, 255, 0.3);
+        }
+
+        .project-card .project-info a {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            background-color: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 5px;
+            color: #f0f0f0;
+            text-decoration: none;
+            font-size: 0.8rem;
+            font-weight: 500;
+            transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+        }
+
+        .project-card .project-info a:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+            color: #bdbdbd;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 1024px) {
+            .hero-card {
+                width: 80%;
+                height: 400px;
+            }
+
+            .about-card {
+                width: 90%;
+            }
+
+            .project-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            nav {
+                padding: 1rem;
+            }
+
+            nav .logo {
+                font-size: 1.2rem;
+            }
+
+            nav ul li {
+                margin-left: 1.5rem;
+            }
+
+            nav ul li a {
+                font-size: 0.8rem;
+            }
+
+            .hero-card {
+                width: 90%;
+                height: 350px;
+            }
+
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero-content p {
+                font-size: 1rem;
+            }
+
+            .about {
+                padding: 4rem 1rem;
+            }
+
+            .about-card {
+                flex-direction: column;
+            }
+
+            .about-card .about-image {
+                width: 100%;
+                height: 300px;
+            }
+
+            .about-card .about-content {
+                width: 100%;
+                padding: 2rem;
+            }
+
+            .projects {
+                padding: 4rem 1rem;
+            }
+
+            .project-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .project-card {
+                height: 350px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="logo">Dark Mode Portfolio</div>
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Projects</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+    </nav>
+
+    <section class="hero">
+        <div class="hero-card">
+            <div class="carousel">
+                <img src="https://dummyimage.com/1200x500/ccc/000&text=Project+1" alt="Project 1">
+                <img src="https://dummyimage.com/1200x500/ccc/000&text=Project+2" alt="Project 2">
+                <img src="https://dummyimage.com/1200x500/ccc/000&text=Project+3" alt="Project 3">
+            </div>
+        </div>
+        <div class="hero-content">
+            <h1>Welcome to My Dark-Mode Portfolio</h1>
+            <p>Discover my design work with captivating glass-like elements and vibrant gradients.</p>
+        </div>
+    </section><section class="about">
+        <div class="about-card">
+            <div class="about-image">
+                <img src="https://dummyimage.com/400x400/ccc/000&text=Designer" alt="Designer">
+            </div>
+            <div class="about-content">
+                <h2>About Me</h2>
+                <p>I am a passionate designer who specializes in creating visually stunning and interactive portfolios. My work is characterized by the use of dark-mode aesthetics, glass-like semi-transparent elements, and captivating gradients that evoke a sense of depth and sophistication.</p>
+                <a href="#">Learn More</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="projects">
+        <h2>My Recent Projects</h2>
+        <div class="project-grid">
+            <div class="project-card">
+                <div class="project-image" style="background-image: url('https://dummyimage.com/600x400/ccc/000&text=Project+1')"></div>
+                <div class="project-info">
+                    <h3>Project 1</h3>
+                    <p>Client: ABC Company</p>
+                    <a href="#">View Case Study</a>
+                </div>
+            </div>
+            <div class="project-card">
+                <div class="project-image" style="background-image: url('https://dummyimage.com/600x400/ccc/000&text=Project+2')"></div>
+                <div class="project-info">
+                    <h3>Project 2</h3>
+                    <p>Client: XYZ Inc.</p>
+                    <a href="#">View Case Study</a>
+                </div>
+            </div>
+            <div class="project-card">
+                <div class="project-image" style="background-image: url('https://dummyimage.com/600x400/ccc/000&text=Project+3')"></div>
+                <div class="project-info">
+                    <h3>Project 3</h3>
+                    <p>Client: PQR Design</p>
+                    <a href="#">View Case Study</a>
+                </div>
+            </div>
+            <div class="project-card">
+                <div class="project-image" style="background-image: url('https://dummyimage.com/600x400/ccc/000&text=Project+4')"></div>
+                <div class="project-info">
+                    <h3>Project 4</h3>
+                    <p>Client: LMN Studio</p>
+                    <a href="#">View Case Study</a>
+                </div>
+            </div>
+            <div class="project-card">
+                <div class="project-image" style="background-image: url('https://dummyimage.com/600x400/ccc/000&text=Project+5')"></div>
+                <div class="project-info">
+                    <h3>Project 5</h3>
+                    <p>Client: STU Agency</p>
+                    <a href="#">View Case Study</a>
+                </div>
+            </div>
+            <div class="project-card">
+                <div class="project-image" style="background-image: url('https://dummyimage.com/600x400/ccc/000&text=Project+6')"></div>
+                <div class="project-info">
+                    <h3>Project 6</h3>
+                    <p>Client: VWX Design</p>
+                    <a href="#">View Case Study</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+</body>
+</html>'<!-- Visit: https://github.com/Ishanoshada/portflair -->
+<!-- Visit: https://github.com/Ishanoshada/portflair -->

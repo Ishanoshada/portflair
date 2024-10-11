@@ -1,0 +1,456 @@
+<!-- Portfolio created by Ishan -->
+<!-- Check out my work at: https://github.com/Ishanoshada/portflair -->
+<!-- 2024/10/9 -->
+<!-- Portfolio created by Ishan -->
+'<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Space-Themed Developer Portfolio</title>
+  <style>
+    /* Global Styles */
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Roboto', sans-serif;
+      background-color: #000; /* Deep space black */
+      color: #fff;
+      overflow-x: hidden;
+    }
+
+    /* Navigation */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.5rem 2rem;
+      background-color: rgba(0, 0, 0, 0.7);
+      backdrop-filter: blur(10px);
+    }
+
+    nav a {
+      color: #b3b3b3;
+      text-decoration: none;
+      font-size: 1.1rem;
+      transition: color 0.3s ease;
+    }
+
+    nav a:hover {
+      color: #fff;
+    }
+
+    /* Interactive Code Snippet Showcase */
+    #code-showcase {
+      padding: 4rem 2rem;
+      background: linear-gradient(to bottom, #000, #1a1a1a);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .code-snippet {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      grid-gap: 2rem;
+    }
+
+    .constellation {
+      background: radial-gradient(circle, #4b4bff, #9048ff);
+      border-radius: 50%;
+      width: 100px;
+      height: 100px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+      box-shadow: 0 0 20px rgba(75, 75, 255, 0.5);
+      animation: pulse 2s infinite;
+    }
+
+    .constellation:before {
+      content: "";
+      position: absolute;
+      width: 100px;
+      height: 100px;
+      background: radial-gradient(circle, #4b4bff, transparent 80%);
+      border-radius: 50%;
+      animation: constellation-glow 2s infinite;
+    }
+
+    @keyframes pulse {
+      0% {
+        transform: scale(1);
+      }
+      50% {
+        transform: scale(1.1);
+      }
+      100% {
+        transform: scale(1);
+      }
+    }
+
+    @keyframes constellation-glow {
+      0% {
+        opacity: 0.5;
+      }
+      50% {
+        opacity: 1;
+      }
+      100% {
+        opacity: 0.5;
+      }
+    }
+
+    .code-content {
+      background-color: rgba(0, 0, 0, 0.7);
+      backdrop-filter: blur(10px);
+      padding: 2rem;
+      border-radius: 10px;
+      box-shadow: 0 0 20px rgba(75, 75, 255, 0.5);
+      display: none;
+    }
+
+    .code-content pre {
+      background-color: #1a1a1a;
+      padding: 1.5rem;
+      border-radius: 5px;
+      overflow-x: auto;
+      font-family: 'Fira Code', monospace;
+      font-size: 0.9rem;
+      color: #b3b3b3;
+    }
+
+    .code-content p {
+      color: #b3b3b3;
+      font-size: 0.9rem;
+      margin-top: 1rem;
+    }
+
+    /* Project Showcase */
+    #project-showcase {
+      padding: 4rem 2rem;
+      background: linear-gradient(to bottom, #1a1a1a, #000);
+    }
+
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      grid-gap: 2rem;
+    }
+
+    .project-card {
+      background-color: rgba(0, 0, 0, 0.7);
+      backdrop-filter: blur(10px);
+      padding: 2rem;
+      border-radius: 10px;
+      box-shadow: 0 0 20px rgba(75, 75, 255, 0.5);
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .project-card:before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(circle, #4b4bff, #9048ff);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .project-card:hover:before {
+      opacity: 0.3;
+    }
+
+    .project-card h3 {
+      margin-top: 0;
+      font-size: 1.2rem;
+      color: #fff;
+    }
+
+    .project-card p {
+      color: #b3b3b3;
+      font-size: 0.9rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .project-card a {
+      color: #b3b3b3;
+      text-decoration: none;
+      font-size: 0.9rem;
+      transition: color 0.3s ease;
+    }
+
+    .project-card a:hover {
+      color: #fff;
+    }
+
+    /* About and Contact */
+    #about-contact {
+      padding: 4rem 2rem;
+      background: linear-gradient(to bottom, #000, #1a1a1a);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .profile-container {
+      display: flex;
+      align-items: center;
+      max-width: 800px;
+      width: 100%;
+    }
+
+    .profile-image {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      background-image: url('https://dummyimage.com/150x150/ccc/000&text=Profile');
+      background-size: cover;
+      background-position: center;
+      box-shadow: 0 0 20px rgba(75, 75, 255, 0.5);
+      position: relative;
+      z-index: 1;
+    }
+
+    .profile-image:before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      background: radial-gradient(circle, #4b4bff, #9048ff);
+      opacity: 0.5;
+      z-index: -1;
+      animation: glow 2s infinite;
+    }
+
+    @keyframes glow {
+      0% {
+        transform: scale(1);
+        opacity: 0.5;
+      }
+      50% {
+        transform: scale(1.1);
+        opacity: 1;
+      }
+      100% {
+        transform: scale(1);
+        opacity: 0.5;
+      }
+    }
+
+    .profile-info {
+      flex-grow: 1;
+      margin-left: 2rem;
+    }
+
+    .profile-info h2 {
+      margin-top: 0;
+      font-size: 1.5rem;
+      color: #fff;
+    }
+
+    .profile-info p {
+      color: #b3b3b3;
+      font-size: 0.9rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .skill-icons {
+      display: flex;
+      flex-wrap: wrap;
+      margin-bottom: 1.5rem;
+    }
+
+    .skill-icons i {
+      font-size: 2rem;
+      color: #b3b3b3;
+      margin-right: 1rem;
+      transition: color 0.3s ease;
+    }
+
+    .skill-icons i:hover {
+      color: #fff;
+    }
+
+    .contact-form {
+      background-color: rgba(0, 0, 0, 0.7);
+      backdrop-filter: blur(10px);
+      padding: 2rem;
+      border-radius: 10px;
+      box-shadow: 0 0 20px rgba(75, 75, 255, 0.5);
+      width: 100%;
+      max-width: 400px;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+      width: 100%;
+      padding: 0.8rem 1rem;
+      margin-bottom: 1rem;
+      border: none;
+      border-radius: 5px;
+      background-color: #1a1a1a;
+      color: #b3b3b3;
+      font-size: 0.9rem;
+      font-family: 'Roboto', sans-serif;
+    }
+
+    .contact-form button {
+      background-color: #4b4bff;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      padding: 0.8rem 1.5rem;
+      font-size: 0.9rem;
+      font-family: 'Roboto', sans-serif;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .contact-form button:hover {
+      background-color: #9048ff;
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="#">Home</a>
+    <a href="#">Code Snippets</a>
+    <a href="#">Projects</a>
+    <a href="#">About</a>
+    <a href="#">Contact</a>
+  </nav>
+
+  <section id="code-showcase">
+    <h2 style="text-align: center; font-size: 2rem; margin-bottom: 3rem; color: #fff;">Interactive Code Snippet Showcase</h2>
+    <div class="code-snippet">
+      <div class="constellation">
+        <i class="fas fa-code" style="font-size: 2rem; color: #fff;"></i>
+      </div>
+      <div class="code-content">
+        <pre><code>function helloWorld() {
+  console.log('Hello, World!');
+}</code></pre>
+        <p>A simple JavaScript function that logs 'Hello, World!' to the console.</p>
+      </div>
+      <div class="constellation">
+        <i class="fas fa-code" style="font-size: 2rem; color: #fff;"></i>
+      </div>
+      <div class="code-content">
+        <pre><code>const fetchData = async () => {
+  try {
+    const response = await fetch('/api/data');
+    const data = await response.json();
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}</code></pre>
+        <p>An asynchronous function that fetches data from an API and logs the response to the console.</p>
+      </div>
+      <div class="constellation">
+        <i class="fas fa-code" style="font-size: 2rem; color: #fff;"></i>
+      </div>
+      <div class="code-content">
+        <pre><code>class Person {
+  constructor(name, age) {
+    this.name = name;
+    this.age = age;
+  }
+
+  greet() {
+    console.log(`Hello, my name is ${this.name} and I'm ${this.age} years old.`);
+  }
+}</code></pre>
+        <p>A simple JavaScript class that represents a person with a name and age, and a method to greet the user.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="project-showcase">
+    <h2 style="text-align: center; font-size: 2rem; margin-bottom: 3rem; color: #fff;">Project Showcase</h2>
+    <div class="project-grid">
+      <div class="project-card">
+        <h3>Project 1</h3>
+        <p>A brief description of the first project, including its purpose, technologies used, and key features.</p>
+        <a href="#">View Project</a>
+      </div>
+      <div class="project-card">
+        <h3>Project 2</h3>
+        <p>A brief description of the second project, including its purpose, technologies used, and key features.</p>
+        <a href="#">View Project</a>
+      </div>
+      <div class="project-card">
+        <h3>Project 3</h3>
+        <p>A brief description of the third project, including its purpose, technologies used, and key features.</p>
+        <a href="#">View Project</a>
+      </div>
+      <div class="project-card">
+        <h3>Project 4</h3>
+        <p>A brief description of the fourth project, including its purpose, technologies used, and key features.</p>
+        <a href="#">View Project</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="about-contact">
+    <div class="profile-container">
+      <div class="profile-image"></div>
+      <div class="profile-info">
+        <h2>John Doe</h2>
+        <p>A passionate space-themed developer with a love for creating interactive and visually stunning web applications.</p>
+        <div class="skill-icons">
+          <i class="fab fa-html5"></i>
+          <i class="fab fa-css3-alt"></i>
+          <i class="fab fa-js-square"></i>
+          <i class="fab fa-react"></i>
+          <i class="fab fa-node-js"></i>
+        </div>
+        <h3 style="margin-top: 0; font-size: 1.2rem; color: #fff;">Get in Touch</h3>
+        <div class="contact-form">
+          <input type="text" placeholder="Name" />
+          <input type="email" placeholder="Email" />
+          <textarea placeholder="Message"></textarea>
+          <button type="submit">Send</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script src="https://kit.fontawesome.com/your-font-awesome-kit.js" crossorigin="anonymous"></script>
+  <script>
+    const constellations = document.querySelectorAll('.constellation');
+    const codeContents = document.querySelectorAll('.code-content');
+
+    constellations.forEach((constellation, index) => {
+      constellation.addEventListener('click', () => {
+        codeContents[index].style.display = 'block';
+      });
+
+      constellation.addEventListener('mouseleave', () => {
+        codeContents[index].style.display = 'none';
+      });
+    });
+
+    const projectCards = document.querySelectorAll('.project-card');
+
+    projectCards.forEach((card) => {
+      card.addEventListener('mouseover', () => {
+        card.style.transform = 'scale(1.05)';
+      });
+
+      card.addEventListener('mouseleave', () => {
+        card.style.transform = 'scale(1)';
+      });
+    });
+  </script>
+</body>
+</html>'<!-- Visit: https://github.com/Ishanoshada/portflair -->
+<!-- Visit: https://github.com/Ishanoshada/portflair -->

@@ -1,0 +1,392 @@
+<!-- Portfolio created by Ishan -->
+<!-- Check out my work at: https://github.com/Ishanoshada/portflair -->
+<!-- 2024/10/9 -->
+<!-- Portfolio created by Ishan -->
+'<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Space-Themed Developer Portfolio</title>
+  <style>
+    /* Global Styles */
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Montserrat', sans-serif;
+      background-color: #000;
+      color: #fff;
+      overflow-x: hidden;
+    }
+
+    /* Navigation */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 40px;
+      background-color: rgba(0, 0, 0, 0.7);
+      backdrop-filter: blur(10px);
+      position: fixed;
+      width: 100%;
+      z-index: 100;
+    }
+
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      font-size: 18px;
+      font-weight: 500;
+      margin: 0 20px;
+      transition: color 0.3s ease;
+    }
+
+    nav a:hover {
+      color: #9b59b6;
+    }
+
+    /* Hero Section */
+    .hero {
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(to bottom, #1e1e1e, #000);
+      overflow: hidden;
+    }
+
+    .hero-bg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url(https://dummyimage.com/1920x1080/1e1e1e/9b59b6.jpg) no-repeat center center;
+      background-size: cover;
+      z-index: -1;
+      animation: starfield 60s linear infinite;
+    }
+
+    .hero h1 {
+      font-size: 6rem;
+      font-weight: 700;
+      text-align: center;
+      text-shadow: 0 0 20px #9b59b6;
+      animation: pulsate 2s ease-in-out infinite;
+    }
+
+    .hero p {
+      font-size: 2rem;
+      text-align: center;
+      margin-top: 20px;
+      text-shadow: 0 0 10px #9b59b6;
+    }
+
+    .constellation {
+      position: absolute;
+      width: 100px;
+      height: 100px;
+      background: url(https://dummyimage.com/100x100/9b59b6/fff.png) no-repeat center center;
+      background-size: contain;
+      animation: twinkle 5s ease-in-out infinite;
+    }
+
+    /* Code Snippet Gallery */
+    .code-gallery {
+      padding: 100px 40px;
+      background: linear-gradient(to bottom, #000, #1e1e1e);
+    }
+
+    .code-gallery h2 {
+      font-size: 3rem;
+      font-weight: 700;
+      text-align: center;
+      margin-bottom: 50px;
+      text-shadow: 0 0 20px #9b59b6;
+    }
+
+    .code-card {
+      background-color: rgba(0, 0, 0, 0.7);
+      backdrop-filter: blur(10px);
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 0 20px rgba(155, 89, 182, 0.5);
+      margin-bottom: 40px;
+      transition: transform 0.3s ease;
+    }
+
+    .code-card:hover {
+      transform: scale(1.05);
+    }
+
+    .code-card pre {
+      background-color: #1e1e1e;
+      padding: 20px;
+      border-radius: 5px;
+      font-family: 'Fira Code', monospace;
+      font-size: 16px;
+      color: #fff;
+      overflow-x: auto;
+    }
+
+    .code-card p {
+      font-size: 18px;
+      margin-top: 20px;
+    }
+
+    /* About Me/Contact Section */
+    .about-contact {
+      padding: 100px 40px;
+      background: linear-gradient(to bottom, #1e1e1e, #000);
+    }
+
+    .about-contact h2 {
+      font-size: 3rem;
+      font-weight: 700;
+      text-align: center;
+      margin-bottom: 50px;
+      text-shadow: 0 0 20px #9b59b6;
+    }
+
+    .about-contact .container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .about-contact .profile-image {
+      width: 300px;
+      height: 300px;
+      border-radius: 50%;
+      background: url(https://dummyimage.com/300x300/9b59b6/fff.png) no-repeat center center;
+      background-size: cover;
+      box-shadow: 0 0 20px rgba(155, 89, 182, 0.5);
+    }
+
+    .about-contact .about-text {
+      flex: 1;
+      margin-left: 50px;
+    }
+
+    .about-contact .about-text h3 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 20px;
+      text-shadow: 0 0 10px #9b59b6;
+    }
+
+    .about-contact .about-text p {
+      font-size: 18px;
+      line-height: 1.6;
+    }
+
+    .about-contact .contact {
+      margin-top: 50px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .about-contact .contact h3 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 20px;
+      text-shadow: 0 0 10px #9b59b6;
+    }
+
+    .about-contact .contact a {
+      color: #fff;
+      text-decoration: none;
+      font-size: 18px;
+      margin: 10px 0;
+      transition: color 0.3s ease;
+    }
+
+    .about-contact .contact a:hover {
+      color: #9b59b6;
+    }
+
+    /* Animations */
+    @keyframes starfield {
+      0% {
+        background-position: 0 0;
+      }
+      100% {
+        background-position: -1920px -1080px;
+      }
+    }
+
+    @keyframes pulsate {
+      0% {
+        transform: scale(1);
+      }
+      50% {
+        transform: scale(1.05);
+      }
+      100% {
+        transform: scale(1);
+      }
+    }
+
+    @keyframes twinkle {
+      0% {
+        opacity: 0.5;
+      }
+      50% {
+        opacity: 1;
+      }
+      100% {
+        opacity: 0.5;
+      }
+    }
+
+    /* Responsive Styles */
+    @media (max-width: 768px) {
+      nav {
+        padding: 15px 20px;
+      }
+
+      nav a {
+        font-size: 16px;
+        margin: 0 10px;
+      }
+
+      .hero h1 {
+        font-size: 4rem;
+      }
+
+      .hero p {
+        font-size: 1.5rem;
+      }
+
+      .code-gallery,
+      .about-contact {
+        padding: 80px 20px;
+      }
+
+      .code-gallery h2,
+      .about-contact h2 {
+        font-size: 2.5rem;
+      }
+
+      .code-card {
+        padding: 20px;
+      }
+
+      .code-card pre {
+        font-size: 14px;
+      }
+
+      .code-card p {
+        font-size: 16px;
+      }
+
+      .about-contact .container {
+        flex-direction: column;
+      }
+
+      .about-contact .profile-image {
+        width: 200px;
+        height: 200px;
+      }
+
+      .about-contact .about-text {
+        margin-left: 0;
+        margin-top: 30px;
+      }
+
+      .about-contact .about-text h3,
+      .about-contact .contact h3 {
+        font-size: 2rem;
+      }
+
+      .about-contact .about-text p {
+        font-size: 16px;
+      }
+
+      .about-contact .contact a {
+        font-size: 16px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="#">Home</a>
+    <a href="#code-gallery">Code Snippets</a>
+    <a href="#about-contact">About & Contact</a>
+  </nav>
+
+  <div class="hero">
+    <div class="hero-bg"></div>
+    <h1>John Doe</h1>
+    <p>Space-Themed Developer Portfolio</p>
+    <div class="constellation"></div>
+    <div class="constellation" style="left: 20%; top: 30%;"></div>
+    <div class="constellation" style="right: 20%; bottom: 30%;"></div>
+  </div>
+
+  <div class="code-gallery" id="code-gallery">
+    <h2>Interactive Code Snippets</h2>
+    <div class="code-card">
+      <pre><code>
+const handleClick = () => {
+  console.log('Button clicked!');
+};
+      </code></pre>
+      <p>Interactive JavaScript code snippet</p>
+    </div>
+    <div class="code-card">
+      <pre><code>
+.space-theme {
+  background-color: #1e1e1e;
+  color: #fff;
+  font-family: 'Montserrat', sans-serif;
+}
+      </code></pre>
+      <p>CSS code snippet for space-themed design</p>
+    </div>
+    <div class="code-card">
+      <pre><code>
+import React from 'react';
+
+const SpaceComponent = () => {
+  return (
+    <div className="space-theme">
+      <h2>Welcome to the Space!</h2>
+      <p>This is a React component for the space-themed website.</p>
+    </div>
+  );
+};
+
+export default SpaceComponent;
+      </code></pre>
+      <p>React component for space-themed design</p>
+    </div>
+  </div>
+
+  <div class="about-contact" id="about-contact">
+    <h2>About Me & Contact</h2>
+    <div class="container">
+      <div class="profile-image"></div>
+      <div class="about-text">
+        <h3>John Doe</h3>
+        <p>
+          I'm a space-themed developer with a passion for creating
+          visually stunning and interactive websites. I specialize in
+          using the latest web technologies to bring ideas to life,
+          pushing the boundaries of what's possible on the web.
+        </p>
+      </div>
+    </div>
+    <div class="contact">
+      <h3>Get in Touch</h3>
+      <a href="mailto:john@example.com">john@example.com</a>
+      <a href="https://linkedin.com/in/johndoe">LinkedIn</a>
+      <a href="https://github.com/johndoe">GitHub</a>
+    </div>
+  </div>
+</body>
+</html>'<!-- Visit: https://github.com/Ishanoshada/portflair -->
+<!-- Visit: https://github.com/Ishanoshada/portflair -->

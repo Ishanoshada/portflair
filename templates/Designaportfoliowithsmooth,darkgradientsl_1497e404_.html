@@ -1,0 +1,342 @@
+<!-- Portfolio created by Ishan -->
+<!-- Check out my work at: https://github.com/Ishanoshada/portflair -->
+<!-- 2024/10/9 -->
+<!-- Portfolio created by Ishan -->
+'<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Design a Portfolio</title>
+  <style>
+    /* Global Styles */
+    body {
+      margin: 0;
+      font-family: 'Montserrat', sans-serif;
+      background: linear-gradient(to bottom, #4B0082, #000000);
+      color: #fff;
+      overflow-x: hidden;
+    }
+
+    /* Navigation */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.5rem 2rem;
+      background-color: rgba(0, 0, 0, 0.5);
+      backdrop-filter: blur(10px);
+    }
+
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      font-size: 1.1rem;
+      transition: color 0.3s ease;
+    }
+
+    nav a:hover {
+      color: #c0c0c0;
+    }
+
+    /* Hero Section */
+    .hero {
+      height: 80vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(to bottom, #4B0082, #000000);
+      opacity: 0.8;
+      z-index: -1;
+    }
+
+    .hero-content {
+      text-align: center;
+      max-width: 800px;
+      padding: 0 2rem;
+    }
+
+    .hero-title {
+      font-size: 4rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      text-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+    }
+
+    .hero-subtitle {
+      font-size: 1.8rem;
+      font-weight: 400;
+      margin-bottom: 2rem;
+      text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+    }
+
+    .hero-button {
+      display: inline-block;
+      background-color: #7B68EE;
+      color: #fff;
+      padding: 1rem 2rem;
+      border-radius: 30px;
+      font-size: 1.2rem;
+      text-decoration: none;
+      box-shadow: 0 0 20px rgba(123, 104, 238, 0.5);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .hero-button:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 0 30px rgba(123, 104, 238, 0.7);
+    }
+
+    /* Featured Projects Section */
+    .featured-projects {
+      padding: 4rem 2rem;
+    }
+
+    .featured-projects-title {
+      font-size: 2.5rem;
+      font-weight: 700;
+      text-align: center;
+      margin-bottom: 3rem;
+      text-shadow: 0 0 15px rgba(255, 255, 255, 0.4);
+    }
+
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      grid-gap: 3rem;
+    }
+
+    .project-card {
+      background-color: rgba(0, 0, 0, 0.5);
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .project-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 0 40px rgba(0, 0, 0, 0.7);
+    }
+
+    .project-image {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      transition: filter 0.3s ease;
+    }
+
+    .project-card:hover .project-image {
+      filter: blur(2px);
+    }
+
+    .project-details {
+      padding: 1.5rem;
+      text-align: center;
+    }
+
+    .project-title {
+      font-size: 1.5rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+      text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+    }
+
+    .project-description {
+      font-size: 1rem;
+      color: #c0c0c0;
+      margin-bottom: 1rem;
+      text-shadow: 0 0 8px rgba(192, 192, 192, 0.3);
+    }
+
+    .project-tags {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-top: 1rem;
+    }
+
+    .project-tag {
+      background-color: #7B68EE;
+      color: #fff;
+      padding: 0.5rem 1rem;
+      border-radius: 20px;
+      font-size: 0.9rem;
+      margin: 0.3rem;
+      box-shadow: 0 0 10px rgba(123, 104, 238, 0.5);
+    }
+
+    /* About the Designer Section */
+    .about-designer {
+      padding: 4rem 2rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .designer-profile {
+      display: flex;
+      align-items: center;
+      margin-bottom: 3rem;
+    }
+
+    .designer-image {
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      object-fit: cover;
+      box-shadow: 0 0 30px rgba(255, 255, 255, 0.5);
+      margin-right: 2rem;
+    }
+
+    .designer-info {
+      text-align: left;
+    }
+
+    .designer-name {
+      font-size: 2rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      text-shadow: 0 0 15px rgba(255, 255, 255, 0.4);
+    }
+
+    .designer-bio {
+      font-size: 1.2rem;
+      line-height: 1.6;
+      color: #c0c0c0;
+      text-shadow: 0 0 10px rgba(192, 192, 192, 0.3);
+    }
+
+    .designer-links {
+      display: flex;
+      justify-content: center;
+      margin-top: 2rem;
+    }
+
+    .designer-link {
+      display: inline-block;
+      color: #7B68EE;
+      font-size: 1.5rem;
+      margin: 0 1rem;
+      transition: color 0.3s ease;
+    }
+
+    .designer-link:hover {
+      color: #c0c0c0;
+    }
+
+    /* Responsive Styles */
+    @media (max-width: 768px) {
+      .hero-title {
+        font-size: 3rem;
+      }
+
+      .hero-subtitle {
+        font-size: 1.4rem;
+      }
+
+      .featured-projects-title {
+        font-size: 2rem;
+      }
+
+      .designer-image {
+        width: 150px;
+        height: 150px;
+      }
+
+      .designer-name {
+        font-size: 1.8rem;
+      }
+
+      .designer-bio {
+        font-size: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="#">Home</a>
+    <a href="#">Portfolio</a>
+    <a href="#">About</a>
+    <a href="#">Contact</a>
+  </nav>
+
+  <section class="hero">
+    <div class="hero-content">
+      <h1 class="hero-title">Design a Portfolio</h1>
+      <p class="hero-subtitle">Crafting stunning portfolios with smooth, dark gradients and dreamy effects.</p>
+      <a href="#" class="hero-button">Explore Our Work</a>
+    </div>
+  </section>
+
+  <section class="featured-projects">
+    <h2 class="featured-projects-title">Featured Projects</h2>
+    <div class="project-grid">
+      <div class="project-card">
+        <img src="https://dummyimage.com/400x300/7B68EE/ffffff&text=Project+1" alt="Project 1" class="project-image">
+        <div class="project-details">
+          <h3 class="project-title">Project 1</h3>
+          <p class="project-description">A sleek and modern website design with a dark gradient and glowing edges.</p>
+          <div class="project-tags">
+            <span class="project-tag">Web Design</span>
+            <span class="project-tag">Branding</span>
+            <span class="project-tag">UI/UX</span>
+          </div>
+        </div>
+      </div>
+      <div class="project-card">
+        <img src="https://dummyimage.com/400x300/8A2BE2/ffffff&text=Project+2" alt="Project 2" class="project-image">
+        <div class="project-details">
+          <h3 class="project-title">Project 2</h3>
+          <p class="project-description">A captivating portfolio showcasing the designer's creative work.</p>
+          <div class="project-tags">
+            <span class="project-tag">Photography</span>
+            <span class="project-tag">Illustration</span>
+          </div>
+        </div>
+      </div>
+      <div class="project-card">
+        <img src="https://dummyimage.com/400x300/6A5ACD/ffffff&text=Project+3" alt="Project 3" class="project-image">
+        <div class="project-details">
+          <h3 class="project-title">Project 3</h3>
+          <p class="project-description">A responsive and visually stunning mobile app design with a dark theme.</p>
+          <div class="project-tags">
+            <span class="project-tag">App Design</span>
+            <span class="project-tag">UI/UX</span>
+            <span class="project-tag">Mobile</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="about-designer">
+    <div class="designer-profile">
+      <img src="https://dummyimage.com/200x200/7B68EE/ffffff&text=Designer" alt="Designer" class="designer-image">
+      <div class="designer-info">
+        <h2 class="designer-name">John Doe</h2>
+        <p class="designer-bio">John Doe is a passionate and award-winning designer, specializing in creating stunning portfolios with smooth, dark gradients and dreamy effects. With years of experience in the industry, he has honed his skills to deliver visually captivating designs that leave a lasting impression.</p>
+      </div>
+    </div>
+    <div class="designer-links">
+      <a href="#" class="designer-link"><i class="fab fa-twitter"></i></a>
+      <a href="#" class="designer-link"><i class="fab fa-linkedin"></i></a>
+      <a href="#" class="designer-link"><i class="fab fa-instagram"></i></a>
+    </div>
+  </section>
+</body>
+</html>'<!-- Visit: https://github.com/Ishanoshada/portflair -->
+<!-- Visit: https://github.com/Ishanoshada/portflair -->

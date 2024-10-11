@@ -1,0 +1,467 @@
+<!-- Portfolio created by Ishan -->
+<!-- Check out my work at: https://github.com/Ishanoshada/portflair -->
+<!-- 2024/10/9 -->
+<!-- Portfolio created by Ishan -->
+'<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hack Your Way into Graphic Design</title>
+    <style>
+        /* Global Styles */
+        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
+
+        body {
+            font-family: 'Orbitron', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #0d0d0d;
+            color: #ffffff;
+            overflow-x: hidden;
+        }
+
+        /* Navigation */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 40px;
+            background-color: #1a1a1a;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .navbar-brand {
+            font-size: 24px;
+            font-weight: 700;
+            color: #00ffff;
+            text-decoration: none;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            transition: color 0.3s ease;
+        }
+
+        .navbar-brand:hover {
+            color: #ff00ff;
+        }
+
+        .navbar-nav {
+            display: flex;
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .navbar-nav li {
+            margin-left: 20px;
+        }
+
+        .navbar-nav li a {
+            color: #ffffff;
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: 400;
+            transition: color 0.3s ease;
+        }
+
+        .navbar-nav li a:hover {
+            color: #00ffff;
+        }
+
+        /* Hero Section */
+        .hero {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 80vh;
+            background-image: url('https://dummyimage.com/1920x1080/0d0d0d/00ffff&text=Hacking+Graphic+Design');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(13, 13, 13, 0.7);
+            z-index: 1;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+        }
+
+        .hero-title {
+            font-size: 48px;
+            font-weight: 700;
+            color: #00ffff;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            text-shadow: 0 0 20px rgba(0, 255, 255, 0.5);
+            animation: glitch 1s infinite;
+        }
+
+        .hero-subtitle {
+            font-size: 24px;
+            font-weight: 400;
+            color: #ff00ff;
+            margin-top: 20px;
+            text-shadow: 0 0 10px rgba(255, 0, 255, 0.5);
+            animation: neon-glow 2s infinite;
+        }
+
+        .hero-button {
+            display: inline-block;
+            background-color: #00ffff;
+            color: #0d0d0d;
+            font-size: 16px;
+            font-weight: 700;
+            padding: 12px 32px;
+            border-radius: 30px;
+            text-decoration: none;
+            margin-top: 40px;
+            box-shadow: 0 0 20px rgba(0, 255, 255, 0.5);
+            transition: background-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .hero-button:hover {
+            background-color: #ff00ff;
+            box-shadow: 0 0 20px rgba(255, 0, 255, 0.5);
+        }
+
+        /* Project Showcase */
+        .project-showcase {
+            padding: 80px 40px;
+            background-color: #1a1a1a;
+        }
+
+        .project-showcase h2 {
+            font-size: 36px;
+            font-weight: 700;
+            color: #00ffff;
+            text-align: center;
+            margin-bottom: 40px;
+            text-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+        }
+
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-gap: 40px;
+        }
+
+        .project-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+            cursor: pointer;
+        }
+
+        .project-item img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .project-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .project-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 255, 255, 0.2);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .project-item:hover .project-overlay {
+            opacity: 1;
+        }
+
+        .project-overlay h3 {
+            font-size: 24px;
+            font-weight: 700;
+            color: #ffffff;
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+            margin-bottom: 10px;
+        }
+
+        .project-overlay p {
+            font-size: 16px;
+            color: #ffffff;
+            text-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+        }
+
+        /* Terminal-Style Contact Section */
+        .terminal-contact {
+            padding: 80px 40px;
+            background-color: #0d0d0d;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .terminal-contact::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('https://dummyimage.com/1920x1080/0d0d0d/00ffff&text=Terminal');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            opacity: 0.1;
+            z-index: 1;
+        }
+
+        .terminal-contact h2 {
+            font-size: 36px;
+            font-weight: 700;
+            color: #00ffff;
+            text-align: center;
+            margin-bottom: 40px;
+            text-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+            position: relative;
+            z-index: 2;
+        }
+
+        .terminal-form {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: #1a1a1a;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+            position: relative;
+            z-index: 2;
+        }
+
+        .terminal-form .form-group {
+            margin-bottom: 20px;
+        }
+
+        .terminal-form label {
+            display: block;
+            font-size: 16px;
+            font-weight: 400;
+            color: #00ffff;
+            margin-bottom: 5px;
+        }
+
+        .terminal-form input,
+        .terminal-form textarea {
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            font-family: 'Orbitron', sans-serif;
+            background-color: #0d0d0d;
+            color: #ffffff;
+            border: none;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 255, 255, 0.2);
+        }
+
+        .terminal-form textarea {
+            resize: vertical;
+        }
+
+        .terminal-form button {
+            display: block;
+            width: 100%;
+            padding: 12px;
+            font-size: 16px;
+            font-weight: 700;
+            font-family: 'Orbitron', sans-serif;
+            background-color: #00ffff;
+            color: #0d0d0d;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            box-shadow: 0 0 20px rgba(0, 255, 255, 0.5);
+            transition: background-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .terminal-form button:hover {
+            background-color: #ff00ff;
+            box-shadow: 0 0 20px rgba(255, 0, 255, 0.5);
+        }
+
+        /* Animations */
+        @keyframes glitch {
+            0% {
+                text-shadow: 0 0 20px rgba(0, 255, 255, 0.5);
+            }
+            50% {
+                text-shadow: 0 0 20px rgba(255, 0, 255, 0.5);
+            }
+            100% {
+                text-shadow: 0 0 20px rgba(0, 255, 255, 0.5);
+            }
+        }
+
+        @keyframes neon-glow {
+            0% {
+                text-shadow: 0 0 10px rgba(255, 0, 255, 0.5);
+            }
+            50% {
+                text-shadow: 0 0 20px rgba(255, 0, 255, 0.5);
+            }
+            100% {
+                text-shadow: 0 0 10px rgba(255, 0, 255, 0.5);
+            }
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .navbar {
+                padding: 10px 20px;
+            }
+
+            .navbar-brand {
+                font-size: 20px;
+            }
+
+            .navbar-nav li {
+                margin-left: 10px;
+            }
+
+            .navbar-nav li a {
+                font-size: 14px;
+            }
+
+            .hero {
+                height: 60vh;
+            }
+
+            .hero-title {
+                font-size: 36px;
+            }
+
+            .hero-subtitle {
+                font-size: 18px;
+            }
+
+            .hero-button {
+                font-size: 14px;
+                padding: 10px 24px;
+            }
+
+            .project-showcase {
+                padding: 60px 20px;
+            }
+
+            .project-grid {
+                grid-template-columns: repeat(2, 1fr);
+                grid-gap: 20px;
+            }
+
+            .project-item img {
+                height: 200px;
+            }
+
+            .terminal-contact {
+                padding: 60px 20px;
+            }
+
+            .terminal-form {
+                padding: 30px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <a href="#" class="navbar-brand">Hack Design</a>
+            <ul class="navbar-nav">
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Portfolio</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-content">
+                <h1 class="hero-title">Hack Your Way into Graphic Design Excellence</h1>
+                <p class="hero-subtitle">Explore the portfolio of a hacking-inspired graphic designer.</p>
+                <a href="#" class="hero-button">View Portfolio</a>
+            </div>
+        </section>
+
+        <!-- Project Showcase -->
+        <section class="project-showcase">
+            <h2>Featured Projects</h2>
+            <div class="project-grid">
+                <div class="project-item">
+                    <img src="https://dummyimage.com/600x400/1a1a1a/00ffff&text=Project+1" alt="Project 1">
+                    <div class="project-overlay">
+                        <h3>Project 1</h3>
+                        <p>Hacking-inspired graphic design</p>
+                    </div>
+                </div>
+                <div class="project-item">
+                    <img src="https://dummyimage.com/600x400/1a1a1a/ff00ff&text=Project+2" alt="Project 2">
+                    <div class="project-overlay">
+                        <h3>Project 2</h3>
+                        <p>Glitch effects and neon accents</p>
+                    </div>
+                </div>
+                <div class="project-item">
+                    <img src="https://dummyimage.com/600x400/1a1a1a/00ffff&text=Project+3" alt="Project 3">
+                    <div class="project-overlay">
+                        <h3>Project 3</h3>
+                        <p>Animated graphics and interactive design</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Terminal-Style Contact Section -->
+        <section class="terminal-contact">
+            <h2>Get in Touch</h2>
+            <div class="terminal-form">
+                <form>
+                    <div class="form-group">
+                        <label for="name">Name:</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email:</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message:</label>
+                        <textarea id="message" name="message" required></textarea>
+                    </div>
+                    <button type="submit">Send Message</button>
+                </form>
+            </div>
+        </section>
+    </main>
+</body>
+</html>'<!-- Visit: https://github.com/Ishanoshada/portflair -->
+<!-- Visit: https://github.com/Ishanoshada/portflair -->

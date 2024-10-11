@@ -1,0 +1,376 @@
+<!-- Portfolio created by Ishan -->
+<!-- Check out my work at: https://github.com/Ishanoshada/portflair -->
+<!-- 2024/10/9 -->
+<!-- Portfolio created by Ishan -->
+'<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Black Hole Portfolio</title>
+  <style>
+    /* Reset styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    /* Global styles */
+    body {
+      font-family: 'Electrolize', sans-serif;
+      background-color: #0f0f0f;
+      color: #fff;
+      overflow-x: hidden;
+    }
+
+    /* Navigation */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 40px;
+      background-color: rgba(15, 15, 15, 0.8);
+      backdrop-filter: blur(10px);
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+    }
+
+    nav ul {
+      display: flex;
+      list-style-type: none;
+    }
+
+    nav li {
+      margin-left: 30px;
+    }
+
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      font-size: 16px;
+      font-weight: 500;
+      position: relative;
+      transition: color 0.3s ease;
+    }
+
+    nav a:before {
+      content: "";
+      position: absolute;
+      width: 0;
+      height: 2px;
+      bottom: -5px;
+      left: 0;
+      background-color: #6b5aed;
+      transition: width 0.3s ease;
+    }
+
+    nav a:hover {
+      color: #6b5aed;
+    }
+
+    nav a:hover:before {
+      width: 100%;
+    }
+
+    /* Hero Section */
+    .hero {
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-bg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(ellipse at center, #0f0f0f 0%, #000000 100%);
+      z-index: -1;
+      animation: blackHoleExpand 10s ease-in-out infinite;
+    }
+
+    .hero-content {
+      text-align: center;
+      z-index: 1;
+      opacity: 0;
+      animation: heroFadeIn 1s ease-in-out forwards;
+      animation-delay: 0.5s;
+    }
+
+    .hero-content h1 {
+      font-size: 5rem;
+      font-weight: 700;
+      color: #fff;
+      text-shadow: 0 0 20px #6b5aed, 0 0 40px #6b5aed, 0 0 80px #6b5aed;
+      animation: heroTextGlow 2s ease-in-out infinite;
+    }
+
+    .hero-content p {
+      font-size: 1.8rem;
+      margin-top: 20px;
+      color: #ccc;
+      text-shadow: 0 0 10px #6b5aed;
+    }
+
+    /* Project Showcase */
+    .project-showcase {
+      padding: 100px 40px;
+      background: radial-gradient(ellipse at center, #151515 0%, #0f0f0f 100%);
+    }
+
+    .project-showcase h2 {
+      font-size: 3rem;
+      text-align: center;
+      margin-bottom: 50px;
+      color: #fff;
+      text-shadow: 0 0 20px #6b5aed, 0 0 40px #6b5aed, 0 0 80px #6b5aed;
+      animation: heroTextGlow 2s ease-in-out infinite;
+    }
+
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      grid-gap: 40px;
+    }
+
+    .project-item {
+      background-color: #191919;
+      border-radius: 10px;
+      box-shadow: 0 0 20px rgba(107, 90, 237, 0.3);
+      overflow: hidden;
+      position: relative;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+
+    .project-item:hover {
+      transform: scale(1.05);
+    }
+
+    .project-item img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      filter: grayscale(1) brightness(0.7);
+      transition: filter 0.3s ease;
+    }
+
+    .project-item:hover img {
+      filter: grayscale(0) brightness(1);
+    }
+
+    .project-item-details {
+      padding: 20px;
+    }
+
+    .project-item-details h3 {
+      font-size: 1.8rem;
+      margin-bottom: 10px;
+      color: #fff;
+      text-shadow: 0 0 10px #6b5aed;
+    }
+
+    .project-item-details p {
+      font-size: 1.4rem;
+      color: #ccc;
+    }
+
+    /* Contact Form */
+    .contact-section {
+      padding: 100px 40px;
+      background: radial-gradient(ellipse at center, #151515 0%, #0f0f0f 100%);
+    }
+
+    .contact-section h2 {
+      font-size: 3rem;
+      text-align: center;
+      margin-bottom: 50px;
+      color: #fff;
+      text-shadow: 0 0 20px #6b5aed, 0 0 40px #6b5aed, 0 0 80px #6b5aed;
+      animation: heroTextGlow 2s ease-in-out infinite;
+    }
+
+    .contact-form {
+      max-width: 600px;
+      margin: 0 auto;
+      background-color: #191919;
+      border-radius: 10px;
+      box-shadow: 0 0 20px rgba(107, 90, 237, 0.3);
+      padding: 40px;
+    }
+
+    .form-group {
+      margin-bottom: 30px;
+    }
+
+    .form-group label {
+      display: block;
+      font-size: 1.6rem;
+      color: #ccc;
+      margin-bottom: 10px;
+    }
+
+    .form-group input,
+    .form-group textarea {
+      width: 100%;
+      padding: 15px 20px;
+      font-size: 1.6rem;
+      background-color: transparent;
+      border: 2px solid #6b5aed;
+      border-radius: 5px;
+      color: #fff;
+      outline: none;
+      transition: border-color 0.3s ease;
+    }
+
+    .form-group input:focus,
+    .form-group textarea:focus {
+      border-color: #9381ff;
+    }
+
+    .form-group textarea {
+      resize: vertical;
+    }
+
+    .form-group button {
+      display: block;
+      width: 100%;
+      padding: 15px 20px;
+      font-size: 1.6rem;
+      background-color: #6b5aed;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .form-group button:hover {
+      background-color: #9381ff;
+    }
+
+    /* Animations */
+    @keyframes blackHoleExpand {
+      0% {
+        transform: scale(1);
+      }
+      50% {
+        transform: scale(1.1);
+      }
+      100% {
+        transform: scale(1);
+      }
+    }
+
+    @keyframes heroFadeIn {
+      0% {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes heroTextGlow {
+      0% {
+        text-shadow: 0 0 20px #6b5aed, 0 0 40px #6b5aed, 0 0 80px #6b5aed;
+      }
+      50% {
+        text-shadow: 0 0 30px #6b5aed, 0 0 50px #6b5aed, 0 0 100px #6b5aed;
+      }
+      100% {
+        text-shadow: 0 0 20px #6b5aed, 0 0 40px #6b5aed, 0 0 80px #6b5aed;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="logo">
+      <a href="#">Black Hole Portfolio</a>
+    </div>
+    <ul>
+      <li><a href="#">Home</a></li>
+      <li><a href="#">Projects</a></li>
+      <li><a href="#">Contact</a></li>
+    </ul>
+  </nav>
+
+  <section class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-content">
+      <h1>Cosmic Chaos</h1>
+      <p>Explore the backend developer's portfolio, where the lines between reality and the unknown blur.</p>
+    </div>
+  </section>
+
+  <section class="project-showcase">
+    <h2>Project Galaxy</h2>
+    <div class="project-grid">
+      <div class="project-item">
+        <img src="https://dummyimage.com/600x400/ccc/000&text=Project+1" alt="Project 1">
+        <div class="project-item-details">
+          <h3>Project 1</h3>
+          <p>Explore the intricacies of this project, where the laws of physics bend to the developer's will.</p>
+        </div>
+      </div>
+      <div class="project-item">
+        <img src="https://dummyimage.com/600x400/ccc/000&text=Project+2" alt="Project 2">
+        <div class="project-item-details">
+          <h3>Project 2</h3>
+          <p>Witness the cosmic dance of code and creativity in this captivating project.</p>
+        </div>
+      </div>
+      <div class="project-item">
+        <img src="https://dummyimage.com/600x400/ccc/000&text=Project+3" alt="Project 3">
+        <div class="project-item-details">
+          <h3>Project 3</h3>
+          <p>Delve into the heart of the black hole, where innovation and technology collide.</p>
+        </div>
+      </div>
+      <div class="project-item">
+        <img src="https://dummyimage.com/600x400/ccc/000&text=Project+4" alt="Project 4">
+        <div class="project-item-details">
+          <h3>Project 4</h3>
+          <p>Discover the secrets hidden within the developer's ever-expanding project galaxy.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact-section">
+    <h2>Connect with the Cosmic Mastermind</h2>
+    <div class="contact-form">
+      <form>
+        <div class="form-group">
+          <label for="name">Name</label>
+          <input type="text" id="name" placeholder="Enter your name" required>
+        </div>
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" id="email" placeholder="Enter your email" required>
+        </div>
+        <div class="form-group">
+          <label for="message">Message</label>
+          <textarea id="message" placeholder="Enter your message" required></textarea>
+        </div>
+        <div class="form-group">
+          <button type="submit">Send Message</button>
+        </div>
+      </form>
+    </div>
+  </section>
+</body>
+</html>'<!-- Visit: https://github.com/Ishanoshada/portflair -->
+<!-- Visit: https://github.com/Ishanoshada/portflair -->

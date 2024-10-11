@@ -1,0 +1,429 @@
+<!-- Portfolio created by Ishan -->
+<!-- Check out my work at: https://github.com/Ishanoshada/portflair -->
+<!-- 2024/10/9 -->
+<!-- Portfolio created by Ishan -->
+'<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Black Hole Portfolio</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
+
+    body {
+      margin: 0;
+      font-family: 'Orbitron', sans-serif;
+      background-color: #0c0c0c;
+      color: #fff;
+      overflow-x: hidden;
+    }
+
+    /* Navbar */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 40px;
+      background-color: rgba(12, 12, 12, 0.8);
+      backdrop-filter: blur(10px);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      font-size: 18px;
+      margin: 0 20px;
+      position: relative;
+      transition: color 0.3s ease-in-out;
+    }
+
+    nav a:after {
+      content: "";
+      position: absolute;
+      width: 0;
+      height: 2px;
+      background-color: #9b59b6;
+      left: 50%;
+      bottom: -5px;
+      transform: translateX(-50%);
+      transition: width 0.3s ease-in-out;
+    }
+
+    nav a:hover {
+      color: #9b59b6;
+    }
+
+    nav a:hover:after {
+      width: 100%;
+    }
+
+    /* Project Galaxies */
+    #project-galaxies {
+      padding: 100px 40px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      grid-gap: 40px;
+    }
+
+    .project-galaxy {
+      background: radial-gradient(circle at 50% 50%, #1b1b1b, #0c0c0c);
+      border-radius: 20px;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+      overflow: hidden;
+      position: relative;
+      cursor: pointer;
+      transition: transform 0.3s ease-in-out;
+    }
+
+    .project-galaxy:hover {
+      transform: scale(1.05);
+    }
+
+    .project-galaxy:before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(to bottom, rgba(27, 27, 27, 0.3), rgba(12, 12, 12, 0.8));
+      z-index: 1;
+    }
+
+    .project-galaxy-content {
+      position: relative;
+      z-index: 2;
+      padding: 40px;
+    }
+
+    .project-galaxy h3 {
+      font-size: 24px;
+      margin-bottom: 10px;
+    }
+
+    .project-galaxy p {
+      font-size: 16px;
+      margin-bottom: 20px;
+    }
+
+    .project-galaxy a {
+      display: inline-block;
+      background-color: #9b59b6;
+      color: #fff;
+      text-decoration: none;
+      padding: 10px 20px;
+      border-radius: 5px;
+      font-size: 16px;
+      transition: background-color 0.3s ease-in-out;
+    }
+
+    .project-galaxy a:hover {
+      background-color: #8e44ad;
+    }
+
+    /* Cosmic Expertise */
+    #cosmic-expertise {
+      padding: 100px 40px;
+      background: radial-gradient(circle at 50% 50%, #1b1b1b, #0c0c0c);
+    }
+
+    .cosmic-entity {
+      display: flex;
+      align-items: center;
+      margin-bottom: 40px;
+    }
+
+    .cosmic-entity-icon {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      background-color: #9b59b6;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-right: 20px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cosmic-entity-icon:before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(circle at 50% 50%, #9b59b6, #8e44ad);
+      animation: pulsate 2s ease-in-out infinite;
+    }
+
+    @keyframes pulsate {
+      0% {
+        transform: scale(1);
+        opacity: 1;
+      }
+      50% {
+        transform: scale(1.2);
+        opacity: 0.5;
+      }
+      100% {
+        transform: scale(1);
+        opacity: 1;
+      }
+    }
+
+    .cosmic-entity-icon i {
+      font-size: 36px;
+      color: #fff;
+      position: relative;
+      z-index: 1;
+    }
+
+    .cosmic-entity-content h4 {
+      font-size: 20px;
+      margin-bottom: 10px;
+    }
+
+    .cosmic-entity-content p {
+      font-size: 16px;
+      color: #ccc;
+    }
+
+    /* Neon Contact Form */
+    #neon-contact {
+      padding: 100px 40px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: #0c0c0c;
+      position: relative;
+      overflow: hidden;
+    }
+
+    #neon-contact:before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(circle at 50% 50%, #1b1b1b, #0c0c0c);
+      z-index: 1;
+    }
+
+    #neon-contact:after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(to right, #9b59b6, #8e44ad);
+      opacity: 0.2;
+      z-index: 2;
+    }
+
+    .neon-contact-form {
+      background-color: rgba(12, 12, 12, 0.8);
+      backdrop-filter: blur(10px);
+      padding: 40px;
+      border-radius: 20px;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+      position: relative;
+      z-index: 3;
+      width: 100%;
+      max-width: 500px;
+    }
+
+    .neon-contact-form h3 {
+      font-size: 24px;
+      margin-bottom: 20px;
+      text-align: center;
+      color: #9b59b6;
+      text-shadow: 0 0 10px #9b59b6, 0 0 20px #9b59b6, 0 0 30px #9b59b6;
+    }
+
+    .neon-contact-form input,
+    .neon-contact-form textarea {
+      display: block;
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 20px;
+      border: none;
+      border-radius: 5px;
+      background-color: #1b1b1b;
+      color: #fff;
+      font-family: 'Orbitron', sans-serif;
+      font-size: 16px;
+      transition: box-shadow 0.3s ease-in-out;
+    }
+
+    .neon-contact-form input:focus,
+    .neon-contact-form textarea:focus {
+      outline: none;
+      box-shadow: 0 0 10px #9b59b6, 0 0 20px #9b59b6, 0 0 30px #9b59b6;
+    }
+
+    .neon-contact-form button {
+      display: block;
+      width: 100%;
+      padding: 10px;
+      border: none;
+      border-radius: 5px;
+      background-color: #9b59b6;
+      color: #fff;
+      font-family: 'Orbitron', sans-serif;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background-color 0.3s ease-in-out;
+    }
+
+    .neon-contact-form button:hover {
+      background-color: #8e44ad;
+    }
+
+    /* Responsive Styles */
+    @media (max-width: 768px) {
+      nav {
+        padding: 10px 20px;
+      }
+
+      nav a {
+        font-size: 16px;
+        margin: 0 10px;
+      }
+
+      #project-galaxies,
+      #cosmic-expertise,
+      #neon-contact {
+        padding: 60px 20px;
+      }
+
+      .project-galaxy-content {
+        padding: 20px;
+      }
+
+      .cosmic-entity {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .cosmic-entity-icon {
+        margin-right: 0;
+        margin-bottom: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="#">Home</a>
+    <a href="#">Projects</a>
+    <a href="#">Expertise</a>
+    <a href="#">Contact</a>
+  </nav>
+
+  <section id="project-galaxies">
+    <div class="project-galaxy">
+      <div class="project-galaxy-content">
+        <h3>Project Galaxy 1</h3>
+        <p>Explore the intricate details of this project, where cosmic visuals and vaporwave glitches collide to create a mesmerizing experience.</p>
+        <a href="#">View Project</a>
+      </div>
+    </div>
+    <div class="project-galaxy">
+      <div class="project-galaxy-content">
+        <h3>Project Galaxy 2</h3>
+        <p>Dive into the depths of this captivating project, where steampunk gears and project galaxies come together in a cosmic dance.</p>
+        <a href="#">View Project</a>
+      </div>
+    </div>
+    <div class="project-galaxy">
+      <div class="project-galaxy-content">
+        <h3>Project Galaxy 3</h3>
+        <p>Uncover the hidden wonders of this project, where the developer's expertise shines through the veil of cosmic mysteries.</p>
+        <a href="#">View Project</a>
+      </div>
+    </div>
+    <div class="project-galaxy">
+      <div class="project-galaxy-content">
+        <h3>Project Galaxy 4</h3>
+        <p>Explore the depths of this captivating project, where the lines between the digital and the analog blur, creating a unique and visually stunning experience.</p>
+        <a href="#">View Project</a>
+      </div>
+    </div>
+    <div class="project-galaxy">
+      <div class="project-galaxy-content">
+        <h3>Project Galaxy 5</h3>
+        <p>Delve into the cosmic realm of this project, where the developer's expertise in backend development shines through the vaporwave-inspired glitches and steampunk elements.</p>
+        <a href="#">View Project</a>
+      </div>
+    </div>
+    <div class="project-galaxy">
+      <div class="project-galaxy-content">
+        <h3>Project Galaxy 6</h3>
+        <p>Witness the fusion of technology and cosmic aesthetics in this project, where the developer's passion for backend development is reflected in the mesmerizing visuals.</p>
+        <a href="#">View Project</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="cosmic-expertise">
+    <div class="cosmic-entity">
+      <div class="cosmic-entity-icon">
+        <i class="fas fa-code"></i>
+      </div>
+      <div class="cosmic-entity-content">
+        <h4>Backend Development</h4>
+        <p>Proficient in creating robust and scalable backend solutions that power the cosmic visuals and vaporwave-inspired interactions of the projects.</p>
+      </div>
+    </div>
+    <div class="cosmic-entity">
+      <div class="cosmic-entity-icon">
+        <i class="fas fa-server"></i>
+      </div>
+      <div class="cosmic-entity-content">
+        <h4>Server Management</h4>
+        <p>Skilled in managing and optimizing server infrastructure to ensure the seamless operation of the cosmic-themed applications and project galaxies.</p>
+      </div>
+    </div>
+    <div class="cosmic-entity">
+      <div class="cosmic-entity-icon">
+        <i class="fas fa-database"></i>
+      </div>
+      <div class="cosmic-entity-content">
+        <h4>Database Administration</h4>
+        <p>Expertly handles the storage and retrieval of data within the cosmic realm, ensuring the integrity and reliability of the project galaxies.</p>
+      </div>
+    </div>
+    <div class="cosmic-entity">
+      <div class="cosmic-entity-icon">
+        <i class="fas fa-cloud"></i>
+      </div>
+      <div class="cosmic-entity-content">
+        <h4>Cloud Deployment</h4>
+        <p>Seamlessly integrates and deploys the cosmic-themed projects to cloud platforms, harnessing the power of the digital cosmos.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="neon-contact">
+    <div class="neon-contact-form">
+      <h3>Connect with the Cosmic Developer</h3>
+      <form action="#" method="post">
+        <input type="text" placeholder="Name" required>
+        <input type="email" placeholder="Email" required>
+        <textarea rows="5" placeholder="Message" required></textarea>
+        <button type="submit">Send Message</button>
+      </form>
+    </div>
+  </section>
+
+  <script src="https://kit.fontawesome.com/your-font-awesome-kit.js" crossorigin="anonymous"></script>
+</body>
+</html>'<!-- Visit: https://github.com/Ishanoshada/portflair -->
+<!-- Visit: https://github.com/Ishanoshada/portflair -->

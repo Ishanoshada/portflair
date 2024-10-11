@@ -1,0 +1,479 @@
+<!-- Portfolio created by Ishan -->
+<!-- Check out my work at: https://github.com/Ishanoshada/portflair -->
+<!-- 2024/10/9 -->
+<!-- Portfolio created by Ishan -->
+'<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cosmic Realm - Backend Developer Portfolio</title>
+  <style>
+    /* Global Styles */
+    @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Orbitron:wght@400;700&display=swap');
+
+    body {
+      font-family: 'Montserrat', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #0d0d0d;
+      color: #ffffff;
+      overflow-x: hidden;
+    }
+
+    /* Navigation */
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 40px;
+      background-color: rgba(13, 13, 13, 0.8);
+      backdrop-filter: blur(10px);
+      position: relative;
+      z-index: 1;
+    }
+
+    .navbar-brand {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 24px;
+      font-weight: 700;
+      color: #28a5ff;
+      text-decoration: none;
+      text-shadow: 0 0 10px #28a5ff, 0 0 20px #28a5ff, 0 0 30px #28a5ff;
+      animation: pulse 2s infinite;
+    }
+
+    .navbar-nav {
+      display: flex;
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .navbar-nav li {
+      margin-left: 20px;
+    }
+
+    .navbar-nav li a {
+      color: #ffffff;
+      text-decoration: none;
+      font-size: 16px;
+      font-weight: 400;
+      position: relative;
+      padding-bottom: 5px;
+    }
+
+    .navbar-nav li a:before {
+      content: "";
+      position: absolute;
+      width: 0;
+      height: 2px;
+      bottom: 0;
+      left: 0;
+      background-color: #28a5ff;
+      visibility: hidden;
+      transition: all 0.3s ease-in-out;
+    }
+
+    .navbar-nav li a:hover:before {
+      visibility: visible;
+      width: 100%;
+    }
+
+    /* Hero Section */
+    .hero {
+      position: relative;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      overflow: hidden;
+    }
+
+    .hero-bg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: url('https://dummyimage.com/1920x1080/0d0d0d/28a5ff.jpg&text=Cosmic+Realm');
+      background-size: cover;
+      background-position: center;
+      filter: blur(5px);
+      z-index: -1;
+    }
+
+    .hero-content {
+      z-index: 1;
+      text-shadow: 0 0 10px #28a5ff, 0 0 20px #28a5ff, 0 0 30px #28a5ff;
+      animation: glitch 0.5s infinite;
+    }
+
+    .hero-title {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 64px;
+      font-weight: 700;
+      margin-bottom: 20px;
+    }
+
+    .hero-subtitle {
+      font-size: 24px;
+      font-weight: 400;
+      margin-bottom: 40px;
+    }
+
+    .hero-button {
+      display: inline-block;
+      background-color: #28a5ff;
+      color: #0d0d0d;
+      font-size: 18px;
+      font-weight: 700;
+      padding: 15px 30px;
+      border-radius: 30px;
+      text-decoration: none;
+      box-shadow: 0 0 20px #28a5ff;
+      transition: transform 0.3s ease-in-out;
+    }
+
+    .hero-button:hover {
+      transform: scale(1.1);
+    }
+
+    /* Project Galaxies */
+    .project-galaxies {
+      padding: 80px 40px;
+      background-color: #0d0d0d;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .project-galaxies-title {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 48px;
+      font-weight: 700;
+      text-align: center;
+      margin-bottom: 40px;
+      text-shadow: 0 0 10px #28a5ff, 0 0 20px #28a5ff, 0 0 30px #28a5ff;
+      animation: pulse 2s infinite;
+    }
+
+    .project-galaxy {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-bottom: 60px;
+      position: relative;
+      perspective: 1000px;
+    }
+
+    .project-galaxy-image {
+      width: 300px;
+      height: 300px;
+      background-image: url('https://dummyimage.com/600x600/28a5ff/fff.jpg&text=Project+Galaxy');
+      background-size: cover;
+      background-position: center;
+      border-radius: 50%;
+      box-shadow: 0 0 20px #28a5ff;
+      transform-style: preserve-3d;
+      transition: transform 0.5s ease-in-out;
+    }
+
+    .project-galaxy:hover .project-galaxy-image {
+      transform: rotateY(20deg) rotateX(10deg);
+    }
+
+    .project-galaxy-info {
+      background-color: rgba(13, 13, 13, 0.8);
+      backdrop-filter: blur(10px);
+      padding: 20px;
+      border-radius: 10px;
+      margin-top: 20px;
+      width: 80%;
+      text-align: center;
+      position: relative;
+      z-index: 1;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+    }
+
+    .project-galaxy:hover .project-galaxy-info {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .project-galaxy-info h3 {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 24px;
+      font-weight: 700;
+      margin-bottom: 10px;
+      color: #28a5ff;
+      text-shadow: 0 0 10px #28a5ff, 0 0 20px #28a5ff, 0 0 30px #28a5ff;
+    }
+
+    .project-galaxy-info p {
+      font-size: 16px;
+      font-weight: 400;
+      margin-bottom: 10px;
+    }
+
+    /* Contact Form */
+    .contact-form {
+      padding: 80px 40px;
+      background-color: #0d0d0d;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .contact-form-title {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 48px;
+      font-weight: 700;
+      text-align: center;
+      margin-bottom: 40px;
+      text-shadow: 0 0 10px #28a5ff, 0 0 20px #28a5ff, 0 0 30px #28a5ff;
+      animation: pulse 2s infinite;
+    }
+
+    .contact-form-container {
+      max-width: 600px;
+      margin: 0 auto;
+      background-color: rgba(13, 13, 13, 0.8);
+      backdrop-filter: blur(10px);
+      border-radius: 10px;
+      padding: 40px;
+      box-shadow: 0 0 20px #28a5ff;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    label {
+      display: block;
+      font-size: 16px;
+      font-weight: 400;
+      margin-bottom: 5px;
+      color: #28a5ff;
+      text-shadow: 0 0 10px #28a5ff, 0 0 20px #28a5ff, 0 0 30px #28a5ff;
+    }
+
+    input,
+    textarea {
+      width: 100%;
+      padding: 10px;
+      font-size: 16px;
+      font-family: 'Montserrat', sans-serif;
+      background-color: rgba(40, 165, 255, 0.1);
+      border: 1px solid #28a5ff;
+      border-radius: 5px;
+      color: #ffffff;
+      transition: border-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    }
+
+    input:focus,
+    textarea:focus {
+      outline: none;
+      border-color: #28a5ff;
+      box-shadow: 0 0 10px #28a5ff;
+    }
+
+    button[type="submit"] {
+      display: block;
+      width: 100%;
+      background-color: #28a5ff;
+      color: #0d0d0d;
+      font-size: 18px;
+      font-weight: 700;
+      padding: 15px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      box-shadow: 0 0 20px #28a5ff;
+      transition: transform 0.3s ease-in-out;
+    }
+
+    button[type="submit"]:hover {
+      transform: scale(1.05);
+    }
+
+    /* Animations */
+    @keyframes pulse {
+      0% {
+        text-shadow: 0 0 10px #28a5ff, 0 0 20px #28a5ff, 0 0 30px #28a5ff;
+      }
+      50% {
+        text-shadow: 0 0 20px #28a5ff, 0 0 40px #28a5ff, 0 0 60px #28a5ff;
+      }
+      100% {
+        text-shadow: 0 0 10px #28a5ff, 0 0 20px #28a5ff, 0 0 30px #28a5ff;
+      }
+    }
+
+    @keyframes glitch {
+      0% {
+        text-shadow: 2px 2px 3px #28a5ff, -2px -2px 3px #28a5ff;
+      }
+      25% {
+        text-shadow: -2px 2px 3px #28a5ff, 2px -2px 3px #28a5ff;
+      }
+      50% {
+        text-shadow: 1px -1px 3px #28a5ff, -1px 1px 3px #28a5ff;
+      }
+      75% {
+        text-shadow: -1px 1px 3px #28a5ff, 1px -1px 3px #28a5ff;
+      }
+      100% {
+        text-shadow: 2px 2px 3px #28a5ff, -2px -2px 3px #28a5ff;
+      }
+    }
+
+    /* Responsive Styles */
+    @media (max-width: 768px) {
+      .navbar {
+        padding: 15px 20px;
+      }
+
+      .navbar-brand {
+        font-size: 20px;
+      }
+
+      .navbar-nav li {
+        margin-left: 15px;
+      }
+
+      .navbar-nav li a {
+        font-size: 14px;
+      }
+
+      .hero-title {
+        font-size: 48px;
+      }
+
+      .hero-subtitle {
+        font-size: 18px;
+      }
+
+      .hero-button {
+        font-size: 16px;
+        padding: 10px 20px;
+      }
+
+      .project-galaxies,
+      .contact-form {
+        padding: 60px 20px;
+      }
+
+      .project-galaxies-title,
+      .contact-form-title {
+        font-size: 36px;
+      }
+
+      .project-galaxy-image {
+        width: 200px;
+        height: 200px;
+      }
+
+      .project-galaxy-info {
+        width: 90%;
+        padding: 15px;
+      }
+
+      .project-galaxy-info h3 {
+        font-size: 20px;
+      }
+
+      .project-galaxy-info p {
+        font-size: 14px;
+      }
+
+      .contact-form-container {
+        padding: 30px;
+      }
+
+      label {
+        font-size: 14px;
+      }
+
+      input,
+      textarea {
+        font-size: 14px;
+      }
+
+      button[type="submit"] {
+        font-size: 16px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav class="navbar">
+    <a href="#" class="navbar-brand">Cosmic Realm</a>
+    <ul class="navbar-nav">
+      <li><a href="#">Home</a></li>
+      <li><a href="#">Projects</a></li>
+      <li><a href="#">About</a></li>
+      <li><a href="#">Contact</a></li>
+    </ul>
+  </nav>
+
+  <section class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-content">
+      <h1 class="hero-title">Navigating the Cosmic Realm</h1>
+      <p class="hero-subtitle">Unleashing the power of the universe in your backend development</p>
+      <a href="#" class="hero-button">Explore Portfolio</a>
+    </div>
+  </section>
+
+  <section class="project-galaxies">
+    <h2 class="project-galaxies-title">Project Galaxies</h2>
+    <div class="project-galaxy">
+      <div class="project-galaxy-image"></div>
+      <div class="project-galaxy-info">
+        <h3>Project Galaxy</h3>
+        <p>Cosmic backend development with vaporwave glitches and steampunk gears</p>
+      </div>
+    </div>
+    <div class="project-galaxy">
+      <div class="project-galaxy-image"></div>
+      <div class="project-galaxy-info">
+        <h3>Project Galaxy</h3>
+        <p>Cosmic backend development with vaporwave glitches and steampunk gears</p>
+      </div>
+    </div>
+    <div class="project-galaxy">
+      <div class="project-galaxy-image"></div>
+      <div class="project-galaxy-info">
+        <h3>Project Galaxy</h3>
+        <p>Cosmic backend development with vaporwave glitches and steampunk gears</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact-form">
+    <h2 class="contact-form-title">Get in Touch</h2>
+    <div class="contact-form-container">
+      <form>
+        <div class="form-group">
+          <label for="name">Name</label>
+          <input type="text" id="name" name="name" placeholder="Enter your name" required>
+        </div>
+        <div class="form-group">
+          <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" placeholder="Enter your email" required>
+        </div>
+        <div class="form-group">
+          <label for="message">Message</label>
+          <textarea id="message" name="message" placeholder="Enter your message" required></textarea>
+        </div>
+        <button type="submit">Send Message</button>
+      </form>
+    </div>
+  </section>
+</body>
+</html>'<!-- Visit: https://github.com/Ishanoshada/portflair -->
+<!-- Visit: https://github.com/Ishanoshada/portflair -->

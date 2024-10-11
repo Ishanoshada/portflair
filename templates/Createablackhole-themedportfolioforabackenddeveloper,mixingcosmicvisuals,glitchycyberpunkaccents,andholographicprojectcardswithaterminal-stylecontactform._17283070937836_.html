@@ -1,0 +1,542 @@
+<!-- Portfolio created by Ishan -->
+<!-- Check out my work at: https://github.com/Ishanoshada/portflair -->
+<!-- 2024/10/9 -->
+<!-- Portfolio created by Ishan -->
+'<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Black Hole Portfolio</title>
+  <style>
+    /* Global Styles */
+    @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
+
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Orbitron', sans-serif;
+      background-color: #0d0d0d;
+      color: #fff;
+      overflow-x: hidden;
+    }
+
+    /* Navigation */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.5rem 2rem;
+      background-color: rgba(13, 13, 13, 0.8);
+      backdrop-filter: blur(10px);
+      position: relative;
+      z-index: 100;
+    }
+
+    nav .logo {
+      font-size: 1.8rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-shadow: 0 0 20px #00c6ff, 0 0 40px #00c6ff, 0 0 80px #00c6ff;
+      animation: glitch 2s infinite;
+    }
+
+    nav ul {
+      display: flex;
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    nav ul li {
+      margin-left: 2rem;
+    }
+
+    nav ul li a {
+      color: #fff;
+      text-decoration: none;
+      font-size: 1.1rem;
+      font-weight: 400;
+      letter-spacing: 1px;
+      transition: color 0.3s ease-in-out;
+    }
+
+    nav ul li a:hover {
+      color: #00c6ff;
+      text-shadow: 0 0 10px #00c6ff, 0 0 20px #00c6ff, 0 0 40px #00c6ff;
+    }
+
+    /* Interactive Cosmic Visualization */
+    .cosmic-visualization {
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cosmic-visualization::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(ellipse at center, rgba(13, 13, 13, 0.8) 0%, rgba(13, 13, 13, 1) 100%);
+      z-index: 1;
+    }
+
+    .cosmic-visualization .background {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url("https://dummyimage.com/1920x1080/000/fff&text=BLACK+HOLE") no-repeat center center;
+      background-size: cover;
+      filter: blur(5px);
+      z-index: 0;
+      animation: cosmic-zoom 60s linear infinite;
+    }
+
+    .cosmic-visualization .project-cards {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      margin-top: 2rem;
+    }
+
+    .cosmic-visualization .project-card {
+      width: 300px;
+      height: 400px;
+      background-color: rgba(255, 255, 255, 0.1);
+      border-radius: 10px;
+      box-shadow: 0 0 20px rgba(0, 198, 255, 0.3);
+      margin: 1rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+      cursor: pointer;
+      transition: transform 0.3s ease-in-out;
+    }
+
+    .cosmic-visualization .project-card:hover {
+      transform: scale(1.05);
+    }
+
+    .cosmic-visualization .project-card::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(45deg, #00c6ff, #0072ff);
+      opacity: 0.2;
+      z-index: 1;
+    }
+
+    .cosmic-visualization .project-card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 10px 10px 0 0;
+    }
+
+    .cosmic-visualization .project-card .details {
+      padding: 1.5rem;
+      text-align: center;
+      position: relative;
+      z-index: 2;
+    }
+
+    .cosmic-visualization .project-card .details h3 {
+      font-size: 1.4rem;
+      margin-bottom: 0.5rem;
+      text-shadow: 0 0 10px #00c6ff, 0 0 20px #00c6ff, 0 0 40px #00c6ff;
+    }
+
+    .cosmic-visualization .project-card .details p {
+      font-size: 1rem;
+      margin-bottom: 1rem;
+    }
+
+    .cosmic-visualization .project-card .details a {
+      color: #00c6ff;
+      text-decoration: none;
+      font-size: 1rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+      transition: color 0.3s ease-in-out;
+    }
+
+    .cosmic-visualization .project-card .details a:hover {
+      color: #fff;
+      text-shadow: 0 0 10px #00c6ff, 0 0 20px #00c6ff, 0 0 40px #00c6ff;
+    }
+
+    /* Terminal-Style Contact Form */
+    .terminal-contact {
+      padding: 4rem 2rem;
+      background-color: #0d0d0d;
+      position: relative;
+      z-index: 10;
+    }
+
+    .terminal-contact::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(45deg, #00c6ff, #0072ff);
+      opacity: 0.1;
+      z-index: -1;
+    }
+
+    .terminal-contact .container {
+      max-width: 800px;
+      margin: 0 auto;
+      background-color: #0d0d0d;
+      border-radius: 10px;
+      box-shadow: 0 0 20px rgba(0, 198, 255, 0.3);
+      padding: 2rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .terminal-contact .container::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(45deg, #00c6ff, #0072ff);
+      opacity: 0.1;
+      z-index: -1;
+    }
+
+    .terminal-contact h2 {
+      font-size: 2rem;
+      margin-bottom: 1.5rem;
+      text-align: center;
+      text-shadow: 0 0 10px #00c6ff, 0 0 20px #00c6ff, 0 0 40px #00c6ff;
+    }
+
+    .terminal-contact form {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .terminal-contact form label {
+      font-size: 1.1rem;
+      font-weight: 400;
+      margin-bottom: 0.5rem;
+      color: #00c6ff;
+      text-shadow: 0 0 10px #00c6ff, 0 0 20px #00c6ff, 0 0 40px #00c6ff;
+    }
+
+    .terminal-contact form input,
+    .terminal-contact form textarea {
+      background-color: #0d0d0d;
+      border: 1px solid #00c6ff;
+      border-radius: 5px;
+      color: #fff;
+      font-family: 'Orbitron', sans-serif;
+      font-size: 1rem;
+      padding: 0.8rem 1rem;
+      margin-bottom: 1.5rem;
+      transition: border-color 0.3s ease-in-out;
+    }
+
+    .terminal-contact form input:focus,
+    .terminal-contact form textarea:focus {
+      outline: none;
+      border-color: #fff;
+    }
+
+    .terminal-contact form button {
+      background-color: #00c6ff;
+      border: none;
+      border-radius: 5px;
+      color: #0d0d0d;
+      font-family: 'Orbitron', sans-serif;
+      font-size: 1.1rem;
+      font-weight: 700;
+      padding: 0.8rem 1.5rem;
+      cursor: pointer;
+      transition: background-color 0.3s ease-in-out;
+    }
+
+    .terminal-contact form button:hover {
+      background-color: #0072ff;
+    }
+
+    /* About Me and Skills Showcase */
+    .about-skills {
+      padding: 4rem 2rem;
+      position: relative;
+      z-index: 10;
+    }
+
+    .about-skills::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(45deg, #00c6ff, #0072ff);
+      opacity: 0.1;
+      z-index: -1;
+    }
+
+    .about-skills .container {
+      max-width: 1000px;
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .about-skills .about {
+      flex: 1 1 400px;
+      margin-right: 2rem;
+    }
+
+    .about-skills .about h2 {
+      font-size: 2rem;
+      margin-bottom: 1.5rem;
+      text-shadow: 0 0 10px #00c6ff, 0 0 20px #00c6ff, 0 0 40px #00c6ff;
+    }
+
+    .about-skills .about p {
+      font-size: 1.1rem;
+      line-height: 1.6;
+      margin-bottom: 1.5rem;
+    }
+
+    .about-skills .skills {
+      flex: 1 1 400px;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-gap: 1.5rem;
+    }
+
+    .about-skills .skill {
+      background-color: rgba(255, 255, 255, 0.1);
+      border-radius: 10px;
+      box-shadow: 0 0 20px rgba(0, 198, 255, 0.3);
+      padding: 1.5rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      cursor: pointer;
+      transition: transform 0.3s ease-in-out;
+    }
+
+    .about-skills .skill:hover {
+      transform: scale(1.05);
+    }
+
+    .about-skills .skill::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(45deg, #00c6ff, #0072ff);
+      opacity: 0.2;
+      z-index: 1;
+    }
+
+    .about-skills .skill i {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      color: #00c6ff;
+      text-shadow: 0 0 10px #00c6ff, 0 0 20px #00c6ff, 0 0 40px #00c6ff;
+      position: relative;
+      z-index: 2;
+      animation: pulse 2s infinite;
+    }
+
+    .about-skills .skill h3 {
+      font-size: 1.2rem;
+      margin-bottom: 0.5rem;
+      position: relative;
+      z-index: 2;
+      text-shadow: 0 0 10px #00c6ff, 0 0 20px #00c6ff, 0 0 40px #00c6ff;
+    }
+
+    .about-skills .skill p {
+      font-size: 1rem;
+      position: relative;
+      z-index: 2;
+    }
+
+    /* Animations */
+    @keyframes glitch {
+      0% {
+        text-shadow: 0 0 20px #00c6ff, 0 0 40px #00c6ff, 0 0 80px #00c6ff;
+      }
+      20% {
+        text-shadow: 0 0 20px #0072ff, 0 0 40px #0072ff, 0 0 80px #0072ff;
+      }
+      40% {
+        text-shadow: 0 0 20px #00c6ff, 0 0 40px #00c6ff, 0 0 80px #00c6ff;
+      }
+      60% {
+        text-shadow: 0 0 20px #0072ff, 0 0 40px #0072ff, 0 0 80px #0072ff;
+      }
+      80% {
+        text-shadow: 0 0 20px #00c6ff, 0 0 40px #00c6ff, 0 0 80px #00c6ff;
+      }
+      100% {
+        text-shadow: 0 0 20px #00c6ff, 0 0 40px #00c6ff, 0 0 80px #00c6ff;
+      }
+    }
+
+    @keyframes cosmic-zoom {
+      0% {
+        transform: scale(1);
+      }
+      50% {
+        transform: scale(1.1);
+      }
+      100% {
+        transform: scale(1);
+      }
+    }
+
+    @keyframes pulse {
+      0% {
+        transform: scale(1);
+      }
+      50% {
+        transform: scale(1.2);
+      }
+      100% {
+        transform: scale(1);
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation -->
+  <nav>
+    <div class="logo">Black Hole Portfolio</div>
+    <ul>
+      <li><a href="#">Home</a></li>
+      <li><a href="#">Projects</a></li>
+      <li><a href="#">About</a></li>
+      <li><a href="#">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- Interactive Cosmic Visualization -->
+  <section class="cosmic-visualization">
+    <div class="background"></div>
+    <div class="project-cards">
+      <div class="project-card">
+        <img src="https://dummyimage.com/600x400/000/fff&text=Project+1" alt="Project 1">
+        <div class="details">
+          <h3>Project 1</h3>
+          <p>A brief description ofthe project goes here.</p>
+          <a href="#">Learn More</a>
+        </div>
+      </div>
+      <div class="project-card">
+        <img src="https://dummyimage.com/600x400/000/fff&text=Project+2" alt="Project 2">
+        <div class="details">
+          <h3>Project 2</h3>
+          <p>A brief description of the project goes here.</p>
+          <a href="#">Learn More</a>
+        </div>
+      </div>
+      <div class="project-card">
+        <img src="https://dummyimage.com/600x400/000/fff&text=Project+3" alt="Project 3">
+        <div class="details">
+          <h3>Project 3</h3>
+          <p>A brief description of the project goes here.</p>
+          <a href="#">Learn More</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Terminal-Style Contact Form -->
+  <section class="terminal-contact">
+    <div class="container">
+      <h2>Get in Touch</h2>
+      <form>
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+
+        <label for="message">Message:</label>
+        <textarea id="message" name="message" rows="5" required></textarea>
+
+        <button type="submit">Send</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- About Me and Skills Showcase -->
+  <section class="about-skills">
+    <div class="container">
+      <div class="about">
+        <h2>About Me</h2>
+        <p>As a backend developer with a passion for cosmic visuals and cyberpunk-inspired design, I have curated a portfolio that showcases my technical expertise and creative flair. From building robust and scalable web applications to designing immersive user experiences, I strive to push the boundaries of what's possible in the digital realm.</p>
+        <p>With a deep understanding of various programming languages and frameworks, I am committed to delivering innovative solutions that not only solve complex problems but also captivate and engage users. Join me on this cosmic journey as we explore the intersection of technology, art, and the mysteries of the universe.</p>
+      </div>
+      <div class="skills">
+        <div class="skill">
+          <i class="fas fa-code"></i>
+          <h3>Backend Development</h3>
+          <p>Proficient in Python, Node.js, and database management.</p>
+        </div>
+        <div class="skill">
+          <i class="fas fa-server"></i>
+          <h3>Cloud Infrastructure</h3>
+          <p>Experienced in deploying and managing cloud-based applications.</p>
+        </div>
+        <div class="skill">
+          <i class="fas fa-mobile-alt"></i>
+          <h3>API Integration</h3>
+          <p>Adept at building and integrating RESTful APIs.</p>
+        </div>
+        <div class="skill">
+          <i class="fas fa-cog"></i>
+          <h3>DevOps</h3>
+          <p>Skilled in automating build, test, and deployment processes.</p>
+        </div>
+        <div class="skill">
+          <i class="fas fa-database"></i>
+          <h3>Data Engineering</h3>
+          <p>Experienced in data processing, warehousing, and analytics.</p>
+        </div>
+        <div class="skill">
+          <i class="fas fa-rocket"></i>
+          <h3>Cybersecurity</h3>
+          <p>Knowledgeable in implementing robust security measures.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</body>
+</html>'<!-- Visit: https://github.com/Ishanoshada/portflair -->
+<!-- Visit: https://github.com/Ishanoshada/portflair -->

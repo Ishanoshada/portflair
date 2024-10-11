@@ -1,0 +1,370 @@
+<!-- Portfolio created by Ishan -->
+<!-- Check out my work at: https://github.com/Ishanoshada/portflair -->
+<!-- 2024/10/9 -->
+<!-- Portfolio created by Ishan -->
+'<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio Universe | Developer Showcase</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&family=Raleway:wght@300;400;600&display=swap');
+
+        :root {
+            --primary-color: #0af;
+            --secondary-color: #f0a;
+            --text-color: #fff;
+            --bg-color: #000;
+            --accent-color: #5f0;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Raleway', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            overflow-x: hidden;
+        }
+
+        .star-background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+            background: radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%);
+            overflow: hidden;
+        }
+
+        .star {
+            position: absolute;
+            background-color: #fff;
+            border-radius: 50%;
+            animation: twinkle 5s infinite;
+        }
+
+        @keyframes twinkle {
+            0%, 100% { opacity: 0; }
+            50% { opacity: 1; }
+        }
+
+        nav {
+            background: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(10px);
+            padding: 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.5rem;
+            color: var(--primary-color);
+            text-shadow: 0 0 10px var(--primary-color);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: var(--text-color);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-color);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Orbitron', sans-serif;
+            margin-bottom: 1rem;
+        }
+
+        .galaxy-showcase {
+            height: 80vh;
+            position: relative;
+            overflow: hidden;
+            perspective: 1000px;
+        }
+
+        .solar-system {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 600px;
+            height: 600px;
+            transform-style: preserve-3d;
+            animation: rotate 60s linear infinite;
+        }
+
+        @keyframes rotate {
+            0% { transform: translate(-50%, -50%) rotateY(0deg); }
+            100% { transform: translate(-50%, -50%) rotateY(360deg); }
+        }
+
+        .planet {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            border-radius: 50%;
+            transform-style: preserve-3d;
+            transition: all 0.3s ease;
+        }
+
+        .planet:hover {
+            transform: scale(1.2);
+            box-shadow: 0 0 20px var(--primary-color);
+        }
+
+        .planet-1 { transform: translate(-50%, -50%) rotateY(0deg) translateX(200px); background-color: #ff4500; width: 40px; height: 40px; }
+        .planet-2 { transform: translate(-50%, -50%) rotateY(72deg) translateX(250px); background-color: #4169e1; width: 50px; height: 50px; }
+        .planet-3 { transform: translate(-50%, -50%) rotateY(144deg) translateX(300px); background-color: #32cd32; width: 60px; height: 60px; }
+        .planet-4 { transform: translate(-50%, -50%) rotateY(216deg) translateX(350px); background-color: #ffd700; width: 55px; height: 55px; }
+        .planet-5 { transform: translate(-50%, -50%) rotateY(288deg) translateX(400px); background-color: #8a2be2; width: 45px; height: 45px; }
+
+        .skills-constellation {
+            position: relative;
+            height: 600px;
+            background: linear-gradient(to bottom, #000033, #000);
+            overflow: hidden;
+        }
+
+        .constellation {
+            position: absolute;
+            transition: all 0.3s ease;
+        }
+
+        .constellation:hover {
+            transform: scale(1.1);
+            filter: brightness(1.5);
+        }
+
+        .skill-star {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background-color: #fff;
+            border-radius: 50%;
+            box-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff;
+        }
+
+        .skill-name {
+            position: absolute;
+            font-family: 'Orbitron', sans-serif;
+            color: var(--text-color);
+            font-size: 0.8rem;
+            white-space: nowrap;
+        }
+
+        .contact-form {
+            position: relative;
+            padding: 2rem;
+            background: linear-gradient(45deg, #000, #1a1a1a);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .wormhole {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://dummyimage.com/1200x800/000/fff&text=Wormhole+Background');
+            opacity: 0.2;
+            animation: wormhole-spin 20s linear infinite;
+            z-index: -1;
+        }
+
+        @keyframes wormhole-spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: var(--primary-color);
+            font-weight: 600;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.75rem;
+            background: rgba(255, 255, 255, 0.1);
+            border: 2px solid var(--primary-color);
+            border-radius: 5px;
+            color: var(--text-color);
+            font-family: 'Raleway', sans-serif;
+            transition: all 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            box-shadow: 0 0 10px var(--primary-color);
+        }
+
+        .submit-btn {
+            background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+            color: var(--text-color);
+            border: none;
+            padding: 1rem 2rem;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border-radius: 50px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .submit-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 20px var(--primary-color);
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .galaxy-showcase,
+            .skills-constellation {
+                height: 50vh;
+            }
+
+            .solar-system {
+                width: 300px;
+                height: 300px;
+            }
+
+            .planet-1 { transform: translate(-50%, -50%) rotateY(0deg) translateX(100px); }
+            .planet-2 { transform: translate(-50%, -50%) rotateY(72deg) translateX(125px); }
+            .planet-3 { transform: translate(-50%, -50%) rotateY(144deg) translateX(150px); }
+            .planet-4 { transform: translate(-50%, -50%) rotateY(216deg) translateX(175px); }
+            .planet-5 { transform: translate(-50%, -50%) rotateY(288deg) translateX(200px); }
+        }
+    </style>
+</head>
+<body>
+    <div class="star-background" id="starBackground"></div>
+
+    <nav>
+        <div class="logo">PortfolioUniverse</div>
+        <div class="nav-links">
+            <a href="#projects">Projects</a>
+            <a href="#skills">Skills</a>
+            <a href="#contact">Contact</a>
+        </div>
+    </nav>
+
+    <div class="container">
+        <section id="projects" class="galaxy-showcase">
+            <h2>Project Nebula</h2>
+            <div class="solar-system">
+                <div class="planet planet-1"></div>
+                <div class="planet planet-2"></div>
+                <div class="planet planet-3"></div>
+                <div class="planet planet-4"></div>
+                <div class="planet planet-5"></div>
+            </div>
+        </section>
+
+        <section id="skills" class="skills-constellation">
+            <h2>Skill Constellations</h2>
+            <div class="constellation" style="top: 20%; left: 10%;">
+                <div class="skill-star"></div>
+                <div class="skill-star" style="top: 20px; left: 30px;"></div>
+                <div class="skill-star" style="top: 40px; left: 10px;"></div>
+                <div class="skill-name" style="top: 50px; left: 0;">JavaScript</div>
+            </div>
+            <div class="constellation" style="top: 50%; left: 60%;">
+                <div class="skill-star"></div>
+                <div class="skill-star" style="top: -20px; left: 40px;"></div>
+                <div class="skill-star" style="top: 30px; left: 50px;"></div>
+                <div class="skill-name" style="top: 40px; left: 20px;">React</div>
+            </div>
+            <div class="constellation" style="top: 70%; left: 30%;">
+                <div class="skill-star"></div>
+                <div class="skill-star" style="top: 10px; left: 50px;"></div>
+                <div class="skill-star" style="top: -30px; left: 30px;"></div>
+                <div class="skill-name" style="top: -40px; left: 10px;">Node.js</div>
+            </div>
+        </section>
+
+        <section id="contact" class="contact-form">
+            <h2>Transmit Your Message</h2>
+            <div class="wormhole"></div>
+            <form>
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="message">Message</label>
+                    <textarea id="message" name="message" rows="4" required></textarea>
+                </div>
+                <button type="submit" class="submit-btn">Send Transmission</button>
+            </form>
+        </section>
+    </div>
+
+    <script>
+        function createStars() {
+            const starBackground = document.getElementById('starBackground');
+            for (let i = 0; i < 200; i++) {
+                const star = document.createElement('div');
+                star.className = 'star';
+                star.style.width = `${Math.random() * 3}px`;
+                star.style.height = star.style.width;
+                star.style.left = `${Math.random() * 100}%`;
+                star.style.top = `${Math.random() * 100}%`;
+                star.style.animationDelay = `${Math.random() * 5}s`;
+                starBackground.appendChild(star);
+            }
+        }
+
+        createStars();
+
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>'<!-- Visit: https://github.com/Ishanoshada/portflair -->
+<!-- Visit: https://github.com/Ishanoshada/portflair -->

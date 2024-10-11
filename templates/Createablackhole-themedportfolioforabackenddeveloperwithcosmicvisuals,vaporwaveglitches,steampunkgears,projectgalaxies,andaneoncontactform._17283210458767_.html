@@ -1,0 +1,408 @@
+<!-- Portfolio created by Ishan -->
+<!-- Check out my work at: https://github.com/Ishanoshada/portflair -->
+<!-- 2024/10/9 -->
+<!-- Portfolio created by Ishan -->
+'<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Black Hole Portfolio</title>
+    <style>
+        /* General Styles */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Orbitron', sans-serif;
+            background-color: #080820;
+            color: #fff;
+            overflow-x: hidden;
+        }
+
+        /* Navbar Styles */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: rgba(8, 8, 32, 0.8);
+            padding: 1rem 2rem;
+            position: relative;
+            z-index: 100;
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 1.2rem;
+            margin: 0 1rem;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: #4affff;
+        }
+
+        /* Project Galaxies Styles */
+        #project-galaxies {
+            position: relative;
+            padding: 5rem 2rem;
+            overflow: hidden;
+        }
+
+        #project-galaxies::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(ellipse at center, rgba(8, 8, 32, 0.8) 0%, rgba(8, 8, 32, 1) 100%);
+            z-index: -1;
+        }
+
+        .galaxy {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 4rem;
+            cursor: pointer;
+        }
+
+        .galaxy-image {
+            width: 300px;
+            height: 300px;
+            background: url("https://dummyimage.com/600x400/4affff/000000.png&text=Project+Galaxy") no-repeat center;
+            background-size: cover;
+            border-radius: 50%;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 0 20px rgba(74, 255, 255, 0.5);
+            transition: transform 0.3s ease;
+        }
+
+        .galaxy-image::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(ellipse at center, rgba(74, 255, 255, 0.2) 0%, rgba(8, 8, 32, 0.8) 100%);
+            z-index: 1;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .galaxy-image:hover {
+            transform: scale(1.05);
+        }
+
+        .galaxy-image:hover::before {
+            opacity: 1;
+        }
+
+        .galaxy-info {
+            margin-top: 1.5rem;
+            text-align: center;
+        }
+
+        .galaxy-info h3 {
+            font-size: 1.8rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .galaxy-info p {
+            font-size: 1.2rem;
+            color: #4affff;
+        }
+
+        /* Neon Contact Form Styles */
+        #neon-contact {
+            padding: 5rem 2rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: relative;
+            z-index: 10;
+        }
+
+        #neon-contact::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(ellipse at center, rgba(8, 8, 32, 0.8) 0%, rgba(8, 8, 32, 1) 100%);
+            z-index: -1;
+        }
+
+        .neon-form {
+            background-color: rgba(8, 8, 32, 0.8);
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(74, 255, 255, 0.5);
+            width: 400px;
+            max-width: 100%;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .neon-form::before {
+            content: "";
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, #4affff, #ff00ff, #4affff);
+            z-index: -1;
+            animation: neon-glow 5s ease infinite;
+        }
+
+        @keyframes neon-glow {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        .neon-form h2 {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            text-align: center;
+            color: #4affff;
+            text-shadow: 0 0 10px rgba(74, 255, 255, 0.5);
+        }
+
+        .neon-form input,
+        .neon-form textarea {
+            display: block;
+            width: 100%;
+            padding: 0.8rem 1rem;
+            margin-bottom: 1.5rem;
+            background-color: rgba(74, 255, 255, 0.1);
+            border: 2px solid rgba(74, 255, 255, 0.3);
+            border-radius: 5px;
+            color: #fff;
+            font-size: 1.2rem;
+            font-family: 'Orbitron', sans-serif;
+            transition: border-color 0.3s ease;
+        }
+
+        .neon-form input:focus,
+        .neon-form textarea:focus {
+            outline: none;
+            border-color: #4affff;
+        }
+
+        .neon-form button {
+            display: block;
+            width: 100%;
+            padding: 0.8rem 1rem;
+            background-color: #4affff;
+            border: none;
+            border-radius: 5px;
+            color: #080820;
+            font-size: 1.2rem;
+            font-family: 'Orbitron', sans-serif;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .neon-form button:hover {
+            background-color: #00d9d9;
+        }
+
+        /* Cosmic Visuals and Vaporwave Glitches Styles */
+        #cosmic-visuals {
+            position: relative;
+            height: 80vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        #cosmic-visuals::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(ellipse at center, rgba(8, 8, 32, 0.8) 0%, rgba(8, 8, 32, 1) 100%);
+            z-index: -2;
+        }
+
+        #cosmic-visuals::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url("https://dummyimage.com/1200x500/4affff/000000.png&text=Cosmic+Visuals") no-repeat center;
+            background-size: cover;
+            opacity: 0.1;
+            z-index: -1;
+            animation: vaporwave-glitch 5s ease infinite;
+        }
+
+        @keyframes vaporwave-glitch {
+            0% {
+                transform: translate(0, 0);
+            }
+            10% {
+                transform: translate(-2%, -2%);
+            }
+            20% {
+                transform: translate(2%, 2%);
+            }
+            30% {
+                transform: translate(-2%, -2%);
+            }
+            40% {
+                transform: translate(2%, 2%);
+            }
+            50% {
+                transform: translate(-2%, -2%);
+            }
+            60% {
+                transform: translate(2%, 2%);
+            }
+            70% {
+                transform: translate(-2%, -2%);
+            }
+            80% {
+                transform: translate(2%, 2%);
+            }
+            90% {
+                transform: translate(-2%, -2%);
+            }
+            100% {
+                transform: translate(0, 0);
+            }
+        }
+
+        .cosmic-title {
+            font-size: 4rem;
+            font-weight: bold;
+            text-align: center;
+            color: #4affff;
+            text-shadow: 0 0 20px rgba(74, 255, 255, 0.5);
+            animation: cosmic-title-glow 3s ease infinite;
+        }
+
+        @keyframes cosmic-title-glow {
+            0% {
+                text-shadow: 0 0 20px rgba(74, 255, 255, 0.5);
+            }
+            50% {
+                text-shadow: 0 0 40px rgba(74, 255, 255, 0.8);
+            }
+            100% {
+                text-shadow: 0 0 20px rgba(74, 255, 255, 0.5);
+            }
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            nav {
+                padding: 0.8rem 1.5rem;
+            }
+
+            nav a {
+                font-size: 1rem;
+                margin: 0 0.8rem;
+            }
+
+            .galaxy-image {
+                width: 250px;
+                height: 250px;
+            }
+
+            .galaxy-info h3 {
+                font-size: 1.5rem;
+            }
+
+            .galaxy-info p {
+                font-size: 1rem;
+            }
+
+            .neon-form {
+                width: 90%;
+                padding: 1.5rem;
+            }
+
+            .neon-form h2 {
+                font-size: 1.8rem;
+            }
+
+            .neon-form input,
+            .neon-form textarea {
+                font-size: 1rem;
+            }
+
+            .neon-form button {
+                font-size: 1rem;
+            }
+
+            .cosmic-title {
+                font-size: 3rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="#">Home</a>
+        <a href="#">About</a>
+        <a href="#">Projects</a>
+        <a href="#">Contact</a>
+    </nav>
+
+    <section id="project-galaxies">
+        <div class="galaxy">
+            <div class="galaxy-image"></div>
+            <div class="galaxy-info">
+                <h3>Project Galaxy</h3>
+                <p>A cosmic-inspired web application</p>
+            </div>
+        </div>
+        <div class="galaxy">
+            <div class="galaxy-image"></div>
+            <div class="galaxy-info">
+                <h3>Interstellar Chaos</h3>
+                <p>A vaporwave-infused data visualization tool</p>
+            </div>
+        </div>
+        <div class="galaxy">
+            <div class="galaxy-image"></div>
+            <div class="galaxy-info">
+                <h3>Galactic Gears</h3>
+                <p>A steampunk-inspired backend API</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="neon-contact">
+        <div class="neon-form">
+            <h2>Get in Touch</h2>
+            <form>
+                <input type="text" placeholder="Name" required>
+                <input type="email" placeholder="Email" required>
+                <textarea placeholder="Message" rows="5" required></textarea>
+                <button type="submit">Send</button>
+            </form>
+        </div>
+    </section>
+
+    <section id="cosmic-visuals">
+        <h1 class="cosmic-title">Cosmic Visuals</h1>
+    </section>
+</body>
+</html>'<!-- Visit: https://github.com/Ishanoshada/portflair -->
+<!-- Visit: https://github.com/Ishanoshada/portflair -->

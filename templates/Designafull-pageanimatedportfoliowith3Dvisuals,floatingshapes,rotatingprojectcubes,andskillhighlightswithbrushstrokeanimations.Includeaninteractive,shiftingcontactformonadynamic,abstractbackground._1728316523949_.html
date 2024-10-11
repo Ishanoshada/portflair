@@ -1,0 +1,401 @@
+<!-- Portfolio created by Ishan -->
+<!-- Check out my work at: https://github.com/Ishanoshada/portflair -->
+<!-- 2024/10/9 -->
+<!-- Portfolio created by Ishan -->
+'<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Animated Portfolio Website</title>
+  <style>
+    /* General Styles */
+    body {
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #0D0D0D;
+      color: #FFFFFF;
+    }
+
+    /* Navigation */
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 40px;
+      background-color: rgba(13, 13, 13, 0.8);
+      backdrop-filter: blur(10px);
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+    }
+
+    .navbar-brand {
+      font-size: 24px;
+      font-weight: bold;
+      text-decoration: none;
+      color: #FFFFFF;
+    }
+
+    .navbar-nav {
+      display: flex;
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .navbar-nav li {
+      margin-left: 20px;
+    }
+
+    .navbar-nav li a {
+      text-decoration: none;
+      color: #FFFFFF;
+      font-size: 16px;
+      transition: color 0.3s ease-in-out;
+    }
+
+    .navbar-nav li a:hover {
+      color: #7986CB;
+    }
+
+    /* Interactive Portfolio Section */
+    .interactive-portfolio {
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .interactive-portfolio::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(to right, #7986CB, #B39DDB, #9575CD);
+      opacity: 0.5;
+      z-index: -1;
+      animation: shiftGradient 10s ease infinite;
+    }
+
+    .project-cubes {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      perspective: 1000px;
+    }
+
+    .project-cube {
+      width: 200px;
+      height: 200px;
+      margin: 20px;
+      position: relative;
+      transform-style: preserve-3d;
+      transition: transform 0.5s ease;
+    }
+
+    .project-cube:hover {
+      transform: rotateY(180deg);
+    }
+
+    .project-cube-front,
+    .project-cube-back {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      backface-visibility: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      background-color: rgba(255, 255, 255, 0.1);
+      border-radius: 10px;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+      backdrop-filter: blur(10px);
+    }
+
+    .project-cube-front {
+      z-index: 2;
+    }
+
+    .project-cube-back {
+      transform: rotateY(180deg);
+      z-index: 1;
+    }
+
+    .project-cube h3 {
+      margin-top: 0;
+      font-size: 18px;
+      font-weight: bold;
+    }
+
+    .project-cube p {
+      margin-bottom: 0;
+      font-size: 14px;
+    }
+
+    /* Skill Highlights Section */
+    .skill-highlights {
+      padding: 80px 40px;
+      background-color: #1A1A1A;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .skill-highlights::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(to right, #7986CB, #B39DDB, #9575CD);
+      opacity: 0.2;
+      z-index: -1;
+      animation: shiftGradient 10s ease infinite;
+    }
+
+    .skill-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-bottom: 40px;
+    }
+
+    .skill-item h3 {
+      margin-top: 20px;
+      font-size: 18px;
+      font-weight: bold;
+    }
+
+    .skill-item p {
+      margin-top: 10px;
+      font-size: 14px;
+      text-align: center;
+    }
+
+    .brushstroke-animation {
+      position: relative;
+      width: 80px;
+      height: 80px;
+      overflow: hidden;
+    }
+
+    .brushstroke-animation::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: url("https://dummyimage.com/80x80/7986CB/ffffff.png&text=+");
+      background-size: 200% 200%;
+      animation: brushstroke 5s ease infinite;
+    }
+
+    /* Interactive Contact Form Section */
+    .interactive-contact {
+      padding: 80px 40px;
+      background-color: #0D0D0D;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .interactive-contact::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(to right, #7986CB, #B39DDB, #9575CD);
+      opacity: 0.2;
+      z-index: -1;
+      animation: shiftGradient 10s ease infinite;
+    }
+
+    .contact-form {
+      max-width: 500px;
+      margin: 0 auto;
+      background-color: rgba(255, 255, 255, 0.1);
+      padding: 40px;
+      border-radius: 10px;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+      backdrop-filter: blur(10px);
+    }
+
+    .contact-form h2 {
+      text-align: center;
+      font-size: 24px;
+      font-weight: bold;
+      margin-bottom: 20px;
+    }
+
+    .contact-form .form-group {
+      margin-bottom: 20px;
+    }
+
+    .contact-form label {
+      display: block;
+      font-size: 14px;
+      margin-bottom: 5px;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+      width: 100%;
+      padding: 10px;
+      font-size: 16px;
+      border: none;
+      border-radius: 5px;
+      background-color: rgba(255, 255, 255, 0.2);
+      color: #FFFFFF;
+      transition: background-color 0.3s ease-in-out;
+    }
+
+    .contact-form input:focus,
+    .contact-form textarea:focus {
+      background-color: rgba(255, 255, 255, 0.3);
+    }
+
+    .contact-form button {
+      display: block;
+      width: 100%;
+      padding: 10px;
+      font-size: 16px;
+      font-weight: bold;
+      background-color: #7986CB;
+      color: #FFFFFF;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease-in-out;
+    }
+
+    .contact-form button:hover {
+      background-color: #9575CD;
+    }
+
+    /* Animations */
+    @keyframes shiftGradient {
+      0% {
+        background-position: 0% 50%;
+      }
+      50% {
+        background-position: 100% 50%;
+      }
+      100% {
+        background-position: 0% 50%;
+      }
+    }
+
+    @keyframes brushstroke {
+      0% {
+        background-position: 0% 50%;
+      }
+      50% {
+        background-position: 100% 50%;
+      }
+      100% {
+        background-position: 0% 50%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav class="navbar">
+      <a href="#" class="navbar-brand">Animated Portfolio</a>
+      <ul class="navbar-nav">
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Portfolio</a></li>
+        <li><a href="#">Skills</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="interactive-portfolio">
+      <div class="project-cubes">
+        <div class="project-cube">
+          <div class="project-cube-front">
+            <h3>Project 1</h3>
+            <p>3D Visualization</p>
+          </div>
+          <div class="project-cube-back">
+            <img src="https://dummyimage.com/200x200/7986CB/ffffff.png&text=Project+1" alt="Project 1">
+          </div>
+        </div>
+        <div class="project-cube">
+          <div class="project-cube-front">
+            <h3>Project 2</h3>
+            <p>Floating Shapes</p>
+          </div>
+          <div class="project-cube-back">
+            <img src="https://dummyimage.com/200x200/B39DDB/ffffff.png&text=Project+2" alt="Project 2">
+          </div>
+        </div>
+        <div class="project-cube">
+          <div class="project-cube-front">
+            <h3>Project 3</h3>
+            <p>Rotating Cubes</p>
+          </div>
+          <div class="project-cube-back">
+            <img src="https://dummyimage.com/200x200/9575CD/ffffff.png&text=Project+3" alt="Project 3">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="skill-highlights">
+      <div class="skill-item">
+        <div class="brushstroke-animation"></div>
+        <h3>3D Modeling</h3>
+        <p>Expertise in creating captivating 3D visuals for your projects.</p>
+      </div>
+      <div class="skill-item">
+        <div class="brushstroke-animation"></div>
+        <h3>Animation</h3>
+        <p>Bring your designs to life with smooth and immersive animations.</p>
+      </div>
+      <div class="skill-item">
+        <div class="brushstroke-animation"></div>
+        <h3>Interaction Design</h3>
+        <p>Create engaging and interactive user experiences that captivate your audience.</p>
+      </div>
+    </section>
+
+    <section class="interactive-contact">
+      <div class="contact-form">
+        <h2>Get in Touch</h2>
+        <form>
+          <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" placeholder="Enter your name" required>
+          </div>
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" placeholder="Enter your email" required>
+          </div>
+          <div class="form-group">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" placeholder="Enter your message" rows="5" required></textarea>
+          </div>
+          <button type="submit">Send Message</button>
+        </form>
+      </div>
+    </section>
+  </main>
+</body>
+</html>'<!-- Visit: https://github.com/Ishanoshada/portflair -->
+<!-- Visit: https://github.com/Ishanoshada/portflair -->

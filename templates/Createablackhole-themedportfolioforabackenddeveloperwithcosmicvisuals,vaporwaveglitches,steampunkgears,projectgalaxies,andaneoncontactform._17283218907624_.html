@@ -1,0 +1,541 @@
+<!-- Portfolio created by Ishan -->
+<!-- Check out my work at: https://github.com/Ishanoshada/portflair -->
+<!-- 2024/10/9 -->
+<!-- Portfolio created by Ishan -->
+'<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Black Hole Portfolio</title>
+  <style>
+    /* Global Styles */
+    body {
+      font-family: 'Orbitron', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #0e0e0e;
+      color: #fff;
+      overflow-x: hidden;
+    }
+
+    /* Navbar */
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: rgba(14, 14, 14, 0.8);
+      padding: 1rem 2rem;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 100;
+    }
+
+    .navbar-brand {
+      font-size: 2rem;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 0.2rem;
+      text-shadow: 0 0 1rem rgba(255, 255, 255, 0.5);
+      animation: pulsate 2s infinite;
+    }
+
+    .navbar-nav {
+      display: flex;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .navbar-nav li {
+      margin-left: 2rem;
+    }
+
+    .navbar-nav li a {
+      color: #fff;
+      text-decoration: none;
+      font-size: 1.2rem;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 0.1rem;
+      position: relative;
+      padding-bottom: 0.5rem;
+    }
+
+    .navbar-nav li a::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 0.2rem;
+      background-color: #ff00ff;
+      transition: width 0.3s ease-in-out;
+    }
+
+    .navbar-nav li a:hover::after {
+      width: 100%;
+    }
+
+    /* Featured Projects */
+    .featured-projects {
+      padding: 5rem 2rem;
+      background-image: linear-gradient(to bottom, #0e0e0e, #1a1a1a);
+    }
+
+    .featured-projects h2 {
+      font-size: 3rem;
+      text-align: center;
+      text-transform: uppercase;
+      letter-spacing: 0.2rem;
+      text-shadow: 0 0 1rem rgba(255, 255, 255, 0.5);
+      animation: pulsate 2s infinite;
+    }
+
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      grid-gap: 3rem;
+      margin-top: 3rem;
+    }
+
+    .project-galaxy {
+      background-color: rgba(255, 255, 255, 0.1);
+      border-radius: 1rem;
+      box-shadow: 0 0 2rem rgba(255, 255, 255, 0.1);
+      overflow: hidden;
+      position: relative;
+      cursor: pointer;
+      transition: transform 0.3s ease-in-out;
+    }
+
+    .project-galaxy:hover {
+      transform: scale(1.05);
+    }
+
+    .project-galaxy img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      filter: hue-rotate(45deg) saturate(2);
+    }
+
+    .project-details {
+      padding: 2rem;
+      background-color: rgba(14, 14, 14, 0.8);
+      backdrop-filter: blur(1rem);
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      transform: translateY(100%);
+      transition: transform 0.3s ease-in-out;
+    }
+
+    .project-galaxy:hover .project-details {
+      transform: translateY(0);
+    }
+
+    .project-details h3 {
+      font-size: 1.5rem;
+      margin-top: 0;
+      text-shadow: 0 0 1rem rgba(255, 255, 255, 0.5);
+    }
+
+    .project-details p {
+      font-size: 1.2rem;
+      margin-bottom: 1rem;
+      text-shadow: 0 0 1rem rgba(255, 255, 255, 0.5);
+    }
+
+    .project-details a {
+      display: inline-block;
+      background-color: #ff00ff;
+      color: #0e0e0e;
+      padding: 0.5rem 1rem;
+      border-radius: 0.5rem;
+      text-decoration: none;
+      font-size: 1.2rem;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 0.1rem;
+      transition: background-color 0.3s ease-in-out;
+    }
+
+    .project-details a:hover {
+      background-color: #c700c7;
+    }
+
+    /* About Me */
+    .about-me {
+      padding: 5rem 2rem;
+      background-image: linear-gradient(to bottom, #1a1a1a, #0e0e0e);
+    }
+
+    .about-me h2 {
+      font-size: 3rem;
+      text-align: center;
+      text-transform: uppercase;
+      letter-spacing: 0.2rem;
+      text-shadow: 0 0 1rem rgba(255, 255, 255, 0.5);
+      animation: pulsate 2s infinite;
+    }
+
+    .about-me-content {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: 3rem;
+    }
+
+    .profile-pic {
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      overflow: hidden;
+      position: relative;
+      box-shadow: 0 0 2rem rgba(255, 255, 255, 0.1);
+      animation: rotate 10s linear infinite;
+    }
+
+    .profile-pic img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: hue-rotate(45deg) saturate(2);
+    }
+
+    .about-me-text {
+      flex: 1;
+      margin-left: 3rem;
+    }
+
+    .about-me-text h3 {
+      font-size: 2rem;
+      margin-top: 0;
+      text-shadow: 0 0 1rem rgba(255, 255, 255, 0.5);
+    }
+
+    .about-me-text p {
+      font-size: 1.2rem;
+      line-height: 1.5;
+      text-shadow: 0 0 1rem rgba(255, 255, 255, 0.5);
+    }
+
+    .about-me-text ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-wrap: wrap;
+      margin-top: 2rem;
+    }
+
+    .about-me-text ul li {
+      background-color: #ff00ff;
+      color: #0e0e0e;
+      padding: 0.5rem 1rem;
+      border-radius: 0.5rem;
+      font-size: 1.2rem;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 0.1rem;
+      margin-right: 1rem;
+      margin-bottom: 1rem;
+      box-shadow: 0 0 1rem rgba(255, 0, 255, 0.5);
+      animation: pulsate 2s infinite;
+    }
+
+    /* Contact Form */
+    .contact-form {
+      padding: 5rem 2rem;
+      background-image: linear-gradient(to bottom, #0e0e0e, #1a1a1a);
+    }
+
+    .contact-form h2 {
+      font-size: 3rem;
+      text-align: center;
+      text-transform: uppercase;
+      letter-spacing: 0.2rem;
+      text-shadow: 0 0 1rem rgba(255, 255, 255, 0.5);
+      animation: pulsate 2s infinite;
+    }
+
+    .contact-form-container {
+      max-width: 800px;
+      margin: 0 auto;
+      background-color: rgba(255, 255, 255, 0.1);
+      border-radius: 1rem;
+      box-shadow: 0 0 2rem rgba(255, 255, 255, 0.1);
+      padding: 3rem;
+      backdrop-filter: blur(1rem);
+    }
+
+    .contact-form-container form {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-gap: 2rem;
+    }
+
+    .contact-form-container label {
+      font-size: 1.2rem;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 0.1rem;
+      text-shadow: 0 0 1rem rgba(255, 255, 255, 0.5);
+    }
+
+    .contact-form-container input,
+    .contact-form-container textarea {
+      background-color: rgba(255, 255, 255, 0.1);
+      border: none;
+      border-radius: 0.5rem;
+      padding: 1rem;
+      font-size: 1.2rem;
+      color: #fff;
+      box-shadow: 0 0 1rem rgba(255, 255, 255, 0.1);
+      transition: box-shadow 0.3s ease-in-out;
+    }
+
+    .contact-form-container input:focus,
+    .contact-form-container textarea:focus {
+      outline: none;
+      box-shadow: 0 0 2rem rgba(255, 255, 255, 0.3);
+    }
+
+    .contact-form-container textarea {
+      grid-column: 1 / -1;
+      height: 200px;
+    }
+
+    .contact-form-container button {
+      grid-column: 1 / -1;
+      background-color: #ff00ff;
+      color: #0e0e0e;
+      border: none;
+      border-radius: 0.5rem;
+      padding: 1rem 2rem;
+      font-size: 1.2rem;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 0.1rem;
+      cursor: pointer;
+      transition: background-color 0.3s ease-in-out;
+      box-shadow: 0 0 1rem rgba(255, 0, 255, 0.5);
+      animation: pulsate 2s infinite;
+    }
+
+    .contact-form-container button:hover {
+      background-color: #c700c7;
+    }
+
+    /* Animations */
+    @keyframes pulsate {
+      0% {
+        text-shadow: 0 0 1rem rgba(255, 255, 255, 0.5);
+      }
+      50% {
+        text-shadow: 0 0 2rem rgba(255, 255, 255, 0.5);
+      }
+      100% {
+        text-shadow: 0 0 1rem rgba(255, 255, 255, 0.5);
+      }
+    }
+
+    @keyframes rotate {
+      0% {
+        transform: rotate(0deg);
+      }
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+
+    /* Responsive Styles */
+    @media (max-width: 768px) {
+      .navbar {
+        padding: 1rem;
+      }
+
+      .navbar-brand {
+        font-size: 1.5rem;
+      }
+
+      .navbar-nav li {
+        margin-left: 1rem;
+      }
+
+      .navbar-nav li a {
+        font-size: 1rem;
+      }
+
+      .featured-projects,
+      .about-me,
+      .contact-form {
+        padding: 3rem 1rem;
+      }
+
+      .featured-projects h2,
+      .about-me h2,
+      .contact-form h2 {
+        font-size: 2rem;
+      }
+
+      .project-grid {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      }
+
+      .about-me-content {
+        flex-direction: column;
+      }
+
+      .profile-pic {
+        width: 150px;
+        height: 150px;
+      }
+
+      .about-me-text {
+        margin-left: 0;
+        margin-top: 2rem;
+      }
+
+      .about-me-text h3 {
+        font-size: 1.5rem;
+      }
+
+      .about-me-text p {
+        font-size: 1rem;
+      }
+
+      .about-me-text ul li {
+        font-size: 1rem;
+        margin-right: 0.5rem;
+        margin-bottom: 0.5rem;
+      }
+
+      .contact-form-container {
+        padding: 2rem;
+      }
+
+      .contact-form-container form {
+        grid-template-columns: 1fr;
+      }
+
+      .contact-form-container label,
+      .contact-form-container input,
+      .contact-form-container textarea,
+      .contact-form-container button {
+        font-size: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav class="navbar">
+      <a href="#" class="navbar-brand">Black Hole</a>
+      <ul class="navbar-nav">
+        <li><a href="#featured-projects">Projects</a></li>
+        <li><a href="#about-me">About</a></li>
+        <li><a href="#contact-form">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <!-- Featured Projects -->
+    <section id="featured-projects" class="featured-projects">
+      <h2>Featured Projects</h2>
+      <div class="project-grid">
+        <div class="project-galaxy">
+          <img src="https://dummyimage.com/600x400/ccc/000&text=Project+1" alt="Project 1">
+          <div class="project-details">
+            <h3>Project 1</h3>
+            <p>This is a description of the first project.</p>
+            <a href="#">Learn More</a>
+          </div>
+        </div>
+        <div class="project-galaxy">
+          <img src="https://dummyimage.com/600x400/ccc/000&text=Project+2" alt="Project 2">
+          <div class="project-details">
+            <h3>Project 2</h3>
+            <p>This is a description of the second project.</p>
+            <a href="#">Learn More</a>
+          </div>
+        </div>
+        <div class="project-galaxy">
+          <img src="https://dummyimage.com/600x400/ccc/000&text=Project+3" alt="Project 3">
+          <div class="project-details">
+            <h3>Project 3</h3>
+            <p>This is a description of the third project.</p>
+            <a href="#">Learn More</a>
+          </div>
+        </div>
+        <div class="project-galaxy">
+          <img src="https://dummyimage.com/600x400/ccc/000&text=Project+4" alt="Project 4</div>
+        <div class="project-galaxy">
+          <img src="https://dummyimage.com/600x400/ccc/000&text=Project+5" alt="Project 5">
+          <div class="project-details">
+            <h3>Project 5</h3>
+            <p>This is a description of the fifth project.</p>
+            <a href="#">Learn More</a>
+          </div>
+        </div>
+        <div class="project-galaxy">
+          <img src="https://dummyimage.com/600x400/ccc/000&text=Project+6" alt="Project 6">
+          <div class="project-details">
+            <h3>Project 6</h3>
+            <p>This is a description of the sixth project.</p>
+            <a href="#">Learn More</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- About Me -->
+    <section id="about-me" class="about-me">
+      <h2>About Me</h2>
+      <div class="about-me-content">
+        <div class="profile-pic">
+          <img src="https://dummyimage.com/400x400/ccc/000&text=Profile+Picture" alt="Profile Picture">
+        </div>
+        <div class="about-me-text">
+          <h3>John Doe</h3>
+          <p>I'm a passionate backend developer with a strong focus on creating robust, scalable, and efficient systems. With years of experience in the industry, I've honed my skills in a variety of technologies, including Node.js, Python, and Go.</p>
+          <p>My approach to development is driven by a deep understanding of software architecture, data structures, and algorithms. I'm constantly exploring new technologies and techniques to stay ahead of the curve and deliver innovative solutions to my clients.</p>
+          <ul>
+            <li>Node.js</li>
+            <li>Python</li>
+            <li>Go</li>
+            <li>Redis</li>
+            <li>MongoDB</li>
+            <li>AWS</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Form -->
+    <section id="contact-form" class="contact-form">
+      <h2>Get in Touch</h2>
+      <div class="contact-form-container">
+        <form>
+          <label for="name">Name:</label>
+          <input type="text" id="name" name="name" placeholder="Enter your name" required>
+
+          <label for="email">Email:</label>
+          <input type="email" id="email" name="email" placeholder="Enter your email" required>
+
+          <label for="message">Message:</label>
+          <textarea id="message" name="message" placeholder="Enter your message" required></textarea>
+
+          <button type="submit">Send Message</button>
+        </form>
+      </div>
+    </section>
+  </main>
+</body>
+</html>'<!-- Visit: https://github.com/Ishanoshada/portflair -->
+<!-- Visit: https://github.com/Ishanoshada/portflair -->

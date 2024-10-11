@@ -1,0 +1,354 @@
+<!-- Portfolio created by Ishan -->
+<!-- Check out my work at: https://github.com/Ishanoshada/portflair -->
+<!-- 2024/10/9 -->
+<!-- Portfolio created by Ishan -->
+'<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Build a Highly Modern Portfolio</title>
+  <style>
+    /* Global Styles */
+    body {
+      font-family: 'Montserrat', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #111;
+      color: #fff;
+    }
+
+    /* Navigation */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 40px;
+      background-color: #111;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      font-size: 18px;
+      font-weight: 600;
+      transition: color 0.3s ease;
+    }
+
+    nav a:hover {
+      color: #f2f2f2;
+    }
+
+    /* Hero Section */
+    .hero {
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      background-image: url('https://dummyimage.com/1920x1080/111/fff&text=Portfolio+Hero');
+      background-size: cover;
+      background-position: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+      z-index: 1;
+    }
+
+    .hero-content {
+      text-align: center;
+      position: relative;
+      z-index: 2;
+    }
+
+    .hero-content h1 {
+      font-size: 60px;
+      font-weight: 800;
+      margin-bottom: 10px;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    }
+
+    .hero-content p {
+      font-size: 24px;
+      font-weight: 600;
+      margin-top: 10px;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    }
+
+    /* Portfolio Showcase */
+    .portfolio {
+      padding: 80px 40px;
+      background-color: #111;
+    }
+
+    .portfolio-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-gap: 40px;
+    }
+
+    .portfolio-item {
+      background-color: #222;
+      border-radius: 8px;
+      overflow: hidden;
+      transition: transform 0.3s ease;
+    }
+
+    .portfolio-item:hover {
+      transform: translateY(-10px);
+    }
+
+    .portfolio-item img {
+      width: 100%;
+      height: 250px;
+      object-fit: cover;
+    }
+
+    .portfolio-details {
+      padding: 20px;
+    }
+
+    .portfolio-details h3 {
+      font-size: 24px;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+
+    .portfolio-details p {
+      font-size: 16px;
+      font-weight: 400;
+      color: #ccc;
+      margin-bottom: 20px;
+    }
+
+    .portfolio-details a {
+      display: inline-block;
+      background-color: #f2f2f2;
+      color: #111;
+      padding: 10px 20px;
+      border-radius: 4px;
+      font-size: 16px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: background-color 0.3s ease;
+    }
+
+    .portfolio-details a:hover {
+      background-color: #e6e6e6;
+    }
+
+    /* Contact Section */
+    .contact {
+      padding: 80px 40px;
+      background-color: #111;
+    }
+
+    .contact-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .contact-form {
+      flex-basis: 60%;
+    }
+
+    .contact-form h2 {
+      font-size: 36px;
+      font-weight: 800;
+      margin-bottom: 30px;
+    }
+
+    .contact-form form {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-gap: 20px;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+      background-color: #222;
+      border: none;
+      padding: 15px;
+      font-size: 16px;
+      color: #fff;
+      border-radius: 4px;
+      transition: background-color 0.3s ease;
+    }
+
+    .contact-form input:focus,
+    .contact-form textarea:focus {
+      background-color: #333;
+    }
+
+    .contact-form textarea {
+      grid-column: 1 / -1;
+      height: 150px;
+    }
+
+    .contact-form button {
+      grid-column: 1 / -1;
+      background-color: #f2f2f2;
+      color: #111;
+      padding: 15px 30px;
+      border: none;
+      border-radius: 4px;
+      font-size: 16px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .contact-form button:hover {
+      background-color: #e6e6e6;
+    }
+
+    .contact-info {
+      flex-basis: 35%;
+    }
+
+    .contact-info h2 {
+      font-size: 36px;
+      font-weight: 800;
+      margin-bottom: 30px;
+    }
+
+    .contact-info p {
+      font-size: 18px;
+      font-weight: 400;
+      margin-bottom: 20px;
+    }
+
+    .contact-info a {
+      color: #f2f2f2;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    .contact-info a:hover {
+      color: #e6e6e6;
+    }
+
+    /* Footer */
+    footer {
+      background-color: #111;
+      color: #ccc;
+      text-align: center;
+      padding: 20px 0;
+      font-size: 14px;
+      font-weight: 400;
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="#">Home</a>
+    <a href="#">Portfolio</a>
+    <a href="#">About</a>
+    <a href="#">Contact</a>
+  </nav>
+
+  <section class="hero">
+    <div class="hero-content">
+      <h1>Build a Highly Modern Portfolio</h1>
+      <p>Showcase your work with razor-sharp lines and ultra-smooth animations.</p>
+    </div>
+  </section>
+
+  <section class="portfolio">
+    <div class="portfolio-grid">
+      <div class="portfolio-item">
+        <img src="https://dummyimage.com/600x400/222/fff&text=Project+1" alt="Project 1">
+        <div class="portfolio-details">
+          <h3>Project 1</h3>
+          <p>This is a sample project description.</p>
+          <a href="#">View Project</a>
+        </div>
+      </div>
+      <div class="portfolio-item">
+        <img src="https://dummyimage.com/600x400/222/fff&text=Project+2" alt="Project 2">
+        <div class="portfolio-details">
+          <h3>Project 2</h3>
+          <p>This is a sample project description.</p>
+          <a href="#">View Project</a>
+        </div>
+      </div>
+      <div class="portfolio-item">
+        <img src="https://dummyimage.com/600x400/222/fff&text=Project+3" alt="Project 3">
+        <div class="portfolio-details">
+          <h3>Project 3</h3>
+          <p>This is a sample project description.</p>
+          <a href="#">View Project</a>
+        </div>
+      </div>
+      <div class="portfolio-item">
+        <img src="https://dummyimage.com/600x400/222/fff&text=Project+4" alt="Project 4">
+        <div class="portfolio-details">
+          <h3>Project 4</h3>
+          <p>This is a sample project description.</p>
+          <a href="#">View Project</a>
+        </div>
+      </div>
+      <div class="portfolio-item">
+        <img src="https://dummyimage.com/600x400/222/fff&text=Project+5" alt="Project 5">
+        <div class="portfolio-details">
+          <h3>Project 5</h3>
+          <p>This is a sample project description.</p>
+          <a href="#">View Project</a>
+        </div>
+      </div>
+      <div class="portfolio-item">
+        <img src="https://dummyimage.com/600x400/222/fff&text=Project+6" alt="Project 6">
+        <div class="portfolio-details">
+          <h3>Project 6</h3>
+          <p>This is a sample project description.</p>
+          <a href="#">View Project</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact">
+    <div class="contact-container">
+      <div class="contact-form">
+        <h2>Get in Touch</h2>
+        <form>
+          <input type="text" placeholder="Name" required>
+          <input type="email" placeholder="Email" required>
+          <textarea placeholder="Message" required></textarea>
+          <button type="submit">Send Message</button>
+        </form>
+      </div>
+      <div class="contact-info">
+        <h2>Contact Info</h2>
+        <p>Email: <a href="mailto:info@example.com">info@example.com</a></p>
+        <p>Phone: <a href="tel:+1234567890">+1 (234) 567-890</a></p>
+        <p>Follow us on:</p>
+        <p>
+          <a href="#">LinkedIn</a> |
+          <a href="#">Twitter</a> |
+          <a href="#">Instagram</a>
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    &copy; 2024 Build a Highly Modern Portfolio. All rights reserved.
+  </footer>
+</body>
+</html>'<!-- Visit: https://github.com/Ishanoshada/portflair -->
+<!-- Visit: https://github.com/Ishanoshada/portflair -->

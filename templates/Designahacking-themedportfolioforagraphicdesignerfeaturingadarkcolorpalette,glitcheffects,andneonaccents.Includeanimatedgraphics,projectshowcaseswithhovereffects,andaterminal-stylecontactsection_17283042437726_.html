@@ -1,0 +1,496 @@
+<!-- Portfolio created by Ishan -->
+<!-- Check out my work at: https://github.com/Ishanoshada/portflair -->
+<!-- 2024/10/9 -->
+<!-- Portfolio created by Ishan -->
+'<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hacking-Themed Portfolio</title>
+  <style>
+    /* Global Styles */
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Montserrat', sans-serif;
+      background-color: #0d0d0d;
+      color: #ffffff;
+    }
+
+    /* Navigation */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.5rem 2rem;
+      background-color: #0d0d0d;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      position: relative;
+      z-index: 1000;
+    }
+
+    nav a {
+      color: #00ffb3;
+      text-decoration: none;
+      font-size: 1.1rem;
+      font-weight: 500;
+      transition: color 0.3s ease;
+    }
+
+    nav a:hover {
+      color: #00d9a5;
+    }
+
+    /* Hero Section */
+    .hero {
+      position: relative;
+      height: 80vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+    }
+
+    .hero-bg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: url('https://dummyimage.com/1920x1080/0d0d0d/00ffb3.jpg&text=Hacking+Themed+Background');
+      background-size: cover;
+      background-position: center;
+      filter: blur(5px);
+      z-index: -1;
+    }
+
+    .hero-content {
+      text-align: center;
+      max-width: 800px;
+      padding: 2rem;
+      background-color: rgba(13, 13, 13, 0.8);
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    .hero h1 {
+      font-size: 3rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      text-shadow: 0 0 20px #00ffb3;
+      animation: glitch 1s infinite;
+    }
+
+    .hero p {
+      font-size: 1.4rem;
+      margin-bottom: 2rem;
+    }
+
+    .hero-cta {
+      display: inline-block;
+      background-color: #00ffb3;
+      color: #0d0d0d;
+      padding: 1rem 2rem;
+      border-radius: 4px;
+      font-size: 1.2rem;
+      font-weight: 500;
+      text-decoration: none;
+      transition: background-color 0.3s ease;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-cta:before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background-image: linear-gradient(to right, transparent, #00d9a5, transparent);
+      animation: neon-glow 2s infinite linear;
+    }
+
+    .hero-cta:hover {
+      background-color: #00d9a5;
+    }
+
+    /* Portfolio Section */
+    .portfolio {
+      padding: 4rem 2rem;
+    }
+
+    .portfolio h2 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      text-align: center;
+      margin-bottom: 3rem;
+      text-shadow: 0 0 20px #00ffb3;
+      animation: glitch 1s infinite;
+    }
+
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      grid-gap: 2rem;
+    }
+
+    .project-card {
+      background-color: #131313;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      transition: transform 0.3s ease;
+      position: relative;
+    }
+
+    .project-card:hover {
+      transform: translateY(-10px);
+    }
+
+    .project-card:before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: linear-gradient(to right, transparent, #00d9a5, transparent);
+      animation: neon-glow 2s infinite linear;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .project-card:hover:before {
+      opacity: 1;
+    }
+
+    .project-thumbnail {
+      height: 200px;
+      background-size: cover;
+      background-position: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .project-thumbnail:before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: linear-gradient(to right, transparent, #00d9a5, transparent);
+      animation: glitch 1s infinite;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .project-card:hover .project-thumbnail:before {
+      opacity: 1;
+    }
+
+    .project-details {
+      padding: 1.5rem;
+    }
+
+    .project-details h3 {
+      font-size: 1.5rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+      text-shadow: 0 0 10px #00ffb3;
+    }
+
+    .project-details p {
+      font-size: 1rem;
+      color: #aaa;
+      margin-bottom: 1rem;
+    }
+
+    .project-link {
+      display: inline-block;
+      background-color: #00ffb3;
+      color: #0d0d0d;
+      padding: 0.75rem 1.5rem;
+      border-radius: 4px;
+      font-size: 1rem;
+      font-weight: 500;
+      text-decoration: none;
+      transition: background-color 0.3s ease;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .project-link:before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background-image: linear-gradient(to right, transparent, #00d9a5, transparent);
+      animation: neon-glow 2s infinite linear;
+    }
+
+    .project-link:hover {
+      background-color: #00d9a5;
+    }
+
+    /* Contact Section */
+    .contact {
+      padding: 4rem 2rem;
+      background-color: #131313;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .contact h2 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 2rem;
+      text-shadow: 0 0 20px #00ffb3;
+      animation: glitch 1s infinite;
+    }
+
+    .contact-form {
+      background-color: #0d0d0d;
+      padding: 2rem;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      width: 100%;
+      max-width: 600px;
+      display: grid;
+      grid-template-columns: 1fr;
+      grid-gap: 1.5rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .contact-form:before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: linear-gradient(to right, transparent, #00d9a5, transparent);
+      animation: neon-glow 2s infinite linear;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .contact-form:hover:before {
+      opacity: 1;
+    }
+
+    .form-field {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .form-field label {
+      font-size: 1rem;
+      font-weight: 500;
+      margin-bottom: 0.5rem;
+      color: #00ffb3;
+      text-shadow: 0 0 10px #00ffb3;
+    }
+
+    .form-field input,
+    .form-field textarea {
+      background-color: #1a1a1a;
+      border: none;
+      padding: 1rem;
+      font-size: 1rem;
+      color: #ffffff;
+      border-radius: 4px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      transition: box-shadow 0.3s ease;
+    }
+
+    .form-field input:focus,
+    .form-field textarea:focus {
+      outline: none;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    .form-field textarea {
+      resize: vertical;
+      min-height: 150px;
+    }
+
+    .contact-form button {
+      background-color: #00ffb3;
+      color: #0d0d0d;
+      border: none;
+      padding: 1rem 2rem;
+      font-size: 1.2rem;
+      font-weight: 500;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .contact-form button:before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background-image: linear-gradient(to right, transparent, #00d9a5, transparent);
+      animation: neon-glow 2s infinite linear;
+    }
+
+    .contact-form button:hover {
+      background-color: #00d9a5;
+    }
+
+    /* Animations */
+    @keyframes glitch {
+      0% {
+        text-shadow: 0 0 20px #00ffb3;
+      }
+      25% {
+        text-shadow: -2px -2px 0 #00d9a5, 2px 2px 0 #00ffb3;
+      }
+      50% {
+        text-shadow: 2px -2px 0 #00d9a5, -2px 2px 0 #00ffb3;
+      }
+      75% {
+        text-shadow: -2px 2px 0 #00d9a5, 2px -2px 0 #00ffb3;
+      }
+      100% {
+        text-shadow: 0 0 20px #00ffb3;
+      }
+    }
+
+    @keyframes neon-glow {
+      0% {
+        background-position: 0% 50%;
+      }
+      50% {
+        background-position: 100% 50%;
+      }
+      100% {
+        background-position: 0% 50%;
+      }
+    }
+
+    /* Responsive Styles */
+    @media (max-width: 768px) {
+      .hero h1 {
+        font-size: 2.5rem;
+      }
+
+      .hero p {
+        font-size: 1.2rem;
+      }
+
+      .portfolio h2,
+      .contact h2 {
+        font-size: 2rem;
+      }
+
+      .project-grid {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      }
+
+      .contact-form {
+        padding: 1.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="#">Home</a>
+    <a href="#">Portfolio</a>
+    <a href="#">Contact</a>
+  </nav>
+
+  <section class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-content">
+      <h1>Hacking-Inspired Designs</h1>
+      <p>Unleash your inner hacker with our cutting-edge, glitch-infused portfolio.</p>
+      <a href="#" class="hero-cta">Explore the Portfolio</a>
+    </div>
+  </section>
+
+  <section class="portfolio">
+    <h2>Our Hacking-Themed Projects</h2>
+    <div class="project-grid">
+      <div class="project-card">
+        <div class="project-thumbnail" style="background-image: url('https://dummyimage.com/600x400/131313/00ffb3.jpg&text=Project+Thumbnail')"></div>
+        <div class="project-details">
+          <h3>Cyberpunk Branding</h3>
+          <p>A bold and futuristic branding design for a cutting-edge tech company.</p>
+          <a href="#" class="project-link">View Project</a>
+        </div>
+      </div>
+      <div class="project-card">
+        <div class="project-thumbnail" style="background-image: url('https://dummyimage.com/600x400/131313/00ffb3.jpg&text=Project+Thumbnail')"></div>
+        <div class="project-details">
+          <h3>Glitch Art Gallery</h3>
+          <p>An interactive digital art gallery showcasing stunning glitch-inspired artworks.</p>
+          <a href="#" class="project-link">View Project</a>
+        </div>
+      </div>
+      <div class="project-card">
+        <div class="project-thumbnail" style="background-image: url('https://dummyimage.com/600x400/131313/00ffb3.jpg&text=Project+Thumbnail')"></div>
+        <div class="project-details">
+          <h3>Hacker's Playground</h3>
+          <p>A gamified website that challenges users to navigate a maze of digital puzzles.</p>
+          <a href="#" class="project-link">View Project</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact">
+    <h2>Get in Touch</h2>
+    <form class="contact-form">
+      <div class="form-field">
+        <label for="name">Name</label>
+        <input type="text" id="name" name="name" placeholder="Enter your name" required>
+      </div>
+      <div class="form-field">
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" placeholder="Enter your email" required>
+      </div>
+      <div class="form-field">
+        <label for="message">Message</label>
+        <textarea id="message" name="message" placeholder="Enteryour message" required></textarea>
+      </div>
+      <button type="submit">Send Message</button>
+    </form>
+  </section>
+
+  <footer>
+    <div class="social-links">
+      <a href="#" class="social-link">
+        <i class="fab fa-twitter"></i>
+      </a>
+      <a href="#" class="social-link">
+        <i class="fab fa-linkedin"></i>
+      </a>
+      <a href="#" class="social-link">
+        <i class="fab fa-github"></i>
+      </a>
+    </div>
+    <p>&copy; 2024 Hacking-Themed Portfolio. All rights reserved.</p>
+  </footer>
+
+  <script src="https://kit.fontawesome.com/your-font-awesome-kit.js" crossorigin="anonymous"></script>
+</body>
+</html>'<!-- Visit: https://github.com/Ishanoshada/portflair -->
+<!-- Visit: https://github.com/Ishanoshada/portflair -->

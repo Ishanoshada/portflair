@@ -1,0 +1,486 @@
+<!-- Portfolio created by Ishan -->
+<!-- Check out my work at: https://github.com/Ishanoshada/portflair -->
+<!-- 2024/10/9 -->
+<!-- Portfolio created by Ishan -->
+'<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dark Mode Portfolio</title>
+  <style>
+    /* Global Styles */
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Montserrat', sans-serif;
+      background-color: #1a1a1a;
+      color: #f0f0f0;
+    }
+
+    /* Nav Bar */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.5rem 2rem;
+      background-color: rgba(26, 26, 26, 0.8);
+      backdrop-filter: blur(10px);
+      position: relative;
+      z-index: 1;
+    }
+
+    nav a {
+      color: #f0f0f0;
+      text-decoration: none;
+      font-size: 1.1rem;
+      font-weight: 500;
+      margin: 0 1rem;
+      transition: color 0.3s ease;
+    }
+
+    nav a:hover {
+      color: #8c8c8c;
+    }
+
+    /* Hero Section */
+    #hero {
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    #hero::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(circle, rgba(26, 26, 26, 0.8), #1a1a1a);
+      z-index: -1;
+    }
+
+    #hero-content {
+      text-align: center;
+      max-width: 800px;
+      padding: 2rem;
+      background-color: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(20px);
+      border-radius: 1rem;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+      transform-style: preserve-3d;
+      animation: float 6s ease-in-out infinite;
+    }
+
+    #hero-content h1 {
+      font-size: 3rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    }
+
+    #hero-content p {
+      font-size: 1.2rem;
+      margin-bottom: 2rem;
+      text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    }
+
+    #hero-content a.cta {
+      display: inline-block;
+      background-color: #8c8c8c;
+      color: #1a1a1a;
+      text-decoration: none;
+      padding: 1rem 2rem;
+      border-radius: 2rem;
+      font-size: 1.1rem;
+      font-weight: 600;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+      transition: background-color 0.3s ease, transform 0.3s ease;
+    }
+
+    #hero-content a.cta:hover {
+      background-color: #a6a6a6;
+      transform: translateY(-5px);
+    }
+
+    @keyframes float {
+      0% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(-20px);
+      }
+      100% {
+        transform: translateY(0);
+      }
+    }
+
+    /* Project Showcase */
+    #projects {
+      padding: 4rem 2rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    #projects::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(circle, rgba(26, 26, 26, 0.8), #1a1a1a);
+      z-index: -1;
+    }
+
+    #projects h2 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      text-align: center;
+      margin-bottom: 3rem;
+      text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    }
+
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      grid-gap: 2rem;
+    }
+
+    .project-card {
+      background-color: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(20px);
+      border-radius: 1rem;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+      overflow: hidden;
+      position: relative;
+      cursor: pointer;
+      transform-style: preserve-3d;
+      transition: transform 0.3s ease;
+    }
+
+    .project-card:hover {
+      transform: translateY(-10px);
+    }
+
+    .project-card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      filter: brightness(0.8);
+      transition: filter 0.3s ease;
+    }
+
+    .project-card:hover img {
+      filter: brightness(1);
+    }
+
+    .project-card .overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(26, 26, 26, 0.7);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .project-card:hover .overlay {
+      opacity: 1;
+    }
+
+    .project-card .overlay h3 {
+      font-size: 1.5rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+      text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    }
+
+    .project-card .overlay p {
+      font-size: 1.1rem;
+      text-align: center;
+      margin-bottom: 2rem;
+      text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    }
+
+    .project-card .overlay a {
+      display: inline-block;
+      background-color: #8c8c8c;
+      color: #1a1a1a;
+      text-decoration: none;
+      padding: 0.8rem 1.5rem;
+      border-radius: 2rem;
+      font-size: 1rem;
+      font-weight: 600;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+      transition: background-color 0.3s ease, transform 0.3s ease;
+    }
+
+    .project-card .overlay a:hover {
+      background-color: #a6a6a6;
+      transform: translateY(-5px);
+    }
+
+    /* About Section */
+    #about {
+      padding: 4rem 2rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    #about::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(circle, rgba(26, 26, 26, 0.8), #1a1a1a);
+      z-index: -1;
+    }
+
+    #about-content {
+      display: flex;
+      align-items: center;
+      background-color: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(20px);
+      border-radius: 1rem;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+      overflow: hidden;
+      animation: float 6s ease-in-out infinite;
+    }
+
+    #about-content .profile-pic {
+      flex: 0 0 300px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    #about-content .profile-pic img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: brightness(0.8);
+      transition: filter 0.3s ease;
+    }
+
+    #about-content .profile-pic:hover img {
+      filter: brightness(1);
+    }
+
+    #about-content .profile-pic::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(circle, rgba(140, 140, 140, 0.3), transparent);
+      z-index: 1;
+    }
+
+    #about-content .bio {
+      flex: 1;
+      padding: 2rem;
+    }
+
+    #about-content .bio h2 {
+      font-size: 2rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    }
+
+    #about-content .bio p {
+      font-size: 1.1rem;
+      line-height: 1.6;
+      margin-bottom: 2rem;
+      text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    }
+
+    #about-content .bio a.cta {
+      display: inline-block;
+      background-color: #8c8c8c;
+      color: #1a1a1a;
+      text-decoration: none;
+      padding: 1rem 2rem;
+      border-radius: 2rem;
+      font-size: 1.1rem;
+      font-weight: 600;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+      transition: background-color 0.3s ease, transform 0.3s ease;
+    }
+
+    #about-content .bio a.cta:hover {
+      background-color: #a6a6a6;
+      transform: translateY(-5px);
+    }
+
+    @media (max-width: 768px) {
+      nav {
+        padding: 1rem;
+      }
+
+      nav a {
+        font-size: 1rem;
+        margin: 0 0.5rem;
+      }
+
+      #hero-content {
+        padding: 1.5rem;
+      }
+
+      #hero-content h1 {
+        font-size: 2.5rem;
+      }
+
+      #hero-content p {
+        font-size: 1.1rem;
+      }
+
+      #hero-content a.cta {
+        font-size: 1rem;
+        padding: 0.8rem 1.5rem;
+      }
+
+      #projects {
+        padding: 3rem 1rem;
+      }
+
+      #projects h2 {
+        font-size: 2rem;
+        margin-bottom: 2rem;
+      }
+
+      .project-grid {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        grid-gap: 1.5rem;
+      }
+
+      .project-card img {
+        height: 180px;
+      }
+
+      .project-card .overlay h3 {
+        font-size: 1.3rem;
+      }
+
+      .project-card .overlay p {
+        font-size: 1rem;
+      }
+
+      .project-card .overlay a {
+        font-size: 0.9rem;
+        padding: 0.6rem 1.2rem;
+      }
+
+      #about {
+        padding: 3rem 1rem;
+      }
+
+      #about-content {
+        flex-direction: column;
+      }
+
+      #about-content .profile-pic {
+        flex: 0 0 200px;
+      }
+
+      #about-content .bio {
+        padding: 1.5rem;
+      }
+
+      #about-content .bio h2 {
+        font-size: 1.8rem;
+      }
+
+      #about-content .bio p {
+        font-size: 1rem;
+      }
+
+      #about-content .bio a.cta {
+        font-size: 1rem;
+        padding: 0.8rem 1.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="#">Home</a>
+    <a href="#">Projects</a>
+    <a href="#">About</a>
+    <a href="#">Contact</a>
+  </nav>
+
+  <section id="hero">
+    <div id="hero-content">
+      <h1>Welcome to My Dark Mode Portfolio</h1>
+      <p>Explore my unique and visually stunning projects, crafted with a modern, glass-like aesthetic.</p>
+      <a href="#" class="cta">View My Work</a>
+    </div>
+  </section>
+
+  <section id="projects">
+    <h2>My Latest Projects</h2>
+    <div class="project-grid">
+      <div class="project-card">
+        <img src="https://dummyimage.com/600x400/ccc/000&text=Project+1" alt="Project 1">
+        <div class="overlay">
+          <h3>Project 1</h3>
+          <p>A captivating project with a dark, glass-like aesthetic.</p>
+          <a href="#">Learn More</a>
+        </div>
+      </div>
+      <div class="project-card">
+        <img src="https://dummyimage.com/600x400/ccc/000&text=Project+2" alt="Project 2">
+        <div class="overlay">
+          <h3>Project 2</h3>
+          <p>Explore the depth and elegance of this stunning project.</p>
+          <a href="#">Learn More</a>
+        </div>
+      </div>
+      <div class="project-card">
+        <img src="https://dummyimage.com/600x400/ccc/000&text=Project+3" alt="Project 3">
+        <div class="overlay">
+          <h3>Project 3</h3>
+          <p>Immerse yourself in the captivating world of this design.</p>
+          <a href="#">Learn More</a>
+        </div>
+      </div>
+      <div class="project-card">
+        <img src="https://dummyimage.com/600x400/ccc/000&text=Project+4" alt="Project 4">
+        <div class="overlay">
+          <h3>Project 4</h3>
+          <p>Discover the intricate details and artistry of this project.</p>
+          <a href="#">Learn More</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="about">
+    <div id="about-content">
+      <div class="profile-pic">
+        <img src="https://dummyimage.com/300x300/ccc/000&text=Profile+Picture" alt="Profile Picture">
+      </div>
+      <div class="bio">
+        <h2>About Me</h2>
+        <p>I am a passionate designer with a keen eye for detail and a deep appreciation for the power of visual storytelling. Through my work, I strive to create captivating and immersive experiences that seamlessly blend form and function, all while embracing the elegance and sophistication of a dark-mode aesthetic. My portfolio showcases a range of projects that showcase my versatility, from sleek and modern web designs to captivating brand identities. I am committed to pushing the boundaries of creativity and delivering exceptional results for my clients. Let's collaborate and bring your vision to life in a truly unique and memorable way.
+</p>
+        <a href="#" class="cta">Get in Touch</a>
+      </div>
+    </div>
+  </section>
+</body>
+</html>'<!-- Visit: https://github.com/Ishanoshada/portflair -->
+<!-- Visit: https://github.com/Ishanoshada/portflair -->

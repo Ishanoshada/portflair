@@ -1,0 +1,346 @@
+<!-- Portfolio created by Ishan -->
+<!-- Check out my work at: https://github.com/Ishanoshada/portflair -->
+<!-- 2024/10/9 -->
+<!-- Portfolio created by Ishan -->
+'<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Design a Full-Page Animated Portfolio</title>
+  <style>
+    /* General Styles */
+    body {
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #0e0e0e;
+      color: #ffffff;
+      overflow-x: hidden;
+    }
+
+    /* Navigation Bar */
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 40px;
+      background-color: rgba(14, 14, 14, 0.8);
+      backdrop-filter: blur(10px);
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+    }
+
+    .navbar-brand {
+      font-size: 24px;
+      font-weight: bold;
+      text-decoration: none;
+      color: #ffffff;
+    }
+
+    .navbar-nav {
+      display: flex;
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .navbar-nav li {
+      margin-left: 20px;
+    }
+
+    .navbar-nav li a {
+      text-decoration: none;
+      color: #ffffff;
+      font-size: 16px;
+      transition: color 0.3s ease;
+    }
+
+    .navbar-nav li a:hover {
+      color: #8d8d8d;
+    }
+
+    /* Hero Section */
+    .hero-section {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background: linear-gradient(to bottom, #0e0e0e, #1a1a1a);
+      overflow: hidden;
+    }
+
+    .hero-content {
+      text-align: center;
+      max-width: 800px;
+      z-index: 1;
+    }
+
+    .hero-title {
+      font-size: 48px;
+      font-weight: bold;
+      margin-bottom: 20px;
+      text-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+    }
+
+    .hero-description {
+      font-size: 24px;
+      margin-bottom: 40px;
+      text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+    }
+
+    .hero-background {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: url('https://dummyimage.com/1920x1080/0e0e0e/ffffff&text=Animated+Portfolio+Background');
+      background-size: cover;
+      background-position: center;
+      filter: blur(50px);
+      z-index: 0;
+    }
+
+    /* Skills and Expertise Section */
+    .skills-section {
+      padding: 80px 40px;
+      background-color: #1a1a1a;
+    }
+
+    .skills-title {
+      font-size: 36px;
+      font-weight: bold;
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      grid-gap: 40px;
+    }
+
+    .skill-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+
+    .skill-icon {
+      width: 80px;
+      height: 80px;
+      background-image: url('https://dummyimage.com/80x80/8d8d8d/ffffff&text=Skill+Icon');
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center;
+      margin-bottom: 20px;
+      animation: brushstroke 2s ease-in-out infinite;
+    }
+
+    @keyframes brushstroke {
+      0% {
+        transform: translate(-5px, 5px);
+      }
+      50% {
+        transform: translate(5px, -5px);
+      }
+      100% {
+        transform: translate(-5px, 5px);
+      }
+    }
+
+    .skill-name {
+      font-size: 20px;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+
+    .skill-description {
+      font-size: 16px;
+      color: #8d8d8d;
+    }
+
+    /* Interactive Contact Form Section */
+    .contact-section {
+      padding: 80px 40px;
+      background: linear-gradient(to bottom, #1a1a1a, #0e0e0e);
+    }
+
+    .contact-title {
+      font-size: 36px;
+      font-weight: bold;
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .contact-form {
+      max-width: 600px;
+      margin: 0 auto;
+      background-color: rgba(255, 255, 255, 0.1);
+      padding: 40px;
+      border-radius: 10px;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    .form-group label {
+      display: block;
+      font-size: 16px;
+      margin-bottom: 5px;
+    }
+
+    .form-group input,
+    .form-group textarea {
+      width: 100%;
+      padding: 10px;
+      font-size: 16px;
+      border: none;
+      border-radius: 5px;
+      background-color: rgba(255, 255, 255, 0.2);
+      color: #ffffff;
+      transition: background-color 0.3s ease;
+    }
+
+    .form-group input:focus,
+    .form-group textarea:focus {
+      background-color: rgba(255, 255, 255, 0.3);
+    }
+
+    .form-group textarea {
+      resize: vertical;
+      min-height: 120px;
+    }
+
+    .form-group button {
+      display: block;
+      width: 100%;
+      padding: 10px;
+      font-size: 16px;
+      font-weight: bold;
+      background-color: #8d8d8d;
+      color: #0e0e0e;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .form-group button:hover {
+      background-color: #a9a9a9;
+    }
+
+    .form-success-message {
+      font-size: 18px;
+      font-weight: bold;
+      text-align: center;
+      margin-top: 20px;
+      animation: fadeIn 0.5s ease;
+    }
+
+    @keyframes fadeIn {
+      0% {
+        opacity: 0;
+      }
+      100% {
+        opacity: 1;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation Bar -->
+  <nav class="navbar">
+    <a href="#" class="navbar-brand">Design Portfolio</a>
+    <ul class="navbar-nav">
+      <li><a href="#">Home</a></li>
+      <li><a href="#">About</a></li>
+      <li><a href="#">Portfolio</a></li>
+      <li><a href="#">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero-section">
+    <div class="hero-content">
+      <h1 class="hero-title">Unleash Your Design Potential</h1>
+      <p class="hero-description">Explore my full-page animated portfolio with captivating 3D visuals, floating shapes, and rotating project cubes.</p>
+    </div>
+    <div class="hero-background"></div>
+  </section>
+
+  <!-- Skills and Expertise Section -->
+  <section class="skills-section">
+    <h2 class="skills-title">My Key Skills and Expertise</h2>
+    <div class="skills-grid">
+      <div class="skill-item">
+        <div class="skill-icon"></div>
+        <h3 class="skill-name">3D Modeling</h3>
+        <p class="skill-description">Proficient in creating stunning 3D visuals and animations.</p>
+      </div>
+      <div class="skill-item">
+        <div class="skill-icon"></div>
+        <h3 class="skill-name">UI/UX Design</h3>
+        <p class="skill-description">Crafting user-friendly and visually appealing interfaces.</p>
+      </div>
+      <div class="skill-item">
+        <div class="skill-icon"></div>
+        <h3 class="skill-name">Motion Graphics</h3>
+        <p class="skill-description">Bringing designs to life with smooth and captivating animations.</p>
+      </div>
+      <div class="skill-item">
+        <div class="skill-icon"></div>
+        <h3 class="skill-name">Branding</h3>
+        <p class="skill-description">Developing cohesive and memorable brand identities.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Interactive Contact Form Section -->
+  <section class="contact-section">
+    <h2 class="contact-title">Get in Touch</h2>
+    <div class="contact-form">
+      <form id="contact-form">
+        <div class="form-group">
+          <label for="name">Name</label>
+          <input type="text" id="name" name="name" required>
+        </div>
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" required>
+        </div>
+        <div class="form-group">
+          <label for="message">Message</label>
+          <textarea id="message" name="message" required></textarea>
+        </div>
+        <div class="form-group">
+          <button type="submit">Send Message</button>
+        </div>
+      </form>
+      <div class="form-success-message" style="display: none;">
+        Thank you! Your message has been sent.
+      </div>
+    </div>
+  </section>
+
+  <script>
+    const form = document.getElementById('contact-form');
+    const successMessage = document.querySelector('.form-success-message');
+
+    form.addEventListener('submit', (event) => {
+      event.preventDefault();
+      // You can add your custom form submission logic here
+      form.style.display = 'none';
+      successMessage.style.display = 'block';
+    });
+  </script>
+</body>
+</html>'<!-- Visit: https://github.com/Ishanoshada/portflair -->
+<!-- Visit: https://github.com/Ishanoshada/portflair -->

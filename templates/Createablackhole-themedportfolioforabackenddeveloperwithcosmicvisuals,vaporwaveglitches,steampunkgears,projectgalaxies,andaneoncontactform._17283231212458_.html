@@ -1,0 +1,484 @@
+<!-- Portfolio created by Ishan -->
+<!-- Check out my work at: https://github.com/Ishanoshada/portflair -->
+<!-- 2024/10/9 -->
+<!-- Portfolio created by Ishan -->
+'<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Black Hole Portfolio</title>
+  <style>
+    /* Normalize CSS */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    /* Global Styles */
+    body {
+      font-family: 'Roboto', sans-serif;
+      background-color: #000;
+      color: #fff;
+      overflow-x: hidden;
+    }
+
+    /* Navigation */
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.5rem 2rem;
+      background-color: rgba(0, 0, 0, 0.7);
+      backdrop-filter: blur(10px);
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 100;
+    }
+
+    .navbar-brand {
+      font-size: 2rem;
+      font-weight: bold;
+      color: #fff;
+      text-decoration: none;
+      text-shadow: 0 0 20px #00ffff, 0 0 30px #00ffff, 0 0 40px #00ffff;
+      animation: pulsate 2s infinite;
+    }
+
+    .navbar-nav {
+      display: flex;
+      list-style-type: none;
+    }
+
+    .navbar-nav li {
+      margin-left: 2rem;
+    }
+
+    .navbar-nav a {
+      color: #fff;
+      text-decoration: none;
+      font-size: 1.2rem;
+      position: relative;
+      padding-bottom: 0.5rem;
+    }
+
+    .navbar-nav a::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background-color: #00ffff;
+      transition: width 0.3s ease-in-out;
+    }
+
+    .navbar-nav a:hover::after {
+      width: 100%;
+    }
+
+    /* Project Galaxy Section */
+    .project-galaxy {
+      padding: 6rem 2rem;
+      background: radial-gradient(ellipse at center, #1b2735 0%, #090a0f 100%);
+      overflow: hidden;
+    }
+
+    .project-galaxy h2 {
+      font-size: 3rem;
+      text-align: center;
+      text-shadow: 0 0 20px #00ffff, 0 0 30px #00ffff, 0 0 40px #00ffff;
+      animation: pulsate 2s infinite;
+      margin-bottom: 4rem;
+    }
+
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-gap: 3rem;
+    }
+
+    .project-item {
+      position: relative;
+      overflow: hidden;
+      border-radius: 0.5rem;
+      box-shadow: 0 0 20px rgba(0, 255, 255, 0.5);
+      transition: transform 0.3s ease-in-out;
+    }
+
+    .project-item:hover {
+      transform: scale(1.05);
+    }
+
+    .project-item img {
+      width: 100%;
+      height: 300px;
+      object-fit: cover;
+      filter: brightness(0.8) contrast(1.2) saturate(1.2);
+      animation: glitch 0.5s infinite;
+    }
+
+    .project-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.7);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      opacity: 0;
+      transition: opacity 0.3s ease-in-out;
+    }
+
+    .project-item:hover .project-overlay {
+      opacity: 1;
+    }
+
+    .project-overlay h3 {
+      font-size: 2rem;
+      color: #00ffff;
+      text-shadow: 0 0 10px #00ffff, 0 0 20px #00ffff, 0 0 30px #00ffff;
+      margin-bottom: 1rem;
+    }
+
+    .project-overlay p {
+      font-size: 1.2rem;
+      color: #fff;
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+
+    .project-overlay a {
+      display: inline-block;
+      padding: 0.8rem 1.5rem;
+      background-color: #00ffff;
+      color: #000;
+      text-decoration: none;
+      border-radius: 0.3rem;
+      font-size: 1.2rem;
+      transition: background-color 0.3s ease-in-out;
+    }
+
+    .project-overlay a:hover {
+      background-color: #00cccc;
+    }
+
+    /* Steampunk Gears Section */
+    .steampunk-gears {
+      padding: 6rem 2rem;
+      background-image: url("https://dummyimage.com/1200x500/333/fff&text=Steampunk+Gears");
+      background-size: cover;
+      background-position: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .steampunk-gears::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.7);
+      z-index: 1;
+    }
+
+    .steampunk-gears h2 {
+      font-size: 3rem;
+      text-align: center;
+      text-shadow: 0 0 20px #00ffff, 0 0 30px #00ffff, 0 0 40px #00ffff;
+      animation: pulsate 2s infinite;
+      margin-bottom: 4rem;
+      position: relative;
+      z-index: 2;
+    }
+
+    .gear {
+      position: absolute;
+      width: 100px;
+      height: 100px;
+      background-image: url("https://dummyimage.com/100x100/ccc/000&text=Gear");
+      background-size: contain;
+      background-repeat: no-repeat;
+      animation: rotate 10s linear infinite;
+    }
+
+    .gear1 {
+      top: 10%;
+      left: 20%;
+      animation-delay: 0s;
+    }
+
+    .gear2 {
+      top: 30%;
+      right: 15%;
+      animation-delay: 2s;
+    }
+
+    .gear3 {
+      bottom: 15%;
+      left: 30%;
+      animation-delay: 4s;
+    }
+
+    .gear4 {
+      bottom: 5%;
+      right: 25%;
+      animation-delay: 6s;
+    }
+
+    .skill-item {
+      position: absolute;
+      background-color: rgba(0, 0, 0, 0.7);
+      padding: 1rem;
+      border-radius: 0.5rem;
+      text-align: center;
+      transition: transform 0.3s ease-in-out;
+      z-index: 2;
+    }
+
+    .skill-item:hover {
+      transform: scale(1.1);
+    }
+
+    .skill-item h3 {
+      font-size: 1.5rem;
+      color: #00ffff;
+      text-shadow: 0 0 10px #00ffff, 0 0 20px #00ffff, 0 0 30px #00ffff;
+      margin-bottom: 0.5rem;
+    }
+
+    .skill-item p {
+      font-size: 1.2rem;
+      color: #fff;
+    }
+
+    /* Neon Contact Form */
+    .neon-contact {
+      padding: 6rem 2rem;
+      background: radial-gradient(ellipse at center, #1b2735 0%, #090a0f 100%);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .neon-contact-form {
+      background-color: rgba(0, 0, 0, 0.7);
+      padding: 3rem;
+      border-radius: 1rem;
+      box-shadow: 0 0 20px rgba(0, 255, 255, 0.5);
+      animation: float 3s ease-in-out infinite;
+    }
+
+    .neon-contact-form h2 {
+      font-size: 3rem;
+      text-align: center;
+      text-shadow: 0 0 20px #00ffff, 0 0 30px #00ffff, 0 0 40px #00ffff;
+      animation: pulsate 2s infinite;
+      margin-bottom: 2rem;
+    }
+
+    .neon-contact-form form {
+      display: grid;
+      grid-template-columns: 1fr;
+      grid-gap: 2rem;
+    }
+
+    .neon-contact-form input,
+    .neon-contact-form textarea {
+      background-color: transparent;
+      border: 2px solid #00ffff;
+      padding: 1rem;
+      font-size: 1.2rem;
+      color: #fff;
+      border-radius: 0.5rem;
+      transition: border-color 0.3s ease-in-out;
+    }
+
+    .neon-contact-form input:focus,
+    .neon-contact-form textarea:focus {
+      outline: none;
+      border-color: #00cccc;
+    }
+
+    .neon-contact-form button {
+      background-color: #00ffff;
+      color: #000;
+      padding: 1rem 2rem;
+      font-size: 1.2rem;
+      border: none;
+      border-radius: 0.5rem;
+      cursor: pointer;
+      transition: background-color 0.3s ease-in-out;
+    }
+
+    .neon-contact-form button:hover {
+      background-color: #00cccc;
+    }
+
+    /* Animations */
+    @keyframes pulsate {
+      0% {
+        text-shadow: 0 0 20px #00ffff, 0 0 30px #00ffff, 0 0 40px #00ffff;
+      }
+      50% {
+        text-shadow: 0 0 10px #00ffff, 0 0 15px #00ffff, 0 0 20px #00ffff;
+      }
+      100% {
+        text-shadow: 0 0 20px #00ffff, 0 0 30px #00ffff, 0 0 40px #00ffff;
+      }
+    }
+
+    @keyframes glitch {
+      0% {
+        filter: brightness(0.8) contrast(1.2) saturate(1.2);
+      }
+      20% {
+        filter: brightness(0.9) contrast(1.1) saturate(1.1);
+      }
+      40% {
+        filter: brightness(0.8) contrast(1.2) saturate(1.2);
+      }
+      60% {
+        filter: brightness(0.9) contrast(1.1) saturate(1.1);
+      }
+      80% {
+        filter: brightness(0.8) contrast(1.2) saturate(1.2);
+      }
+      100% {
+        filter: brightness(0.8) contrast(1.2) saturate(1.2);
+      }
+    }
+
+    @keyframes rotate {
+      0% {
+        transform: rotate(0deg);
+      }
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+
+    @keyframes float {
+      0% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(-20px);
+      }
+      100% {
+        transform: translateY(0);
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav class="navbar">
+    <a href="#" class="navbar-brand">Black Hole Portfolio</a>
+    <ul class="navbar-nav">
+      <li><a href="#">Home</a></li>
+      <li><a href="#">Projects</a></li>
+      <li><a href="#">About</a></li>
+      <li><a href="#">Contact</a></li>
+    </ul>
+  </nav>
+
+  <section class="project-galaxy">
+    <h2>Project Galaxy</h2>
+    <div class="project-grid">
+      <div class="project-item">
+        <img src="https://dummyimage.com/600x400/ccc/000&text=Project+1" alt="Project 1">
+        <div class="project-overlay">
+          <h3>Project 1</h3>
+          <p>A brief description of Project 1.</p>
+          <a href="#">View Project</a>
+        </div>
+      </div>
+      <div class="project-item">
+        <img src="https://dummyimage.com/600x400/ccc/000&text=Project+2" alt="Project 2">
+        <div class="project-overlay">
+          <h3>Project 2</h3>
+          <p>A brief description of Project 2.</p>
+          <a href="#">View Project</a>
+        </div>
+      </div>
+      <div class="project-item">
+        <img src="https://dummyimage.com/600x400/ccc/000&text=Project+3" alt="Project 3">
+        <div class="project-overlay">
+          <h3>Project 3</h3>
+          <p>A brief description of Project 3.</p>
+          <a href="#">View Project</a>
+        </div>
+      </div>
+      <div class="project-item">
+        <img src="https://dummyimage.com/600x400/ccc/000&text=Project+4" alt="Project 4">
+        <div class="project-overlay">
+          <h3>Project 4</h3>
+          <p>A brief description of Project 4.</p>
+          <a href="#">View Project</a>
+        </div>
+      </div>
+      <div class="project-item">
+        <img src="https://dummyimage.com/600x400/ccc/000&text=Project+5" alt="Project 5">
+        <div class="project-overlay">
+          <h3>Project 5</h3>
+          <p>A brief description of Project 5.</p>
+          <a href="#">View Project</a>
+        </div>
+      </div>
+      <div class="project-item">
+        <img src="https://dummyimage.com/600x400/ccc/000&text=Project+6" alt="Project 6">
+        <div class="project-overlay">
+          <h3>Project 6</h3>
+          <p>A brief description of Project 6.</p>
+          <a href="#">View Project</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="steampunk-gears">
+    <h2>Steampunk Gears</h2>
+    <div class="gear gear1"></div>
+    <div class="gear gear2"></div>
+    <div class="gear gear3"></div>
+    <div class="gear gear4"></div>
+    <div class="skill-item" style="top: 20%; left: 15%;">
+      <h3>Python</h3>
+      <p>Proficient in Python programming language.</p>
+    </div>
+    <div class="skill-item<div class="skill-item" style="top: 40%; right: 20%;">
+      <h3>Django</h3>
+      <p>Experienced in building web applications with Django framework.</p>
+    </div>
+    <div class="skill-item" style="bottom: 25%; left: 25%;">
+      <h3>SQL</h3>
+      <p>Knowledgeable in SQL and relational database management.</p>
+    </div>
+    <div class="skill-item" style="bottom: 10%; right: 30%;">
+      <h3>AWS</h3>
+      <p>Proficient in deploying and managing applications on AWS cloud platform.</p>
+    </div>
+  </section>
+
+  <section class="neon-contact">
+    <div class="neon-contact-form">
+      <h2>Get in Touch</h2>
+      <form>
+        <input type="text" placeholder="Name" required>
+        <input type="email" placeholder="Email" required>
+        <textarea placeholder="Message" required></textarea>
+        <button type="submit">Submit</button>
+      </form>
+    </div>
+  </section>
+</body>
+</html>'<!-- Visit: https://github.com/Ishanoshada/portflair -->
+<!-- Visit: https://github.com/Ishanoshada/portflair -->

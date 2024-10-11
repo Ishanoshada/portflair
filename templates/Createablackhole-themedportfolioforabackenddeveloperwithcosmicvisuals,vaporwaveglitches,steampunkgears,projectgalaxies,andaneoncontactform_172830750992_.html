@@ -1,0 +1,424 @@
+<!-- Portfolio created by Ishan -->
+<!-- Check out my work at: https://github.com/Ishanoshada/portflair -->
+<!-- 2024/10/9 -->
+<!-- Portfolio created by Ishan -->
+'<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Black Hole Portfolio</title>
+  <style>
+    /* Reset some default styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    /* Global styles */
+    body {
+      font-family: 'Orbitron', sans-serif;
+      background-color: #000;
+      color: #fff;
+      overflow-x: hidden;
+    }
+
+    /* Navigation */
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.5rem 2rem;
+      background-color: rgba(0, 0, 0, 0.7);
+      backdrop-filter: blur(10px);
+      position: relative;
+      z-index: 100;
+    }
+
+    .navbar-brand {
+      font-size: 1.8rem;
+      font-weight: bold;
+      color: #9b59b6;
+      text-shadow: 0 0 20px #9b59b6, 0 0 40px #9b59b6, 0 0 60px #9b59b6;
+      animation: pulsate 3s infinite;
+    }
+
+    .navbar-nav {
+      display: flex;
+      list-style-type: none;
+    }
+
+    .nav-item {
+      margin-left: 2rem;
+    }
+
+    .nav-link {
+      color: #fff;
+      text-decoration: none;
+      font-size: 1.2rem;
+      transition: color 0.3s ease;
+    }
+
+    .nav-link:hover {
+      color: #9b59b6;
+      text-shadow: 0 0 10px #9b59b6, 0 0 20px #9b59b6, 0 0 30px #9b59b6;
+    }
+
+    /* Hero Section */
+    .hero {
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(to bottom, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(https://dummyimage.com/1920x1080/000/fff&text=Black+Hole);
+      background-size: cover;
+      background-position: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-title {
+      font-size: 4rem;
+      font-weight: bold;
+      text-align: center;
+      text-shadow: 0 0 20px #9b59b6, 0 0 40px #9b59b6, 0 0 60px #9b59b6;
+      animation: pulsate 3s infinite;
+    }
+
+    .hero-subtitle {
+      font-size: 1.8rem;
+      text-align: center;
+      margin-top: 1rem;
+      color: #ccc;
+      text-shadow: 0 0 10px #ccc, 0 0 20px #ccc, 0 0 30px #ccc;
+    }
+
+    .hero-backdrop {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      background: radial-gradient(ellipse at center, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 1) 100%), url(https://dummyimage.com/1920x1080/000/fff&text=Cosmic+Visuals);
+      background-size: cover;
+      background-position: center;
+      animation: glitch 5s infinite;
+    }
+
+    /* Projects Section */
+    .projects {
+      padding: 4rem 2rem;
+      background: linear-gradient(to bottom, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.9)), url(https://dummyimage.com/1920x1080/000/fff&text=Project+Galaxies);
+      background-size: cover;
+      background-position: center;
+    }
+
+    .projects-title {
+      font-size: 2.5rem;
+      font-weight: bold;
+      text-align: center;
+      margin-bottom: 3rem;
+      text-shadow: 0 0 20px #9b59b6, 0 0 40px #9b59b6, 0 0 60px #9b59b6;
+      animation: pulsate 3s infinite;
+    }
+
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      grid-gap: 2rem;
+    }
+
+    .project-card {
+      background-color: rgba(0, 0, 0, 0.7);
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 0 20px rgba(155, 89, 182, 0.5);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .project-card:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 40px rgba(155, 89, 182, 0.8);
+    }
+
+    .project-thumbnail {
+      height: 200px;
+      background-size: cover;
+      background-position: center;
+    }
+
+    .project-details {
+      padding: 1.5rem;
+    }
+
+    .project-title {
+      font-size: 1.5rem;
+      font-weight: bold;
+      margin-bottom: 0.5rem;
+      color: #9b59b6;
+      text-shadow: 0 0 10px #9b59b6, 0 0 20px #9b59b6, 0 0 30px #9b59b6;
+    }
+
+    .project-description {
+      font-size: 1.1rem;
+      color: #ccc;
+    }
+
+    .project-technologies {
+      font-size: 0.9rem;
+      color: #aaa;
+      margin-top: 1rem;
+    }
+
+    /* Contact Section */
+    .contact {
+      padding: 4rem 2rem;
+      background: radial-gradient(ellipse at center, rgba(155, 89, 182, 0.8) 0%, rgba(0, 0, 0, 1) 100%), url(https://dummyimage.com/1920x1080/000/fff&text=Neon+Contact+Form);
+      background-size: cover;
+      background-position: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .contact-title {
+      font-size: 2.5rem;
+      font-weight: bold;
+      text-align: center;
+      margin-bottom: 3rem;
+      text-shadow: 0 0 20px #fff, 0 0 40px #fff, 0 0 60px #fff;
+      animation: pulsate 3s infinite;
+    }
+
+    .contact-form {
+      max-width: 500px;
+      margin: 0 auto;
+      background-color: rgba(0, 0, 0, 0.7);
+      padding: 2rem;
+      border-radius: 10px;
+      box-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+    }
+
+    .form-group {
+      margin-bottom: 1.5rem;
+    }
+
+    .form-group label {
+      display: block;
+      font-size: 1.1rem;
+      margin-bottom: 0.5rem;
+      color: #ccc;
+    }
+
+    .form-group input,
+    .form-group textarea {
+      width: 100%;
+      padding: 0.8rem 1rem;
+      font-size: 1rem;
+      border: none;
+      border-radius: 5px;
+      background-color: rgba(255, 255, 255, 0.1);
+      color: #fff;
+      transition: background-color 0.3s ease;
+    }
+
+    .form-group input:focus,
+    .form-group textarea:focus {
+      background-color: rgba(255, 255, 255, 0.2);
+      outline: none;
+    }
+
+    .form-group textarea {
+      resize: vertical;
+      min-height: 120px;
+    }
+
+    .btn-submit {
+      display: block;
+      width: 100%;
+      padding: 0.8rem 1rem;
+      font-size: 1.2rem;
+      font-weight: bold;
+      background-color: #9b59b6;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease, transform 0.3s ease;
+    }
+
+    .btn-submit:hover {
+      background-color: #8e44ad;
+      transform: translateY(-2px);
+    }
+
+    .contact-backdrop {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      background: radial-gradient(ellipse at center, rgba(155, 89, 182, 0.8) 0%, rgba(0, 0, 0, 1) 100%);
+      animation: glitch 5s infinite;
+    }
+
+    /* Animations */
+    @keyframes pulsate {
+      0% {
+        text-shadow: 0 0 20px #9b59b6, 0 0 40px #9b59b6, 0 0 60px #9b59b6;
+      }
+      50% {
+        text-shadow: 0 0 10px #9b59b6, 0 0 20px #9b59b6, 0 0 30px #9b59b6;
+      }
+      100% {
+        text-shadow: 0 0 20px #9b59b6, 0 0 40px #9b59b6, 0 0 60px #9b59b6;
+      }
+    }
+
+    @keyframes glitch {
+      0% {
+        background-position: 0 0;
+      }
+      10% {
+        background-position: -5px -5px;
+      }
+      20% {
+        background-position: 5px 5px;
+      }
+      30% {
+        background-position: -5px 0;
+      }
+      40% {
+        background-position: 5px -5px;
+      }
+      50% {
+        background-position: -5px 5px;
+      }
+      60% {
+        background-position: 5px 0;
+      }
+      70% {
+        background-position: -5px -5px;
+      }
+      80% {
+        background-position: 5px 5px;
+      }
+      90% {
+        background-position: -5px 0;
+      }
+      100% {
+        background-position: 0 0;
+      }
+    }
+
+    /* Responsive Styles */
+    @media (max-width: 768px) {
+      .navbar {
+        padding: 1rem;
+      }
+
+      .navbar-brand {
+        font-size: 1.5rem;
+      }
+
+      .nav-link {
+        font-size: 1rem;
+      }
+
+      .hero-title {
+        font-size: 3rem;
+      }
+
+      .hero-subtitle {
+        font-size: 1.5rem;
+      }
+
+      .projects-title,
+      .contact-title {
+        font-size: 2rem;
+      }
+
+      .project-grid {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      }
+
+      .contact-form {
+        max-width: 100%;
+        padding: 1.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="navbar">
+    <div class="navbar-brand">Black Hole Portfolio</div>
+    <nav>
+      <ul class="navbar-nav">
+        <li class="nav-item"><a href="#" class="nav-link">Home</a></li>
+        <li class="nav-item"><a href="#projects" class="nav-link">Projects</a></li>
+        <li class="nav-item"><a href="#contact" class="nav-link">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <div class="hero-backdrop"></div>
+    <h1 class="hero-title">Explore the Depths of My Portfolio</h1>
+    <p class="hero-subtitle">Dive into the Cosmos of My Work as a Backend Developer</p>
+  </section>
+
+  <section class="projects" id="projects">
+    <h2 class="projects-title">My Latest Projects</h2>
+    <div class="project-grid">
+      <div class="project-card">
+        <div class="project-thumbnail" style="background-image: url(https://dummyimage.com/600x400/000/fff&text=Project+1)"></div>
+        <div class="project-details">
+          <h3 class="project-title">Project 1</h3>
+          <p class="project-description">A cosmic-themed backend application that powers the user experience of a futuristic space station.</p>
+          <p class="project-technologies">Technologies: Node.js, MongoDB, Socket.IO, Three.js</p>
+        </div>
+      </div>
+      <div class="project-card">
+        <div class="project-thumbnail" style="background-image: url(https://dummyimage.com/600x400/000/fff&text=Project+2)"></div>
+        <div class="project-details">
+          <h3 class="project-title">Project 2</h3>
+          <p class="project-description">A vaporwave-inspired data visualization dashboard that showcases real-time market trends.</p>
+          <p class="project-technologies">Technologies: Python, Flask, React.js, D3.js</p>
+        </div>
+      </div>
+      <div class="project-card">
+        <div class="project-thumbnail" style="background-image: url(https://dummyimage.com/600x400/000/fff&text=Project+3)"></div>
+        <div class="project-details">
+          <h3 class="project-title">Project 3</h3>
+          <p class="project-description">A steampunk-themed backend system that orchestrates the logistics of a futuristic transportation network.</p>
+          <p class="project-technologies">Technologies: Golang, RabbitMQ, Redis, Kubernetes</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact" id="contact">
+    <div class="contact-backdrop"></div>
+    <h2 class="contact-title">Get in Touch</h2>
+    <form class="contact-form">
+      <div class="form-group">
+        <label for="name">Name</label>
+        <input type="text" id="name" placeholder="Enter your name" required>
+      </div>
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" id="email" placeholder="Enter your email" required>
+      </div>
+      <div class="form-group">
+        <label for="message">Message</label>
+        <textarea id="message" placeholder="Enter your message" required></textarea>
+      </div>
+      <button type="submit" class="btn-submit">Send Message</button>
+    </form>
+  </section>
+</body>
+</html>'<!-- Visit: https://github.com/Ishanoshada/portflair -->
+<!-- Visit: https://github.com/Ishanoshada/portflair -->

@@ -1,0 +1,372 @@
+<!-- Portfolio created by Ishan -->
+<!-- Check out my work at: https://github.com/Ishanoshada/portflair -->
+<!-- 2024/10/9 -->
+<!-- Portfolio created by Ishan -->
+'<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hacking-Themed Portfolio</title>
+    <style>
+        /* Global Styles */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Courier New', monospace;
+            background-color: #0c0c0c;
+            color: #fff;
+            overflow-x: hidden;
+        }
+
+        /* Navbar */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #1a1a1a;
+            padding: 1rem 2rem;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .navbar-brand {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #00ff00;
+            text-decoration: none;
+        }
+
+        .navbar-nav {
+            display: flex;
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .navbar-nav li {
+            margin-left: 1.5rem;
+        }
+
+        .navbar-nav li a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 1.1rem;
+            transition: color 0.3s ease;
+        }
+
+        .navbar-nav li a:hover {
+            color: #00ff00;
+        }
+
+        /* Projects Section */
+        .projects-section {
+            padding: 3rem;
+        }
+
+        .projects-section h2 {
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 2rem;
+            color: #00ff00;
+            text-shadow: 0 0 10px #00ff00, 0 0 20px #00ff00, 0 0 30px #00ff00;
+            animation: glitch 0.5s infinite;
+        }
+
+        .project-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-gap: 2rem;
+        }
+
+        .project-card {
+            background-color: #1a1a1a;
+            border-radius: 8px;
+            box-shadow: 0 0 20px rgba(0, 255, 0, 0.2);
+            overflow: hidden;
+            position: relative;
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 0 40px rgba(0, 255, 0, 0.4);
+        }
+
+        .project-card:before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, #00ff00, #ff00ff, #00ffff);
+            background-size: 200% 200%;
+            animation: glitch 5s ease infinite;
+            opacity: 0.3;
+            z-index: 1;
+        }
+
+        .project-thumbnail {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            filter: grayscale(100%) contrast(120%);
+        }
+
+        .project-details {
+            padding: 1.5rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .project-details h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+            color: #00ff00;
+            text-shadow: 0 0 5px #00ff00;
+        }
+
+        .project-details p {
+            font-size: 1.1rem;
+            line-height: 1.5;
+        }
+
+        /* Skills Section */
+        .skills-section {
+            padding: 3rem;
+            background-color: #1a1a1a;
+        }
+
+        .skills-section h2 {
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 2rem;
+            color: #00ff00;
+            text-shadow: 0 0 10px #00ff00, 0 0 20px #00ff00, 0 0 30px #00ff00;
+            animation: glitch 0.5s infinite;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            grid-gap: 2rem;
+        }
+
+        .skill-item {
+            background-color: #0c0c0c;
+            border-radius: 8px;
+            box-shadow: 0 0 20px rgba(0, 255, 0, 0.2);
+            padding: 2rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .skill-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 0 40px rgba(0, 255, 0, 0.4);
+        }
+
+        .skill-item:before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, #00ff00, #ff00ff, #00ffff);
+            background-size: 200% 200%;
+            animation: glitch 5s ease infinite;
+            opacity: 0.3;
+            z-index: 1;
+        }
+
+        .skill-item i {
+            font-size: 3rem;
+            color: #00ff00;
+            text-shadow: 0 0 10px #00ff00;
+            position: relative;
+            z-index: 2;
+        }
+
+        .skill-item h3 {
+            font-size: 1.5rem;
+            margin-top: 1rem;
+            color: #00ff00;
+            text-shadow: 0 0 5px #00ff00;
+            position: relative;
+            z-index: 2;
+        }
+
+        /* Contact Section */
+        .contact-section {
+            padding: 3rem;
+            background-color: #0c0c0c;
+        }
+
+        .contact-section h2 {
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 2rem;
+            color: #00ff00;
+            text-shadow: 0 0 10px #00ff00, 0 0 20px #00ff00, 0 0 30px #00ff00;
+            animation: glitch 0.5s infinite;
+        }
+
+        .terminal-container {
+            background-color: #0c0c0c;
+            border-radius: 8px;
+            box-shadow: 0 0 20px rgba(0, 255, 0, 0.2);
+            padding: 2rem;
+            font-size: 1.1rem;
+            line-height: 1.5;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .terminal-container:before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, #00ff00, #ff00ff, #00ffff);
+            background-size: 200% 200%;
+            animation: glitch 5s ease infinite;
+            opacity: 0.3;
+            z-index: 1;
+        }
+
+        .terminal-container p {
+            margin: 0;
+            padding: 0;
+            color: #00ff00;
+            text-shadow: 0 0 5px #00ff00;
+            position: relative;
+            z-index: 2;
+        }
+
+        .terminal-container input,
+        .terminal-container button {
+            background-color: #1a1a1a;
+            border: none;
+            border-radius: 4px;
+            color: #00ff00;
+            font-family: 'Courier New', monospace;
+            font-size: 1.1rem;
+            padding: 0.5rem 1rem;
+            margin-top: 1rem;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        .terminal-container input:focus,
+        .terminal-container button:hover {
+            background-color: #00ff00;
+            color: #0c0c0c;
+            outline: none;
+        }
+
+        @keyframes glitch {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <a href="#" class="navbar-brand">Hacking Graphic Designer</a>
+            <ul class="navbar-nav">
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Projects</a></li>
+                <li><a href="#">Skills</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="projects-section">
+            <h2>Featured Projects</h2>
+            <div class="project-cards">
+                <div class="project-card">
+                    <img src="https://dummyimage.com/600x400/ccc/000&text=Project+1" alt="Project 1" class="project-thumbnail">
+                    <div class="project-details">
+                        <h3>Project 1</h3>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vel mauris vel magna finibus commodo.</p>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <img src="https://dummyimage.com/600x400/ccc/000&text=Project+2" alt="Project 2" class="project-thumbnail">
+                    <div class="project-details">
+                        <h3>Project 2</h3>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vel mauris vel magna finibus commodo.</p>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <img src="https://dummyimage.com/600x400/ccc/000&text=Project+3" alt="Project 3" class="project-thumbnail">
+                    <div class="project-details">
+                        <h3>Project 3</h3>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vel mauris vel magna finibus commodo.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="skills-section">
+            <h2>My Skills</h2>
+            <div class="skills-grid">
+                <div class="skill-item">
+                    <i class="fas fa-code"></i>
+                    <h3>Web Development</h3>
+                </div>
+                <div class="skill-item">
+                    <i class="fas fa-paint-brush"></i>
+                    <h3>Graphic Design</h3>
+                </div>
+                <div class="skill-item">
+                    <i class="fas fa-edit"></i>
+                    <h3>UI/UX Design</h3>
+                </div>
+                <div class="skill-item">
+                    <i class="fas fa-magic"></i>
+                    <h3>Motion Graphics</h3>
+                </div>
+                <div class="skill-item">
+                    <i class="fas fa-camera"></i>
+                    <h3>Photography</h3>
+                </div>
+                <div class="skill-item">
+                    <i class="fas fa-chart-line"></i>
+                    <h3>Data Visualization</h3>
+                </div>
+            </div>
+        </section>
+
+        <section class="contact-section">
+            <h2>Get in Touch</h2>
+            <div class="terminal-container">
+                <p>Welcome to my terminal-style contact section!</p>
+                <p>Feel free to enter your name and message below:</p>
+                <input type="text" placeholder="Your name" />
+                <input type="text" placeholder="Your message" />
+                <button>Submit</button>
+            </div>
+        </section>
+    </main>
+
+    <script src="https://kit.fontawesome.com/your-font-awesome-kit.js" crossorigin="anonymous"></script>
+</body>
+</html>'<!-- Visit: https://github.com/Ishanoshada/portflair -->
+<!-- Visit: https://github.com/Ishanoshada/portflair -->

@@ -1,0 +1,422 @@
+<!-- Portfolio created by Ishan -->
+<!-- Check out my work at: https://github.com/Ishanoshada/portflair -->
+<!-- 2024/10/9 -->
+<!-- Portfolio created by Ishan -->
+'<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Design a Sleek, All-Black Portfolio</title>
+  <style>
+    /* Reset some default styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    /* Body styles */
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background-color: #1a1a1a;
+      color: #f0f0f0;
+    }
+
+    /* Header styles */
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.5rem 3rem;
+      background-color: #131313;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    .logo {
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: #f0f0f0;
+    }
+
+    nav ul {
+      display: flex;
+      list-style-type: none;
+    }
+
+    nav li {
+      margin-left: 2rem;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #f0f0f0;
+      font-size: 1.1rem;
+      font-weight: 500;
+      transition: color 0.3s ease;
+    }
+
+    nav a:hover {
+      color: #b3b3b3;
+    }
+
+    /* Featured Projects Section */
+    .featured-projects {
+      padding: 4rem 3rem;
+    }
+
+    .featured-projects h2 {
+      font-size: 2.4rem;
+      font-weight: 700;
+      margin-bottom: 2rem;
+    }
+
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      grid-gap: 3rem;
+    }
+
+    .project-item {
+      position: relative;
+      overflow: hidden;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      transition: transform 0.3s ease;
+    }
+
+    .project-item:hover {
+      transform: translateY(-5px);
+    }
+
+    .project-item img {
+      width: 100%;
+      height: 300px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .project-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.7);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .project-item:hover .project-overlay {
+      opacity: 1;
+    }
+
+    .project-overlay h3 {
+      font-size: 1.8rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+    }
+
+    .project-overlay p {
+      font-size: 1.2rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .project-overlay a {
+      display: inline-block;
+      padding: 0.8rem 1.6rem;
+      background-color: #b3b3b3;
+      color: #1a1a1a;
+      text-decoration: none;
+      font-size: 1.1rem;
+      font-weight: 500;
+      border-radius: 4px;
+      transition: background-color 0.3s ease;
+    }
+
+    .project-overlay a:hover {
+      background-color: #d9d9d9;
+    }
+
+    /* About Section */
+    .about {
+      display: flex;
+      align-items: center;
+      padding: 4rem 3rem;
+      background-color: #131313;
+    }
+
+    .about-image {
+      flex: 0 0 40%;
+      margin-right: 3rem;
+    }
+
+    .about-image img {
+      width: 100%;
+      height: auto;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    .about-content {
+      flex: 1;
+    }
+
+    .about-content h2 {
+      font-size: 2.4rem;
+      font-weight: 700;
+      margin-bottom: 1.5rem;
+    }
+
+    .about-content p {
+      font-size: 1.1rem;
+      line-height: 1.6;
+      margin-bottom: 2rem;
+    }
+
+    .about-content .social-links {
+      display: flex;
+      margin-top: 2rem;
+    }
+
+    .about-content .social-links a {
+      display: inline-block;
+      margin-right: 1rem;
+      font-size: 1.4rem;
+      color: #f0f0f0;
+      transition: color 0.3s ease;
+    }
+
+    .about-content .social-links a:hover {
+      color: #b3b3b3;
+    }
+
+    /* Contact Section */
+    .contact {
+      padding: 4rem 3rem;
+    }
+
+    .contact h2 {
+      font-size: 2.4rem;
+      font-weight: 700;
+      margin-bottom: 2rem;
+    }
+
+    .contact-form {
+      display: flex;
+      flex-direction: column;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .contact-form .form-group {
+      margin-bottom: 1.5rem;
+    }
+
+    .contact-form label {
+      font-size: 1.1rem;
+      font-weight: 500;
+      margin-bottom: 0.5rem;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+      width: 100%;
+      padding: 1rem;
+      font-size: 1.1rem;
+      font-family: 'Montserrat', sans-serif;
+      background-color: #1a1a1a;
+      color: #f0f0f0;
+      border: 1px solid #333;
+      border-radius: 4px;
+      transition: border-color 0.3s ease;
+    }
+
+    .contact-form input:focus,
+    .contact-form textarea:focus {
+      outline: none;
+      border-color: #b3b3b3;
+    }
+
+    .contact-form button {
+      display: inline-block;
+      padding: 1rem 2rem;
+      background-color: #b3b3b3;
+      color: #1a1a1a;
+      font-size: 1.1rem;
+      font-weight: 500;
+      text-decoration: none;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .contact-form button:hover {
+      background-color: #d9d9d9;
+    }
+
+    .contact-info {
+      margin-top: 2rem;
+      text-align: center;
+      font-size: 1.1rem;
+    }
+
+    .contact-info a {
+      color: #f0f0f0;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    .contact-info a:hover {
+      color: #b3b3b3;
+    }
+
+    /* Responsive Styles */
+    @media (max-width: 768px) {
+      header {
+        padding: 1rem 2rem;
+      }
+
+      .logo {
+        font-size: 1.5rem;
+      }
+
+      nav li {
+        margin-left: 1.5rem;
+      }
+
+      nav a {
+        font-size: 1rem;
+      }
+
+      .featured-projects,
+      .about,
+      .contact {
+        padding: 3rem 2rem;
+      }
+
+      .featured-projects h2,
+      .about h2,
+      .contact h2 {
+        font-size: 2rem;
+        margin-bottom: 1.5rem;
+      }
+
+      .about-image {
+        flex: 0 0 50%;
+        margin-right: 2rem;
+      }
+
+      .about-content p {
+        font-size: 1rem;
+      }
+
+      .contact-form input,
+      .contact-form textarea {
+        font-size: 1rem;
+      }
+
+      .contact-form button {
+        font-size: 1rem;
+      }
+
+      .contact-info {
+        font-size: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">Design Portfolio</div>
+    <nav>
+      <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Projects</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <!-- Featured Projects Section -->
+    <section class="featured-projects">
+      <h2>Featured Projects</h2>
+      <div class="project-grid">
+        <div class="project-item">
+          <img src="https://dummyimage.com/600x400/000/fff&text=Project+1" alt="Project 1">
+          <div class="project-overlay">
+            <h3>Project 1</h3>
+            <p>A sleek and modern design</p>
+            <a href="#">View Project</a>
+          </div>
+        </div>
+        <div class="project-item">
+          <img src="https://dummyimage.com/600x400/000/fff&text=Project+2" alt="Project 2">
+          <div class="project-overlay">
+            <h3>Project 2</h3>
+            <p>A minimalist and elegant design</p>
+            <a href="#">View Project</a>
+          </div>
+        </div>
+        <div class="project-item">
+          <img src="https://dummyimage.com/600x400/000/fff&text=Project+3" alt="Project 3">
+          <div class="project-overlay">
+            <h3>Project 3</h3>
+            <p>A clean and captivating design</p>
+            <a href="#">View Project</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about">
+      <div class="about-image">
+        <img src="https://dummyimage.com/400x400/000/fff&text=Designer" alt="Designer">
+      </div>
+      <div class="about-content">
+        <h2>About Me</h2>
+        <p>As a passionate designer, I specialize in creating sleek, all-black portfolios that exude elegance and sophistication. My work is defined by a meticulous attention to detail, a deep understanding of typography, and a keen eye for minimalist design. I believe that simplicity is the ultimate form of sophistication, and I strive to capture that essence in every project I undertake.</p>
+        <div class="social-links">
+          <a href="#" class="fab fa-linkedin"></a>
+          <a href="#" class="fab fa-behance"></a>
+          <a href="#" class="fab fa-dribbble"></a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact">
+      <h2>Get in Touch</h2>
+      <form class="contact-form">
+        <div class="form-group">
+          <label for="name">Name</label>
+          <input type="text" id="name" name="name" required>
+        </div>
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" required>
+        </div>
+        <div class="form-group">
+          <label for="message">Message</label>
+          <textarea id="message" name="message" rows="5" required></textarea>
+        </div>
+        <button type="submit">Send Message</button>
+      </form>
+      <div class="contact-info">
+        <p>You can also reach me at <a href="mailto:example@email.com">example@email.com</a> or <a href="tel:+1234567890">+1 (234) 567-890</a>.</p>
+      </div>
+    </section>
+  </main>
+
+  <script src="https://kit.fontawesome.com/your-font-awesome-kit.js" crossorigin="anonymous"></script>
+</body>
+</html>'<!-- Visit: https://github.com/Ishanoshada/portflair -->
+<!-- Visit: https://github.com/Ishanoshada/portflair -->

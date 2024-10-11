@@ -1,0 +1,422 @@
+<!-- Portfolio created by Ishan -->
+<!-- Check out my work at: https://github.com/Ishanoshada/portflair -->
+<!-- 2024/10/9 -->
+<!-- Portfolio created by Ishan -->
+'<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Black Hole Portfolio</title>
+    <style>
+        /* Global Styles */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Roboto', sans-serif;
+        }
+
+        body {
+            background-color: #000;
+            color: #fff;
+            overflow-x: hidden;
+        }
+
+        /* Navbar Styles */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 2rem;
+            background-color: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(10px);
+            position: relative;
+            z-index: 1;
+        }
+
+        .navbar-brand {
+            font-size: 2rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 0.2rem;
+            color: #9b59b6;
+            text-shadow: 0 0 20px #9b59b6, 0 0 40px #9b59b6, 0 0 60px #9b59b6, 0 0 80px #9b59b6;
+            animation: glow 2s ease-in-out infinite;
+        }
+
+        .navbar-nav {
+            display: flex;
+            list-style-type: none;
+        }
+
+        .navbar-nav li {
+            margin-left: 2rem;
+        }
+
+        .navbar-nav li a {
+            text-decoration: none;
+            color: #fff;
+            font-size: 1.2rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.1rem;
+            transition: color 0.3s ease;
+        }
+
+        .navbar-nav li a:hover {
+            color: #9b59b6;
+            text-shadow: 0 0 20px #9b59b6, 0 0 40px #9b59b6, 0 0 60px #9b59b6, 0 0 80px #9b59b6;
+        }
+
+        /* Project Galaxies Section */
+        .project-galaxies {
+            position: relative;
+            height: 80vh;
+            background: linear-gradient(to bottom, #000, #1a1a1a);
+            overflow: hidden;
+        }
+
+        .galaxy-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url(https://dummyimage.com/1200x500/000/fff.png&text=Galaxy+Background) no-repeat center center;
+            background-size: cover;
+            animation: rotate 120s linear infinite;
+        }
+
+        .project-thumbnails {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-gap: 2rem;
+        }
+
+        .project-thumbnail {
+            width: 200px;
+            height: 200px;
+            background: url(https://dummyimage.com/200x200/9b59b6/fff.png&text=Project+Thumbnail) no-repeat center center;
+            background-size: cover;
+            border-radius: 50%;
+            box-shadow: 0 0 20px 5px rgba(155, 89, 182, 0.5);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .project-thumbnail:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 40px 10px rgba(155, 89, 182, 0.8);
+        }
+
+        .project-thumbnail-description {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 1rem;
+            border-radius: 0.5rem;
+            font-size: 1.2rem;
+            font-weight: 500;
+            text-align: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .project-thumbnail:hover .project-thumbnail-description {
+            opacity: 1;
+        }
+
+        /* Vaporwave Glitches Section */
+        .vaporwave-glitches {
+            padding: 4rem 2rem;
+            background: linear-gradient(to bottom, #1a1a1a, #333);
+        }
+
+        .vaporwave-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-gap: 2rem;
+        }
+
+        .vaporwave-module {
+            background-color: rgba(155, 89, 182, 0.1);
+            padding: 2rem;
+            border-radius: 1rem;
+            box-shadow: 0 0 20px 5px rgba(155, 89, 182, 0.2);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .vaporwave-module:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 40px 10px rgba(155, 89, 182, 0.4);
+        }
+
+        .vaporwave-module::before {
+            content: "";
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, #9b59b6, #e74c3c, #f1c40f, #2980b9);
+            animation: glitch 5s ease-in-out infinite;
+        }
+
+        .vaporwave-module h3 {
+            font-size: 1.8rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 0.2rem;
+            margin-bottom: 1rem;
+            color: #9b59b6;
+            text-shadow: 0 0 20px #9b59b6, 0 0 40px #9b59b6, 0 0 60px #9b59b6, 0 0 80px #9b59b6;
+            animation: glow 2s ease-in-out infinite;
+        }
+
+        .vaporwave-module p {
+            font-size: 1.2rem;
+            line-height: 1.5;
+            color: #fff;
+        }
+
+        /* Neon Contact Form Section */
+        .neon-contact {
+            padding: 4rem 2rem;
+            background: linear-gradient(to bottom, #333, #1a1a1a);
+        }
+
+        .neon-contact h2 {
+            font-size: 2.5rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 0.2rem;
+            margin-bottom: 2rem;
+            color: #9b59b6;
+            text-shadow: 0 0 20px #9b59b6, 0 0 40px #9b59b6, 0 0 60px #9b59b6, 0 0 80px #9b59b6;
+            animation: glow 2s ease-in-out infinite;
+        }
+
+        .neon-contact form {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-gap: 2rem;
+        }
+
+        .neon-contact form .form-group {
+            position: relative;
+        }
+
+        .neon-contact form label {
+            position: absolute;
+            top: 50%;
+            left: 1rem;
+            transform: translateY(-50%);
+            font-size: 1.2rem;
+            color: #9b59b6;
+            transition: all 0.3s ease;
+        }
+
+        .neon-contact form input,
+        .neon-contact form textarea {
+            width: 100%;
+            padding: 1.5rem 1rem 0.5rem;
+            background-color: transparent;
+            border: 2px solid #9b59b6;
+            border-radius: 0.5rem;
+            font-size: 1.2rem;
+            color: #fff;
+            transition: all 0.3s ease;
+        }
+
+        .neon-contact form input:focus,
+        .neon-contact form textarea:focus {
+            outline: none;
+            border-color: #e74c3c;
+        }
+
+        .neon-contact form input:focus + label,
+        .neon-contact form textarea:focus + label,
+        .neon-contact form input:not(:placeholder-shown) + label,
+        .neon-contact form textarea:not(:placeholder-shown) + label {
+            top: 0.5rem;
+            font-size: 1rem;
+        }
+
+        .neon-contact form button {
+            grid-column: 1 / -1;
+            background-color: #9b59b6;
+            color: #fff;
+            font-size: 1.5rem;
+            font-weight: bold;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 0.5rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 0 20px 5px rgba(155, 89, 182, 0.5);
+        }
+
+        .neon-contact form button:hover {
+            background-color: #e74c3c;
+            box-shadow: 0 0 40px 10px rgba(231, 76, 60, 0.5);
+        }
+
+        /* Animations */
+        @keyframes rotate {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        @keyframes glow {
+            0%, 100% {
+                text-shadow: 0 0 20px #9b59b6, 0 0 40px #9b59b6, 0 0 60px #9b59b6, 0 0 80px #9b59b6;
+            }
+            50% {
+                text-shadow: 0 0 10px #9b59b6, 0 0 20px #9b59b6, 0 0 30px #9b59b6, 0 0 40px #9b59b6;
+            }
+        }
+
+        @keyframes glitch {
+            0%, 100% {
+                transform: translate(0);
+            }
+            20% {
+                transform: translate(-5px, 5px);
+            }
+            40% {
+                transform: translate(-5px, -5px);
+            }
+            60% {
+                transform: translate(5px, 5px);
+            }
+            80% {
+                transform: translate(5px, -5px);
+            }
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .navbar-nav li {
+                margin-left: 1rem;
+            }
+
+            .navbar-nav li a {
+                font-size: 1rem;
+            }
+
+            .project-thumbnails {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .vaporwave-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .neon-contact form {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <a href="#" class="navbar-brand">Black Hole Portfolio</a>
+            <ul class="navbar-nav">
+                <li><a href="#">Home</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Projects</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="project-galaxies">
+            <div class="galaxy-background"></div>
+            <div class="project-thumbnails">
+                <div class="project-thumbnail">
+                    <div class="project-thumbnail-description">Project 1</div>
+                </div>
+                <div class="project-thumbnail">
+                    <div class="project-thumbnail-description">Project 2</div>
+                </div>
+                <div class="project-thumbnail">
+                    <div class="project-thumbnail-description">Project 3</div>
+                </div>
+                <div class="project-thumbnail">
+                    <div class="project-thumbnail-description">Project 4</div>
+                </div>
+                <div class="project-thumbnail">
+                    <div class="project-thumbnail-description">Project 5</div>
+                </div>
+                <div class="project-thumbnail">
+                    <div class="project-thumbnail-description">Project 6</div>
+                </div>
+            </div>
+        </section>
+
+        <section class="vaporwave-glitches">
+            <div class="vaporwave-grid">
+                <div class="vaporwave-module">
+                    <h3>Backend Development</h3>
+                    <p>Experienced in building robust and scalable backend systems using various technologies.</p>
+                </div>
+                <div class="vaporwave-module">
+                    <h3>Database Management</h3>
+                    <p>Proficient in designing and managing complex database systems for efficient data storage and retrieval.</p>
+                </div>
+                <div class="vaporwave-module">
+                    <h3>Server Configuration</h3>
+                    <p>Skilled in setting up and maintaining secure and performant server environments.</p>
+                </div>
+                <div class="vaporwave-module">
+                    <h3>API Development</h3>
+                    <p>Expertise in building RESTful APIs and GraphQL endpoints for seamless data exchange.</p>
+                </div>
+                <div class="vaporwave-module">
+                    <h3>DevOps Practices</h3>
+                    <p>Experienced in automating deployment and infrastructure management using modern DevOps tools and methodologies.</p>
+                </div>
+                <div class="vaporwave-module">
+                    <h3>Cloud Solutions</h3>
+                    <p>Proficient in designing and deploying scalable applications on cloud platforms like AWS, Azure, and GCP.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="neon-contact">
+            <h2>Get in Touch</h2>
+            <form>
+                <div class="form-group">
+                    <input type="text" id="name" placeholder=" " required>
+                    <label for="name">Name</label>
+                </div>
+                <div class="form-group">
+                    <input type="email" id="email" placeholder=" " required>
+                    <label for="email">Email</label>
+                </div>
+                <div class="form-group">
+                    <textarea id="message" placeholder=" " required></textarea>
+                    <label for="message">Message</label>
+                </div>
+                <button type="submit">Send</button>
+            </form>
+        </section>
+    </main>
+</body>
+</html>'<!-- Visit: https://github.com/Ishanoshada/portflair -->
+<!-- Visit: https://github.com/Ishanoshada/portflair -->

@@ -1,0 +1,519 @@
+<!-- Portfolio created by Ishan -->
+<!-- Check out my work at: https://github.com/Ishanoshada/portflair -->
+<!-- 2024/10/9 -->
+<!-- Portfolio created by Ishan -->
+'<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Photo and Video Editor Theme Developer Portfolio</title>
+  <style>
+    /* General Styles */
+    body {
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(to right, #2c3e50, #4ca1af);
+      color: #fff;
+    }
+
+    /* Navigation Bar */
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: rgba(255, 255, 255, 0.1);
+      padding: 20px 40px;
+      backdrop-filter: blur(10px);
+    }
+
+    .navbar-brand {
+      font-size: 24px;
+      font-weight: bold;
+      text-decoration: none;
+      color: #fff;
+    }
+
+    .navbar-nav {
+      display: flex;
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .navbar-nav li {
+      margin-left: 20px;
+    }
+
+    .navbar-nav li a {
+      text-decoration: none;
+      color: #fff;
+      font-size: 16px;
+      transition: color 0.3s ease;
+    }
+
+    .navbar-nav li a:hover {
+      color: #f1c40f;
+    }
+
+    /* Portfolio Section */
+    .portfolio-section {
+      padding: 80px 40px;
+    }
+
+    .portfolio-section h2 {
+      font-size: 36px;
+      font-weight: bold;
+      margin-bottom: 40px;
+      text-align: center;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .portfolio-section h2:before {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background-color: rgba(255, 255, 255, 0.2);
+      z-index: -1;
+      transform: translateY(-50%);
+    }
+
+    .portfolio-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-gap: 40px;
+    }
+
+    .portfolio-item {
+      position: relative;
+      overflow: hidden;
+      border-radius: 8px;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+      cursor: pointer;
+    }
+
+    .portfolio-item img {
+      width: 100%;
+      height: 300px;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+
+    .portfolio-item:hover img {
+      transform: scale(1.1);
+    }
+
+    .portfolio-item-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.6);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .portfolio-item:hover .portfolio-item-overlay {
+      opacity: 1;
+    }
+
+    .portfolio-item-overlay h3 {
+      font-size: 24px;
+      font-weight: bold;
+      margin-bottom: 10px;
+      color: #fff;
+    }
+
+    .portfolio-item-overlay p {
+      font-size: 16px;
+      color: #fff;
+      margin-bottom: 20px;
+    }
+
+    .portfolio-item-overlay a {
+      display: inline-block;
+      padding: 10px 20px;
+      background-color: #f1c40f;
+      color: #2c3e50;
+      text-decoration: none;
+      border-radius: 4px;
+      font-size: 16px;
+      font-weight: bold;
+      transition: background-color 0.3s ease;
+    }
+
+    .portfolio-item-overlay a:hover {
+      background-color: #e67e22;
+    }
+
+    /* Blog Section */
+    .blog-section {
+      padding: 80px 40px;
+    }
+
+    .blog-section h2 {
+      font-size: 36px;
+      font-weight: bold;
+      margin-bottom: 40px;
+      text-align: center;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .blog-section h2:before {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background-color: rgba(255, 255, 255, 0.2);
+      z-index: -1;
+      transform: translateY(-50%);
+    }
+
+    .blog-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-gap: 40px;
+    }
+
+    .blog-item {
+      background-color: rgba(255, 255, 255, 0.1);
+      border-radius: 8px;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+      transition: transform 0.3s ease;
+    }
+
+    .blog-item:hover {
+      transform: translateY(-10px);
+    }
+
+    .blog-item img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+
+    .blog-item-content {
+      padding: 20px;
+    }
+
+    .blog-item-content h3 {
+      font-size: 20px;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+
+    .blog-item-content p {
+      font-size: 16px;
+      color: #ccc;
+      margin-bottom: 20px;
+    }
+
+    .blog-item-content a {
+      display: inline-block;
+      padding: 10px 20px;
+      background-color: #f1c40f;
+      color: #2c3e50;
+      text-decoration: none;
+      border-radius: 4px;
+      font-size: 16px;
+      font-weight: bold;
+      transition: background-color 0.3s ease;
+    }
+
+    .blog-item-content a:hover {
+      background-color: #e67e22;
+    }
+
+    /* Contact and Testimonial Section */
+    .contact-testimonial-section {
+      padding: 80px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .contact-form {
+      flex: 0 0 50%;
+      background-color: rgba(255, 255, 255, 0.1);
+      padding: 40px;
+      border-radius: 8px;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    .contact-form h2 {
+      font-size: 24px;
+      font-weight: bold;
+      margin-bottom: 20px;
+    }
+
+    .contact-form form {
+      display: grid;
+      grid-gap: 20px;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+      width: 100%;
+      padding: 12px 16px;
+      background-color: rgba(255, 255, 255, 0.2);
+      border: none;
+      border-radius: 4px;
+      color: #fff;
+      font-size: 16px;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    .contact-form textarea {
+      resize: vertical;
+    }
+
+    .contact-form button {
+      background-color: #f1c40f;
+      color: #2c3e50;
+      border: none;
+      padding: 12px 24px;
+      font-size: 16px;
+      font-weight: bold;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .contact-form button:hover {
+      background-color: #e67e22;
+    }
+
+    .testimonials {
+      flex: 0 0 45%;
+      background-color: rgba(255, 255, 255, 0.1);
+      padding: 40px;
+      border-radius: 8px;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    .testimonials h2 {
+      font-size: 24px;
+      font-weight: bold;
+      margin-bottom: 20px;
+    }
+
+    .testimonial {
+      display: flex;
+      align-items: center;
+      margin-bottom: 30px;
+    }
+
+    .testimonial img {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      margin-right: 20px;
+    }
+
+    .testimonial-content {
+      flex: 1;
+    }
+
+    .testimonial-content p {
+      font-size: 16px;
+      color: #ccc;
+      margin-bottom: 10px;
+    }
+
+    .testimonial-content h4 {
+      font-size: 18px;
+      font-weight: bold;
+      margin: 0;
+    }
+
+    /* Responsive Styles */
+    @media (max-width: 991px) {
+      .portfolio-grid,
+      .blog-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .contact-testimonial-section {
+        flex-direction: column;
+      }
+
+      .contact-form,
+      .testimonials {
+        flex: auto;
+        width: 100%;
+        margin-bottom: 40px;
+      }
+    }
+
+    @media (max-width: 767px) {
+      .portfolio-grid,
+      .blog-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .navbar {
+        padding: 15px 20px;
+      }
+
+      .portfolio-section,
+      .blog-section,
+      .contact-testimonial-section {
+        padding: 60px 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav class="navbar">
+      <a href="#" class="navbar-brand">Photo & Video Editor Theme Developer</a>
+      <ul class="navbar-nav">
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Portfolio</a></li>
+        <li><a href="#">Blog</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="portfolio-section">
+    <h2>Portfolio</h2>
+    <div class="portfolio-grid">
+      <div class="portfolio-item">
+        <img src="https://dummyimage.com/600x400/ccc/000&text=Project+1" alt="Project 1">
+        <div class="portfolio-item-overlay">
+          <h3>Project 1</h3>
+          <p>Photo Editor Theme</p>
+          <a href="#">View Case Study</a>
+        </div>
+      </div>
+      <div class="portfolio-item">
+        <img src="https://dummyimage.com/600x400/ccc/000&text=Project+2" alt="Project 2">
+        <div class="portfolio-item-overlay">
+          <h3>Project 2</h3>
+          <p>Video Editor Theme</p>
+          <a href="#">View Case Study</a>
+        </div>
+      </div>
+      <div class="portfolio-item">
+        <img src="https://dummyimage.com/600x400/ccc/000&text=Project+3" alt="Project 3">
+        <div class="portfolio-item-overlay">
+          <h3>Project 3</h3>
+          <p>Photo & Video Editor Theme</p>
+          <a href="#">View Case Study</a>
+        </div>
+      </div>
+      <div class="portfolio-item">
+        <img src="https://dummyimage.com/600x400/ccc/000&text=Project+4" alt="Project 4">
+        <div class="portfolio-item-overlay">
+          <h3>Project 4</h3>
+          <p>Photo Editor Theme</p>
+          <a href="#">View Case Study</a>
+        </div>
+      </div>
+      <div class="portfolio-item">
+        <img src="https://dummyimage.com/600x400/ccc/000&text=Project+5" alt="Project 5">
+        <div class="portfolio-item-overlay">
+          <h3>Project 5</h3>
+          <p>Video Editor Theme</p>
+          <a href="#">View Case Study</a>
+        </div>
+      </div>
+      <div class="portfolio-item">
+        <img src="https://dummyimage.com/600x400/ccc/000&text=Project+6" alt="Project 6">
+        <div class="portfolio-item-overlay">
+          <h3>Project 6</h3>
+          <p>Photo & Video Editor Theme</p>
+          <a href="#">View Case Study</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="blog-section">
+    <h2>Blog</h2>
+    <div class="blog-grid">
+      <div class="blog-item">
+        <img src="https://dummyimage.com/600x400/ccc/000&text=Blog+Post+1" alt="Blog Post 1">
+        <div class="blog-item-content">
+          <h3>Blog Post 1</h3>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+          <a href="#">Read More</a>
+        </div>
+      </div>
+      <div class="blog-item">
+        <img src="https://dummyimage.com/600x400/ccc/000&text=Blog+Post+2" alt="Blog Post 2">
+        <div class="blog-item-content">
+          <h3>Blog Post 2</h3>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+          <a href="#">Read More</a>
+        </div>
+      </div>
+      <div class="blog-item">
+        <img src="https://dummyimage.com/600x400/ccc/000&text=Blog+Post+3" alt="Blog Post 3">
+        <div class="blog-item-content">
+          <h3>Blog Post 3</h3>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+          <a href="#">Read More</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact-testimonial-section">
+    <div class="contact-form">
+      <h2>Contact Us</h2>
+      <form>
+        <input type="text" placeholder="Name" required>
+        <input type="email" placeholder="Email" required>
+        <textarea placeholder="Message" required></textarea>
+        <button type="submit">Submit</button>
+      </form>
+    </div>
+    <div class="testimonials">
+      <h2>Testimonials</h2>
+      <div class="testimonial">
+        <img src="https://dummyimage.com/<img src="https://dummyimage.com/60x60/ccc/000&text=Client+1" alt="Client 1">
+          <div class="testimonial-content">
+            <p>"The photo and video editor themes developed by this team are truly amazing. They have exceeded my expectations in every way."</p>
+            <h4>John Doe, ABC Company</h4>
+          </div>
+        </div>
+        <div class="testimonial">
+          <img src="https://dummyimage.com/60x60/ccc/000&text=Client+2" alt="Client 2">
+          <div class="testimonial-content">
+            <p>"I've worked with many theme developers, but this team is in a league of their own. Their attention to detail and commitment to quality is unparalleled."</p>
+            <h4>Jane Smith, XYZ Inc.</h4>
+          </div>
+        </div>
+        <div class="testimonial">
+          <img src="https://dummyimage.com/60x60/ccc/000&text=Client+3" alt="Client 3">
+          <div class="testimonial-content">
+            <p>"Hands down, the best photo and video editor themes I've ever used. The team's responsiveness and support have been phenomenal."</p>
+            <h4>Michael Johnson, MNO Corp.</h4>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</body>
+</html>'<!-- Visit: https://github.com/Ishanoshada/portflair -->
+<!-- Visit: https://github.com/Ishanoshada/portflair -->

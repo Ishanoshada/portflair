@@ -1,0 +1,374 @@
+<!-- Portfolio created by Ishan -->
+<!-- Check out my work at: https://github.com/Ishanoshada/portflair -->
+<!-- 2024/10/9 -->
+<!-- Portfolio created by Ishan -->
+'<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Develop a matte-black portfolio</title>
+  <style>
+    /* Global Styles */
+    body {
+      font-family: 'Montserrat', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #1a1a1a;
+      color: #f2f2f2;
+    }
+
+    /* Navigation */
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: #1a1a1a;
+      padding: 1.5rem 3rem;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+    }
+
+    .navbar-brand {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #f2f2f2;
+      text-decoration: none;
+    }
+
+    .navbar-nav {
+      list-style-type: none;
+      display: flex;
+      gap: 2rem;
+    }
+
+    .navbar-nav a {
+      color: #f2f2f2;
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s ease;
+    }
+
+    .navbar-nav a:hover {
+      color: #b3b3b3;
+    }
+
+    /* Portfolio Showcase */
+    .portfolio-showcase {
+      padding: 8rem 3rem;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-gap: 3rem;
+    }
+
+    .portfolio-item {
+      position: relative;
+      overflow: hidden;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      transition: transform 0.3s ease;
+    }
+
+    .portfolio-item:hover {
+      transform: translateY(-10px);
+    }
+
+    .portfolio-item img {
+      width: 100%;
+      height: 300px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .portfolio-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.7);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .portfolio-item:hover .portfolio-overlay {
+      opacity: 1;
+    }
+
+    .portfolio-overlay h3 {
+      font-size: 1.5rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+    }
+
+    .portfolio-overlay p {
+      font-size: 1rem;
+      text-align: center;
+      max-width: 80%;
+    }
+
+    /* About Me */
+    .about-me {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 8rem 3rem;
+      background-color: #2a2a2a;
+    }
+
+    .about-me-content {
+      max-width: 800px;
+      display: flex;
+      align-items: center;
+      gap: 3rem;
+    }
+
+    .about-me-image {
+      flex: 0 0 300px;
+      border-radius: 50%;
+      overflow: hidden;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    .about-me-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .about-me-text {
+      flex: 1;
+    }
+
+    .about-me-text h2 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 1.5rem;
+    }
+
+    .about-me-text p {
+      font-size: 1.1rem;
+      line-height: 1.6;
+      margin-bottom: 1.5rem;
+    }
+
+    .about-me-icons {
+      display: flex;
+      gap: 1.5rem;
+    }
+
+    .about-me-icons i {
+      font-size: 2rem;
+      transition: color 0.3s ease;
+    }
+
+    .about-me-icons i:hover {
+      color: #b3b3b3;
+    }
+
+    /* Contact Section */
+    .contact-section {
+      padding: 8rem 3rem;
+      display: flex;
+      justify-content: center;
+    }
+
+    .contact-form {
+      max-width: 600px;
+      width: 100%;
+      background-color: #2a2a2a;
+      padding: 3rem;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    .contact-form h2 {
+      font-size: 2rem;
+      font-weight: 700;
+      margin-bottom: 2rem;
+    }
+
+    .contact-form .form-group {
+      margin-bottom: 1.5rem;
+    }
+
+    .contact-form label {
+      display: block;
+      font-size: 1.1rem;
+      font-weight: 500;
+      margin-bottom: 0.5rem;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+      width: 100%;
+      padding: 1rem;
+      font-size: 1rem;
+      border: none;
+      border-radius: 4px;
+      background-color: #1a1a1a;
+      color: #f2f2f2;
+      transition: box-shadow 0.3s ease;
+    }
+
+    .contact-form input:focus,
+    .contact-form textarea:focus {
+      outline: none;
+      box-shadow: 0 0 8px rgba(255, 255, 255, 0.3);
+    }
+
+    .contact-form button {
+      display: block;
+      width: 100%;
+      padding: 1rem;
+      font-size: 1.1rem;
+      font-weight: 600;
+      background-color: #007bff;
+      color: #f2f2f2;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .contact-form button:hover {
+      background-color: #0056b3;
+    }
+
+    .contact-info {
+      display: flex;
+      justify-content: center;
+      margin-top: 2rem;
+    }
+
+    .contact-info a {
+      color: #f2f2f2;
+      text-decoration: none;
+      margin: 0 1rem;
+      transition: color 0.3s ease;
+    }
+
+    .contact-info a:hover {
+      color: #b3b3b3;
+    }
+
+    .contact-info i {
+      font-size: 1.5rem;
+    }
+  </style>
+</head>
+<body>
+  <nav class="navbar">
+    <a href="#" class="navbar-brand">Develop</a>
+    <ul class="navbar-nav">
+      <li><a href="#">Home</a></li>
+      <li><a href="#">Portfolio</a></li>
+      <li><a href="#">About</a></li>
+      <li><a href="#">Contact</a></li>
+    </ul>
+  </nav>
+
+  <section class="portfolio-showcase">
+    <div class="portfolio-item">
+      <img src="https://dummyimage.com/600x400/ccc/000&text=Project+1" alt="Project 1">
+      <div class="portfolio-overlay">
+        <h3>Project 1</h3>
+        <p>A stunning matte-black website design with flat tones and subtle animations.</p>
+      </div>
+    </div>
+    <div class="portfolio-item">
+      <img src="https://dummyimage.com/600x400/ccc/000&text=Project+2" alt="Project 2">
+      <div class="portfolio-overlay">
+        <h3>Project 2</h3>
+        <p>A minimalistic portfolio showcasing the designer's expertise in UI/UX.</p>
+      </div>
+    </div>
+    <div class="portfolio-item">
+      <img src="https://dummyimage.com/600x400/ccc/000&text=Project+3" alt="Project 3">
+      <div class="portfolio-overlay">
+        <h3>Project 3</h3>
+        <p>A sleek and professional website design with a focus on smooth animations.</p>
+      </div>
+    </div>
+    <div class="portfolio-item">
+      <img src="https://dummyimage.com/600x400/ccc/000&text=Project+4" alt="Project 4">
+      <div class="portfolio-overlay">
+        <h3>Project 4</h3>
+        <p>A high-quality portfolio showcasing the designer's attention to detail.</p>
+      </div>
+    </div>
+    <div class="portfolio-item">
+      <img src="https://dummyimage.com/600x400/ccc/000&text=Project+5" alt="Project 5">
+      <div class="portfolio-overlay">
+        <h3>Project 5</h3>
+        <p>A visually stunning website design with a focus on flat design and subtle shadows.</p>
+      </div>
+    </div>
+    <div class="portfolio-item">
+      <img src="https://dummyimage.com/600x400/ccc/000&text=Project+6" alt="Project 6">
+      <div class="portfolio-overlay">
+        <h3>Project 6</h3>
+        <p>A captivating portfolio showcasing the designer's expertise in modern web design.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="about-me">
+    <div class="about-me-content">
+      <div class="about-me-image">
+        <img src="https://dummyimage.com/300x300/ccc/000&text=Designer+Photo" alt="Designer Photo">
+      </div>
+      <div class="about-me-text">
+        <h2>About Me</h2>
+        <p>I am a passionate web designer with a keen eye for detail and a deep understanding of modern design trends. My expertise lies in creating stunning, matte-black portfolios with flat tones and minimal bright accents, using understated animations and subtle shadows to achieve a smooth, professional look.</p>
+        <div class="about-me-icons">
+          <a href="#"><i class="fab fa-linkedin"></i></a>
+          <a href="#"><i class="fab fa-behance"></i></a>
+          <a href="#"><i class="fab fa-dribbble"></i></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact-section">
+    <div class="contact-form">
+      <h2>Get in Touch</h2>
+      <form>
+        <div class="form-group">
+          <label for="name">Name</label>
+          <input type="text" id="name" name="name" placeholder="Enter your name" required>
+        </div>
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" placeholder="Enter your email" required>
+        </div>
+        <div class="form-group">
+          <label for="message">Message</label>
+          <textarea id="message" name="message" placeholder="Enter your message" rows="5" required></textarea>
+        </div>
+        <button type="submit">Send Message</button>
+      </form>
+    </div>
+  </section>
+
+  <div class="contact-info">
+    <a href="#"><i class="fas fa-envelope"></i> example@email.com</a>
+    <a href="#"><i class="fas fa-phone"></i> +1 (123) 456-7890</a>
+    <a href="#"><i class="fab fa-linkedin"></i> LinkedIn</a>
+    <a href="#"><i class="fab fa-behance"></i> Behance</a>
+    <a href="#"><i class="fab fa-dribbble"></i> Dribbble</a>
+  </div>
+
+  <!-- Font Awesome Icons -->
+  <script src="https://kit.fontawesome.com/your-font-awesome-kit.js" crossorigin="anonymous"></script>
+</body>
+</html>'<!-- Visit: https://github.com/Ishanoshada/portflair -->
+<!-- Visit: https://github.com/Ishanoshada/portflair -->

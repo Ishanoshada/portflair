@@ -1,0 +1,374 @@
+<!-- Portfolio created by Ishan -->
+<!-- Check out my work at: https://github.com/Ishanoshada/portflair -->
+<!-- 2024/10/9 -->
+<!-- Portfolio created by Ishan -->
+'<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Black Hole Portfolio</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
+
+    body {
+      font-family: 'Orbitron', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #000;
+      color: #fff;
+      overflow-x: hidden;
+    }
+
+    /* Navbar */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 40px;
+      background-color: rgba(0, 0, 0, 0.7);
+      backdrop-filter: blur(10px);
+      z-index: 1;
+      position: relative;
+    }
+
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      font-size: 1.2rem;
+      padding: 10px 20px;
+      border-radius: 20px;
+      transition: background-color 0.3s ease;
+    }
+
+    nav a:hover {
+      background-color: rgba(255, 255, 255, 0.1);
+    }
+
+    /* Project Galaxy */
+    #project-galaxy {
+      position: relative;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+    }
+
+    .galaxy-bg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(ellipse at center, #000 0%, #200040 100%);
+      z-index: -1;
+      animation: galaxyRotation 60s linear infinite;
+    }
+
+    .planet {
+      position: absolute;
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      background-size: cover;
+      background-position: center;
+      box-shadow: 0 0 50px rgba(255, 255, 255, 0.5);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .planet:hover {
+      transform: scale(1.1);
+      box-shadow: 0 0 100px rgba(255, 255, 255, 0.8);
+    }
+
+    .planet-1 {
+      background-image: url(https://dummyimage.com/400x400/ccc/000&text=Project+1);
+      left: 20%;
+      top: 30%;
+      animation: planetFloat 10s ease-in-out infinite;
+    }
+
+    .planet-2 {
+      background-image: url(https://dummyimage.com/400x400/ccc/000&text=Project+2);
+      right: 15%;
+      top: 40%;
+      animation: planetFloat 12s ease-in-out infinite;
+    }
+
+    .planet-3 {
+      background-image: url(https://dummyimage.com/400x400/ccc/000&text=Project+3);
+      left: 45%;
+      bottom: 20%;
+      animation: planetFloat 8s ease-in-out infinite;
+    }
+
+    .planet-info {
+      position: absolute;
+      background-color: rgba(0, 0, 0, 0.7);
+      backdrop-filter: blur(10px);
+      padding: 20px;
+      border-radius: 20px;
+      text-align: center;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+    }
+
+    .planet:hover .planet-info {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    /* Skill Nebulae */
+    #skill-nebulae {
+      position: relative;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+    }
+
+    .nebula-bg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(ellipse at center, #200040 0%, #000 100%);
+      z-index: -1;
+      animation: nebulaPulse 10s ease-in-out infinite;
+    }
+
+    .skill-orb {
+      position: absolute;
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      background-color: #8b00ff;
+      box-shadow: 0 0 50px rgba(139, 0, 255, 0.5);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .skill-orb:hover {
+      transform: scale(1.2);
+      box-shadow: 0 0 100px rgba(139, 0, 255, 0.8);
+    }
+
+    .skill-orb-1 {
+      left: 20%;
+      top: 30%;
+      animation: orbitRotation 20s linear infinite;
+    }
+
+    .skill-orb-2 {
+      right: 15%;
+      top: 40%;
+      animation: orbitRotation 15s linear infinite;
+    }
+
+    .skill-orb-3 {
+      left: 45%;
+      bottom: 20%;
+      animation: orbitRotation 18s linear infinite;
+    }
+
+    .skill-info {
+      position: absolute;
+      background-color: rgba(0, 0, 0, 0.7);
+      backdrop-filter: blur(10px);
+      padding: 20px;
+      border-radius: 20px;
+      text-align: center;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+    }
+
+    .skill-orb:hover .skill-info {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    /* Neon Contact Form */
+    #contact-form {
+      position: relative;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+    }
+
+    .form-bg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(45deg, #8b00ff, #00ffff);
+      z-index: -1;
+      animation: formBgPulse 5s ease-in-out infinite;
+    }
+
+    .form-container {
+      background-color: rgba(0, 0, 0, 0.7);
+      backdrop-filter: blur(10px);
+      padding: 40px;
+      border-radius: 20px;
+      text-align: center;
+      box-shadow: 0 0 50px rgba(255, 255, 255, 0.5);
+    }
+
+    .form-container h2 {
+      color: #8b00ff;
+      font-size: 2rem;
+      margin-bottom: 20px;
+    }
+
+    .form-container input,
+    .form-container textarea {
+      width: 300px;
+      padding: 10px;
+      margin-bottom: 20px;
+      border: none;
+      border-radius: 20px;
+      background-color: rgba(255, 255, 255, 0.1);
+      color: #fff;
+      font-family: 'Orbitron', sans-serif;
+      font-size: 1rem;
+      transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .form-container input:focus,
+    .form-container textarea:focus {
+      outline: none;
+      background-color: rgba(255, 255, 255, 0.2);
+      box-shadow: 0 0 20px rgba(139, 0, 255, 0.5);
+    }
+
+    .form-container textarea {
+      resize: none;
+    }
+
+    .form-container button {
+      background-color: #8b00ff;
+      color: #fff;
+      border: none;
+      border-radius: 20px;
+      padding: 10px 20px;
+      font-family: 'Orbitron', sans-serif;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .form-container button:hover {
+      background-color: #a033ff;
+      box-shadow: 0 0 20px rgba(139, 0, 255, 0.5);
+    }
+
+    /* Animations */
+    @keyframes galaxyRotation {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    @keyframes planetFloat {
+      0% { transform: translateY(0); }
+      50% { transform: translateY(-20px); }
+      100% { transform: translateY(0); }
+    }
+
+    @keyframes nebulaPulse {
+      0% { background-size: 100% 100%; }
+      50% { background-size: 120% 120%; }
+      100% { background-size: 100% 100%; }
+    }
+
+    @keyframes orbitRotation {
+      0% { transform: rotate(0deg) translateX(100px) rotate(0deg); }
+      100% { transform: rotate(360deg) translateX(100px) rotate(-360deg); }
+    }
+
+    @keyframes formBgPulse {
+      0% { background-size: 100% 100%; }
+      50% { background-size: 120% 120%; }
+      100% { background-size: 100% 100%; }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="#">Home</a>
+    <a href="#">Projects</a>
+    <a href="#">Skills</a>
+    <a href="#">Contact</a>
+  </nav>
+
+  <section id="project-galaxy">
+    <div class="galaxy-bg"></div>
+    <div class="planet planet-1">
+      <div class="planet-info">
+        <h3>Project 1</h3>
+        <p>Description of Project 1</p>
+        <a href="#">Live Demo</a>
+      </div>
+    </div>
+    <div class="planet planet-2">
+      <div class="planet-info">
+        <h3>Project 2</h3>
+        <p>Description of Project 2</p>
+        <a href="#">Live Demo</a>
+      </div>
+    </div>
+    <div class="planet planet-3">
+      <div class="planet-info">
+        <h3>Project 3</h3>
+        <p>Description of Project 3</p>
+        <a href="#">Live Demo</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="skill-nebulae">
+    <div class="nebula-bg"></div>
+    <div class="skill-orb skill-orb-1">
+      <div class="skill-info">
+        <h3>Skill 1</h3>
+        <p>Description of Skill 1</p>
+        <p>Expertise Level: Expert</p>
+      </div>
+    </div>
+    <div class="skill-orb skill-orb-2">
+      <div class="skill-info">
+        <h3>Skill 2</h3>
+        <p>Description of Skill 2</p>
+        <p>Expertise Level: Intermediate</p>
+      </div>
+    </div>
+    <div class="skill-orb skill-orb-3">
+      <div class="skill-info">
+        <h3>Skill 3</h3>
+        <p>Description of Skill 3</p>
+        <p>Expertise Level: Advanced</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact-form">
+    <div class="form-bg"></div>
+    <div class="form-container">
+      <h2>Get in Touch</h2>
+      <form>
+        <input type="text" placeholder="Name" />
+        <input type="email" placeholder="Email" />
+        <textarea placeholder="Message"></textarea>
+        <button type="submit">Send</button>
+      </form>
+    </div>
+  </section>
+</body>
+</html>'<!-- Visit: https://github.com/Ishanoshada/portflair -->
+<!-- Visit: https://github.com/Ishanoshada/portflair -->

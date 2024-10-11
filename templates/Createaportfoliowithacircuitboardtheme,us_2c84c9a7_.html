@@ -1,0 +1,425 @@
+<!-- Portfolio created by Ishan -->
+<!-- Check out my work at: https://github.com/Ishanoshada/portflair -->
+<!-- 2024/10/9 -->
+<!-- Portfolio created by Ishan -->
+'<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Create a Portfolio</title>
+  <style>
+    /* Global Styles */
+    body {
+      font-family: 'Roboto', sans-serif;
+      background-color: #0C1013;
+      color: #fff;
+      margin: 0;
+      padding: 0;
+    }
+
+    /* Navigation Bar */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: #1C2126;
+      padding: 20px 40px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      font-size: 18px;
+      font-weight: 500;
+      transition: color 0.3s ease;
+    }
+
+    nav a:hover {
+      color: #7CBEFF;
+    }
+
+    /* Skills/Expertise Section */
+    .skills-section {
+      padding: 80px 40px;
+      background-color: #1C2126;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      grid-gap: 40px;
+      justify-items: center;
+      position: relative;
+      z-index: 1;
+    }
+
+    .skill-item {
+      background-color: #2C3339;
+      border-radius: 10px;
+      padding: 30px;
+      text-align: center;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.3s ease;
+    }
+
+    .skill-item:before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, #7CBEFF, #1E90FF);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .skill-item:hover {
+      transform: translateY(-10px);
+    }
+
+    .skill-item:hover:before {
+      opacity: 0.3;
+    }
+
+    .skill-item h3 {
+      margin-top: 0;
+      font-size: 20px;
+      font-weight: 500;
+      color: #7CBEFF;
+    }
+
+    .skill-item p {
+      margin-bottom: 0;
+      font-size: 16px;
+      color: #ccc;
+    }
+
+    /* Projects Showcase */
+    .projects-section {
+      padding: 80px 40px;
+      background-color: #0C1013;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      grid-gap: 40px;
+      justify-items: center;
+      position: relative;
+      z-index: 1;
+    }
+
+    .project-item {
+      background-color: #1C2126;
+      border-radius: 10px;
+      padding: 30px;
+      text-align: center;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.3s ease;
+    }
+
+    .project-item:before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, #7CBEFF, #1E90FF);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .project-item:hover {
+      transform: translateY(-10px);
+    }
+
+    .project-item:hover:before {
+      opacity: 0.3;
+    }
+
+    .project-item img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 5px;
+      margin-bottom: 20px;
+    }
+
+    .project-item h3 {
+      margin-top: 0;
+      font-size: 20px;
+      font-weight: 500;
+      color: #7CBEFF;
+    }
+
+    .project-item p {
+      margin-bottom: 0;
+      font-size: 16px;
+      color: #ccc;
+    }
+
+    /* Contact and Call-to-Action Section */
+    .contact-section {
+      padding: 80px 40px;
+      background-color: #1C2126;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-gap: 40px;
+      justify-items: center;
+      position: relative;
+      z-index: 1;
+    }
+
+    .contact-form {
+      background-color: #2C3339;
+      border-radius: 10px;
+      padding: 30px;
+      text-align: center;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.3s ease;
+    }
+
+    .contact-form:before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, #7CBEFF, #1E90FF);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .contact-form:hover {
+      transform: translateY(-10px);
+    }
+
+    .contact-form:hover:before {
+      opacity: 0.3;
+    }
+
+    .contact-form h3 {
+      margin-top: 0;
+      font-size: 20px;
+      font-weight: 500;
+      color: #7CBEFF;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 20px;
+      border: none;
+      border-radius: 5px;
+      background-color: #3C434B;
+      color: #fff;
+      font-size: 16px;
+    }
+
+    .contact-form button {
+      background-color: #7CBEFF;
+      color: #0C1013;
+      border: none;
+      border-radius: 5px;
+      padding: 10px 20px;
+      font-size: 16px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .contact-form button:hover {
+      background-color: #1E90FF;
+    }
+
+    .cta-item {
+      background-color: #2C3339;
+      border-radius: 10px;
+      padding: 30px;
+      text-align: center;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.3s ease;
+    }
+
+    .cta-item:before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, #7CBEFF, #1E90FF);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .cta-item:hover {
+      transform: translateY(-10px);
+    }
+
+    .cta-item:hover:before {
+      opacity: 0.3;
+    }
+
+    .cta-item h3 {
+      margin-top: 0;
+      font-size: 20px;
+      font-weight: 500;
+      color: #7CBEFF;
+    }
+
+    .cta-item p {
+      margin-bottom: 20px;
+      font-size: 16px;
+      color: #ccc;
+    }
+
+    .cta-item a {
+      background-color: #7CBEFF;
+      color: #0C1013;
+      border: none;
+      border-radius: 5px;
+      padding: 10px 20px;
+      font-size: 16px;
+      font-weight: 500;
+      text-decoration: none;
+      transition: background-color 0.3s ease;
+    }
+
+    .cta-item a:hover {
+      background-color: #1E90FF;
+    }
+
+    /* Responsive Styles */
+    @media (max-width: 768px) {
+      nav {
+        padding: 15px 20px;
+      }
+
+      .skills-section,
+      .projects-section,
+      .contact-section {
+        padding: 60px 20px;
+      }
+
+      .skills-grid,
+      .projects-grid,
+      .contact-grid {
+        grid-template-columns: 1fr;
+        grid-gap: 30px;
+      }
+
+      .skill-item,
+      .project-item,
+      .contact-form,
+      .cta-item {
+        padding: 20px;
+      }
+
+      .project-item img {
+        height: 150px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="#">Home</a>
+    <a href="#">Skills</a>
+    <a href="#">Projects</a>
+    <a href="#">Contact</a>
+  </nav>
+
+  <section class="skills-section">
+    <div class="skills-grid">
+      <div class="skill-item">
+        <h3>HTML</h3>
+        <p>Markup language for creating web pages.</p>
+      </div>
+      <div class="skill-item">
+        <h3>CSS</h3>
+        <p>Styling language for designing web pages.</p>
+      </div>
+      <div class="skill-item">
+        <h3>JavaScript</h3>
+        <p>Programming language for adding interactivity to web pages.</p>
+      </div>
+      <div class="skill-item">
+        <h3>React.js</h3>
+        <p>JavaScript library for building user interfaces.</p>
+      </div>
+      <div class="skill-item">
+        <h3>Node.js</h3>
+        <p>Runtime environment for executing JavaScript on the server.</p>
+      </div>
+      <div class="skill-item">
+        <h3>MongoDB</h3>
+        <p>NoSQL database for storing and managing data.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="projects-section">
+    <div class="projects-grid">
+      <div class="project-item">
+        <img src="https://dummyimage.com/600x400/ccc/000&text=Project+1" alt="Project 1">
+        <h3>Project 1</h3>
+        <p>A responsive website with a modern design.</p>
+      </div>
+      <div class="project-item">
+        <img src="https://dummyimage.com/600x400/ccc/000&text=Project+2" alt="Project 2">
+        <h3>Project 2</h3>
+        <p>A web application with a complex data structure.</p>
+      </div>
+      <div class="project-item">
+        <img src="https://dummyimage.com/600x400/ccc/000&text=Project+3" alt="Project 3">
+        <h3>Project 3</h3>
+        <p>A single-page application with smooth animations.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact-section">
+    <div class="contact-grid">
+      <div class="contact-form">
+        <h3>Get in Touch</h3>
+        <form>
+          <input type="text" placeholder="Name" />
+          <input type="email" placeholder="Email" />
+          <textarea placeholder="Message"></textarea>
+          <button type="submit">Send</button>
+        </form>
+      </div>
+      <div class="cta-item">
+        <h3>Hire Me</h3>
+        <p>Let's work together to bring your ideas to life.</p>
+        <a href="#">Get Started</a>
+      </div>
+    </div>
+  </section>
+</body>
+</html>'<!-- Visit: https://github.com/Ishanoshada/portflair -->
+<!-- Visit: https://github.com/Ishanoshada/portflair -->

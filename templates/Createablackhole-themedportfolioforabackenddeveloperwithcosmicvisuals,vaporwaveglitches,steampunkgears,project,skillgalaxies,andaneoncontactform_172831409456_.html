@@ -1,0 +1,471 @@
+<!-- Portfolio created by Ishan -->
+<!-- Check out my work at: https://github.com/Ishanoshada/portflair -->
+<!-- 2024/10/9 -->
+<!-- Portfolio created by Ishan -->
+'<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cosmic Portfolio</title>
+  <style>
+    /* Global Styles */
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Orbitron', sans-serif;
+      background: linear-gradient(to bottom, #000000, #1b1b1b, #333333);
+      color: #ffffff;
+      overflow-x: hidden;
+    }
+
+    /* Navbar Styles */
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 40px;
+      background-color: rgba(0, 0, 0, 0.5);
+      backdrop-filter: blur(10px);
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+    }
+
+    .navbar-brand {
+      font-size: 24px;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      text-shadow: 0 0 10px #00ffff, 0 0 20px #00ffff, 0 0 30px #00ffff;
+    }
+
+    .navbar-nav {
+      display: flex;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .navbar-nav li {
+      margin-left: 30px;
+    }
+
+    .navbar-nav li a {
+      color: #ffffff;
+      text-decoration: none;
+      font-size: 16px;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      transition: color 0.3s ease-in-out;
+    }
+
+    .navbar-nav li a:hover {
+      color: #00ffff;
+      text-shadow: 0 0 10px #00ffff, 0 0 20px #00ffff, 0 0 30px #00ffff;
+    }
+
+    /* Interactive Black Hole Section */
+    .black-hole-section {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .black-hole {
+      width: 400px;
+      height: 400px;
+      background-image: radial-gradient(ellipse at center, #000000 0%, #000000 50%, #1b1b1b 100%);
+      border-radius: 50%;
+      box-shadow: 0 0 50px 20px rgba(0, 0, 0, 0.8), inset 0 0 50px 10px rgba(0, 0, 0, 0.8);
+      position: relative;
+      z-index: 1;
+      animation: black-hole-pulse 3s infinite ease-in-out;
+    }
+
+    .cosmic-vortex {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-image: radial-gradient(ellipse at center, #000000 0%, #1b1b1b 50%, #333333 100%);
+      animation: cosmic-vortex 10s linear infinite;
+    }
+
+    .cosmic-vortex::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-image: radial-gradient(ellipse at center, #00ffff 0%, #00ccff 50%, #0099ff 100%);
+      opacity: 0.2;
+      animation: cosmic-vortex-overlay 15s linear infinite;
+    }
+
+    .cosmic-vortex::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-image: radial-gradient(ellipse at center, #ff00ff 0%, #cc00cc 50%, #990099 100%);
+      opacity: 0.2;
+      animation: cosmic-vortex-overlay 20s linear infinite;
+    }
+
+    @keyframes black-hole-pulse {
+      0% {
+        transform: scale(1);
+      }
+      50% {
+        transform: scale(1.05);
+      }
+      100% {
+        transform: scale(1);
+      }
+    }
+
+    @keyframes cosmic-vortex {
+      0% {
+        transform: rotate(0deg);
+      }
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+
+    @keyframes cosmic-vortex-overlay {
+      0% {
+        transform: rotate(0deg) scale(1);
+      }
+      100% {
+        transform: rotate(360deg) scale(1.2);
+      }
+    }
+
+    /* Project Galaxy Section */
+    .project-galaxy-section {
+      padding: 100px 40px;
+      background-image: linear-gradient(to bottom, #1b1b1b, #333333, #1b1b1b);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .project-galaxy {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+      position: relative;
+      z-index: 1;
+    }
+
+    .project-star {
+      width: 80px;
+      height: 80px;
+      background-image: radial-gradient(ellipse at center, #00ffff 0%, #00ccff 50%, #0099ff 100%);
+      border-radius: 50%;
+      box-shadow: 0 0 20px 10px rgba(0, 255, 255, 0.5), inset 0 0 10px 5px rgba(0, 255, 255, 0.3);
+      margin: 20px;
+      position: relative;
+      cursor: pointer;
+      transition: transform 0.3s ease-in-out;
+    }
+
+    .project-star:hover {
+      transform: scale(1.2);
+    }
+
+    .project-star::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-image: radial-gradient(ellipse at center, #ff00ff 0%, #cc00cc 50%, #990099 100%);
+      border-radius: 50%;
+      opacity: 0.3;
+      animation: project-star-glow 3s infinite ease-in-out;
+    }
+
+    .project-star::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-image: url("https://dummyimage.com/100x100/ccc/000&text=Project");
+      background-size: 60%;
+      background-repeat: no-repeat;
+      background-position: center;
+      border-radius: 50%;
+      opacity: 0.7;
+      transition: opacity 0.3s ease-in-out;
+    }
+
+    .project-star:hover::after {
+      opacity: 1;
+    }
+
+    @keyframes project-star-glow {
+      0% {
+        transform: scale(1);
+        opacity: 0.3;
+      }
+      50% {
+        transform: scale(1.2);
+        opacity: 0.6;
+      }
+      100% {
+        transform: scale(1);
+        opacity: 0.3;
+      }
+    }
+
+    /* Interactive Skill Nebula Section */
+    .skill-nebula-section {
+      padding: 100px 40px;
+      background-image: linear-gradient(to bottom, #333333, #1b1b1b, #000000);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .skill-nebula {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+      position: relative;
+      z-index: 1;
+    }
+
+    .skill-node {
+      width: 80px;
+      height: 80px;
+      background-image: radial-gradient(ellipse at center, #ff00ff 0%, #cc00cc 50%, #990099 100%);
+      border-radius: 50%;
+      box-shadow: 0 0 20px 10px rgba(255, 0, 255, 0.5), inset 0 0 10px 5px rgba(255, 0, 255, 0.3);
+      margin: 20px;
+      position: relative;
+      cursor: pointer;
+      transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    }
+
+    .skill-node:hover {
+      transform: scale(1.2);
+      box-shadow: 0 0 30px 15px rgba(255, 0, 255, 0.7), inset 0 0 15px 7.5px rgba(255, 0, 255, 0.5);
+    }
+
+    .skill-node::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-image: radial-gradient(ellipse at center, #00ffff 0%, #00ccff 50%, #0099ff 100%);
+      border-radius: 50%;
+      opacity: 0.3;
+      animation: skill-node-glow 3s infinite ease-in-out;
+    }
+
+    .skill-node::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-image: url("https://dummyimage.com/60x60/ccc/000&text=Skill");
+      background-size: 50%;
+      background-repeat: no-repeat;
+      background-position: center;
+      border-radius: 50%;
+      opacity: 0.7;
+      transition: opacity 0.3s ease-in-out;
+    }
+
+    .skill-node:hover::after {
+      opacity: 1;
+    }
+
+    @keyframes skill-node-glow {
+      0% {
+        transform: scale(1);
+        opacity: 0.3;
+      }
+      50% {
+        transform: scale(1.2);
+        opacity: 0.6;
+      }
+      100% {
+        transform: scale(1);
+        opacity: 0.3;
+      }
+    }
+
+    /* Neon Contact Form */
+    .contact-section {
+      padding: 100px 40px;
+      background-image: linear-gradient(to bottom, #000000, #1b1b1b, #333333);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .contact-form {
+      background-color: rgba(0, 0, 0, 0.5);
+      backdrop-filter: blur(10px);
+      padding: 40px;
+      border-radius: 10px;
+      box-shadow: 0 0 30px 10px rgba(0, 255, 255, 0.5);
+      width: 400px;
+    }
+
+    .contact-form h2 {
+      text-align: center;
+      font-size: 24px;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      text-shadow: 0 0 10px #00ffff, 0 0 20px #00ffff, 0 0 30px #00ffff;
+      margin-bottom: 20px;
+    }
+
+    .contact-form .form-group {
+      margin-bottom: 20px;
+    }
+
+    .contact-form label {
+      display: block;
+      font-size: 16px;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 5px;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+      width: 100%;
+      padding: 10px;
+      border: none;
+      border-radius: 5px;
+      background-color: rgba(255, 255, 255, 0.1);
+      color: #ffffff;
+      font-size: 16px;
+      font-family: 'Orbitron', sans-serif;
+      transition: background-color 0.3s ease-in-out;
+    }
+
+    .contact-form input:focus,
+    .contact-form textarea:focus {
+      background-color: rgba(255, 255, 255, 0.2);
+      outline: none;
+    }
+
+    .contact-form button {
+      display: block;
+      width: 100%;
+      padding: 10px;
+      border: none;
+      border-radius: 5px;
+      background-image: linear-gradient(to right, #00ffff, #00ccff, #0099ff);
+      color: #ffffff;
+      font-size: 16px;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      cursor: pointer;
+      transition: background-image 0.3s ease-in-out;
+    }
+
+    .contact-form button:hover {
+      background-image: linear-gradient(to right, #ff00ff, #cc00cc, #990099);
+    }
+  </style>
+</head>
+<body>
+  <nav class="navbar">
+    <a href="#" class="navbar-brand">Cosmic Portfolio</a>
+    <ul class="navbar-nav">
+      <li><a href="#">Home</a></li>
+      <li><a href="#">About</a></li>
+      <li><a href="#">Projects</a></li>
+      <li><a href="#">Skills</a></li>
+      <li><a href="#">Contact</a></li>
+    </ul>
+  </nav>
+
+  <section class="black-hole-section">
+    <div class="black-hole"></div>
+    <div class="cosmic-vortex"></div>
+  </section>
+
+  <section class="project-galaxy-section">
+    <div class="project-galaxy">
+      <div class="project-star"></div>
+      <div class="project-star"></div>
+      <div class="project-star"></div>
+      <div class="project-star"></div>
+      <div class="project-star"></div>
+      <div class="project-star"></div>
+      <div class="project-star"></div>
+      <div class="project-star"></div>
+      <div class="project-star"></div>
+      <div class="project-star"></div>
+    </div>
+  </section>
+
+  <section class="skill-nebula-section">
+    <div class="skill-nebula">
+      <div class="skill-node"></div>
+      <div class="skill-node"></div>
+      <div class="skill-node"></div>
+      <div class="skill-node"></div>
+      <div class="skill-node"></div>
+      <div class="skill-node"></div>
+      <div class="skill-node"></div>
+      <div class="skill-node"></div>
+      <div class="skill-node"></div>
+      <div class="skill-node"></div>
+    </div>
+  </section>
+
+  <section class="contact-section">
+    <div class="contact-form">
+      <h2>Get in Touch</h2>
+      <form>
+        <div class="form-group">
+          <label for="name">Name</label>
+          <input type="text" id="name" name="name" required>
+        </div>
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email<div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" required>
+        </div>
+        <div class="form-group">
+          <label for="message">Message</label>
+          <textarea id="message" name="message" rows="5" required></textarea>
+        </div>
+        <button type="submit">Send</button>
+      </form>
+    </div>
+  </section>
+</body>
+</html>'<!-- Visit: https://github.com/Ishanoshada/portflair -->
+<!-- Visit: https://github.com/Ishanoshada/portflair -->

@@ -1,0 +1,389 @@
+<!-- Portfolio created by Ishan -->
+<!-- Check out my work at: https://github.com/Ishanoshada/portflair -->
+<!-- 2024/10/9 -->
+<!-- Portfolio created by Ishan -->
+'<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dark Mode Portfolio</title>
+  <style>
+    /* Global Styles */
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Montserrat', sans-serif;
+      background-color: #1c1c1c;
+      color: #f2f2f2;
+    }
+
+    /* Navigation */
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.5rem 2rem;
+      backdrop-filter: blur(10px);
+      background-color: rgba(28, 28, 28, 0.7);
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      position: relative;
+      z-index: 100;
+    }
+
+    .navbar-brand {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: #f2f2f2;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    .navbar-brand:hover {
+      color: #9b59b6;
+    }
+
+    .navbar-nav {
+      display: flex;
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .nav-item {
+      margin-left: 1.5rem;
+    }
+
+    .nav-link {
+      color: #f2f2f2;
+      text-decoration: none;
+      font-size: 1rem;
+      transition: color 0.3s ease;
+    }
+
+    .nav-link:hover {
+      color: #9b59b6;
+    }
+
+    /* Hero Section */
+    .hero {
+      height: 80vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-background {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: url('https://dummyimage.com/1920x1080/1c1c1c/1c1c1c.jpg');
+      background-size: cover;
+      background-position: center;
+      filter: blur(5px);
+      z-index: -1;
+    }
+
+    .hero-content {
+      text-align: center;
+      max-width: 800px;
+      padding: 2rem;
+      backdrop-filter: blur(10px);
+      background-color: rgba(28, 28, 28, 0.7);
+      border-radius: 10px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1), 0 4px 8px rgba(0, 0, 0, 0.1), 0 8px 16px rgba(0, 0, 0, 0.1);
+      position: relative;
+      z-index: 1;
+      animation: fadeIn 1s ease-in-out;
+    }
+
+    .hero-title {
+      font-size: 3rem;
+      font-weight: bold;
+      margin-bottom: 1rem;
+      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    .hero-description {
+      font-size: 1.25rem;
+      margin-bottom: 2rem;
+      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    .hero-button {
+      display: inline-block;
+      background-color: #9b59b6;
+      color: #f2f2f2;
+      text-decoration: none;
+      padding: 1rem 2rem;
+      border-radius: 5px;
+      font-size: 1rem;
+      font-weight: bold;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1), 0 4px 8px rgba(0, 0, 0, 0.1), 0 8px 16px rgba(0, 0, 0, 0.1);
+      transition: background-color 0.3s ease, transform 0.3s ease;
+    }
+
+    .hero-button:hover {
+      background-color: #8e44ad;
+      transform: translateY(-2px);
+    }
+
+    /* Featured Projects Section */
+    .featured-projects {
+      padding: 4rem 2rem;
+    }
+
+    .featured-projects-title {
+      font-size: 2rem;
+      font-weight: bold;
+      margin-bottom: 2rem;
+      text-align: center;
+      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      grid-gap: 2rem;
+    }
+
+    .project-card {
+      background-color: rgba(28, 28, 28, 0.7);
+      border-radius: 10px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1), 0 4px 8px rgba(0, 0, 0, 0.1), 0 8px 16px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+      position: relative;
+      transition: transform 0.3s ease;
+    }
+
+    .project-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .project-image {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      filter: blur(2px) brightness(0.8);
+      transition: filter 0.3s ease;
+    }
+
+    .project-card:hover .project-image {
+      filter: blur(0) brightness(1);
+    }
+
+    .project-content {
+      padding: 1.5rem;
+      backdrop-filter: blur(10px);
+      background-color: rgba(28, 28, 28, 0.5);
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      transition: background-color 0.3s ease;
+    }
+
+    .project-card:hover .project-content {
+      background-color: rgba(28, 28, 28, 0.7);
+    }
+
+    .project-title {
+      font-size: 1.25rem;
+      font-weight: bold;
+      margin-bottom: 0.5rem;
+      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    .project-description {
+      font-size: 0.9rem;
+      margin-bottom: 1rem;
+      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    .project-tags {
+      display: flex;
+      flex-wrap: wrap;
+      font-size: 0.8rem;
+      color: #b3b3b3;
+    }
+
+    .project-tag {
+      background-color: #2c2c2c;
+      color: #b3b3b3;
+      padding: 0.25rem 0.5rem;
+      border-radius: 3px;
+      margin-right: 0.5rem;
+      margin-bottom: 0.5rem;
+    }
+
+    /* About Section */
+    .about {
+      padding: 4rem 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .about-container {
+      max-width: 800px;
+      display: flex;
+      align-items: center;
+      backdrop-filter: blur(10px);
+      background-color: rgba(28, 28, 28, 0.7);
+      border-radius: 10px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1), 0 4px 8px rgba(0, 0, 0, 0.1), 0 8px 16px rgba(0, 0, 0, 0.1);
+      padding: 2rem;
+    }
+
+    .about-image {
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-right: 2rem;
+      filter: blur(2px) brightness(0.8);
+      transition: filter 0.3s ease;
+    }
+
+    .about-container:hover .about-image {
+      filter: blur(0) brightness(1);
+    }
+
+    .about-content {
+      flex: 1;
+    }
+
+    .about-title {
+      font-size: 2rem;
+      font-weight: bold;
+      margin-bottom: 1rem;
+      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    .about-description {
+      font-size: 1rem;
+      line-height: 1.6;
+      margin-bottom: 2rem;
+      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    .about-button {
+      display: inline-block;
+      background-color: #9b59b6;
+      color: #f2f2f2;
+      text-decoration: none;
+      padding: 1rem 2rem;
+      border-radius: 5px;
+      font-size: 1rem;
+      font-weight: bold;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1), 0 4px 8px rgba(0, 0, 0, 0.1), 0 8px 16px rgba(0, 0, 0, 0.1);
+      transition: background-color 0.3s ease, transform 0.3s ease;
+    }
+
+    .about-button:hover {
+      background-color: #8e44ad;
+      transform: translateY(-2px);
+    }
+
+    @keyframes fadeIn {
+      0% {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="navbar">
+    <a href="#" class="navbar-brand">Dark Mode Portfolio</a>
+    <nav>
+      <ul class="navbar-nav">
+        <li class="nav-item"><a href="#" class="nav-link">Home</a></li>
+        <li class="nav-item"><a href="#featured-projects" class="nav-link">Projects</a></li>
+        <li class="nav-item"><a href="#about" class="nav-link">About</a></li>
+        <li class="nav-item"><a href="#" class="nav-link">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-background"></div>
+      <div class="hero-content">
+        <h1 class="hero-title">Welcome to My Dark Mode Portfolio</h1>
+        <p class="hero-description">Explore a collection of captivating projects, showcased in a visually stunning dark mode design.</p>
+        <a href="#" class="hero-button">View Portfolio</a>
+      </div>
+    </section>
+
+    <section class="featured-projects" id="featured-projects">
+      <h2 class="featured-projects-title">Featured Projects</h2>
+      <div class="project-grid">
+        <div class="project-card">
+          <img src="https://dummyimage.com/600x400/1c1c1c/1c1c1c.jpg" alt="Project 1" class="project-image">
+          <div class="project-content">
+            <h3 class="project-title">Project 1</h3>
+            <p class="project-description">A captivating design project with a focus on dark mode aesthetics.</p>
+            <div class="project-tags">
+              <span class="project-tag">Design</span>
+              <span class="project-tag">Branding</span>
+              <span class="project-tag">UI/UX</span>
+            </div>
+          </div>
+        </div>
+        <div class="project-card">
+          <img src="https://dummyimage.com/600x400/1c1c1c/1c1c1c.jpg" alt="Project 2" class="project-image">
+          <div class="project-content">
+            <h3 class="project-title">Project 2</h3>
+            <p class="project-description">A stunning web application with a focus on dark mode user experience.</p>
+            <div class="project-tags">
+              <span class="project-tag">Web Development</span>
+              <span class="project-tag">UX</span>
+              <span class="project-tag">JavaScript</span>
+            </div>
+          </div>
+        </div>
+        <div class="project-card">
+          <img src="https://dummyimage.com/600x400/1c1c1c/1c1c1c.jpg" alt="Project 3" class="project-image">
+          <div class="project-content">
+            <h3 class="project-title">Project 3</h3>
+            <p class="project-description">A visually striking mobile app design with a dark mode theme.</p>
+            <div class="project-tags">
+              <span class="project-tag">Mobile Design</span>
+              <span class="project-tag">UI</span>
+              <span class="project-tag">iOS</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="about" id="about">
+      <div class="about-container">
+        <img src="https://dummyimage.com/400x400/1c1c1c/1c1c1c.jpg" alt="About Me" class="about-image">
+        <div class="about-content">
+          <h2 class="about-title">About Me</h2>
+          <p class="about-description">I am a passionate designer with a deep love for dark mode aesthetics. My portfolio showcases a range of projects that blend cutting-edge design techniques with a captivating dark mode experience. Explore my work and let's embark on a journey of visually stunning creations.</p>
+          <a href="#" class="about-button">Learn More</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-content">
+      <p>&copy; 2024 Dark Mode Portfolio. All rights reserved.</p>
+    </div>
+  </footer>
+</body>
+</html>'<!-- Visit: https://github.com/Ishanoshada/portflair -->
+<!-- Visit: https://github.com/Ishanoshada/portflair -->

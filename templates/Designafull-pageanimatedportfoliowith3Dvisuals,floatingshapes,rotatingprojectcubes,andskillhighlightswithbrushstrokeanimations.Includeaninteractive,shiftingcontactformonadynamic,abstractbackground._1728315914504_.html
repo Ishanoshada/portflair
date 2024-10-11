@@ -1,0 +1,523 @@
+<!-- Portfolio created by Ishan -->
+<!-- Check out my work at: https://github.com/Ishanoshada/portflair -->
+<!-- 2024/10/9 -->
+<!-- Portfolio created by Ishan -->
+'<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Design a full-page animated portfolio</title>
+    <style>
+        /* Global Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        body {
+            background: linear-gradient(to right, #1c1c1c, #333333);
+            color: #ffffff;
+            overflow-x: hidden;
+        }
+
+        /* Navigation Bar */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+        }
+
+        nav .logo {
+            font-size: 24px;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin-left: 30px;
+        }
+
+        nav ul li a {
+            color: #ffffff;
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            color: #7c7c7c;
+        }
+
+        /* Interactive Portfolio Section */
+        .portfolio-section {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .portfolio-section .portfolio-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            height: 100%;
+            perspective: 1000px;
+        }
+
+        .portfolio-section .portfolio-cube {
+            position: relative;
+            width: 300px;
+            height: 300px;
+            transform-style: preserve-3d;
+            transition: transform 0.5s ease;
+        }
+
+        .portfolio-section .portfolio-cube .cube-face {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            opacity: 0.9;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .portfolio-section .portfolio-cube .cube-face:nth-child(1) {
+            background-image: url("https://dummyimage.com/600x400/ccc/000&text=Project+1");
+            transform: translateZ(150px);
+        }
+
+        .portfolio-section .portfolio-cube .cube-face:nth-child(2) {
+            background-image: url("https://dummyimage.com/600x400/ccc/000&text=Project+2");
+            transform: rotateY(90deg) translateZ(150px);
+        }
+
+        .portfolio-section .portfolio-cube .cube-face:nth-child(3) {
+            background-image: url("https://dummyimage.com/600x400/ccc/000&text=Project+3");
+            transform: rotateY(180deg) translateZ(150px);
+        }
+
+        .portfolio-section .portfolio-cube .cube-face:nth-child(4) {
+            background-image: url("https://dummyimage.com/600x400/ccc/000&text=Project+4");
+            transform: rotateY(-90deg) translateZ(150px);
+        }
+
+        .portfolio-section .portfolio-cube .cube-face:nth-child(5) {
+            background-image: url("https://dummyimage.com/600x400/ccc/000&text=Project+5");
+            transform: rotateX(-90deg) translateZ(150px);
+        }
+
+        .portfolio-section .portfolio-cube .cube-face:nth-child(6) {
+            background-image: url("https://dummyimage.com/600x400/ccc/000&text=Project+6");
+            transform: rotateX(90deg) translateZ(150px);
+        }
+
+        .portfolio-section .floating-shapes {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
+
+        .portfolio-section .floating-shapes .shape {
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            animation: float 10s linear infinite;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translate(0, 0);
+            }
+            25% {
+                transform: translate(50%, 50%);
+            }
+            50% {
+                transform: translate(100%, 100%);
+            }
+            75% {
+                transform: translate(50%, 50%);
+            }
+            100% {
+                transform: translate(0, 0);
+            }
+        }
+
+        /* Skills Showcase Section */
+        .skills-section {
+            padding: 100px 40px;
+            background-color: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            text-align: center;
+        }
+
+        .skills-section h2 {
+            font-size: 36px;
+            font-weight: bold;
+            margin-bottom: 50px;
+            text-transform: uppercase;
+        }
+
+        .skills-section .skill-highlights {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            grid-gap: 40px;
+        }
+
+        .skills-section .skill-highlight {
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .skills-section .skill-highlight:hover {
+            transform: translateY(-10px);
+        }
+
+        .skills-section .skill-highlight .icon {
+            font-size: 48px;
+            margin-bottom: 20px;
+            background: linear-gradient(to right, #7c7c7c, #c7c7c7);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: brushstroke 2s ease infinite;
+        }
+
+        .skills-section .skill-highlight h3 {
+            font-size: 20px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .skills-section .skill-highlight p {
+            font-size: 16px;
+            color: #c7c7c7;
+        }
+
+        @keyframes brushstroke {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        /* Interactive Contact Form Section */
+        .contact-section {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: linear-gradient(to right, #1c1c1c, #333333);
+        }
+
+        .contact-section .contact-container {
+            width: 80%;
+            max-width: 800px;
+            padding: 50px;
+            background-color: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .contact-section .contact-container h2 {
+            font-size: 36px;
+            font-weight: bold;
+            margin-bottom: 30px;
+            text-align: center;
+            text-transform: uppercase;
+        }
+
+        .contact-section .contact-form {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            grid-gap: 20px;
+        }
+
+        .contact-section .contact-form .form-group {
+            position: relative;
+        }
+
+        .contact-section .contact-form label {
+            position: absolute;
+            top: 50%;
+            left: 20px;
+            transform: translateY(-50%);
+            font-size: 16px;
+            color: #c7c7c7;
+            transition: all 0.3s ease;
+        }
+
+        .contact-section .contact-form input,
+        .contact-section .contact-form textarea {
+            width: 100%;
+            padding: 15px 20px;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            background-color: rgba(255, 255, 255, 0.1);
+            color: #ffffff;
+            transition: all 0.3s ease;
+        }
+
+        .contact-section .contact-form input:focus,
+        .contact-section .contact-form textarea:focus {
+            outline: none;
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .contact-section .contact-form input:focus + label,
+        .contact-section .contact-form textarea:focus + label,
+        .contact-section .contact-form input:not(:placeholder-shown) + label,
+        .contact-section .contact-form textarea:not(:placeholder-shown) + label {
+            top: 0;
+            font-size: 12px;
+            color: #7c7c7c;
+        }
+
+        .contact-section .contact-form button {
+            grid-column: 1 / 3;
+            padding: 15px 30px;
+            font-size: 16px;
+            font-weight: bold;
+            background: linear-gradient(to right, #7c7c7c, #c7c7c7);
+            color: #ffffff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .contact-section .contact-form button:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        @media (max-width: 768px) {
+            nav {
+                padding: 15px 20px;
+            }
+
+            nav .logo {
+                font-size: 20px;
+            }
+
+            nav ul li {
+                margin-left: 20px;
+            }
+
+            nav ul li a {
+                font-size: 14px;
+            }
+
+            .portfolio-section .portfolio-cube {
+                width: 200px;
+                height: 200px;
+            }
+
+            .portfolio-section .portfolio-cube .cube-face {
+                background-size: cover;
+            }
+
+            .skills-section {
+                padding: 60px 20px;
+            }
+
+            .skills-section h2 {
+                font-size: 28px;
+                margin-bottom: 30px;
+            }
+
+            .skills-section .skill-highlight {
+                padding: 20px;
+            }
+
+            .skills-section .skill-highlight .icon {
+                font-size: 36px;
+                margin-bottom: 15px;
+            }
+
+            .skills-section .skill-highlight h3 {
+                font-size: 18px;
+            }
+
+            .skills-section .skill-highlight p {
+                font-size: 14px;
+            }
+
+            .contact-section .contact-container {
+                width: 90%;
+                padding: 30px;
+            }
+
+            .contact-section .contact-container h2 {
+                font-size: 28px;
+                margin-bottom: 20px;
+            }
+
+            .contact-section .contact-form {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-section .contact-form button {
+                grid-column: auto;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="logo">Design Portfolio</div>
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Portfolio</a></li>
+            <li><a href="#">Skills</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+    </nav>
+
+    <section class="portfolio-section">
+        <div class="portfolio-container">
+            <div class="portfolio-cube">
+                <div class="cube-face"></div>
+                <div class="cube-face"></div>
+                <div class="cube-face"></div>
+                <div class="cube-face"></div>
+                <div class="cube-face"></div>
+                <div class="cube-face"></div>
+            </div>
+        </div>
+        <div class="floating-shapes">
+            <div class="shape"></div>
+            <div class="shape"></div>
+            <div class="shape"></div>
+            <div class="shape"></div>
+            <div class="shape"></div>
+        </div>
+    </section>
+
+    <section class="skills-section">
+        <h2>Skills & Expertise</h2>
+        <div class="skill-highlights">
+            <div class="skill-highlight">
+                <div class="icon">&#x1F3A8;</div>
+                <h3>Graphic Design</h3>
+                <p>Proficient in Adobe Creative Suite, specializing in branding, UI/UX, and visual identity.</p>
+            </div>
+            <div class="skill-highlight">
+                <div class="icon">&#x1F4BB;</div>
+                <h3>Web Development</h3>
+                <p>Skilled in HTML, CSS, JavaScript, and modern web frameworks like React and Vue.js.</p>
+            </div>
+            <div class="skill-highlight">
+                <div class="icon">&#x1F4C8;</div>
+                <h3>Motion Design</h3>
+                <p>Expertise in creating engaging animations and motion graphics for websites and applications.</p>
+            </div>
+            <div class="skill-highlight">
+                <div class="icon">&#x1F4DA;</div>
+                <h3>UX/UI Design</h3>
+                <p>Proficient in user research, information architecture, and designing intuitive user interfaces.</p>
+            </div>
+            <div class="skill-highlight">
+                <div class="icon">&#x1F4C4;</div>
+                <h3>Illustration</h3>
+                <p>Experienced in creating custom illustrations and vector art for branding and marketing materials.</p>
+            </div>
+            <div class="skill-highlight">
+                <div class="icon">&#x1F4D1;</div>
+                <h3>Content Creation</h3>
+                <p>Skilled in producing high-quality content, including blog posts, social media graphics, and videos.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="contact-section">
+        <div class="contact-container">
+            <h2>Get in Touch</h2>
+            <form class="contact-form">
+                <div class="form-group">
+                    <input type="text" id="name" placeholder=" " required>
+                    <label for="name">Name</label>
+                </div>
+                <div class="form-group">
+                    <input type="email" id="email" placeholder=" " required>
+                    <label for="email">Email</label>
+                </div>
+                <div class="form-group">
+                    <textarea id="message" placeholder=" " required></textarea>
+                    <label for="message">Message</label>
+                </div>
+                <button type="submit">Send Message</button>
+            </form</div>
+        </div>
+    </section>
+
+    <script>
+        // 3D Portfolio Cube Animation
+        const portfolioCube = document.querySelector('.portfolio-cube');
+
+        let xRotation = 0;
+        let yRotation = 0;
+
+        function rotatePortfolioCube() {
+            xRotation += 0.01;
+            yRotation += 0.01;
+            portfolioCube.style.transform = `rotateX(${xRotation}rad) rotateY(${yRotation}rad)`;
+            requestAnimationFrame(rotatePortfolioCube);
+        }
+
+        rotatePortfolioCube();
+
+        // Floating Shapes Animation
+        const floatingShapes = document.querySelectorAll('.floating-shapes .shape');
+
+        floatingShapes.forEach((shape, index) => {
+            const delay = index * 2;
+            shape.style.animation = `float ${10 + delay}s linear infinite`;
+        });
+
+        // Contact Form Interactions
+        const formInputs = document.querySelectorAll('.contact-form input, .contact-form textarea');
+
+        formInputs.forEach((input) => {
+            input.addEventListener('focus', () => {
+                input.nextElementSibling.classList.add('active');
+            });
+
+            input.addEventListener('blur', () => {
+                if (input.value === '') {
+                    input.nextElementSibling.classList.remove('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>'<!-- Visit: https://github.com/Ishanoshada/portflair -->
+<!-- Visit: https://github.com/Ishanoshada/portflair -->

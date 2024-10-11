@@ -1,0 +1,362 @@
+<!-- Portfolio created by Ishan -->
+<!-- Check out my work at: https://github.com/Ishanoshada/portflair -->
+<!-- 2024/10/9 -->
+<!-- Portfolio created by Ishan -->
+'<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Black Hole Portfolio</title>
+    <style>
+        /* Global Styles */
+        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Orbitron', sans-serif;
+            background-color: #101010;
+            color: #fff;
+            overflow-x: hidden;
+        }
+
+        /* Navigation */
+        nav {
+            display: flex;
+            justify-content: center;
+            background-color: #151515;
+            padding: 1.5rem 0;
+            box-shadow: 0 0 20px rgba(0, 255, 255, 0.2);
+        }
+        nav ul {
+            display: flex;
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+        }
+        nav ul li {
+            margin: 0 1.5rem;
+        }
+        nav ul li a {
+            text-decoration: none;
+            color: #fff;
+            font-size: 1.1rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            position: relative;
+            transition: color 0.3s ease;
+        }
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            background-color: #00ffff;
+            bottom: -5px;
+            left: 50%;
+            transform: translateX(-50%);
+            transition: width 0.3s ease;
+        }
+        nav ul li a:hover {
+            color: #00ffff;
+        }
+        nav ul li a:hover::after {
+            width: 100%;
+        }
+
+        /* Project Galaxy */
+        .project-galaxy {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            padding: 4rem 2rem;
+            background: radial-gradient(ellipse at center, #202020, #101010);
+        }
+        .project-card {
+            width: 200px;
+            height: 200px;
+            margin: 2rem;
+            position: relative;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+        .project-card:hover {
+            transform: scale(1.1);
+        }
+        .project-card .project-icon {
+            width: 100%;
+            height: 100%;
+            background-size: contain;
+            background-position: center;
+            background-repeat: no-repeat;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 1;
+            transition: transform 0.3s ease, opacity 0.3s ease;
+        }
+        .project-card:hover .project-icon {
+            transform: scale(1.2);
+            opacity: 0.5;
+        }
+        .project-card .project-info {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        .project-card:hover .project-info {
+            opacity: 1;
+        }
+        .project-card .project-info h3 {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+            text-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+        }
+        .project-card .project-info p {
+            font-size: 0.9rem;
+            margin-top: 0.5rem;
+            text-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+        }
+
+        /* Skill Nebula */
+        .skill-nebula {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            padding: 4rem 2rem;
+            background: radial-gradient(ellipse at center, #303030, #151515);
+        }
+        .skill-card {
+            width: 100px;
+            height: 100px;
+            margin: 2rem;
+            position: relative;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+        .skill-card:hover {
+            transform: scale(1.1);
+        }
+        .skill-card .skill-icon {
+            width: 100%;
+            height: 100%;
+            background-size: contain;
+            background-position: center;
+            background-repeat: no-repeat;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 1;
+            transition: transform 0.3s ease, opacity 0.3s ease;
+        }
+        .skill-card:hover .skill-icon {
+            transform: scale(1.2);
+            opacity: 0.5;
+        }
+        .skill-card .skill-info {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        .skill-card:hover .skill-info {
+            opacity: 1;
+        }
+        .skill-card .skill-info h3 {
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+            text-shadow: 0 0 10px rgba(255, 165, 0, 0.5);
+        }
+        .skill-card .skill-info p {
+            font-size: 0.7rem;
+            margin-top: 0.5rem;
+            text-shadow: 0 0 10px rgba(255, 165, 0, 0.5);
+        }
+
+        /* Neon Contact Form */
+        .neon-contact {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 4rem 2rem;
+            background: radial-gradient(ellipse at center, #202020, #101010);
+        }
+        .neon-contact-form {
+            background-color: #151515;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 255, 255, 0.2);
+            width: 400px;
+        }
+        .neon-contact-form h2 {
+            text-align: center;
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            text-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+        }
+        .neon-contact-form .form-group {
+            margin-bottom: 1.5rem;
+        }
+        .neon-contact-form label {
+            display: block;
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+            text-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+        }
+        .neon-contact-form input,
+        .neon-contact-form textarea {
+            width: 100%;
+            padding: 0.8rem 1rem;
+            font-size: 1rem;
+            background-color: #202020;
+            border: none;
+            border-radius: 5px;
+            color: #fff;
+            box-shadow: 0 0 10px rgba(0, 255, 255, 0.2);
+            transition: box-shadow 0.3s ease;
+        }
+        .neon-contact-form input:focus,
+        .neon-contact-form textarea:focus {
+            outline: none;
+            box-shadow: 0 0 20px rgba(0, 255, 255, 0.5);
+        }
+        .neon-contact-form button {
+            display: block;
+            width: 100%;
+            padding: 1rem;
+            font-size: 1.1rem;
+            font-weight: 700;
+            background-color: #00ffff;
+            color: #101010;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .neon-contact-form button:hover {
+            background-color: #00d7d7;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            nav ul li {
+                margin: 0 1rem;
+            }
+            nav ul li a {
+                font-size: 1rem;
+            }
+            .project-card,
+            .skill-card {
+                width: 150px;
+                height: 150px;
+                margin: 1.5rem;
+            }
+            .neon-contact-form {
+                width: 100%;
+                max-width: 400px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Projects</a></li>
+            <li><a href="#">Skills</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+    </nav>
+
+    <section class="project-galaxy">
+        <div class="project-card">
+            <div class="project-icon" style="background-image: url('https://dummyimage.com/400x400/ccc/000&text=Project+1')"></div>
+            <div class="project-info">
+                <h3>Project 1</h3>
+                <p>Lorem ipsum dolor sit amet.</p>
+            </div>
+        </div>
+        <div class="project-card">
+            <div class="project-icon" style="background-image: url('https://dummyimage.com/400x400/ccc/000&text=Project+2')"></div>
+            <div class="project-info">
+                <h3>Project 2</h3>
+                <p>Lorem ipsum dolor sit amet.</p>
+            </div>
+        </div>
+        <div class="project-card">
+            <div class="project-icon" style="background-image: url('https://dummyimage.com/400x400/ccc/000&text=Project+3')"></div>
+            <div class="project-info">
+                <h3>Project 3</h3>
+                <p>Lorem ipsum dolor sit amet.</p>
+            </div>
+        </div>
+        <div class="project-card">
+            <div class="project-icon" style="background-image: url('https://dummyimage.com/400x400/ccc/000&text=Project+4')"></div>
+            <div class="project-info">
+                <h3>Project 4</h3>
+                <p>Lorem ipsum dolor sit amet.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="skill-nebula">
+        <div class="skill-card">
+            <div class="skill-icon" style="background-image: url('https://dummyimage.com/200x200/ccc/000&text=Skill+1')"></div>
+            <div class="skill-info">
+                <h3>Skill 1</h3>
+                <p>Proficiency: Advanced</p>
+            </div>
+        </div>
+        <div class="skill-card">
+            <div class="skill-icon" style="background-image: url('https://dummyimage.com/200x200/ccc/000&text=Skill+2')"></div>
+            <div class="skill-info">
+                <h3>Skill 2</h3>
+                <p>Proficiency: Intermediate</p>
+            </div>
+        </div>
+        <div class="skill-card">
+            <div class="skill-icon" style="background-image: url('https://dummyimage.com/200x200/ccc/000&text=Skill+3')"></div>
+            <div class="skill-info">
+                <h3>Skill 3</h3>
+                <p>Proficiency: Expert</p>
+            </div>
+        </div>
+        <div class="skill-card">
+            <div class="skill-icon" style="background-image: url('https://dummyimage.com/200x200/ccc/000&text=Skill+4')"></div>
+            <div class="skill-info">
+                <h3>Skill 4</h3>
+                <p>Proficiency: Beginner</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="neon-contact">
+        <div class="neon-contact-form">
+            <h2>Get in Touch</h2>
+            <form>
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" id="name" name="name" placeholder="Enter your name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" placeholder="Enter your email" required>
+                </div>
+                <div class="form-group">
+                    <label for="message">Message</label>
+                    <textarea id="message" name="message" rows="5" placeholder="Enter your message" required></textarea>
+                </div>
+                <button type="submit">Submit</button>
+            </form>
+        </div>
+    </section>
+</body>
+</html>'<!-- Visit: https://github.com/Ishanoshada/portflair -->
+<!-- Visit: https://github.com/Ishanoshada/portflair -->

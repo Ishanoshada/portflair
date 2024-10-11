@@ -1,0 +1,314 @@
+<!-- Portfolio created by Ishan -->
+<!-- Check out my work at: https://github.com/Ishanoshada/portflair -->
+<!-- 2024/10/9 -->
+<!-- Portfolio created by Ishan -->
+'<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Black Hole Portfolio</title>
+  <style>
+    /* Global Styles */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Orbitron', sans-serif;
+    }
+
+    body {
+      background-color: #1b1b1b;
+      color: #fff;
+      overflow-x: hidden;
+    }
+
+    /* Navigation */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 40px;
+      background-color: rgba(27, 27, 27, 0.8);
+      backdrop-filter: blur(10px);
+    }
+
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      font-size: 18px;
+      font-weight: 500;
+      text-transform: uppercase;
+      transition: color 0.3s ease-in-out;
+    }
+
+    nav a:hover {
+      color: #8b00ff;
+    }
+
+    /* Project Galaxies */
+    #project-galaxies {
+      position: relative;
+      height: 100vh;
+      background-image: url('https://dummyimage.com/1920x1080/000000/ffffff.jpg&text=Cosmic+Visuals');
+      background-size: cover;
+      background-position: center;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+    }
+
+    .galaxy-wrapper {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      transform-style: preserve-3d;
+      perspective: 1000px;
+    }
+
+    .galaxy-item {
+      position: absolute;
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      background-color: rgba(139, 0, 255, 0.5);
+      box-shadow: 0 0 20px 5px rgba(139, 0, 255, 0.8);
+      transform-style: preserve-3d;
+      transition: all 0.3s ease-in-out;
+      cursor: pointer;
+    }
+
+    .galaxy-item:hover {
+      transform: scale(1.2);
+      box-shadow: 0 0 40px 10px rgba(139, 0, 255, 0.8);
+    }
+
+    .galaxy-item::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: radial-gradient(circle, rgba(255, 255, 255, 0.2), transparent);
+      border-radius: 50%;
+      animation: pulse 2s ease-in-out infinite;
+    }
+
+    @keyframes pulse {
+      0% {
+        transform: scale(1);
+        opacity: 0.5;
+      }
+      50% {
+        transform: scale(1.2);
+        opacity: 1;
+      }
+      100% {
+        transform: scale(1);
+        opacity: 0.5;
+      }
+    }
+
+    /* Steampunk Gears */
+    #steampunk-gears {
+      position: relative;
+      padding: 80px 40px;
+      background-image: url('https://dummyimage.com/1920x1080/000000/ffffff.jpg&text=Steampunk+Gears');
+      background-size: cover;
+      background-position: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .gear-wrapper {
+      position: relative;
+      width: 100%;
+      max-width: 1200px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      grid-gap: 40px;
+    }
+
+    .gear-item {
+      position: relative;
+      width: 200px;
+      height: 200px;
+      background-color: rgba(139, 0, 255, 0.2);
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+      transition: all 0.3s ease-in-out;
+      cursor: pointer;
+    }
+
+    .gear-item:hover {
+      transform: scale(1.1);
+      background-color: rgba(139, 0, 255, 0.4);
+    }
+
+    .gear-item img {
+      width: 150px;
+      height: 150px;
+      object-fit: contain;
+      animation: rotate 10s linear infinite;
+    }
+
+    @keyframes rotate {
+      0% {
+        transform: rotate(0deg);
+      }
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+
+    /* Neon Contact Form */
+    #neon-contact {
+      position: relative;
+      padding: 80px 40px;
+      background-image: linear-gradient(to bottom right, #1b1b1b, #8b00ff);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .neon-form {
+      position: relative;
+      width: 100%;
+      max-width: 600px;
+      padding: 40px;
+      background-color: rgba(27, 27, 27, 0.8);
+      border-radius: 10px;
+      box-shadow: 0 0 20px 5px rgba(139, 0, 255, 0.8);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .neon-form input,
+    .neon-form textarea {
+      width: 100%;
+      padding: 12px 20px;
+      margin: 8px 0;
+      border: none;
+      border-radius: 4px;
+      background-color: rgba(139, 0, 255, 0.2);
+      color: #fff;
+      font-size: 16px;
+      transition: background-color 0.3s ease-in-out;
+    }
+
+    .neon-form input:focus,
+    .neon-form textarea:focus {
+      background-color: rgba(139, 0, 255, 0.4);
+    }
+
+    .neon-form button {
+      width: 100%;
+      padding: 12px 20px;
+      margin: 8px 0;
+      border: none;
+      border-radius: 4px;
+      background-color: #8b00ff;
+      color: #fff;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background-color 0.3s ease-in-out;
+    }
+
+    .neon-form button:hover {
+      background-color: #a800ff;
+    }
+
+    .neon-form::before {
+      content: "";
+      position: absolute;
+      top: -10px;
+      left: -10px;
+      right: -10px;
+      bottom: -10px;
+      background-image: linear-gradient(to bottom right, #8b00ff, #1b1b1b);
+      z-index: -1;
+      border-radius: 10px;
+      animation: neon-glow 2s ease-in-out infinite;
+    }
+
+    @keyframes neon-glow {
+      0% {
+        box-shadow: 0 0 10px 5px rgba(139, 0, 255, 0.8);
+      }
+      50% {
+        box-shadow: 0 0 20px 10px rgba(139, 0, 255, 0.8);
+      }
+      100% {
+        box-shadow: 0 0 10px 5px rgba(139, 0, 255, 0.8);
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="#">Home</a>
+    <a href="#">About</a>
+    <a href="#">Projects</a>
+    <a href="#">Contact</a>
+  </nav>
+
+  <section id="project-galaxies">
+    <div class="galaxy-wrapper">
+      <div class="galaxy-item"></div>
+      <div class="galaxy-item"></div>
+      <div class="galaxy-item"></div>
+      <div class="galaxy-item"></div>
+      <div class="galaxy-item"></div>
+      <div class="galaxy-item"></div>
+      <div class="galaxy-item"></div>
+      <div class="galaxy-item"></div>
+      <div class="galaxy-item"></div>
+    </div>
+  </section>
+
+  <section id="steampunk-gears">
+    <div class="gear-wrapper">
+      <div class="gear-item">
+        <img src="https://dummyimage.com/150x150/000000/ffffff.jpg&text=Gear+1" alt="Gear 1">
+      </div>
+      <div class="gear-item">
+        <img src="https://dummyimage.com/150x150/000000/ffffff.jpg&text=Gear+2" alt="Gear 2">
+      </div>
+      <div class="gear-item">
+        <img src="https://dummyimage.com/150x150/000000/ffffff.jpg&text=Gear+3" alt="Gear 3">
+      </div>
+      <div class="gear-item">
+        <img src="https://dummyimage.com/150x150/000000/ffffff.jpg&text=Gear+4" alt="Gear 4">
+      </div>
+      <div class="gear-item">
+        <img src="https://dummyimage.com/150x150/000000/ffffff.jpg&text=Gear+5" alt="Gear 5">
+      </div>
+      <div class="gear-item">
+        <img src="https://dummyimage.com/150x150/000000/ffffff.jpg&text=Gear+6" alt="Gear 6">
+      </div>
+    </div>
+  </section>
+
+  <section id="neon-contact">
+    <div class="neon-form">
+      <input type="text" placeholder="Name" required>
+      <input type="email" placeholder="Email" required>
+      <textarea placeholder="Message" rows="5" required></textarea>
+      <button type="submit">Submit</button>
+    </div>
+  </section>
+</body>
+</html>'<!-- Visit: https://github.com/Ishanoshada/portflair -->
+<!-- Visit: https://github.com/Ishanoshada/portflair -->

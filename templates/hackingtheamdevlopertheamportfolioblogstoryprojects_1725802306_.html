@@ -1,0 +1,623 @@
+<!-- Portfolio created by Ishan -->
+<!-- Check out my work at: https://github.com/Ishanoshada/portflair -->
+<!-- 2024/10/9 -->
+<!-- Portfolio created by Ishan -->
+'<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CyberNexus | Hacking-Themed Developer Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Roboto+Mono:wght@300;400;700&family=Source+Code+Pro:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-primary: #0a0a0a;
+            --bg-secondary: #1a1a1a;
+            --text-primary: #e0e0e0;
+            --text-secondary: #a0a0a0;
+            --accent-green: #00ff00;
+            --accent-blue: #00ffff;
+            --accent-purple: #ff00ff;
+            --glow-strength: 0 0 10px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Roboto Mono', monospace;
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        nav {
+            background-color: rgba(10, 10, 10, 0.8);
+            backdrop-filter: blur(10px);
+            padding: 20px 0;
+            position: relative;
+            z-index: 1000;
+        }
+
+        nav ul {
+            display: flex;
+            justify-content: center;
+            list-style-type: none;
+        }
+
+        nav ul li {
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            color: var(--text-primary);
+            text-decoration: none;
+            font-size: 18px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            position: relative;
+            padding: 5px 0;
+            transition: all 0.3s ease;
+        }
+
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background-color: var(--accent-green);
+            transform: scaleX(0);
+            transform-origin: right;
+            transition: transform 0.3s ease;
+        }
+
+        nav ul li a:hover::after {
+            transform: scaleX(1);
+            transform-origin: left;
+        }
+
+        header {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-content {
+            text-align: center;
+            z-index: 2;
+        }
+
+        h1 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 4rem;
+            margin-bottom: 20px;
+            text-shadow: var(--glow-strength) var(--accent-green);
+            animation: textGlow 2s infinite alternate;
+        }
+
+        .hero-subtitle {
+            font-size: 1.5rem;
+            margin-bottom: 30px;
+            color: var(--text-secondary);
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 12px 30px;
+            background-color: transparent;
+            color: var(--accent-green);
+            border: 2px solid var(--accent-green);
+            font-size: 18px;
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background-color: var(--accent-green);
+            transition: all 0.3s ease;
+            z-index: -1;
+        }
+
+        .cta-button:hover {
+            color: var(--bg-primary);
+        }
+
+        .cta-button:hover::before {
+            left: 0;
+        }
+
+        .matrix-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://dummyimage.com/1920x1080/000000/00ff00&text=Matrix+Background');
+            background-size: cover;
+            opacity: 0.2;
+            z-index: 1;
+        }
+
+        .featured-projects {
+            padding: 100px 0;
+            background-color: var(--bg-secondary);
+            position: relative;
+        }
+
+        .section-title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 50px;
+            color: var(--accent-blue);
+            text-shadow: var(--glow-strength) var(--accent-blue);
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .project-card {
+            background-color: rgba(0, 0, 0, 0.8);
+            border: 2px solid var(--accent-purple);
+            border-radius: 10px;
+            padding: 20px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .project-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: conic-gradient(
+                var(--accent-green),
+                var(--accent-blue),
+                var(--accent-purple),
+                var(--accent-green)
+            );
+            animation: rotate 4s linear infinite;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .project-card:hover::before {
+            opacity: 1;
+        }
+
+        .project-content {
+            position: relative;
+            z-index: 1;
+            background-color: rgba(0, 0, 0, 0.8);
+            padding: 20px;
+            border-radius: 8px;
+        }
+
+        .project-title {
+            font-family: 'Source Code Pro', monospace;
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            color: var(--text-primary);
+        }
+
+        .project-description {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            margin-bottom: 15px;
+        }
+
+        .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+
+        .tech-icon {
+            width: 30px;
+            height: 30px;
+            background-color: var(--accent-green);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+            color: var(--bg-primary);
+            transition: all 0.3s ease;
+        }
+
+        .tech-icon:hover {
+            transform: scale(1.2);
+            box-shadow: 0 0 10px var(--accent-green);
+        }
+
+        .view-project {
+            display: inline-block;
+            padding: 8px 16px;
+            background-color: transparent;
+            color: var(--accent-green);
+            border: 1px solid var(--accent-green);
+            font-size: 14px;
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+        }
+
+        .view-project:hover {
+            background-color: var(--accent-green);
+            color: var(--bg-primary);
+        }
+
+        .blog-stories {
+            padding: 100px 0;
+            background-color: var(--bg-primary);
+            position: relative;
+        }
+
+        .timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 2px;
+            background-color: var(--accent-green);
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -1px;
+        }
+
+        .timeline-item {
+            padding: 10px 40px;
+            position: relative;
+            background-color: inherit;
+            width: 50%;
+        }
+
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            right: -10px;
+            background-color: var(--bg-primary);
+            border: 4px solid var(--accent-green);
+            top: 15px;
+            border-radius: 50%;
+            z-index: 1;
+        }
+
+        .left {
+            left: 0;
+        }
+
+        .right {
+            left: 50%;
+        }
+
+        .right::after {
+            left: -10px;
+        }
+
+        .story-content {
+            padding: 20px;
+            background-color: rgba(0, 0, 0, 0.8);
+            border: 1px solid var(--accent-green);
+            border-radius: 6px;
+            position: relative;
+        }
+
+        .story-date {
+            font-size: 0.9rem;
+            color: var(--accent-green);
+            margin-bottom: 10px;
+        }
+
+        .story-title {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            color: var(--text-primary);
+        }
+
+        .story-preview {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+
+        .skill-tree {
+            padding: 100px 0;
+            background-color: var(--bg-secondary);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .skill-container {
+            position: relative;
+            width: 100%;
+            height: 600px;
+        }
+
+        .skill-node {
+            position: absolute;
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            color: var(--text-primary);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .skill-node:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 20px var(--accent-blue);
+        }
+
+        .skill-node::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            border: 2px solid var(--accent-blue);
+            animation: pulse 2s infinite;
+        }
+
+        .skill-name {
+            position: absolute;
+            bottom: -30px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 12px;
+            white-space: nowrap;
+        }
+
+        @keyframes textGlow {
+            from { text-shadow: var(--glow-strength) var(--accent-green); }
+            to { text-shadow: var(--glow-strength) var(--accent-blue); }
+        }
+
+        @keyframes rotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.2); opacity: 0.5; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+
+        @media (max-width: 768px) {
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .timeline::after {
+                left: 31px;
+            }
+
+            .timeline-item {
+                width: 100%;
+                padding-left: 70px;
+                padding-right: 25px;
+            }
+
+            .timeline-item::before {
+                left: 60px;
+                border: medium solid white;
+                border-width: 10px 10px 10px 0;
+                border-color: transparent white transparent transparent;
+            }
+
+            .left::after, .right::after {
+                left: 15px;
+            }
+
+            .right {
+                left: 0%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#blog">Blog</a></li>
+            <li><a href="#skills">Skills</a></li>
+        </ul>
+    </nav>
+
+    <header id="home">
+        <div class="matrix-bg"></div>
+        <div class="hero-content">
+            <h1>CyberNexus</h1>
+            <p class="hero-subtitle">Exploring the Digital Frontier</p>
+            <a href="#projects" class="cta-button">View Projects</a>
+        </div>
+    </header>
+
+    <section id="projects" class="featured-projects">
+        <div class="container">
+            <h2 class="section-title">Featured Projects</h2>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-content">
+                        <h3 class="project-title">NeoVault</h3>
+                        <p class="project-description">A next-gen password manager with quantum-resistant encryption.</p>
+                        <div class="tech-stack">
+                            <span class="tech-icon">Py</span>
+                            <span class="tech-icon">Qt</span>
+                            <span class="tech-icon">Cr</span>
+                        </div>
+                        <a href="#" class="view-project">View Project</a>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-content">
+                        <h3 class="project-title">ShadowNet</h3>
+                        <p class="project-description">Decentralized VPN network powered by blockchain technology.</p>
+                        <div class="tech-stack">
+                            <span class="tech-icon">Go</span>
+                            <span class="tech-icon">Et</span>
+                            <span class="tech-icon">Do</span>
+                        </div>
+                        <a href="#" class="view-project">View Project</a>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-content">
+                        <h3 class="project-title">CyberSentry</h3><p class="project-description">AI-powered intrusion detection system for IoT devices.</p>
+                        <div class="tech-stack">
+                            <span class="tech-icon">Py</span>
+                            <span class="tech-icon">TF</span>
+                            <span class="tech-icon">Ar</span>
+                        </div>
+                        <a href="#" class="view-project">View Project</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="blog" class="blog-stories">
+        <div class="container">
+            <h2 class="section-title">Blog Stories</h2>
+            <div class="timeline">
+                <div class="timeline-item left">
+                    <div class="story-content">
+                        <div class="story-date">05/15/2024</div>
+                        <h3 class="story-title">Breaking the Code: A Journey into Cryptography</h3>
+                        <p class="story-preview">Exploring the fascinating world of modern cryptographic algorithms and their implications for cybersecurity...</p>
+                    </div>
+                </div>
+                <div class="timeline-item right">
+                    <div class="story-content">
+                        <div class="story-date">04/22/2024</div>
+                        <h3 class="story-title">The Rise of Quantum Computing: Threat or Opportunity?</h3>
+                        <p class="story-preview">Analyzing the potential impact of quantum computers on current encryption methods and future security paradigms...</p>
+                    </div>
+                </div>
+                <div class="timeline-item left">
+                    <div class="story-content">
+                        <div class="story-date">03/10/2024</div>
+                        <h3 class="story-title">Ethical Hacking: Safeguarding the Digital Realm</h3>
+                        <p class="story-preview">Delving into the world of white-hat hacking and its crucial role in strengthening cybersecurity defenses...</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="skills" class="skill-tree">
+        <div class="container">
+            <h2 class="section-title">Skill Tree</h2>
+            <div class="skill-container">
+                <div class="skill-node" style="top: 50%; left: 50%; background-color: var(--accent-green);">
+                    <i class="fas fa-shield-alt"></i>
+                    <span class="skill-name">Cybersecurity</span>
+                </div>
+                <div class="skill-node" style="top: 30%; left: 30%; background-color: var(--accent-blue);">
+                    <i class="fas fa-code"></i>
+                    <span class="skill-name">Programming</span>
+                </div>
+                <div class="skill-node" style="top: 30%; left: 70%; background-color: var(--accent-purple);">
+                    <i class="fas fa-network-wired"></i>
+                    <span class="skill-name">Networking</span>
+                </div>
+                <div class="skill-node" style="top: 70%; left: 30%; background-color: var(--accent-blue);">
+                    <i class="fas fa-database"></i>
+                    <span class="skill-name">Databases</span>
+                </div>
+                <div class="skill-node" style="top: 70%; left: 70%; background-color: var(--accent-purple);">
+                    <i class="fas fa-robot"></i>
+                    <span class="skill-name">AI/ML</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="https://kit.fontawesome.com/your-fontawesome-kit.js" crossorigin="anonymous"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const projectCards = document.querySelectorAll('.project-card');
+            projectCards.forEach(card => {
+                card.addEventListener('mouseenter', () => {
+                    card.style.transform = 'scale(1.05)';
+                    card.style.boxShadow = '0 0 20px var(--accent-purple)';
+                });
+                card.addEventListener('mouseleave', () => {
+                    card.style.transform = 'scale(1)';
+                    card.style.boxShadow = 'none';
+                });
+            });
+
+            const skillNodes = document.querySelectorAll('.skill-node');
+            skillNodes.forEach(node => {
+                node.addEventListener('click', () => {
+                    node.classList.toggle('active');
+                    if (node.classList.contains('active')) {
+                        node.style.boxShadow = '0 0 30px var(--accent-blue)';
+                    } else {
+                        node.style.boxShadow = 'none';
+                    }
+                });
+            });
+
+            const navLinks = document.querySelectorAll('nav a');
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href');
+                    const targetSection = document.querySelector(targetId);
+                    targetSection.scrollIntoView({ behavior: 'smooth' });
+                });
+            });
+        });
+    </script>
+</body>
+</html>'<!-- Visit: https://github.com/Ishanoshada/portflair -->
+<!-- Visit: https://github.com/Ishanoshada/portflair -->

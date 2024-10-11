@@ -1,0 +1,523 @@
+<!-- Portfolio created by Ishan -->
+<!-- Check out my work at: https://github.com/Ishanoshada/portflair -->
+<!-- 2024/10/9 -->
+<!-- Portfolio created by Ishan -->
+'<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Space-Themed Developer Portfolio</title>
+  <style>
+    /* Reset styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    /* Body styles */
+    body {
+      font-family: 'Roboto', sans-serif;
+      background-color: #0b0b0b;
+      color: #fff;
+      overflow-x: hidden;
+    }
+
+    /* Navigation styles */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.5rem 2rem;
+      background-color: rgba(33, 33, 33, 0.8);
+      backdrop-filter: blur(10px);
+      position: relative;
+      z-index: 100;
+    }
+
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      font-size: 1.1rem;
+      margin-right: 1.5rem;
+      transition: color 0.3s ease;
+    }
+
+    nav a:hover {
+      color: #7b68ee;
+    }
+
+    /* Interactive Code Snippets Galaxy */
+    .code-snippets-galaxy {
+      position: relative;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+    }
+
+    .code-snippet-module {
+      position: absolute;
+      width: 200px;
+      height: 200px;
+      background-color: rgba(123, 104, 238, 0.3);
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: #fff;
+      font-size: 1.2rem;
+      font-weight: bold;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      z-index: 10;
+    }
+
+    .code-snippet-module:before {
+      content: "";
+      position: absolute;
+      width: 150px;
+      height: 150px;
+      background-color: rgba(123, 104, 238, 0.2);
+      border-radius: 50%;
+      animation: pulse 2s infinite;
+    }
+
+    .code-snippet-module:after {
+      content: "";
+      position: absolute;
+      width: 100px;
+      height: 100px;
+      background-color: rgba(123, 104, 238, 0.1);
+      border-radius: 50%;
+      animation: pulse 3s infinite;
+    }
+
+    .code-snippet-module:hover {
+      transform: scale(1.1);
+      background-color: rgba(123, 104, 238, 0.5);
+    }
+
+    .code-snippet-content {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: rgba(33, 33, 33, 0.8);
+      backdrop-filter: blur(10px);
+      padding: 2rem;
+      border-radius: 1rem;
+      max-width: 80%;
+      max-height: 80%;
+      overflow-y: auto;
+      display: none;
+    }
+
+    .code-snippet-content pre {
+      background-color: #1e1e1e;
+      color: #d4d4d4;
+      padding: 1rem;
+      border-radius: 0.5rem;
+      font-family: 'Fira Code', monospace;
+      font-size: 0.9rem;
+      overflow-x: auto;
+    }
+
+    /* Interactive Constellation Visualization */
+    .constellation-visualization {
+      position: relative;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+    }
+
+    .constellation {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      opacity: 0;
+      transition: opacity 0.5s ease;
+    }
+
+    .constellation.active {
+      opacity: 1;
+    }
+
+    .constellation-line {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      stroke: #7b68ee;
+      stroke-width: 2px;
+      stroke-dasharray: 1000;
+      stroke-dashoffset: 1000;
+      animation: draw 5s ease forwards;
+    }
+
+    .constellation-info {
+      position: absolute;
+      background-color: rgba(33, 33, 33, 0.8);
+      backdrop-filter: blur(10px);
+      padding: 1.5rem;
+      border-radius: 1rem;
+      max-width: 50%;
+      text-align: center;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 0.5s ease;
+    }
+
+    .constellation-info.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .constellation-info h3 {
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .constellation-info p {
+      font-size: 1.1rem;
+    }
+
+    /* Project Showcase */
+    .project-showcase {
+      padding: 4rem 2rem;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      grid-gap: 2rem;
+    }
+
+    .project-card {
+      background-color: rgba(33, 33, 33, 0.8);
+      backdrop-filter: blur(10px);
+      border-radius: 1rem;
+      overflow: hidden;
+      position: relative;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .project-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    .project-card-image {
+      height: 200px;
+      background-size: cover;
+      background-position: center;
+    }
+
+    .project-card-content {
+      padding: 1.5rem;
+    }
+
+    .project-card-content h3 {
+      font-size: 1.3rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .project-card-content p {
+      font-size: 1rem;
+      color: #ccc;
+    }
+
+    .project-details {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(33, 33, 33, 0.9);
+      backdrop-filter: blur(10px);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      opacity: 0;
+      transition: all 0.5s ease;
+    }
+
+    .project-details.active {
+      opacity: 1;
+    }
+
+    .project-details h3 {
+      font-size: 2rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .project-details p {
+      font-size: 1.2rem;
+      max-width: 80%;
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+
+    .project-details img {
+      max-width: 80%;
+      border-radius: 1rem;
+      margin-bottom: 2rem;
+    }
+
+    @keyframes pulse {
+      0% {
+        transform: scale(1);
+        opacity: 0.3;
+      }
+      50% {
+        transform: scale(1.2);
+        opacity: 0.1;
+      }
+      100% {
+        transform: scale(1);
+        opacity: 0.3;
+      }
+    }
+
+    @keyframes draw {
+      to {
+        stroke-dashoffset: 0;
+      }
+    }
+
+    @media (max-width: 768px) {
+      nav {
+        padding: 1rem;
+      }
+
+      nav a {
+        font-size: 1rem;
+        margin-right: 1rem;
+      }
+
+      .code-snippet-module {
+        width: 150px;
+        height: 150px;
+        font-size: 1rem;
+      }
+
+      .code-snippet-content {
+        padding: 1.5rem;
+      }
+
+      .constellation-info {
+        max-width: 80%;
+      }
+
+      .constellation-info h3 {
+        font-size: 1.2rem;
+      }
+
+      .constellation-info p {
+        font-size: 1rem;
+      }
+
+      .project-showcase {
+        padding: 2rem;
+        grid-gap: 1.5rem;
+      }
+
+      .project-card-image {
+        height: 150px;
+      }
+
+      .project-card-content h3 {
+        font-size: 1.1rem;
+      }
+
+      .project-card-content p {
+        font-size: 0.9rem;
+      }
+
+      .project-details h3 {
+        font-size: 1.5rem;
+        margin-bottom: 1rem;
+      }
+
+      .project-details p {
+        font-size: 1rem;
+        max-width: 90%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="#">Home</a>
+    <a href="#">About</a>
+    <a href="#">Projects</a>
+    <a href="#">Contact</a>
+  </nav>
+
+  <div class="code-snippets-galaxy">
+    <div class="code-snippet-module" style="top: 20%; left: 10%;" data-content="<pre>const handleClick = () => {
+  console.log('Button clicked!');
+};</pre>">
+      <span>JavaScript</span>
+    </div>
+    <div class="code-snippet-module" style="top: 40%; left: 30%;" data-content="<pre>class MyComponent extends React.Component {
+  render() {
+    return (
+      <div>
+        <h2>My React Component</h2>
+        <p>This is a sample React component.</p>
+      </div>
+    );
+  }
+}</pre>">
+      <span>React</span>
+    </div>
+    <div class="code-snippet-module" style="top: 60%; left: 50%;" data-content="<pre>def my_function(x, y):
+    return x + y
+
+print(my_function(2, 3))</pre>">
+      <span>Python</span>
+    </div>
+    <div class="code-snippet-module" style="top: 80%; left: 70%;" data-content="<pre>const myArray = [1, 2, 3, 4, 5];
+myArray.forEach(num => console.log(num));</pre>">
+      <span>JavaScript</span>
+    </div>
+    <div class="code-snippet-content">
+      <pre></pre>
+    </div>
+  </div>
+
+  <div class="constellation-visualization">
+    <div class="constellation active" data-info='{"title": "Web Development", "description": "Proficient in building modern, responsive web applications using HTML, CSS, and JavaScript."}'>
+      <svg class="constellation-line" viewBox="0 0 100 100">
+        <path d="M10,10 L20,20 L30,10 L40,20 L50,10 L60,20 L70,10 L80,20 L90,10" />
+      </svg>
+    </div>
+    <div class="constellation" data-info='{"title": "Mobile Development", "description": "Experienced in developing mobile apps for iOS and Android platforms using frameworks like React Native and Flutter."}'>
+      <svg class="constellation-line" viewBox="0 0 100 100">
+        <path d="M10,90 L20,80 L30,90 L40,80 L50,90 L60,80 L70,90 L80,80 L90,90" />
+      </svg>
+    </div>
+    <div class="constellation" data-info='{"title": "Backend Development", "description": "Skilled in building scalable and efficient backend systems using Node.js, Python, and other server-side technologies."}'>
+      <svg class="constellation-line" viewBox="0 0 100 100">
+        <path d="M10,50 L20,40 L30,50 L40,40 L50,50 L60,40 L70,50 L80,40 L90,50" />
+      </svg>
+    </div>
+    <div class="constellation-info">
+      <h3></h3>
+      <p></p>
+    </div>
+  </div>
+
+  <div class="project-showcase">
+    <div class="project-card">
+      <div class="project-card-image" style="background-image: url('https://dummyimage.com/600x400/7b68ee/fff&text=Project+1');">
+      </div>
+      <div class="project-card-content">
+        <h3>Project 1</h3>
+        <p>A web application for managing personal finances.</p>
+      </div>
+      <div class="project-details">
+        <h3>Project 1</h3>
+        <p>A web application for managing personal finances. Built using React, Redux, and Node.js.</p>
+        <img src="https://dummyimage.com/800x600/7b68ee/fff&text=Project+1+Screenshot" alt="Project 1 Screenshot">
+      </div>
+    </div>
+    <div class="project-card">
+      <div class="project-card-image" style="background-image: url('https://dummyimage.com/600x400/7b68ee/fff&text=Project+2');">
+      </div>
+      <div class="project-card-content">
+        <h3>Project 2</h3>
+        <p>A mobile app for tracking fitness activities.</p>
+      </div>
+      <div class="project-details">
+        <h3>Project 2</h3>
+        <p>A mobile app for tracking fitness activities. Built using React Native and Firebase.</p>
+        <img src="https://dummyimage.com/800x600/7b68ee/fff&text=Project+2+Screenshot" alt="Project 2 Screenshot">
+      </div>
+    </div>
+    <div class="project-card">
+      <div class="project-card-image" style="background-image: url('https://dummyimage.com/600x400/7b68ee/fff&text=Project+3');">
+      </div>
+      <div class="project-card-content">
+        <h3>Project 3</h3>
+        <p>A RESTful API for a social media platform.</p>
+      </div>
+      <div class="project-details">
+        <h3>Project 3</h3>
+        <p>A RESTful API for a social media platform. Built using Node.js, Express, and MongoDB.</p>
+        <img src="https://dummyimage.com/800x600/7b68ee/fff&text=Project+3+Screenshot" alt="Project 3 Screenshot">
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Interactive Code Snippets Galaxy
+    const codeSnippetModules = document.querySelectorAll('.code-snippet-module');
+    const codeSnippetContent = document.querySelector('.code-snippet-content');
+    const codeSnippetPre = codeSnippetContent.querySelector('pre');
+
+    codeSnippetModules.forEach(module => {
+      module.addEventListener('click', () => {
+        const contentppetModules.forEach(module => {
+      module.addEventListener('click', () => {
+        const content = module.getAttribute('data-content');
+        codeSnippetPre.innerHTML = content;
+        codeSnippetContent.style.display = 'block';
+      });
+    });
+
+    codeSnippetContent.addEventListener('click', (e) => {
+      if (e.target === codeSnippetContent) {
+        codeSnippetContent.style.display = 'none';
+      }
+    });
+
+    // Interactive Constellation Visualization
+    const constellations = document.querySelectorAll('.constellation');
+    const constellationInfo = document.querySelector('.constellation-info');
+    const constellationTitle = constellationInfo.querySelector('h3');
+    const constellationDescription = constellationInfo.querySelector('p');
+
+    constellations.forEach((constellation, index) => {
+      constellation.addEventListener('mouseover', () => {
+        constellations.forEach(c => c.classList.remove('active'));
+        constellation.classList.add('active');
+
+        const info = JSON.parse(constellation.getAttribute('data-info'));
+        constellationTitle.textContent = info.title;
+        constellationDescription.textContent = info.description;
+        constellationInfo.classList.add('active');
+      });
+
+      constellation.addEventListener('mouseout', () => {
+        constellationInfo.classList.remove('active');
+      });
+    });
+
+    // Project Showcase
+    const projectCards = document.querySelectorAll('.project-card');
+    const projectDetails = document.querySelectorAll('.project-details');
+
+    projectCards.forEach((card, index) => {
+      card.addEventListener('click', () => {
+        projectDetails[index].classList.add('active');
+      });
+    });
+
+    projectDetails.forEach((detail, index) => {
+      detail.addEventListener('click', (e) => {
+        if (e.target === detail) {
+          detail.classList.remove('active');
+        }
+      });
+    });
+  </script>
+</body>
+</html>'<!-- Visit: https://github.com/Ishanoshada/portflair -->
+<!-- Visit: https://github.com/Ishanoshada/portflair -->

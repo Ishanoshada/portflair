@@ -1,0 +1,402 @@
+<!-- Portfolio created by Ishan -->
+<!-- Check out my work at: https://github.com/Ishanoshada/portflair -->
+<!-- 2024/10/9 -->
+<!-- Portfolio created by Ishan -->
+'<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Animated Portfolio</title>
+  <style>
+    /* Global Styles */
+    body {
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #0D0D0D;
+      color: #FFFFFF;
+    }
+
+    /* Navigation Bar */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 40px;
+      background-color: rgba(13, 13, 13, 0.8);
+      backdrop-filter: blur(10px);
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+    }
+
+    nav a {
+      color: #FFFFFF;
+      text-decoration: none;
+      font-size: 18px;
+      font-weight: 500;
+      padding: 10px 20px;
+      transition: color 0.3s ease;
+    }
+
+    nav a:hover {
+      color: #8C8C8C;
+    }
+
+    /* Project Showcase Section */
+    #project-showcase {
+      padding: 100px 40px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    #project-showcase::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(circle at center, #1C1C1C, #0D0D0D);
+      z-index: -1;
+      animation: floatingShapes 30s ease infinite;
+    }
+
+    .project-cube {
+      width: 200px;
+      height: 200px;
+      background-color: #292929;
+      border-radius: 10px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      margin: 20px;
+      cursor: pointer;
+      transition: transform 0.5s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .project-cube:hover {
+      transform: scale(1.1);
+    }
+
+    .project-cube img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 10px;
+      transition: opacity 0.5s ease;
+    }
+
+    .project-cube:hover img {
+      opacity: 0.3;
+    }
+
+    .project-cube h3 {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 18px;
+      font-weight: 600;
+      text-align: center;
+      color: #FFFFFF;
+      z-index: 1;
+      opacity: 0;
+      transition: opacity 0.5s ease;
+    }
+
+    .project-cube:hover h3 {
+      opacity: 1;
+    }
+
+    .project-showcase-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      grid-gap: 40px;
+      width: 100%;
+      max-width: 1200px;
+    }
+
+    /* Skills and Expertise Section */
+    #skills-expertise {
+      padding: 100px 40px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    #skills-expertise::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(circle at center, #1C1C1C, #0D0D0D);
+      z-index: -1;
+      animation: brushstrokeAnimation 20s ease infinite;
+    }
+
+    .skill-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background-color: #292929;
+      border-radius: 10px;
+      padding: 30px;
+      text-align: center;
+      transition: transform 0.5s ease;
+      cursor: pointer;
+    }
+
+    .skill-item:hover {
+      transform: scale(1.1);
+    }
+
+    .skill-item img {
+      width: 80px;
+      height: 80px;
+      margin-bottom: 20px;
+    }
+
+    .skill-item h4 {
+      font-size: 18px;
+      font-weight: 600;
+      margin-bottom: 10px;
+    }
+
+    .skill-item p {
+      font-size: 14px;
+      color: #8C8C8C;
+    }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      grid-gap: 40px;
+      width: 100%;
+      max-width: 1200px;
+    }
+
+    /* Contact Form Section */
+    #contact-form {
+      padding: 100px 40px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    #contact-form::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(circle at center, #1C1C1C, #0D0D0D);
+      z-index: -1;
+      animation: shiftingBackground 30s ease infinite;
+    }
+
+    .contact-form-container {
+      background-color: #292929;
+      border-radius: 10px;
+      padding: 40px;
+      width: 100%;
+      max-width: 600px;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    }
+
+    .contact-form-container h2 {
+      font-size: 24px;
+      font-weight: 600;
+      margin-bottom: 20px;
+    }
+
+    .contact-form-container form {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-gap: 20px;
+    }
+
+    .contact-form-container input,
+    .contact-form-container textarea {
+      background-color: #1C1C1C;
+      border: none;
+      border-radius: 5px;
+      padding: 12px 16px;
+      font-size: 16px;
+      color: #FFFFFF;
+      transition: box-shadow 0.3s ease;
+    }
+
+    .contact-form-container input:focus,
+    .contact-form-container textarea:focus {
+      outline: none;
+      box-shadow: 0 0 10px rgba(140, 140, 140, 0.5);
+    }
+
+    .contact-form-container textarea {
+      grid-column: 1 / -1;
+      resize: vertical;
+    }
+
+    .contact-form-container button {
+      grid-column: 1 / -1;
+      background-color: #8C8C8C;
+      border: none;
+      border-radius: 5px;
+      padding: 12px 24px;
+      font-size: 16px;
+      color: #FFFFFF;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .contact-form-container button:hover {
+      background-color: #A6A6A6;
+    }
+
+    /* Animations */
+    @keyframes floatingShapes {
+      0% {
+        background-position: 0% 0%;
+      }
+      50% {
+        background-position: 50% 50%;
+      }
+      100% {
+        background-position: 0% 0%;
+      }
+    }
+
+    @keyframes brushstrokeAnimation {
+      0% {
+        background-position: 0% 0%;
+      }
+      50% {
+        background-position: 100% 100%;
+      }
+      100% {
+        background-position: 0% 0%;
+      }
+    }
+
+    @keyframes shiftingBackground {
+      0% {
+        background-position: 0% 0%;
+      }
+      50% {
+        background-position: 50% 50%;
+      }
+      100% {
+        background-position: 0% 0%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="#">Home</a>
+    <a href="#">Portfolio</a>
+    <a href="#">Skills</a>
+    <a href="#">Contact</a>
+  </nav>
+
+  <section id="project-showcase">
+    <div class="project-showcase-grid">
+      <div class="project-cube">
+        <img src="https://dummyimage.com/600x400/ccc/000&text=Project+1" alt="Project 1">
+        <h3>Project 1</h3>
+      </div>
+      <div class="project-cube">
+        <img src="https://dummyimage.com/600x400/ccc/000&text=Project+2" alt="Project 2">
+        <h3>Project 2</h3>
+      </div>
+      <div class="project-cube">
+        <img src="https://dummyimage.com/600x400/ccc/000&text=Project+3" alt="Project 3">
+        <h3>Project 3</h3>
+      </div>
+      <div class="project-cube">
+        <img src="https://dummyimage.com/600x400/ccc/000&text=Project+4" alt="Project 4">
+        <h3>Project 4</h3>
+      </div>
+      <div class="project-cube">
+        <img src="https://dummyimage.com/600x400/ccc/000&text=Project+5" alt="Project 5">
+        <h3>Project 5</h3>
+      </div>
+      <div class="project-cube">
+        <img src="https://dummyimage.com/600x400/ccc/000&text=Project+6" alt="Project 6">
+        <h3>Project 6</h3>
+      </div>
+    </div>
+  </section>
+
+  <section id="skills-expertise">
+    <div class="skills-grid">
+      <div class="skill-item">
+        <img src="https://dummyimage.com/80x80/ccc/000&text=3D" alt="3D">
+        <h4>3D Modeling</h4>
+        <p>Expertise in creating stunning 3D models and visuals for your projects.</p>
+      </div>
+      <div class="skill-item">
+        <img src="https://dummyimage.com/80x80/ccc/000&text=Animation" alt="Animation">
+        <h4>Animation</h4>
+        <p>Proficient in bringing your ideas to life through captivating animations.</p>
+      </div>
+      <div class="skill-item">
+        <img src="https://dummyimage.com/80x80/ccc/000&text=Illustration" alt="Illustration">
+        <h4>Illustration</h4>
+        <p>Skilled in crafting custom illustrations to enhance your design projects.</p>
+      </div>
+      <div class="skill-item">
+        <img src="https://dummyimage.com/80x80/ccc/000&text=Branding" alt="Branding">
+        <h4>Branding</h4>
+        <p>Expertise in developing cohesive and memorable brand identities.</p>
+      </div>
+      <div class="skill-item">
+        <img src="https://dummyimage.com/80x80/ccc/000&text=UI%2FUX" alt="UI/UX">
+        <h4>UI/UX Design</h4>
+        <p>Proficient in creating user-friendly and visually appealing interfaces.</p>
+      </div>
+      <div class="skill-item">
+        <img src="https://dummyimage.com/80x80/ccc/000&text=Motion" alt="Motion">
+        <h4>Motion Graphics</h4>
+        <p>Skilled in crafting dynamic and engaging motion graphics for your projects.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact-form">
+    <div class="contact-form-container">
+      <h2>Get in Touch</h2>
+      <form>
+        <input type="text" placeholder="Name" required>
+        <input type="email" placeholder="Email" required>
+        <input type="text" placeholder="Subject" required>
+        <textarea placeholder="Message" rows="4" required></textarea>
+        <button type="submit">Submit</button>
+      </form>
+    </div>
+  </section>
+</body>
+</html>'<!-- Visit: https://github.com/Ishanoshada/portflair -->
+<!-- Visit: https://github.com/Ishanoshada/portflair -->

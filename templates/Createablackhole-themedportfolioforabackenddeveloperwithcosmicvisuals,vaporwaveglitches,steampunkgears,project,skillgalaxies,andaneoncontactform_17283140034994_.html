@@ -1,0 +1,381 @@
+<!-- Portfolio created by Ishan -->
+<!-- Check out my work at: https://github.com/Ishanoshada/portflair -->
+<!-- 2024/10/9 -->
+<!-- Portfolio created by Ishan -->
+'<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Black Hole Portfolio</title>
+  <style>
+    /* Global Styles */
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background-color: #0d0d0d;
+      color: #fff;
+      margin: 0;
+      padding: 0;
+      overflow-x: hidden;
+    }
+
+    /* Navigation Bar */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 40px;
+      background-color: rgba(13, 13, 13, 0.8);
+      backdrop-filter: blur(10px);
+      position: relative;
+      z-index: 100;
+    }
+
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1.1rem;
+      transition: color 0.3s ease-in-out;
+    }
+
+    nav a:hover {
+      color: #9b59b6;
+    }
+
+    /* Project Showcase */
+    .project-showcase {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-gap: 40px;
+      padding: 80px 40px;
+      background-image: radial-gradient(ellipse at center, #0d0d0d 0%, #0d0d0d 50%, #1a1a1a 100%);
+      position: relative;
+      z-index: 1;
+    }
+
+    .project-item {
+      position: relative;
+      overflow: hidden;
+      border-radius: 10px;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+      cursor: pointer;
+      transition: transform 0.3s ease-in-out;
+    }
+
+    .project-item:hover {
+      transform: scale(1.05);
+    }
+
+    .project-item img {
+      width: 100%;
+      height: 300px;
+      object-fit: cover;
+      filter: brightness(0.8) contrast(1.2) saturate(1.2);
+      transition: filter 0.3s ease-in-out;
+    }
+
+    .project-item:hover img {
+      filter: brightness(1) contrast(1) saturate(1);
+    }
+
+    .project-info {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      background-color: rgba(13, 13, 13, 0.8);
+      padding: 20px;
+      box-sizing: border-box;
+      transform: translateY(100%);
+      transition: transform 0.3s ease-in-out;
+    }
+
+    .project-item:hover .project-info {
+      transform: translateY(0);
+    }
+
+    .project-info h3 {
+      margin: 0;
+      font-size: 1.2rem;
+      font-weight: 600;
+    }
+
+    .project-info p {
+      margin: 10px 0 0;
+      font-size: 0.9rem;
+      line-height: 1.4;
+    }
+
+    /* Skills and Expertise Galaxies */
+    .skills-galaxies {
+      padding: 80px 40px;
+      background-image: radial-gradient(ellipse at center, #1a1a1a 0%, #0d0d0d 50%, #0d0d0d 100%);
+      position: relative;
+      z-index: 1;
+    }
+
+    .skills-galaxies h2 {
+      text-align: center;
+      font-size: 2rem;
+      margin-bottom: 40px;
+    }
+
+    .skill-planet {
+      width: 100px;
+      height: 100px;
+      background-color: #9b59b6;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: absolute;
+      animation: rotate 20s linear infinite;
+    }
+
+    .skill-planet i {
+      font-size: 2rem;
+      color: #fff;
+      text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+    }
+
+    .skill-planet:nth-child(1) {
+      top: 20%;
+      left: 10%;
+      animation-duration: 30s;
+    }
+
+    .skill-planet:nth-child(2) {
+      top: 40%;
+      right: 15%;
+      animation-duration: 25s;
+    }
+
+    .skill-planet:nth-child(3) {
+      bottom: 30%;
+      left: 20%;
+      animation-duration: 35s;
+    }
+
+    .skill-planet:nth-child(4) {
+      top: 60%;
+      right: 30%;
+      animation-duration: 40s;
+    }
+
+    .skill-planet:nth-child(5) {
+      bottom: 15%;
+      left: 40%;
+      animation-duration: 45s;
+    }
+
+    @keyframes rotate {
+      0% {
+        transform: rotate(0deg);
+      }
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+
+    /* Neon Contact Form */
+    .contact-form {
+      padding: 80px 40px;
+      background-image: linear-gradient(to right, #0d0d0d, #1a1a1a);
+      position: relative;
+      z-index: 1;
+    }
+
+    .contact-form h2 {
+      text-align: center;
+      font-size: 2rem;
+      margin-bottom: 40px;
+    }
+
+    .contact-form form {
+      display: flex;
+      flex-direction: column;
+      max-width: 500px;
+      margin: 0 auto;
+    }
+
+    .contact-form .form-field {
+      position: relative;
+      margin-bottom: 30px;
+    }
+
+    .contact-form label {
+      position: absolute;
+      top: 50%;
+      left: 20px;
+      transform: translateY(-50%);
+      font-size: 1rem;
+      color: #9b59b6;
+      pointer-events: none;
+      transition: all 0.3s ease-in-out;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+      width: 100%;
+      padding: 15px 20px;
+      font-size: 1rem;
+      background-color: transparent;
+      border: 2px solid #9b59b6;
+      border-radius: 5px;
+      color: #fff;
+      outline: none;
+      transition: border-color 0.3s ease-in-out;
+    }
+
+    .contact-form input:focus,
+    .contact-form textarea:focus {
+      border-color: #8e44ad;
+    }
+
+    .contact-form input:focus + label,
+    .contact-form textarea:focus + label,
+    .contact-form input:not(:placeholder-shown) + label,
+    .contact-form textarea:not(:placeholder-shown) + label {
+      top: -10px;
+      font-size: 0.8rem;
+      color: #8e44ad;
+    }
+
+    .contact-form button {
+      padding: 15px 30px;
+      font-size: 1rem;
+      font-weight: 600;
+      background-color: #9b59b6;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease-in-out;
+    }
+
+    .contact-form button:hover {
+      background-color: #8e44ad;
+    }
+
+    /* Responsive Styles */
+    @media (max-width: 768px) {
+      .project-showcase {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .skills-galaxies,
+      .contact-form {
+        padding: 60px 20px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .project-showcase {
+        grid-template-columns: 1fr;
+      }
+
+      .skills-galaxies h2,
+      .contact-form h2 {
+        font-size: 1.6rem;
+      }
+
+      .contact-form form {
+        max-width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="#">Home</a>
+    <a href="#">Projects</a>
+    <a href="#">Skills</a>
+    <a href="#">Contact</a>
+  </nav>
+
+  <section class="project-showcase">
+    <div class="project-item">
+      <img src="https://dummyimage.com/600x400/ccc/000&text=Project+1" alt="Project 1">
+      <div class="project-info">
+        <h3>Project 1</h3>
+        <p>A brief description of the first project.</p>
+      </div>
+    </div>
+    <div class="project-item">
+      <img src="https://dummyimage.com/600x400/ccc/000&text=Project+2" alt="Project 2">
+      <div class="project-info">
+        <h3>Project 2</h3>
+        <p>A brief description of the second project.</p>
+      </div>
+    </div>
+    <div class="project-item">
+      <img src="https://dummyimage.com/600x400/ccc/000&text=Project+3" alt="Project 3">
+      <div class="project-info">
+        <h3>Project 3</h3>
+        <p>A brief description of the third project.</p>
+      </div>
+    </div>
+    <div class="project-item">
+      <img src="https://dummyimage.com/600x400/ccc/000&text=Project+4" alt="Project 4">
+      <div class="project-info">
+        <h3>Project 4</h3>
+        <p>A brief description of the fourth project.</p>
+      </div>
+    </div>
+    <div class="project-item">
+      <img src="https://dummyimage.com/600x400/ccc/000&text=Project+5" alt="Project 5">
+      <div class="project-info">
+        <h3>Project 5</h3>
+        <p>A brief description of the fifth project.</p>
+      </div>
+    </div>
+    <div class="project-item">
+      <img src="https://dummyimage.com/600x400/ccc/000&text=Project+6" alt="Project 6">
+      <div class="project-info">
+        <h3>Project 6</h3>
+        <p>A brief description of the sixth project.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="skills-galaxies">
+    <h2>Skills and Expertise</h2>
+    <div class="skill-planet">
+      <i class="fas fa-code"></i>
+    </div>
+    <div class="skill-planet">
+      <i class="fas fa-database"></i>
+    </div>
+    <div class="skill-planet">
+      <i class="fas fa-cloud-upload-alt"></i>
+    </div>
+    <div class="skill-planet">
+      <i class="fas fa-terminal"></i>
+    </div>
+    <div class="skill-planet">
+      <i class="fas fa-server"></i>
+    </div>
+  </section>
+
+  <section class="contact-form">
+    <h2>Get in Touch</h2>
+    <form>
+      <div class="form-field">
+        <input type="text" id="name" placeholder=" " required>
+        <label for="name">Name</label>
+      </div>
+      <div class="form-field">
+        <input type="email" id="email" placeholder=" " required>
+        <label for="email">Email</label>
+      </div>
+      <div class="form-field">
+        <textarea id="message" placeholder=" " rows="5" required></textarea>
+        <label for="message">Message</label>
+      </div>
+      <button type="submit">Send Message</button>
+    </form>
+  </section>
+</body>
+</html>'<!-- Visit: https://github.com/Ishanoshada/portflair -->
+<!-- Visit: https://github.com/Ishanoshada/portflair -->

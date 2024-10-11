@@ -1,0 +1,426 @@
+<!-- Portfolio created by Ishan -->
+<!-- Check out my work at: https://github.com/Ishanoshada/portflair -->
+<!-- 2024/10/9 -->
+<!-- Portfolio created by Ishan -->
+<!-- Portfolio created by Ishan -->
+'<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Futuristic Dark-Themed Portfolio</title>
+  <style>
+    /* Global Styles */
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Orbitron', sans-serif;
+      background-color: #0f0f0f;
+      color: #fff;
+    }
+
+    /* Navigation */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 40px;
+      background-color: #0f0f0f;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    nav a {
+      color: #09f7ff;
+      text-decoration: none;
+      font-size: 18px;
+      margin: 0 20px;
+      position: relative;
+      padding-bottom: 5px;
+    }
+
+    nav a:before {
+      content: "";
+      position: absolute;
+      width: 0;
+      height: 2px;
+      bottom: 0;
+      left: 0;
+      background-color: #09f7ff;
+      transition: width 0.3s ease-in-out;
+    }
+
+    nav a:hover:before {
+      width: 100%;
+    }
+
+    /* Project Showcase */
+    .project-showcase {
+      padding: 80px 40px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      grid-gap: 40px;
+    }
+
+    .project-card {
+      background-color: #1a1a1a;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+      position: relative;
+      cursor: pointer;
+      transition: transform 0.3s ease-in-out;
+    }
+
+    .project-card:hover {
+      transform: translateY(-10px);
+    }
+
+    .project-card:before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(to right, #09f7ff, #fc00ff);
+      opacity: 0;
+      transition: opacity 0.3s ease-in-out;
+    }
+
+    .project-card:hover:before {
+      opacity: 0.3;
+    }
+
+    .project-card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      filter: brightness(0.8);
+      transition: filter 0.3s ease-in-out;
+    }
+
+    .project-card:hover img {
+      filter: brightness(1);
+    }
+
+    .project-card h3 {
+      margin: 20px;
+      font-size: 24px;
+      color: #09f7ff;
+      text-shadow: 0 0 10px rgba(9, 247, 255, 0.5);
+      transition: color 0.3s ease-in-out;
+    }
+
+    .project-card:hover h3 {
+      color: #fc00ff;
+      text-shadow: 0 0 10px rgba(252, 0, 255, 0.5);
+    }
+
+    .project-card p {
+      margin: 20px;
+      font-size: 16px;
+      line-height: 1.5;
+    }
+
+    /* About Section */
+    .about-section {
+      padding: 80px 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .about-content {
+      max-width: 800px;
+      text-align: center;
+    }
+
+    .profile-picture {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      overflow: hidden;
+      box-shadow: 0 0 20px rgba(9, 247, 255, 0.5);
+      position: relative;
+      margin-bottom: 40px;
+    }
+
+    .profile-picture:before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(to right, #09f7ff, #fc00ff);
+      opacity: 0;
+      transition: opacity 0.3s ease-in-out;
+    }
+
+    .profile-picture:hover:before {
+      opacity: 0.5;
+    }
+
+    .profile-picture img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .about-content h2 {
+      font-size: 36px;
+      color: #09f7ff;
+      text-shadow: 0 0 10px rgba(9, 247, 255, 0.5);
+      margin-bottom: 20px;
+    }
+
+    .about-content p {
+      font-size: 18px;
+      line-height: 1.6;
+      margin-bottom: 40px;
+    }
+
+    .skills-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-top: 40px;
+    }
+
+    .skill-icon {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin: 20px;
+      color: #09f7ff;
+      text-shadow: 0 0 10px rgba(9, 247, 255, 0.5);
+      transition: color 0.3s ease-in-out;
+    }
+
+    .skill-icon:hover {
+      color: #fc00ff;
+      text-shadow: 0 0 10px rgba(252, 0, 255, 0.5);
+    }
+
+    .skill-icon i {
+      font-size: 36px;
+      margin-bottom: 10px;
+    }
+
+    .skill-icon span {
+      font-size: 14px;
+    }
+
+    /* Contact Form */
+    .contact-section {
+      padding: 80px 40px;
+      display: flex;
+      justify-content: center;
+    }
+
+    .contact-form {
+      max-width: 600px;
+      width: 100%;
+      background-color: #1a1a1a;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      padding: 40px;
+    }
+
+    .contact-form h2 {
+      font-size: 36px;
+      color: #09f7ff;
+      text-shadow: 0 0 10px rgba(9, 247, 255, 0.5);
+      margin-bottom: 40px;
+      text-align: center;
+    }
+
+    .form-group {
+      margin-bottom: 30px;
+      position: relative;
+    }
+
+    .form-group label {
+      font-size: 16px;
+      color: #09f7ff;
+      position: absolute;
+      top: 50%;
+      left: 20px;
+      transform: translateY(-50%);
+      transition: all 0.3s ease-in-out;
+    }
+
+    .form-group input,
+    .form-group textarea {
+      width: 100%;
+      padding: 20px;
+      font-size: 16px;
+      background-color: transparent;
+      border: none;
+      border-bottom: 2px solid #09f7ff;
+      color: #fff;
+      outline: none;
+      transition: border-color 0.3s ease-in-out;
+    }
+
+    .form-group input:focus + label,
+    .form-group textarea:focus + label,
+    .form-group input:not(:placeholder-shown) + label,
+    .form-group textarea:not(:placeholder-shown) + label {
+      top: 0;
+      font-size: 12px;
+    }
+
+    .form-group input:focus,
+    .form-group textarea:focus {
+      border-color: #fc00ff;
+    }
+
+    .contact-form button {
+      display: block;
+      width: 100%;
+      padding: 16px;
+      font-size: 18px;
+      background-color: #09f7ff;
+      color: #0f0f0f;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background-color 0.3s ease-in-out;
+    }
+
+    .contact-form button:hover {
+      background-color: #fc00ff;
+    }
+
+    /* Responsive Styles */
+    @media (max-width: 768px) {
+      nav {
+        padding: 15px 20px;
+      }
+
+      nav a {
+        font-size: 16px;
+        margin: 0 10px;
+      }
+
+      .project-showcase,
+      .about-section,
+      .contact-section {
+        padding: 60px 20px;
+      }
+
+      .project-card {
+        border-radius: 6px;
+      }
+
+      .project-card img {
+        height: 180px;
+      }
+
+      .profile-picture {
+        width: 120px;
+        height: 120px;
+      }
+
+      .about-content h2 {
+        font-size: 30px;
+      }
+
+      .about-content p {
+        font-size: 16px;
+      }
+
+      .contact-form {
+        padding: 30px;
+      }
+
+      .contact-form h2 {
+        font-size: 30px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="#">Home</a>
+    <a href="#">Projects</a>
+    <a href="#">About</a>
+    <a href="#">Contact</a>
+  </nav>
+
+  <section class="project-showcase">
+    <div class="project-card">
+      <img src="https://dummyimage.com/600x400/0f0f0f/09f7ff&text=Project+1" alt="Project 1">
+      <h3>Project 1</h3>
+      <p>A futuristic, cyberpunk-inspired project with a sleek design and neon glow effects.</p>
+    </div>
+    <div class="project-card">
+      <img src="https://dummyimage.com/600x400/0f0f0f/fc00ff&text=Project+2" alt="Project 2">
+      <h3>Project 2</h3>
+      <p>A bold, tech-driven website with a dark theme and dynamic interactive elements.</p>
+    </div>
+    <div class="project-card">
+      <img src="https://dummyimage.com/600x400/0f0f0f/09f7ff&text=Project+3" alt="Project 3">
+      <h3>Project 3</h3>
+      <p>A minimalist, futuristic portfolio showcasing the latest in UI/UX design trends.</p>
+    </div>
+    <div class="project-card">
+      <img src="https://dummyimage.com/600x400/0f0f0f/fc00ff&text=Project+4" alt="Project 4">
+      <h3>Project 4</h3>
+      <p>An innovative, tech-inspired website with a focus on interactive and immersive experiences.</p>
+    </div>
+  </section>
+
+  <section class="about-section">
+    <div class="about-content">
+      <div class="profile-picture">
+        <img src="https://dummyimage.com/150x150/0f0f0f/09f7ff&text=Profile" alt="Profile Picture">
+      </div>
+      <h2>Welcome to My Futuristic Portfolio</h2>
+      <p>As a passionate designer with a deep fascination for the cyberpunk aesthetic, I've crafted this portfolio to showcase my skills and push the boundaries of digital design. Immerse yourself in a world of sleek, neon-infused interfaces and cutting-edge interactive experiences.</p>
+      <div class="skills-container">
+        <div class="skill-icon">
+          <i class="fas fa-code"></i>
+          <span>Web Development</span>
+        </div>
+        <div class="skill-icon">
+          <i class="fas fa-palette"></i>
+          <span>UI/UX Design</span>
+        </div>
+        <div class="skill-icon">
+          <i class="fas fa-bolt"></i>
+          <span>Motion Graphics</span>
+        </div>
+        <div class="skill-icon">
+          <i class="fas fa-gamepad"></i>
+          <span>Game Design</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact-section">
+    <div class="contact-form">
+      <h2>Get in Touch</h2>
+      <form>
+        <div class="form-group">
+          <input type="text" id="name" placeholder=" " required>
+          <label for="name">Name</label>
+        </div>
+        <div class="form-group">
+          <input type="email" id="email" placeholder=" " required>
+          <label for="email">Email</label>
+        </div>
+        <div class="form-group">
+          <textarea id="message" placeholder=" " required></textarea>
+          <label for="message">Message</label>
+        </div>
+        <button type="submit">Send Message</button>
+      </form>
+    </div>
+  </section>
+</body>
+</html>'<!-- Visit: https://github.com/Ishanoshada/portflair -->
+<!-- Visit: https://github.com/Ishanoshada/portflair -->
+<!-- Visit: https://github.com/Ishanoshada/portflair -->

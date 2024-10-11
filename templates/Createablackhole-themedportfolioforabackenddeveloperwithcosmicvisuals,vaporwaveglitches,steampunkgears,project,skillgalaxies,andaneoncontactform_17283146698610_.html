@@ -1,0 +1,569 @@
+<!-- Portfolio created by Ishan -->
+<!-- Check out my work at: https://github.com/Ishanoshada/portflair -->
+<!-- 2024/10/9 -->
+<!-- Portfolio created by Ishan -->
+'<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Black Hole Portfolio</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
+
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Orbitron', sans-serif;
+      background-color: #0C0C0C;
+      color: #fff;
+      overflow-x: hidden;
+    }
+
+    /* Navbar */
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 40px;
+      background-color: rgba(12, 12, 12, 0.8);
+      backdrop-filter: blur(10px);
+      position: relative;
+      z-index: 100;
+    }
+
+    .navbar-brand {
+      font-size: 24px;
+      font-weight: 700;
+      color: #9B59B6;
+      text-shadow: 0 0 20px #9B59B6;
+      animation: neon-glow 2s ease-in-out infinite;
+    }
+
+    .navbar-nav {
+      display: flex;
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .navbar-nav li {
+      margin-left: 30px;
+    }
+
+    .navbar-nav li a {
+      color: #fff;
+      text-decoration: none;
+      font-size: 16px;
+      font-weight: 400;
+      position: relative;
+      padding-bottom: 5px;
+    }
+
+    .navbar-nav li a::after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 2px;
+      background-color: #9B59B6;
+      left: 0;
+      bottom: 0;
+      transition: width 0.3s ease-in-out;
+    }
+
+    .navbar-nav li a:hover::after {
+      width: 100%;
+    }
+
+    /* Project Galaxy */
+    .project-galaxy {
+      position: relative;
+      height: 80vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+    }
+
+    .project-galaxy::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(ellipse at center, rgba(155, 89, 182, 0.4) 0%, rgba(12, 12, 12, 1) 70%);
+      z-index: 1;
+    }
+
+    .project-galaxy-inner {
+      position: relative;
+      z-index: 2;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .project-item {
+      position: absolute;
+      width: 80px;
+      height: 80px;
+      background-color: #9B59B6;
+      border-radius: 50%;
+      box-shadow: 0 0 20px #9B59B6;
+      animation: project-glow 3s ease-in-out infinite;
+      cursor: pointer;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 14px;
+      font-weight: 700;
+      color: #fff;
+      text-shadow: 0 0 10px #fff;
+      transition: transform 0.3s ease-in-out;
+    }
+
+    .project-item:hover {
+      transform: scale(1.2);
+    }
+
+    .project-item-info {
+      position: absolute;
+      top: 100%;
+      left: 50%;
+      transform: translateX(-50%);
+      background-color: rgba(12, 12, 12, 0.8);
+      backdrop-filter: blur(10px);
+      padding: 20px;
+      border-radius: 10px;
+      width: 300px;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out, transform 0.3s ease-in-out;
+    }
+
+    .project-item:hover .project-item-info {
+      opacity: 1;
+      visibility: visible;
+      transform: translateX(-50%) translateY(20px);
+    }
+
+    .project-item-info h3 {
+      margin-top: 0;
+      font-size: 18px;
+      font-weight: 700;
+      color: #9B59B6;
+      text-shadow: 0 0 10px #9B59B6;
+    }
+
+    .project-item-info p {
+      margin-bottom: 10px;
+      font-size: 14px;
+      color: #fff;
+    }
+
+    .project-item-info a {
+      display: inline-block;
+      background-color: #9B59B6;
+      color: #fff;
+      text-decoration: none;
+      padding: 8px 16px;
+      border-radius: 5px;
+      font-size: 14px;
+      font-weight: 700;
+      transition: background-color 0.3s ease-in-out;
+    }
+
+    .project-item-info a:hover {
+      background-color: #8E44AD;
+    }
+
+    /* Skill Nebula */
+    .skill-nebula {
+      position: relative;
+      height: 80vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+    }
+
+    .skill-nebula::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(ellipse at center, rgba(155, 89, 182, 0.2) 0%, rgba(12, 12, 12, 1) 70%);
+      z-index: 1;
+    }
+
+    .skill-nebula-inner {
+      position: relative;
+      z-index: 2;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .skill-item {
+      position: absolute;
+      width: 60px;
+      height: 60px;
+      background-color: #9B59B6;
+      border-radius: 50%;
+      box-shadow: 0 0 20px #9B59B6;
+      animation: skill-glow 3s ease-in-out infinite;
+      cursor: pointer;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 12px;
+      font-weight: 700;
+      color: #fff;
+      text-shadow: 0 0 10px #fff;
+      transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    }
+
+    .skill-item:hover {
+      transform: scale(1.2);
+      box-shadow: 0 0 40px #9B59B6;
+    }
+
+    .skill-item-info {
+      position: absolute;
+      top: 100%;
+      left: 50%;
+      transform: translateX(-50%);
+      background-color: rgba(12, 12, 12, 0.8);
+      backdrop-filter: blur(10px);
+      padding: 20px;
+      border-radius: 10px;
+      width: 300px;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out, transform 0.3s ease-in-out;
+    }
+
+    .skill-item:hover .skill-item-info {
+      opacity: 1;
+      visibility: visible;
+      transform: translateX(-50%) translateY(20px);
+    }
+
+    .skill-item-info h3 {
+      margin-top: 0;
+      font-size: 18px;
+      font-weight: 700;
+      color: #9B59B6;
+      text-shadow: 0 0 10px #9B59B6;
+    }
+
+    .skill-item-info p {
+      margin-bottom: 10px;
+      font-size: 14px;
+      color: #fff;
+    }
+
+    /* Cosmic Contact */
+    .cosmic-contact {
+      position: relative;
+      height: 80vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+    }
+
+    .cosmic-contact::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(ellipse at center, rgba(155, 89, 182, 0.1) 0%, rgba(12, 12, 12, 1) 70%);
+      z-index: 1;
+    }
+
+    .cosmic-contact-inner {
+      position: relative;
+      z-index: 2;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .contact-form {
+      background-color: rgba(12, 12, 12, 0.8);
+      backdrop-filter: blur(10px);
+      padding: 40px;
+      border-radius: 10px;
+      box-shadow: 0 0 40px rgba(155, 89, 182, 0.4);
+      width: 400px;
+      max-width: 90%;
+    }
+
+    .contact-form h2 {
+      margin-top: 0;
+      font-size: 24px;
+      font-weight: 700;
+      color: #9B59B6;
+      text-shadow: 0 0 10px #9B59B6;
+    }
+
+    .contact-form input, .contact-form textarea {
+      width: 100%;
+      padding: 12px 20px;
+      margin-bottom: 20px;
+      border: 2px solid #9B59B6;
+      border-radius: 5px;
+      background-color: transparent;
+      color: #fff;
+      font-size: 16px;
+      font-family: 'Orbitron', sans-serif;
+      transition: border-color 0.3s ease-in-out;
+    }
+
+    .contact-form input:focus, .contact-form textarea:focus {
+      outline: none;
+      border-color: #8E44AD;
+    }
+
+    .contact-form button {
+      display: block;
+      width: 100%;
+      padding: 12px 20px;
+      background-color: #9B59B6;
+      color: #fff;
+      font-size: 16px;
+      font-weight: 700;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease-in-out;
+    }
+
+    .contact-form button:hover {
+      background-color: #8E44AD;
+    }
+
+    .contact-form button:active {
+      transform: translateY(2px);
+    }
+
+    /* Animations */
+    @keyframes neon-glow {
+      0% {
+        text-shadow: 0 0 10px #9B59B6;
+      }
+      50% {
+        text-shadow: 0 0 20px #9B59B6;
+      }
+      100% {
+        text-shadow: 0 0 10px #9B59B6;
+      }
+    }
+
+    @keyframes project-glow {
+      0% {
+        box-shadow: 0 0 20px #9B59B6;
+      }
+      50% {
+        box-shadow: 0 0 40px #9B59B6;
+      }
+      100% {
+        box-shadow: 0 0 20px #9B59B6;
+      }
+    }
+
+    @keyframes skill-glow {
+      0% {
+        box-shadow: 0 0 20px #9B59B6;
+      }
+      50% {
+        box-shadow: 0 0 40px #9B59B6;
+      }
+      100% {
+        box-shadow: 0 0 20px #9B59B6;
+      }
+    }
+
+    /* Responsive Styles */
+    @media (max-width: 768px) {
+      .navbar {
+        padding: 15px 20px;
+      }
+
+      .navbar-brand {
+        font-size: 20px;
+      }
+
+      .navbar-nav li {
+        margin-left: 20px;
+      }
+
+      .navbar-nav li a {
+        font-size: 14px;
+      }
+
+      .project-item, .skill-item {
+        width: 60px;
+        height: 60px;
+        font-size: 12px;
+      }
+
+      .project-item-info, .skill-item-info {
+        width: 250px;
+        padding: 15px;
+      }
+
+      .project-item-info h3, .skill-item-info h3 {
+        font-size: 16px;
+      }
+
+      .project-item-info p, .skill-item-info p {
+        font-size: 12px;
+      }
+
+      .contact-form {
+        padding: 30px;
+        width: 350px;
+      }
+
+      .contact-form h2 {
+        font-size: 20px;
+      }
+
+      .contact-form input, .contact-form textarea {
+        font-size: 14px;
+      }
+
+      .contact-form button {
+        font-size: 14px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar">
+    <a href="#" class="navbar-brand">Black Hole Portfolio</a>
+    <ul class="navbar-nav">
+      <li><a href="#">Home</a></li>
+      <li><a href="#">Projects</a></li>
+      <li><a href="#">Skills</a></li>
+      <li><a href="#">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- Project Galaxy -->
+  <section class="project-galaxy">
+    <div class="project-galaxy-inner">
+      <div class="project-item" style="top: 20%; left: 30%;">
+        <span>Project 1</span>
+        <div class="project-item-info">
+          <h3>Project 1</h3>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+          <a href="#">View Project</a>
+        </div>
+      </div>
+      <div class="project-item" style="top: 50%; left: 20%;">
+        <span>Project 2</span>
+        <div class="project-item-info">
+          <h3>Project 2</h3>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+          <a href="#">View Project</a>
+        </div>
+      </div>
+      <div class="project-item" style="top: 30%; left: 60%;">
+        <span>Project 3</span>
+        <div class="project-item-info">
+          <h3>Project 3</h3>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+          <a href="#">View Project</a>
+        </div>
+      </div>
+      <div class="project-item" style="top: 70%; left: 50%;">
+        <span>Project 4</span></div>
+        <div class="project-item-info">
+          <h3>Project 4</h3>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+          <a href="#">View Project</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Skill Nebula -->
+  <section class="skill-nebula">
+    <div class="skill-nebula-inner">
+      <div class="skill-item" style="top: 20%; left: 30%;">
+        <span>HTML</span>
+        <div class="skill-item-info">
+          <h3>HTML</h3>
+          <p>Expertise in creating semantic, accessible, and responsive HTML structures.</p>
+        </div>
+      </div>
+      <div class="skill-item" style="top: 50%; left: 20%;">
+        <span>CSS</span>
+        <div class="skill-item-info">
+          <h3>CSS</h3>
+          <p>Proficient in designing visually appealing and mobile-friendly user interfaces.</p>
+        </div>
+      </div>
+      <div class="skill-item" style="top: 30%; left: 60%;">
+        <span>JavaScript</span>
+        <div class="skill-item-info">
+          <h3>JavaScript</h3>
+          <p>Experienced in building dynamic and interactive web applications.</p>
+        </div>
+      </div>
+      <div class="skill-item" style="top: 70%; left: 50%;">
+        <span>Node.js</span>
+        <div class="skill-item-info">
+          <h3>Node.js</h3>
+          <p>Skilled in developing server-side applications and APIs using Node.js.</p>
+        </div>
+      </div>
+      <div class="skill-item" style="top: 40%; left: 40%;">
+        <span>MongoDB</span>
+        <div class="skill-item-info">
+          <h3>MongoDB</h3>
+          <p>Knowledgeable in designing and implementing NoSQL database solutions.</p>
+        </div>
+      </div>
+      <div class="skill-item" style="top: 60%; left: 30%;">
+        <span>Express</span>
+        <div class="skill-item-info">
+          <h3>Express</h3>
+          <p>Proficient in building scalable and efficient web applications using the Express.js framework.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Cosmic Contact -->
+  <section class="cosmic-contact">
+    <div class="cosmic-contact-inner">
+      <div class="contact-form">
+        <h2>Get in Touch</h2>
+        <form>
+          <input type="text" placeholder="Name" required>
+          <input type="email" placeholder="Email" required>
+          <textarea placeholder="Message" rows="5" required></textarea>
+          <button type="submit">Submit</button>
+        </form>
+      </div>
+    </div>
+  </section>
+</body>
+</html>'<!-- Visit: https://github.com/Ishanoshada/portflair -->
+<!-- Visit: https://github.com/Ishanoshada/portflair -->

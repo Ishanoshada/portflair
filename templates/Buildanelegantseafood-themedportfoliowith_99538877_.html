@@ -1,0 +1,411 @@
+<!-- Portfolio created by Ishan -->
+<!-- Check out my work at: https://github.com/Ishanoshada/portflair -->
+<!-- 2024/10/9 -->
+<!-- Portfolio created by Ishan -->
+'<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Seafood-Themed Portfolio</title>
+  <style>
+    /* Global Styles */
+    @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Raleway:wght@400;600&display=swap');
+
+    body {
+      font-family: 'Raleway', sans-serif;
+      margin: 0;
+      padding: 0;
+      color: #fff;
+      background-color: #1d2b38;
+      overflow-x: hidden;
+    }
+
+    a {
+      text-decoration: none;
+      color: #fff;
+    }
+
+    /* Navigation Bar */
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 40px;
+      background-color: rgba(29, 43, 56, 0.8);
+      backdrop-filter: blur(10px);
+      position: relative;
+      z-index: 100;
+    }
+
+    .navbar-brand {
+      font-family: 'Playfair Display', serif;
+      font-size: 24px;
+      font-weight: 700;
+    }
+
+    .navbar-nav {
+      display: flex;
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .navbar-nav li {
+      margin-left: 20px;
+    }
+
+    .navbar-nav li a {
+      font-size: 16px;
+      font-weight: 600;
+      transition: color 0.3s ease;
+    }
+
+    .navbar-nav li a:hover {
+      color: #ffa500;
+    }
+
+    /* Hero Section */
+    .hero {
+      position: relative;
+      height: 80vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      overflow: hidden;
+    }
+
+    .hero-bg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: url('https://dummyimage.com/1920x1080/1d2b38/ffffff&text=Seafood+Portfolio');
+      background-size: cover;
+      background-position: center;
+      filter: blur(2px);
+      z-index: -1;
+    }
+
+    .hero-content {
+      max-width: 800px;
+      padding: 0 20px;
+    }
+
+    .hero-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 48px;
+      font-weight: 700;
+      margin-bottom: 20px;
+      text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    }
+
+    .hero-description {
+      font-size: 18px;
+      line-height: 1.6;
+      margin-bottom: 40px;
+      text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    }
+
+    .hero-cta {
+      display: inline-block;
+      background-color: #ffa500;
+      color: #1d2b38;
+      font-size: 16px;
+      font-weight: 600;
+      padding: 12px 24px;
+      border-radius: 4px;
+      transition: background-color 0.3s ease;
+    }
+
+    .hero-cta:hover {
+      background-color: #e69000;
+    }
+
+    /* Featured Projects Section */
+    .featured-projects {
+      padding: 80px 40px;
+    }
+
+    .featured-projects-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 36px;
+      font-weight: 700;
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      grid-gap: 40px;
+    }
+
+    .project-item {
+      position: relative;
+      overflow: hidden;
+      border-radius: 8px;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+      transition: transform 0.3s ease;
+    }
+
+    .project-item:hover {
+      transform: scale(1.05);
+    }
+
+    .project-item img {
+      width: 100%;
+      height: 300px;
+      object-fit: cover;
+    }
+
+    .project-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(29, 43, 56, 0.8);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .project-item:hover .project-overlay {
+      opacity: 1;
+    }
+
+    .project-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 24px;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+
+    .project-description {
+      font-size: 16px;
+      text-align: center;
+      max-width: 80%;
+      margin-bottom: 20px;
+    }
+
+    /* Testimonials Section */
+    .testimonials {
+      background-color: #263746;
+      padding: 80px 40px;
+    }
+
+    .testimonials-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 36px;
+      font-weight: 700;
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .testimonial-carousel {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .testimonial-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      padding: 40px;
+      opacity: 0;
+      transition: opacity 0.5s ease;
+    }
+
+    .testimonial-item.active {
+      opacity: 1;
+    }
+
+    .testimonial-image {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      overflow: hidden;
+      margin-bottom: 20px;
+    }
+
+    .testimonial-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .testimonial-text {
+      font-size: 18px;
+      line-height: 1.6;
+      margin-bottom: 20px;
+    }
+
+    .testimonial-author {
+      font-family: 'Playfair Display', serif;
+      font-size: 20px;
+      font-weight: 700;
+    }
+
+    .carousel-nav {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+      padding: 0 40px;
+    }
+
+    .carousel-nav button {
+      background-color: #ffa500;
+      color: #1d2b38;
+      border: none;
+      font-size: 24px;
+      padding: 10px 20px;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .carousel-nav button:hover {
+      background-color: #e69000;
+    }
+
+    /* Footer */
+    .footer {
+      background-color: #1d2b38;
+      padding: 20px 0;
+      text-align: center;
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav class="navbar">
+      <a href="#" class="navbar-brand">Seafood Portfolio</a>
+      <ul class="navbar-nav">
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Projects</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-bg"></div>
+      <div class="hero-content">
+        <h1 class="hero-title">Elevate Your Dining Experience</h1>
+        <p class="hero-description">Discover our elegant seafood-themed portfolio, where we blend captivating visuals with mouthwatering culinary delights to create an immersive dining experience.</p>
+        <a href="#" class="hero-cta">Explore Our Work</a>
+      </div>
+    </section>
+
+    <section class="featured-projects">
+      <h2 class="featured-projects-title">Featured Projects</h2>
+      <div class="project-grid">
+        <div class="project-item">
+          <img src="https://dummyimage.com/600x400/ffa500/ffffff&text=Seafood+Platter" alt="Seafood Platter">
+          <div class="project-overlay">
+            <h3 class="project-name">Seafood Platter</h3>
+            <p class="project-description">A beautifully curated seafood platter that showcases the freshness and quality of our ingredients.</p>
+          </div>
+        </div>
+        <div class="project-item">
+          <img src="https://dummyimage.com/600x400/ffa500/ffffff&text=Seared+Scallops" alt="Seared Scallops">
+          <div class="project-overlay">
+            <h3 class="project-name">Seared Scallops</h3>
+            <p class="project-description">Perfectly seared scallops with a delicate, caramelized crust and a tender, succulent center.</p>
+          </div>
+        </div>
+        <div class="project-item">
+          <img src="https://dummyimage.com/600x400/ffa500/ffffff&text=Lobster+Tail" alt="Lobster Tail">
+          <div class="project-overlay">
+            <h3 class="project-name">Lobster Tail</h3>
+            <p class="project-description">A luxurious lobster tail, expertly prepared to showcase its natural sweetness and tenderness.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="testimonials">
+      <h2 class="testimonials-title">What Our Clients Say</h2>
+      <div class="testimonial-carousel">
+        <div class="testimonial-item active">
+          <div class="testimonial-image">
+            <img src="https://dummyimage.com/80x80/ffa500/ffffff&text=Jane+Doe" alt="Jane Doe">
+          </div>
+          <p class="testimonial-text">"The seafood dishes created by this team are truly exceptional. The presentation and flavors are simply breathtaking."</p>
+          <h3 class="testimonial-author">Jane Doe</h3>
+        </div>
+        <div class="testimonial-item">
+          <div class="testimonial-image">
+            <img src="https://dummyimage.com/80x80/ffa500/ffffff&text=John+Doe" alt="John Doe">
+          </div>
+          <p class="testimonial-text">"I've never experienced such an immersive and visually stunning dining experience. The attention to detail is remarkable."</p>
+          <h3 class="testimonial-author">John Doe</h3>
+        </div>
+        <div class="testimonial-item">
+          <div class="testimonial-image">
+            <img src="https://dummyimage.com/80x80/ffa500/ffffff&text=Emily+Smith" alt="Emily Smith">
+          </div>
+          <p class="testimonial-text">"This seafood-themed portfolio is truly a work of art. The team's creativity and culinary expertise are unparalleled."</p>
+          <h3 class="testimonial-author">Emily Smith</h3>
+        </div>
+        <div class="carousel-nav">
+          <button class="prev-btn">&lArr;</button>
+          <button class="next-btn">&rArr;</button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>&copy; 2024 Seafood Portfolio. All rights reserved.</p>
+  </footer>
+
+  <script>
+    const testimonialItems = document.querySelectorAll('.testimonial-item');
+    const prevBtn = document.querySelector('.prev-btn');
+    const nextBtn = document.querySelector('.next-btn');
+
+    let currentIndex = 0;
+
+    function showTestimonial(index) {
+      testimonialItems.forEach((item, i) => {
+        if (i === index) {
+          item.classList.add('active');
+        } else {
+          item.classList.remove('active');
+        }
+      });
+    }
+
+    prevBtn.addEventListener('click', () => {
+      currentIndex = (currentIndex - 1 + testimonialItems.length) % testimonialItems.length;
+      showTestimonial(currentIndex);
+    });
+
+    nextBtn.addEventListener('click', () => {
+      currentIndex = (currentIndex + 1) % testimonialItems.length;
+      showTestimonial(currentIndex);
+    });
+
+    showTestimonial(currentIndex);
+  </script>
+</body>
+</html>'<!-- Visit: https://github.com/Ishanoshada/portflair -->
+<!-- Visit: https://github.com/Ishanoshada/portflair -->

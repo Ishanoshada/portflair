@@ -1,0 +1,462 @@
+<!-- Portfolio created by Ishan -->
+<!-- Check out my work at: https://github.com/Ishanoshada/portflair -->
+<!-- 2024/10/9 -->
+<!-- Portfolio created by Ishan -->
+'<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cosmic Portfolio</title>
+    <style>
+        /* Global Styles */
+        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Teko:wght@300;500;700&display=swap');
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Teko', sans-serif;
+            background-color: #0C0C0C;
+            color: #FFFFFF;
+            overflow-x: hidden;
+        }
+
+        /* Navigation */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 40px;
+            background-color: rgba(15, 15, 15, 0.8);
+            backdrop-filter: blur(10px);
+            position: relative;
+            z-index: 100;
+        }
+
+        .navbar-brand {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            color: #8E44AD;
+            text-shadow: 0 0 20px #8E44AD, 0 0 40px #8E44AD, 0 0 80px #8E44AD;
+            animation: pulsate 2s ease-in-out infinite;
+        }
+
+        .navbar-nav {
+            display: flex;
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .nav-item {
+            margin-left: 30px;
+        }
+
+        .nav-link {
+            font-size: 1.8rem;
+            font-weight: 500;
+            color: #FFFFFF;
+            text-decoration: none;
+            position: relative;
+            transition: color 0.3s ease-in-out;
+        }
+
+        .nav-link:before {
+            content: "";
+            position: absolute;
+            width: 100%;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background-color: #8E44AD;
+            visibility: hidden;
+            transform: scaleX(0);
+            transition: all 0.3s ease-in-out;
+        }
+
+        .nav-link:hover {
+            color: #8E44AD;
+        }
+
+        .nav-link:hover:before {
+            visibility: visible;
+            transform: scaleX(1);
+        }
+
+        /* Hero Section */
+        .hero-section {
+            height: 100vh;
+            background-image: url('https://dummyimage.com/1920x1080/0C0C0C/8E44AD.jpg&text=Cosmic+Hero+Image');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-section:before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(ellipse at center, rgba(142, 68, 173, 0.3) 0%, rgba(12, 12, 12, 0.8) 100%);
+            z-index: 1;
+        }
+
+        .hero-title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 6rem;
+            font-weight: 700;
+            text-align: center;
+            text-transform: uppercase;
+            color: #FFFFFF;
+            text-shadow: 0 0 20px #8E44AD, 0 0 40px #8E44AD, 0 0 80px #8E44AD;
+            animation: pulsate 3s ease-in-out infinite;
+            z-index: 2;
+        }
+
+        .hero-subtitle {
+            font-size: 2.5rem;
+            font-weight: 300;
+            text-align: center;
+            color: #FFFFFF;
+            margin-top: 20px;
+            z-index: 2;
+        }
+
+        /* Project Showcase */
+        .project-showcase {
+            padding: 80px 40px;
+            background-color: #0C0C0C;
+            position: relative;
+            z-index: 2;
+        }
+
+        .project-showcase-title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 4rem;
+            font-weight: 700;
+            text-align: center;
+            text-transform: uppercase;
+            color: #8E44AD;
+            text-shadow: 0 0 20px #8E44AD, 0 0 40px #8E44AD, 0 0 80px #8E44AD;
+            margin-bottom: 50px;
+        }
+
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-gap: 40px;
+        }
+
+        .project-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 50%;
+            box-shadow: 0 0 20px rgba(142, 68, 173, 0.5), 0 0 40px rgba(142, 68, 173, 0.5), 0 0 80px rgba(142, 68, 173, 0.5);
+            transition: all 0.3s ease-in-out;
+        }
+
+        .project-item:before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(ellipse at center, rgba(142, 68, 173, 0.3) 0%, rgba(12, 12, 12, 0.8) 100%);
+            z-index: 1;
+            opacity: 0;
+            transition: opacity 0.3s ease-in-out;
+        }
+
+        .project-item:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 40px rgba(142, 68, 173, 0.8), 0 0 80px rgba(142, 68, 173, 0.8), 0 0 120px rgba(142, 68, 173, 0.8);
+        }
+
+        .project-item:hover:before {
+            opacity: 1;
+        }
+
+        .project-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 50%;
+        }
+
+        .project-info {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            z-index: 2;
+            opacity: 0;
+            transition: opacity 0.3s ease-in-out;
+        }
+
+        .project-item:hover .project-info {
+            opacity: 1;
+        }
+
+        .project-title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 2rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            color: #FFFFFF;
+            text-shadow: 0 0 10px #8E44AD, 0 0 20px #8E44AD, 0 0 40px #8E44AD;
+            margin-bottom: 10px;
+        }
+
+        .project-description {
+            font-size: 1.4rem;
+            font-weight: 300;
+            color: #FFFFFF;
+        }
+
+        /* Contact Section */
+        .contact-section {
+            padding: 80px 40px;
+            background-color: #0C0C0C;
+            position: relative;
+            z-index: 2;
+        }
+
+        .contact-section-title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 4rem;
+            font-weight: 700;
+            text-align: center;
+            text-transform: uppercase;
+            color: #8E44AD;
+            text-shadow: 0 0 20px #8E44AD, 0 0 40px #8E44AD, 0 0 80px #8E44AD;
+            margin-bottom: 50px;
+        }
+
+        .contact-form {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: #1A1A1A;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(142, 68, 173, 0.5), 0 0 40px rgba(142, 68, 173, 0.5), 0 0 80px rgba(142, 68, 173, 0.5);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .contact-form:before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(ellipse at center, rgba(142, 68, 173, 0.3) 0%, rgba(26, 26, 26, 0.8) 100%);
+            z-index: 1;
+            opacity: 0.8;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .form-label {
+            font-size: 1.6rem;
+            font-weight: 500;
+            color: #FFFFFF;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .form-input,
+        .form-textarea {
+            width: 100%;
+            padding: 10px 15px;
+            font-size: 1.4rem;
+            font-weight: 300;
+            color: #FFFFFF;
+            background-color: #2D2D2D;
+            border: none;
+            border-radius: 5px;
+            transition: box-shadow 0.3s ease-in-out;
+        }
+
+        .form-input:focus,
+        .form-textarea:focus {
+            outline: none;
+            box-shadow: 0 0 10px rgba(142, 68, 173, 0.5), 0 0 20px rgba(142, 68, 173, 0.5), 0 0 40px rgba(142, 68, 173, 0.5);
+        }
+
+        .form-textarea {
+            height: 150px;
+            resize: none;
+        }
+
+        .form-submit {
+            display: block;
+            width: 100%;
+            padding: 15px 30px;
+            font-size: 1.6rem;
+            font-weight: 500;
+            color: #FFFFFF;
+            background-color: #8E44AD;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+            position: relative;
+            z-index: 2;
+        }
+
+        .form-submit:hover {
+            background-color: #9b59b6;
+            box-shadow: 0 0 10px rgba(142, 68, 173, 0.8), 0 0 20px rgba(142, 68, 173, 0.8), 0 0 40px rgba(142, 68, 173, 0.8);
+        }
+
+        /* Animations */
+        @keyframes pulsate {
+            0% {
+                text-shadow: 0 0 10px #8E44AD, 0 0 20px #8E44AD, 0 0 40px #8E44AD;
+            }
+            50% {
+                text-shadow: 0 0 20px #8E44AD, 0 0 40px #8E44AD, 0 0 80px #8E44AD;
+            }
+            100% {
+                text-shadow: 0 0 10px #8E44AD, 0 0 20px #8E44AD, 0 0 40px #8E44AD;
+            }
+        }
+
+        /* Media Queries */
+        @media (max-width: 1200px) {
+            .project-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 4rem;
+            }
+
+            .hero-subtitle {
+                font-size: 2rem;
+            }
+
+            .project-showcase-title,
+            .contact-section-title {
+                font-size: 3rem;
+            }
+
+            .project-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .navbar {
+                padding: 15px 20px;
+            }
+
+            .navbar-brand {
+                font-size: 2rem;
+            }
+
+            .nav-link {
+                font-size: 1.6rem;
+            }
+
+            .contact-form {
+                padding: 30px;
+            }
+
+            .form-label {
+                font-size: 1.4rem;
+            }
+
+            .form-input,
+            .form-textarea,
+            .form-submit {
+                font-size: 1.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <a href="#" class="navbar-brand">Cosmic Portfolio</a>
+            <ul class="navbar-nav">
+                <li class="nav-item"><a href="#" class="nav-link">Home</a></li>
+                <li class="nav-item"><a href="#" class="nav-link">Projects</a></li>
+                <li class="nav-item"><a href="#" class="nav-link">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero-section">
+            <h1 class="hero-title">John Doe</h1>
+            <h2 class="hero-subtitle">Backend Developer</h2>
+        </section>
+
+        <section class="project-showcase">
+            <h2 class="project-showcase-title">My Projects</h2>
+            <div class="project-grid">
+                <div class="project-item">
+                    <img src="https://dummyimage.com/480x480/0C0C0C/8E44AD.jpg&text=Project+1" alt="Project 1" class="project-image">
+                    <div class="project-info">
+                        <h3 class="project-title">Project 1</h3>
+                        <p class="project-description">A cosmic backend project with vaporwave glitches</p>
+                    </div>
+                </div>
+                <div class="project-item">
+                    <img src="https://dummyimage.com/480x480/0C0C0C/8E44AD.jpg&text=Project+2" alt="Project 2" class="project-image">
+                    <div class="project-info">
+                        <h3 class="project-title">Project 2</h3>
+                        <p class="project-description">Steampunk-inspired backend wizardry</p>
+                    </div>
+                </div>
+                <div class="project-item">
+                    <img src="https://dummyimage.com/480x480/0C0C0C/8E44AD.jpg&text=Project+3" alt="Project 3" class="project-image">
+                    <div class="<div class="project-info">
+                        <h3 class="project-title">Project 3</h3>
+                        <p class="project-description">Exploring the cosmos with backend magic</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="contact-section">
+            <h2 class="contact-section-title">Get in Touch</h2>
+            <div class="contact-form">
+                <form>
+                    <div class="form-group">
+                        <label for="name" class="form-label">Name</label>
+                        <input type="text" id="name" name="name" class="form-input" placeholder="Enter your name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email" class="form-label">Email</label>
+                        <input type="email" id="email" name="email" class="form-input" placeholder="Enter your email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message" class="form-label">Message</label>
+                        <textarea id="message" name="message" class="form-textarea" placeholder="Enter your message" required></textarea>
+                    </div>
+                    <button type="submit" class="form-submit">Send Message</button>
+                </form>
+            </div>
+        </section>
+    </main>
+</body>
+</html>'<!-- Visit: https://github.com/Ishanoshada/portflair -->
+<!-- Visit: https://github.com/Ishanoshada/portflair -->

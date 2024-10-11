@@ -1,0 +1,329 @@
+<!-- Portfolio created by Ishan -->
+<!-- Check out my work at: https://github.com/Ishanoshada/portflair -->
+<!-- 2024/10/9 -->
+<!-- Portfolio created by Ishan -->
+'<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Black Hole Portfolio</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Orbitron', sans-serif;
+            background-color: #0f0f0f;
+            color: #fff;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+
+        /* Navigation */
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 2rem;
+            background-color: rgba(15, 15, 15, 0.8);
+            backdrop-filter: blur(10px);
+            position: relative;
+            z-index: 100;
+        }
+
+        .nav a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 1.2rem;
+            font-weight: 700;
+            padding: 0.5rem 1rem;
+            border-radius: 0.5rem;
+            transition: background-color 0.3s ease;
+        }
+
+        .nav a:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        /* Project Showcase */
+        .project-showcase {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 4rem;
+        }
+
+        .project-item {
+            background-color: rgba(255, 255, 255, 0.05);
+            border-radius: 1rem;
+            overflow: hidden;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+            position: relative;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .project-item:hover {
+            transform: scale(1.05);
+        }
+
+        .project-item .project-image {
+            height: 200px;
+            background: url('https://dummyimage.com/600x400/ccc/000&text=Project+Image') center/cover no-repeat;
+        }
+
+        .project-item .project-details {
+            padding: 1.5rem;
+            background-image: linear-gradient(to bottom, rgba(15, 15, 15, 0.8), #0f0f0f);
+        }
+
+        .project-item h3 {
+            margin-top: 0;
+            font-size: 1.5rem;
+            color: #fff;
+        }
+
+        .project-item p {
+            margin-bottom: 1.5rem;
+            font-size: 1rem;
+            color: #ccc;
+        }
+
+        .project-item a {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            background-color: #7b1fa2;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 0.5rem;
+            transition: background-color 0.3s ease;
+        }
+
+        .project-item a:hover {
+            background-color: #9c27b0;
+        }
+
+        /* Skill Galaxy */
+        .skill-galaxy {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 6rem;
+            position: relative;
+        }
+
+        .skill-item {
+            position: absolute;
+            width: 80px;
+            height: 80px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: #fff;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+            cursor: pointer;
+            transition: transform 0.3s ease, background-color 0.3s ease;
+        }
+
+        .skill-item:hover {
+            transform: scale(1.2);
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .skill-item .skill-tooltip {
+            position: absolute;
+            background-color: rgba(15, 15, 15, 0.8);
+            backdrop-filter: blur(10px);
+            padding: 0.5rem 1rem;
+            border-radius: 0.5rem;
+            font-size: 0.9rem;
+            color: #fff;
+            white-space: nowrap;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+        }
+
+        .skill-item:hover .skill-tooltip {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        /* Contact Form */
+        .contact-form {
+            margin-top: 6rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+
+        .contact-form-container {
+            background-color: rgba(15, 15, 15, 0.8);
+            backdrop-filter: blur(10px);
+            padding: 2rem;
+            border-radius: 1rem;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+            width: 400px;
+            position: relative;
+            z-index: 10;
+        }
+
+        .contact-form-container h2 {
+            text-align: center;
+            margin-top: 0;
+            font-size: 2rem;
+            color: #fff;
+        }
+
+        .contact-form-container input,
+        .contact-form-container textarea {
+            width: 100%;
+            padding: 0.8rem 1rem;
+            margin-bottom: 1.5rem;
+            background-color: rgba(255, 255, 255, 0.1);
+            border: none;
+            border-radius: 0.5rem;
+            color: #fff;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1rem;
+            outline: none;
+            transition: background-color 0.3s ease;
+        }
+
+        .contact-form-container input:focus,
+        .contact-form-container textarea:focus {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .contact-form-container button {
+            display: block;
+            width: 100%;
+            padding: 0.8rem 1rem;
+            background-color: #7b1fa2;
+            color: #fff;
+            border: none;
+            border-radius: 0.5rem;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .contact-form-container button:hover {
+            background-color: #9c27b0;
+        }
+
+        .contact-form-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://dummyimage.com/1200x500/ccc/000&text=Cosmic+Vortex') center/cover no-repeat;
+            filter: blur(20px);
+            z-index: 1;
+        }
+    </style>
+</head>
+<body>
+    <div class="nav">
+        <a href="#">Home</a>
+        <a href="#">Projects</a>
+        <a href="#">Skills</a>
+        <a href="#">Contact</a>
+    </div>
+
+    <div class="container">
+        <!-- Project Showcase -->
+        <h2 style="text-align: center; font-size: 2.5rem; margin-bottom: 2rem;">Project Showcase</h2>
+        <div class="project-showcase">
+            <div class="project-item">
+                <div class="project-image"></div>
+                <div class="project-details">
+                    <h3>Project 1</h3>
+                    <p>A brief description of the project.</p>
+                    <a href="#">View Project</a>
+                </div>
+            </div>
+            <div class="project-item">
+                <div class="project-image"></div>
+                <div class="project-details">
+                    <h3>Project 2</h3>
+                    <p>A brief description of the project.</p>
+                    <a href="#">View Project</a>
+                </div>
+            </div>
+            <div class="project-item">
+                <div class="project-image"></div>
+                <div class="project-details">
+                    <h3>Project 3</h3>
+                    <p>A brief description of the project.</p>
+                    <a href="#">View Project</a>
+                </div>
+            </div>
+            <div class="project-item">
+                <div class="project-image"></div>
+                <div class="project-details">
+                    <h3>Project 4</h3>
+                    <p>A brief description of the project.</p>
+                    <a href="#">View Project</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Skill Galaxy -->
+        <h2 style="text-align: center; font-size: 2.5rem; margin-top: 6rem; margin-bottom: 2rem;">Skill Galaxy</h2>
+        <div class="skill-galaxy">
+            <div class="skill-item" style="top: 20%; left: 10%;">
+                <span>HTML</span>
+                <div class="skill-tooltip">Expertise in HTML</div>
+            </div>
+            <div class="skill-item" style="top: 30%; left: 30%;">
+                <span>CSS</span>
+                <div class="skill-tooltip">Expertise in CSS</div>
+            </div>
+            <div class="skill-item" style="top: 40%; left: 50%;">
+                <span>JavaScript</span>
+                <div class="skill-tooltip">Expertise in JavaScript</div>
+            </div>
+            <div class="skill-item" style="top: 50%; left: 70%;">
+                <span>Node.js</span>
+                <div class="skill-tooltip">Expertise in Node.js</div>
+            </div>
+            <div class="skill-item" style="top: 60%; left: 90%;">
+                <span>MongoDB</span>
+                <div class="skill-tooltip">Expertise in MongoDB</div>
+            </div>
+        </div>
+
+        <!-- Contact Form -->
+        <h2 style="text-align: center; font-size: 2.5rem; margin-top: 6rem; margin-bottom: 2rem;">Contact Me</h2>
+        <div class="contact-form">
+            <div class="contact-form-container">
+                <h2>Get in Touch</h2>
+                <form>
+                    <input type="text" placeholder="Name" required>
+                    <input type="email" placeholder="Email" required>
+                    <textarea placeholder="Message" rows="4" required></textarea>
+                    <button type="submit">Submit</button>
+                </form>
+            </div>
+            <div class="contact-form-bg"></div>
+        </div>
+    </div>
+</body>
+</html>'<!-- Visit: https://github.com/Ishanoshada/portflair -->
+<!-- Visit: https://github.com/Ishanoshada/portflair -->

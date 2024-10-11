@@ -1,0 +1,433 @@
+<!-- Portfolio created by Ishan -->
+<!-- Check out my work at: https://github.com/Ishanoshada/portflair -->
+<!-- 2024/10/9 -->
+<!-- Portfolio created by Ishan -->
+'<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Black Hole Portfolio</title>
+  <style>
+    /* Global Styles */
+    @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
+    
+    body {
+      font-family: 'Orbitron', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #000;
+      color: #fff;
+      overflow-x: hidden;
+    }
+    
+    /* Navbar Styles */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 50px;
+      background-color: rgba(0, 0, 0, 0.5);
+      backdrop-filter: blur(10px);
+      position: relative;
+      z-index: 1;
+    }
+    
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      margin: 0 20px;
+      font-size: 18px;
+      position: relative;
+      transition: color 0.3s ease;
+    }
+    
+    nav a:after {
+      content: "";
+      position: absolute;
+      width: 0;
+      height: 2px;
+      background-color: #9b59b6;
+      bottom: -5px;
+      left: 50%;
+      transform: translateX(-50%);
+      transition: width 0.3s ease;
+    }
+    
+    nav a:hover {
+      color: #9b59b6;
+    }
+    
+    nav a:hover:after {
+      width: 100%;
+    }
+    
+    /* Hero Section Styles */
+    .hero {
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .hero-background {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: url("https://dummyimage.com/1920x1080/000/fff.jpg&text=Black+Hole");
+      background-size: cover;
+      background-position: center;
+      z-index: -1;
+      animation: blackHoleZoom 30s ease infinite;
+    }
+    
+    .hero-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.8));
+      z-index: -1;
+    }
+    
+    .hero-content {
+      text-align: center;
+      z-index: 1;
+      animation: heroFadeIn 1s ease-in-out;
+    }
+    
+    .hero-content h1 {
+      font-size: 60px;
+      font-weight: 700;
+      margin-bottom: 10px;
+      text-shadow: 0 0 20px #9b59b6, 0 0 40px #9b59b6, 0 0 60px #9b59b6;
+      animation: heroTextGlow 2s ease-in-out infinite;
+    }
+    
+    .hero-content p {
+      font-size: 24px;
+      margin-top: 0;
+      text-shadow: 0 0 10px #9b59b6;
+    }
+    
+    /* Project Galaxies Section Styles */
+    .project-galaxies {
+      padding: 100px 50px;
+      background-color: #0c0c0c;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .project-galaxies-background {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: url("https://dummyimage.com/1920x1080/0c0c0c/fff.jpg&text=Cosmic+Landscape");
+      background-size: cover;
+      background-position: center;
+      z-index: -1;
+      animation: galaxyAnimation 60s ease infinite;
+    }
+    
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-gap: 50px;
+      animation: projectFadeIn 1s ease-in-out;
+    }
+    
+    .project-card {
+      background-color: rgba(0, 0, 0, 0.5);
+      backdrop-filter: blur(10px);
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 0 20px rgba(155, 89, 182, 0.5);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .project-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 0 40px rgba(155, 89, 182, 0.8);
+    }
+    
+    .project-card h3 {
+      font-size: 24px;
+      margin-top: 0;
+      text-shadow: 0 0 10px #9b59b6;
+    }
+    
+    .project-card p {
+      font-size: 16px;
+      margin-bottom: 20px;
+      text-shadow: 0 0 5px #9b59b6;
+    }
+    
+    .project-card a {
+      color: #9b59b6;
+      text-decoration: none;
+      font-size: 18px;
+      position: relative;
+      transition: color 0.3s ease;
+    }
+    
+    .project-card a:after {
+      content: "";
+      position: absolute;
+      width: 0;
+      height: 2px;
+      background-color: #9b59b6;
+      bottom: -5px;
+      left: 50%;
+      transform: translateX(-50%);
+      transition: width 0.3s ease;
+    }
+    
+    .project-card a:hover {
+      color: #fff;
+    }
+    
+    .project-card a:hover:after {
+      width: 100%;
+    }
+    
+    /* Contact Form Section Styles */
+    .contact-form {
+      padding: 100px 50px;
+      background-color: #0c0c0c;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .contact-form-background {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: url("https://dummyimage.com/1920x1080/0c0c0c/fff.jpg&text=Neon+Backdrop");
+      background-size: cover;
+      background-position: center;
+      z-index: -1;
+      animation: neonBackgroundAnimation 10s ease infinite;
+    }
+    
+    .contact-form-content {
+      max-width: 600px;
+      margin: 0 auto;
+      background-color: rgba(0, 0, 0, 0.7);
+      backdrop-filter: blur(10px);
+      padding: 50px;
+      border-radius: 10px;
+      box-shadow: 0 0 20px rgba(155, 89, 182, 0.5);
+      animation: formFadeIn 1s ease-in-out;
+    }
+    
+    .contact-form-content h2 {
+      font-size: 36px;
+      margin-top: 0;
+      text-shadow: 0 0 10px #9b59b6;
+    }
+    
+    .contact-form-content form {
+      display: flex;
+      flex-direction: column;
+    }
+    
+    .contact-form-content input,
+    .contact-form-content textarea {
+      padding: 15px;
+      margin-bottom: 20px;
+      border: none;
+      border-radius: 5px;
+      background-color: rgba(255, 255, 255, 0.1);
+      color: #fff;
+      font-size: 16px;
+      font-family: 'Orbitron', sans-serif;
+      transition: box-shadow 0.3s ease;
+    }
+    
+    .contact-form-content input:focus,
+    .contact-form-content textarea:focus {
+      outline: none;
+      box-shadow: 0 0 20px rgba(155, 89, 182, 0.8);
+    }
+    
+    .contact-form-content button {
+      padding: 15px 30px;
+      background-color: #9b59b6;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      font-size: 18px;
+      font-family: 'Orbitron', sans-serif;
+      cursor: pointer;
+      transition: background-color 0.3s ease, transform 0.3s ease;
+    }
+    
+    .contact-form-content button:hover {
+      background-color: #8e44ad;
+      transform: translateY(-5px);
+    }
+    
+    /* Animations */
+    @keyframes blackHoleZoom {
+      0% {
+        transform: scale(1);
+      }
+      50% {
+        transform: scale(1.1);
+      }
+      100% {
+        transform: scale(1);
+      }
+    }
+    
+    @keyframes heroFadeIn {
+      0% {
+        opacity: 0;
+        transform: translateY(50px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
+    @keyframes heroTextGlow {
+      0% {
+        text-shadow: 0 0 20px #9b59b6, 0 0 40px #9b59b6, 0 0 60px #9b59b6;
+      }
+      50% {
+        text-shadow: 0 0 30px #9b59b6, 0 0 50px #9b59b6, 0 0 70px #9b59b6;
+      }
+      100% {
+        text-shadow: 0 0 20px #9b59b6, 0 0 40px #9b59b6, 0 0 60px #9b59b6;
+      }
+    }
+    
+    @keyframes galaxyAnimation {
+      0% {
+        background-position: center;
+      }
+      50% {
+        background-position: 10% 90%;
+      }
+      100% {
+        background-position: center;
+      }
+    }
+    
+    @keyframes projectFadeIn {
+      0% {
+        opacity: 0;
+        transform: translateY(50px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
+    @keyframes neonBackgroundAnimation {
+      0% {
+        background-position: center;
+      }
+      50% {
+        background-position: 90% 10%;
+      }
+      100% {
+        background-position: center;
+      }
+    }
+    
+    @keyframes formFadeIn {
+      0% {
+        opacity: 0;
+        transform: translateY(50px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="#">Home</a>
+    <a href="#">About</a>
+    <a href="#">Projects</a>
+    <a href="#">Contact</a>
+  </nav>
+
+  <div class="hero">
+    <div class="hero-background"></div>
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <h1>John Doe</h1>
+      <p>Backend Developer</p>
+      <p>Exploring the event horizon of innovation</p>
+    </div>
+  </div>
+
+  <div class="project-galaxies">
+    <div class="project-galaxies-background"></div>
+    <div class="project-grid">
+      <div class="project-card">
+        <h3>Project Galaxy 1</h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+        <a href="#">Learn More</a>
+      </div>
+      <div class="project-card">
+        <h3>Project Galaxy 2</h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+        <a href="#">Learn More</a>
+      </div>
+      <div class="project-card">
+        <h3>Project Galaxy 3</h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+        <a href="#">Learn More</a>
+      </div>
+      <div class="project-card">
+        <h3>Project Galaxy 4</h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+        <a href="#">Learn More</a>
+      </div>
+      <div class="project-card">
+        <h3>Project Galaxy 5</h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+        <a href="#">Learn More</a>
+      </div>
+      <div class="project-card">
+        <h3>Project Galaxy 6</h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+        <a href="#">Learn More</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="contact-form">
+    <div class="contact-form-background"></div>
+    <div class="contact-form-content">
+      <h2>Get in Touch</h2>
+      <form>
+        <input type="text" placeholder="Name" required>
+        <input type="email" placeholder="Email" required>
+        <textarea placeholder="Message" rows="5" required></textarea>
+        <button type="submit">Send</button>
+      </form>
+    </div>
+  </div>
+</body>
+</html>'<!-- Visit: https://github.com/Ishanoshada/portflair -->
+<!-- Visit: https://github.com/Ishanoshada/portflair -->

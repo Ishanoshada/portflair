@@ -1,0 +1,376 @@
+<!-- Portfolio created by Ishan -->
+<!-- Check out my work at: https://github.com/Ishanoshada/portflair -->
+<!-- 2024/10/9 -->
+<!-- Portfolio created by Ishan -->
+'<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Black Hole Portfolio</title>
+  <style>
+    /* General Styles */
+    body {
+      font-family: 'Orbitron', sans-serif;
+      margin: 0;
+      padding: 0;
+      background: radial-gradient(ellipse at center, #0c0c0c 0%, #000000 100%);
+      color: #fff;
+    }
+
+    /* Navigation */
+    nav {
+      display: flex;
+      justify-content: center;
+      padding: 20px 0;
+      font-size: 18px;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+    }
+
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      margin: 0 20px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    nav a:before {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background-color: #9b59b6;
+      transform: translateX(-100%);
+      transition: transform 0.3s ease-in-out;
+    }
+
+    nav a:hover:before {
+      transform: translateX(0);
+    }
+
+    /* Project Galaxies */
+    .project-galaxies {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      grid-gap: 30px;
+      padding: 50px;
+    }
+
+    .project-galaxy {
+      position: relative;
+      overflow: hidden;
+      border-radius: 10px;
+      box-shadow: 0 0 20px rgba(155, 89, 182, 0.5);
+      cursor: pointer;
+    }
+
+    .project-galaxy:before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(circle, #9b59b6, #2980b9);
+      opacity: 0.3;
+      z-index: 1;
+      transition: opacity 0.3s ease-in-out;
+    }
+
+    .project-galaxy:hover:before {
+      opacity: 0.7;
+    }
+
+    .project-galaxy img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      transition: transform 0.3s ease-in-out;
+    }
+
+    .project-galaxy:hover img {
+      transform: scale(1.1);
+    }
+
+    .project-galaxy-info {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      padding: 20px;
+      background-color: rgba(0, 0, 0, 0.7);
+      z-index: 2;
+      transition: transform 0.3s ease-in-out;
+    }
+
+    .project-galaxy:hover .project-galaxy-info {
+      transform: translateY(0);
+    }
+
+    .project-galaxy-info h3 {
+      margin: 0;
+      font-size: 18px;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+    }
+
+    .project-galaxy-info p {
+      margin: 10px 0 0;
+      font-size: 14px;
+      line-height: 1.4;
+    }
+
+    /* Skills and Expertise */
+    .skills-expertise {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      grid-gap: 30px;
+      padding: 50px;
+    }
+
+    .skill-module {
+      position: relative;
+      background-color: rgba(0, 0, 0, 0.5);
+      border-radius: 10px;
+      box-shadow: 0 0 20px rgba(155, 89, 182, 0.5);
+      padding: 30px;
+      text-align: center;
+      overflow: hidden;
+    }
+
+    .skill-module:before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(circle, #9b59b6, #2980b9);
+      opacity: 0.3;
+      z-index: 1;
+      transition: opacity 0.3s ease-in-out;
+    }
+
+    .skill-module:hover:before {
+      opacity: 0.7;
+    }
+
+    .skill-module i {
+      font-size: 48px;
+      color: #9b59b6;
+      margin-bottom: 20px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .skill-module h3 {
+      margin: 0;
+      font-size: 18px;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .skill-module p {
+      margin: 10px 0 0;
+      font-size: 14px;
+      line-height: 1.4;
+      position: relative;
+      z-index: 2;
+    }
+
+    /* Neon Contact Form */
+    .neon-contact-form {
+      background-color: rgba(0, 0, 0, 0.7);
+      padding: 50px;
+      border-radius: 10px;
+      box-shadow: 0 0 20px rgba(155, 89, 182, 0.5);
+    }
+
+    .neon-contact-form h2 {
+      margin-top: 0;
+      font-size: 24px;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      text-align: center;
+    }
+
+    .neon-contact-form form {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-gap: 20px;
+    }
+
+    .neon-contact-form .form-group {
+      position: relative;
+    }
+
+    .neon-contact-form .form-group label {
+      position: absolute;
+      top: 50%;
+      left: 20px;
+      transform: translateY(-50%);
+      font-size: 14px;
+      color: #9b59b6;
+      transition: all 0.3s ease-in-out;
+    }
+
+    .neon-contact-form .form-group input,
+    .neon-contact-form .form-group textarea {
+      width: 100%;
+      padding: 15px 20px;
+      background-color: transparent;
+      border: 2px solid #9b59b6;
+      border-radius: 5px;
+      color: #fff;
+      font-family: 'Orbitron', sans-serif;
+      font-size: 16px;
+      transition: all 0.3s ease-in-out;
+    }
+
+    .neon-contact-form .form-group input:focus,
+    .neon-contact-form .form-group textarea:focus {
+      outline: none;
+      border-color: #fff;
+    }
+
+    .neon-contact-form .form-group input:focus + label,
+    .neon-contact-form .form-group textarea:focus + label,
+    .neon-contact-form .form-group input:not(:placeholder-shown) + label,
+    .neon-contact-form .form-group textarea:not(:placeholder-shown) + label {
+      top: 0;
+      left: 10px;
+      font-size: 12px;
+      background-color: #000;
+      padding: 0 5px;
+    }
+
+    .neon-contact-form button {
+      grid-column: 1 / -1;
+      background-color: #9b59b6;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      padding: 15px 30px;
+      font-family: 'Orbitron', sans-serif;
+      font-size: 16px;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      cursor: pointer;
+      transition: background-color 0.3s ease-in-out;
+    }
+
+    .neon-contact-form button:hover {
+      background-color: #8e44ad;
+    }
+
+    /* Media Queries */
+    @media (max-width: 768px) {
+      nav {
+        font-size: 16px;
+      }
+
+      .project-galaxies,
+      .skills-expertise {
+        grid-template-columns: 1fr;
+      }
+
+      .neon-contact-form form {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="#">Home</a>
+    <a href="#">Projects</a>
+    <a href="#">Skills</a>
+    <a href="#">Contact</a>
+  </nav>
+
+  <section class="project-galaxies">
+    <div class="project-galaxy">
+      <img src="https://dummyimage.com/600x400/ccc/000&text=Project+Galaxy+1" alt="Project Galaxy 1">
+      <div class="project-galaxy-info">
+        <h3>Project Galaxy 1</h3>
+        <p>A cosmic-themed backend application with vaporwave glitches and steampunk gears.</p>
+      </div>
+    </div>
+    <div class="project-galaxy">
+      <img src="https://dummyimage.com/600x400/ccc/000&text=Project+Galaxy+2" alt="Project Galaxy 2">
+      <div class="project-galaxy-info">
+        <h3>Project Galaxy 2</h3>
+        <p>A data visualization tool with a neon-infused dashboard and interactive charts.</p>
+      </div>
+    </div>
+    <div class="project-galaxy">
+      <img src="https://dummyimage.com/600x400/ccc/000&text=Project+Galaxy+3" alt="Project Galaxy 3">
+      <div class="project-galaxy-info">
+        <h3>Project Galaxy 3</h3>
+        <p>A real-time monitoring system with a steampunk-inspired user interface.</p>
+      </div>
+    </div>
+    <div class="project-galaxy">
+      <img src="https://dummyimage.com/600x400/ccc/000&text=Project+Galaxy+4" alt="Project Galaxy 4">
+      <div class="project-galaxy-info">
+        <h3>Project Galaxy 4</h3>
+        <p>A serverless platform with a cosmic-themed deployment and management console.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="skills-expertise">
+    <div class="skill-module">
+      <i class="fas fa-code"></i>
+      <h3>Backend Development</h3>
+      <p>Proficient in Node.js, Express, and other server-side technologies.</p>
+    </div>
+    <div class="skill-module">
+      <i class="fas fa-database"></i>
+      <h3>Database Management</h3>
+      <p>Experienced in working with SQL and NoSQL databases, including MongoDB and PostgreSQL.</p>
+    </div>
+    <div class="skill-module">
+      <i class="fas fa-cloud"></i>
+      <h3>Cloud Architecture</h3>
+      <p>Skilled in designing and deploying applications on cloud platforms like AWS and Google Cloud.</p>
+    </div>
+    <div class="skill-module">
+      <i class="fas fa-cog"></i>
+      <h3>Automation and DevOps</h3>
+      <p>Proficient in setting up CI/CD pipelines and automating deployment workflows.</p>
+    </div>
+  </section>
+
+  <section class="neon-contact-form">
+    <h2>Get in Touch</h2>
+    <form>
+      <div class="form-group">
+        <input type="text" id="name" placeholder=" " required>
+        <label for="name">Name</label>
+      </div>
+      <div class="form-group">
+        <input type="email" id="email" placeholder=" " required>
+        <label for="email">Email</label>
+      </div>
+      <div class="form-group">
+        <textarea id="message" rows="5" placeholder=" " required></textarea>
+        <label for="message">Message</label>
+      </div>
+      <button type="submit">Send Message</button>
+    </form>
+  </section>
+</body>
+</html>'<!-- Visit: https://github.com/Ishanoshada/portflair -->
+<!-- Visit: https://github.com/Ishanoshada/portflair -->

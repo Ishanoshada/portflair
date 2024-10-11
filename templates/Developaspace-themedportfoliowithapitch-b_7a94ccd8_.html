@@ -1,0 +1,440 @@
+<!-- Portfolio created by Ishan -->
+<!-- Check out my work at: https://github.com/Ishanoshada/portflair -->
+<!-- 2024/10/9 -->
+<!-- Portfolio created by Ishan -->
+'<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Develop a Space-Themed Portfolio</title>
+  <style>
+    /* Global Styles */
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Montserrat', sans-serif;
+      background-color: #000000;
+      color: #ffffff;
+      overflow-x: hidden;
+    }
+
+    /* Navbar Styles */
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 40px;
+      background-color: rgba(0, 0, 0, 0.7);
+      backdrop-filter: blur(10px);
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 100;
+    }
+
+    .navbar-brand {
+      font-size: 24px;
+      font-weight: 700;
+      background: linear-gradient(to right, #6b5b95, #9370db, #ba55d3);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .navbar-nav {
+      display: flex;
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .navbar-nav li {
+      margin-left: 20px;
+      font-size: 16px;
+      font-weight: 500;
+      transition: color 0.3s ease;
+    }
+
+    .navbar-nav li a {
+      color: #ffffff;
+      text-decoration: none;
+      background: linear-gradient(to right, #6b5b95, #9370db, #ba55d3);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .navbar-nav li a:hover {
+      background: linear-gradient(to right, #ba55d3, #9370db, #6b5b95);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    /* Hero Section Styles */
+    .hero-section {
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      background: url(https://dummyimage.com/1920x1080/000/fff.jpg&text=Space+Background) no-repeat center center fixed;
+      background-size: cover;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-section::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(ellipse at center, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 1) 100%);
+      z-index: 1;
+    }
+
+    .hero-content {
+      text-align: center;
+      position: relative;
+      z-index: 2;
+      animation: glowText 3s ease-in-out infinite;
+    }
+
+    .hero-content h1 {
+      font-size: 64px;
+      font-weight: 700;
+      background: linear-gradient(to right, #6b5b95, #9370db, #ba55d3);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 20px;
+    }
+
+    .hero-content p {
+      font-size: 24px;
+      font-weight: 400;
+      margin-bottom: 40px;
+    }
+
+    .hero-content .social-links a {
+      display: inline-block;
+      margin: 0 10px;
+      color: #ffffff;
+      font-size: 24px;
+      transition: color 0.3s ease;
+    }
+
+    .hero-content .social-links a:hover {
+      color: #ba55d3;
+    }
+
+    /* Skills Section Styles */
+    .skills-section {
+      padding: 80px 40px;
+      background-color: #0d0d0d;
+    }
+
+    .section-title {
+      font-size: 36px;
+      font-weight: 700;
+      text-align: center;
+      margin-bottom: 40px;
+      background: linear-gradient(to right, #6b5b95, #9370db, #ba55d3);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      grid-gap: 30px;
+    }
+
+    .skill-card {
+      background-color: rgba(255, 255, 255, 0.05);
+      padding: 30px;
+      border-radius: 10px;
+      text-align: center;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease;
+    }
+
+    .skill-card:hover {
+      transform: translateY(-10px);
+    }
+
+    .skill-card i {
+      font-size: 48px;
+      margin-bottom: 20px;
+      background: linear-gradient(to right, #6b5b95, #9370db, #ba55d3);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: glowIcon 2s ease-in-out infinite;
+    }
+
+    .skill-card h3 {
+      font-size: 24px;
+      font-weight: 600;
+      margin-bottom: 10px;
+      background: linear-gradient(to right, #6b5b95, #9370db, #ba55d3);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .skill-card p {
+      font-size: 16px;
+      font-weight: 400;
+      color: #cccccc;
+    }
+
+    /* Projects Section Styles */
+    .projects-section {
+      padding: 80px 40px;
+      background-color: #0d0d0d;
+    }
+
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      grid-gap: 30px;
+    }
+
+    .project-card {
+      position: relative;
+      overflow: hidden;
+      border-radius: 10px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      cursor: pointer;
+    }
+
+    .project-card img {
+      width: 100%;
+      height: 300px;
+      object-fit: cover;
+      transition: transform 0.3s ease;
+    }
+
+    .project-card:hover img {
+      transform: scale(1.1);
+    }
+
+    .project-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(to right, rgba(107, 91, 149, 0.8), rgba(147, 112, 219, 0.8), rgba(186, 85, 211, 0.8));
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .project-card:hover .project-overlay {
+      opacity: 1;
+    }
+
+    .project-overlay h3 {
+      font-size: 24px;
+      font-weight: 600;
+      margin-bottom: 10px;
+      color: #ffffff;
+    }
+
+    .project-overlay p {
+      font-size: 16px;
+      font-weight: 400;
+      color: #ffffff;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .project-overlay a {
+      display: inline-block;
+      padding: 10px 20px;
+      font-size: 16px;
+      font-weight: 500;
+      background: linear-gradient(to right, #6b5b95, #9370db, #ba55d3);
+      color: #ffffff;
+      text-decoration: none;
+      border-radius: 5px;
+      transition: background 0.3s ease;
+    }
+
+    .project-overlay a:hover {
+      background: linear-gradient(to right, #ba55d3, #9370db, #6b5b95);
+    }
+
+    /* Animations */
+    @keyframes glowText {
+      0% {
+        text-shadow: 0 0 10px rgba(107, 91, 149, 0.8), 0 0 20px rgba(147, 112, 219, 0.8), 0 0 30px rgba(186, 85, 211, 0.8);
+      }
+      50% {
+        text-shadow: 0 0 20px rgba(107, 91, 149, 0.8), 0 0 30px rgba(147, 112, 219, 0.8), 0 0 40px rgba(186, 85, 211, 0.8);
+      }
+      100% {
+        text-shadow: 0 0 10px rgba(107, 91, 149, 0.8), 0 0 20px rgba(147, 112, 219, 0.8), 0 0 30px rgba(186, 85, 211, 0.8);
+      }
+    }
+
+    @keyframes glowIcon {
+      0% {
+        text-shadow: 0 0 10px rgba(107, 91, 149, 0.8), 0 0 20px rgba(147, 112, 219, 0.8), 0 0 30px rgba(186, 85, 211, 0.8);
+      }
+      50% {
+        text-shadow: 0 0 20px rgba(107, 91, 149, 0.8), 0 0 30px rgba(147, 112, 219, 0.8), 0 0 40px rgba(186, 85, 211, 0.8);
+      }
+      100% {
+        text-shadow: 0 0 10px rgba(107, 91, 149, 0.8), 0 0 20px rgba(147, 112, 219, 0.8), 0 0 30px rgba(186, 85, 211, 0.8);
+      }
+    }
+
+    /* Responsive Styles */
+    @media (max-width: 768px) {
+      .navbar {
+        padding: 15px 20px;
+      }
+
+      .navbar-brand {
+        font-size: 20px;
+      }
+
+      .navbar-nav li {
+        margin-left: 15px;
+        font-size: 14px;
+      }
+
+      .hero-content h1 {
+        font-size: 48px;
+      }
+
+      .hero-content p {
+        font-size: 18px;
+      }
+
+      .section-title {
+        font-size: 30px;
+      }
+
+      .skill-card i {
+        font-size: 36px;
+      }
+
+      .skill-card h3 {
+        font-size: 20px;
+      }
+
+      .skill-card p {
+        font-size: 14px;
+      }
+
+      .project-overlay h3 {
+        font-size: 20px;
+      }
+
+      .project-overlay p {
+        font-size: 14px;
+      }
+
+      .project-overlay a {
+        font-size: 14px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav class="navbar">
+    <div class="navbar-brand">Develop a Space-Themed Portfolio</div>
+    <ul class="navbar-nav">
+      <li><a href="#">Home</a></li>
+      <li><a href="#">Skills</a></li>
+      <li><a href="#">Projects</a></li>
+      <li><a href="#">Contact</a></li>
+    </ul>
+  </nav>
+
+  <section class="hero-section">
+    <div class="hero-content">
+      <h1>Welcome to My Space-Themed Portfolio</h1>
+      <p>Explore my cosmic creations and discover my out-of-this-world expertise.</p>
+      <div class="social-links">
+        <a href="#"><i class="fab fa-github"></i></a>
+        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+        <a href="#"><i class="fab fa-twitter"></i></a>
+      </div>
+    </div>
+  </section>
+
+  <section class="skills-section">
+    <h2 class="section-title">My Cosmic Skills</h2>
+    <div class="skills-grid">
+      <div class="skill-card">
+        <i class="fas fa-code"></i>
+        <h3>Web Development</h3>
+        <p>Crafting out-of-this-world websites and web applications.</p>
+      </div>
+      <div class="skill-card">
+        <i class="fas fa-palette"></i>
+        <h3>UI/UX Design</h3>
+        <p>Designing user experiences that are truly stellar.</p>
+      </div>
+      <div class="skill-card">
+        <i class="fas fa-rocket"></i>
+        <h3>Motion Graphics</h3>
+        <p>Bringing your ideas to life with cosmic animations.</p>
+      </div>
+      <div class="skill-card">
+        <i class="fas fa-telescope"></i>
+        <h3>Data Visualization</h3>
+        <p>Transforming data into captivating, celestial visualizations.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="projects-section">
+    <h2 class="section-title">My Galactic Projects</h2>
+    <div class="project-grid">
+      <div class="project-card">
+        <img src="https://dummyimage.com/600x400/000/fff.jpg&text=Project+1" alt="Project 1">
+        <div class="project-overlay">
+          <h3>Project 1</h3>
+          <p>A cosmic exploration of design and technology.</p>
+          <a href="#">View Project</a>
+        </div>
+      </div>
+      <div class="project-card">
+        <img src="https://dummyimage.com/600x400/000/fff.jpg&text=Project+2" alt="Project 2">
+        <div class="project-overlay">
+          <h3>Project 2</h3>
+          <p>Blending the digital and the celestial.</p>
+          <a href="#">View Project</a>
+        </div>
+      </div>
+      <div class="project-card">
+        <img src="https://dummyimage.com/600x400/000/fff.jpg&text=Project+3" alt="Project 3">
+        <div class="project-overlay">
+          <h3>Project 3</h3>
+          <p>Exploring the outer limits of creativity and innovation.</p>
+          <a href="#">View Project</a>
+        </div>
+      </div>
+      <div class="project-card">
+        <img src="https://dummyimage.com/600x400/000/fff.jpg&text=Project+4" alt="Project 4">
+        <div class="project-overlay">
+          <h3>Project 4</h3>
+          <p>Reaching for the stars with every pixel.</p>
+          <<a href="#">View Project</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Font Awesome Script -->
+  <script src="https://kit.fontawesome.com/your-font-awesome-kit.js" crossorigin="anonymous"></script>
+</body>
+</html>'<!-- Visit: https://github.com/Ishanoshada/portflair -->
+<!-- Visit: https://github.com/Ishanoshada/portflair -->

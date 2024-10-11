@@ -1,0 +1,589 @@
+<!-- Portfolio created by Ishan -->
+<!-- Check out my work at: https://github.com/Ishanoshada/portflair -->
+<!-- 2024/10/9 -->
+<!-- Portfolio created by Ishan -->
+'<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AnimateX - Web Animation Portfolio</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&family=Merriweather:wght@300;400;700&display=swap');
+
+        :root {
+            --primary-color: #0A192F;
+            --secondary-color: #64FFDA;
+            --text-color: #E6F1FF;
+            --accent-color: #FF6B6B;
+            --bg-light: #112240;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Merriweather', serif;
+            background-color: var(--primary-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        header {
+            background-color: rgba(10, 25, 47, 0.9);
+            padding: 20px 0;
+            position: relative;
+            z-index: 1000;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--secondary-color);
+            text-decoration: none;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .logo::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            height: 2px;
+            background-color: var(--secondary-color);
+            transform: translateX(-100%);
+            transition: transform 0.3s ease;
+        }
+
+        .logo:hover::after {
+            transform: translateX(0);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            color: var(--text-color);
+            text-decoration: none;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            font-size: 16px;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background-color: var(--secondary-color);
+            visibility: hidden;
+            transform: scaleX(0);
+            transition: all 0.3s ease-in-out;
+        }
+
+        .nav-links a:hover {
+            color: var(--secondary-color);
+        }
+
+        .nav-links a:hover::before {
+            visibility: visible;
+            transform: scaleX(1);
+        }
+
+        .hero {
+            height: calc(100vh - 80px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, rgba(10, 25, 47, 0.7), rgba(10, 25, 47, 0.3));
+            z-index: 1;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero h1 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 64px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 1s forwards 0.5s;
+        }
+
+        .hero p {
+            font-size: 24px;
+            margin-bottom: 40px;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 1s forwards 0.7s;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 15px 30px;
+            background-color: var(--secondary-color);
+            color: var(--primary-color);
+            text-decoration: none;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            font-size: 18px;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 1s forwards 0.9s;
+        }
+
+        .cta-button:hover {
+            background-color: var(--text-color);
+            color: var(--primary-color);
+            box-shadow: 0 5px 15px rgba(100, 255, 218, 0.4);
+        }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .portfolio {
+            padding: 100px 0;
+            background-color: var(--bg-light);
+        }
+
+        .portfolio h2 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 36px;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 50px;
+            color: var(--secondary-color);
+        }
+
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .portfolio-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .portfolio-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .portfolio-item img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: transform 0.3s ease;
+        }
+
+        .portfolio-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .portfolio-item-content {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(10, 25, 47, 0.9), rgba(10, 25, 47, 0));
+            padding: 20px;
+            transform: translateY(100%);
+            transition: transform 0.3s ease;
+        }
+
+        .portfolio-item:hover .portfolio-item-content {
+            transform: translateY(0);
+        }
+
+        .portfolio-item h3 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 24px;
+            margin-bottom: 10px;
+            color: var(--secondary-color);
+        }
+
+        .portfolio-item p {
+            font-size: 16px;
+            margin-bottom: 15px;
+        }
+
+        .portfolio-item a {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: var(--secondary-color);
+            color: var(--primary-color);
+            text-decoration: none;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            font-size: 16px;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+
+        .portfolio-item a:hover {
+            background-color: var(--text-color);
+            color: var(--primary-color);
+        }
+
+        .blog {
+            padding: 100px 0;
+            background-color: var(--primary-color);
+        }
+
+        .blog h2 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 36px;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 50px;
+            color: var(--secondary-color);
+        }
+
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .blog-card {
+            background-color: var(--bg-light);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .blog-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .blog-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .blog-content {
+            padding: 20px;
+        }
+
+        .blog-card h3 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 24px;
+            margin-bottom: 10px;
+            color: var(--secondary-color);
+        }
+
+        .blog-card p {
+            font-size: 16px;
+            margin-bottom: 15px;
+        }
+
+        .blog-card a {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: var(--secondary-color);
+            color: var(--primary-color);
+            text-decoration: none;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            font-size: 16px;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+
+        .blog-card a:hover {
+            background-color: var(--text-color);
+            color: var(--primary-color);
+        }
+
+        .timeline {
+            padding: 100px 0;
+            background-color: var(--bg-light);
+            overflow-x: hidden;
+        }
+
+        .timeline h2 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 36px;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 50px;
+            color: var(--secondary-color);
+        }
+
+        .timeline-container {
+            position: relative;
+            width: 100%;
+            height: 400px;
+        }
+
+        .timeline-line {
+            position: absolute;
+            top: 50%;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background-color: var(--secondary-color);
+            transform: translateY(-50%);
+        }
+
+        .timeline-item {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 20px;
+            height: 20px;
+            background-color: var(--secondary-color);
+            border-radius: 50%;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .timeline-item:hover {
+            transform: translateY(-50%) scale(1.2);
+            box-shadow: 0 0 15px var(--secondary-color);
+        }
+
+        .timeline-content {
+            position: absolute;
+            bottom: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: var(--primary-color);
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .timeline-item:hover .timeline-content {
+            opacity: 1;
+            visibility: visible;
+            bottom: calc(100% + 20px);
+        }
+
+        .timeline-content h3 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 20px;
+            margin-bottom: 10px;
+            color: var(--secondary-color);
+        }
+
+        .timeline-content p {
+            font-size: 14px;
+            margin-bottom: 0;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 48px;
+            }
+
+            .hero p {
+                font-size: 20px;
+            }
+
+            .portfolio-grid,
+            .blog-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .timeline-container {
+                height: 600px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="container">
+            <a href="#" class="logo">AnimateX</a>
+            <div class="nav-links">
+                <a href="#portfolio">Portfolio</a>
+                <a href="#blog">Blog</a>
+                <a href="#timeline">Timeline</a>
+                <a href="#contact">Contact</a>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="hero-content">
+                <h1>Bringing Ideas to Life</h1>
+                <p>Award-winning web animations that captivate and inspire</p>
+                <a href="#portfolio" class="cta-button">Explore My Work</a>
+            </div>
+        </section>
+
+        <section id="portfolio" class="portfolio">
+            <div class="container">
+                <h2>Featured Projects</h2>
+                <div class="portfolio-grid">
+                    <div class="portfolio-item">
+                        <img src="https://dummyimage.com/600x400/64FFDA/0A192F&text=Project+1" alt="Project 1">
+                        <div class="portfolio-item-content">
+                            <h3>Cosmic Journey</h3>
+                            <p>An immersive 3D space exploration experience</p>
+                            <a href="#">View Project</a>
+                        </div>
+                    </div>
+                    <div class="portfolio-item">
+                        <img src="https://dummyimage.com/600x400/FF6B6B/0A192F&text=Project+2" alt="Project 2">
+                        <div class="portfolio-item-content">
+                            <h3>Eco Warrior</h3>
+                            <p>Interactive educational game about sustainability</p>
+                            <a href="#">View Project</a>
+                        </div>
+                    </div>
+                    <div class="portfolio-item">
+                        <img src="https://dummyimage.com/600x400/4ECDC4/0A192F&text=Project+3" alt="Project 3">
+                        <div class="portfolio-item-content">
+                            <h3>Neon Nights</h3>
+                            <p>Vibrant motion graphics for a music festival</p>
+                            <a href="#">View Project</a href="#">View Project</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="blog" class="blog">
+            <div class="container">
+                <h2>Latest Insights</h2>
+                <div class="blog-grid">
+                    <div class="blog-card">
+                        <img src="https://dummyimage.com/600x400/64FFDA/0A192F&text=Blog+1" alt="Blog Post 1">
+                        <div class="blog-content">
+                            <h3>The Future of Web Animation</h3>
+                            <p>Exploring cutting-edge techniques and technologies shaping the industry.</p>
+                            <a href="#">Read More</a>
+                        </div>
+                    </div>
+                    <div class="blog-card">
+                        <img src="https://dummyimage.com/600x400/FF6B6B/0A192F&text=Blog+2" alt="Blog Post 2">
+                        <div class="blog-content">
+                            <h3>Optimizing Animations for Performance</h3>
+                            <p>Tips and tricks to create smooth, efficient animations that don't slow down your site.</p>
+                            <a href="#">Read More</a>
+                        </div>
+                    </div>
+                    <div class="blog-card">
+                        <img src="https://dummyimage.com/600x400/4ECDC4/0A192F&text=Blog+3" alt="Blog Post 3">
+                        <div class="blog-content">
+                            <h3>The Psychology of Motion in UX Design</h3>
+                            <p>Understanding how animation influences user perception and behavior.</p>
+                            <a href="#">Read More</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="timeline" class="timeline">
+            <div class="container">
+                <h2>My Journey</h2>
+                <div class="timeline-container">
+                    <div class="timeline-line"></div>
+                    <div class="timeline-item" style="left: 10%;">
+                        <div class="timeline-content">
+                            <h3>2018: First Animation Project</h3>
+                            <p>Created my first web animation for a local business.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item" style="left: 30%;">
+                        <div class="timeline-content">
+                            <h3>2019: Freelance Career Begins</h3>
+                            <p>Started taking on freelance projects and expanding my skills.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item" style="left: 50%;">
+                        <div class="timeline-content">
+                            <h3>2021: Award-Winning Project</h3>
+                            <p>Received industry recognition for an innovative interactive experience.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item" style="left: 70%;">
+                        <div class="timeline-content">
+                            <h3>2022: Launched Online Course</h3>
+                            <p>Created and launched a successful web animation course.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item" style="left: 90%;">
+                        <div class="timeline-content">
+                            <h3>2024: Major Client Partnership</h3>
+                            <p>Secured a long-term partnership with a Fortune 500 company.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer id="contact" style="background-color: var(--primary-color); color: var(--text-color); padding: 50px 0; text-align: center;">
+        <div class="container">
+            <h2 style="font-family: 'Montserrat', sans-serif; font-size: 36px; margin-bottom: 20px; color: var(--secondary-color);">Let's Create Something Amazing</h2>
+            <p style="font-size: 18px; margin-bottom: 30px;">Ready to bring your ideas to life? Get in touch!</p>
+            <a href="mailto:contact@animatex.com" style="display: inline-block; padding: 15px 30px; background-color: var(--secondary-color); color: var(--primary-color); text-decoration: none; font-family: 'Montserrat', sans-serif; font-weight: 600; font-size: 18px; border-radius: 5px; transition: all 0.3s ease;">Contact Me</a>
+        </div>
+    </footer>
+</body>
+</html>'<!-- Visit: https://github.com/Ishanoshada/portflair -->
+<!-- Visit: https://github.com/Ishanoshada/portflair -->

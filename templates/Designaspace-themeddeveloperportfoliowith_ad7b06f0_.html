@@ -1,0 +1,540 @@
+<!-- Portfolio created by Ishan -->
+<!-- Check out my work at: https://github.com/Ishanoshada/portflair -->
+<!-- 2024/10/9 -->
+<!-- Portfolio created by Ishan -->
+'<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Space-Themed Developer Portfolio</title>
+  <style>
+    /* Global Styles */
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Montserrat', sans-serif;
+      background-color: #080d19;
+      color: #fff;
+      overflow-x: hidden;
+    }
+
+    /* Navigation Styles */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 40px;
+      background-color: rgba(8, 13, 25, 0.8);
+      backdrop-filter: blur(10px);
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+    }
+
+    nav .logo {
+      font-size: 24px;
+      font-weight: bold;
+      background: linear-gradient(to right, #00d8ff, #9b59b6);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    nav ul {
+      display: flex;
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    nav ul li {
+      margin-left: 30px;
+    }
+
+    nav ul li a {
+      color: #fff;
+      text-decoration: none;
+      font-size: 16px;
+      transition: color 0.3s ease;
+    }
+
+    nav ul li a:hover {
+      color: #00d8ff;
+    }
+
+    /* Interactive Code Snippet Gallery Styles */
+    .code-snippet-gallery {
+      padding: 100px 40px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .code-snippet-gallery::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(ellipse at center, rgba(0, 216, 255, 0.1) 0%, rgba(155, 89, 182, 0.1) 100%);
+      z-index: -1;
+    }
+
+    .code-snippet-gallery h2 {
+      font-size: 36px;
+      font-weight: bold;
+      margin-bottom: 40px;
+      background: linear-gradient(to right, #00d8ff, #9b59b6);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .code-snippet-container {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-gap: 40px;
+      width: 100%;
+      max-width: 1200px;
+    }
+
+    .code-snippet {
+      position: relative;
+      background-color: rgba(255, 255, 255, 0.1);
+      border-radius: 10px;
+      padding: 20px;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+
+    .code-snippet:hover {
+      transform: translateY(-10px);
+    }
+
+    .code-snippet::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(circle at center, rgba(0, 216, 255, 0.3) 0%, rgba(155, 89, 182, 0.3) 100%);
+      border-radius: 10px;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .code-snippet:hover::before {
+      opacity: 1;
+    }
+
+    .code-snippet pre {
+      margin: 0;
+      font-family: 'Fira Code', monospace;
+      font-size: 14px;
+      color: #fff;
+      white-space: pre-wrap;
+      word-break: break-all;
+    }
+
+    /* Project Showcase Styles */
+    .project-showcase {
+      padding: 100px 40px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .project-showcase::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(ellipse at center, rgba(0, 216, 255, 0.1) 0%, rgba(155, 89, 182, 0.1) 100%);
+      z-index: -1;
+    }
+
+    .project-showcase h2 {
+      font-size: 36px;
+      font-weight: bold;
+      margin-bottom: 40px;
+      background: linear-gradient(to right, #00d8ff, #9b59b6);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .project-container {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-gap: 40px;
+      width: 100%;
+      max-width: 1200px;
+    }
+
+    .project {
+      position: relative;
+      background-color: rgba(255, 255, 255, 0.1);
+      border-radius: 10px;
+      padding: 20px;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+
+    .project:hover {
+      transform: translateY(-10px);
+    }
+
+    .project::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(circle at center, rgba(0, 216, 255, 0.3) 0%, rgba(155, 89, 182, 0.3) 100%);
+      border-radius: 10px;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .project:hover::before {
+      opacity: 1;
+    }
+
+    .project h3 {
+      font-size: 20px;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+
+    .project p {
+      font-size: 16px;
+      margin-bottom: 20px;
+    }
+
+    .project-details {
+      display: none;
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: rgba(8, 13, 25, 0.9);
+      backdrop-filter: blur(10px);
+      padding: 40px;
+      border-radius: 10px;
+      width: 80%;
+      max-width: 800px;
+      z-index: 200;
+    }
+
+    .project-details.show {
+      display: block;
+    }
+
+    .project-details h3 {
+      font-size: 24px;
+      font-weight: bold;
+      margin-bottom: 20px;
+    }
+
+    .project-details p {
+      font-size: 16px;
+      margin-bottom: 20px;
+    }
+
+    .project-details img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 10px;
+      margin-bottom: 20px;
+    }
+
+    .project-details .close-btn {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      font-size: 24px;
+      cursor: pointer;
+    }
+
+    /* About Me Section Styles */
+    .about-me {
+      padding: 100px 40px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .about-me::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(ellipse at center, rgba(0, 216, 255, 0.1) 0%, rgba(155, 89, 182, 0.1) 100%);
+      z-index: -1;
+    }
+
+    .about-me h2 {
+      font-size: 36px;
+      font-weight: bold;
+      margin-bottom: 40px;
+      background: linear-gradient(to right, #00d8ff, #9b59b6);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .about-me-content {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      max-width: 1200px;
+    }
+
+    .about-me-content img {
+      width: 300px;
+      height: 300px;
+      border-radius: 50%;
+      margin-right: 40px;
+      box-shadow: 0 0 20px rgba(0, 216, 255, 0.5);
+    }
+
+    .about-me-text {
+      flex: 1;
+    }
+
+    .about-me-text h3 {
+      font-size: 24px;
+      font-weight: bold;
+      margin-bottom: 20px;
+    }
+
+    .about-me-text p {
+      font-size: 16px;
+      line-height: 1.6;
+      margin-bottom: 20px;
+    }
+
+    .about-me-text button {
+      background-color: #00d8ff;
+      color: #080d19;
+      border: none;
+      border-radius: 20px;
+      padding: 10px 20px;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .about-me-text button:hover {
+      background-color: #9b59b6;
+    }
+
+    /* Responsive Styles */
+    @media (max-width: 1024px) {
+      .code-snippet-container,
+      .project-container {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .about-me-content {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .about-me-content img {
+        margin-right: 0;
+        margin-bottom: 40px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      nav {
+        padding: 15px 20px;
+      }
+
+      nav .logo {
+        font-size: 20px;
+      }
+
+      nav ul li {
+        margin-left: 20px;
+      }
+
+      nav ul li a {
+        font-size: 14px;
+      }
+
+      .code-snippet-gallery,
+      .project-showcase,
+      .about-me {
+        padding: 80px 20px;
+      }
+
+      .code-snippet-container,
+      .project-container {
+        grid-template-columns: 1fr;
+      }
+
+      .about-me-content img {
+        width: 200px;
+        height: 200px;
+      }
+
+      .about-me-text h3 {
+        font-size: 20px;
+      }
+
+      .about-me-text p {
+        font-size: 14px;
+      }
+
+      .about-me-text button {
+        font-size: 14px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="logo">Space Portfolio</div>
+    <ul>
+      <li><a href="#">Home</a></li>
+      <li><a href="#">Code Snippets</a></li>
+      <li><a href="#">Projects</a></li>
+      <li><a href="#">About</a></li>
+    </ul>
+  </nav>
+
+  <section class="code-snippet-gallery">
+    <h2>Interactive Code Snippet Gallery</h2>
+    <div class="code-snippet-container">
+      <div class="code-snippet">
+        <pre>
+function fibonacci(n) {
+  if (n <= 1) {
+    return n;
+  }
+  return fibonacci(n - 1) + fibonacci(n - 2);
+}
+        </pre>
+      </div>
+      <div class="code-snippet">
+        <pre>
+class Car {
+  constructor(make, model, year) {
+    this.make = make;
+    this.model = model;
+    this.year = year;
+  }
+
+  getDescription() {
+    return `This is a ${this.year} ${this.make} ${this.model}.`;
+  }
+}
+        </pre>
+      </div>
+      <div class="code-snippet">
+        <pre>
+const numbers = [1, 2, 3, 4, 5];
+
+const doubledNumbers = numbers.map(num => num * 2);
+
+console.log(doubledNumbers); // Output: [2, 4, 6, 8, 10]
+        </pre>
+      </div>
+      <div class="code-snippet">
+        <pre>
+const fruits = ['apple', 'banana', 'orange'];
+
+const longerThanFour = fruits.filter(fruit => fruit.length > 4);
+
+console.log(longerThanFour); // Output: ['banana', 'orange']
+        </pre>
+      </div>
+      <div class="code-snippet">
+        <pre>
+const numbers = [1, 2, 3, 4, 5];
+
+const sum = numbers.reduce((acc, curr) => acc + curr, 0);
+
+console.log(sum); // Output: 15
+        </pre>
+      </div>
+      <div class="code-snippet">
+        <pre>
+const person = {
+  name: 'John Doe',
+  age: 30,
+  occupation: 'Software Engineer'
+};
+
+const { name, age, occupation } = person;
+
+console.log(name); // Output: 'John Doe'
+console.log(age); // Output: 30
+console.log(occupation); // Output: 'Software Engineer'
+        </pre>
+      </div>
+    </div>
+  </section>
+
+  <section class="project-showcase">
+    <h2>Project Showcase</h2>
+    <div class="project-container">
+      <div class="project">
+        <h3>Space Exploration App</h3>
+        <p>A comprehensive app for exploring the wonders of the cosmos.</p>
+        <img src="https://dummyimage.com/400x300/ccc/000&text=Space+Exploration+App" alt="Space Exploration App">
+      </div>
+      <div class="project">
+        <h3>Celestial Navigation System</h3>
+        <p>A cutting-edge navigation tool for interstellar travel.</p>
+        <img src="https://dummyimage.com/400x300/ccc/000&text=Celestial+Navigation+System" alt="Celestial Navigation System">
+      </div>
+      <div class="project">
+        <h3>Planetary Visualization Engine</h3>
+        <p>A powerful engine for rendering and exploring planetary environments.</p>
+        <img src="https://dummyimage.com/400x300/ccc/000&text=Planetary+Visualization+Engine" alt="Planetary Visualization Engine">
+      </div>
+      <div class="project-details">
+        <div class="close-btn">&#10006;</div>
+        <h3>Project Details<h3>Project Details</h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, nisl eget ultricies tincidunt, nisl nisl aliquam nisl, eget aliquam nisl nisl eget nisl. Sed euismod, nisl eget ultricies tincidunt, nisl nisl aliquam nisl, eget aliquam nisl nisl eget nisl.</p>
+        <img src="https://dummyimage.com/600x400/ccc/000&text=Project+Screenshot" alt="Project Screenshot">
+        <p>Tech Stack: JavaScript, React, Three.js</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="about-me">
+    <h2>About Me</h2>
+    <div class="about-me-content">
+      <img src="https://dummyimage.com/300x300/ccc/000&text=Developer+Avatar" alt="Developer Avatar">
+      <div class="about-me-text">
+        <h3>John Doe, Space-Themed Developer</h3>
+        <p>Hi there! I'm a passionate space-themed developer with a deep love for the cosmos and a knack for creating visually stunning and interactive experiences. My journey has taken me through the vast expanse of coding, where I've honed my skills in languages like JavaScript, Python, and Rust, as well as frameworks like React, Three.js, and Unity.</p>
+        <p>I'm particularly fascinated by the intersection of technology and the wonders of the universe, and I strive to bring that wonder to life through my projects. Whether it's building a captivating space exploration app, designing a cutting-edge celestial navigation system, or developing a mesmerizing planetary visualization engine, I pour my heart and soul into every line of code.</p>
+        <button>Explore My Work</button>
+      </div>
+    </div>
+  </section>
+</body>
+</html>'<!-- Visit: https://github.com/Ishanoshada/portflair -->
+<!-- Visit: https://github.com/Ishanoshada/portflair -->

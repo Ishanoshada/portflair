@@ -1,0 +1,370 @@
+<!-- Portfolio created by Ishan -->
+<!-- Check out my work at: https://github.com/Ishanoshada/portflair -->
+<!-- 2024/10/9 -->
+<!-- Portfolio created by Ishan -->
+'<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Build an Immersive Portfolio</title>
+    <style>
+        /* Global Styles */
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #000;
+            color: #fff;
+        }
+
+        /* Navigation */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 40px;
+            background-color: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(10px);
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 100;
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 18px;
+            font-weight: 500;
+            margin-right: 30px;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: #7b68ee;
+        }
+
+        /* Interactive 3D Portfolio Showcase */
+        .portfolio-showcase {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .portfolio-showcase::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.2));
+            z-index: 1;
+        }
+
+        .portfolio-showcase .background-3d {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url(https://dummyimage.com/1920x1080/333/fff&text=3D+Background);
+            background-size: cover;
+            background-position: center;
+            transform: scale(1.1);
+            filter: blur(10px);
+            z-index: 0;
+        }
+
+        .portfolio-showcase h1 {
+            font-size: 60px;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 20px;
+            z-index: 2;
+        }
+
+        .portfolio-showcase p {
+            font-size: 20px;
+            text-align: center;
+            margin-bottom: 40px;
+            z-index: 2;
+        }
+
+        .portfolio-showcase .model-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            height: 500px;
+            z-index: 2;
+        }
+
+        .portfolio-showcase .model-container .model {
+            width: 300px;
+            height: 300px;
+            background-image: url(https://dummyimage.com/600x600/333/fff&text=3D+Model);
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+            transform-origin: center center;
+            transition: transform 0.5s ease;
+            cursor: pointer;
+        }
+
+        .portfolio-showcase .model-container .model:hover {
+            transform: scale(1.1) rotate(10deg);
+        }
+
+        /* Interactive Scrolling Storytelling */
+        .scrolling-storytelling {
+            padding: 100px 0;
+            background-color: #1a1a1a;
+            overflow-x: hidden;
+        }
+
+        .scrolling-storytelling .story-section {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 100px;
+        }
+
+        .scrolling-storytelling .story-section:nth-child(even) {
+            flex-direction: row-reverse;
+        }
+
+        .scrolling-storytelling .story-section .text-content {
+            flex: 1;
+            padding: 0 40px;
+        }
+
+        .scrolling-storytelling .story-section .text-content h2 {
+            font-size: 36px;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        .scrolling-storytelling .story-section .text-content p {
+            font-size: 18px;
+            line-height: 1.6;
+        }
+
+        .scrolling-storytelling .story-section .image-content {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .scrolling-storytelling .story-section .image-content img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+            transform-origin: center center;
+            transition: transform 0.5s ease;
+            cursor: pointer;
+        }
+
+        .scrolling-storytelling .story-section .image-content img:hover {
+            transform: scale(1.1) rotate(5deg);
+        }
+
+        /* Contact and Collaboration */
+        .contact-section {
+            padding: 100px 0;
+            background-color: #0f0f0f;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .contact-section h2 {
+            font-size: 36px;
+            font-weight: 700;
+            margin-bottom: 40px;
+        }
+
+        .contact-section form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 50%;
+        }
+
+        .contact-section form .form-group {
+            width: 100%;
+            margin-bottom: 20px;
+        }
+
+        .contact-section form .form-group label {
+            display: block;
+            font-size: 16px;
+            font-weight: 500;
+            margin-bottom: 10px;
+        }
+
+        .contact-section form .form-group input,
+        .contact-section form .form-group textarea {
+            width: 100%;
+            padding: 12px 16px;
+            font-size: 16px;
+            font-family: 'Poppins', sans-serif;
+            background-color: #1a1a1a;
+            color: #fff;
+            border: none;
+            border-radius: 6px;
+            transition: background-color 0.3s ease;
+        }
+
+        .contact-section form .form-group input:focus,
+        .contact-section form .form-group textarea:focus {
+            outline: none;
+            background-color: #333;
+        }
+
+        .contact-section form button {
+            padding: 12px 24px;
+            font-size: 16px;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 500;
+            background-color: #7b68ee;
+            color: #fff;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .contact-section form button:hover {
+            background-color: #6a5ac4;
+        }
+
+        /* Media Queries */
+        @media (max-width: 768px) {
+            nav {
+                padding: 15px 20px;
+            }
+
+            nav a {
+                font-size: 16px;
+                margin-right: 20px;
+            }
+
+            .portfolio-showcase h1 {
+                font-size: 36px;
+            }
+
+            .portfolio-showcase p {
+                font-size: 16px;
+            }
+
+            .portfolio-showcase .model-container {
+                height: 300px;
+            }
+
+            .portfolio-showcase .model-container .model {
+                width: 200px;
+                height: 200px;
+            }
+
+            .scrolling-storytelling .story-section {
+                flex-direction: column;
+                margin-bottom: 60px;
+            }
+
+            .scrolling-storytelling .story-section .text-content {
+                padding: 0 20px;
+            }
+
+            .scrolling-storytelling .story-section .text-content h2 {
+                font-size: 24px;
+            }
+
+            .scrolling-storytelling .story-section .text-content p {
+                font-size: 16px;
+            }
+
+            .contact-section form {
+                width: 80%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="#">Home</a>
+        <a href="#">Portfolio</a>
+        <a href="#">About</a>
+        <a href="#">Contact</a>
+    </nav>
+
+    <div class="portfolio-showcase">
+        <div class="background-3d"></div>
+        <h1>Build an Immersive Portfolio</h1>
+        <p>Showcase your 3D projects, rotating models, and interactive scroll effects</p>
+        <div class="model-container">
+            <div class="model"></div>
+        </div>
+    </div>
+
+    <div class="scrolling-storytelling">
+        <div class="story-section">
+            <div class="image-content">
+                <img src="https://dummyimage.com/800x600/333/fff&text=Concept+Sketch" alt="Concept Sketch">
+            </div>
+            <div class="text-content">
+                <h2>Conceptual Sketches</h2>
+                <p>Explore the initial design ideas and see how the 3D models evolved from concept to final product.</p>
+            </div>
+        </div>
+
+        <div class="story-section">
+            <div class="text-content">
+                <h2>Wireframe Prototyping</h2>
+                <p>Dive into the wireframing process and discover how the interactive elements were planned and designed.</p>
+            </div>
+            <div class="image-content">
+                <img src="https://dummyimage.com/800x600/333/fff&text=Wireframe+Prototype" alt="Wireframe Prototype">
+            </div>
+        </div>
+
+        <div class="story-section">
+            <div class="image-content">
+                <img src="https://dummyimage.com/800x600/333/fff&text=Behind+the+Scenes" alt="Behind the Scenes">
+            </div>
+            <div class="text-content">
+                <h2>Behind the Scenes</h2>
+                <p>Get a glimpse into the making of the 3D models and the challenges overcome during the development process.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="contact-section">
+        <h2>Get in Touch</h2>
+        <form>
+            <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" id="name" name="name" placeholder="Enter your name" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" placeholder="Enter your email" required>
+            </div>
+            <div class="form-group">
+                <label for="message">Message</label>
+                <textarea id="message" name="message" rows="5" placeholder="Enter your message" required></textarea>
+            </div>
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+</body>
+</html>'<!-- Visit: https://github.com/Ishanoshada/portflair -->
+<!-- Visit: https://github.com/Ishanoshada/portflair -->

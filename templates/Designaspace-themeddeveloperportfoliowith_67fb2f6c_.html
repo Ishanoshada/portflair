@@ -1,0 +1,570 @@
+<!-- Portfolio created by Ishan -->
+<!-- Check out my work at: https://github.com/Ishanoshada/portflair -->
+<!-- 2024/10/9 -->
+<!-- Portfolio created by Ishan -->
+'<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Space-Themed Developer Portfolio</title>
+  <style>
+    /* Global Styles */
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Montserrat', sans-serif;
+      color: #fff;
+      background-color: #000;
+      overflow-x: hidden;
+    }
+
+    /* Navigation */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 40px;
+      background-color: rgba(0, 0, 0, 0.5);
+      backdrop-filter: blur(10px);
+    }
+
+    nav ul {
+      display: flex;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    nav ul li {
+      margin-right: 30px;
+    }
+
+    nav ul li a {
+      color: #fff;
+      text-decoration: none;
+      font-size: 16px;
+      font-weight: 500;
+      position: relative;
+      padding-bottom: 5px;
+    }
+
+    nav ul li a::after {
+      content: "";
+      position: absolute;
+      width: 0;
+      height: 2px;
+      bottom: 0;
+      left: 0;
+      background-color: #6b5ae6;
+      transition: width 0.3s ease-in-out;
+    }
+
+    nav ul li a:hover::after {
+      width: 100%;
+    }
+
+    /* Hero Section */
+    .hero {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background-image: url('https://dummyimage.com/1920x1080/000/6b5ae6.jpg&text=Space+Background');
+      background-size: cover;
+      background-position: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(circle, rgba(107, 90, 230, 0.2) 0%, rgba(0, 0, 0, 0.8) 100%);
+      z-index: 1;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+    }
+
+    .hero-content h1 {
+      font-size: 5rem;
+      font-weight: 700;
+      background: linear-gradient(to right, #6b5ae6, #b455f6);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: glow 2s ease-in-out infinite;
+    }
+
+    @keyframes glow {
+      0% {
+        text-shadow: 0 0 10px #6b5ae6, 0 0 20px #b455f6;
+      }
+      50% {
+        text-shadow: 0 0 20px #6b5ae6, 0 0 30px #b455f6;
+      }
+      100% {
+        text-shadow: 0 0 10px #6b5ae6, 0 0 20px #b455f6;
+      }
+    }
+
+    .hero-content p {
+      font-size: 1.8rem;
+      margin-top: 20px;
+      color: #fff;
+      opacity: 0.8;
+    }
+
+    .hero-content button {
+      margin-top: 40px;
+      padding: 15px 30px;
+      font-size: 16px;
+      font-weight: 600;
+      color: #fff;
+      background-color: #6b5ae6;
+      border: none;
+      border-radius: 30px;
+      cursor: pointer;
+      box-shadow: 0 10px 20px rgba(107, 90, 230, 0.4);
+      transition: transform 0.3s ease-in-out;
+    }
+
+    .hero-content button:hover {
+      transform: translateY(-5px);
+    }
+
+    /* Interactive Code Snippet Gallery */
+    .code-gallery {
+      padding: 80px 40px;
+      background-color: #000;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .code-gallery::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(circle, rgba(107, 90, 230, 0.1) 0%, rgba(0, 0, 0, 0.9) 100%);
+      z-index: 1;
+    }
+
+    .code-gallery-content {
+      position: relative;
+      z-index: 2;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      grid-gap: 40px;
+    }
+
+    .code-snippet {
+      background-color: rgba(255, 255, 255, 0.05);
+      border-radius: 10px;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+      overflow: hidden;
+      position: relative;
+      cursor: pointer;
+      transition: transform 0.3s ease-in-out;
+    }
+
+    .code-snippet:hover {
+      transform: translateY(-10px);
+    }
+
+    .code-snippet::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(circle, rgba(107, 90, 230, 0.3) 0%, rgba(0, 0, 0, 0.7) 100%);
+      opacity: 0;
+      transition: opacity 0.3s ease-in-out;
+    }
+
+    .code-snippet:hover::before {
+      opacity: 1;
+    }
+
+    .code-snippet pre {
+      padding: 20px;
+      margin: 0;
+      font-family: 'Fira Code', monospace;
+      font-size: 14px;
+      color: #fff;
+      white-space: pre-wrap;
+      word-wrap: break-word;
+      overflow-x: auto;
+    }
+
+    .code-snippet p {
+      position: absolute;
+      bottom: 20px;
+      left: 20px;
+      margin: 0;
+      font-size: 14px;
+      color: #fff;
+      opacity: 0.8;
+    }
+
+    /* About Me Section */
+    .about-me {
+      padding: 80px 40px;
+      background-color: #000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .about-me::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(circle, rgba(107, 90, 230, 0.1) 0%, rgba(0, 0, 0, 0.9) 100%);
+      z-index: 1;
+    }
+
+    .about-me-content {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      align-items: center;
+      max-width: 1200px;
+      width: 100%;
+    }
+
+    .about-me-image {
+      flex: 0 0 300px;
+      margin-right: 40px;
+    }
+
+    .about-me-image img {
+      width: 100%;
+      height: auto;
+      border-radius: 50%;
+      box-shadow: 0 10px 20px rgba(107, 90, 230, 0.4);
+      animation: pulse 2s ease-in-out infinite;
+    }
+
+    @keyframes pulse {
+      0% {
+        transform: scale(1);
+      }
+      50% {
+        transform: scale(1.05);
+      }
+      100% {
+        transform: scale(1);
+      }
+    }
+
+    .about-me-text {
+      flex: 1;
+    }
+
+    .about-me-text h2 {
+      font-size: 3rem;
+      font-weight: 700;
+      background: linear-gradient(to right, #6b5ae6, #b455f6);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 20px;
+    }
+
+    .about-me-text p {
+      font-size: 1.2rem;
+      line-height: 1.6;
+      color: #fff;
+      opacity: 0.8;
+      margin-bottom: 30px;
+    }
+
+    .about-me-text ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-wrap: wrap;
+    }
+
+    .about-me-text ul li {
+      font-size: 1.2rem;
+      font-weight: 500;
+      color: #fff;
+      opacity: 0.8;
+      margin-right: 30px;
+      margin-bottom: 10px;
+      position: relative;
+      padding-left: 20px;
+    }
+
+    .about-me-text ul li::before {
+      content: "â¢";
+      position: absolute;
+      left: 0;
+      color: #6b5ae6;
+    }
+
+    /* Responsive Styles */
+    @media (max-width: 768px) {
+      nav {
+        padding: 15px 20px;
+      }
+
+      nav ul li {
+        margin-right: 20px;
+      }
+
+      nav ul li a {
+        font-size: 14px;
+      }
+
+      .hero-content h1 {
+        font-size: 3rem;
+      }
+
+      .hero-content p {
+        font-size: 1.4rem;
+      }
+
+      .hero-content button {
+        font-size: 14px;
+        padding: 12px 24px;
+      }
+
+      .code-gallery {
+        padding: 60px 20px;
+      }
+
+      .code-gallery-content {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        grid-gap: 30px;
+      }
+
+      .about-me {
+        padding: 60px 20px;
+      }
+
+      .about-me-content {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .about-me-image {
+        flex: 0 0 200px;
+        margin-right: 0;
+        margin-bottom: 30px;
+      }
+
+      .about-me-text h2 {
+        font-size: 2.5rem;
+      }
+
+      .about-me-text p {
+        font-size: 1rem;
+      }
+
+      .about-me-text ul li {
+        font-size: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="#" class="logo">Space Dev</a>
+    <ul>
+      <li><a href="#">Home</a></li>
+      <li><a href="#">Projects</a></li>
+      <li><a href="#">About</a></li>
+      <li><a href="#">Contact</a></li>
+    </ul>
+  </nav>
+
+  <section class="hero">
+    <div class="hero-content">
+      <h1>John Doe</h1>
+      <p>Space-Themed Developer | Coding Constellations</p>
+      <button>Explore My Work</button>
+    </div>
+  </section>
+
+  <section class="code-gallery">
+    <div class="code-gallery-content">
+      <div class="code-snippet">
+        <pre><code>
+  import React, { useState, useEffect } from 'react';
+
+  const SpaceProject = () => {
+    const [data, setData] = useState([]);
+
+    useEffect(() => {
+      // Fetch data for space-themed project
+      const fetchData = async () => {
+        const response = await fetch('/api/space-project');
+        const data = await response.json();
+        setData(data);
+      };
+      fetchData();
+    }, []);
+
+    return (
+      <div>
+        <h2>Space-Themed Project</h2>
+        {data.map((item, index) => (
+          <div key={index}>
+            <h3>{item.title}</h3>
+            <p>{item.description}</p>
+            <pre><code>{item.code}</code></pre>
+          </div>
+        ))}
+      </div>
+    );
+  };
+
+  export default SpaceProject;
+        </code></pre>
+        <p>Space-themed React project</p>
+      </div>
+      <div class="code-snippet">
+        <pre><code>
+  const calculateStarPositions = (numStars, width, height) => {
+    const stars = [];
+    for (let i = 0; i < numStars; i++) {
+      const x = Math.floor(Math.random() * width);
+      const y = Math.floor(Math.random() * height);
+      const size = Math.random() * 2 + 1;
+      const opacity = Math.random() * 0.5 + 0.5;
+      stars.push({ x, y, size, opacity });
+    }
+    return stars;
+  };
+
+  const renderStars = (stars) => {
+    return stars.map((star, index) => (
+      <div
+        key={index}
+        className="star"
+        style={{
+          left: `${star.x}px`,
+          top: `${star.y}px`,
+          width: `${star.size}px`,
+          height: `${star.size}px`,
+          opacity: star.opacity,
+        }}
+      />
+    ));
+  };
+        </code></pre>
+        <p>Utility functions for animating stars</p>
+      </div>
+      <div class="code-snippet">
+        <pre><code>
+  class SpaceShip extends React.Component {
+    state = {
+      position: { x: 0, y: 0 },
+      velocity: { x: 0, y: 0 },
+      acceleration: { x: 0, y: 0 },
+    };
+
+    componentDidMount() {
+      window.addEventListener('keydown', this.handleKeyDown);
+      window.addEventListener('keyup', this.handleKeyUp);
+      this.interval = setInterval(this.updatePosition, 16);
+    }
+
+    componentWillUnmount() {
+      window.removeEventListener('keydown', this.handleKeyDown);
+      window.removeEventListener('keyup', this.handleKeyUp);
+      clearInterval(this.interval);
+    }
+
+    handleKeyDown = (event) => {
+      // Update acceleration based on key presses
+      switch (event.key) {
+        case 'ArrowUp':
+          this.setState((prevState) => ({
+            acceleration: { x: prevState.acceleration.x, y: -1 },
+          }));
+          break;
+        // Handle other key presses
+      }
+    };
+
+    updatePosition = () => {
+      this.setState((prevState) => ({
+        position: {
+          x: prevState.position.x + prevState.velocity.x,
+          y: prevState.position.y + prevState.velocity.y,
+        },
+        velocity: {
+          x: prevState.velocity.x + prevState.acceleration.x,
+          y: prevState.velocity.y + prevState.acceleration.y,```
+        }),
+      }));
+    };
+
+    render() {
+      const { position } = this.state;
+      return (
+        <div
+          className="space-ship"
+          style={{
+            left: `${position.x}px`,
+            top: `${position.y}px`,
+          }}
+        >
+          <img src="https://dummyimage.com/100x100/6b5ae6/fff.png&text=Spaceship" alt="Space Ship" />
+        </div>
+      );
+    }
+  }
+```
+
+</code></pre>
+<p>Interactive space ship component</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="about-me">
+    <div class="about-me-content">
+      <div class="about-me-image">
+        <img src="https://dummyimage.com/300x300/6b5ae6/fff.png&text=Developer+Photo" alt="Developer Photo">
+      </div>
+      <div class="about-me-text">
+        <h2>About Me</h2>
+        <p>
+          Hi, I'm John Doe, a space-themed developer with a passion for creating beautiful and interactive web experiences. I've been coding for over 5 years, and I've honed my skills in a variety of technologies, including React, JavaScript, and CSS.
+        </p>
+        <ul>
+          <li>React</li>
+          <li>JavaScript</li>
+          <li>CSS</li>
+          <li>Node.js</li>
+          <li>Git</li>
+          <li>Responsive Design</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+</body>
+</html>'<!-- Visit: https://github.com/Ishanoshada/portflair -->
+<!-- Visit: https://github.com/Ishanoshada/portflair -->

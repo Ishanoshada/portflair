@@ -1,0 +1,467 @@
+<!-- Portfolio created by Ishan -->
+<!-- Check out my work at: https://github.com/Ishanoshada/portflair -->
+<!-- 2024/10/9 -->
+<!-- Portfolio created by Ishan -->
+'<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Black Hole Portfolio</title>
+  <style>
+    /* Universal Styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Orbitron', sans-serif;
+    }
+
+    body {
+      background-color: #0C0C0C;
+      color: #F2F2F2;
+      overflow-x: hidden;
+    }
+
+    /* Navbar Styles */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.5rem 2rem;
+      background-color: rgba(12, 12, 12, 0.8);
+      backdrop-filter: blur(10px);
+      position: relative;
+      z-index: 100;
+    }
+
+    .nav-logo {
+      font-size: 1.8rem;
+      font-weight: bold;
+      color: #8B00FF;
+      text-shadow: 0 0 20px #8B00FF;
+      animation: neon-glow 2s ease-in-out infinite;
+    }
+
+    .nav-menu {
+      display: flex;
+      list-style-type: none;
+    }
+
+    .nav-menu li {
+      margin-left: 2rem;
+    }
+
+    .nav-menu li a {
+      text-decoration: none;
+      color: #F2F2F2;
+      font-size: 1.1rem;
+      transition: color 0.3s ease-in-out;
+    }
+
+    .nav-menu li a:hover {
+      color: #8B00FF;
+      text-shadow: 0 0 20px #8B00FF;
+    }
+
+    /* Hero Section Styles */
+    .hero-section {
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      background-image: url('https://dummyimage.com/1920x1080/0C0C0C/8B00FF&text=Black+Hole');
+      background-size: cover;
+      background-position: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-section::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(ellipse at center, rgba(12, 12, 12, 0.8) 0%, rgba(12, 12, 12, 0) 70%);
+      z-index: 1;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      animation: fade-in 1s ease-in-out;
+    }
+
+    .hero-content h1 {
+      font-size: 4rem;
+      font-weight: bold;
+      color: #F2F2F2;
+      text-shadow: 0 0 20px #8B00FF;
+      margin-bottom: 1rem;
+      animation: neon-glow 2s ease-in-out infinite;
+    }
+
+    .hero-content p {
+      font-size: 1.8rem;
+      color: #F2F2F2;
+      text-shadow: 0 0 10px #8B00FF;
+      margin-bottom: 2rem;
+      animation: fade-in 2s ease-in-out;
+    }
+
+    .hero-content a {
+      display: inline-block;
+      padding: 1rem 2rem;
+      background-color: #8B00FF;
+      color: #F2F2F2;
+      font-size: 1.2rem;
+      text-decoration: none;
+      border-radius: 0.5rem;
+      box-shadow: 0 0 20px #8B00FF;
+      transition: transform 0.3s ease-in-out;
+    }
+
+    .hero-content a:hover {
+      transform: scale(1.1);
+    }
+
+    .steampunk-gears {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      z-index: 0;
+    }
+
+    .gear {
+      position: absolute;
+      width: 100px;
+      height: 100px;
+      background-image: url('https://dummyimage.com/100x100/0C0C0C/8B00FF&text=Gear');
+      background-size: contain;
+      background-repeat: no-repeat;
+      animation: rotate 10s linear infinite;
+    }
+
+    .gear-1 {
+      top: 20%;
+      left: 10%;
+      animation-delay: 2s;
+    }
+
+    .gear-2 {
+      top: 50%;
+      right: 5%;
+      animation-delay: 4s;
+    }
+
+    .gear-3 {
+      bottom: 30%;
+      left: 15%;
+      animation-delay: 6s;
+    }
+
+    /* Project Showcase Styles */
+    .project-showcase {
+      padding: 4rem 2rem;
+      background-color: #0C0C0C;
+    }
+
+    .project-showcase h2 {
+      font-size: 2.5rem;
+      font-weight: bold;
+      color: #F2F2F2;
+      text-shadow: 0 0 20px #8B00FF;
+      text-align: center;
+      margin-bottom: 3rem;
+      animation: neon-glow 2s ease-in-out infinite;
+    }
+
+    .project-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      grid-gap: 2rem;
+    }
+
+    .project-card {
+      background-color: #1C1C1C;
+      border-radius: 1rem;
+      overflow: hidden;
+      box-shadow: 0 0 20px rgba(139, 0, 255, 0.3);
+      cursor: pointer;
+      transition: transform 0.3s ease-in-out;
+    }
+
+    .project-card:hover {
+      transform: scale(1.05);
+    }
+
+    .project-card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      filter: brightness(0.8);
+      transition: filter 0.3s ease-in-out;
+    }
+
+    .project-card:hover img {
+      filter: brightness(1);
+    }
+
+    .project-card-content {
+      padding: 1.5rem;
+    }
+
+    .project-card-content h3 {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: #F2F2F2;
+      text-shadow: 0 0 10px #8B00FF;
+      margin-bottom: 1rem;
+    }
+
+    .project-card-content p {
+      font-size: 1rem;
+      color: #BFBFBF;
+      margin-bottom: 1.5rem;
+    }
+
+    .project-card-content a {
+      display: inline-block;
+      padding: 0.8rem 1.5rem;
+      background-color: #8B00FF;
+      color: #F2F2F2;
+      font-size: 1rem;
+      text-decoration: none;
+      border-radius: 0.5rem;
+      box-shadow: 0 0 20px #8B00FF;
+      transition: transform 0.3s ease-in-out;
+    }
+
+    .project-card-content a:hover {
+      transform: scale(1.1);
+    }
+
+    /* Contact Form Styles */
+    .contact-form {
+      padding: 4rem 2rem;
+      background-image: url('https://dummyimage.com/1920x1080/0C0C0C/8B00FF&text=Vaporwave+Background');
+      background-size: cover;
+      background-position: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .contact-form::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(ellipse at center, rgba(12, 12, 12, 0.8) 0%, rgba(12, 12, 12, 0) 70%);
+      z-index: 1;
+    }
+
+    .contact-form h2 {
+      font-size: 2.5rem;
+      font-weight: bold;
+      color: #F2F2F2;
+      text-shadow: 0 0 20px #8B00FF;
+      text-align: center;
+      margin-bottom: 3rem;
+      position: relative;
+      z-index: 2;
+      animation: neon-glow 2s ease-in-out infinite;
+    }
+
+    .contact-form-container {
+      max-width: 600px;
+      margin: 0 auto;
+      background-color: rgba(12, 12, 12, 0.8);
+      backdrop-filter: blur(10px);
+      border-radius: 1rem;
+      padding: 2rem;
+      box-shadow: 0 0 20px rgba(139, 0, 255, 0.3);
+      position: relative;
+      z-index: 2;
+    }
+
+    .contact-form-container form {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-gap: 1.5rem;
+    }
+
+    .contact-form-container input,
+    .contact-form-container textarea {
+      background-color: #1C1C1C;
+      border: none;
+      border-radius: 0.5rem;
+      padding: 1rem;
+      font-size: 1rem;
+      color: #F2F2F2;
+      box-shadow: 0 0 10px rgba(139, 0, 255, 0.3);
+      transition: box-shadow 0.3s ease-in-out;
+    }
+
+    .contact-form-container input:focus,
+    .contact-form-container textarea:focus {
+      outline: none;
+      box-shadow: 0 0 20px rgba(139, 0, 255, 0.5);
+    }
+
+    .contact-form-container textarea {
+      grid-column: 1 / -1;
+    }
+
+    .contact-form-container button {
+      grid-column: 1 / -1;
+      background-color: #8B00FF;
+      color: #F2F2F2;
+      border: none;
+      border-radius: 0.5rem;
+      padding: 1rem 2rem;
+      font-size: 1.2rem;
+      cursor: pointer;
+      box-shadow: 0 0 20px #8B00FF;
+      transition: transform 0.3s ease-in-out;
+    }
+
+    .contact-form-container button:hover {
+      transform: scale(1.1);
+    }
+
+    @keyframes neon-glow {
+      0%, 100% {
+        text-shadow: 0 0 10px #8B00FF;
+      }
+      50% {
+        text-shadow: 0 0 20px #8B00FF;
+      }
+    }
+
+    @keyframes fade-in {
+      0% {
+        opacity: 0;
+      }
+      100% {
+        opacity: 1;
+      }
+    }
+
+    @keyframes rotate {
+      0% {
+        transform: rotate(0deg);
+      }
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+
+    @media (max-width: 768px) {
+      .nav-menu li {
+        margin-left: 1.5rem;
+      }
+
+      .hero-content h1 {
+        font-size: 3rem;
+      }
+
+      .hero-content p {
+        font-size: 1.5rem;
+      }
+
+      .project-showcase h2,
+      .contact-form h2 {
+        font-size: 2rem;
+      }
+
+      .contact-form-container {
+        padding: 1.5rem;
+      }
+
+      .contact-form-container input,
+      .contact-form-container textarea {
+        padding: 0.8rem;
+      }
+
+      .contact-form-container button {
+        padding: 0.8rem 1.5rem;
+        font-size: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="nav-logo">Black Hole Portfolio</div>
+    <ul class="nav-menu">
+      <li><a href="#">Home</a></li>
+      <li><a href="#">Projects</a></li>
+      <li><a href="#">About</a></li>
+      <li><a href="#">Contact</a></li>
+    </ul>
+  </nav>
+
+  <div class="hero-section">
+    <div class="hero-content">
+      <h1>Explore the Cosmos</h1>
+      <p>Welcome to the Black Hole Portfolio of a Backend Developer</p>
+      <a href="#">Dive Into the Projects</a>
+    </div>
+    <div class="steampunk-gears">
+      <div class="gear gear-1"></div>
+      <div class="gear gear-2"></div>
+      <div class="gear gear-3"></div>
+    </div>
+  </div>
+
+  <div class="project-showcase">
+    <h2>Galactic Projects</h2>
+    <div class="project-cards">
+      <div class="project-card">
+        <img src="https://dummyimage.com/500x300/1C1C1C/8B00FF&text=Project+1" alt="Project 1">
+        <div class="project-card-content">
+          <h3>Project 1</h3>
+          <p>Explore the intricacies of this cosmic project, where the boundaries of reality are pushed to the limits.</p>
+          <a href="#">View Project</a>
+        </div>
+      </div>
+      <div class="project-card">
+        <img src="https://dummyimage.com/500x300/1C1C1C/8B00FF&text=Project+2" alt="Project 2">
+        <div class="project-card-content">
+          <h3>Project 2</h3>
+          <p>Delve into the depths of this interstellar endeavor, where the future and the past collide in a mesmerizing display.</p>
+          <a href="#">View Project</a>
+        </div>
+      </div>
+      <div class="project-card">
+        <img src="https://dummyimage.com/500x300/1C1C1C/8B00FF&text=Project+3" alt="Project 3">
+        <div class="project-card-content">
+          <h3>Project 3</h3>
+          <p>Witness the culmination of cosmic inspiration and technical mastery, where the impossible becomes reality.</p>
+          <a href="#">View Project</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="contact-form">
+    <h2>Connect with the Void</h2>
+    <div class="contact-form-container">
+      <form>
+        <input type="text" placeholder="Name" required>
+        <input type="email" placeholder="Email" required>
+        <textarea placeholder="Message" rows="5" required></textarea>
+        <button type="submit">Send Message</button>
+      </form>
+    </div>
+  </div>
+</body>
+</html>'<!-- Visit: https://github.com/Ishanoshada/portflair -->
+<!-- Visit: https://github.com/Ishanoshada/portflair -->

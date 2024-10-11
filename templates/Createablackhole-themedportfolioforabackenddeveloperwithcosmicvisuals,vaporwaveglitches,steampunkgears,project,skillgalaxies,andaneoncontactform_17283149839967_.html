@@ -1,0 +1,475 @@
+<!-- Portfolio created by Ishan -->
+<!-- Check out my work at: https://github.com/Ishanoshada/portflair -->
+<!-- 2024/10/9 -->
+<!-- Portfolio created by Ishan -->
+'<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Black Hole Portfolio</title>
+    <style>
+        /* General Styles */
+        body {
+            font-family: 'Orbitron', sans-serif;
+            background: linear-gradient(to bottom, #000000, #1e1e1e);
+            color: #ffffff;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+        }
+
+        /* Navigation Styles */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: rgba(30, 30, 30, 0.8);
+            padding: 20px 40px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+            backdrop-filter: blur(10px);
+        }
+
+        nav a {
+            color: #ffffff;
+            text-decoration: none;
+            font-size: 18px;
+            margin: 0 20px;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: #8b00ff;
+        }
+
+        /* Project Showcase Styles */
+        .project-showcase {
+            padding: 100px 40px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+
+        .project-item {
+            width: 300px;
+            height: 300px;
+            margin: 40px;
+            position: relative;
+            perspective: 1000px;
+        }
+
+        .project-item-inner {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            transition: transform 0.6s;
+            transform-style: preserve-3d;
+        }
+
+        .project-item:hover .project-item-inner {
+            transform: rotateY(180deg);
+        }
+
+        .project-front, .project-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            border-radius: 20px;
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+        }
+
+        .project-front {
+            background: radial-gradient(circle, #8b00ff, #4b0082);
+            z-index: 2;
+        }
+
+        .project-back {
+            background: radial-gradient(circle, #4b0082, #8b00ff);
+            transform: rotateY(180deg);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .project-front h3, .project-back h3 {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        .project-front p, .project-back p {
+            font-size: 16px;
+            text-align: center;
+        }
+
+        .project-front a, .project-back a {
+            color: #ffffff;
+            text-decoration: none;
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #8b00ff;
+            border-radius: 20px;
+            transition: background-color 0.3s ease;
+        }
+
+        .project-front a:hover, .project-back a:hover {
+            background-color: #4b0082;
+        }
+
+        /* Skills and Expertise Galaxy Styles */
+        .skills-galaxy {
+            padding: 100px 40px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .skills-galaxy h2 {
+            font-size: 36px;
+            margin-bottom: 40px;
+        }
+
+        .skills-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            width: 100%;
+            max-width: 1200px;
+        }
+
+        .skill-item {
+            width: 150px;
+            height: 150px;
+            margin: 20px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+            transition: transform 0.3s ease, background-color 0.3s ease;
+        }
+
+        .skill-item:hover {
+            transform: scale(1.1);
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .skill-item h3 {
+            font-size: 18px;
+            margin-bottom: 5px;
+        }
+
+        .skill-item p {
+            font-size: 14px;
+            text-align: center;
+        }
+
+        .skills-galaxy::before, .skills-galaxy::after {
+            content: "";
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.1);
+            z-index: -1;
+            animation: orbit 20s linear infinite;
+        }
+
+        .skills-galaxy::before {
+            top: -150px;
+            left: -150px;
+        }
+
+        .skills-galaxy::after {
+            bottom: -150px;
+            right: -150px;
+        }
+
+        @keyframes orbit {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        /* Contact Form Styles */
+        .contact-form {
+            padding: 100px 40px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .contact-form h2 {
+            font-size: 36px;
+            margin-bottom: 40px;
+        }
+
+        .contact-form-container {
+            background-color: rgba(30, 30, 30, 0.8);
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+            width: 100%;
+            max-width: 500px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .contact-form-container::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to right, #8b00ff, #4b0082);
+            border-radius: 20px;
+            z-index: -1;
+            animation: neon-glow 2s ease-in-out infinite;
+        }
+
+        @keyframes neon-glow {
+            0% {
+                box-shadow: 0 0 10px rgba(139, 0, 255, 0.5);
+            }
+            50% {
+                box-shadow: 0 0 20px rgba(139, 0, 255, 0.8);
+            }
+            100% {
+                box-shadow: 0 0 10px rgba(139, 0, 255, 0.5);
+            }
+        }
+
+        .contact-form-container input,
+        .contact-form-container textarea {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: none;
+            border-radius: 10px;
+            background-color: rgba(255, 255, 255, 0.1);
+            color: #ffffff;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+        }
+
+        .contact-form-container input:focus,
+        .contact-form-container textarea:focus {
+            background-color: rgba(255, 255, 255, 0.2);
+            outline: none;
+        }
+
+        .contact-form-container button {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            background-color: #8b00ff;
+            color: #ffffff;
+            border: none;
+            border-radius: 10px;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .contact-form-container button:hover {
+            background-color: #4b0082;
+        }
+
+        .contact-form::before, .contact-form::after {
+            content: "";
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.1);
+            z-index: 0;
+            animation: orbit 15s linear infinite;
+        }
+
+        .contact-form::before {
+            top: -100px;
+            left: -100px;
+        }
+
+        .contact-form::after {
+            bottom: -100px;
+            right: -100px;
+        }
+
+        /* Media Queries for Responsiveness */
+        @media (max-width: 768px) {
+            nav {
+                padding: 15px 20px;
+            }
+
+            nav a {
+                font-size: 16px;
+                margin: 0 10px;
+            }
+
+            .project-showcase,
+            .skills-galaxy,
+            .contact-form {
+                padding: 80px 20px;
+            }
+
+            .project-item {
+                width: 250px;
+                height: 250px;
+                margin: 30px;
+            }
+
+            .skill-item {
+                width: 120px;
+                height: 120px;
+                margin: 15px;
+            }
+
+            .contact-form-container {
+                padding: 30px;
+            }
+
+            .contact-form-container input,
+            .contact-form-container textarea,
+            .contact-form-container button {
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="#">Home</a>
+        <a href="#">Projects</a>
+        <a href="#">Skills</a>
+        <a href="#">Contact</a>
+    </nav>
+
+    <div class="project-showcase">
+        <div class="project-item">
+            <div class="project-item-inner">
+                <div class="project-front">
+                    <h3>Project 1</h3>
+                    <p>Backend Development</p>
+                    <a href="#">Learn More</a>
+                </div>
+                <div class="project-back">
+                    <h3>Project 1</h3>
+                    <p>Technologies used: Node.js, MongoDB, Express</p>
+                    <a href="#">View Project</a>
+                </div>
+            </div>
+        </div>
+        <div class="project-item">
+            <div class="project-item-inner">
+                <div class="project-front">
+                    <h3>Project 2</h3>
+                    <p>Backend Development</p>
+                    <a href="#">Learn More</a>
+                </div>
+                <div class="project-back">
+                    <h3>Project 2</h3>
+                    <p>Technologies used: Python, Django, PostgreSQL</p>
+                    <a href="#">View Project</a>
+                </div>
+            </div>
+        </div>
+        <div class="project-item">
+            <div class="project-item-inner">
+                <div class="project-front">
+                    <h3>Project 3</h3>
+                    <p>Backend Development</p>
+                    <a href="#">Learn More</a>
+                </div>
+                <div class="project-back">
+                    <h3>Project 3</h3>
+                    <p>Technologies used: Java, Spring Boot, MySQL</p>
+                    <a href="#">View Project</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="skills-galaxy">
+        <h2>Skills and Expertise</h2>
+        <div class="skills-container">
+            <div class="skill-item">
+                <h3>Node.js</h3>
+                <p>Proficient</p>
+            </div>
+            <div class="skill-item">
+                <h3>Python</h3>
+                <p>Proficient</p>
+            </div>
+            <div class="skill-item">
+                <h3>Java</h3>
+                <p>Proficient</p>
+            </div>
+            <div class="skill-item">
+                <h3>MongoDB</h3>
+                <p>Proficient</p>
+            </div>
+            <div class="skill-item">
+                <h3>PostgreSQL</h3>
+                <p>Proficient</p>
+            </div>
+            <div class="skill-item">
+                <h3>MySQL</h3>
+                <p>Proficient</p>
+            </div>
+            <div class="skill-item">
+                <h3>Express</h3>
+                <p>Proficient</p>
+            </div>
+            <div class="skill-item">
+                <h3>Django</h3>
+                <p>Proficient</p>
+            </div>
+            <div class="skill-item">
+                <h3>Spring Boot</h3>
+                <p>Proficient</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="contact-form">
+        <h2>Get in Touch</h2>
+        <div class="contact-form-container">
+            <form>
+                <input type="text" placeholder="Name" required>
+                <input type="email" placeholder="Email" required>
+                <textarea placeholder="Message" required></textarea>
+                <button type="submit">Send</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>'<!-- Visit: https://github.com/Ishanoshada/portflair -->
+<!-- Visit: https://github.com/Ishanoshada/portflair -->

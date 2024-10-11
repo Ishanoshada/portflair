@@ -1,0 +1,418 @@
+<!-- Portfolio created by Ishan -->
+<!-- Check out my work at: https://github.com/Ishanoshada/portflair -->
+<!-- 2024/10/9 -->
+<!-- Portfolio created by Ishan -->
+'<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hacking-Themed Graphic Design Portfolio</title>
+  <style>
+    /* Global Styles */
+    body {
+      font-family: 'Fira Code', monospace;
+      background-color: #171717;
+      color: #f0f0f0;
+      margin: 0;
+      padding: 0;
+      overflow-x: hidden;
+    }
+
+    /* Navigation */
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: #0a0a0a;
+      padding: 1rem 2rem;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    .navbar-brand {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: #00ffb3;
+      text-decoration: none;
+      text-shadow: 0 0 10px #00ffb3, 0 0 20px #00ffb3, 0 0 30px #00ffb3, 0 0 40px #00ffb3;
+      animation: glow 2s ease-in-out infinite;
+    }
+
+    .navbar-nav {
+      display: flex;
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .navbar-nav li {
+      margin-left: 1.5rem;
+    }
+
+    .navbar-nav a {
+      color: #f0f0f0;
+      text-decoration: none;
+      font-size: 1rem;
+      transition: color 0.3s ease;
+    }
+
+    .navbar-nav a:hover {
+      color: #00ffb3;
+      text-shadow: 0 0 10px #00ffb3, 0 0 20px #00ffb3, 0 0 30px #00ffb3, 0 0 40px #00ffb3;
+    }
+
+    /* Project Showcase */
+    .project-showcase {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-gap: 2rem;
+      padding: 3rem;
+    }
+
+    .project-card {
+      position: relative;
+      overflow: hidden;
+      border-radius: 8px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08);
+      transition: transform 0.3s ease;
+    }
+
+    .project-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .project-card:before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(45deg, #00ffb3, #a200ff);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .project-card:hover:before {
+      opacity: 0.3;
+    }
+
+    .project-card img {
+      width: 100%;
+      height: 300px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .project-details {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+      color: #f0f0f0;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .project-card:hover .project-details {
+      opacity: 1;
+    }
+
+    .project-details h3 {
+      font-size: 1.5rem;
+      margin-bottom: 0.5rem;
+      text-shadow: 0 0 10px #00ffb3, 0 0 20px #00ffb3, 0 0 30px #00ffb3, 0 0 40px #00ffb3;
+    }
+
+    .project-details p {
+      font-size: 1rem;
+      margin-bottom: 1rem;
+    }
+
+    .project-details .tags {
+      font-size: 0.8rem;
+      color: #b3b3b3;
+    }
+
+    /* Terminal-Style Contact Section */
+    .terminal-contact {
+      background-color: #0a0a0a;
+      padding: 3rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+
+    .terminal-contact h2 {
+      font-size: 2rem;
+      margin-bottom: 2rem;
+      color: #00ffb3;
+      text-shadow: 0 0 10px #00ffb3, 0 0 20px #00ffb3, 0 0 30px #00ffb3, 0 0 40px #00ffb3;
+      animation: glow 2s ease-in-out infinite;
+    }
+
+    .terminal-form {
+      width: 80%;
+      max-width: 600px;
+      font-family: 'Fira Code', monospace;
+      font-size: 1rem;
+      color: #f0f0f0;
+    }
+
+    .terminal-form input,
+    .terminal-form textarea {
+      display: block;
+      width: 100%;
+      padding: 0.5rem;
+      margin-bottom: 1rem;
+      background-color: #171717;
+      border: none;
+      border-radius: 4px;
+      color: #f0f0f0;
+      font-family: 'Fira Code', monospace;
+      font-size: 1rem;
+      animation: typewriter 0.5s steps(20) 1 forwards;
+    }
+
+    .terminal-form textarea {
+      height: 100px;
+    }
+
+    .terminal-form button {
+      display: block;
+      width: 100%;
+      padding: 0.5rem;
+      background-color: #00ffb3;
+      border: none;
+      border-radius: 4px;
+      color: #171717;
+      font-family: 'Fira Code', monospace;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      animation: typewriter 0.5s steps(20) 1 forwards;
+    }
+
+    .terminal-form button:hover {
+      background-color: #00e6a0;
+    }
+
+    .terminal-about {
+      margin-top: 2rem;
+      font-size: 1rem;
+      color: #b3b3b3;
+    }
+
+    /* Animated Graphics and Glitch Effects */
+    .animated-graphics {
+      position: relative;
+      height: 500px;
+      overflow: hidden;
+    }
+
+    .animated-graphics:before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(45deg, #00ffb3, #a200ff);
+      opacity: 0.1;
+      animation: glitch 2s ease-in-out infinite;
+    }
+
+    .code-snippets {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: url("https://dummyimage.com/1200x500/ccc/000&text=CodeSnippets");
+      background-size: cover;
+      background-position: center;
+      animation: fall 10s linear infinite;
+    }
+
+    .neon-lines {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: url("https://dummyimage.com/1200x500/ccc/000&text=NeonLines");
+      background-size: cover;
+      background-position: center;
+      animation: pulse 3s ease-in-out infinite;
+    }
+
+    /* Animations */
+    @keyframes glow {
+      0%, 100% {
+        text-shadow: 0 0 10px #00ffb3, 0 0 20px #00ffb3, 0 0 30px #00ffb3, 0 0 40px #00ffb3;
+      }
+      50% {
+        text-shadow: 0 0 20px #00ffb3, 0 0 30px #00ffb3, 0 0 40px #00ffb3, 0 0 50px #00ffb3;
+      }
+    }
+
+    @keyframes glitch {
+      0% {
+        transform: translateX(0);
+      }
+      20% {
+        transform: translateX(-10px);
+      }
+      40% {
+        transform: translateX(10px);
+      }
+      60% {
+        transform: translateX(-10px);
+      }
+      80% {
+        transform: translateX(10px);
+      }
+      100% {
+        transform: translateX(0);
+      }
+    }
+
+    @keyframes fall {
+      0% {
+        transform: translateY(-100%);
+      }
+      100% {
+        transform: translateY(100%);
+      }
+    }
+
+    @keyframes pulse {
+      0%, 100% {
+        transform: scale(1);
+      }
+      50% {
+        transform: scale(1.1);
+      }
+    }
+
+    @keyframes typewriter {
+      from {
+        width: 0;
+      }
+      to {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav class="navbar">
+      <a href="#" class="navbar-brand">Hacking Graphic</a>
+      <ul class="navbar-nav">
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Projects</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="project-showcase">
+      <div class="project-card">
+        <img src="https://dummyimage.com/600x400/ccc/000&text=Project+1" alt="Project 1">
+        <div class="project-details">
+          <h3>Project 1</h3>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+          <div class="tags">
+            <span>#hacking</span>
+            <span>#glitch</span>
+            <span>#neon</span>
+          </div>
+        </div>
+      </div>
+      <div class="project-card">
+        <img src="https://dummyimage.com/600x400/ccc/000&text=Project+2" alt="Project 2">
+        <div class="project-details">
+          <h3>Project 2</h3>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+          <div class="tags">
+            <span>#hacking</span>
+            <span>#glitch</span>
+            <span>#neon</span>
+          </div>
+        </div>
+      </div>
+      <div class="project-card">
+        <img src="https://dummyimage.com/600x400/ccc/000&text=Project+3" alt="Project 3">
+        <div class="project-details">
+          <h3>Project 3</h3>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+          <div class="tags">
+            <span>#hacking</span>
+            <span>#glitch</span>
+            <span>#neon</span>
+          </div>
+        </div>
+      </div>
+      <div class="project-card">
+        <img src="https://dummyimage.com/600x400/ccc/000&text=Project+4" alt="Project 4">
+        <div class="project-details">
+          <h3>Project 4</h3>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+          <div class="tags">
+            <span>#hacking</span>
+            <span>#glitch</span>
+            <span>#neon</span>
+          </div>
+        </div>
+      </div>
+      <div class="project-card">
+        <img src="https://dummyimage.com/600x400/ccc/000&text=Project+5" alt="Project 5">
+        <div class="project-details">
+          <h3>Project 5</h3>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+          <div class="tags">
+            <span>#hacking</span>
+            <span>#glitch</span>
+            <span>#neon</span>
+          </div>
+        </div>
+      </div>
+      <div class="project-card">
+        <img src="https://dummyimage.com/600x400/ccc/000&text=Project+6" alt="Project 6">
+        <div class="project-details">
+          <h3>Project 6</h3>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+          <div class="tags">
+            <span>#hacking</span>
+            <span>#glitch</span>
+            <span>#neon</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="terminal-contact">
+      <h2>Get in Touch</h2>
+      <form class="terminal-form">
+        <input type="text" placeholder="Name" required>
+        <input type="email" placeholder="Email" required>
+        <textarea placeholder="Message" required></textarea>
+        <button type="submit">Submit</button>
+      </form>
+      <div class="terminal-about">
+        <p>Hi there! I'm a graphic designer with a passion for hacking-inspired aesthetics. Check out my portfolio and feel free to reach out if you have any questions or project inquiries.</p>
+      </div>
+    </section>
+
+    <section class="animated-graphics">
+      <div class="code-snippets"></div>
+      <div class="neon-lines"></div>
+    </section>
+  </main>
+</body>
+</html>'<!-- Visit: https://github.com/Ishanoshada/portflair -->
+<!-- Visit: https://github.com/Ishanoshada/portflair -->

@@ -1,0 +1,570 @@
+<!-- Portfolio created by Ishan -->
+<!-- Check out my work at: https://github.com/Ishanoshada/portflair -->
+<!-- 2024/10/9 -->
+<!-- Portfolio created by Ishan -->
+'<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Black Hole Portfolio</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
+
+    body {
+      font-family: 'Orbitron', sans-serif;
+      background: radial-gradient(circle, #050505, #0c0c0c, #121212);
+      color: #fff;
+      margin: 0;
+      padding: 0;
+      overflow-x: hidden;
+    }
+
+    /* Navigation */
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: rgba(15, 15, 15, 0.8);
+      padding: 1rem 2rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    .navbar-brand {
+      font-size: 1.5rem;
+      font-weight: 700;
+      background: linear-gradient(to right, #9b59b6, #8e44ad);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .navbar-nav {
+      display: flex;
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .navbar-nav li {
+      margin-left: 2rem;
+    }
+
+    .navbar-nav li a {
+      color: #fff;
+      text-decoration: none;
+      font-size: 1.1rem;
+      position: relative;
+      padding-bottom: 0.25rem;
+    }
+
+    .navbar-nav li a:before {
+      content: "";
+      position: absolute;
+      width: 0;
+      height: 2px;
+      bottom: 0;
+      left: 0;
+      background: linear-gradient(to right, #9b59b6, #8e44ad);
+      transition: width 0.3s ease-in-out;
+    }
+
+    .navbar-nav li a:hover:before {
+      width: 100%;
+    }
+
+    /* Project Galaxy */
+    .project-galaxy {
+      padding: 5rem 2rem;
+      position: relative;
+      z-index: 0;
+    }
+
+    .project-galaxy-title {
+      font-size: 2.5rem;
+      font-weight: 700;
+      text-align: center;
+      background: linear-gradient(to right, #9b59b6, #8e44ad);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 3rem;
+    }
+
+    .project-planet {
+      position: relative;
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      background-color: rgba(255, 255, 255, 0.1);
+      box-shadow: 0 0 20px rgba(155, 89, 182, 0.5);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      transition: transform 0.3s ease-in-out;
+      cursor: pointer;
+    }
+
+    .project-planet:hover {
+      transform: scale(1.1);
+    }
+
+    .project-planet:before {
+      content: "";
+      position: absolute;
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      background: radial-gradient(circle, #9b59b6, #8e44ad);
+      opacity: 0.3;
+      filter: blur(30px);
+      z-index: -1;
+    }
+
+    .project-planet-icon {
+      font-size: 3rem;
+      background: linear-gradient(to right, #9b59b6, #8e44ad);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: rotate 10s linear infinite;
+    }
+
+    @keyframes rotate {
+      0% {
+        transform: rotate(0deg);
+      }
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+
+    .project-modal {
+      display: none;
+      position: fixed;
+      z-index: 1;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: rgba(0, 0, 0, 0.8);
+    }
+
+    .project-modal-content {
+      background-color: #121212;
+      margin: 15% auto;
+      padding: 2rem;
+      border-radius: 0.5rem;
+      width: 80%;
+      max-width: 600px;
+      position: relative;
+    }
+
+    .project-modal-close {
+      color: #aaa;
+      float: right;
+      font-size: 2rem;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .project-modal-close:hover,
+    .project-modal-close:focus {
+      color: #fff;
+      text-decoration: none;
+      cursor: pointer;
+    }
+
+    .project-modal-title {
+      font-size: 1.8rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      background: linear-gradient(to right, #9b59b6, #8e44ad);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .project-modal-description {
+      font-size: 1.1rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .project-modal-technologies {
+      font-size: 1rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .project-modal-link {
+      display: inline-block;
+      padding: 0.5rem 1rem;
+      background: linear-gradient(to right, #9b59b6, #8e44ad);
+      color: #fff;
+      text-decoration: none;
+      border-radius: 0.25rem;
+      transition: transform 0.3s ease-in-out;
+    }
+
+    .project-modal-link:hover {
+      transform: scale(1.1);
+    }
+
+    /* Skill Nebula */
+    .skill-nebula {
+      padding: 5rem 2rem;
+      position: relative;
+      z-index: 0;
+    }
+
+    .skill-nebula-title {
+      font-size: 2.5rem;
+      font-weight: 700;
+      text-align: center;
+      background: linear-gradient(to right, #9b59b6, #8e44ad);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 3rem;
+    }
+
+    .skill-node {
+      position: relative;
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      background-color: rgba(255, 255, 255, 0.1);
+      box-shadow: 0 0 20px rgba(155, 89, 182, 0.5);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      transition: transform 0.3s ease-in-out;
+      cursor: pointer;
+    }
+
+    .skill-node:hover {
+      transform: scale(1.1);
+    }
+
+    .skill-node:before {
+      content: "";
+      position: absolute;
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      background: radial-gradient(circle, #9b59b6, #8e44ad);
+      opacity: 0.3;
+      filter: blur(20px);
+      z-index: -1;
+    }
+
+    .skill-node-icon {
+      font-size: 2.5rem;
+      background: linear-gradient(to right, #9b59b6, #8e44ad);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: pulse 2s ease-in-out infinite;
+    }
+
+    @keyframes pulse {
+      0% {
+        transform: scale(1);
+      }
+      50% {
+        transform: scale(1.2);
+      }
+      100% {
+        transform: scale(1);
+      }
+    }
+
+    .skill-node-info {
+      display: none;
+      position: fixed;
+      z-index: 1;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: rgba(0, 0, 0, 0.8);
+    }
+
+    .skill-node-info-content {
+      background-color: #121212;
+      margin: 15% auto;
+      padding: 2rem;
+      border-radius: 0.5rem;
+      width: 80%;
+      max-width: 400px;
+      position: relative;
+    }
+
+    .skill-node-info-close {
+      color: #aaa;
+      float: right;
+      font-size: 2rem;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .skill-node-info-close:hover,
+    .skill-node-info-close:focus {
+      color: #fff;
+      text-decoration: none;
+      cursor: pointer;
+    }
+
+    .skill-node-info-title {
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      background: linear-gradient(to right, #9b59b6, #8e44ad);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .skill-node-info-description {
+      font-size: 1rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .skill-node-info-proficiency {
+      font-size: 1rem;
+      margin-bottom: 1.5rem;
+    }
+
+    /* Neon Contact Form */
+    .neon-contact-form {
+      padding: 5rem 2rem;
+      position: relative;
+      z-index: 0;
+    }
+
+    .neon-contact-form-title {
+      font-size: 2.5rem;
+      font-weight: 700;
+      text-align: center;
+      background: linear-gradient(to right, #9b59b6, #8e44ad);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 3rem;
+    }
+
+    .neon-contact-form-container {
+      background-color: rgba(15, 15, 15, 0.8);
+      padding: 2rem;
+      border-radius: 0.5rem;
+      box-shadow: 0 0 20px rgba(155, 89, 182, 0.5);
+    }
+
+    .neon-contact-form-field {
+      display: block;
+      width: 100%;
+      padding: 1rem;
+      margin-bottom: 1.5rem;
+      font-size: 1rem;
+      font-family: 'Orbitron', sans-serif;
+      background-color: rgba(255, 255, 255, 0.1);
+      border: none;
+      border-radius: 0.25rem;
+      color: #fff;
+      box-shadow: 0 0 10px rgba(155, 89, 182, 0.3);
+      transition: box-shadow 0.3s ease-in-out;
+    }
+
+    .neon-contact-form-field:focus {
+      outline: none;
+      box-shadow: 0 0 20px rgba(155, 89, 182, 0.5);
+    }
+
+    .neon-contact-form-submit {
+      display: block;
+      width: 100%;
+      padding: 1rem;
+      font-size: 1.1rem;
+      font-family: 'Orbitron', sans-serif;
+      background: linear-gradient(to right, #9b59b6, #8e44ad);
+      border: none;
+      border-radius: 0.25rem;
+      color: #fff;
+      cursor: pointer;
+      box-shadow: 0 0 20px rgba(155, 89, 182, 0.5);
+      transition: transform 0.3s ease-in-out;
+    }
+
+    .neon-contact-form-submit:hover {
+      transform: scale(1.05);
+    }
+
+    /* Animations */
+    @keyframes glitch {
+      0% {
+        transform: translateX(0);
+      }
+      20% {
+        transform: translateX(-2px);
+      }
+      40% {
+        transform: translateX(2px);
+      }
+      60% {
+        transform: translateX(-2px);
+      }
+      80% {
+        transform: translateX(2px);
+      }
+      100% {
+        transform: translateX(0);
+      }
+    }
+
+    .glitch {
+      animation: glitch 0.5s infinite linear;
+    }
+
+    /* Responsive Styles */
+    @media (max-width: 768px) {
+      .navbar {
+        padding: 1rem;
+      }
+
+      .navbar-nav li {
+        margin-left: 1.5rem;
+      }
+
+      .project-galaxy,
+      .skill-nebula,
+      .neon-contact-form {
+        padding: 3rem 1rem;
+      }
+
+      .project-planet,
+      .skill-node {
+        width: 150px;
+        height: 150px;
+      }
+
+      .project-modal-content,
+      .skill-node-info-content {
+        margin: 20% auto;
+        width: 90%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="navbar">
+    <a href="#" class="navbar-brand">Black Hole Portfolio</a>
+    <ul class="navbar-nav">
+      <li><a href="#">Home</a></li>
+      <li><a href="#">Projects</a></li>
+      <li><a href="#">Skills</a></li>
+      <li><a href="#">Contact</a></li>
+    </ul>
+  </div>
+
+  <div class="project-galaxy">
+    <h2 class="project-galaxy-title">Project Galaxy</h2>
+    <div class="project-planet">
+      <span class="project-planet-icon glitch">&#128373;</span>
+    </div>
+    <div class="project-planet">
+      <span class="project-planet-icon glitch">&#128374;</span>
+    </div>
+    <div class="project-planet">
+      <span class="project-planet-icon glitch">&#128375;</span>
+    </div>
+    <div class="project-modal">
+      <div class="project-modal-content">
+        <span class="project-modal-close">&times;</span>
+        <h3 class="project-modal-title">Project Title</h3>
+        <p class="project-modal-description">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eget risus porta, eleifend odio vitae, gravida felis.
+        </p>
+        <p class="project-modal-technologies">
+          Technologies Used: HTML, CSS, JavaScript, React
+        </p>
+        <a href="#" class="project-modal-link">View Project</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="skill-nebula">
+    <h2 class="skill-nebula-title">Skill Nebula</h2>
+    <div class="skill-node">
+      <span class="skill-node-icon glitch">&#128104;&#8205;&#128187;</span>
+    </div>
+    <div class="<div class="skill-node">
+      <span class="skill-node-icon glitch">&#128104;&#8205;&#128187;</span>
+    </div>
+    <div class="skill-node">
+      <span class="skill-node-icon glitch">&#128104;&#8205;&#128187;</span>
+    </div>
+    <div class="skill-node-info">
+      <div class="skill-node-info-content">
+        <span class="skill-node-info-close">&times;</span>
+        <h3 class="skill-node-info-title">Backend Development</h3>
+        <p class="skill-node-info-description">
+          Proficient in building scalable and efficient backend systems using technologies like Node.js, Express, and MongoDB.
+        </p>
+        <p class="skill-node-info-proficiency">
+          Proficiency Level: Advanced
+        </p>
+      </div>
+    </div>
+
+  <div class="neon-contact-form">
+    <h2 class="neon-contact-form-title">Neon Contact Form</h2>
+    <div class="neon-contact-form-container">
+      <form>
+        <input type="text" class="neon-contact-form-field" placeholder="Name" required>
+        <input type="email" class="neon-contact-form-field" placeholder="Email" required>
+        <textarea class="neon-contact-form-field" placeholder="Message" rows="5" required></textarea>
+        <button type="submit" class="neon-contact-form-submit">Submit</button>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    // Project Modal
+    const projectPlanets = document.querySelectorAll('.project-planet');
+    const projectModal = document.querySelector('.project-modal');
+    const projectModalClose = document.querySelector('.project-modal-close');
+
+    projectPlanets.forEach((planet) => {
+      planet.addEventListener('click', () => {
+        projectModal.style.display = 'block';
+      });
+    });
+
+    projectModalClose.addEventListener('click', () => {
+      projectModal.style.display = 'none';
+    });
+
+    window.addEventListener('click', (event) => {
+      if (event.target == projectModal) {
+        projectModal.style.display = 'none';
+      }
+    });
+
+    // Skill Node Info
+    const skillNodes = document.querySelectorAll('.skill-node');
+    const skillNodeInfo = document.querySelector('.skill-node-info');
+    const skillNodeInfoClose = document.querySelector('.skill-node-info-close');
+
+    skillNodes.forEach((node) => {
+      node.addEventListener('click', () => {
+        skillNodeInfo.style.display = 'block';
+      });
+    });
+
+    skillNodeInfoClose.addEventListener('click', () => {
+      skillNodeInfo.style.display = 'none';
+    });
+
+    window.addEventListener('click', (event) => {
+      if (event.target == skillNodeInfo) {
+        skillNodeInfo.style.display = 'none';
+      }
+    });
+  </script>
+</body>
+</html>'<!-- Visit: https://github.com/Ishanoshada/portflair -->
+<!-- Visit: https://github.com/Ishanoshada/portflair -->

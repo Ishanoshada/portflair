@@ -1,0 +1,472 @@
+<!-- Portfolio created by Ishan -->
+<!-- Check out my work at: https://github.com/Ishanoshada/portflair -->
+<!-- 2024/10/9 -->
+<!-- Portfolio created by Ishan -->
+'<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dark Mode Portfolio</title>
+  <style>
+    /* Global Styles */
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+      background-color: #121212;
+      color: #f2f2f2;
+      overflow-x: hidden;
+    }
+
+    /* Navigation Bar */
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 40px;
+      background-color: rgba(18, 18, 18, 0.8);
+      backdrop-filter: blur(10px);
+      position: relative;
+      z-index: 100;
+    }
+
+    .navbar-brand {
+      font-size: 24px;
+      font-weight: bold;
+      text-decoration: none;
+      color: #f2f2f2;
+      transition: color 0.3s ease;
+    }
+
+    .navbar-brand:hover {
+      color: #9b59b6;
+    }
+
+    .navbar-nav {
+      display: flex;
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .navbar-nav li {
+      margin-left: 20px;
+    }
+
+    .navbar-nav a {
+      text-decoration: none;
+      color: #f2f2f2;
+      font-size: 16px;
+      font-weight: 500;
+      transition: color 0.3s ease;
+    }
+
+    .navbar-nav a:hover {
+      color: #9b59b6;
+    }
+
+    /* Hero Section */
+    .hero-section {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-bg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: #121212;
+      z-index: -1;
+    }
+
+    .hero-bg::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(circle at center, rgba(255, 255, 255, 0.1) 0%, rgba(18, 18, 18, 0.8) 100%);
+      z-index: 1;
+    }
+
+    .hero-content {
+      text-align: center;
+      max-width: 800px;
+      padding: 0 20px;
+    }
+
+    .hero-title {
+      font-size: 48px;
+      font-weight: bold;
+      margin-bottom: 20px;
+      text-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+    }
+
+    .hero-tagline {
+      font-size: 24px;
+      margin-bottom: 40px;
+      text-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+    }
+
+    .hero-cta {
+      display: inline-block;
+      padding: 12px 30px;
+      background-color: #9b59b6;
+      color: #f2f2f2;
+      text-decoration: none;
+      font-size: 16px;
+      font-weight: 500;
+      border-radius: 30px;
+      box-shadow: 0 0 20px rgba(155, 89, 182, 0.5);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .hero-cta:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 0 30px rgba(155, 89, 182, 0.7);
+    }
+
+    .hero-elements {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+    }
+
+    .hero-element {
+      position: absolute;
+      background-color: rgba(255, 255, 255, 0.1);
+      border-radius: 50%;
+      filter: blur(20px);
+      animation: float 10s ease infinite;
+    }
+
+    @keyframes float {
+      0% {
+        transform: translateY(0) rotate(0deg);
+      }
+      50% {
+        transform: translateY(-20px) rotate(180deg);
+      }
+      100% {
+        transform: translateY(0) rotate(360deg);
+      }
+    }
+
+    /* Project Showcase Section */
+    .project-showcase {
+      padding: 80px 40px;
+      background-color: #1a1a1a;
+    }
+
+    .project-showcase-title {
+      font-size: 36px;
+      font-weight: bold;
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      grid-gap: 40px;
+    }
+
+    .project-item {
+      position: relative;
+      background-color: rgba(255, 255, 255, 0.1);
+      border-radius: 10px;
+      overflow: hidden;
+      cursor: pointer;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .project-item:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 0 30px rgba(255, 255, 255, 0.2);
+    }
+
+    .project-thumbnail {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      opacity: 0.8;
+      transition: opacity 0.3s ease;
+    }
+
+    .project-item:hover .project-thumbnail {
+      opacity: 1;
+    }
+
+    .project-info {
+      padding: 20px;
+      text-align: center;
+    }
+
+    .project-title {
+      font-size: 20px;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+
+    .project-description {
+      font-size: 16px;
+      color: #ccc;
+    }
+
+    /* About Me Section */
+    .about-me {
+      padding: 80px 40px;
+      background-color: #121212;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .about-me-content {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .about-me-image {
+      flex: 0 0 400px;
+      border-radius: 50%;
+      background-image: url("https://dummyimage.com/400x400/ccc/000&text=Portfolio+Owner");
+      background-size: cover;
+      background-position: center;
+      box-shadow: 0 0 30px rgba(255, 255, 255, 0.2);
+      position: relative;
+      z-index: 1;
+    }
+
+    .about-me-text {
+      flex: 1;
+      margin-left: 60px;
+    }
+
+    .about-me-title {
+      font-size: 36px;
+      font-weight: bold;
+      margin-bottom: 20px;
+    }
+
+    .about-me-description {
+      font-size: 18px;
+      line-height: 1.6;
+      margin-bottom: 30px;
+    }
+
+    .about-me-cta {
+      display: inline-block;
+      padding: 12px 30px;
+      background-color: #9b59b6;
+      color: #f2f2f2;
+      text-decoration: none;
+      font-size: 16px;
+      font-weight: 500;
+      border-radius: 30px;
+      box-shadow: 0 0 20px rgba(155, 89, 182, 0.5);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .about-me-cta:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 0 30px rgba(155, 89, 182, 0.7);
+    }
+
+    .about-me-bg-elements {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+    }
+
+    .about-me-bg-element {
+      position: absolute;
+      background-color: rgba(255, 255, 255, 0.05);
+      border-radius: 50%;
+      filter: blur(50px);
+      animation: float 15s ease infinite;
+    }
+
+    @media (max-width: 991px) {
+      .about-me-content {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .about-me-image {
+        margin-bottom: 40px;
+      }
+
+      .about-me-text {
+        margin-left: 0;
+      }
+    }
+
+    @media (max-width: 767px) {
+      .navbar {
+        padding: 15px 20px;
+      }
+
+      .navbar-brand {
+        font-size: 20px;
+      }
+
+      .navbar-nav a {
+        font-size: 14px;
+      }
+
+      .hero-title {
+        font-size: 36px;
+      }
+
+      .hero-tagline {
+        font-size: 18px;
+      }
+
+      .project-showcase-title {
+        font-size: 28px;
+      }
+
+      .about-me-title {
+        font-size: 28px;
+      }
+
+      .about-me-description {
+        font-size: 16px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav class="navbar">
+      <a href="#" class="navbar-brand">Dark Mode Portfolio</a>
+      <ul class="navbar-nav">
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Projects</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero-section">
+      <div class="hero-bg"></div>
+      <div class="hero-content">
+        <h1 class="hero-title">Welcome to My Dark Mode Portfolio</h1>
+        <p class="hero-tagline">Explore a collection of captivating projects, crafted with passion and precision.</p>
+        <a href="#" class="hero-cta">View My Work</a>
+      </div>
+      <div class="hero-elements">
+        <div class="hero-element" style="width: 100px; height: 100px; top: 20%; left: 10%;"></div>
+        <div class="hero-element" style="width: 150px; height: 150px; top: 40%; left: 30%;"></div>
+        <div class="hero-element" style="width: 80px; height: 80px; top: 60%; left: 60%;"></div>
+        <div class="hero-element" style="width: 120px; height: 120px; top: 80%; left: 80%;"></div>
+      </div>
+    </section>
+
+    <section class="project-showcase">
+      <h2 class="project-showcase-title">My Featured Projects</h2>
+      <div class="project-grid">
+        <div class="project-item">
+          <img src="https://dummyimage.com/300x200/ccc/000&text=Project+1" alt="Project 1" class="project-thumbnail">
+          <div class="project-info">
+            <h3 class="project-title">Project 1</h3>
+            <p class="project-description">A captivating design project that showcases my creativity and attention to detail.</p>
+          </div>
+        </div>
+        <div class="project-item">
+          <img src="https://dummyimage.com/300x200/ccc/000&text=Project+2" alt="Project 2" class="project-thumbnail">
+          <div class="project-info">
+            <h3 class="project-title">Project 2</h3>
+            <p class="project-description">An innovative web application that pushes the boundaries of user experience.</p>
+          </div>
+        </div>
+        <div class="project-item">
+          <img src="https://dummyimage.com/300x200/ccc/000&text=Project+3" alt="Project 3" class="project-thumbnail">
+          <div class="project-info">
+            <h3 class="project-title">Project 3</h3>
+            <p class="project-description">A visually stunning branding project that leaves a lasting impression.</p>
+          </div>
+        </div>
+        <div class="project-item">
+          <img src="https://dummyimage.com/300x200/ccc/000&text=Project+4" alt="Project 4" class="project-thumbnail">
+          <div class="project-info">
+            <h3 class="project-title">Project 4</h3>
+            <p class="project-description">An immersive mobile app design that redefines user engagement.</p>
+          </div>
+        </div>
+        <div class="project-item">
+          <img src="https://dummyimage.com/300x200/ccc/000&text=Project+5" alt="Project 5" class="project-thumbnail">
+          <div class="project-info">
+            <h3 class="project-title">Project 5</h3>
+            <p class="project-description">A sophisticated UI design that harmoniously blends form and function.</p>
+          </div>
+        </div>
+        <div class="project-item">
+          <img src="https://dummyimage.com/300x200/ccc/000&text=Project+6" alt="Project 6" class="project-thumbnail">
+          <div class="project-info">
+            <h3 class="project-title">Project 6</h3>
+            <p class="project-description">An ambitious data visualization project that transforms complex information.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="about-me">
+      <div class="about-me-content">
+        <div class="about-me-image"></div>
+        <div class="about-me-text">
+          <h2 class="about-me-title">About Me</h2>
+          <p class="about-me-description">As a passionate designer, I've dedicated my career to crafting visually stunning and user-centric digital experiences. With a keen eye for detail and a deep understanding of the latest design trends, I strive to bring my clients' visions to life through a seamless blend of creativity and technical expertise.</p>
+          <a href="#" class="about-me-cta">Get in Touch</a>
+        </div>
+      </div>
+      <div class="about-me-bg-elements">
+        <div class="about-me-bg-element" style="width: 200px; height: 200px; top: 10%; left: 20%;"></div>
+        <div class="about-me-bg-element<div class="about-me-bg-element" style="width: 150px; height: 150px; top: 50%; left: 40%;"></div>
+        <div class="about-me-bg-element" style="width: 250px; height: 250px; top: 80%; left: 70%;"></div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-content">
+      <p>&copy; 2024 Dark Mode Portfolio. All rights reserved.</p>
+      <div class="social-links">
+        <a href="#" class="social-link">
+          <i class="fab fa-twitter"></i>
+        </a>
+        <a href="#" class="social-link">
+          <i class="fab fa-linkedin"></i>
+        </a>
+        <a href="#" class="social-link">
+          <i class="fab fa-instagram"></i>
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Font Awesome CDN -->
+  <script src="https://kit.fontawesome.com/your-font-awesome-kit.js" crossorigin="anonymous"></script>
+</body>
+</html>'<!-- Visit: https://github.com/Ishanoshada/portflair -->
+<!-- Visit: https://github.com/Ishanoshada/portflair -->

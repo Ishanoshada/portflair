@@ -1,0 +1,322 @@
+<!-- Portfolio created by Ishan -->
+<!-- Check out my work at: https://github.com/Ishanoshada/portflair -->
+<!-- 2024/10/9 -->
+<!-- Portfolio created by Ishan -->
+'<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Design a Portfolio - Space Station Control Console</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
+
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Orbitron', sans-serif;
+      background-color: #000;
+      color: #fff;
+      overflow-x: hidden;
+    }
+
+    /* Navigation */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 40px;
+      background-color: rgba(0, 0, 0, 0.7);
+      backdrop-filter: blur(10px);
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+    }
+
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      font-size: 18px;
+      font-weight: bold;
+      margin: 0 20px;
+      transition: color 0.3s ease;
+    }
+
+    nav a:hover {
+      color: #7df9ff;
+    }
+
+    /* Mission Control */
+    #mission-control {
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(https://dummyimage.com/1920x1080/000/7df9ff.jpg&text=Space+Station+Background) no-repeat center center / cover;
+      overflow: hidden;
+    }
+
+    .mission-control-panel {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-gap: 40px;
+      width: 90%;
+      max-width: 1400px;
+      margin-top: 40px;
+    }
+
+    .mission-control-panel .screen {
+      background-color: rgba(0, 0, 0, 0.7);
+      border: 2px solid #7df9ff;
+      border-radius: 10px;
+      box-shadow: 0 0 20px rgba(125, 249, 255, 0.5);
+      padding: 30px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+
+    .mission-control-panel .screen:hover {
+      transform: scale(1.05);
+    }
+
+    .mission-control-panel .screen h3 {
+      font-size: 24px;
+      margin-bottom: 10px;
+    }
+
+    .mission-control-panel .screen p {
+      font-size: 16px;
+      margin-bottom: 20px;
+    }
+
+    .mission-control-panel .screen button {
+      background-color: #7df9ff;
+      color: #000;
+      border: none;
+      border-radius: 20px;
+      padding: 10px 20px;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .mission-control-panel .screen button:hover {
+      background-color: #00b7c2;
+    }
+
+    /* Mission Log */
+    #mission-log {
+      padding: 80px 40px;
+      background-color: #111;
+    }
+
+    .mission-log-container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .mission-log-entry {
+      background-color: rgba(0, 0, 0, 0.7);
+      border: 2px solid #7df9ff;
+      border-radius: 10px;
+      box-shadow: 0 0 20px rgba(125, 249, 255, 0.5);
+      padding: 30px;
+      margin-bottom: 40px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+
+    .mission-log-entry:hover {
+      transform: scale(1.02);
+    }
+
+    .mission-log-entry h3 {
+      font-size: 24px;
+      margin-bottom: 10px;
+    }
+
+    .mission-log-entry p {
+      font-size: 16px;
+      margin-bottom: 20px;
+    }
+
+    .mission-log-entry img {
+      max-width: 100%;
+      height: auto;
+      margin-bottom: 20px;
+    }
+
+    /* Mission Briefing */
+    #mission-briefing {
+      padding: 80px 40px;
+      background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(https://dummyimage.com/1920x1080/111/7df9ff.jpg&text=Mission+Briefing+Background) no-repeat center center / cover;
+    }
+
+    .mission-briefing-container {
+      max-width: 800px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .mission-briefing-container h2 {
+      font-size: 36px;
+      margin-bottom: 40px;
+    }
+
+    .mission-briefing-section {
+      background-color: rgba(0, 0, 0, 0.7);
+      border: 2px solid #7df9ff;
+      border-radius: 10px;
+      box-shadow: 0 0 20px rgba(125, 249, 255, 0.5);
+      padding: 40px;
+      margin-bottom: 40px;
+      text-align: left;
+    }
+
+    .mission-briefing-section h3 {
+      font-size: 24px;
+      margin-bottom: 20px;
+    }
+
+    .mission-briefing-section p {
+      font-size: 16px;
+      line-height: 1.6;
+      margin-bottom: 20px;
+    }
+
+    .mission-briefing-section img {
+      max-width: 100%;
+      height: auto;
+      margin-bottom: 20px;
+    }
+
+    @media (max-width: 768px) {
+      nav {
+        padding: 10px 20px;
+      }
+
+      nav a {
+        font-size: 16px;
+        margin: 0 10px;
+      }
+
+      .mission-control-panel {
+        grid-template-columns: 1fr;
+        grid-gap: 20px;
+      }
+
+      .mission-log-entry {
+        padding: 20px;
+      }
+
+      .mission-briefing-container {
+        padding: 0 20px;
+      }
+
+      .mission-briefing-section {
+        padding: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="#">Mission Control</a>
+    <a href="#">Mission Log</a>
+    <a href="#">Mission Briefing</a>
+  </nav>
+
+  <section id="mission-control">
+    <h1>Welcome to the Space Station Control Console</h1>
+    <div class="mission-control-panel">
+      <div class="screen">
+        <h3>Project 1</h3>
+        <p>Explore the details of my first major coding project.</p>
+        <button>Learn More</button>
+      </div>
+      <div class="screen">
+        <h3>Project 2</h3>
+        <p>Check out my second project and the technologies used.</p>
+        <button>Learn More</button>
+      </div>
+      <div class="screen">
+        <h3>Project 3</h3>
+        <p>Dive into the specifics of my third project.</p>
+        <button>Learn More</button>
+      </div>
+      <div class="screen">
+        <h3>Project 4</h3>
+        <p>Discover the details of my fourth project.</p>
+        <button>Learn More</button>
+      </div>
+      <div class="screen">
+        <h3>Project 5</h>
+        <p>Explore the fifth project in my portfolio.</p>
+        <button>Learn More</button>
+      </div>
+      <div class="screen">
+        <h3>Project 6</h3>
+        <p>Check out the sixth project in my interstellar mission.</p>
+        <button>Learn More</button>
+      </div>
+    </div>
+  </section>
+
+  <section id="mission-log">
+    <div class="mission-log-container">
+      <h2>Mission Log</h2>
+      <div class="mission-log-entry">
+        <h3>Mastering JavaScript</h3>
+        <p>Detailed overview of my journey in becoming a JavaScript expert, including the challenges faced and the technologies learned.</p>
+        <img src="https://dummyimage.com/800x400/111/7df9ff.jpg&text=JavaScript+Mastery" alt="JavaScript Mastery">
+      </div>
+      <div class="mission-log-entry">
+        <h3>Building a Responsive Web App</h3>
+        <p>Chronicling the process of creating a highly responsive and mobile-friendly web application, highlighting the techniques and frameworks utilized.</p>
+        <img src="https://dummyimage.com/800x400/111/7df9ff.jpg&text=Responsive+Web+App" alt="Responsive Web App">
+      </div>
+      <div class="mission-log-entry">
+        <h3>Implementing Cutting-Edge UI/UX</h3>
+        <p>Sharing insights into the design and implementation of a visually stunning and user-friendly interface for my latest project.</p>
+        <img src="https://dummyimage.com/800x400/111/7df9ff.jpg&text=Cutting-Edge+UI%2FUX" alt="Cutting-Edge UI/UX">
+      </div>
+    </div>
+  </section>
+
+  <section id="mission-briefing">
+    <div class="mission-briefing-container">
+      <h2>Mission Briefing</h2>
+      <div class="mission-briefing-section">
+        <h3>Education and Background</h3>
+        <p>As a dedicated and passionate software engineer, I have honed my skills through a rigorous educational journey. With a Bachelor's degree in Computer Science from a top-tier university, I have developed a strong foundation in programming principles, data structures, and algorithm design.</p>
+        <img src="https://dummyimage.com/800x400/111/7df9ff.jpg&text=Education+and+Background" alt="Education and Background">
+      </div>
+      <div class="mission-briefing-section">
+        <h3>Work Experience</h3>
+        <p>My professional experience includes working as a software engineer at a leading technology company, where I have had the opportunity to collaborate with cross-functional teams, implement cutting-edge solutions, and contribute to the development of innovative products. Throughout my career, I have consistently demonstrated the ability to tackle complex problems, deliver high-quality code, and drive successful project outcomes.</p>
+        <img src="https://dummyimage.com/800x400/111/7df9ff.jpg&text=Work+Experience" alt="Work Experience">
+      </div>
+      <div class="mission-briefing-section">
+        <h3>Personal Interests and Hobbies</h3>
+        <p>Beyond my professional endeavors, I am a lifelong learner with a keen interest in emerging technologies, space exploration, and scientific advancements. In my free time, I enjoy building custom hardware projects, tinkering with robotics, and contributing to open-source software communities. This diverse range of interests and experiences has equipped me with a unique perspective and the ability to approach challenges from multiple angles.</p>
+        <img src="https://dummyimage.com/800x400/111/7df9ff.jpg&text=Personal+Interests+and+Hobbies" alt="Personal Interests and Hobbies">
+      </div>
+    </div>
+  </section>
+</body>
+</html>'<!-- Visit: https://github.com/Ishanoshada/portflair -->
+<!-- Visit: https://github.com/Ishanoshada/portflair -->

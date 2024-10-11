@@ -1,0 +1,285 @@
+<!-- Portfolio created by Ishan -->
+<!-- Check out my work at: https://github.com/Ishanoshada/portflair -->
+<!-- 2024/10/9 -->
+<!-- Portfolio created by Ishan -->
+'<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Layered Dark Portfolio</title>
+  <style>
+    /* Global Styles */
+    body {
+      margin: 0;
+      font-family: 'Montserrat', sans-serif;
+      background-color: #121212;
+      color: #f2f2f2;
+    }
+
+    /* Navigation */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 40px;
+      background-color: rgba(18, 18, 18, 0.8);
+      backdrop-filter: blur(10px);
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+    }
+
+    nav a {
+      color: #f2f2f2;
+      text-decoration: none;
+      font-size: 16px;
+      font-weight: 500;
+      padding: 10px 20px;
+      border-radius: 5px;
+      transition: background-color 0.3s ease;
+    }
+
+    nav a:hover {
+      background-color: rgba(242, 242, 242, 0.1);
+    }
+
+    /* Hero Section */
+    .hero {
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-bg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      background: linear-gradient(to bottom, rgba(18, 18, 18, 0.8), rgba(18, 18, 18, 1));
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      filter: brightness(0.8) contrast(1.2);
+    }
+
+    .hero-bg video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: brightness(0.8) contrast(1.2);
+    }
+
+    .hero-content {
+      text-align: center;
+      max-width: 800px;
+      padding: 0 20px;
+    }
+
+    .hero-title {
+      font-size: 64px;
+      font-weight: 700;
+      text-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+      animation: fadeIn 1s ease;
+    }
+
+    .hero-description {
+      font-size: 24px;
+      margin-top: 20px;
+      text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+      animation: fadeIn 1.5s ease;
+    }
+
+    /* Portfolio Grid */
+    .portfolio-grid {
+      padding: 80px 40px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      grid-gap: 40px;
+    }
+
+    .portfolio-item {
+      position: relative;
+      overflow: hidden;
+      border-radius: 10px;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+      transition: transform 0.3s ease;
+    }
+
+    .portfolio-item:hover {
+      transform: translateY(-10px);
+    }
+
+    .portfolio-item img {
+      width: 100%;
+      height: 300px;
+      object-fit: cover;
+      filter: brightness(0.7) contrast(1.2);
+    }
+
+    .portfolio-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(to bottom, rgba(18, 18, 18, 0.5), rgba(18, 18, 18, 0.8));
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .portfolio-item:hover .portfolio-overlay {
+      opacity: 1;
+    }
+
+    .portfolio-title {
+      font-size: 24px;
+      font-weight: 600;
+      text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    }
+
+    .portfolio-description {
+      font-size: 16px;
+      margin-top: 10px;
+      text-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+    }
+
+    /* About Section */
+    .about {
+      padding: 80px 40px;
+      background: radial-gradient(circle, #1a1a1a, #121212);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .about-content {
+      max-width: 800px;
+      text-align: center;
+    }
+
+    .about-title {
+      font-size: 36px;
+      font-weight: 700;
+      margin-bottom: 20px;
+    }
+
+    .about-description {
+      font-size: 18px;
+      line-height: 1.6;
+      margin-bottom: 40px;
+    }
+
+    .about-image {
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      background-image: url('https://dummyimage.com/400x400/ccc/000&text=Designer');
+      background-size: cover;
+      background-position: center;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+      margin-bottom: 40px;
+    }
+
+    /* Animations */
+    @keyframes fadeIn {
+      0% {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="#">Home</a>
+    <a href="#">Portfolio</a>
+    <a href="#">About</a>
+    <a href="#">Contact</a>
+  </nav>
+
+  <div class="hero">
+    <div class="hero-bg">
+      <video autoplay loop muted>
+        <source src="https://dummyimage.com/1920x1080/000/fff&text=Dark+Portfolio+Video" type="video/mp4">
+      </video>
+    </div>
+    <div class="hero-content">
+      <h1 class="hero-title">Crafting Depth and Sophistication</h1>
+      <p class="hero-description">Explore the layered, dark-toned portfolio showcasing expert design and artistic vision.</p>
+    </div>
+  </div>
+
+  <div class="portfolio-grid">
+    <div class="portfolio-item">
+      <img src="https://dummyimage.com/600x400/333/fff&text=Project+1" alt="Project 1">
+      <div class="portfolio-overlay">
+        <h3 class="portfolio-title">Project 1</h3>
+        <p class="portfolio-description">Explore the depths of our creative expertise.</p>
+      </div>
+    </div>
+    <div class="portfolio-item">
+      <img src="https://dummyimage.com/600x400/333/fff&text=Project+2" alt="Project 2">
+      <div class="portfolio-overlay">
+        <h3 class="portfolio-title">Project 2</h3>
+        <p class="portfolio-description">Immerse yourself in a world of sophistication.</p>
+      </div>
+    </div>
+    <div class="portfolio-item">
+      <img src="https://dummyimage.com/600x400/333/fff&text=Project+3" alt="Project 3">
+      <div class="portfolio-overlay">
+        <h3 class="portfolio-title">Project 3</h3>
+        <p class="portfolio-description">Discover the depth of our design expertise.</p>
+      </div>
+    </div>
+    <div class="portfolio-item">
+      <img src="https://dummyimage.com/600x400/333/fff&text=Project+4" alt="Project 4">
+      <div class="portfolio-overlay">
+        <h3 class="portfolio-title">Project 4</h3>
+        <p class="portfolio-description">Unveil the layers of our creative prowess.</p>
+      </div>
+    </div>
+    <div class="portfolio-item">
+      <img src="https://dummyimage.com/600x400/333/fff&text=Project+5" alt="Project 5">
+      <div class="portfolio-overlay">
+        <h3 class="portfolio-title">Project 5</h3>
+        <p class="portfolio-description">Dive into the depths of our design journey.</p>
+      </div>
+    </div>
+    <div class="portfolio-item">
+      <img src="https://dummyimage.com/600x400/333/fff&text=Project+6" alt="Project 6">
+      <div class="portfolio-overlay">
+        <h3 class="portfolio-title">Project 6</h3>
+        <p class="portfolio-description">Uncover the sophistication in our work.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="about">
+    <div class="about-content">
+      <h2 class="about-title">About the Designer</h2>
+      <div class="about-image"></div>
+      <p class="about-description">
+        Welcome to my layered, dark-toned portfolio, where I strive to create designs that evoke a sense of depth and sophistication. As an expert website designer, I believe in crafting experiences that captivate and inspire. Through the use of deep blacks, subtle shadow effects, and dark color gradients, I aim to immerse you in a world of depth and artistry. Explore my portfolio and discover the layers of creativity that define my approach to design.
+      </p>
+    </div>
+  </div>
+</body>
+</html>'<!-- Visit: https://github.com/Ishanoshada/portflair -->
+<!-- Visit: https://github.com/Ishanoshada/portflair -->

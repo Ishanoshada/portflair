@@ -1,0 +1,356 @@
+<!-- Portfolio created by Ishan -->
+<!-- Check out my work at: https://github.com/Ishanoshada/portflair -->
+<!-- 2024/10/9 -->
+<!-- Portfolio created by Ishan -->
+'<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Create a mind-bending, abstract portfolio</title>
+  <style>
+    /* Reset styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    /* Global styles */
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #1a1a1a;
+      color: #fff;
+    }
+
+    /* Navigation */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 40px;
+      background-color: rgba(26, 26, 26, 0.8);
+      backdrop-filter: blur(10px);
+      position: relative;
+      z-index: 100;
+    }
+
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      font-size: 18px;
+      font-weight: 500;
+      transition: color 0.3s ease-in-out;
+    }
+
+    nav a:hover {
+      color: #9b59b6;
+    }
+
+    /* Interactive 3D Showcase */
+    #interactive-3d-showcase {
+      position: relative;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+    }
+
+    #interactive-3d-showcase::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(circle, rgba(26, 26, 26, 0.8) 0%, rgba(26, 26, 26, 0.2) 70%, transparent 100%);
+      z-index: 1;
+    }
+
+    #interactive-3d-showcase .scene {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      perspective: 1000px;
+      z-index: 2;
+    }
+
+    #interactive-3d-showcase .scene .cube {
+      position: absolute;
+      width: 200px;
+      height: 200px;
+      transform-style: preserve-3d;
+      transform-origin: center center;
+      transition: all 0.5s ease-in-out;
+      cursor: pointer;
+    }
+
+    #interactive-3d-showcase .scene .cube:before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(45deg, #9b59b6, #8e44ad);
+      transform: translateZ(50px);
+      filter: blur(20px);
+      opacity: 0.5;
+    }
+
+    #interactive-3d-showcase .scene .cube .face {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      opacity: 0.8;
+      transition: all 0.5s ease-in-out;
+    }
+
+    #interactive-3d-showcase .scene .cube .face:nth-child(1) {
+      background-color: #9b59b6;
+      transform: translateZ(100px);
+    }
+
+    #interactive-3d-showcase .scene .cube .face:nth-child(2) {
+      background-color: #8e44ad;
+      transform: rotateY(90deg) translateZ(100px);
+    }
+
+    #interactive-3d-showcase .scene .cube .face:nth-child(3) {
+      background-color: #663399;
+      transform: rotateY(180deg) translateZ(100px);
+    }
+
+    #interactive-3d-showcase .scene .cube .face:nth-child(4) {
+      background-color: #4b0082;
+      transform: rotateY(-90deg) translateZ(100px);
+    }
+
+    #interactive-3d-showcase .scene .cube .face:nth-child(5) {
+      background-color: #800080;
+      transform: rotateX(90deg) translateZ(100px);
+    }
+
+    #interactive-3d-showcase .scene .cube .face:nth-child(6) {
+      background-color: #7b68ee;
+      transform: rotateX(-90deg) translateZ(100px);
+    }
+
+    /* Immersive Neon Grid */
+    #immersive-neon-grid {
+      position: relative;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: #000;
+      overflow: hidden;
+    }
+
+    #immersive-neon-grid .grid {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      display: grid;
+      grid-template-columns: repeat(20, 1fr);
+      grid-template-rows: repeat(20, 1fr);
+      grid-gap: 10px;
+      z-index: 2;
+    }
+
+    #immersive-neon-grid .grid .grid-item {
+      background-color: rgba(255, 255, 255, 0.1);
+      box-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+      transition: all 0.5s ease-in-out;
+      cursor: pointer;
+    }
+
+    #immersive-neon-grid .grid .grid-item:hover {
+      background-color: rgba(255, 255, 255, 0.3);
+      box-shadow: 0 0 40px rgba(255, 255, 255, 0.8);
+      transform: scale(1.1);
+    }
+
+    #immersive-neon-grid::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(circle, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0.2) 70%, transparent 100%);
+      z-index: 1;
+    }
+
+    #immersive-neon-grid::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(45deg, #9b59b6, #8e44ad);
+      opacity: 0.2;
+      animation: neon-pulse 3s ease-in-out infinite;
+      z-index: 1;
+    }
+
+    @keyframes neon-pulse {
+      0% {
+        opacity: 0.2;
+      }
+      50% {
+        opacity: 0.4;
+      }
+      100% {
+        opacity: 0.2;
+      }
+    }
+
+    /* Kaleidoscopic Project Details */
+    #kaleidoscopic-project-details {
+      position: relative;
+      padding: 100px 40px;
+      background-color: #1a1a1a;
+      overflow: hidden;
+    }
+
+    #kaleidoscopic-project-details::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(circle, rgba(26, 26, 26, 0.8) 0%, rgba(26, 26, 26, 0.2) 70%, transparent 100%);
+      z-index: 1;
+    }
+
+    #kaleidoscopic-project-details .project-details {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      z-index: 2;
+    }
+
+    #kaleidoscopic-project-details .project-details h2 {
+      font-size: 48px;
+      font-weight: 700;
+      margin-bottom: 20px;
+      text-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+    }
+
+    #kaleidoscopic-project-details .project-details p {
+      font-size: 18px;
+      line-height: 1.6;
+      margin-bottom: 40px;
+      text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+    }
+
+    #kaleidoscopic-project-details .project-details img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 10px;
+      box-shadow: 0 0 40px rgba(255, 255, 255, 0.5);
+      animation: kaleidoscope 10s ease-in-out infinite;
+    }
+
+    @keyframes kaleidoscope {
+      0% {
+        transform: rotate(0deg) scale(1);
+      }
+      50% {
+        transform: rotate(180deg) scale(1.2);
+      }
+      100% {
+        transform: rotate(360deg) scale(1);
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="#">Home</a>
+    <a href="#">About</a>
+    <a href="#">Portfolio</a>
+    <a href="#">Contact</a>
+  </nav>
+
+  <section id="interactive-3d-showcase">
+    <div class="scene">
+      <div class="cube">
+        <div class="face"></div>
+        <div class="face"></div>
+        <div class="face"></div>
+        <div class="face"></div>
+        <div class="face"></div>
+        <div class="face"></div>
+      </div>
+      <div class="cube">
+        <div class="face"></div>
+        <div class="face"></div>
+        <div class="face"></div>
+        <div class="face"></div>
+        <div class="face"></div>
+        <div class="face"></div>
+      </div>
+      <div class="cube">
+        <div class="face"></div>
+        <div class="face"></div>
+        <div class="face"></div>
+        <div class="face"></div>
+        <div class="face"></div>
+        <div class="face"></div>
+      </div>
+      <div class="cube">
+        <div class="face"></div>
+        <div class="face"></div>
+        <div class="face"></div>
+        <div class="face"></div>
+        <div class="face"></div>
+        <div class="face"></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="immersive-neon-grid">
+    <div class="grid">
+      <div class="grid-item"></div>
+      <div class="grid-item"></div>
+      <div class="grid-item"></div>
+      <div class="grid-item"></div>
+      <div class="grid-item"></div>
+      <div class="grid-item"></div>
+      <div class="grid-item"></div>
+      <div class="grid-item"></div>
+      <div class="grid-item"></div>
+      <div class="grid-item"></div>
+      <div class="grid-item"></div>
+      <div class="grid-item"></div>
+      <div class="grid-item"></div>
+      <div class="grid-item"></div>
+      <div class="grid-item"></div>
+      <div class="grid-item"></div>
+      <div class="grid-item"></div>
+      <div class="grid-item"></div>
+      <div class="grid-item"></div>
+      <div class="grid-item"></div>
+    </div>
+  </section>
+
+  <section id="kaleidoscopic-project-details">
+    <div class="project-details">
+      <h2>Project Title</h2>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ut risus in augue luctus venenatis. Sed ut risus in augue luctus venenatis.</p>
+      <img src="https://dummyimage.com/1200x500/ccc/000&text=Project+Image" alt="Project Image">
+    </div>
+  </section>
+</body>
+</html>'<!-- Visit: https://github.com/Ishanoshada/portflair -->
+<!-- Visit: https://github.com/Ishanoshada/portflair -->

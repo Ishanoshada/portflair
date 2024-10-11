@@ -1,0 +1,410 @@
+<!-- Portfolio created by Ishan -->
+<!-- Check out my work at: https://github.com/Ishanoshada/portflair -->
+<!-- 2024/10/9 -->
+<!-- Portfolio created by Ishan -->
+'<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hacking-Themed Portfolio</title>
+  <style>
+    /* Global Styles */
+    @import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
+
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'VT323', monospace;
+      background-color: #0d0d0d;
+      color: #fff;
+      overflow-x: hidden;
+    }
+
+    /* Navigation */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 40px;
+      background-color: #111;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    nav ul {
+      list-style-type: none;
+      display: flex;
+      margin: 0;
+      padding: 0;
+    }
+
+    nav ul li {
+      margin-right: 20px;
+    }
+
+    nav ul li a {
+      color: #fff;
+      text-decoration: none;
+      font-size: 18px;
+      position: relative;
+      padding-bottom: 5px;
+    }
+
+    nav ul li a::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 0;
+      height: 2px;
+      background-color: #00ff00;
+      transition: width 0.3s ease-in-out;
+    }
+
+    nav ul li a:hover::after {
+      width: 100%;
+    }
+
+    /* Hero/Intro Section */
+    .hero {
+      position: relative;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(to bottom, #0d0d0d, #242424);
+      z-index: -1;
+    }
+
+    .hero::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: url('https://dummyimage.com/1200x500/00ff00/000000.png&text=Hacking+Glitch');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      opacity: 0.1;
+      z-index: -1;
+      animation: glitch 5s infinite linear;
+    }
+
+    @keyframes glitch {
+      0% {
+        transform: translate(0, 0);
+      }
+      20% {
+        transform: translate(5px, 5px);
+      }
+      40% {
+        transform: translate(-5px, -5px);
+      }
+      60% {
+        transform: translate(5px, -5px);
+      }
+      80% {
+        transform: translate(-5px, 5px);
+      }
+      100% {
+        transform: translate(0, 0);
+      }
+    }
+
+    .hero h1 {
+      font-size: 72px;
+      text-align: center;
+      text-shadow: 0 0 20px #00ff00;
+      animation: neon-glow 2s infinite linear;
+    }
+
+    @keyframes neon-glow {
+      0% {
+        text-shadow: 0 0 20px #00ff00;
+      }
+      50% {
+        text-shadow: 0 0 40px #00ff00;
+      }
+      100% {
+        text-shadow: 0 0 20px #00ff00;
+      }
+    }
+
+    .hero p {
+      font-size: 24px;
+      text-align: center;
+      margin-top: 20px;
+      animation: neon-glow 3s infinite linear;
+    }
+
+    /* Project Showcase Section */
+    .projects {
+      padding: 80px 40px;
+      background-color: #111;
+    }
+
+    .projects h2 {
+      font-size: 48px;
+      text-align: center;
+      margin-bottom: 40px;
+      text-shadow: 0 0 20px #00ff00;
+      animation: neon-glow 2s infinite linear;
+    }
+
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-gap: 40px;
+    }
+
+    .project-item {
+      position: relative;
+      overflow: hidden;
+      border-radius: 10px;
+      box-shadow: 0 0 20px rgba(0, 255, 0, 0.3);
+      transition: transform 0.3s ease-in-out;
+    }
+
+    .project-item:hover {
+      transform: scale(1.05);
+    }
+
+    .project-item img {
+      width: 100%;
+      height: 300px;
+      object-fit: cover;
+      filter: grayscale(100%) contrast(120%) brightness(80%);
+      transition: filter 0.3s ease-in-out;
+    }
+
+    .project-item:hover img {
+      filter: grayscale(0%) contrast(100%) brightness(100%);
+    }
+
+    .project-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.7);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      opacity: 0;
+      transition: opacity 0.3s ease-in-out;
+    }
+
+    .project-item:hover .project-overlay {
+      opacity: 1;
+    }
+
+    .project-overlay h3 {
+      font-size: 24px;
+      color: #00ff00;
+      text-shadow: 0 0 10px #00ff00;
+      margin-bottom: 10px;
+    }
+
+    .project-overlay p {
+      font-size: 16px;
+      color: #fff;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .project-overlay a {
+      display: inline-block;
+      padding: 10px 20px;
+      background-color: #00ff00;
+      color: #0d0d0d;
+      text-decoration: none;
+      font-size: 16px;
+      border-radius: 5px;
+      transition: background-color 0.3s ease-in-out;
+    }
+
+    .project-overlay a:hover {
+      background-color: #00cc00;
+    }
+
+    /* Contact Section */
+    .contact {
+      padding: 80px 40px;
+      background-color: #0d0d0d;
+    }
+
+    .contact h2 {
+      font-size: 48px;
+      text-align: center;
+      margin-bottom: 40px;
+      text-shadow: 0 0 20px #00ff00;
+      animation: neon-glow 2s infinite linear;
+    }
+
+    .contact-form {
+      max-width: 600px;
+      margin: 0 auto;
+      background-color: #111;
+      padding: 40px;
+      border-radius: 10px;
+      box-shadow: 0 0 20px rgba(0, 255, 0, 0.3);
+    }
+
+    .contact-form .form-group {
+      margin-bottom: 20px;
+    }
+
+    .contact-form label {
+      display: block;
+      font-size: 18px;
+      margin-bottom: 5px;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+      width: 100%;
+      padding: 10px;
+      font-size: 16px;
+      font-family: 'VT323', monospace;
+      background-color: #0d0d0d;
+      color: #00ff00;
+      border: 2px solid #00ff00;
+      border-radius: 5px;
+      transition: border-color 0.3s ease-in-out;
+    }
+
+    .contact-form input:focus,
+    .contact-form textarea:focus {
+      outline: none;
+      border-color: #00cc00;
+    }
+
+    .contact-form button {
+      display: block;
+      width: 100%;
+      padding: 10px;
+      font-size: 18px;
+      font-family: 'VT323', monospace;
+      background-color: #00ff00;
+      color: #0d0d0d;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease-in-out;
+    }
+
+    .contact-form button:hover {
+      background-color: #00cc00;
+    }
+
+    .contact-form .success-message {
+      font-size: 18px;
+      text-align: center;
+      color: #00ff00;
+      margin-top: 20px;
+      animation: neon-glow 2s infinite linear;
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="logo">
+      <a href="#"><span style="color:#00ff00;">H</span>ACKING <span style="color:#00ff00;">P</span>ORTFOLIO</a>
+    </div>
+    <ul>
+      <li><a href="#">Home</a></li>
+      <li><a href="#">About</a></li>
+      <li><a href="#">Projects</a></li>
+      <li><a href="#">Contact</a></li>
+    </ul>
+  </nav>
+
+  <div class="hero">
+    <h1>Welcome to the <span style="color:#00ff00;">Hacking</span> Realm</h1>
+    <p>Explore the mind-bending world of a Graphic Designer's Cyber Portfolio</p>
+  </div>
+
+  <div class="projects">
+    <h2>Featured <span style="color:#00ff00;">Projects</span></h2>
+    <div class="project-grid">
+      <div class="project-item">
+        <img src="https://dummyimage.com/600x400/00ff00/000000.png&text=Project+1" alt="Project 1">
+        <div class="project-overlay">
+          <h3>Project 1</h3>
+          <p>Explore the intricate details of this hacking-inspired design.</p>
+          <a href="#">View Project</a>
+        </div>
+      </div>
+      <div class="project-item">
+        <img src="https://dummyimage.com/600x400/00ff00/000000.png&text=Project+2" alt="Project 2">
+        <div class="project-overlay">
+          <h3>Project 2</h3>
+          <p>Discover the depth and technicality of this digital masterpiece.</p>
+          <a href="#">View Project</a>
+        </div>
+      </div>
+      <div class="project-item">
+        <img src="https://dummyimage.com/600x400/00ff00/000000.png&text=Project+3" alt="Project 3">
+        <div class="project-overlay">
+          <h3>Project 3</h3>
+          <p>Immerse yourself in the captivating world of this hacking-themed design.</p>
+          <a href="#">View Project</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="contact">
+    <h2>Get in <span style="color:#00ff00;">Touch</span></h2>
+    <div class="contact-form">
+      <form>
+        <div class="form-group">
+          <label for="name">Name:</label>
+          <input type="text" id="name" placeholder="Enter your name" required>
+        </div>
+        <div class="form-group">
+          <label for="email">Email:</label>
+          <input type="email" id="email" placeholder="Enter your email" required>
+        </div>
+        <div class="form-group">
+          <label for="message">Message:</label>
+          <textarea id="message" rows="5" placeholder="Enter your message" required></textarea>
+        </div>
+        <button type="submit">Send Message</button>
+      </form>
+      <div class="success-message" style="display: none;">
+        Message sent successfully!
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Form submission handling
+    const form = document.querySelector('.contact-form form');
+    const successMessage = document.querySelector('.success-message');
+
+    form.addEventListener('submit', (event) => {
+      event.preventDefault();
+      // Simulate successful form submission
+      form.style.display = 'none';
+      successMessage.style.display = 'block';
+    });
+  </script>
+</body>
+</html>'<!-- Visit: https://github.com/Ishanoshada/portflair -->
+<!-- Visit: https://github.com/Ishanoshada/portflair -->

@@ -1,0 +1,428 @@
+<!-- Portfolio created by Ishan -->
+<!-- Check out my work at: https://github.com/Ishanoshada/portflair -->
+<!-- 2024/10/9 -->
+<!-- Portfolio created by Ishan -->
+'<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Black Hole Portfolio</title>
+  <style>
+    /* Global Styles */
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Roboto Mono', monospace;
+      background-color: #0a0a0a;
+      color: #fff;
+      overflow-x: hidden;
+    }
+
+    /* Navbar Styles */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: rgba(10, 10, 10, 0.8);
+      padding: 1.5rem 2rem;
+      backdrop-filter: blur(10px);
+      position: relative;
+      z-index: 100;
+    }
+
+    nav ul {
+      list-style-type: none;
+      display: flex;
+      gap: 2rem;
+      margin: 0;
+      padding: 0;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #fff;
+      font-size: 1.1rem;
+      font-weight: 500;
+      position: relative;
+      transition: color 0.3s ease;
+    }
+
+    nav a:before {
+      content: "";
+      position: absolute;
+      width: 100%;
+      height: 2px;
+      bottom: -4px;
+      left: 0;
+      background-color: #fff;
+      visibility: hidden;
+      transform: scaleX(0);
+      transition: all 0.3s ease-in-out;
+    }
+
+    nav a:hover {
+      color: #7f7f7f;
+    }
+
+    nav a:hover:before {
+      visibility: visible;
+      transform: scaleX(1);
+    }
+
+    /* Project Showcase Styles */
+    .project-showcase {
+      padding: 4rem 2rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    .project-showcase h2 {
+      text-align: center;
+      font-size: 3rem;
+      margin-bottom: 3rem;
+      text-shadow: 0 0 20px #fff, 0 0 30px #ff00de, 0 0 40px #ff00de, 0 0 50px #ff00de, 0 0 60px #ff00de, 0 0 70px #ff00de, 0 0 80px #ff00de;
+      animation: pulsate 4s ease-in-out infinite;
+    }
+
+    .project-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+    }
+
+    .project-card {
+      background-color: rgba(255, 255, 255, 0.05);
+      border-radius: 10px;
+      box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+      overflow: hidden;
+      position: relative;
+      cursor: pointer;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .project-card:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 40px rgba(255, 255, 255, 0.2);
+    }
+
+    .project-card:before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(45deg, #ff00de, #7f00ff);
+      opacity: 0.5;
+      filter: blur(100px);
+      transform: translateX(-50%) translateY(-50%);
+      transition: all 0.5s ease;
+    }
+
+    .project-card:hover:before {
+      opacity: 0.8;
+      filter: blur(50px);
+      transform: translateX(-50%) translateY(-50%) scale(1.2);
+    }
+
+    .project-card-content {
+      padding: 2rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    .project-card-content h3 {
+      font-size: 1.8rem;
+      margin-bottom: 1rem;
+      text-shadow: 0 0 10px #fff, 0 0 20px #ff00de, 0 0 30px #ff00de;
+    }
+
+    .project-card-content p {
+      font-size: 1.1rem;
+      line-height: 1.5;
+      margin-bottom: 2rem;
+    }
+
+    .project-card-content a {
+      display: inline-block;
+      padding: 0.8rem 1.5rem;
+      background-color: #ff00de;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 5px;
+      font-size: 1.1rem;
+      transition: background-color 0.3s ease;
+    }
+
+    .project-card-content a:hover {
+      background-color: #b300a8;
+    }
+
+    /* About Section Styles */
+    .about-section {
+      padding: 4rem 2rem;
+      background-color: rgba(10, 10, 10, 0.8);
+      backdrop-filter: blur(10px);
+      position: relative;
+      z-index: 1;
+    }
+
+    .about-section h2 {
+      text-align: center;
+      font-size: 3rem;
+      margin-bottom: 3rem;
+      text-shadow: 0 0 20px #fff, 0 0 30px #7f00ff, 0 0 40px #7f00ff, 0 0 50px #7f00ff, 0 0 60px #7f00ff, 0 0 70px #7f00ff, 0 0 80px #7f00ff;
+      animation: pulsate 4s ease-in-out infinite;
+    }
+
+    .about-content {
+      max-width: 800px;
+      margin: 0 auto;
+      font-size: 1.2rem;
+      line-height: 1.6;
+      position: relative;
+    }
+
+    .about-content:before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(45deg, #7f00ff, #ff00de);
+      opacity: 0.1;
+      filter: blur(50px);
+      transform: translateX(-50%) translateY(-50%);
+    }
+
+    .about-content h3 {
+      font-size: 2rem;
+      margin-bottom: 1.5rem;
+      text-shadow: 0 0 10px #fff, 0 0 20px #7f00ff;
+    }
+
+    .about-content p {
+      margin-bottom: 2rem;
+    }
+
+    /* Contact Form Styles */
+    .contact-section {
+      padding: 4rem 2rem;
+      background-color: rgba(10, 10, 10, 0.8);
+      backdrop-filter: blur(10px);
+      position: relative;
+      z-index: 1;
+    }
+
+    .contact-section h2 {
+      text-align: center;
+      font-size: 3rem;
+      margin-bottom: 3rem;
+      text-shadow: 0 0 20px #fff, 0 0 30px #00ffff, 0 0 40px #00ffff, 0 0 50px #00ffff, 0 0 60px #00ffff, 0 0 70px #00ffff, 0 0 80px #00ffff;
+      animation: pulsate 4s ease-in-out infinite;
+    }
+
+    .contact-form {
+      max-width: 600px;
+      margin: 0 auto;
+      background-color: rgba(255, 255, 255, 0.05);
+      border-radius: 10px;
+      box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+      padding: 2rem;
+      position: relative;
+    }
+
+    .contact-form:before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(45deg, #00ffff, #7f00ff);
+      opacity: 0.5;
+      filter: blur(100px);
+      transform: translateX(-50%) translateY(-50%);
+      transition: all 0.5s ease;
+    }
+
+    .contact-form:hover:before {
+      opacity: 0.8;
+      filter: blur(50px);
+      transform: translateX(-50%) translateY(-50%) scale(1.2);
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+      display: block;
+      width: 100%;
+      padding: 1rem;
+      margin-bottom: 1.5rem;
+      background-color: rgba(255, 255, 255, 0.1);
+      border: none;
+      border-radius: 5px;
+      color: #fff;
+      font-family: 'Roboto Mono', monospace;
+      font-size: 1.1rem;
+      outline: none;
+      transition: box-shadow 0.3s ease;
+    }
+
+    .contact-form input:focus,
+    .contact-form textarea:focus {
+      box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+    }
+
+    .contact-form button {
+      display: block;
+      width: 100%;
+      padding: 1rem;
+      background-color: #00ffff;
+      color: #0a0a0a;
+      border: none;
+      border-radius: 5px;
+      font-family: 'Roboto Mono', monospace;
+      font-size: 1.1rem;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .contact-form button:hover {
+      background-color: #00cccc;
+    }
+
+    /* Animations */
+    @keyframes pulsate {
+      0% {
+        text-shadow: 0 0 20px #fff, 0 0 30px #ff00de, 0 0 40px #ff00de, 0 0 50px #ff00de, 0 0 60px #ff00de, 0 0 70px #ff00de, 0 0 80px #ff00de;
+      }
+      50% {
+        text-shadow: 0 0 10px #fff, 0 0 20px #ff00de, 0 0 30px #ff00de, 0 0 40px #ff00de, 0 0 50px #ff00de, 0 0 60px #ff00de, 0 0 70px #ff00de;
+      }
+      100% {
+        text-shadow: 0 0 20px #fff, 0 0 30px #ff00de, 0 0 40px #ff00de, 0 0 50px #ff00de, 0 0 60px #ff00de, 0 0 70px #ff00de, 0 0 80px #ff00de;
+      }
+    }
+
+    /* Responsive Styles */
+    @media (max-width: 768px) {
+      nav {
+        padding: 1rem;
+      }
+
+      nav ul {
+        gap: 1.5rem;
+      }
+
+      nav a {
+        font-size: 1rem;
+      }
+
+      .project-showcase,
+      .about-section,
+      .contact-section {
+        padding: 3rem 1rem;
+      }
+
+      .project-showcase h2,
+      .about-section h2,
+      .contact-section h2 {
+        font-size: 2.5rem;
+      }
+
+      .project-card-content h3 {
+        font-size: 1.6rem;
+      }
+
+      .project-card-content p {
+        font-size: 1rem;
+      }
+
+      .about-content {
+        font-size: 1.1rem;
+      }
+
+      .about-content h3 {
+        font-size: 1.8rem;
+      }
+
+      .contact-form input,
+      .contact-form textarea,
+      .contact-form button {
+        font-size: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="#">Home</a>
+    <ul>
+      <li><a href="#">Projects</a></li>
+      <li><a href="#">About</a></li>
+      <li><a href="#">Contact</a></li>
+    </ul>
+  </nav>
+
+  <section class="project-showcase">
+    <h2>Project Showcase</h2>
+    <div class="project-cards">
+      <div class="project-card">
+        <div class="project-card-content">
+          <h3>Project 1</h3>
+          <p>A brief description of the project, including the technologies used and a link to the live project or case study.</p>
+          <a href="#">View Project</a>
+        </div>
+      </div>
+      <div class="project-card">
+        <div class="project-card-content">
+          <h3>Project 2</h3>
+          <p>A brief description of the project, including the technologies used and a link to the live project or case study.</p>
+          <a href="#">View Project</a>
+        </div>
+      </div>
+      <div class="project-card">
+        <div class="project-card-content">
+          <h3>Project 3</h3>
+          <p>A brief description of the project, including the technologies used and a link to the live project or case study.</p>
+          <a href="#">View Project</a>
+        </div>
+      </div>
+      <div class="project-card">
+        <div class="project-card-content">
+          <h3>Project 4</h3>
+          <p>A brief description of the project, including the technologies used and a link to the live project or case study.</p>
+          <a href="#">View Project</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="about-section">
+    <h2>About</h2>
+    <div class="about-content">
+      <h3>Backend Developer with a Cosmic Twist</h3>
+      <p>As a backend developer with a passion for the cosmos, I bring a unique and visually striking approach to my work. Drawing inspiration from the mysterious and captivating nature of black holes, I create robust and scalable applications that seamlessly blend cutting-edge technology with a touch of cosmic wonder.</p>
+      <p>My expertise spans a wide range of backend technologies, including Node.js, Python, and Java, allowing me to tackle complex challenges with precision and efficiency. I'm driven by a constant desire to push the boundaries of what's possible, constantly exploring new ways to integrate emerging technologies and innovative design principles into my projects.</p>
+      <p>Whether it's building a high-performance API, designing a scalable database architecture, or optimizing system performance, I approach every challenge with a meticulous attention to detail and a deep understanding of the underlying principles. At the same time, I strive to imbue my work with a sense of cosmic elegance, using glitchy cyberpunk accents and holographic interfaces to create an immersive and engaging user experience.</p>
+    </div>
+  </section>
+
+  <section class="contact-section">
+    <h2>Contact</h2>
+    <form class="contact-form">
+      <input type="text" placeholder="Name" required>
+      <input type="email" placeholder="Email" required>
+      <textarea placeholder="Message" rows="5" required></textarea>
+      <button type="submit">Send Message</button>
+    </form>
+  </section>
+
+  <script>
+    // Add any necessary JavaScript functionality here
+  </script>
+</body>
+</html>'<!-- Visit: https://github.com/Ishanoshada/portflair -->
+<!-- Visit: https://github.com/Ishanoshada/portflair -->

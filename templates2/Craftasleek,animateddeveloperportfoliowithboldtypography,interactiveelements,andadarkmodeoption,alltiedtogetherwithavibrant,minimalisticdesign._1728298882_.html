@@ -1,0 +1,321 @@
+<!-- Portfolio created by Ishan -->
+<!-- Check out my work at: https://github.com/Ishanoshada/portflair -->
+<!-- 2024/10/9 -->
+<!-- Portfolio created by Ishan -->
+'<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Craft - Sleek, Animated Developer Portfolio</title>
+  <style>
+    /* Global Styles */
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
+
+    :root {
+      --primary-color: #6C63FF;
+      --secondary-color: #F7F7F7;
+      --text-color: #FFFFFF;
+      --background-color: #1C1C1C;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: var(--background-color);
+      color: var(--text-color);
+    }
+
+    /* Navigation */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 40px;
+      background-color: var(--background-color);
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    nav a {
+      color: var(--text-color);
+      text-decoration: none;
+      font-size: 18px;
+      font-weight: 700;
+      transition: color 0.3s ease;
+    }
+
+    nav a:hover {
+      color: var(--primary-color);
+    }
+
+    /* Hero Section */
+    .hero {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 80vh;
+      background: linear-gradient(45deg, #6C63FF, #8E7BFF);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero h1 {
+      font-size: 72px;
+      font-weight: 700;
+      text-align: center;
+      margin-bottom: 20px;
+      animation: fadeInUp 1s ease;
+    }
+
+    .hero p {
+      font-size: 24px;
+      text-align: center;
+      margin-bottom: 40px;
+      animation: fadeInUp 1s ease 0.5s;
+    }
+
+    .hero-button {
+      display: inline-block;
+      background-color: var(--primary-color);
+      color: var(--text-color);
+      font-size: 18px;
+      font-weight: 700;
+      padding: 16px 32px;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: background-color 0.3s ease;
+      animation: fadeInUp 1s ease 1s;
+    }
+
+    .hero-button:hover {
+      background-color: #5450D8;
+    }
+
+    .hero-bg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: url('https://dummyimage.com/1200x500/6C63FF/fff&text=Craft');
+      background-size: cover;
+      background-position: center;
+      opacity: 0.2;
+      z-index: -1;
+      animation: pulse 5s ease infinite;
+    }
+
+    /* About Section */
+    .about {
+      padding: 80px 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .about-content {
+      max-width: 800px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .about-image {
+      width: 300px;
+      height: 300px;
+      border-radius: 50%;
+      background-image: url('https://dummyimage.com/600x600/F7F7F7/000&text=Developer');
+      background-size: cover;
+      background-position: center;
+      margin-right: 40px;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease;
+    }
+
+    .about-image:hover {
+      transform: scale(1.05);
+    }
+
+    .about-text h2 {
+      font-size: 36px;
+      font-weight: 700;
+      margin-bottom: 20px;
+    }
+
+    .about-text p {
+      font-size: 18px;
+      line-height: 1.6;
+      margin-bottom: 0;
+    }
+
+    /* Work Showcase */
+    .work {
+      padding: 80px 40px;
+    }
+
+    .work h2 {
+      font-size: 36px;
+      font-weight: 700;
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .work-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-gap: 40px;
+    }
+
+    .work-item {
+      position: relative;
+      overflow: hidden;
+      border-radius: 8px;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease;
+    }
+
+    .work-item:hover {
+      transform: translateY(-10px);
+    }
+
+    .work-item img {
+      width: 100%;
+      height: 300px;
+      object-fit: cover;
+    }
+
+    .work-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(108, 99, 255, 0.8);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .work-item:hover .work-overlay {
+      opacity: 1;
+    }
+
+    .work-overlay h3 {
+      font-size: 24px;
+      font-weight: 700;
+      color: var(--text-color);
+      margin-bottom: 10px;
+    }
+
+    .work-overlay p {
+      font-size: 16px;
+      color: var(--text-color);
+      margin-bottom: 20px;
+    }
+
+    .work-overlay a {
+      display: inline-block;
+      background-color: var(--primary-color);
+      color: var(--text-color);
+      font-size: 16px;
+      font-weight: 700;
+      padding: 12px 24px;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: background-color 0.3s ease;
+    }
+
+    .work-overlay a:hover {
+      background-color: #5450D8;
+    }
+
+    /* Animations */
+    @keyframes fadeInUp {
+      0% {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes pulse {
+      0% {
+        transform: scale(1);
+      }
+      50% {
+        transform: scale(1.1);
+      }
+      100% {
+        transform: scale(1);
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="#">Craft</a>
+    <div>
+      <a href="#">Home</a>
+      <a href="#">About</a>
+      <a href="#">Work</a>
+      <a href="#">Contact</a>
+    </div>
+  </nav>
+
+  <div class="hero">
+    <h1>Craft</h1>
+    <p>Sleek, Animated Developer Portfolio</p>
+    <a href="#" class="hero-button">Explore Portfolio</a>
+    <div class="hero-bg"></div>
+  </div>
+
+  <div class="about">
+    <div class="about-content">
+      <div class="about-image"></div>
+      <div class="about-text">
+        <h2>About the Developer</h2>
+        <p>Hi, I'm a passionate and skilled developer with a deep love for creating visually stunning and highly interactive web experiences. I specialize in crafting sleek, modern designs that captivate users and bring their ideas to life.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="work">
+    <h2>Featured Work</h2>
+    <div class="work-grid">
+      <div class="work-item">
+        <img src="https://dummyimage.com/600x400/6C63FF/fff&text=Project+1" alt="Project 1">
+        <div class="work-overlay">
+          <h3>Project 1</h3>
+          <p>A sleek and interactive web application</p>
+          <a href="#">View Case Study</a>
+        </div>
+      </div>
+      <div class="work-item">
+        <img src="https://dummyimage.com/600x400/6C63FF/fff&text=Project+2" alt="Project 2">
+        <div class="work-overlay">
+          <h3>Project 2</h3>
+          <p>A modern and responsive website design</p>
+          <a href="#">View Case Study</a>
+        </div>
+      </div>
+      <div class="work-item">
+        <img src="https://dummyimage.com/600x400/6C63FF/fff&text=Project+3" alt="Project 3">
+        <div class="work-overlay">
+          <h3>Project 3</h3>
+          <p>A visually stunning and highly interactive app</p>
+          <a href="#">View Case Study</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>'<!-- Visit: https://github.com/Ishanoshada/portflair -->
+<!-- Visit: https://github.com/Ishanoshada/portflair -->

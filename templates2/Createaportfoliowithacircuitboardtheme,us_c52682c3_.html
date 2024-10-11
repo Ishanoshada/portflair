@@ -1,0 +1,373 @@
+<!-- Portfolio created by Ishan -->
+<!-- Check out my work at: https://github.com/Ishanoshada/portflair -->
+<!-- 2024/10/9 -->
+<!-- Portfolio created by Ishan -->
+'<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Create a Portfolio</title>
+  <style>
+    /* Global Styles */
+    @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap');
+
+    body {
+      font-family: 'Montserrat', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #0c1013;
+      color: #fff;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 40px;
+    }
+
+    /* Navigation */
+    .nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 0;
+      margin-bottom: 40px;
+    }
+
+    .nav a {
+      color: #fff;
+      text-decoration: none;
+      font-size: 18px;
+      font-weight: 500;
+      padding: 10px 20px;
+      border-radius: 5px;
+      transition: background-color 0.3s ease;
+    }
+
+    .nav a:hover {
+      background-color: #1f2933;
+    }
+
+    /* Skills Section */
+    .skills-section {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+      grid-gap: 40px;
+      margin-bottom: 80px;
+    }
+
+    .skill-icon {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      background-color: #1f2933;
+      border-radius: 10px;
+      padding: 20px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      position: relative;
+      overflow: hidden;
+      cursor: pointer;
+    }
+
+    .skill-icon:before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(45deg, #00b4db, #0083b0);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .skill-icon:hover:before {
+      opacity: 0.6;
+    }
+
+    .skill-icon i {
+      font-size: 40px;
+      color: #00b4db;
+      margin-bottom: 10px;
+      position: relative;
+      z-index: 1;
+      transition: color 0.3s ease;
+    }
+
+    .skill-icon:hover i {
+      color: #fff;
+    }
+
+    .skill-icon span {
+      font-size: 14px;
+      font-weight: 500;
+      position: relative;
+      z-index: 1;
+      transition: color 0.3s ease;
+    }
+
+    .skill-icon:hover span {
+      color: #fff;
+    }
+
+    /* Project Showcase */
+    .project-showcase {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      grid-gap: 40px;
+      margin-bottom: 80px;
+    }
+
+    .project-module {
+      background-color: #1f2933;
+      border-radius: 10px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+      cursor: pointer;
+      position: relative;
+      transition: transform 0.3s ease;
+    }
+
+    .project-module:hover {
+      transform: translateY(-10px);
+    }
+
+    .project-module:before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(45deg, #00b4db, #0083b0);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .project-module:hover:before {
+      opacity: 0.6;
+    }
+
+    .project-module img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      transition: transform 0.3s ease;
+    }
+
+    .project-module:hover img {
+      transform: scale(1.1);
+    }
+
+    .project-details {
+      padding: 20px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .project-details h3 {
+      font-size: 18px;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+
+    .project-details p {
+      font-size: 14px;
+      margin-bottom: 20px;
+    }
+
+    /* Contact and Acknowledgments */
+    .contact-section {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 80px;
+    }
+
+    .contact-info {
+      display: flex;
+      align-items: center;
+    }
+
+    .contact-info a {
+      display: flex;
+      align-items: center;
+      color: #fff;
+      text-decoration: none;
+      font-size: 16px;
+      margin-right: 20px;
+      transition: color 0.3s ease;
+    }
+
+    .contact-info a:hover {
+      color: #00b4db;
+    }
+
+    .contact-info i {
+      font-size: 24px;
+      margin-right: 10px;
+    }
+
+    .acknowledgments {
+      display: flex;
+      align-items: center;
+      font-size: 14px;
+    }
+
+    .acknowledgments span {
+      margin-right: 10px;
+    }
+
+    .acknowledgments a {
+      color: #00b4db;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    .acknowledgments a:hover {
+      color: #0083b0;
+    }
+
+    /* Responsive Styles */
+    @media (max-width: 768px) {
+      .container {
+        padding: 20px;
+      }
+
+      .nav a {
+        font-size: 16px;
+        padding: 8px 16px;
+      }
+
+      .skill-icon {
+        padding: 16px;
+      }
+
+      .skill-icon i {
+        font-size: 32px;
+      }
+
+      .skill-icon span {
+        font-size: 12px;
+      }
+
+      .project-module img {
+        height: 180px;
+      }
+
+      .project-details h3 {
+        font-size: 16px;
+      }
+
+      .project-details p {
+        font-size: 12px;
+      }
+
+      .contact-info a {
+        font-size: 14px;
+      }
+
+      .contact-info i {
+        font-size: 20px;
+      }
+
+      .acknowledgments {
+        font-size: 12px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- Navigation -->
+    <div class="nav">
+      <a href="#">Home</a>
+      <a href="#">Skills</a>
+      <a href="#">Projects</a>
+      <a href="#">Contact</a>
+    </div>
+
+    <!-- Skills Section -->
+    <div class="skills-section">
+      <div class="skill-icon">
+        <i class="fas fa-code"></i>
+        <span>JavaScript</span>
+      </div>
+      <div class="skill-icon">
+        <i class="fab fa-react"></i>
+        <span>React</span>
+      </div>
+      <div class="skill-icon">
+        <i class="fab fa-node-js"></i>
+        <span>Node.js</span>
+      </div>
+      <div class="skill-icon">
+        <i class="fab fa-html5"></i>
+        <span>HTML5</span>
+      </div>
+      <div class="skill-icon">
+        <i class="fab fa-css3-alt"></i>
+        <span>CSS3</span>
+      </div>
+      <div class="skill-icon">
+        <i class="fab fa-python"></i>
+        <span>Python</span>
+      </div>
+    </div>
+
+    <!-- Project Showcase -->
+    <div class="project-showcase">
+      <div class="project-module">
+        <img src="https://dummyimage.com/600x400/ccc/000&text=Project+1" alt="Project 1">
+        <div class="project-details">
+          <h3>Project 1</h3>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+        </div>
+      </div>
+      <div class="project-module">
+        <img src="https://dummyimage.com/600x400/ccc/000&text=Project+2" alt="Project 2">
+        <div class="project-details">
+          <h3>Project 2</h3>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+        </div>
+      </div>
+      <div class="project-module">
+        <img src="https://dummyimage.com/600x400/ccc/000&text=Project+3" alt="Project 3">
+        <div class="project-details">
+          <h3>Project 3</h3>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Contact and Acknowledgments -->
+    <div class="contact-section">
+      <div class="contact-info">
+        <a href="mailto:example@email.com">
+          <i class="fas fa-envelope"></i>
+          example@email.com
+        </a>
+        <a href="https://linkedin.com/in/example">
+          <i class="fab fa-linkedin"></i>
+          LinkedIn
+        </a>
+        <a href="https://github.com/example">
+          <i class="fab fa-github"></i>
+          GitHub
+        </a>
+      </div>
+      <div class="acknowledgments">
+        <span>Acknowledgments:</span>
+        <a href="https://fontawesome.com/">Font Awesome</a>
+        <a href="https://fonts.google.com/">Google Fonts</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Font Awesome Icons -->
+  <script src="https://kit.fontawesome.com/your-font-awesome-kit.js" crossorigin="anonymous"></script>
+</body>
+</html>'<!-- Visit: https://github.com/Ishanoshada/portflair -->
+<!-- Visit: https://github.com/Ishanoshada/portflair -->

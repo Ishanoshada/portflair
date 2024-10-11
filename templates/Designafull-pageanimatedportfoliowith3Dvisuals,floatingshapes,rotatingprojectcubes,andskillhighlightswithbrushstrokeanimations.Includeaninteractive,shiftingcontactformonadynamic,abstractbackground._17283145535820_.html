@@ -1,0 +1,372 @@
+<!-- Portfolio created by Ishan -->
+<!-- Check out my work at: https://github.com/Ishanoshada/portflair -->
+<!-- 2024/10/9 -->
+<!-- Portfolio created by Ishan -->
+'<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Design a full-page animated portfolio</title>
+  <style>
+    /* Global Styles */
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(to right, #1c1c1c, #2d2d2d);
+      color: #f1f1f1;
+      overflow-x: hidden;
+    }
+
+    /* Navbar Styles */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 40px;
+      background-color: rgba(29, 29, 29, 0.8);
+      backdrop-filter: blur(10px);
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+    }
+
+    nav a {
+      color: #f1f1f1;
+      text-decoration: none;
+      font-size: 18px;
+      font-weight: 500;
+      transition: color 0.3s ease;
+    }
+
+    nav a:hover {
+      color: #bdbdbd;
+    }
+
+    /* Portfolio Section Styles */
+    #portfolio {
+      padding: 100px 40px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .portfolio-cube {
+      width: 300px;
+      height: 300px;
+      position: relative;
+      transform-style: preserve-3d;
+      transition: transform 0.5s ease;
+    }
+
+    .portfolio-cube-face {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      opacity: 0.8;
+      background-size: cover;
+      background-position: center;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+      box-sizing: border-box;
+      backface-visibility: hidden;
+    }
+
+    .portfolio-cube-face h3 {
+      font-size: 24px;
+      margin-bottom: 10px;
+    }
+
+    .portfolio-cube-face p {
+      font-size: 16px;
+      text-align: center;
+    }
+
+    .portfolio-cube-face a {
+      color: #f1f1f1;
+      text-decoration: none;
+      font-size: 18px;
+      font-weight: 500;
+      margin-top: 20px;
+      transition: color 0.3s ease;
+    }
+
+    .portfolio-cube-face a:hover {
+      color: #bdbdbd;
+    }
+
+    /* Skills Highlight Section Styles */
+    #skills {
+      padding: 100px 40px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .skill-icon {
+      width: 100px;
+      height: 100px;
+      background-size: cover;
+      background-position: center;
+      margin: 20px;
+      animation: float 3s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(-20px);
+      }
+      100% {
+        transform: translateY(0);
+      }
+    }
+
+    .skill-text {
+      font-size: 18px;
+      font-weight: 500;
+      margin-top: 10px;
+      text-align: center;
+    }
+
+    .skill-text span {
+      display: block;
+      font-size: 14px;
+      font-weight: 400;
+      margin-top: 5px;
+    }
+
+    /* Contact Form Section Styles */
+    #contact {
+      padding: 100px 40px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .contact-form {
+      background-color: rgba(29, 29, 29, 0.8);
+      backdrop-filter: blur(10px);
+      padding: 40px;
+      border-radius: 10px;
+      width: 100%;
+      max-width: 600px;
+      box-sizing: border-box;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .contact-form::before {
+      content: "";
+      position: absolute;
+      top: -50px;
+      left: -50px;
+      width: 200px;
+      height: 200px;
+      background: radial-gradient(circle, #4b4b4b, transparent);
+      animation: pulse 5s ease-in-out infinite;
+    }
+
+    @keyframes pulse {
+      0% {
+        transform: scale(1);
+        opacity: 0.5;
+      }
+      50% {
+        transform: scale(1.5);
+        opacity: 0.2;
+      }
+      100% {
+        transform: scale(1);
+        opacity: 0.5;
+      }
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+      width: 100%;
+      padding: 12px 20px;
+      margin: 8px 0;
+      display: block;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      box-sizing: border-box;
+      font-size: 16px;
+      font-family: 'Poppins', sans-serif;
+      background-color: #f1f1f1;
+      color: #333;
+      transition: border-color 0.3s ease;
+    }
+
+    .contact-form input:focus,
+    .contact-form textarea:focus {
+      border-color: #4b4b4b;
+    }
+
+    .contact-form button {
+      background-color: #4b4b4b;
+      color: #f1f1f1;
+      padding: 14px 20px;
+      margin: 8px 0;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 16px;
+      font-family: 'Poppins', sans-serif;
+      transition: background-color 0.3s ease;
+    }
+
+    .contact-form button:hover {
+      background-color: #3b3b3b;
+    }
+
+    /* Responsive Styles */
+    @media (max-width: 768px) {
+      nav {
+        padding: 15px 20px;
+      }
+
+      nav a {
+        font-size: 16px;
+      }
+
+      #portfolio,
+      #skills,
+      #contact {
+        padding: 80px 20px;
+      }
+
+      .portfolio-cube {
+        width: 200px;
+        height: 200px;
+      }
+
+      .portfolio-cube-face h3 {
+        font-size: 20px;
+      }
+
+      .portfolio-cube-face p {
+        font-size: 14px;
+      }
+
+      .skill-icon {
+        width: 80px;
+        height: 80px;
+        margin: 15px;
+      }
+
+      .skill-text {
+        font-size: 16px;
+      }
+
+      .skill-text span {
+        font-size: 12px;
+      }
+
+      .contact-form {
+        padding: 30px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="#">Home</a>
+    <a href="#">Portfolio</a>
+    <a href="#">Skills</a>
+    <a href="#">Contact</a>
+  </nav>
+
+  <section id="portfolio">
+    <div class="portfolio-cube">
+      <div class="portfolio-cube-face" style="background-image: url('https://dummyimage.com/600x400/ccc/000&text=Project+1');">
+        <h3>Project 1</h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+        <a href="#">View Case Study</a>
+      </div>
+      <div class="portfolio-cube-face" style="background-image: url('https://dummyimage.com/600x400/ccc/000&text=Project+2');">
+        <h3>Project 2</h3>
+        <p>Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+        <a href="#">View Case Study</a>
+      </div>
+      <div class="portfolio-cube-face" style="background-image: url('https://dummyimage.com/600x400/ccc/000&text=Project+3');">
+        <h3>Project 3</h3>
+        <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+        <a href="#">View Case Study</a>
+      </div>
+      <div class="portfolio-cube-face" style="background-image: url('https://dummyimage.com/600x400/ccc/000&text=Project+4');">
+        <h3>Project 4</h3>
+        <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+        <a href="#">View Case Study</a>
+      </div>
+      <div class="portfolio-cube-face" style="background-image: url('https://dummyimage.com/600x400/ccc/000&text=Project+5');">
+        <h3>Project 5</h3>
+        <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+        <a href="#">View Case Study</a>
+      </div>
+      <div class="portfolio-cube-face" style="background-image: url('https://dummyimage.com/600x400/ccc/000&text=Project+6');">
+        <h3>Project 6</h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+        <a href="#">View Case Study</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="skills">
+    <div class="skill-icon" style="background-image: url('https://dummyimage.com/100x100/ccc/000&text=Skill+1');">
+    </div>
+    <div class="skill-text">
+      Skill 1
+      <span>Lorem ipsum dolor sit amet</span>
+    </div>
+    <div class="skill-icon" style="background-image: url('https://dummyimage.com/100x100/ccc/000&text=Skill+2');">
+    </div>
+    <div class="skill-text">
+      Skill 2
+      <span>Consectetur adipiscing elit</span>
+    </div>
+    <div class="skill-icon" style="background-image: url('https://dummyimage.com/100x100/ccc/000&text=Skill+3');">
+    </div>
+    <div class="skill-text">
+      Skill 3
+      <span>Sed do eiusmod tempor</span>
+    </div>
+    <div class="skill-icon" style="background-image: url('https://dummyimage.com/100x100/ccc/000&text=Skill+4');">
+    </div>
+    <div class="skill-text">
+      Skill 4
+      <span>Incididunt ut labore et dolore</span>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="contact-form">
+      <form>
+        <input type="text" placeholder="Name" required>
+        <input type="email" placeholder="Email" required>
+        <textarea placeholder="Message" rows="5" required></textarea>
+        <button type="submit">Submit</button>
+      </form>
+    </div>
+  </section>
+
+  <script>
+    document.querySelectorAll('.portfolio-cube').forEach(cube => {
+      cube.addEventListener('mouseover', () => {
+        cube.style.transform = 'rotateY(180deg)';
+      });
+      cube.addEventListener('mouseout', () => {
+        cube.style.transform = 'rotateY(0deg)';
+      });
+    });
+  </script>
+</body>
+</html>'<!-- Visit: https://github.com/Ishanoshada/portflair -->
+<!-- Visit: https://github.com/Ishanoshada/portflair -->

@@ -1,0 +1,510 @@
+<!-- Portfolio created by Ishan -->
+<!-- Check out my work at: https://github.com/Ishanoshada/portflair -->
+<!-- 2024/10/9 -->
+<!-- Portfolio created by Ishan -->
+'<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Black Hole Portfolio</title>
+    <style>
+        /* Global Styles */
+        body {
+            margin: 0;
+            font-family: 'Monospace', monospace;
+            background-color: #0C0C0C;
+            color: #fff;
+            overflow-x: hidden;
+        }
+
+        /* Navigation Bar */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 40px;
+            background-color: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(10px);
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 999;
+        }
+
+        .navbar a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 20px;
+            font-size: 18px;
+            transition: color 0.3s ease;
+        }
+
+        .navbar a:hover {
+            color: #9B59B6;
+        }
+
+        /* Project Galaxies Section */
+        .project-galaxies {
+            padding: 100px 40px;
+            background: linear-gradient(to bottom, #0C0C0C, #1C1C1C);
+        }
+
+        .project-galaxies h2 {
+            font-size: 48px;
+            text-align: center;
+            margin-bottom: 60px;
+            text-shadow: 0 0 20px #9B59B6, 0 0 40px #9B59B6, 0 0 60px #9B59B6;
+        }
+
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-gap: 40px;
+        }
+
+        .project-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+            transition: transform 0.3s ease;
+        }
+
+        .project-item:hover {
+            transform: scale(1.05);
+        }
+
+        .project-item img {
+            width: 100%;
+            height: auto;
+            display: block;
+            filter: blur(5px);
+            transition: filter 0.3s ease;
+        }
+
+        .project-item:hover img {
+            filter: blur(0);
+        }
+
+        .project-details {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .project-item:hover .project-details {
+            opacity: 1;
+        }
+
+        .project-details h3 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            text-shadow: 0 0 10px #9B59B6, 0 0 20px #9B59B6, 0 0 30px #9B59B6;
+        }
+
+        .project-details p {
+            font-size: 16px;
+            margin-bottom: 20px;
+            text-shadow: 0 0 10px #9B59B6, 0 0 20px #9B59B6, 0 0 30px #9B59B6;
+        }
+
+        .project-details a {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #9B59B6;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .project-details a:hover {
+            background-color: #8E44AD;
+        }
+
+        /* Vaporwave Skillset Section */
+        .vaporwave-skillset {
+            padding: 100px 40px;
+            background: radial-gradient(circle, #1C1C1C, #0C0C0C);
+        }
+
+        .vaporwave-skillset h2 {
+            font-size: 48px;
+            text-align: center;
+            margin-bottom: 60px;
+            text-shadow: 0 0 20px #9B59B6, 0 0 40px #9B59B6, 0 0 60px #9B59B6;
+        }
+
+        .skill-icons {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 40px;
+        }
+
+        .skill-icon {
+            position: relative;
+            width: 100px;
+            height: 100px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: transform 0.3s ease, background-color 0.3s ease;
+            animation: float 5s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-20px);
+            }
+            100% {
+                transform: translateY(0);
+            }
+        }
+
+        .skill-icon:hover {
+            transform: scale(1.2);
+            background-color: rgba(155, 89, 182, 0.3);
+        }
+
+        .skill-icon i {
+            font-size: 40px;
+            color: #fff;
+            text-shadow: 0 0 10px #9B59B6, 0 0 20px #9B59B6, 0 0 30px #9B59B6;
+        }
+
+        .skill-tooltip {
+            position: absolute;
+            background-color: #9B59B6;
+            color: #fff;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-size: 14px;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease;
+        }
+
+        .skill-icon:hover .skill-tooltip {
+            opacity: 1;
+        }
+
+        /* Neon Contact Form Section */
+        .neon-contact-form {
+            padding: 100px 40px;
+            background: radial-gradient(circle, #1C1C1C, #0C0C0C);
+        }
+
+        .neon-contact-form h2 {
+            font-size: 48px;
+            text-align: center;
+            margin-bottom: 60px;
+            text-shadow: 0 0 20px #9B59B6, 0 0 40px #9B59B6, 0 0 60px #9B59B6;
+        }
+
+        .contact-form {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(155, 89, 182, 0.5);
+        }
+
+        .form-group {
+            margin-bottom: 30px;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 16px;
+            margin-bottom: 10px;
+            color: #9B59B6;
+            text-shadow: 0 0 10px #9B59B6, 0 0 20px #9B59B6, 0 0 30px #9B59B6;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 15px;
+            font-size: 16px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border: none;
+            border-radius: 5px;
+            color: #fff;
+            transition: background-color 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            background-color: rgba(155, 89, 182, 0.3);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 150px;
+        }
+
+        .submit-button {
+            display: block;
+            width: 100%;
+            padding: 15px;
+            font-size: 18px;
+            background-color: #9B59B6;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .submit-button:hover {
+            background-color: #8E44AD;
+        }
+
+        .confirmation-message {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: #9B59B6;
+            color: #fff;
+            padding: 40px;
+            border-radius: 10px;
+            text-align: center;
+            font-size: 24px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+            opacity: 0;
+            pointer-events: none;
+            animation: neon-glow 2s ease-in-out infinite;
+        }
+
+        @keyframes neon-glow {
+            0% {
+                box-shadow: 0 0 10px #9B59B6, 0 0 20px #9B59B6, 0 0 30px #9B59B6;
+            }
+            50% {
+                box-shadow: 0 0 20px #9B59B6, 0 0 40px #9B59B6, 0 0 60px #9B59B6;
+            }
+            100% {
+                box-shadow: 0 0 10px #9B59B6, 0 0 20px #9B59B6, 0 0 30px #9B59B6;
+            }
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .navbar {
+                padding: 15px 20px;
+            }
+
+            .navbar a {
+                font-size: 16px;
+                margin: 0 10px;
+            }
+
+            .project-galaxies,
+            .vaporwave-skillset,
+            .neon-contact-form {
+                padding: 80px 20px;
+            }
+
+            .project-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .skill-icon {
+                width: 80px;
+                height: 80px;
+            }
+
+            .skill-icon i {
+                font-size: 30px;
+            }
+
+            .contact-form {
+                padding: 30px;
+            }
+
+            .form-group label {
+                font-size: 14px;
+            }
+
+            .form-group input,
+            .form-group textarea {
+                padding: 12px;
+                font-size: 14px;
+            }
+
+            .submit-button {
+                font-size: 16px;
+            }
+
+            .confirmation-message {
+                font-size: 20px;
+                padding: 30px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <div class="navbar">
+        <a href="#">Home</a>
+        <a href="#">Projects</a>
+        <a href="#">Skills</a>
+        <a href="#">Contact</a>
+    </div>
+
+    <!-- Project Galaxies Section -->
+    <div class="project-galaxies">
+        <h2>Project Galaxies</h2>
+        <div class="project-grid">
+            <div class="project-item">
+                <img src="https://dummyimage.com/600x400/ccc/000&text=Project+1" alt="Project 1">
+                <div class="project-details">
+                    <h3>Project 1</h3>
+                    <p>A cosmic-themed web application built with cutting-edge technologies.</p>
+                    <a href="#">View Project</a>
+                </div>
+            </div>
+            <div class="project-item">
+                <img src="https://dummyimage.com/600x400/ccc/000&text=Project+2" alt="Project 2">
+                <div class="project-details">
+                    <h3>Project 2</h3>
+                    <p>A visually stunning data visualization tool with a vaporwave twist.</p>
+                    <a href="#">View Project</a>
+                </div>
+            </div>
+            <div class="project-item">
+                <img src="https://dummyimage.com/600x400/ccc/000&text=Project+3" alt="Project 3">
+                <div class="project-details">
+                    <h3>Project 3</h3>
+                    <p>A futuristic web application with a steampunk-inspired backend.</p>
+                    <a href="#">View Project</a>
+                </div>
+            </div>
+            <div class="project-item">
+                <img src="https://dummyimage.com/600x400/ccc/000&text=Project+4" alt="Project 4">
+                <div class="project-details">
+                    <h3>Project 4</h3>
+                    <p>An interactive web experience with a cosmic theme and vaporwave glitches.</p>
+                    <a href="#">View Project</a>
+                </div>
+            </div>
+            <div class="project-item">
+                <img src="https://dummyimage.com/600x400/ccc/000&text=Project+5" alt="Project 5">
+                <div class="project-details">
+                    <h3>Project 5</h3>
+                    <p>A sleek and modern web application with a steampunk-inspired design.</p>
+                    <a href="#">View Project</a>
+                </div>
+            </div>
+            <div class="project-item">
+                <img src="https://dummyimage.com/600x400/ccc/000&text=Project+6" alt="Project 6">
+                <div class="project-details">
+                    <h3>Project 6</h3>
+                    <p>A data-driven web application with a cosmic theme and vaporwave elements.</p>
+                    <a href="#">View Project</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Vaporwave Skillset Section -->
+    <div class="vaporwave-skillset">
+        <h2>Vaporwave Skillset</h2>
+        <div class="skill-icons">
+            <div class="skill-icon">
+                <i class="fas fa-code"></i>
+                <div class="skill-tooltip">Backend Development</div>
+            </div>
+            <div class="skill-icon">
+                <i class="fas fa-database"></i>
+                <div class="skill-tooltip">Database Management</div>
+            </div>
+            <div class="skill-icon">
+                <i class="fas fa-cloud"></i>
+                <div class="skill-tooltip">Cloud Infrastructure</div>
+            </div>
+            <div class="skill-icon">
+                <i class="fas fa-cogs"></i>
+                <div class="skill-tooltip">DevOps</div>
+            </div>
+            <div class="skill-icon">
+                <i class="fas fa-server"></i>
+                <div class="skill-tooltip">System Administration</div>
+            </div>
+            <div class="skill-icon">
+                <i class="fas fa-network-wired"></i>
+                <div class="skill-tooltip">Networking</div>
+            </div>
+            <div class="skill-icon">
+                <i class="fas fa-user-shield"></i>
+                <div class="skill-tooltip">Cybersecurity</div>
+            </div>
+            <div class="skill-icon">
+                <i class="fas fa-terminal"></i>
+                <div class="skill-tooltip">Shell Scripting</div>
+            </div>
+            <div class="skill-icon">
+                <i class="fas fa-code-branch"></i>
+                <div class="skill-tooltip">Version Control</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Neon Contact Form Section -->
+    <div class="neon-contact-form">
+        <h2>Neon Contact Form</h2>
+        <div class="contact-form">
+            <form>
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" id="name" placeholder="Enter your name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" placeholder="Enter your email" required>
+                </div>
+                <div class="form-group">
+                    <label for="message">Message</label>
+                    <textarea id="message" placeholder="Enter your message" required></textarea>
+                </div>
+                <button type="submit" class="submit-button">Submit</button>
+            </form>
+        </div>
+    </div>
+
+    <div class="confirmation-message">
+        Your message has been sent! We'll get back to you soon.
+    </div>
+
+    <!-- Font Awesome Icons -->
+    <script src="https://kit.fontawesome.com/your-font-awesome-kit.js" crossorigin="anonymous"></script>
+
+    <!-- JavaScript for Confirmation Message -->
+    <script>
+        document.querySelector('.submit-button').addEventListener('click', (event) => {
+            event.preventDefault();
+            document.querySelector('.confirmation-message').style.opacity = '1';
+            document.querySelector('.confirmation-message').style.pointerEvents = 'auto';
+            setTimeout(() => {
+                document.querySelector('.confirmation-message').style.opacity = '0';
+                document.querySelector('.confirmation-message').style.pointerEvents = 'none';
+            }, 3000);
+        });
+    </script>
+</body>
+</html>'<!-- Visit: https://github.com/Ishanoshada/portflair -->
+<!-- Visit: https://github.com/Ishanoshada/portflair -->

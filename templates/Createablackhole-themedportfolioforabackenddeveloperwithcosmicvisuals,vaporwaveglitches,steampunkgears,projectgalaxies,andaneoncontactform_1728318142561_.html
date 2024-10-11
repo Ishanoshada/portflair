@@ -1,0 +1,502 @@
+<!-- Portfolio created by Ishan -->
+<!-- Check out my work at: https://github.com/Ishanoshada/portflair -->
+<!-- 2024/10/9 -->
+<!-- Portfolio created by Ishan -->
+'<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Black Hole Portfolio</title>
+    <style>
+        /* Global Styles */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Orbitron', sans-serif;
+            background-color: #0f0f0f;
+            color: #fff;
+        }
+
+        /* Navigation Bar */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 40px;
+            background-color: rgba(15, 15, 15, 0.8);
+            backdrop-filter: blur(10px);
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 100;
+        }
+
+        nav ul {
+            display: flex;
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav li {
+            margin-right: 30px;
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 18px;
+            position: relative;
+            padding-bottom: 5px;
+        }
+
+        nav a::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: #8b00ff;
+            transition: width 0.3s ease-in-out;
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        /* Interactive Black Hole Simulation */
+        #black-hole-simulation {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        #black-hole-simulation::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(ellipse at center, rgba(15, 15, 15, 0.8) 0%, rgba(15, 15, 15, 1) 100%);
+            z-index: -1;
+        }
+
+        #black-hole-simulation::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('https://dummyimage.com/1920x1080/000/fff.png&text=Cosmic+Backdrop');
+            background-size: cover;
+            background-position: center;
+            filter: blur(20px);
+            z-index: -2;
+        }
+
+        #black-hole {
+            width: 500px;
+            height: 500px;
+            background-image: url('https://dummyimage.com/500x500/8b00ff/fff.png&text=Black+Hole');
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+            position: relative;
+            animation: rotate 60s linear infinite;
+        }
+
+        @keyframes rotate {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        #black-hole-controls {
+            margin-top: 40px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        #black-hole-controls label {
+            font-size: 18px;
+            margin-bottom: 10px;
+            text-shadow: 0 0 20px #8b00ff, 0 0 40px #8b00ff, 0 0 80px #8b00ff;
+        }
+
+        #black-hole-controls input[type="range"] {
+            -webkit-appearance: none;
+            width: 300px;
+            height: 10px;
+            background: linear-gradient(to right, #8b00ff, #4b0082);
+            outline: none;
+            opacity: 0.7;
+            -webkit-transition: .2s;
+            transition: opacity .2s;
+        }
+
+        #black-hole-controls input[type="range"]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 20px;
+            height: 20px;
+            background: #8b00ff;
+            border-radius: 50%;
+            cursor: pointer;
+        }
+
+        #black-hole-controls input[type="range"]::-moz-range-thumb {
+            width: 20px;
+            height: 20px;
+            background: #8b00ff;
+            border-radius: 50%;
+            cursor: pointer;
+        }
+
+        /* Project Galaxies */
+        #project-galaxies {
+            padding: 80px 40px;
+            background-color: #0f0f0f;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .project-galaxy {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 80px;
+        }
+
+        .project-galaxy h2 {
+            font-size: 36px;
+            margin-bottom: 20px;
+            text-shadow: 0 0 20px #8b00ff, 0 0 40px #8b00ff, 0 0 80px #8b00ff;
+        }
+
+        .project-galaxy-image {
+            width: 100%;
+            max-width: 1200px;
+            height: 500px;
+            background-image: url('https://dummyimage.com/1200x500/4b0082/fff.png&text=Project+Galaxy');
+            background-size: cover;
+            background-position: center;
+            border-radius: 10px;
+            box-shadow: 0 0 20px 10px rgba(139, 0, 255, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .project-galaxy-image::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(ellipse at center, rgba(139, 0, 255, 0.2) 0%, rgba(15, 15, 15, 0.8) 100%);
+            z-index: 1;
+        }
+
+        .project-galaxy-image::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('https://dummyimage.com/1200x500/8b00ff/fff.png&text=Glitchy+Overlay');
+            background-size: cover;
+            background-position: center;
+            mix-blend-mode: overlay;
+            z-index: 2;
+        }
+
+        .project-galaxy-info {
+            margin-top: 20px;
+            text-align: center;
+            max-width: 800px;
+        }
+
+        .project-galaxy-info p {
+            font-size: 18px;
+            margin-bottom: 10px;
+            color: #ccc;
+        }
+
+        .project-galaxy-info a {
+            color: #8b00ff;
+            text-decoration: none;
+            font-size: 18px;
+            position: relative;
+            padding-bottom: 5px;
+        }
+
+        .project-galaxy-info a::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: #8b00ff;
+            transition: width 0.3s ease-in-out;
+        }
+
+        .project-galaxy-info a:hover::after {
+            width: 100%;
+        }
+
+        /* Neon Contact Form */
+        #contact {
+            padding: 80px 40px;
+            background-color: #0f0f0f;
+            position: relative;
+            overflow: hidden;
+        }
+
+        #contact::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('https://dummyimage.com/1920x1080/4b0082/fff.png&text=Cosmic+Backdrop');
+            background-size: cover;
+            background-position: center;
+            filter: blur(20px);
+            z-index: -1;
+        }
+
+        #contact-form {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: rgba(15, 15, 15, 0.8);
+            backdrop-filter: blur(10px);
+            border-radius: 10px;
+            padding: 40px;
+            box-shadow: 0 0 20px 10px rgba(139, 0, 255, 0.3);
+        }
+
+        #contact-form h2 {
+            font-size: 36px;
+            margin-bottom: 20px;
+            text-shadow: 0 0 20px #8b00ff, 0 0 40px #8b00ff, 0 0 80px #8b00ff;
+        }
+
+        #contact-form label {
+            display: block;
+            font-size: 18px;
+            margin-bottom: 10px;
+            color: #ccc;
+        }
+
+        #contact-form input,
+        #contact-form textarea {
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            background-color: transparent;
+            border: 2px solid #8b00ff;
+            border-radius: 5px;
+            color: #fff;
+            outline: none;
+            transition: border-color 0.3s ease-in-out;
+        }
+
+        #contact-form input:focus,
+        #contact-form textarea:focus {
+            border-color: #4b0082;
+        }
+
+        #contact-form textarea {
+            resize: vertical;
+            min-height: 150px;
+        }
+
+        #contact-form button {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            font-size: 18px;
+            background-color: #8b00ff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease-in-out;
+        }
+
+        #contact-form button:hover {
+            background-color: #4b0082;
+        }
+
+        #contact-form button::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('https://dummyimage.com/100x100/8b00ff/fff.png&text=Galaxy');
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+            animation: galaxy-pulse 2s ease-in-out infinite;
+            z-index: -1;
+        }
+
+        @keyframes galaxy-pulse {
+            0% {
+                transform: scale(1);
+                opacity: 0.5;
+            }
+            50% {
+                transform: scale(1.2);
+                opacity: 1;
+            }
+            100% {
+                transform: scale(1);
+                opacity: 0.5;
+            }
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            nav {
+                padding: 10px 20px;
+            }
+
+            nav li {
+                margin-right: 20px;
+            }
+
+            nav a {
+                font-size: 16px;
+            }
+
+            #black-hole {
+                width: 300px;
+                height: 300px;
+            }
+
+            #black-hole-controls input[type="range"] {
+                width: 200px;
+            }
+
+            .project-galaxy h2 {
+                font-size: 28px;
+            }
+
+            .project-galaxy-image {
+                height: 300px;
+            }
+
+            .project-galaxy-info p {
+                font-size: 16px;
+            }
+
+            #contact-form {
+                padding: 30px;
+            }
+
+            #contact-form h2 {
+                font-size: 28px;
+            }
+
+            #contact-form label {
+                font-size: 16px;
+            }
+
+            #contact-form input,
+            #contact-form textarea {
+                font-size: 14px;
+            }
+
+            #contact-form button {
+                font-size: 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="logo">
+            <a href="#">Black Hole Portfolio</a>
+        </div>
+        <ul>
+            <li><a href="#black-hole-simulation">Black Hole</a></li>
+            <li><a href="#project-galaxies">Projects</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <section id="black-hole-simulation">
+        <div id="black-hole"></div>
+        <div id="black-hole-controls">
+            <label for="mass">Black Hole Mass</label>
+            <input type="range" id="mass" min="1" max="10" value="5" step="1">
+            <label for="spin">Black Hole Spin</label>
+            <input type="range" id="spin" min="0" max="1" value="0.5" step="0.1">
+            <label for="proximity">Celestial Body Proximity</label>
+            <input type="range" id="proximity" min="1" max="10" value="5" step="1">
+        </div>
+    </section>
+
+    <section id="project-galaxies">
+        <div class="project-galaxy">
+            <h2>Project Galaxy</h2>
+            <div class="project-galaxy-image"></div>
+            <div class="project-galaxy-info">
+                <p>Discover the intricacies of my backend development projects, each a unique celestial wonder.</p>
+                <a href="#">Explore the Project Galaxy</a>
+            </div>
+        </div>
+        <div class="project-galaxy">
+            <h2>Project Nebula</h2>
+            <div class="project-galaxy-image"></div>
+            <div class="project-galaxy-info">
+                <p>Dive into the swirling cosmic structures of my past endeavors, each a testament to my technical prowess.</p>
+                <a href="#">Unveil the Project Nebula</a>
+            </div>
+        </div>
+        <div class="project-galaxy">
+            <h2>Project Supernova</h2>
+            <div class="project-galaxy-image"></div>
+            <div class="project-galaxy-info">
+                <p>Witness the explosive brilliance of my most ambitious projects, each a celestial masterpiece.</p>
+                <a href="#">Ignite the Project Supernova</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <div id="contact-form">
+            <h2>Connect with the Cosmic Vortex</h2>
+            <form>
+                <label for="name">Name</label>
+                <input type="text" id="name" name="name" placeholder="Enter your name" required>
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" placeholder="Enter your email" required>
+                <label for="message">Message</label>
+                <textarea id="message" name="message" placeholder="Your message" required></textarea>
+                <button type="submit">Send Message</button>
+            </form>
+        </div>
+    </section>
+</body>
+</html>'<!-- Visit: https://github.com/Ishanoshada/portflair -->
+<!-- Visit: https://github.com/Ishanoshada/portflair -->

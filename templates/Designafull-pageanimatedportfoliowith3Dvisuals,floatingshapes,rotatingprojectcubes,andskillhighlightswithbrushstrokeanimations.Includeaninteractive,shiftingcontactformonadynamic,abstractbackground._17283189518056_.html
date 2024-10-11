@@ -1,0 +1,411 @@
+<!-- Portfolio created by Ishan -->
+<!-- Check out my work at: https://github.com/Ishanoshada/portflair -->
+<!-- 2024/10/9 -->
+<!-- Portfolio created by Ishan -->
+'<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Full-Page Animated Portfolio</title>
+  <style>
+    /* General Styles */
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background-color: #0c0c0c;
+      color: #f1f1f1;
+      overflow-x: hidden;
+    }
+
+    /* Navigation Bar */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.5rem 2rem;
+      background-color: rgba(12, 12, 12, 0.7);
+      backdrop-filter: blur(10px);
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 999;
+    }
+
+    nav .logo {
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: #fff;
+      text-decoration: none;
+    }
+
+    nav .menu {
+      display: flex;
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    nav .menu li {
+      margin-left: 2rem;
+    }
+
+    nav .menu li a {
+      color: #f1f1f1;
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s ease;
+    }
+
+    nav .menu li a:hover {
+      color: #00c6ff;
+    }
+
+    /* Interactive Portfolio Section */
+    .portfolio-section {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      padding: 4rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .portfolio-section .portfolio-cube {
+      width: 300px;
+      height: 300px;
+      background-color: #1e1e1e;
+      border-radius: 10px;
+      box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+      position: absolute;
+      transition: transform 0.5s ease, opacity 0.5s ease;
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      opacity: 0.7;
+    }
+
+    .portfolio-section .portfolio-cube:hover {
+      transform: scale(1.1);
+      opacity: 1;
+    }
+
+    .portfolio-section .portfolio-cube img {
+      width: 180px;
+      height: 180px;
+      object-fit: cover;
+      border-radius: 5px;
+      margin-bottom: 1rem;
+    }
+
+    .portfolio-section .portfolio-cube h3 {
+      font-size: 1.2rem;
+      font-weight: 600;
+      margin: 0;
+    }
+
+    .portfolio-section .portfolio-cube p {
+      font-size: 0.9rem;
+      margin: 0.5rem 0 0;
+    }
+
+    /* Interactive Skills and Highlights Section */
+    .skills-section {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      padding: 4rem;
+      background-color: #0c0c0c;
+      position: relative;
+    }
+
+    .skills-section .skill-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-bottom: 3rem;
+      opacity: 0;
+      transform: translateY(50px);
+      transition: opacity 0.5s ease, transform 0.5s ease;
+    }
+
+    .skills-section .skill-item.animate {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .skills-section .skill-item svg {
+      width: 80px;
+      height: 80px;
+      fill: #00c6ff;
+      stroke: #00c6ff;
+      stroke-width: 2px;
+      animation: brushstroke 2s ease infinite;
+    }
+
+    @keyframes brushstroke {
+      0% {
+        stroke-dasharray: 0 100;
+      }
+      100% {
+        stroke-dasharray: 100 0;
+      }
+    }
+
+    .skills-section .skill-item h3 {
+      font-size: 1.2rem;
+      font-weight: 600;
+      margin: 1rem 0 0.5rem;
+    }
+
+    .skills-section .skill-item p {
+      font-size: 0.9rem;
+      text-align: center;
+      max-width: 300px;
+    }
+
+    /* Dynamic Contact Form Section */
+    .contact-section {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      padding: 4rem;
+      position: relative;
+      background: linear-gradient(45deg, #0c0c0c, #1e1e1e);
+    }
+
+    .contact-section .contact-form {
+      background-color: rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(10px);
+      border-radius: 10px;
+      padding: 3rem;
+      width: 500px;
+      max-width: 90%;
+      box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+    }
+
+    .contact-section .contact-form h2 {
+      font-size: 1.8rem;
+      font-weight: 600;
+      margin-bottom: 2rem;
+      text-align: center;
+    }
+
+    .contact-section .contact-form .form-group {
+      margin-bottom: 1.5rem;
+    }
+
+    .contact-section .contact-form label {
+      display: block;
+      font-size: 0.9rem;
+      font-weight: 500;
+      margin-bottom: 0.5rem;
+    }
+
+    .contact-section .contact-form input,
+    .contact-section .contact-form textarea {
+      width: 100%;
+      padding: 0.8rem 1rem;
+      font-size: 0.9rem;
+      background-color: rgba(255, 255, 255, 0.1);
+      border: none;
+      border-radius: 5px;
+      color: #f1f1f1;
+      transition: background-color 0.3s ease;
+    }
+
+    .contact-section .contact-form input:focus,
+    .contact-section .contact-form textarea:focus {
+      background-color: rgba(255, 255, 255, 0.15);
+    }
+
+    .contact-section .contact-form button {
+      display: block;
+      width: 100%;
+      padding: 0.8rem 1rem;
+      font-size: 1rem;
+      font-weight: 600;
+      background-color: #00c6ff;
+      color: #0c0c0c;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .contact-section .contact-form button:hover {
+      background-color: #00b0e6;
+    }
+
+    .contact-section .contact-info {
+      margin-top: 2rem;
+      text-align: center;
+    }
+
+    .contact-section .contact-info p {
+      font-size: 0.9rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .contact-section .contact-info a {
+      color: #00c6ff;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    .contact-section .contact-info a:hover {
+      color: #00b0e6;
+    }
+
+    /* Responsive Styles */
+    @media (max-width: 768px) {
+      nav {
+        padding: 1rem 1.5rem;
+      }
+
+      nav .logo {
+        font-size: 1.5rem;
+      }
+
+      nav .menu li {
+        margin-left: 1.5rem;
+      }
+
+      .portfolio-section,
+      .skills-section,
+      .contact-section {
+        padding: 3rem;
+      }
+
+      .portfolio-section .portfolio-cube {
+        width: 200px;
+        height: 200px;
+      }
+
+      .portfolio-section .portfolio-cube img {
+        width: 150px;
+        height: 150px;
+      }
+
+      .skills-section .skill-item svg {
+        width: 60px;
+        height: 60px;
+      }
+
+      .contact-section .contact-form {
+        padding: 2rem;
+        width: 100%;
+      }
+
+      .contact-section .contact-form h2 {
+        font-size: 1.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="#" class="logo">Portfolio</a>
+    <ul class="menu">
+      <li><a href="#">Home</a></li>
+      <li><a href="#">Portfolio</a></li>
+      <li><a href="#">Skills</a></li>
+      <li><a href="#">Contact</a></li>
+    </ul>
+  </nav>
+
+  <section class="portfolio-section">
+    <div class="portfolio-cube">
+      <img src="https://dummyimage.com/300x300/ccc/000&text=Project+1" alt="Project 1">
+      <h3>Project 1</h3>
+      <p>Description of Project 1</p>
+    </div>
+    <div class="portfolio-cube">
+      <img src="https://dummyimage.com/300x300/ccc/000&text=Project+2" alt="Project 2">
+      <h3>Project 2</h3>
+      <p>Description of Project 2</p>
+    </div>
+    <div class="portfolio-cube">
+      <img src="https://dummyimage.com/300x300/ccc/000&text=Project+3" alt="Project 3">
+      <h3>Project 3</h3>
+      <p>Description of Project 3</p>
+    </div>
+  </section>
+
+  <section class="skills-section">
+    <div class="skill-item">
+      <svg viewBox="0 0 24 24">
+        <path d="M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M12,4A8,8 0 0,1 20,12A8,8 0 0,1 12,20A8,8 0 0,1 4,12A8,8 0 0,1 12,4M11,16.5L6.5,12L11,7.5L12.5,9L9,12.5L12.5,16L11,16.5Z" />
+      </svg>
+      <h3>Skill 1</h3>
+      <p>Description of Skill 1 with interactive brushstroke animation.</p>
+    </div>
+    <div class="skill-item">
+      <svg viewBox="0 0 24 24">
+        <path d="M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M12,4A8,8 0 0,1 20,12A8,8 0 0,1 12,20A8,8 0 0,1 4,12A8,8 0 0,1 12,4M11,16.5L6.5,12L11,7.5L12.5,9L9,12.5L12.5,16L11,16.5Z" />
+      </svg>
+      <h3>Skill 2</h3>
+      <p>Description of Skill 2 with interactive brushstroke animation.</p>
+    </div>
+    <div class="skill-item">
+      <svg viewBox="0 0 24 24">
+        <path d="M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M12,4A8,8 0 0,1 20,12A8,8 0 0,1 12,20A8,8 0 0,1 4,12A8,8 0 0,1 12,4M11,16.5L6.5,12L11,7.5L12.5,9L9,12.5L12.5,16L11,16.5Z" />
+      </svg>
+      <h3>Skill 3</h3>
+      <p>Description of Skill 3 with interactive brushstroke animation.</p>
+    </div>
+  </section>
+
+  <section class="contact-section">
+    <div class="contact-form">
+      <h2>Get in Touch</h2>
+      <form>
+        <div class="form-group">
+          <label for="name">Name</label>
+          <input type="text" id="name" placeholder="Enter your name" required>
+        </div>
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" id="email" placeholder="Enter your email" required>
+        </div>
+        <div class="form-group">
+          <label for="message">Message</label>
+          <textarea id="message" rows="5" placeholder="Enter your message" required></textarea>
+        </div>
+        <button type="submit">Send Message</button>
+      </form>
+    </div>
+    <div class="contact-info">
+      <p>You can also reach me at:</p>
+      <p><a href="mailto:example@example.com">example@example.com</a></p>
+      <p><a href="tel:+1234567890">+1 (234) 567-890</a></p>
+    </div>
+  </section>
+
+  <script>
+    // Animate skill items on scroll
+    const skillItems = document.querySelectorAll('.skill-item');
+
+    window.addEventListener('scroll', () => {
+      skillItems.forEach(item => {
+        const itemTop = item.getBoundingClientRect().top;
+        const windowHeight = window.innerHeight;
+
+        if (itemTop < windowHeight * 0.8) {
+          item.classList.add('animate');
+        }
+      });
+    });
+  </script>
+</body>
+</html>'<!-- Visit: https://github.com/Ishanoshada/portflair -->
+<!-- Visit: https://github.com/Ishanoshada/portflair -->

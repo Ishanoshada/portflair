@@ -1,0 +1,628 @@
+<!-- Portfolio created by Ishan -->
+<!-- Check out my work at: https://github.com/Ishanoshada/portflair -->
+<!-- 2024/10/9 -->
+<!-- Portfolio created by Ishan -->
+'<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cyber Nexus | Backend Development & Ethical Hacking</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Share+Tech+Mono&display=swap');
+
+        :root {
+            --neon-blue: #00FFFF;
+            --neon-purple: #FF00FF;
+            --neon-orange: #FF8000;
+            --dark-bg: #0A0A0A;
+            --code-bg: #1E1E1E;
+            --text-glow: 0 0 10px var(--neon-blue), 0 0 20px var(--neon-blue), 0 0 30px var(--neon-blue);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Share Tech Mono', monospace;
+            background-color: var(--dark-bg);
+            color: #FFFFFF;
+            overflow-x: hidden;
+        }
+
+        .nav-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+            background-color: rgba(10, 10, 10, 0.8);
+            backdrop-filter: blur(10px);
+            position: absolute;
+            width: 100%;
+            z-index: 1000;
+        }
+
+        .nav-logo {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.5rem;
+            color: var(--neon-blue);
+            text-shadow: var(--text-glow);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: #FFFFFF;
+            text-decoration: none;
+            font-size: 1rem;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--neon-purple);
+        }
+
+        .hero {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('https://dummyimage.com/1920x1080/000/fff&text=Deep+Space') no-repeat center center;
+            background-size: cover;
+            filter: brightness(0.3);
+            z-index: -1;
+        }
+
+        .black-hole {
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, #000000 30%, transparent 70%);
+            border-radius: 50%;
+            position: relative;
+            animation: rotate 20s linear infinite;
+        }
+
+        @keyframes rotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .accretion-disk {
+            position: absolute;
+            width: 400px;
+            height: 400px;
+            border-radius: 50%;
+            border: 2px solid transparent;
+            border-top: 2px solid var(--neon-blue);
+            border-bottom: 2px solid var(--neon-purple);
+            filter: blur(5px);
+            animation: rotate 10s linear infinite;
+        }
+
+        .particle {
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            background-color: #FFFFFF;
+            border-radius: 50%;
+            animation: fall 3s linear infinite;
+        }
+
+        @keyframes fall {
+            0% { transform: translateY(-200px) translateX(0); opacity: 1; }
+            100% { transform: translateY(200px) translateX(-100px); opacity: 0; }
+        }
+
+        .hero-text {
+            text-align: center;
+            z-index: 1;
+            margin-top: 2rem;
+        }
+
+        .hero-title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 3.5rem;
+            color: var(--neon-blue);
+            text-shadow: var(--text-glow);
+            margin-bottom: 1rem;
+        }
+
+        .hero-subtitle {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .cta-button {
+            background-color: var(--neon-purple);
+            color: #000000;
+            border: none;
+            padding: 1rem 2rem;
+            font-size: 1.2rem;
+            font-family: 'Orbitron', sans-serif;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-button::before {
+            content: "";
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: conic-gradient(from 0deg, transparent, var(--neon-purple), transparent 30%);
+            animation: rotate 4s linear infinite;
+        }
+
+        .cta-button::after {
+            content: "Enter the Matrix";
+            position: relative;
+            z-index: 1;
+        }
+
+        .cta-button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 20px var(--neon-purple);
+        }
+
+        .portfolio {
+            padding: 4rem 2rem;
+            background-color: var(--code-bg);
+        }
+
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .project-window {
+            background-color: #2A2A2A;
+            border-radius: 8px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .project-window:hover {
+            transform: scale(1.03);
+            box-shadow: 0 0 20px rgba(0, 255, 255, 0.3);
+        }
+
+        .window-header {
+            background-color: #3A3A3A;
+            padding: 0.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .window-title {
+            font-size: 1rem;
+            color: #FFFFFF;
+        }
+
+        .window-controls span {
+            display: inline-block;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            margin-left: 5px;
+        }
+
+        .window-controls .close { background-color: #FF5F56; }
+        .window-controls .minimize { background-color: #FFBD2E; }
+        .window-controls .maximize { background-color: #27C93F; }
+
+        .project-content {
+            padding: 1rem;
+        }
+
+        .project-thumbnail {
+            width: 100%;
+            height: 180px;
+            background-color: #3A3A3A;
+            margin-bottom: 1rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 3rem;
+            color: var(--neon-blue);
+        }
+
+        .project-description {
+            font-size: 0.9rem;
+            color: var(--neon-blue);
+            margin-bottom: 1rem;
+        }
+
+        .project-tech {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .tech-tag {
+            background-color: rgba(0, 255, 255, 0.2);
+            color: var(--neon-blue);
+            padding: 0.2rem 0.5rem;
+            border-radius: 4px;
+            font-size: 0.8rem;
+        }
+
+        .terminal {
+            background-color: #000000;
+            padding: 1rem;
+            margin-top: 2rem;
+            border-radius: 8px;
+            font-family: 'Share Tech Mono', monospace;
+        }
+
+        .terminal-header {
+            color: var(--neon-orange);
+            margin-bottom: 0.5rem;
+        }
+
+        .terminal-input {
+            display: flex;
+            align-items: center;
+        }
+
+        .terminal-prompt {
+            color: var(--neon-purple);
+            margin-right: 0.5rem;
+        }
+
+        .terminal-command {
+            background-color: transparent;
+            border: none;
+            color: var(--neon-blue);
+            font-family: inherit;
+            font-size: 1rem;
+            width: 100%;
+            outline: none;
+        }
+
+        .skills {
+            padding: 4rem 2rem;
+            background-color: #000000;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .skills::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                linear-gradient(90deg, var(--dark-bg) 2px, transparent 2px) 0 0,
+                linear-gradient(0deg, var(--dark-bg) 2px, transparent 2px) 0 0;
+            background-size: 50px 50px;
+            opacity: 0.1;
+        }
+
+        .globe-container {
+            width: 300px;
+            height: 300px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .globe {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            background: radial-gradient(circle at 30% 30%, var(--neon-blue), var(--neon-purple));
+            box-shadow: 0 0 50px rgba(0, 255, 255, 0.5);
+            animation: rotate 20s linear infinite;
+        }
+
+        .skill-icons {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+        }
+
+        .skill-icon {
+            position: absolute;
+            width: 40px;
+            height: 40px;
+            background-color: var(--neon-orange);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.2rem;
+            color: #000000;
+            transition: all 0.3s ease;
+        }
+
+        .skill-icon:hover {
+            transform: scale(1.2);
+            box-shadow: 0 0 20px var(--neon-orange);
+        }
+
+        .skill-categories {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 2rem;
+        }
+
+        .skill-category {
+            text-align: center;
+            cursor: pointer;
+        }
+
+        .category-title {
+            font-family: 'Orbitron', sans-serif;
+            color: var(--neon-blue);
+            margin-bottom: 1rem;
+        }
+
+        .skill-bar {
+            width: 200px;
+            height: 10px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 5px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .skill-progress {
+            height: 100%;
+            background-color: var(--neon-purple);
+            width: 0;
+            transition: width 1s ease;
+        }
+
+        .hack-button {
+            display: block;
+            margin: 2rem auto;
+            background-color: var(--neon-orange);
+            color: #000000;
+            border: none;
+            padding: 1rem 2rem;
+            font-size: 1.2rem;
+            font-family: 'Orbitron', sans-serif;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hack-button::before {
+            content: "";
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: conic-gradient(from 0deg, transparent, var(--neon-orange), transparent 30%);
+            animation: rotate 4s linear infinite;
+        }
+
+        .hack-button::after {
+            content: "Hack the System";
+            position: relative;
+            z-index: 1;
+        }
+
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2.5rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1.2rem;
+            }
+
+            .portfolio-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .globe-container {
+                width: 200px;
+                height: 200px;
+            }
+
+            .skill-categories {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .skill-category {
+                margin-bottom: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="nav-bar">
+        <div class="nav-logo">Cyber Nexus</div>
+        <div class="nav-links">
+            <a href="#hero">Home</a>
+            <a href="#portfolio">Portfolio</a>
+            <a href="#skills">Skills</a>
+        </div>
+    </nav>
+
+    <section id="hero" class="hero">
+        <div class="black-hole">
+            <div class="accretion-disk"></div>
+        </div>
+        <div class="hero-text">
+            <h1 class="hero-title">Diving into the Digital Void</h1>
+            <p class="hero-subtitle">Backend Development & Ethical Hacking</p>
+            <button class="cta-button"></button>
+        </div>
+    </section>
+
+    <section id="portfolio" class="portfolio">
+        <div class="portfolio-grid">
+            <div class="project-window">
+                <div class="window-header">
+                    <span class="window-title">Secure Auth System</span>
+                    <div class="window-controls">
+                        <span class="close"></span>
+                        <span class="minimize"></span>
+                        <span class="maximize"></span>
+                    </div>
+                </div>
+                <div class="project-content">
+                    <div class="project-thumbnail">ð</div>
+                    <p class="project-description">Robust authentication system with multi-factor capabilities.</p>
+                    <div class="project-tech">
+                        <span class="tech-tag">Python</span>
+                        <span class="tech-tag">Django</span>
+                        <span class="tech-tag">JWT</span>
+                    </div>
+                </div>
+            </div>
+            <div class="project-window">
+                <div class="window-header">
+                    <span class="window-title">Network Sniffer</span>
+                    <div class="window-controls">
+                        <span class="close"></span>
+                        <span class="minimize"></span>
+                        <span class="maximize"></span>
+                    </div>
+                </div>
+                <div class="project-content">
+                    <div class="project-thumbnail">ð¸ï¸</div>
+                    <p class="project-description">Advanced network packet analyzer for security audits.</p>
+                    <div class="project-tech">
+                        <span class="tech-tag">C++</span>
+                        <span class="tech-tag">Wireshark</span>
+                        <span class="tech-tag">TCP/IP</span>
+                    </div>
+                </div>
+            </div>
+            <div class="project-window">
+                <div class="window-header">
+                    <span class="window-title">Blockchain Explorer</span>
+                    <div class="window-controls">
+                        <span class="close"></span>
+                        <span class="minimize"></span>
+                        <span class="maximize"></span>
+                    </div>
+                </div>
+                <div class="project-content">
+                    <div class="project-thumbnail">ð</div>
+                    <p class="project-description">Real-time blockchain data visualization and analysis tool.</p>
+                    <div class="project-tech">
+                        <span class="tech-tag">JavaScript</span>
+                        <span class="tech-tag">Node.js</span>
+                        <span class="tech-tag">Graph DB</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="terminal">
+            <div class="terminal-header">Project Filter</div>
+            <div class="terminal-input">
+                <span class="terminal-prompt">$</span>
+                <input type="text" class="terminal-command" placeholder="Enter command (e.g., show backend projects)">
+            </div>
+        </div>
+    </section>
+
+    <section id="skills" class="skills">
+        <div class="globe-container">
+            <div class="globe"></div>
+            <div class="skill-icons">
+                <div class="skill-icon" style="top: 20%; left: 20%;">ð</div>
+                <div class="skill-icon" style="top: 60%; right: 20%;">â</div>
+                <div class="skill-icon" style="bottom: 30%; left: 40%;">ð</div>
+                <div class="skill-icon" style="top: 40%; right: 30%;">ð</div>
+            </div>
+        </div>
+        <div class="skill-categories">
+            <div class="skill-category">
+                <h3 class="category-title">Backend Development</h3>
+                <div class="skill-bar"><div class="skill-progress" style="width: 90%;"></div></div>
+            </div>
+            <div class="skill-category">
+                <h3 class="category-title">Database Management</h3>
+                <div class="skill-bar"><div class="skill-progress" style="width: 85%;"></div></div>
+            </div>
+            <div class="skill-category">
+                <h3 class="category-title">Cybersecurity</h3>
+                <div class="skill-bar"><div class="skill-progress" style="width: 80%;"></div></div>
+            </div>
+            <div class="skill-category">
+                <h3 class="category-title">Network Protocols</h3>
+                <div class="skill-bar"><div class="skill-progress" style="width: 75%;"></div></div>
+            </div>
+        </div>
+        <button class="hack-button"></button>
+    </section>
+
+    <script>
+        // Add particles to the black hole
+        const blackHole = document.querySelector('.black-hole');
+        for (let i = 0; i < 50; i++) {
+            const particle = document.createElement('div');
+            particle.classList.add('particle');
+            particle.style.left = `${Math.random() * 100}%`;
+            particle.style.animationDelay = `${Math.random() * 3}s`;
+            blackHole.appendChild(particle);
+        }
+
+        // Animate skill bars
+        const skillBars = document.querySelectorAll('.skill-progress');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.width = entry.target.style.width;
+                }
+            });
+        }, { threshold: 0.5 });
+
+        skillBars.forEach(bar => observer.observe(bar));
+
+        // Terminal functionality
+        const terminalInput = document.querySelector('.terminal-command');
+        terminalInput.addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                const command = this.value.toLowerCase();
+                // Add your command processing logic here
+                console.log(`Command entered: ${command}`);
+                this.value = '';
+            }
+        });
+
+        // Hack button effect
+        const hackButton = document.querySelector('.hack-button');
+        hackButton.addEventListener('click', function() {
+            document.body.style.animation = 'glitch 0.3s infinite';
+            setTimeout(() => {
+                document.body.style.animation = '';
+            }, 1000);
+        });
+    </script>
+</body>
+</html>'<!-- Visit: https://github.com/Ishanoshada/portflair -->
+<!-- Visit: https://github.com/Ishanoshada/portflair -->

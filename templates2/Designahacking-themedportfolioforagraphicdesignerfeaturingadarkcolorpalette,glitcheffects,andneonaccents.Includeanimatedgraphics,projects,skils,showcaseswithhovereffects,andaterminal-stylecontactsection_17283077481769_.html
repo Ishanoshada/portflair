@@ -1,0 +1,339 @@
+<!-- Portfolio created by Ishan -->
+<!-- Check out my work at: https://github.com/Ishanoshada/portflair -->
+<!-- 2024/10/9 -->
+<!-- Portfolio created by Ishan -->
+'<!DOCTYPE html>
+<html>
+<head>
+  <title>Hacking-Themed Portfolio</title>
+  <style>
+    /* Global Styles */
+    body {
+      font-family: 'Courier New', monospace;
+      background-color: #0d0d0d;
+      color: #00ff00;
+      margin: 0;
+      padding: 0;
+    }
+
+    /* Navigation */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px;
+      background-color: #0d0d0d;
+      box-shadow: 0 0 20px rgba(0, 255, 0, 0.3);
+    }
+
+    nav ul {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+    }
+
+    nav li {
+      margin-right: 20px;
+    }
+
+    nav a {
+      color: #00ff00;
+      text-decoration: none;
+      font-size: 18px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    nav a:before {
+      content: "";
+      position: absolute;
+      width: 100%;
+      height: 2px;
+      bottom: 0;
+      left: 0;
+      background-color: #00ff00;
+      visibility: hidden;
+      transform: scaleX(0);
+      transition: all 0.3s ease-in-out 0s;
+    }
+
+    nav a:hover:before {
+      visibility: visible;
+      transform: scaleX(1);
+    }
+
+    /* Hero Section */
+    .hero {
+      position: relative;
+      height: 80vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      overflow: hidden;
+    }
+
+    .hero:before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: url("https://dummyimage.com/1200x500/0d0d0d/00ff00.jpg&text=Hacking-Themed+Portfolio");
+      background-size: cover;
+      background-position: center;
+      filter: blur(5px);
+      z-index: -1;
+    }
+
+    .hero h1 {
+      font-size: 5rem;
+      margin-bottom: 20px;
+      text-shadow: 0 0 20px rgba(0, 255, 0, 0.5);
+      animation: glitch 1s infinite;
+    }
+
+    .hero p {
+      font-size: 2rem;
+      margin-bottom: 40px;
+      text-shadow: 0 0 10px rgba(0, 255, 0, 0.5);
+    }
+
+    .hero button {
+      background-color: #00ff00;
+      color: #0d0d0d;
+      border: none;
+      padding: 15px 30px;
+      font-size: 18px;
+      font-weight: bold;
+      cursor: pointer;
+      box-shadow: 0 0 20px rgba(0, 255, 0, 0.5);
+      transition: transform 0.3s ease-in-out;
+    }
+
+    .hero button:hover {
+      transform: scale(1.1);
+    }
+
+    /* Portfolio Showcase */
+    .portfolio {
+      padding: 80px 20px;
+      text-align: center;
+    }
+
+    .portfolio h2 {
+      font-size: 3rem;
+      margin-bottom: 40px;
+      text-shadow: 0 0 10px rgba(0, 255, 0, 0.5);
+    }
+
+    .portfolio-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-gap: 40px;
+    }
+
+    .portfolio-item {
+      position: relative;
+      overflow: hidden;
+      border-radius: 5px;
+      box-shadow: 0 0 20px rgba(0, 255, 0, 0.3);
+    }
+
+    .portfolio-item img {
+      width: 100%;
+      height: auto;
+      display: block;
+      transition: transform 0.3s ease-in-out;
+    }
+
+    .portfolio-item:hover img {
+      transform: scale(1.1);
+    }
+
+    .portfolio-item:before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+      opacity: 0;
+      transition: opacity 0.3s ease-in-out;
+    }
+
+    .portfolio-item:hover:before {
+      opacity: 1;
+    }
+
+    .portfolio-item h3 {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 2rem;
+      color: #00ff00;
+      text-shadow: 0 0 10px rgba(0, 255, 0, 0.5);
+      opacity: 0;
+      transition: opacity 0.3s ease-in-out;
+    }
+
+    .portfolio-item:hover h3 {
+      opacity: 1;
+    }
+
+    /* Contact Section */
+    .contact {
+      padding: 80px 20px;
+      text-align: center;
+    }
+
+    .contact h2 {
+      font-size: 3rem;
+      margin-bottom: 40px;
+      text-shadow: 0 0 10px rgba(0, 255, 0, 0.5);
+    }
+
+    .contact-form {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      animation: terminal-effect 1s ease-in-out infinite;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+      width: 100%;
+      max-width: 500px;
+      padding: 15px;
+      margin-bottom: 20px;
+      background-color: #0d0d0d;
+      color: #00ff00;
+      border: 1px solid #00ff00;
+      border-radius: 5px;
+      font-family: 'Courier New', monospace;
+      font-size: 16px;
+      box-shadow: 0 0 20px rgba(0, 255, 0, 0.3);
+    }
+
+    .contact-form textarea {
+      resize: vertical;
+    }
+
+    .contact-form button {
+      background-color: #00ff00;
+      color: #0d0d0d;
+      border: none;
+      padding: 15px 30px;
+      font-size: 18px;
+      font-weight: bold;
+      cursor: pointer;
+      box-shadow: 0 0 20px rgba(0, 255, 0, 0.5);
+      transition: transform 0.3s ease-in-out;
+    }
+
+    .contact-form button:hover {
+      transform: scale(1.1);
+    }
+
+    /* Animations */
+    @keyframes glitch {
+      0% {
+        text-shadow: 2px 2px 3px rgba(0, 255, 0, 0.5);
+      }
+      25% {
+        text-shadow: -2px -2px 3px rgba(0, 255, 0, 0.5);
+      }
+      50% {
+        text-shadow: 2px -2px 3px rgba(0, 255, 0, 0.5);
+      }
+      75% {
+        text-shadow: -2px 2px 3px rgba(0, 255, 0, 0.5);
+      }
+      100% {
+        text-shadow: 2px 2px 3px rgba(0, 255, 0, 0.5);
+      }
+    }
+
+    @keyframes terminal-effect {
+      0% {
+        box-shadow: 0 0 20px rgba(0, 255, 0, 0.3);
+      }
+      50% {
+        box-shadow: 0 0 40px rgba(0, 255, 0, 0.6);
+      }
+      100% {
+        box-shadow: 0 0 20px rgba(0, 255, 0, 0.3);
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation -->
+  <nav>
+    <div class="logo">
+      <a href="#">Hacking-Themed Portfolio</a>
+    </div>
+    <ul>
+      <li><a href="#">Home</a></li>
+      <li><a href="#">Portfolio</a></li>
+      <li><a href="#">About</a></li>
+      <li><a href="#">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- Hero Section -->
+  <div class="hero">
+    <h1>Welcome to my Hacking-Themed Portfolio</h1>
+    <p>Explore the digital world of a graphic designer with a passion for hacking and glitch aesthetics.</p>
+    <button>View Portfolio</button>
+  </div>
+
+  <!-- Portfolio Showcase -->
+  <div class="portfolio">
+    <h2>My Latest Projects</h2>
+    <div class="portfolio-grid">
+      <div class="portfolio-item">
+        <img src="https://dummyimage.com/300x200/0d0d0d/00ff00.jpg&text=Project+1" alt="Project 1">
+        <h3>Project 1</h3>
+      </div>
+      <div class="portfolio-item">
+        <img src="https://dummyimage.com/300x200/0d0d0d/00ff00.jpg&text=Project+2" alt="Project 2">
+        <h3>Project 2</h3>
+      </div>
+      <div class="portfolio-item">
+        <img src="https://dummyimage.com/300x200/0d0d0d/00ff00.jpg&text=Project+3" alt="Project 3">
+        <h3>Project 3</h3>
+      </div>
+      <div class="portfolio-item">
+        <img src="https://dummyimage.com/300x200/0d0d0d/00ff00.jpg&text=Project+4" alt="Project 4">
+        <h3>Project 4</h3>
+      </div>
+      <div class="portfolio-item">
+        <img src="https://dummyimage.com/300x200/0d0d0d/00ff00.jpg&text=Project+5" alt="Project 5">
+        <h3>Project 5</h3>
+      </div>
+      <div class="portfolio-item">
+        <img src="https://dummyimage.com/300x200/0d0d0d/00ff00.jpg&text=Project+6" alt="Project 6">
+        <h3>Project 6</h3>
+      </div>
+    </div>
+  </div>
+
+  <!-- Contact Section -->
+  <div class="contact">
+    <h2>Get in Touch</h2>
+    <form class="contact-form">
+      <input type="text" placeholder="Name" required>
+      <input type="email" placeholder="Email" required>
+      <textarea placeholder="Message" required></textarea>
+      <button type="submit">Submit</button>
+    </form>
+  </div>
+</body>
+</html>'<!-- Visit: https://github.com/Ishanoshada/portflair -->
+<!-- Visit: https://github.com/Ishanoshada/portflair -->

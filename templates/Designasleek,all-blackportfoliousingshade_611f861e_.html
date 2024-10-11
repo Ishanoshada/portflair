@@ -1,0 +1,403 @@
+<!-- Portfolio created by Ishan -->
+<!-- Check out my work at: https://github.com/Ishanoshada/portflair -->
+<!-- 2024/10/9 -->
+<!-- Portfolio created by Ishan -->
+'<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Design a sleek, all-black portfolio</title>
+  <style>
+    /* Global Styles */
+    body {
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #0e0e0e;
+      color: #f1f1f1;
+    }
+
+    /* Navigation Bar */
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: #0e0e0e;
+      padding: 20px 40px;
+      position: relative;
+      z-index: 100;
+    }
+
+    .navbar-brand {
+      font-size: 24px;
+      font-weight: bold;
+      color: #f1f1f1;
+      text-decoration: none;
+    }
+
+    .navbar-nav {
+      display: flex;
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .navbar-nav li {
+      margin-left: 20px;
+    }
+
+    .navbar-nav li a {
+      color: #f1f1f1;
+      text-decoration: none;
+      font-size: 16px;
+      transition: color 0.3s ease;
+    }
+
+    .navbar-nav li a:hover {
+      color: #c1c1c1;
+    }
+
+    /* Hero Section */
+    .hero {
+      position: relative;
+      height: 80vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+    }
+
+    .hero-bg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: url('https://dummyimage.com/1920x1080/000/fff&text=Hero+Image');
+      background-size: cover;
+      background-position: center;
+      filter: brightness(0.6) contrast(1.2);
+      z-index: -1;
+    }
+
+    .hero-content {
+      text-align: center;
+      max-width: 800px;
+      padding: 0 20px;
+    }
+
+    .hero-content h1 {
+      font-size: 48px;
+      font-weight: bold;
+      margin-bottom: 20px;
+      text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    }
+
+    .hero-content p {
+      font-size: 20px;
+      margin-bottom: 40px;
+      text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    }
+
+    .btn {
+      display: inline-block;
+      background-color: #f1f1f1;
+      color: #0e0e0e;
+      padding: 12px 24px;
+      border-radius: 4px;
+      text-decoration: none;
+      font-size: 16px;
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+    .btn:hover {
+      background-color: #c1c1c1;
+      color: #0e0e0e;
+    }
+
+    /* Portfolio Showcase */
+    .portfolio-showcase {
+      padding: 80px 40px;
+      background-color: #0e0e0e;
+    }
+
+    .portfolio-showcase h2 {
+      font-size: 36px;
+      font-weight: bold;
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .portfolio-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-gap: 40px;
+    }
+
+    .portfolio-item {
+      position: relative;
+      overflow: hidden;
+      border-radius: 8px;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+      transition: transform 0.3s ease;
+    }
+
+    .portfolio-item:hover {
+      transform: scale(1.05);
+    }
+
+    .portfolio-item img {
+      width: 100%;
+      height: 300px;
+      object-fit: cover;
+      filter: brightness(0.8) contrast(1.2);
+    }
+
+    .portfolio-item .overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.6);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .portfolio-item:hover .overlay {
+      opacity: 1;
+    }
+
+    .portfolio-item .overlay h3 {
+      font-size: 24px;
+      font-weight: bold;
+      margin-bottom: 10px;
+      color: #f1f1f1;
+    }
+
+    .portfolio-item .overlay p {
+      font-size: 16px;
+      color: #c1c1c1;
+    }
+
+    /* About Section */
+    .about-section {
+      display: flex;
+      align-items: center;
+      background-color: #0e0e0e;
+      padding: 80px 40px;
+    }
+
+    .about-image {
+      flex: 0 0 40%;
+      margin-right: 40px;
+    }
+
+    .about-image img {
+      width: 100%;
+      height: auto;
+      border-radius: 8px;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+    }
+
+    .about-content {
+      flex: 1;
+    }
+
+    .about-content h2 {
+      font-size: 36px;
+      font-weight: bold;
+      margin-bottom: 20px;
+    }
+
+    .about-content p {
+      font-size: 18px;
+      line-height: 1.6;
+      margin-bottom: 30px;
+    }
+
+    .about-content .skills {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-gap: 20px;
+    }
+
+    .about-content .skills .skill {
+      background-color: #1a1a1a;
+      padding: 10px 20px;
+      border-radius: 4px;
+      text-align: center;
+    }
+
+    .about-content .skills .skill h4 {
+      font-size: 18px;
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
+
+    .about-content .skills .skill p {
+      font-size: 14px;
+      margin-bottom: 0;
+    }
+
+    /* Responsive Styles */
+    @media (max-width: 991px) {
+      .portfolio-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .about-section {
+        flex-direction: column;
+      }
+
+      .about-image {
+        flex: 0 0 auto;
+        width: 100%;
+        margin-right: 0;
+        margin-bottom: 40px;
+      }
+    }
+
+    @media (max-width: 767px) {
+      .hero-content h1 {
+        font-size: 36px;
+      }
+
+      .hero-content p {
+        font-size: 16px;
+      }
+
+      .portfolio-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .about-content h2 {
+        font-size: 28px;
+      }
+
+      .about-content p {
+        font-size: 16px;
+      }
+
+      .about-content .skills {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation Bar -->
+  <nav class="navbar">
+    <a href="#" class="navbar-brand">Design Portfolio</a>
+    <ul class="navbar-nav">
+      <li><a href="#">Home</a></li>
+      <li><a href="#">Portfolio</a></li>
+      <li><a href="#">About</a></li>
+      <li><a href="#">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-content">
+      <h1>Elevate Your Design Journey</h1>
+      <p>Discover a sleek, all-black portfolio that showcases my exceptional design work.</p>
+      <a href="#" class="btn">Explore Portfolio</a>
+    </div>
+  </section>
+
+  <!-- Portfolio Showcase -->
+  <section class="portfolio-showcase">
+    <h2>My Featured Works</h2>
+    <div class="portfolio-grid">
+      <div class="portfolio-item">
+        <img src="https://dummyimage.com/400x300/000/fff&text=Portfolio+Item+1" alt="Portfolio Item 1">
+        <div class="overlay">
+          <h3>Project Title</h3>
+          <p>Category</p>
+        </div>
+      </div>
+      <div class="portfolio-item">
+        <img src="https://dummyimage.com/400x300/000/fff&text=Portfolio+Item+2" alt="Portfolio Item 2">
+        <div class="overlay">
+          <h3>Project Title</h3>
+          <p>Category</p>
+        </div>
+      </div>
+      <div class="portfolio-item">
+        <img src="https://dummyimage.com/400x300/000/fff&text=Portfolio+Item+3" alt="Portfolio Item 3">
+        <div class="overlay">
+          <h3>Project Title</h3>
+          <p>Category</p>
+        </div>
+      </div>
+      <div class="portfolio-item">
+        <img src="https://dummyimage.com/400x300/000/fff&text=Portfolio+Item+4" alt="Portfolio Item 4">
+        <div class="overlay">
+          <h3>Project Title</h3>
+          <p>Category</p>
+        </div>
+      </div>
+      <div class="portfolio-item">
+        <img src="https://dummyimage.com/400x300/000/fff&text=Portfolio+Item+5" alt="Portfolio Item 5">
+        <div class="overlay">
+          <h3>Project Title</h3>
+          <p>Category</p>
+        </div>
+      </div>
+      <div class="portfolio-item">
+        <img src="https://dummyimage.com/400x300/000/fff&text=Portfolio+Item+6" alt="Portfolio Item 6">
+        <div class="overlay">
+          <h3>Project Title</h3>
+          <p>Category</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section class="about-section">
+    <div class="about-image">
+      <img src="https://dummyimage.com/400x400/000/fff&text=Designer+Photo" alt="Designer Photo">
+    </div>
+    <div class="about-content">
+      <h2>About Me</h2>
+      <p>I am a passionate designer with a keen eye for detail and a strong focus on creating visually stunning, user-friendly designs. My expertise spans a wide range of disciplines, including web design, branding, and digital art.</p>
+      <p>I approach each project with a carefully crafted process, ensuring that every element of the design is thoughtfully considered and executed with precision. My attention to detail and commitment to excellence have earned me a reputation for delivering exceptional results.</p>
+      <div class="skills">
+        <div class="skill">
+          <h4>Web Design</h4>
+          <p>Crafting responsive, modern websites</p>
+        </div>
+        <div class="skill">
+          <h4>Branding</h4>
+          <p>Developing cohesive brand identities</p>
+        </div>
+        <div class="skill">
+          <h4>Digital Art</h4>
+          <p>Creating captivating digital illustrations</p>
+        </div>
+        <div class="skill">
+          <h4>UI/UX</h4>
+          <p>Designing intuitive user experiences</p>
+        </div>
+        <div class="skill">
+          <h4>Photography</h4>
+          <p>Capturing visually stunning imagery</p>
+        </div>
+        <div class="skill">
+          <h4>Motion Graphics</h4>
+          <p>Bringing designs to life with animation</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</body>
+</html>'<!-- Visit: https://github.com/Ishanoshada/portflair -->
+<!-- Visit: https://github.com/Ishanoshada/portflair -->

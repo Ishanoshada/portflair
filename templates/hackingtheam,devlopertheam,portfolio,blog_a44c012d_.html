@@ -1,0 +1,440 @@
+<!-- Portfolio created by Ishan -->
+<!-- Check out my work at: https://github.com/Ishanoshada/portflair -->
+<!-- 2024/10/9 -->
+<!-- Portfolio created by Ishan -->
+'<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hacking Genius | Developer Portfolio</title>
+  <style>
+    /* Global Styles */
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f0f0f0;
+      color: #333;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 40px;
+    }
+
+    /* Navigation */
+    .navbar {
+      background-color: #1a1a1a;
+      padding: 20px 0;
+      margin-bottom: 40px;
+    }
+
+    .navbar-nav {
+      display: flex;
+      justify-content: center;
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .navbar-nav li {
+      margin: 0 20px;
+    }
+
+    .navbar-nav li a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: 600;
+      transition: color 0.3s ease;
+    }
+
+    .navbar-nav li a:hover {
+      color: #00c8ff;
+    }
+
+    /* Hero Section */
+    .hero {
+      background-image: url('https://dummyimage.com/1920x1080/333/fff&text=Hacking+Genius');
+      background-size: cover;
+      background-position: center;
+      color: #fff;
+      padding: 100px 0;
+      text-align: center;
+    }
+
+    .hero h1 {
+      font-size: 48px;
+      font-weight: 700;
+      margin-bottom: 20px;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    }
+
+    .hero p {
+      font-size: 24px;
+      margin-bottom: 40px;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    }
+
+    .cta-button {
+      display: inline-block;
+      background-color: #00c8ff;
+      color: #fff;
+      font-size: 18px;
+      font-weight: 600;
+      padding: 12px 30px;
+      border-radius: 30px;
+      text-decoration: none;
+      transition: background-color 0.3s ease;
+    }
+
+    .cta-button:hover {
+      background-color: #00a8d9;
+    }
+
+    /* Portfolio Section */
+    .portfolio {
+      padding: 80px 0;
+      background-color: #1a1a1a;
+      color: #fff;
+    }
+
+    .portfolio h2 {
+      font-size: 36px;
+      font-weight: 700;
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-gap: 40px;
+    }
+
+    .project-thumbnail {
+      position: relative;
+      overflow: hidden;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+
+    .project-thumbnail img {
+      width: 100%;
+      height: auto;
+      transition: transform 0.3s ease;
+    }
+
+    .project-thumbnail:hover img {
+      transform: scale(1.1);
+    }
+
+    .project-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.7);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .project-thumbnail:hover .project-overlay {
+      opacity: 1;
+    }
+
+    .project-overlay h3 {
+      font-size: 24px;
+      font-weight: 600;
+      margin-bottom: 10px;
+    }
+
+    .project-overlay p {
+      font-size: 16px;
+      margin-bottom: 20px;
+    }
+
+    .project-overlay a {
+      display: inline-block;
+      background-color: #00c8ff;
+      color: #fff;
+      font-size: 16px;
+      font-weight: 600;
+      padding: 10px 20px;
+      border-radius: 20px;
+      text-decoration: none;
+      transition: background-color 0.3s ease;
+    }
+
+    .project-overlay a:hover {
+      background-color: #00a8d9;
+    }
+
+    /* Blog Section */
+    .blog {
+      padding: 80px 0;
+    }
+
+    .blog h2 {
+      font-size: 36px;
+      font-weight: 700;
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .blog-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-gap: 40px;
+    }
+
+    .blog-post {
+      background-color: #fff;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+    }
+
+    .blog-post-image {
+      height: 200px;
+      background-size: cover;
+      background-position: center;
+    }
+
+    .blog-post-content {
+      padding: 20px;
+    }
+
+    .blog-post-title {
+      font-size: 20px;
+      font-weight: 600;
+      margin-bottom: 10px;
+    }
+
+    .blog-post-excerpt {
+      font-size: 16px;
+      line-height: 1.5;
+      margin-bottom: 20px;
+    }
+
+    .blog-post-link {
+      display: inline-block;
+      background-color: #00c8ff;
+      color: #fff;
+      font-size: 16px;
+      font-weight: 600;
+      padding: 8px 16px;
+      border-radius: 20px;
+      text-decoration: none;
+      transition: background-color 0.3s ease;
+    }
+
+    .blog-post-link:hover {
+      background-color: #00a8d9;
+    }
+
+    /* Contact Section */
+    .contact {
+      padding: 80px 0;
+      background-color: #1a1a1a;
+      color: #fff;
+    }
+
+    .contact h2 {
+      font-size: 36px;
+      font-weight: 700;
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .contact-form {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+      width: 100%;
+      max-width: 500px;
+      padding: 12px 20px;
+      margin-bottom: 20px;
+      border: none;
+      border-radius: 30px;
+      background-color: #333;
+      color: #fff;
+      font-family: 'Poppins', sans-serif;
+      font-size: 16px;
+    }
+
+    .contact-form textarea {
+      resize: vertical;
+      min-height: 150px;
+    }
+
+    .contact-form button {
+      display: inline-block;
+      background-color: #00c8ff;
+      color: #fff;
+      font-size: 18px;
+      font-weight: 600;
+      padding: 12px 30px;
+      border: none;
+      border-radius: 30px;
+      text-decoration: none;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .contact-form button:hover {
+      background-color: #00a8d9;
+    }
+
+    /* Footer */
+    .footer {
+      background-color: #1a1a1a;
+      color: #fff;
+      padding: 20px 0;
+      text-align: center;
+      font-size: 14px;
+    }
+
+    .footer a {
+      color: #00c8ff;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    .footer a:hover {
+      color: #00a8d9;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav class="navbar">
+      <ul class="navbar-nav">
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Portfolio</a></li>
+        <li><a href="#">Blog</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <h1>Hacking Genius</h1>
+      <p>Unleash Your Coding Prowess</p>
+      <a href="#" class="cta-button">Explore Portfolio</a>
+    </section>
+
+    <section class="portfolio">
+      <h2>My Portfolio</h2>
+      <div class="project-grid">
+        <div class="project-thumbnail">
+          <img src="https://dummyimage.com/600x400/333/fff&text=Project+1" alt="Project 1">
+          <div class="project-overlay">
+            <h3>Project 1</h3>
+            <p>Web Development | UI/UX Design</p>
+            <a href="#">View Project</a>
+          </div>
+        </div>
+        <div class="project-thumbnail">
+          <img src="https://dummyimage.com/600x400/333/fff&text=Project+2" alt="Project 2">
+          <div class="project-overlay">
+            <h3>Project 2</h3>
+            <p>Mobile App Development | Hacking</p>
+            <a href="#">View Project</a>
+          </div>
+        </div>
+        <div class="project-thumbnail">
+          <img src="https://dummyimage.com/600x400/333/fff&text=Project+3" alt="Project 3">
+          <div class="project-overlay">
+            <h3>Project 3</h3>
+            <p>Cybersecurity | Penetration Testing</p>
+            <a href="#">View Project</a>
+          </div>
+        </div>
+        <div class="project-thumbnail">
+          <img src="https://dummyimage.com/600x400/333/fff&text=Project+4" alt="Project 4">
+          <div class="project-overlay">
+            <h3>Project 4</h3>
+            <p>Game Development | AI/ML</p>
+            <a href="#">View Project</a>
+          </div>
+        </div>
+        <div class="project-thumbnail">
+          <img src="https://dummyimage.com/600x400/333/fff&text=Project+5" alt="Project 5">
+          <div class="project-overlay">
+            <h3>Project 5</h3>
+            <p>Backend Engineering | DevOps</p>
+            <a href="#">View Project</a>
+          </div>
+        </div>
+        <div class="project-thumbnail">
+          <img src="https://dummyimage.com/600x400/333/fff&text=Project+6" alt="Project 6">
+          <div class="project-overlay">
+            <h3>Project 6</h3>
+            <p>Data Science | Visualization</p>
+            <a href="#">View Project</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="blog">
+      <h2>Latest from the Blog</h2>
+      <div class="blog-grid">
+        <div class="blog-post">
+          <div class="blog-post-image" style="background-image: url('https://dummyimage.com/600x400/333/fff&text=Blog+Post+1')"></div>
+          <div class="blog-post-content">
+            <h3 class="blog-post-title">Mastering Ethical Hacking</h3>
+            <p class="blog-post-excerpt">Dive into the world of ethical hacking and discover the techniques to protect your systems from cyber threats.</p>
+            <a href="#" class="blog-post-link">Read More</a>
+          </div>
+        </div>
+        <div class="blog-post">
+          <div class="blog-post-image" style="background-image: url('https://dummyimage.com/600x400/333/fff&text=Blog+Post+2')"></div>
+          <div class="blog-post-content">
+            <h3 class="blog-post-title">Unleashing the Power of React</h3>
+            <p class="blog-post-excerpt">Explore the latest advancements in React, the popular JavaScript library for building user interfaces.</p>
+            <a href="#" class="blog-post-link">Read More</a>
+          </div>
+        </div>
+        <div class="blog-post">
+          <div class="blog-post-image" style="background-image: url('https://dummyimage.com/600x400/333/fff&text=Blog+Post+3')"></div>
+          <div class="blog-post-content">
+            <h3 class="blog-post-title">Securing Your Web Applications</h3>
+            <p class="blog-post-excerpt">Learn the best practices and techniques to protect your web applications from various cyber attacks.</p>
+            <a href="#" class="blog-post-link">Read More</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact">
+      <h2>Get in Touch</h2>
+      <form class="contact-form">
+        <input type="text" placeholder="Name" required>
+        <input type="email" placeholder="Email" required>
+        <textarea placeholder="Message" required></textarea>
+        <button type="submit">Submit</button>
+      </form>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>&copy; 2024 Hacking Genius. All rights reserved. | <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
+  </footer>
+</body>
+</html>'<!-- Visit: https://github.com/Ishanoshada/portflair -->
+<!-- Visit: https://github.com/Ishanoshada/portflair -->

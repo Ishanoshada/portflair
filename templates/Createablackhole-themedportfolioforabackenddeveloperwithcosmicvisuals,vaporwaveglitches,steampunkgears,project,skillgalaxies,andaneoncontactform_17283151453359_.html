@@ -1,0 +1,529 @@
+<!-- Portfolio created by Ishan -->
+<!-- Check out my work at: https://github.com/Ishanoshada/portflair -->
+<!-- 2024/10/9 -->
+<!-- Portfolio created by Ishan -->
+'<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Black Hole Portfolio</title>
+  <style>
+    /* Global Styles */
+    body {
+      font-family: 'Roboto', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #000000;
+      color: #ffffff;
+    }
+
+    /* Navigation Bar */
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: rgba(0, 0, 0, 0.7);
+      padding: 1rem 2rem;
+    }
+
+    .navbar-brand {
+      font-size: 2rem;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      text-shadow: 0 0 20px #9b59b6, 0 0 30px #9b59b6, 0 0 40px #9b59b6;
+      animation: pulse 2s infinite;
+    }
+
+    .navbar-nav {
+      display: flex;
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .navbar-nav li {
+      margin-left: 2rem;
+    }
+
+    .navbar-nav li a {
+      color: #ffffff;
+      text-decoration: none;
+      font-size: 1.2rem;
+      text-shadow: 0 0 10px #9b59b6;
+      transition: text-shadow 0.3s ease;
+    }
+
+    .navbar-nav li a:hover {
+      text-shadow: 0 0 20px #9b59b6, 0 0 30px #9b59b6, 0 0 40px #9b59b6;
+    }
+
+    /* Project Galaxy Section */
+    .project-galaxy {
+      padding: 4rem 2rem;
+      background: radial-gradient(ellipse at center, #1b2735 0%, #090a0f 100%);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .project-galaxy::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url(https://dummyimage.com/1200x500/ccc/000&text=Cosmic+Backdrop) no-repeat center center/cover;
+      opacity: 0.2;
+      z-index: -1;
+    }
+
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      grid-gap: 2rem;
+    }
+
+    .project-item {
+      background-color: rgba(255, 255, 255, 0.1);
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 0 20px rgba(155, 89, 182, 0.5);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .project-item:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 40px rgba(155, 89, 182, 0.8);
+    }
+
+    .project-thumbnail {
+      height: 200px;
+      background-size: cover;
+      background-position: center;
+      position: relative;
+    }
+
+    .project-thumbnail::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.8) 100%);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .project-item:hover .project-thumbnail::before {
+      opacity: 1;
+    }
+
+    .project-item .project-info {
+      padding: 1.5rem;
+    }
+
+    .project-item h3 {
+      margin-top: 0;
+      font-size: 1.5rem;
+      text-shadow: 0 0 10px #9b59b6;
+    }
+
+    .project-item p {
+      margin-bottom: 0;
+      font-size: 1.1rem;
+      color: #c8c8c8;
+    }
+
+    /* Skill Nebula Section */
+    .skill-nebula {
+      padding: 4rem 2rem;
+      background: radial-gradient(ellipse at center, #9b59b6 0%, #8e44ad 100%);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .skill-nebula::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url(https://dummyimage.com/1200x500/ccc/000&text=Vaporwave+Backdrop) no-repeat center center/cover;
+      opacity: 0.2;
+      z-index: -1;
+    }
+
+    .skill-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      grid-gap: 2rem;
+    }
+
+    .skill-item {
+      background-color: rgba(255, 255, 255, 0.1);
+      border-radius: 10px;
+      padding: 2rem;
+      text-align: center;
+      box-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+      position: relative;
+      overflow: hidden;
+      cursor: pointer;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .skill-item:hover {
+      transform: scale(1.1);
+      box-shadow: 0 0 40px rgba(255, 255, 255, 0.8);
+    }
+
+    .skill-item .skill-icon {
+      font-size: 3rem;
+      color: #ffffff;
+      text-shadow: 0 0 10px #ffffff, 0 0 20px #ffffff, 0 0 30px #ffffff;
+      animation: pulse 2s infinite;
+    }
+
+    .skill-item h4 {
+      margin-top: 1rem;
+      font-size: 1.2rem;
+      text-shadow: 0 0 10px #ffffff;
+    }
+
+    .skill-item p {
+      margin-bottom: 0;
+      font-size: 1rem;
+      color: #c8c8c8;
+    }
+
+    /* Steampunk Contact Form Section */
+    .steampunk-contact {
+      padding: 4rem 2rem;
+      background: radial-gradient(ellipse at center, #34495e 0%, #2c3e50 100%);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .steampunk-contact::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url(https://dummyimage.com/1200x500/ccc/000&text=Steampunk+Backdrop) no-repeat center center/cover;
+      opacity: 0.2;
+      z-index: -1;
+    }
+
+    .contact-form {
+      max-width: 600px;
+      margin: 0 auto;
+      background-color: rgba(255, 255, 255, 0.1);
+      border-radius: 10px;
+      padding: 2rem;
+      box-shadow: 0 0 20px rgba(52, 73, 94, 0.5);
+    }
+
+    .form-group {
+      margin-bottom: 1.5rem;
+    }
+
+    .form-group label {
+      display: block;
+      font-size: 1.1rem;
+      font-weight: bold;
+      margin-bottom: 0.5rem;
+      color: #c8c8c8;
+      text-shadow: 0 0 10px #34495e;
+    }
+
+    .form-group input,
+    .form-group textarea {
+      width: 100%;
+      padding: 1rem;
+      font-size: 1rem;
+      border: none;
+      border-radius: 5px;
+      background-color: rgba(255, 255, 255, 0.2);
+      color: #ffffff;
+      box-shadow: 0 0 10px rgba(52, 73, 94, 0.5);
+      transition: box-shadow 0.3s ease;
+    }
+
+    .form-group input:focus,
+    .form-group textarea:focus {
+      outline: none;
+      box-shadow: 0 0 20px rgba(52, 73, 94, 0.8);
+    }
+
+    .form-group textarea {
+      resize: vertical;
+    }
+
+    .submit-btn {
+      display: block;
+      width: 100%;
+      padding: 1rem;
+      font-size: 1.2rem;
+      font-weight: bold;
+      border: none;
+      border-radius: 5px;
+      background-color: #9b59b6;
+      color: #ffffff;
+      cursor: pointer;
+      box-shadow: 0 0 20px rgba(155, 89, 182, 0.5);
+      transition: box-shadow 0.3s ease, transform 0.3s ease;
+    }
+
+    .submit-btn:hover {
+      box-shadow: 0 0 40px rgba(155, 89, 182, 0.8);
+      transform: scale(1.05);
+    }
+
+    /* Animations */
+    @keyframes pulse {
+      0% {
+        transform: scale(1);
+      }
+      50% {
+        transform: scale(1.2);
+      }
+      100% {
+        transform: scale(1);
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav class="navbar">
+      <div class="navbar-brand">Black Hole Portfolio</div>
+      <ul class="navbar-nav">
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Projects</a></li>
+        <li><a href="#">Skills</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <!-- Project Galaxy Section -->
+    <section class="project-galaxy">
+      <h2 style="text-align: center; font-size: 3rem; text-shadow: 0 0 20px #9b59b6, 0 0 30px #9b59b6, 0 0 40px #9b59b6; animation: pulse 2s infinite;">Project Galaxy</h2>
+      <div class="project-grid">
+        <div class="project-item">
+          <div class="project-thumbnail" style="background-image: url(https://dummyimage.com/300x200/ccc/000&text=Project+1)"></div>
+          <div class="project-info">
+            <h3>Project 1</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+          </div>
+        </div>
+        <div class="project-item">
+          <div class="project-thumbnail" style="background-image: url(https://dummyimage.com/300x200/ccc/000&text=Project+2)"></div>
+          <div class="project-info">
+            <h3>Project 2</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+          </div>
+        </div>
+        <div class="project-item">
+          <div class="project-thumbnail" style="background-image: url(https://dummyimage.com/300x200/ccc/000&text=Project+3)"></div>
+          <div class="project-info">
+            <h3>Project 3</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+          </div>
+        </div>
+        <div class="project-item">
+          <div class="project-thumbnail" style="background-image: url(https://dummyimage.com/300x200/ccc/000&text=Project+4)"></div>
+          <div class="project-info">
+            <h3>Project 4</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Skill Nebula Section -->
+    <section class="skill-nebula">
+      <h2 style="text-align: center; font-size: 3rem; text-shadow: 0 0 20px #ffffff, 0 0 30px #ffffff, 0 0 40px #ffffff; animation: pulse 2s infinite;">Skill Nebula</h2>
+      <div class="skill-grid">
+        <div class="skill-item">
+          <div class="skill-icon">
+            <i class="fas fa-code"></i>
+          </div>
+          <h4>Backend Development</h4>
+          <p>Proficient in Node.js, Express, and RESTful API design.</p>
+        </div>
+        <div class="skill-item">
+          <div class="skill-icon">
+            <i class="fas fa-database"></i>
+          </div>
+          <h4>Database Management</h4>
+          <p>Experienced with MongoDB, PostgreSQL, and SQL optimization.</p>
+        </div>
+        <div class="skill-item">
+          <div class="skill-icon">
+            <i class="fas fa-cloud"></i>
+          </div>
+          <h4>Cloud Infrastructure</h4>
+          <p>Skilled in AWS, Azure, and GCP for deployment and scaling.</p>
+        </div>
+        <div class="skill-item">
+          <div class="skill-icon">
+            <i class="fas fa-cogs"></i>
+          </div>
+          <h4>DevOps Automation</h4>
+          <p>Adept in CI/CD pipelines, containerization, and infrastructure as code.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Steampunk Contact Form Section -->
+    <section class="steampunk-contact">
+      <h2 style="text-align: center; font-size: 3rem; text-shadow: 0 0 20px #34495e, 0 0 30px #34495e, 0 0 40px #34495e; animation: pulse 2s infinite;">Steampunk Contact</h2>
+      <div class="contact-form">
+        <form>
+          <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" placeholder="Enter your name" required>
+          </div>
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" placeholder="Enter your email" required>
+          </div>
+          <div class="form-group">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" placeholder="Enter your message" rows="5" required></textarea>
+          </div>
+          <button type="submit" class="submit-btn">
+            <i class="fas fa-rocket"></i> Submit
+          </button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer style="text-align: center; padding: 2rem 0; font-size: 1.1rem; color: #c8c8c8; text-shadow: 0 0 10px #000000</style>
+</head>
+<body>
+  <header>
+    <nav class="navbar">
+      <div class="navbar-brand">Black Hole Portfolio</div>
+      <ul class="navbar-nav">
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Projects</a></li>
+        <li><a href="#">Skills</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <!-- Project Galaxy Section -->
+    <section class="project-galaxy">
+      <h2 style="text-align: center; font-size: 3rem; text-shadow: 0 0 20px #9b59b6, 0 0 30px #9b59b6, 0 0 40px #9b59b6; animation: pulse 2s infinite;">Project Galaxy</h2>
+      <div class="project-grid">
+        <div class="project-item">
+          <div class="project-thumbnail" style="background-image: url(https://dummyimage.com/300x200/ccc/000&text=Project+1)"></div>
+          <div class="project-info">
+            <h3>Project 1</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+          </div>
+        </div>
+        <div class="project-item">
+          <div class="project-thumbnail" style="background-image: url(https://dummyimage.com/300x200/ccc/000&text=Project+2)"></div>
+          <div class="project-info">
+            <h3>Project 2</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+          </div>
+        </div>
+        <div class="project-item">
+          <div class="project-thumbnail" style="background-image: url(https://dummyimage.com/300x200/ccc/000&text=Project+3)"></div>
+          <div class="project-info">
+            <h3>Project 3</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+          </div>
+        </div>
+        <div class="project-item">
+          <div class="project-thumbnail" style="background-image: url(https://dummyimage.com/300x200/ccc/000&text=Project+4)"></div>
+          <div class="project-info">
+            <h3>Project 4</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Skill Nebula Section -->
+    <section class="skill-nebula">
+      <h2 style="text-align: center; font-size: 3rem; text-shadow: 0 0 20px #ffffff, 0 0 30px #ffffff, 0 0 40px #ffffff; animation: pulse 2s infinite;">Skill Nebula</h2>
+      <div class="skill-grid">
+        <div class="skill-item">
+          <div class="skill-icon">
+            <i class="fas fa-code"></i>
+          </div>
+          <h4>Backend Development</h4>
+          <p>Proficient in Node.js, Express, and RESTful API design.</p>
+        </div>
+        <div class="skill-item">
+          <div class="skill-icon">
+            <i class="fas fa-database"></i>
+          </div>
+          <h4>Database Management</h4>
+          <p>Experienced with MongoDB, PostgreSQL, and SQL optimization.</p>
+        </div>
+        <div class="skill-item">
+          <div class="skill-icon">
+            <i class="fas fa-cloud"></i>
+          </div>
+          <h4>Cloud Infrastructure</h4>
+          <p>Skilled in AWS, Azure, and GCP for deployment and scaling.</p>
+        </div>
+        <div class="skill-item">
+          <div class="skill-icon">
+            <i class="fas fa-cogs"></i>
+          </div>
+          <h4>DevOps Automation</h4>
+          <p>Adept in CI/CD pipelines, containerization, and infrastructure as code.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Steampunk Contact Form Section -->
+    <section class="steampunk-contact">
+      <h2 style="text-align: center; font-size: 3rem; text-shadow: 0 0 20px #34495e, 0 0 30px #34495e, 0 0 40px #34495e; animation: pulse 2s infinite;">Steampunk Contact</h2>
+      <div class="contact-form">
+        <form>
+          <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" placeholder="Enter your name" required>
+          </div>
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" placeholder="Enter your email" required>
+          </div>
+          <div class="form-group">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" placeholder="Enter your message" rows="5" required></textarea>
+          </div>
+          <button type="submit" class="submit-btn">
+            <i class="fas fa-rocket"></i> Submit
+          </button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer style="text-align: center; padding: 2rem 0; font-size: 1.1rem; color: #c8c8c8; text-shadow: 0 0 10px #000000">
+    &copy; 2024 Black Hole Portfolio. All rights reserved.
+  </footer>
+
+  <!-- Font Awesome Icons -->
+  <script src="https://kit.fontawesome.com/your-font-awesome-kit.js" crossorigin="anonymous"></script>
+</body>
+</html>'<!-- Visit: https://github.com/Ishanoshada/portflair -->
+<!-- Visit: https://github.com/Ishanoshada/portflair -->

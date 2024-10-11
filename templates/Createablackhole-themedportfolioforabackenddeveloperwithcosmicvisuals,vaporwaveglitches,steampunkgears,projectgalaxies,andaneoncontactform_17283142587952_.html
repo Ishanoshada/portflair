@@ -1,0 +1,451 @@
+<!-- Portfolio created by Ishan -->
+<!-- Check out my work at: https://github.com/Ishanoshada/portflair -->
+<!-- 2024/10/9 -->
+<!-- Portfolio created by Ishan -->
+'<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Black Hole Portfolio</title>
+  <style>
+    /* Global Styles */
+    body {
+      font-family: 'Orbitron', sans-serif;
+      background-color: #0f0f0f;
+      color: #fff;
+      margin: 0;
+      padding: 0;
+    }
+
+    /* Navigation Bar */
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 40px;
+      background-color: rgba(15, 15, 15, 0.8);
+      backdrop-filter: blur(10px);
+      position: relative;
+      z-index: 100;
+    }
+
+    .navbar-brand {
+      font-size: 24px;
+      font-weight: bold;
+      color: #8d00ff;
+      text-shadow: 0 0 20px #8d00ff, 0 0 40px #8d00ff, 0 0 80px #8d00ff;
+      animation: pulsate 3s infinite;
+    }
+
+    .navbar-nav {
+      display: flex;
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .navbar-nav li {
+      margin-left: 30px;
+    }
+
+    .navbar-nav li a {
+      color: #fff;
+      text-decoration: none;
+      font-size: 18px;
+      position: relative;
+      transition: color 0.3s ease;
+    }
+
+    .navbar-nav li a:before {
+      content: "";
+      position: absolute;
+      width: 100%;
+      height: 2px;
+      bottom: -5px;
+      left: 0;
+      background-color: #8d00ff;
+      visibility: hidden;
+      transform: scaleX(0);
+      transition: all 0.3s ease-in-out;
+    }
+
+    .navbar-nav li a:hover {
+      color: #8d00ff;
+    }
+
+    .navbar-nav li a:hover:before {
+      visibility: visible;
+      transform: scaleX(1);
+    }
+
+    /* Project Galaxies Section */
+    .project-galaxies {
+      padding: 80px 40px;
+      position: relative;
+      overflow-x: hidden;
+    }
+
+    .project-galaxies-bg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(ellipse at center, #0f0f0f 0%, #070707 100%);
+      z-index: -1;
+    }
+
+    .project-galaxies-wrapper {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      grid-gap: 40px;
+    }
+
+    .project-galaxy {
+      background-color: rgba(255, 255, 255, 0.05);
+      border-radius: 10px;
+      box-shadow: 0 0 20px rgba(141, 0, 255, 0.3);
+      overflow: hidden;
+      position: relative;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+
+    .project-galaxy:hover {
+      transform: scale(1.05);
+    }
+
+    .project-galaxy img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      filter: saturate(1.2) brightness(1.1);
+      transition: filter 0.3s ease;
+    }
+
+    .project-galaxy:hover img {
+      filter: saturate(1.5) brightness(1.2);
+    }
+
+    .project-galaxy-details {
+      padding: 20px;
+      background-color: rgba(15, 15, 15, 0.8);
+      backdrop-filter: blur(10px);
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      transform: translateY(100%);
+      transition: transform 0.3s ease;
+    }
+
+    .project-galaxy:hover .project-galaxy-details {
+      transform: translateY(0);
+    }
+
+    .project-galaxy-details h3 {
+      margin-top: 0;
+      font-size: 18px;
+      color: #8d00ff;
+      text-shadow: 0 0 10px #8d00ff;
+    }
+
+    .project-galaxy-details p {
+      margin-bottom: 0;
+      font-size: 14px;
+      color: #ccc;
+    }
+
+    /* Steampunk Gear Visualization */
+    .steampunk-gear-visualization {
+      padding: 80px 40px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      overflow-x: hidden;
+    }
+
+    .steampunk-gear-bg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(ellipse at center, #333 0%, #111 100%);
+      z-index: -1;
+    }
+
+    .steampunk-gear {
+      width: 400px;
+      height: 400px;
+      position: relative;
+      animation: rotate 30s linear infinite;
+    }
+
+    .steampunk-gear-inner {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 200px;
+      height: 200px;
+      background-color: #222;
+      border-radius: 50%;
+      box-shadow: 0 0 20px rgba(141, 0, 255, 0.3);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .steampunk-gear-inner h2 {
+      font-size: 24px;
+      color: #8d00ff;
+      text-shadow: 0 0 10px #8d00ff;
+      animation: pulsate 3s infinite;
+    }
+
+    .steampunk-gear-outer {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .steampunk-gear-outer div {
+      position: absolute;
+      width: 80px;
+      height: 80px;
+      background-color: #555;
+      border-radius: 50%;
+      box-shadow: 0 0 10px rgba(141, 0, 255, 0.2);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 14px;
+      color: #ccc;
+      text-shadow: 0 0 5px #8d00ff;
+      animation: rotate 10s linear infinite;
+    }
+
+    /* Neon Contact Form */
+    .neon-contact-form {
+      padding: 80px 40px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      overflow-x: hidden;
+    }
+
+    .neon-contact-form-bg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(45deg, #0f0f0f, #111, #0f0f0f);
+      background-size: 200% 200%;
+      animation: gradient 10s ease infinite;
+      z-index: -1;
+    }
+
+    .neon-contact-form-wrapper {
+      background-color: rgba(15, 15, 15, 0.8);
+      backdrop-filter: blur(10px);
+      border-radius: 10px;
+      box-shadow: 0 0 20px rgba(141, 0, 255, 0.3);
+      padding: 40px;
+      width: 400px;
+      max-width: 90%;
+    }
+
+    .neon-contact-form h2 {
+      text-align: center;
+      font-size: 24px;
+      color: #8d00ff;
+      text-shadow: 0 0 10px #8d00ff;
+      animation: pulsate 3s infinite;
+    }
+
+    .neon-contact-form form {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .neon-contact-form input,
+    .neon-contact-form textarea {
+      margin-bottom: 20px;
+      padding: 10px;
+      background-color: rgba(255, 255, 255, 0.1);
+      border: none;
+      border-radius: 5px;
+      color: #fff;
+      font-family: 'Orbitron', sans-serif;
+      font-size: 16px;
+      box-shadow: 0 0 10px rgba(141, 0, 255, 0.2);
+      transition: box-shadow 0.3s ease;
+    }
+
+    .neon-contact-form input:focus,
+    .neon-contact-form textarea:focus {
+      outline: none;
+      box-shadow: 0 0 20px rgba(141, 0, 255, 0.5);
+    }
+
+    .neon-contact-form button {
+      background-color: #8d00ff;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      padding: 10px 20px;
+      font-family: 'Orbitron', sans-serif;
+      font-size: 16px;
+      cursor: pointer;
+      box-shadow: 0 0 20px rgba(141, 0, 255, 0.5);
+      transition: box-shadow 0.3s ease;
+      animation: pulsate 3s infinite;
+    }
+
+    .neon-contact-form button:hover {
+      box-shadow: 0 0 30px rgba(141, 0, 255, 0.7);
+    }
+
+    /* Animations */
+    @keyframes rotate {
+      0% {
+        transform: rotate(0deg);
+      }
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+
+    @keyframes pulsate {
+      0% {
+        text-shadow: 0 0 10px #8d00ff, 0 0 20px #8d00ff, 0 0 30px #8d00ff, 0 0 40px #8d00ff;
+      }
+      50% {
+        text-shadow: 0 0 5px #8d00ff, 0 0 10px #8d00ff, 0 0 15px #8d00ff, 0 0 20px #8d00ff;
+      }
+      100% {
+        text-shadow: 0 0 10px #8d00ff, 0 0 20px #8d00ff, 0 0 30px #8d00ff, 0 0 40px #8d00ff;
+      }
+    }
+
+    @keyframes gradient {
+      0% {
+        background-position: 0% 50%;
+      }
+      50% {
+        background-position: 100% 50%;
+      }
+      100% {
+        background-position: 0% 50%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav class="navbar">
+      <a href="#" class="navbar-brand">Black Hole Portfolio</a>
+      <ul class="navbar-nav">
+        <li><a href="#">Home</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Projects</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <!-- Project Galaxies Section -->
+    <section class="project-galaxies">
+      <div class="project-galaxies-bg"></div>
+      <div class="project-galaxies-wrapper">
+        <div class="project-galaxy">
+          <img src="https://dummyimage.com/600x400/ccc/000&text=Project+1" alt="Project 1">
+          <div class="project-galaxy-details">
+            <h3>Project 1</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+          </div>
+        </div>
+        <div class="project-galaxy">
+          <img src="https://dummyimage.com/600x400/ccc/000&text=Project+2" alt="Project 2">
+          <div class="project-galaxy-details">
+            <h3>Project 2</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+          </div>
+        </div>
+        <div class="project-galaxy">
+          <img src="https://dummyimage.com/600x400/ccc/000&text=Project+3" alt="Project 3">
+          <div class="project-galaxy-details">
+            <h3>Project 3</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+          </div>
+        </div>
+        <div class="project-galaxy">
+          <img src="https://dummyimage.com/600x400/ccc/000&text=Project+4" alt="Project 4">
+          <div class="project-galaxy-details">
+            <h3>Project 4</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+          </div>
+        </div>
+        <div class="project-galaxy">
+          <img src="https://dummyimage.com/600x400/ccc/000&text=Project+5" alt="Project 5">
+          <div class="project-galaxy-details">
+            <h3>Project 5</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+          </div>
+        </div>
+        <div class="project-galaxy">
+          <img src="https://dummyimage.com/600x400/ccc/000&text=Project+6" alt="Project 6">
+          <div class="project-galaxy-details">
+            <h3>Project 6</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Steampunk Gear Visualization -->
+    <section class="steampunk-gear-visualization">
+      <div class="steampunk-gear-bg"></div>
+      <div class="steampunk-gear">
+        <div class="steampunk-gear-inner">
+          <h2>Core Skills</h2>
+        </div>
+        <div class="steampunk-gear-outer">
+          <div>Node.js</div>
+          <div>Python</div>
+          <div>MongoDB</div>
+          <div>Docker</div>
+          <div>AWS</div>
+          <div>Git</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Neon Contact Form -->
+    <section class="neon-contact-form">
+      <div class="neon-contact-form-bg"></div>
+      <div class="neon-contact-form-wrapper">
+        <h2>Get in Touch</h2>
+        <form>
+          <input type="text" placeholder="Name" required>
+          <input type="email" placeholder="Email" required>
+          <textarea placeholder="Message" rows="5" required></textarea>
+          <button type="submit">Submit</button>
+        </form>
+      </div>
+    </section>
+  </main>
+</body>
+</html>'<!-- Visit: https://github.com/Ishanoshada/portflair -->
+<!-- Visit: https://github.com/Ishanoshada/portflair -->
